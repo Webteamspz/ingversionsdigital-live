@@ -1,52 +1,39 @@
-/* ===========================
-   WHY CHOOSE US (chained circles)
-   =========================== */
 .whySection {
   padding: 36px 0;
-  text-align: center;
+  text-align: center
 }
-
 .whyCards {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0;
   margin-top: 36px;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
-
-/* Circle */
 .whyCard {
   position: relative;
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: #141414; /* inner fill */
-  border: 10px solid #000000;
-  box-shadow: 2px 4px 8px 0px #ffffff40;
+  background: #141414;
+  border: 10px solid #000;
+  box-shadow: 2px 4px 8px 0 #ffffff40;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, z-index 0.18s ease;
-  z-index: 1;
+  transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease;
+  z-index: 1
 }
-
-/* Overlap neighbors (like the reference) */
 .whyCard + .whyCard {
-  margin-left: -42px; /* overlap amount */
+  margin-left: -42px
 }
-
-
-/* Icon */
 .whyIcon {
   height: 36px;
   margin-bottom: 25px;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35))
 }
-
-/* Title */
 .whyTitle {
   margin: 0 0 16px;
   font-family: Barlow;
@@ -54,10 +41,8 @@
   font-size: 20px;
   line-height: 100%;
   text-align: center;
-  color: #fff;
+  color: #fff
 }
-
-/* Description */
 .whyDesc {
   color: #ffffffcc;
   font-family: Barlow;
@@ -66,5 +51,5 @@
   line-height: 100%;
   text-align: center;
   max-width: 148px;
-  margin: 0 auto;
+  margin: 0 auto
 }

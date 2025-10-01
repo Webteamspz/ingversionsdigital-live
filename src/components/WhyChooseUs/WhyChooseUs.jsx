@@ -1,4 +1,4 @@
-import data from "../../data/sitedata";                // adjust path if needed
+import data from "../../data/siteData";           
 import icon from "../../assets/why-choose-us/checkmark.png";
 import styles from "./WhyChooseUs.module.css";        
 
@@ -7,7 +7,6 @@ export default function WhyChooseUs() {
     <section className={styles.whySection}>
       <div className="container">
         <h3 className="section-title">Why Choose Us</h3>
-
         <div className={styles.whyCards}>
           {data.why.map((w, i) => (
             <div key={i} className={styles.whyCard}>

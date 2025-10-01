@@ -1,6 +1,6 @@
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Contact.module.css"
-import planeIcon from "../../assets/Contact/vector.png"; // adjust path & name
+import planeIcon from "../../assets/Contact/vector.png";
 
 
 const Icon = ({ name }) => {
@@ -66,13 +66,9 @@ export default function Contact() {
         <h3 className={`section-title ${styles["contact-heading"]}`}>
           {heading}
         </h3>
-
         <div className={styles["contact-grid"]}>
-          {/* LEFT: form */}
           <div className={`${styles["contact-card"]} ${styles["form-card"]}`}>
             <h4 className={styles["contact-panel-title"]}>{form.title}</h4>
-
-            {/* two-column row */}
             <div className={`${styles.grid} ${styles.two}`}>
               {form.fields
                 .filter((f) => f.col === "half")
@@ -88,8 +84,6 @@ export default function Contact() {
                   )
                 )}
             </div>
-
-            {/* full-width (except phone/message) */}
             {form.fields
               .filter(
                 (f) =>
@@ -106,8 +100,6 @@ export default function Contact() {
                   />
                 )
               )}
-
-            {/* phone with country pill */}
             {form.fields.some((f) => f.name === "phone") && (
               <div className={`${styles["phone-wrap"]} ${styles.mt}`}>
                 <button
@@ -138,8 +130,6 @@ export default function Contact() {
                 />
               </div>
             )}
-
-            {/* textarea (message) */}
             {form.fields
               .filter((f) => f.name === "message")
               .map((f) => (
@@ -150,8 +140,6 @@ export default function Contact() {
                   placeholder={f.placeholder}
                 />
               ))}
-
-            {/* submit */}
             <button
               className={`btn ${styles["c-btn"]} ${styles.mt}`}
               type="button"
@@ -160,8 +148,6 @@ export default function Contact() {
               <img src={planeIcon} alt="Send" className={styles.plane} />
             </button>
           </div>
-
-          {/* RIGHT: info cards */}
           <div className={styles["right-col"]}>
             {infoCards.map((card, idx) => (
               <div
@@ -169,7 +155,6 @@ export default function Contact() {
                 className={`${styles["contact-card"]} ${styles["info-card"]}`}
               >
                 <h4 className={styles["contact-panel-title"]}>{card.title}</h4>
-
                 {card.items && (
                   <ul className={styles["c-list"]}>
                     {card.items.map((it, i) => (
@@ -191,11 +176,9 @@ export default function Contact() {
                     ))}
                   </ul>
                 )}
-
                 {card.description && (
                   <p className={styles["contact-note"]}>{card.description}</p>
                 )}
-
                 {card.cta && (
                   <a className={`btn ${styles["c-btn"]}`} href={card.cta.href}>
                     {card.cta.label}

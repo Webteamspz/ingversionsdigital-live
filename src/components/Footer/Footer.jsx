@@ -1,14 +1,11 @@
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Footer.module.css";
 
-
-// import your image assets (png/svg—either works)
 import iconFacebook from "../../assets/Footer/fb.png";
 import iconTwitter from "../../assets/Footer/twitter.png";
 import iconLinkedin from "../../assets/Footer/Linked in.png";
 import iconInstagram from "../../assets/Footer/Instagram.png";
 
-// use a simple map
 const ICONS = {
   facebook: iconFacebook,
   twitter: iconTwitter,
@@ -16,7 +13,6 @@ const ICONS = {
   instagram: iconInstagram,
 };
 
-// image-based social icon
 const SocialIcon = ({ name }) => {
   const src = ICONS[name];
   if (!src) return null;
@@ -87,7 +83,6 @@ export default function Footer() {
   return (
     <footer className={styles["site-footer"]}>
       <div className={styles["footer-border"]} />
-
       <div className={`container ${styles["footer-top"]}`}>
         <div className={styles["foot-left"]}>
           <img
@@ -96,7 +91,6 @@ export default function Footer() {
             className={styles["footer-logo"]}
           />
         </div>
-
         <nav className={styles["foot-nav"]}>
           {f.links.map((l, i) => (
             <a key={i} href="#">
@@ -104,7 +98,6 @@ export default function Footer() {
             </a>
           ))}
         </nav>
-
         <div className={styles["foot-socials"]}>
           {f.socials.map((s, i) => (
             <a
@@ -118,7 +111,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
       <div className={`container ${styles["footer-mid"]}`}>
         <div className={styles["foot-address"]}>
           <span className={styles["addr-ico"]}>
@@ -126,7 +118,6 @@ export default function Footer() {
           </span>
           <span>{f.address}</span>
         </div>
-
         <div className={styles["foot-contacts"]}>
           <a href={`mailto:${f.email}`} className={styles["foot-contact"]}>
             <span className={`${styles["fc-ico"]} ${styles.mail}`}>
@@ -142,7 +133,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
       <div className={`container ${styles["footer-bottom"]}`}>
         © {f.year} {f.company}. All rights reserved.
       </div>

@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
-import data from "../../data/sitedata";          // ⬅ adjust path (2 levels up from /components/TrackRecord)
-import styles from "./TrackRecord.module.css";  // ⬅ scoped CSS
+import data from "../../data/siteData";         
+import styles from "./TrackRecord.module.css";  
 
 function Counter({ value, duration = 3000 }) {
   const ref = useRef(null);
 
-  // Extract number + suffix (e.g. "500+" -> number: 500, suffix: "+")
   const numericPart = parseInt(value, 10);
-  const suffix = value.replace(/[0-9]/g, ""); // keep non-numeric characters like +, %
+  const suffix = value.replace(/[0-9]/g, "");
 
   useEffect(() => {
     let start = 0;
@@ -19,7 +18,7 @@ function Counter({ value, duration = 3000 }) {
     const timer = setInterval(() => {
       current += increment;
       if (ref.current) {
-        ref.current.textContent = current + suffix; // append suffix
+        ref.current.textContent = current + suffix;
       }
       if (current === numericPart) {
         clearInterval(timer);

@@ -13,7 +13,7 @@ export default {
     titleLeading: "From idea to",
     pill: "Impact",
     subtitle: "CRO-Driven Websites That Work for You",
-    cta: { label: "Book a Meeting", href: "#contact" },
+    cta: { label: "Book a Call", href: "#contact" },
     avatars: [
       "/src/assets/Hero/hero-client-1.png",
       "/src/assets/Hero/hero-client-2.png",
@@ -85,7 +85,6 @@ export default {
       icon: "/src/assets/work-process/Goal.png",
     },
   ],
-
   why: [
     {
       title: "Innovation",
@@ -104,7 +103,6 @@ export default {
       desc: "Operating with transparency and ethical considerations at the forefront of all decisions.",
     },
   ],
-
   testimonials: [
     {
       author: "John Doe",
@@ -143,13 +141,11 @@ export default {
         "We ship small, learn fast, and let real user value guide the roadmap.",
     },
   ],
-
   contact: {
     heading: "Contact Us",
-
     form: {
       title: "Send Us a Message",
-      country: { flag: "🇮🇳", dial: "+91" }, // shown in the phone pill
+      country: { flag: "🇮🇳", dial: "+91" }, 
       fields: [
         {
           type: "text",
@@ -180,8 +176,6 @@ export default {
       ],
       submit: { label: "Send", icon: "✈️" },
     },
-
-    // Right column cards (you can add/remove cards)
     infoCards: [
       {
         title: "Contact Information",

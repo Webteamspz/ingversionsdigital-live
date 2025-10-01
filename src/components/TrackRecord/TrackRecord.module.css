@@ -1,20 +1,19 @@
-/* ====== KPIs ====== */
 .kpi-section {
   padding: 38px 0;
-  margin-top: 28px;
+  margin-top: 28px
 }
 .kpis {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 18px;
   height: 125px;
-  margin-top: 50px;
+  margin-top: 50px
 }
 .kpi {
   background: #1a1a1a;
   border-radius: 12px;
   padding: 18px;
-  text-align: center;
+  text-align: center
 }
 .kpi .value {
   color: #c8c8c8;
@@ -24,7 +23,7 @@
   font-size: 40px;
   line-height: 150%;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: uppercase
 }
 .kpi .label {
   color: #b3b3b2;
@@ -34,5 +33,5 @@
   line-height: 150%;
   text-align: center;
   text-transform: uppercase;
-  margin-top: 6px;
+  margin-top: 6px
 }

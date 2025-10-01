@@ -3,12 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
-import data from "../../data/sitedata"; // ⬅ two levels up
+import data from "../../data/siteData";
 import quoteImg from "../../assets/why-we-started/Icon.png";
 import arrowLeft from "../../assets/why-we-started/Button.png";
 import arrowRight from "../../assets/why-we-started/Right-Button.png";
 
-import styles from "./WhyWeStarted.module.css"; // ⬅ local module
+import styles from "./WhyWeStarted.module.css";
 
 export default function WhyWeStarted() {
   const prevRef = useRef(null);
@@ -18,15 +18,12 @@ export default function WhyWeStarted() {
     <section className={styles["started-section"]}>
       <div className={`container ${styles["started-container"]}`}>
         <h3 className={`section-title ${styles["started-title"]}`}>Why We Started</h3>
-
-        {/* Custom nav buttons (outside Swiper) */}
         <button className={`${styles["ts-nav"]} ${styles["ts-prev"]}`} ref={prevRef} aria-label="Previous">
           <img src={arrowLeft} alt="" width="20" height="20" />
         </button>
         <button className={`${styles["ts-nav"]} ${styles["ts-next"]}`} ref={nextRef} aria-label="Next">
           <img src={arrowRight} alt="" />
         </button>
-
         <Swiper
           modules={[Navigation, A11y]}
           speed={600}
@@ -67,9 +64,7 @@ export default function WhyWeStarted() {
                   loading="lazy"
                 />
               </div>
-
               <p className={styles["tquote-text"]}>{t.quote}</p>
-
               <div className={styles.tauthor}>
                 {t.author}
                 <div className={styles.trole}>{t.role}</div>

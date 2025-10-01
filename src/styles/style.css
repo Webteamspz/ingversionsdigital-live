@@ -2,12 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lexend:100,200,300,regular,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Flex:regular);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
-
-/* import Swiper base + navigation styles */
-@import "swiper/css";
-@import "swiper/css/navigation";
-
-/* ====== Base (utility & layout) ====== */
 :root {
   --bg-900: #030303;
   --bg-800: #0f1628;
@@ -17,33 +11,31 @@
   --muted-400: rgba(255, 255, 255, 0.08);
   --accent-500: #1ea7ff;
   --pill-500: #3b82f6;
-  --card-800: #121a2f;
+  --card-800: #121a2f
 }
-
 * {
-  box-sizing: border-box;
+  box-sizing: border-box
 }
-html,
+#root,
 body,
-#root {
-  height: 100%;
+html {
+  height: 100%
 }
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
-    "Helvetica Neue", Arial;
+  font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
   background: var(--bg-900);
-  color: var(--text-200);
+  color: var(--text-200)
 }
 .container {
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 15px
 }
 .grid {
   display: grid;
-  gap: 24px;
+  gap: 24px
 }
 .btn {
   display: inline-flex;
@@ -57,53 +49,46 @@ body {
   color: #fff;
   font-weight: 800;
   text-decoration: none;
-  transition: 0.3s all ease-in-out;
-  font-family: "Barlow", sans-serif;
+  transition: .3s all ease-in-out;
+  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0A84FF;
+  border: 1px solid #0a84ff
 }
 .btn:hover {
-  background: #FFFFFF1A;
-  color: #0A84FF;
+  background: #fffFFF1A;
+  color: #0a84ff
 }
-
 .card {
   background: #1a1a1a;
   border-radius: 18px;
   padding: 22px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35)
 }
 .section-title {
   color: var(--text-100);
   margin: 0 0 16px;
   text-align: center;
-  font-family: "Barlow", sans-serif;
+  font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 36px;
   line-height: 56px;
-  text-align: center;
+  text-align: center
 }
-/* Smooth anchor scrolling */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth
 }
-
-/* Prevent sticky header from covering anchored content */
 section[id] {
-  scroll-margin-top: 84px;
-} /* match your header height */
-@media (max-width: 991px) {
+  scroll-margin-top: 84px
+}
+@media (max-width:991px) {
   section[id] {
-    scroll-margin-top: 72px;
+    scroll-margin-top: 72px
   }
 }
-/* =========================
-   Button Hover (Book a Call)
-   ========================= */
 .btn-hero,
 .c-btn,
 .social-btn {
@@ -113,35 +98,29 @@ section[id] {
   justify-content: center;
   border: 1.5px solid #0a84ff;
   border-radius: 10px;
-  background: transparent;
+  background: 0 0;
   color: #0a84ff;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.25s ease-in-out;
+  transition: all .25s ease-in-out
 }
-
 .btn-hero:hover,
 .c-btn:hover,
 .social-btn:hover {
-  background: rgba(255, 255, 255, 0.05); /* soft dark overlay */
-  box-shadow: 0 0 14px rgba(10, 132, 255, 0.4); /* blue glow */
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 14px rgba(10,132,255,.4);
   color: #0a84ff;
-  transform: translateY(-2px); /* subtle lift */
+  transform: translateY(-2px)
 }
-
-/* =========================
-   Logo Hover
-   ========================= */
 .footer-logo,
 .hero-visual-img,
 .logo-row img {
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  transition: all .3s ease-in-out;
+  cursor: pointer
 }
-
 .footer-logo:hover,
 .hero-visual-img:hover,
 .logo-row img:hover {
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, 0.5));
-  transform: scale(1.05);
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
+  transform: scale(1.05)
 }

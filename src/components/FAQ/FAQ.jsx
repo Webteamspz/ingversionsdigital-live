@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import data from "../../data/sitedata";            // ⬅ two levels up
-import styles from "./FAQ.module.css";            // ⬅ local module
+import data from "../../data/siteData";           
+import styles from "./FAQ.module.css";            
 
 function FAQItem({ index, q, a, isOpen, onToggle }) {
   const bodyRef = useRef(null);
@@ -50,7 +50,7 @@ function FAQItem({ index, q, a, isOpen, onToggle }) {
 
 export default function FAQ() {
   const { heading, items } = data.faqSection;
-  const [openIndex, setOpenIndex] = useState(-1); // 0 to open first by default
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));
 

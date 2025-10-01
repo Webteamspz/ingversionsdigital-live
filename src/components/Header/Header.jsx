@@ -1,7 +1,6 @@
-// src/components/Header/Header.jsx
-import data from "../../data/sitedata";          // ⬅️ two levels up
-import logo from "../../assets/Main-logo.png";   // ⬅️ two levels up
-import styles from "./Header.module.css";        // ⬅️ same folder
+import data from "../../data/siteData";        
+import logo from "../../assets/Main-logo.png"; 
+import styles from "./Header.module.css";        
 
 export default function Header() {
   const { links, cta } = data.header;

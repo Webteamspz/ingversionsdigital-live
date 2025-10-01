@@ -1,14 +1,10 @@
-/* ====== Process ====== */
-
 .process-section {
-  padding: 24px 0;
+  padding: 24px 0
 }
-
 .process-title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px
 }
-
 .process-sub {
   color: #ffffffe5;
   margin: 0 auto 40px;
@@ -17,27 +13,22 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  max-width: 675px;
+  max-width: 675px
 }
-
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px
 }
-
-/* Card shell */
 .step {
   background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 14px;
-  overflow: hidden; /* so the header strip corners are rounded */
+  overflow: hidden;
   display: grid;
-  grid-template-rows: auto 220px 1fr; /* header, icon area, description */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  grid-template-rows: auto 220px 1fr;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25)
 }
-
-/* Top strip with title */
 .step-head {
   background: #1a1a1a;
   color: #81807e;
@@ -47,31 +38,26 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255,255,255,.08)
 }
-
-/* Icon zone */
 .step-body {
   display: grid;
   place-items: center;
   background: #1f1f1f;
-  border-bottom: 2px solid #262626;
+  border-bottom: 2px solid #262626
 }
-
 .step-icon {
   display: block;
   width: 150px;
   height: 150px;
   object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
 }
-
-/* Text block */
 .step-desc {
   color: #b3b3b2;
   font-family: Roboto Flex;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  padding: 21px;
+  padding: 21px
 }
