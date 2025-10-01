@@ -1,0 +1,141 @@
+/* ===========================
+   Footer
+   =========================== */
+.site-footer {
+  background: #030303;
+  color: rgba(255, 255, 255, 0.88);
+  padding-top: 8px;
+  position: relative;
+  height: 288px;
+}
+.footer-border {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+}
+
+/* top row */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 60px 0 40px !important;
+}
+.footer-logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.foot-nav {
+  display: flex;
+  gap: 26px;
+}
+.foot-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+}
+.foot-nav a:hover {
+  color: #ffffff;
+}
+
+.foot-socials {
+  display: flex;
+  gap: 10px;
+}
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  background: #111724;
+  border: 1px solid;
+  border-image-source: linear-gradient(
+    180deg,
+    #2e2e2e 0%,
+    rgba(46, 46, 46, 0) 100%
+  );
+  color: #0a84ff;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.social-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* middle row */
+.footer-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 8px 0 20px;
+  position: relative;
+}
+.foot-address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e6e6e6;
+  text-align: center;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+.addr-ico {
+  color: #2d9aff;
+  display: inline-grid;
+  place-items: center;
+}
+.addr-ico svg {
+  width: 18px;
+  height: 18px;
+}
+
+.foot-contacts {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.foot-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e6e6e6;
+  text-decoration: none;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+.fc-ico {
+  color: #2d9aff;
+  display: inline-grid;
+  place-items: center;
+}
+.fc-ico svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* bottom */
+.footer-bottom {
+  text-align: center;
+  color: #98989a;
+  padding: 8px 0 16px;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}

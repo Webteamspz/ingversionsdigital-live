@@ -1,0 +1,38 @@
+/* ====== KPIs ====== */
+.kpi-section {
+  padding: 38px 0;
+  margin-top: 28px;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  height: 125px;
+  margin-top: 50px;
+}
+.kpi {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+.kpi .value {
+  color: #c8c8c8;
+  margin-top: 20px;
+  font-family: Roboto Flex;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 150%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.kpi .label {
+  color: #b3b3b2;
+  font-family: Roboto Mono;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 6px;
+}

@@ -1,0 +1,140 @@
+/* ===========================
+   WHY WE STARTED (Slider)
+   =========================== */
+.started-section {
+  position: relative;
+  padding: 78px 0 60px;
+  background: #030303;
+}
+.started-container {
+  position: relative;
+}
+
+.started-title {
+  font-family: Lexend;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.testi-slider {
+  position: relative;
+  padding: 8px 35px !important;
+}
+
+.tcard {
+  background: transparent;
+  text-align: center;
+  padding: 12px 18px 10px;
+}
+
+.tquote-line {
+  position: relative;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+.tquote-line::before,
+.tquote-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 34%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-50%);
+}
+.tquote-line::before {
+  left: 0;
+}
+.tquote-line::after {
+  right: 0;
+}
+
+.tquote-icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.tquote-text {
+  color: #ffffff;
+  max-width: 317px;
+  width: 100%;
+  margin: 40px auto 16px;
+  font-family: Lexend, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.tauthor {
+  font-family: Lexend;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0a84ff;
+  margin-top: 10px;
+}
+.trole {
+  color: #0a84ff;
+  font-weight: 400;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.ts-nav {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;  
+  color: #fff;         
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.ts-prev {
+  left: 0;
+}
+.ts-next {
+  right: 18px;
+}
+
+/* make the arrow SVG inside white */
+.ts-nav img {
+  width: 52px;
+  height: 52px; 
+  background: none !important;
+}
+
+.ts-nav:hover {
+  filter: brightness(1.08);
+}
+
+.testi-slider::before,
+.testi-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 36px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+.testi-slider::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+.testi-slider::before {
+  left: 0;
+}

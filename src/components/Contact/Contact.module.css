@@ -1,0 +1,153 @@
+/* ====== Contact ====== */
+.contact-section {
+  padding: 56px 0;
+}
+.contact-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+.contact-card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+.form-card {
+  padding: 26px;
+}
+.right-col {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-panel-title {
+  margin: 0 0 24px;
+  color: #fff;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -2%;
+}
+
+/* inputs */
+.c-input,
+textarea.c-input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  color: #ffffff99;
+  padding: 12px 14px;
+  outline: none;
+}
+textarea.c-input {
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* 2-col rows */
+.grid.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.mt {
+  margin-top: 12px;
+}
+
+/* phone field */
+.phone-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.country-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e2633;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  height: 44px;
+}
+.country-pill .dial {
+  opacity: 0.9;
+  font-weight: 600;
+}
+.country-pill svg {
+  opacity: 0.8;
+}
+.phone-input {
+  flex: 1;
+}
+
+/* contact list with icons */
+.c-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.c-ico {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  margin-right: 10px;
+  background: #0f1724;
+  color: #2d9aff;
+}
+.c-ico svg {
+  width: 18px;
+  height: 18px;
+}
+.c-list li {
+  display: flex;
+  align-items: center;
+  color: #e6e6e6;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* buttons full width like screenshot */
+.c-btn {
+  width: 100% !important;
+  justify-content: center;
+  background: #0a84ff;
+}
+
+/* note text */
+.contact-note {
+  color: #ffffffcc;
+  margin: 6px 0 16px;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.plane {
+  margin-left: 8px;
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}

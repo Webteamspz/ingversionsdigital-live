@@ -1,0 +1,83 @@
+/* =========================== FAQ (Accordion) =========================== */
+
+.faq-wrapper {
+  background-color: #030303;
+  color: #fff;
+  padding: 2rem 0;
+}
+.faq-wrapper h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+}
+.accordion {
+  width: 90%;
+  max-width: 1230px;
+  margin: 2rem auto;
+}
+.accordion-item {
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 16px;
+  border: 1px;
+  overflow: hidden;
+}
+
+/* Header (acts like your .accordion-item-header) */
+.accordion-item-header {
+  width: 100%;
+  height: 102px;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  background: #1e1e1e;
+  border: 0;
+  text-align: left;
+  font-family: Barlow;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  color: #fff;
+}
+.accordion-item.open .accordion-item-header {
+  color: #0a84ff;
+}
+.accordion-item-header::after {
+  content: "\002B"; /* plus */
+  position: absolute;
+  right: 45px;
+  font-size: 40px;
+}
+.accordion-item.open .accordion-item-header::after {
+  content: "\2212"; /* minus */
+}
+
+/* Body */
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background: #1e1e1e;
+  color: #e6e6e6;
+}
+.accordion-item-body-content {
+  padding: 1rem;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}

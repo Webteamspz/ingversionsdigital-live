@@ -1,13 +1,13 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import TrackRecord from "./components/TrackRecord";
-import Services from "./components/Services";
-import WorkProcess from "./components/WorkProcess";
-import WhyChooseUs from "./components/WhyChooseUs";
-import WhyWeStarted from "./components/WhyWeStarted";
-import Contact from "./components/Contact";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import TrackRecord from "./components/TrackRecord/TrackRecord";
+import Services from "./components/Services/Services";
+import WorkProcess from "./components/WorkProcess/WorkProcess";
+import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import WhyWeStarted from "./components/WhyWeStarted/WhyWeStarted";
+import Contact from "./components/Contact/Contact";
+import FAQ from "./components/FAQ/FAQ";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (

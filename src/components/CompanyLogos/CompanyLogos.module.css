@@ -1,0 +1,62 @@
+/* Section wrapper */
+.logosSection {
+  padding: 25px 0 41px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* gradient edges */
+.logosSection:before,
+.logosSection:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.logosSection:before {
+  left: 0;
+  background: linear-gradient(to left, transparent, #030303);
+}
+.logosSection:after {
+  right: 0;
+  background: linear-gradient(to right, transparent, #030303);
+}
+
+/* marquee wrapper */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* scrolling group */
+.marqueeGroup {
+  display: inline-flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+/* logos */
+.marqueeGroup img {
+  height: 80px;     /* adjust as needed */
+  width: auto;
+  filter: grayscale(1) brightness(1.4);
+  opacity: 0.9;
+  display: block;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+.marqueeGroup img:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+/* keyframes */
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

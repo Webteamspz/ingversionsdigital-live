@@ -1,0 +1,56 @@
+// src/components/Hero/Hero.jsx
+import data from "../../data/sitedata";       // ⬅ go two levels up to reach data
+import CompanyLogos from "../CompanyLogos/CompanyLogos";  
+import styles from "./Hero.module.css";      
+
+export default function Hero() {
+  const h = data.hero;
+
+  return (
+    <section className={`${styles.bannerBg} ${styles.bannerArea}`} id="hero">
+      <div className={`container ${styles.heroRow}`}>
+        {/* Left text area */}
+        <div className={styles.textHeroArea}>
+          <h1 className={styles.heroTitle}>
+            {h.titleLeading}{" "}
+            <span className={styles.heroTitlePill}>{h.pill}</span>
+          </h1>
+
+          <p className={styles.heroSubtitle}>{h.subtitle}</p>
+
+          <div className={styles.heroCtaWrap}>
+            <a className={styles.btnHero} href={h.cta.href}>
+              {h.cta.label}
+            </a>
+
+            <div className={styles.heroSocialProof}>
+              <div className={styles.avatarStack}>
+                {h.avatars.map((src, i) => (
+                  <img key={i} src={src} alt={`client ${i + 1}`} />
+                ))}
+              </div>
+
+              <span
+                className={styles.proofText}
+                dangerouslySetInnerHTML={{ __html: h.proof }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Right image area */}
+        <div className={styles.heroVisual}>
+          <img
+            src={h.visual}
+            alt="Security bot"
+            className={styles.heroVisualImg}
+          />
+          <div className={styles.heroShadow} />
+        </div>
+      </div>
+
+      {/* Logos below */}
+      <CompanyLogos />
+    </section>
+  );
+}
