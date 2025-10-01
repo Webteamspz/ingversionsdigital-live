@@ -3,8 +3,8 @@ export default {
     links: [
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#cro-services" },
-      { label: "Success", href: "#success" },
-      { label: "Works", href: "#work-process" },
+      { label: "Review", href: "#review" },
+      { label: "About Us", href: "#about-us" },
       { label: "FAQ", href: "#FAQ" },
     ],
     cta: { label: "Book a Call", href: "#contact" },
@@ -13,7 +13,7 @@ export default {
     titleLeading: "From idea to",
     pill: "Impact",
     subtitle: "CRO-Driven Websites That Work for You",
-    cta: { label: "Book a Meeting", href: "#contact" },
+    cta: { label: "Book a Call", href: "#contact" },
     avatars: [
       "/src/assets/Hero/hero-client-1.png",
       "/src/assets/Hero/hero-client-2.png",

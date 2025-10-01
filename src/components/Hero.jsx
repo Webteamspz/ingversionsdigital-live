@@ -26,7 +26,6 @@ export default function Hero(){
           <div className="hero-shadow" />
         </div>
       </div>
-      <div className="hero-grid-overlay" />
       <CompanyLogos />
     </section>
   );

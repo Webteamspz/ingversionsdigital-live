@@ -36,16 +36,15 @@ body {
   color: var(--text-200);
 }
 .container {
-  max-width: 1240px;
+  max-width: 1260px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
 }
 .grid {
   display: grid;
   gap: 24px;
 }
-
 .btn {
   display: inline-flex;
   width: 162px;
@@ -60,7 +59,7 @@ body {
   text-decoration: none;
   /* box-shadow: 0 10px 24px rgba(30, 167, 255, 0.35); */
   transition: transform 0.15s ease;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -81,7 +80,7 @@ body {
   color: var(--text-100);
   margin: 0 0 16px;
   text-align: center;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 600;
   font-size: 36px;
   line-height: 56px;
@@ -130,7 +129,7 @@ section[id] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  min-height: 104px;
 }
 .brand {
   display: flex;
@@ -138,9 +137,10 @@ section[id] {
   gap: 10px;
 }
 .brand-logo {
-  height: 32px;
-  width: auto;
+  max-width: 261px;
+  width: 100%;
   display: block;
+  object-fit: cover;
 }
 .brand-text {
   color: #fff;
@@ -157,33 +157,40 @@ section[id] {
 .nav a {
   color: #fff;
   text-decoration: none;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
+  padding: 10px;
 }
 .header-divider {
   height: 1px;
   background: var(--muted-400);
 }
-.header-spacer {
-  height: 64px;
-}
+
 
 /* ====== Hero ====== */
+section#hero {
+  overflow: hidden;
+}
 .banner-bg {
-  background-image: url(/src/assets/Frame.svg);
-  background-size: cover;
-  background-position: center;
-  padding: 140px 0 56px;
+  padding: 164px 0 56px;
   position: relative;
   z-index: 0;
   isolation: isolate;
 }
-.text-hero-area {
-  display: flex;
-  flex-direction: column;
-  gap: 33px;
+.banner-bg:before {
+  position: absolute;
+  left: -41px;
+  bottom: -55px;
+  content: '';
+  background-image: url(/src/assets/Frame.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1039px;
+  height: 735.05px;
+  z-index: -1;
 }
 .hero-row {
   display: flex;
@@ -192,27 +199,35 @@ section[id] {
   gap: 36px;
 }
 .hero-title {
-  margin: 0px;
+  margin: 0 0 34px;
   font-weight: 900;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-size: 72px;
-  line-height: 100%;
+  line-height: 88px;
   color: #fff;
   white-space: nowrap;
 }
 .hero-title-pill {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 14px;
-  background: var(--pill-500);
   color: #ffffff;
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
+  position: relative;
+}
+.hero-title-pill:after {
+  position: absolute;
+  content: '';
+  left: -8px;
+  bottom: -1px;
+  background: #0A84FF;
+  width: 242.09px;
+  height: 77px;
+  border-radius: 16px;
+  z-index: -1;
 }
 .hero-subtitle {
-  margin: 12px 0 10px;
+  margin: 0 0 33px;
   font-size: 20px;
   color: #ffffffcc;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 32px;
@@ -220,14 +235,14 @@ section[id] {
 .hero-cta-wrap {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 30px;
   flex-direction: column;
   flex-wrap: wrap;
 }
 .btn-hero {
   display: inline-flex;
-  width: 162px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 165px;
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
@@ -236,7 +251,7 @@ section[id] {
   color: #fff;
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -249,24 +264,25 @@ section[id] {
 .hero-social-proof {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 .avatar-stack {
   display: inline-flex;
 }
 .avatar-stack img {
-  width: 35px;
-  height: 35px;
+  width: 41.83px;
+  height: 41.83px;
   object-fit: cover;
-  margin-left: -10px;
+  margin-left: -17px;
   border: 2px solid #030303;
+  border-radius: 50%;
 }
 .avatar-stack img:first-child {
   margin-left: 0px;
 }
 .proof-text {
   color: #ffffffcc;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
@@ -274,7 +290,7 @@ section[id] {
 }
 .proof-text strong {
   color: #fff;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 600;
   font-style: SemiBold;
   font-size: 16px;
@@ -282,15 +298,16 @@ section[id] {
 }
 .hero-visual {
   position: relative;
-  left: 60px;
-  width: 479px;
-  height: 425px;
-  max-width: 100%;
+  left: 19px;
+  top: -2px;
+  max-width: 479px;
+  width: 100%;
 }
 .hero-visual-img {
-  width: min(520px, 90%);
-  height: auto;
-  animation: floatY 6s ease-in-out infinite;
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
 }
 @keyframes floatY {
@@ -315,17 +332,6 @@ section[id] {
     transparent 70%
   );
   transform: translateY(14px);
-}
-.hero-grid-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.06) 1px,
-    transparent 1px
-  );
-  background-size: 22px 22px;
-  mask-image: linear-gradient(#000, transparent 85%);
 }
 .hero-bottom-line {
   position: absolute;
@@ -378,7 +384,7 @@ section[id] {
   color: #ffffffe5;
   margin: 0 0 50px;
   text-align: center;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -428,7 +434,7 @@ section[id] {
 .services .card.service .service-title {
   margin: 0 0 32px;
   color: #fff;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
@@ -436,7 +442,7 @@ section[id] {
 }
 .services .card.service .service-desc {
   color: #fff;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -460,7 +466,7 @@ section[id] {
   color: #ffffffe5;
   margin: 0 auto 45px;
   text-align: center;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -581,7 +587,7 @@ section[id] {
 /* Title */
 .why-title {
   margin: 0 0 16px;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -592,7 +598,7 @@ section[id] {
 /* Description */
 .why-desc {
   color: #ffffffcc;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
@@ -756,7 +762,7 @@ section[id] {
 .contact-panel-title {
   margin: 0 0 24px;
   color: #fff;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 100%;
@@ -843,7 +849,7 @@ textarea.c-input {
   display: flex;
   align-items: center;
   color: #e6e6e6;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -865,7 +871,7 @@ textarea.c-input {
 .contact-note {
   color: #ffffffcc;
   margin: 6px 0 16px;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -1008,7 +1014,7 @@ textarea.c-input {
 .foot-nav a {
   color: #fff;
   text-decoration: none;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
@@ -1057,7 +1063,7 @@ textarea.c-input {
   gap: 10px;
   color: #e6e6e6;
   text-align: center;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -1087,7 +1093,7 @@ textarea.c-input {
   gap: 10px;
   color: #e6e6e6;
   text-decoration: none;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -1107,7 +1113,7 @@ textarea.c-input {
   text-align: center;
   color: #98989a;
   padding: 8px 0 16px;
-  font-family: Barlow;
+  font-family: "Barlow", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;

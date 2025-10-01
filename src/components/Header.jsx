@@ -20,11 +20,7 @@ export default function Header() {
 
           <a className="btn" href={cta.href}>{cta.label}</a>
         </div>
-        <div className="header-divider" />
       </header>
-
-      {/* offsets the fixed header so content starts in the right place */}
-      <div className="header-spacer" aria-hidden="true" />
     </>
   );
 }
