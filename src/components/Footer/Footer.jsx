@@ -1,10 +1,10 @@
 import data from "../../data/siteData";
 import styles from "./Footer.module.css";
 
-import iconFacebook from "../../assets/Footer/fb.png";
-import iconTwitter from "../../assets/Footer/twitter.png";
-import iconLinkedin from "../../assets/Footer/Linked in.png";
-import iconInstagram from "../../assets/Footer/Instagram.png";
+import iconFacebook from "../../assets/footer/fb.png";
+import iconTwitter from "../../assets/footer/x.png";
+import iconLinkedin from "../../assets/footer/linkedin.png";
+import iconInstagram from "../../assets/footer/instagram.png";
 
 const ICONS = {
   facebook: iconFacebook,

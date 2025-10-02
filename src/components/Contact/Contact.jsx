@@ -1,6 +1,6 @@
 import data from "../../data/siteData";
 import styles from "./Contact.module.css"
-import planeIcon from "../../assets/Contact/vector.png";
+import planeIcon from "../../assets/contact/vector.png";
 
 
 const Icon = ({ name }) => {

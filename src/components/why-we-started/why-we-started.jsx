@@ -4,11 +4,11 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
-import quoteImg from "../../assets/why-we-started/Icon.png";
-import arrowLeft from "../../assets/why-we-started/Button.png";
-import arrowRight from "../../assets/why-we-started/Right-Button.png";
+import quoteImg from "../../assets/why-we-started/icon.png";
+import arrowLeft from "../../assets/why-we-started/left-button.png";
+import arrowRight from "../../assets/why-we-started/right-Button.png";
 
-import styles from "./WhyWeStarted.module.css";
+import styles from "./why-we-started.module.css";
 
 export default function WhyWeStarted() {
   const prevRef = useRef(null);

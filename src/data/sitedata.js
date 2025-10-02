@@ -15,20 +15,20 @@ export default {
     subtitle: "CRO-Driven Websites That Work for You",
     cta: { label: "Book a Call", href: "#contact" },
     avatars: [
-      "/src/assets/Hero/hero-client-1.png",
-      "/src/assets/Hero/hero-client-2.png",
-      "/src/assets/Hero/hero-client-3.png",
+      "/src/assets/hero/hero-client-1.png",
+      "/src/assets/hero/hero-client-2.png",
+      "/src/assets/hero/hero-client-3.png",
     ],
     proof: "Over <strong>10+</strong> clients have worked with us",
-    visual: "/src/assets/Hero/hero-main.png",
+    visual: "/src/assets/hero/hero-main.png",
   },
   logos: [
-    "/src/assets/Hero/zapier.png",
-    "/src/assets/Hero/spotify.png",
-    "/src/assets/Hero/Zoom.png",
-    "/src/assets/Hero/slack.png",
-    "/src/assets/Hero/amazon.png",
-    "/src/assets/Hero/Adobe.png",
+    "/src/assets/hero/zapier.png",
+    "/src/assets/hero/spotify.png",
+    "/src/assets/hero/zoom.png",
+    "/src/assets/hero/slack.png",
+    "/src/assets/hero/amazon.png",
+    "/src/assets/hero/adobe.png",
   ],
   kpis: [
     { value: "10+", label: "Clients" },
@@ -40,27 +40,27 @@ export default {
     {
       title: "A/B Testing",
       desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
-      icon: "/src/assets/Ab-testing.png",
+      icon: "/src/assets/ab-testing.png",
     },
     {
       title: "Shopify Development",
       desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
-      icon: "/src/assets/Shopify.png",
+      icon: "/src/assets/shopify.png",
     },
     {
       title: "Quality Assurance",
       desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
-      icon: "/src/assets/Qa.png",
+      icon: "/src/assets/qa.png",
     },
     {
       title: "WordPress Development",
       desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-      icon: "/src/assets/Wordpress.png",
+      icon: "/src/assets/wordpress.png",
     },
     {
       title: "Landing Page Personalization",
       desc: "Deliver tailored experiences that adapt to user behavior, boosting engagement and conversions.",
-      icon: "/src/assets/Landing Page.png",
+      icon: "/src/assets/landing-page.png",
     },
   ],
   process: [
@@ -72,17 +72,17 @@ export default {
     {
       title: "Plan & Approach",
       desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-      icon: "/src/assets/work-process/Plan.png",
+      icon: "/src/assets/work-process/plan.png",
     },
     {
       title: "Development",
       desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-      icon: "/src/assets/work-process/Dev.png",
+      icon: "/src/assets/work-process/dev.png",
     },
     {
       title: "Launch",
       desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-      icon: "/src/assets/work-process/Goal.png",
+      icon: "/src/assets/work-process/goal.png",
     },
   ],
   why: [
@@ -174,7 +174,7 @@ export default {
           col: "full",
         },
       ],
-      submit: { label: "Send", icon: "✈️" },
+      submit: { label: "Send" },
     },
     infoCards: [
       {
@@ -230,7 +230,7 @@ export default {
     ],
   },
   footer: {
-    logo: "/src/assets/Main-logo.png",
+    logo: "/src/assets/main-logo.png",
     company: "Ingversions Digital",
     links: ["Home", "Services", "Review", "About Us", "FAQ"],
     address: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230",

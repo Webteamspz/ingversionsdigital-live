@@ -1,5 +1,5 @@
 import data from "../../data/siteData";       
-import CompanyLogos from "../CompanyLogos/CompanyLogos";  
+import CompanyLogos from "../company-logos/company-logos";  
 import styles from "./Hero.module.css";      
 
 export default function Hero() {

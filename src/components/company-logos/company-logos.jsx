@@ -1,5 +1,5 @@
 import data from "../../data/siteData";
-import styles from "./CompanyLogos.module.css";
+import styles from "./company-logos.module.css";
 
 export default function CompanyLogos() {
   return (

@@ -1,5 +1,5 @@
 import data from "../../data/siteData";       
-import styles from "./WorkProcess.module.css"; 
+import styles from "./work-process.module.css"; 
 
 export default function WorkProcess() {
   return (
