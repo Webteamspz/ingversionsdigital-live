@@ -1,5 +1,5 @@
 import data from "../../data/siteData";
-import styles from "./Footer.module.css";
+import styles from "./footer.module.css";
 
 import iconFacebook from "../../assets/footer/fb.png";
 import iconTwitter from "../../assets/footer/x.png";

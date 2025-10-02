@@ -1,6 +1,6 @@
 import data from "../../data/siteData";        
 import logo from "../../assets/Main-logo.png"; 
-import styles from "./Header.module.css";        
+import styles from "./header.module.css";        
 
 export default function Header() {
   const { links, cta } = data.header;

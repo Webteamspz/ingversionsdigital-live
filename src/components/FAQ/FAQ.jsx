@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import data from "../../data/siteData";           
-import styles from "./FAQ.module.css";            
+import styles from "./faq.module.css";            
 
 function FAQItem({ index, q, a, isOpen, onToggle }) {
   const bodyRef = useRef(null);
