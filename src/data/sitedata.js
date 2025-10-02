@@ -104,43 +104,43 @@ export default {
     },
   ],
   testimonials: [
-    {
-      author: "John Doe",
-      role: "Founder & CEO",
-      quote:
-        "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
-    },
-    {
-      author: "John Doe",
-      role: "Founder & CEO",
-      quote:
-        "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
-    },
-    {
-      author: "John Doe",
-      role: "Founder & CEO",
-      quote:
-        "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
-    },
-    {
-      author: "Jane Roe",
-      role: "CTO",
-      quote:
-        "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
-    },
-    {
-      author: "Alex Kim",
-      role: "COO",
-      quote:
-        "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
-    },
-    {
-      author: "Priya Shah",
-      role: "Head of Product",
-      quote:
-        "We ship small, learn fast, and let real user value guide the roadmap.",
-    },
-  ],
+  {
+    reviewer: "John Doe",
+    reviewerRole: "Founder & CEO",
+    quote:
+      "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
+  },
+  {
+    reviewer: "John Doe",
+    reviewerRole: "Founder & CEO",
+    quote:
+      "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
+  },
+  {
+    reviewer: "John Doe",
+    reviewerRole: "Founder & CEO",
+    quote:
+      "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
+  },
+  {
+    reviewer: "Jane Roe",
+    reviewerRole: "CTO",
+    quote:
+      "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
+  },
+  {
+    reviewer: "Alex Kim",
+    reviewerRole: "COO",
+    quote:
+      "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
+  },
+  {
+    reviewer: "Priya Shah",
+    reviewerRole: "Head of Product",
+    quote:
+      "We ship small, learn fast, and let real user value guide the roadmap.",
+  },
+],
   contact: {
     heading: "Contact Us",
     form: {
@@ -184,7 +184,7 @@ export default {
           { icon: "phone", text: "+91-8103684321" },
           {
             icon: "map",
-            text: "2599 Shiv Krupa Association,\nKansad, Sachin, Surat 394230 \n India",
+            text: "2599 Shiv Krupa Association,Kansad, Sachin, Surat 394230 India",
           },
         ],
       },

@@ -8,10 +8,12 @@ import WhyWeStarted from "./components/why-we-started/why-we-started";
 import Contact from "./components/contact/contact";
 import FAQ from "./components/faq/faq";
 import Footer from "./components/footer/footer";
+import Preloader from "./components/preloader/preloader";
 
 export default function App() {
   return (
     <>
+      <Preloader />
       <Header />
       <Hero />
       <TrackRecord />

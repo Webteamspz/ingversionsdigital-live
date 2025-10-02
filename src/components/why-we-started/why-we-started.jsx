@@ -17,13 +17,26 @@ export default function WhyWeStarted() {
   return (
     <section className={styles["started-section"]}>
       <div className={`container ${styles["started-container"]}`}>
-        <h3 className={`section-title ${styles["started-title"]}`}>Why We Started</h3>
-        <button className={`${styles["ts-nav"]} ${styles["ts-prev"]}`} ref={prevRef} aria-label="Previous">
+        <h3 className={`section-title ${styles["started-title"]}`}>
+          What Our Clients Say
+        </h3>
+
+        {/* Custom nav buttons */}
+        <button
+          className={`${styles["ts-nav"]} ${styles["ts-prev"]}`}
+          ref={prevRef}
+          aria-label="Previous testimonial"
+        >
           <img src={arrowLeft} alt="" width="20" height="20" />
         </button>
-        <button className={`${styles["ts-nav"]} ${styles["ts-next"]}`} ref={nextRef} aria-label="Next">
+        <button
+          className={`${styles["ts-nav"]} ${styles["ts-next"]}`}
+          ref={nextRef}
+          aria-label="Next testimonial"
+        >
           <img src={arrowRight} alt="" />
         </button>
+
         <Swiper
           modules={[Navigation, A11y]}
           speed={600}
@@ -45,18 +58,18 @@ export default function WhyWeStarted() {
             nextEl: nextRef.current,
           }}
           breakpoints={{
-            0:    { slidesPerView: 1, spaceBetween: 16 },
-            640:  { slidesPerView: 1, spaceBetween: 18 },
-            900:  { slidesPerView: 2, spaceBetween: 22 },
+            0: { slidesPerView: 1, spaceBetween: 16 },
+            640: { slidesPerView: 1, spaceBetween: 18 },
+            900: { slidesPerView: 2, spaceBetween: 22 },
             1200: { slidesPerView: 3, spaceBetween: 28 },
           }}
-          className={styles["testi-slider"]}
+          className={styles["testimonial-slider"]}
         >
           {data.testimonials.map((t, i) => (
-            <SwiperSlide key={i} className={styles.tcard}>
-              <div className={styles["tquote-line"]}>
+            <SwiperSlide key={i} className={styles["testimonial-card"]}>
+              <div className={styles["quote-line"]}>
                 <img
-                  className={styles["tquote-icon"]}
+                  className={styles["quote-icon"]}
                   src={quoteImg}
                   alt=""
                   width="18"
@@ -64,10 +77,14 @@ export default function WhyWeStarted() {
                   loading="lazy"
                 />
               </div>
-              <p className={styles["tquote-text"]}>{t.quote}</p>
-              <div className={styles.tauthor}>
-                {t.author}
-                <div className={styles.trole}>{t.role}</div>
+
+              {/* The actual testimonial text */}
+              <p className={styles["testimonial-quote"]}>{t.quote}</p>
+
+              {/* Reviewer + role */}
+              <div className={styles["testimonial-reviewer"]}>
+                {t.reviewer}
+                <div className={styles["testimonial-text"]}>{t.role}</div>
               </div>
             </SwiperSlide>
           ))}

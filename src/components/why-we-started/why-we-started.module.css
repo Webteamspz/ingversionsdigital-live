@@ -1,11 +1,10 @@
+/* Section */
 .started-section {
   position: relative;
   padding: 78px 0 60px;
-  background: #030303
+  background: #030303;
 }
-.started-container {
-  position: relative
-}
+.started-container { position: relative; }
 .started-title {
   font-family: Lexend;
   font-weight: 700;
@@ -13,70 +12,78 @@
   line-height: 1.2;
   color: #fff;
   text-align: center;
-  margin: 0 0 28px
+  margin: 0 0 28px;
 }
-.testi-slider {
+
+/* Slider wrapper */
+.testimonial-slider {
   position: relative;
-  padding: 8px 35px!important
+  padding: 8px 35px !important;
 }
-.tcard {
-  background: 0 0;
+
+/* Slide card */
+.testimonial-card {
+  background: transparent;
   text-align: center;
-  padding: 12px 18px 10px
+  padding: 12px 18px 10px;
 }
-.tquote-line {
+
+/* Thin lines with icon in the middle */
+.quote-line {
   position: relative;
   height: 22px;
   display: grid;
   place-items: center;
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
-.tquote-line::after,
-.tquote-line::before {
+.quote-line::before,
+.quote-line::after {
   content: "";
   position: absolute;
   top: 50%;
   width: 34%;
   height: 1px;
-  background: rgba(255,255,255,.12);
-  transform: translateY(-50%)
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-50%);
 }
-.tquote-line::before {
-  left: 0
-}
-.tquote-line::after {
-  right: 0
-}
-.tquote-icon {
+.quote-line::before { left: 0; }
+.quote-line::after  { right: 0; }
+.quote-icon {
   display: block;
   width: 44px;
   height: 44px;
-  object-fit: contain
+  object-fit: contain;
 }
-.tquote-text {
+
+/* The testimonial quote text */
+.testimonial-quote {
   color: #fff;
   max-width: 317px;
   width: 100%;
   margin: 40px auto 16px;
-  font-family: Lexend,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-family: Lexend, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%
+  line-height: 150%;
 }
-.tauthor {
+
+/* Reviewer + small subtext (role/company) */
+.testimonial-reviewer {
   font-family: Lexend;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
   color: #0a84ff;
-  margin-top: 10px
+  margin-top: 10px;
 }
-.trole {
+.testimonial-text {
   color: #0a84ff;
   font-weight: 400;
   font-size: 11px;
-  margin-top: 3px
+  margin-top: 3px;
 }
+
+/* Nav buttons */
 .ts-nav {
   position: absolute;
   top: 50%;
@@ -88,37 +95,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  cursor: pointer
+  z-index: 10;
+  cursor: pointer;
 }
-.ts-prev {
-  left: 0
-}
-.ts-next {
-  right: 18px
-}
+.ts-prev { left: 0; }
+.ts-next { right: 18px; }
 .ts-nav img {
   width: 52px;
   height: 52px;
-  background: 0 0!important
+  background: transparent !important;
 }
-.ts-nav:hover {
-  filter: brightness(1.08)
-}
-.testi-slider::after,
-.testi-slider::before {
+.ts-nav:hover { filter: brightness(1.08); }
+
+/* Optional edge fade */
+.testimonial-slider::before,
+.testimonial-slider::after {
   content: "";
   position: absolute;
   top: 0;
   width: 36px;
   height: 100%;
   z-index: 5;
-  pointer-events: none
+  pointer-events: none;
 }
-.testi-slider::after {
-  right: 0;
-  transform: scaleX(-1)
-}
-.testi-slider::before {
-  left: 0
-}
+.testimonial-slider::after { right: 0; transform: scaleX(-1); }
+.testimonial-slider::before { left: 0; }

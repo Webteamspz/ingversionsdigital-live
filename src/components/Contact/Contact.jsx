@@ -1,24 +1,17 @@
+// src/components/contact/contact.jsx
 import data from "../../data/siteData";
-import styles from "./contact.module.css"
+import styles from "./contact.module.css";
 import planeIcon from "../../assets/contact/vector.png";
 
+// ✅ NEW: reusable phone input with country code
+import PhoneField from "../contact/phone-field";
 
 const Icon = ({ name }) => {
   if (name === "mail") {
     return (
       <svg viewBox="0 0 24 24">
-        <path
-          d="M4 6h16v12H4z"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
-        <path
-          d="M4 7l8 6 8-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
+        <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     );
   }
@@ -43,14 +36,7 @@ const Icon = ({ name }) => {
           stroke="currentColor"
           strokeWidth="1.6"
         />
-        <circle
-          cx="12"
-          cy="10"
-          r="2.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
+        <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     );
   }
@@ -60,15 +46,20 @@ const Icon = ({ name }) => {
 export default function Contact() {
   const { heading, form, infoCards } = data.contact;
 
+  // 🔹 tiny helper (used inline) – allows letters, spaces, apostrophes, and dashes
+  const sanitizeName = (v) => v.replace(/[^\p{L}\s'-]/gu, "");
+
   return (
     <section id="contact" className={styles["contact-section"]}>
       <div className="container">
-        <h3 className={`section-title ${styles["contact-heading"]}`}>
-          {heading}
-        </h3>
+        <h3 className={`section-title ${styles["contact-heading"]}`}>{heading}</h3>
+
         <div className={styles["contact-grid"]}>
+          {/* LEFT: form */}
           <div className={`${styles["contact-card"]} ${styles["form-card"]}`}>
             <h4 className={styles["contact-panel-title"]}>{form.title}</h4>
+
+            {/* first row (half cols) */}
             <div className={`${styles.grid} ${styles.two}`}>
               {form.fields
                 .filter((f) => f.col === "half")
@@ -80,15 +71,27 @@ export default function Contact() {
                       type={f.type}
                       name={f.name}
                       placeholder={f.placeholder}
+                      // ✅ inline validation for name-like fields
+                      onInput={(e) => {
+                        if (/name/i.test(f.name)) {
+                          const cleaned = sanitizeName(e.currentTarget.value);
+                          if (cleaned !== e.currentTarget.value) {
+                            e.currentTarget.value = cleaned;
+                            e.currentTarget.setCustomValidity("Only letters are allowed.");
+                          } else {
+                            e.currentTarget.setCustomValidity("");
+                          }
+                        }
+                      }}
+                      inputMode={/name/i.test(f.name) ? "text" : undefined}
                     />
                   )
                 )}
             </div>
+
+            {/* other full-width fields (except phone/message) */}
             {form.fields
-              .filter(
-                (f) =>
-                  f.col === "full" && !["phone", "message"].includes(f.name)
-              )
+              .filter((f) => f.col === "full" && !["phone", "message"].includes(f.name))
               .map((f) =>
                 f.type === "textarea" ? null : (
                   <input
@@ -97,39 +100,36 @@ export default function Contact() {
                     type={f.type}
                     name={f.name}
                     placeholder={f.placeholder}
+                    // ✅ inline validation for name-like fields
+                    onInput={(e) => {
+                      if (/name/i.test(f.name)) {
+                        const cleaned = sanitizeName(e.currentTarget.value);
+                        if (cleaned !== e.currentTarget.value) {
+                          e.currentTarget.value = cleaned;
+                          e.currentTarget.setCustomValidity("Only letters are allowed.");
+                        } else {
+                          e.currentTarget.setCustomValidity("");
+                        }
+                      }
+                    }}
+                    inputMode={/name/i.test(f.name) ? "text" : undefined}
                   />
                 )
               )}
+
+            {/* ✅ phone with country code (react-international-phone) */}
             {form.fields.some((f) => f.name === "phone") && (
-              <div className={`${styles["phone-wrap"]} ${styles.mt}`}>
-                <button
-                  className={styles["country-pill"]}
-                  type="button"
-                  aria-label="Country"
-                >
-                  <span className="flag">{form.country?.flag}</span>
-                  <span className={styles.dial}>{form.country?.dial}</span>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M1 1l4 4 4-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
-                <input
-                  className={`${styles["c-input"]} ${styles["phone-input"]}`}
-                  type="tel"
-                  placeholder="Phone Number"
+              <div className={styles.mt}>
+                <PhoneField
+                  defaultCountry="in"
+                  onChange={() => {
+                    /* phone component already enforces numeric input */
+                  }}
                 />
               </div>
             )}
+
+            {/* message textarea */}
             {form.fields
               .filter((f) => f.name === "message")
               .map((f) => (
@@ -140,21 +140,20 @@ export default function Contact() {
                   placeholder={f.placeholder}
                 />
               ))}
-            <button
-              className={`btn ${styles["c-btn"]} ${styles.mt}`}
-              type="button"
-            >
+
+            {/* submit */}
+            <button className={`btn ${styles["c-btn"]} ${styles.mt}`} type="button">
               {form.submit.label}
               <img src={planeIcon} alt="Send" className={styles.plane} />
             </button>
           </div>
+
+          {/* RIGHT: info cards */}
           <div className={styles["right-col"]}>
             {infoCards.map((card, idx) => (
-              <div
-                key={idx}
-                className={`${styles["contact-card"]} ${styles["info-card"]}`}
-              >
+              <div key={idx} className={`${styles["contact-card"]} ${styles["info-card"]}`}>
                 <h4 className={styles["contact-panel-title"]}>{card.title}</h4>
+
                 {card.items && (
                   <ul className={styles["c-list"]}>
                     {card.items.map((it, i) => (
@@ -167,18 +166,16 @@ export default function Contact() {
                           .map((line, li) => (
                             <span key={li}>
                               {line}
-                              {li < String(it.text).split("\n").length - 1 && (
-                                <br />
-                              )}
+                              {li < String(it.text).split("\n").length - 1 && <br />}
                             </span>
                           ))}
                       </li>
                     ))}
                   </ul>
                 )}
-                {card.description && (
-                  <p className={styles["contact-note"]}>{card.description}</p>
-                )}
+
+                {card.description && <p className={styles["contact-note"]}>{card.description}</p>}
+
                 {card.cta && (
                   <a className={`btn ${styles["c-btn"]}`} href={card.cta.href}>
                     {card.cta.label}

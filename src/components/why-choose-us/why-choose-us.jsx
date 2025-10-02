@@ -4,15 +4,15 @@ import styles from "./why-choose-us.module.css";
 
 export default function WhyChooseUs() {
   return (
-    <section className={styles.whySection}>
+    <section className={styles["why-choose-us-section"]}>
       <div className="container">
         <h3 className="section-title">Why Choose Us</h3>
-        <div className={styles.whyCards}>
+        <div className={styles["why-choose-us-cards"]}>
           {data.why.map((w, i) => (
-            <div key={i} className={styles.whyCard}>
-              <img src={icon} alt="" className={styles.whyIcon} />
-              <h4 className={styles.whyTitle}>{w.title}</h4>
-              <p className={styles.whyDesc}>{w.desc}</p>
+            <div key={i} className={styles["why-choose-us-card"]}>
+              <img src={icon} alt="" className={styles["why-choose-us-icon"]} />
+              <h4 className={styles["why-choose-us-title"]}>{w.title}</h4>
+              <p className={styles["why-choose-us-desc"]}>{w.desc}</p>
             </div>
           ))}
         </div>
