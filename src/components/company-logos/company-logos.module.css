@@ -1,5 +1,5 @@
 .logosSection {
-  padding: 25px 0 41px;
+  padding: 65px 0 40px;
   position: relative;
   overflow: hidden
 }
@@ -28,13 +28,13 @@
 }
 .marqueeGroup {
   display: inline-flex;
-  gap: 40px;
+  gap: 20px;
   width: max-content;
   animation: scroll-left 40s linear infinite
 }
 .marqueeGroup img {
-  height: 80px;
-  width: auto;
+  width: 100%;
+  max-width: 249px;
   filter: grayscale(1) brightness(1.4);
   opacity: .9;
   display: block;

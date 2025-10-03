@@ -5,62 +5,55 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9999
 }
-
 #preloader .loader .loader-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   width: 100px;
   height: 100px;
-  border: 3px solid var(--tg-border-color, rgba(255, 255, 255, 0.2));
-  border-radius: 50%;
+  border: 3px solid var(--tg-border-color,rgba(255,255,255,.2));
+  border-radius: 50%
 }
-
 #preloader .loader .loader-container:before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   width: 100px;
   height: 100px;
-  border-top: 3px solid var(--tg-primary-color, #0a84ff);
+  border-top: 3px solid var(--tg-primary-color,#0a84ff);
   border-radius: 50%;
-  animation: loaderspin 1.8s infinite ease-in-out;
+  animation: loaderspin 1.8s infinite ease-in-out
 }
-
 #preloader .loader .loader-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   width: 80px;
-  text-align: center;
+  text-align: center
 }
-
 #preloader .loader .loader-icon img {
   width: 40px;
-  animation: loaderpulse 900ms infinite alternate;
+  animation: loaderpulse 0.9s infinite alternate
 }
-
-/* animations */
 @keyframes loaderspin {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0)
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg)
   }
 }
-
 @keyframes loaderpulse {
   0% {
-    transform: scale(1);
+    transform: scale(1)
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1.2)
   }
 }

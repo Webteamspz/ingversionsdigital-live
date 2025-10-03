@@ -3,8 +3,8 @@ export default {
     links: [
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#cro-services" },
-      { label: "Success", href: "#success" },
-      { label: "Works", href: "#work-process" },
+      { label: "Review", href: "#success" },
+      { label: "About Us", href: "#work-process" },
       { label: "FAQ", href: "#FAQ" },
     ],
     cta: { label: "Book a Call", href: "https://calendly.com/ingversionsdigital/30min?month=2025-10" },

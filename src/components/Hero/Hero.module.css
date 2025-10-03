@@ -2,7 +2,7 @@ section#hero {
   overflow: hidden
 }
 .bannerBg {
-  padding: 164px 0 56px;
+  padding: 161px 0 101px;
   position: relative;
   z-index: 0;
   isolation: isolate
@@ -21,8 +21,14 @@ section#hero {
   z-index: -1
 }
 .heroRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 36px
 }
@@ -60,23 +66,39 @@ section#hero {
   line-height: 32px
 }
 .heroCtaWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   gap: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap
 }
 .btnHero {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
   max-width: 165px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
   background: #0a84ff;
   color: #fff;
   text-decoration: none;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
   font-family: Barlow,sans-serif;
   font-weight: 700;
@@ -91,16 +113,23 @@ section#hero {
   color: #0a84ff
 }
 .heroSocialProof {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 14px
 }
 .avatarStack {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex
 }
 .avatarStack img {
   width: 41.83px;
   height: 41.83px;
+  -o-object-fit: cover;
   object-fit: cover;
   margin-left: -17px;
   border-radius: 50%
@@ -127,23 +156,38 @@ section#hero {
 .heroVisual {
   position: relative;
   left: 19px;
-  top: -2px;
+  top: 0;
   max-width: 479px;
   width: 100%
 }
 .heroVisualImg {
   max-width: 100%;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   display: block;
+  -webkit-filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .6))
+}
+@-webkit-keyframes floatY {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+  50% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px)
+  }
 }
 @keyframes floatY {
   0%,
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0)
   }
   50% {
+    -webkit-transform: translateY(-8px);
     transform: translateY(-8px)
   }
 }
@@ -153,7 +197,11 @@ section#hero {
   width: 55%;
   height: 26px;
   border-radius: 50%;
+  -webkit-filter: blur(10px);
   filter: blur(10px);
+  background: -o-radial-gradient(closest-side,rgba(0,0,0,.55),transparent 70%);
   background: radial-gradient(closest-side,rgba(0,0,0,.55),transparent 70%);
+  -webkit-transform: translateY(14px);
+  -ms-transform: translateY(14px);
   transform: translateY(14px)
 }
