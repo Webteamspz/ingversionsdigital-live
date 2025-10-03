@@ -1,16 +1,11 @@
 import data from "../../data/siteData";
 import styles from "./footer.module.css";
 
-import iconFacebook from "../../assets/footer/fb.png";
-import iconTwitter from "../../assets/footer/x.png";
-import iconLinkedin from "../../assets/footer/linkedin.png";
-import iconInstagram from "../../assets/footer/instagram.png";
-
 const ICONS = {
-  facebook: iconFacebook,
-  twitter: iconTwitter,
-  linkedin: iconLinkedin,
-  instagram: iconInstagram,
+  facebook: "/assets/footer/fb.png",
+  twitter: "/assets/footer/x.png",
+  linkedin: "/assets/footer/linkedin.png",
+  instagram: "/assets/footer/instagram.png",
 };
 
 const SocialIcon = ({ name }) => {
@@ -20,14 +15,13 @@ const SocialIcon = ({ name }) => {
     <img
       src={src}
       alt={`${name} icon`}
-      className={styles["social-icon"]}
+      className={styles.socialIcon}
       width={40}
       height={40}
       loading="lazy"
     />
   );
 };
-
 
 const UIIcon = ({ name }) => {
   const common = { width: 18, height: 18, fill: "currentColor" };
@@ -47,18 +41,8 @@ const UIIcon = ({ name }) => {
   if (name === "mail") {
     return (
       <svg viewBox="0 0 24 24" {...common}>
-        <path
-          d="M4 6h16v12H4z"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
-        <path
-          d="M4 7l8 6 8-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
+        <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     );
   }
@@ -81,59 +65,56 @@ export default function Footer() {
   const f = data.footer;
 
   return (
-    <footer className={styles["site-footer"]}>
-      <div className={styles["footer-border"]} />
-      <div className={`container ${styles["footer-top"]}`}>
-        <div className={styles["foot-left"]}>
-          <img
-            src={f.logo}
-            alt={`${f.company} logo`}
-            className={styles["footer-logo"]}
-          />
+    <footer className={styles.siteFooter}>
+      <div className={styles.footerBorder} />
+
+      <div className={`container ${styles.footerTop}`}>
+        <div className={styles.footLeft}>
+          <img src={f.logo} alt={`${f.company} logo`} className={styles.footerLogo} />
         </div>
-        <nav className={styles["foot-nav"]}>
+
+        <nav className={styles.footNav}>
           {f.links.map((l, i) => (
             <a key={i} href="#">
               {l}
             </a>
           ))}
         </nav>
-        <div className={styles["foot-socials"]}>
+
+        <div className={styles.footSocials}>
           {f.socials.map((s, i) => (
-            <a
-              key={i}
-              href={s.href}
-              aria-label={s.name}
-              className={styles["social-btn"]}
-            >
+            <a key={i} href={s.href} aria-label={s.name} className={styles.socialBtn}>
               <SocialIcon name={s.name} />
             </a>
           ))}
         </div>
       </div>
-      <div className={`container ${styles["footer-mid"]}`}>
-        <div className={styles["foot-address"]}>
-          <span className={styles["addr-ico"]}>
+
+      <div className={`container ${styles.footerMid}`}>
+        <div className={styles.footAddress}>
+          <span className={styles.addrIcon}>
             <UIIcon name="pin" />
           </span>
           <span>{f.address}</span>
         </div>
-        <div className={styles["foot-contacts"]}>
-          <a href={`mailto:${f.email}`} className={styles["foot-contact"]}>
-            <span className={`${styles["fc-ico"]} ${styles.mail}`}>
+
+        <div className={styles.footContacts}>
+          <a href={`mailto:${f.email}`} className={styles.footContact}>
+            <span className={`${styles.fcIcon} ${styles.mail}`}>
               <UIIcon name="mail" />
             </span>
             {f.email}
           </a>
-          <a href={`tel:${f.phone}`} className={styles["foot-contact"]}>
-            <span className={`${styles["fc-ico"]} ${styles.phone}`}>
+          <a href={`tel:${f.phone}`} className={styles.footContact}>
+            <span className={`${styles.fcIcon} ${styles.phone}`}>
               <UIIcon name="phone" />
             </span>
             {f.phone}
           </a>
         </div>
       </div>
-      <div className={`container ${styles["footer-bottom"]}`}>
+
+      <div className={`container ${styles.footerBottom}`}>
         © {f.year} {f.company}. All rights reserved.
       </div>
     </footer>

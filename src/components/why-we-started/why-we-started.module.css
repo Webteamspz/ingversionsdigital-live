@@ -1,12 +1,12 @@
-.started-section {
+.startedSection {
   position: relative;
   padding: 78px 0 60px;
   background: #030303
 }
-.started-container {
+.startedContainer {
   position: relative
 }
-.started-title {
+.startedTitle {
   font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 34px;
@@ -15,45 +15,49 @@
   text-align: center;
   margin: 0 0 28px
 }
-.testimonial-slider {
+.testimonialSlider {
   position: relative;
   padding: 8px 35px!important
 }
-.testimonial-card {
+.testimonialCard {
   background: 0 0;
   text-align: center;
   padding: 12px 18px 10px
 }
-.quote-line {
+.quoteLine {
   position: relative;
   height: 22px;
+  display: -ms-grid;
   display: grid;
   place-items: center;
   margin-bottom: 16px
 }
-.quote-line::after,
-.quote-line::before {
+.quoteLine::after,
+.quoteLine::before {
   content: "";
   position: absolute;
   top: 50%;
   width: 34%;
   height: 1px;
   background: rgba(255,255,255,.12);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%)
 }
-.quote-line::before {
+.quoteLine::before {
   left: 0
 }
-.quote-line::after {
+.quoteLine::after {
   right: 0
 }
-.quote-icon {
+.quoteIcon {
   display: block;
   width: 44px;
   height: 44px;
+  -o-object-fit: contain;
   object-fit: contain
 }
-.testimonial-quote {
+.testimonialQuote {
   color: #fff;
   max-width: 317px;
   width: 100%;
@@ -63,7 +67,7 @@
   font-size: 16px;
   line-height: 150%
 }
-.testimonial-reviewer {
+.testimonialReviewer {
   font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 16px;
@@ -71,13 +75,13 @@
   color: #0a84ff;
   margin-top: 10px
 }
-.testimonial-text {
+.testimonialText {
   color: #0a84ff;
   font-weight: 400;
   font-size: 11px;
   margin-top: 3px
 }
-.ts-nav {
+.tsNav {
   position: absolute;
   top: 50%;
   width: 44px;
@@ -85,28 +89,35 @@
   border: none;
   border-radius: 50%;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   z-index: 10;
   cursor: pointer
 }
-.ts-prev {
+.tsPrev {
   left: 0
 }
-.ts-next {
+.tsNext {
   right: 18px
 }
-.ts-nav img {
+.tsNav img {
   width: 52px;
   height: 52px;
   background: 0 0!important
 }
-.ts-nav:hover {
+.tsNav:hover {
+  -webkit-filter: brightness(1.08);
   filter: brightness(1.08)
 }
-.testimonial-slider::after,
-.testimonial-slider::before {
+.testimonialSlider::after,
+.testimonialSlider::before {
   content: "";
   position: absolute;
   top: 0;
@@ -115,10 +126,12 @@
   z-index: 5;
   pointer-events: none
 }
-.testimonial-slider::after {
+.testimonialSlider::after {
   right: 0;
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
   transform: scaleX(-1)
 }
-.testimonial-slider::before {
+.testimonialSlider::before {
   left: 0
 }

@@ -13,7 +13,10 @@ import Preloader from "./components/preloader/preloader";
 export default function App() {
   return (
     <>
-      <Preloader />
+        <Preloader
+        minDuration={1300}
+        logoSrc={"/assets/preloader/preloader.png"}   
+      />
       <Header />
       <Hero />
       <TrackRecord />

@@ -1,40 +1,62 @@
-.why-choose-us-section {
+.whyChooseUsSection {
   padding: 36px 0;
   text-align: center
 }
-.why-choose-us-cards {
+.whyChooseUsCards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 0;
   margin-top: 36px;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap
 }
-.why-choose-us-card {
+.whyChooseUsCard {
   position: relative;
   width: 240px;
   height: 240px;
   border-radius: 50%;
   background: #141414;
   border: 10px solid #000;
+  -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
   box-shadow: 2px 4px 8px 0 #ffffff40;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
+  -webkit-transition: z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
+  transition: z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
+  -o-transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease;
   transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease;
+  transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
   z-index: 1
 }
-.why-choose-us-card + .why-choose-us-card {
+.whyChooseUsCard + .whyChooseUsCard {
   margin-left: -42px
 }
-.why-choose-us-icon {
+.whyChooseUsIcon {
   height: 36px;
   margin-bottom: 25px;
+  -webkit-filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35))
 }
-.why-choose-us-title {
+.whyChooseUsTitle {
   margin: 0 0 16px;
   font-family: Barlow;
   font-weight: 500;
@@ -43,7 +65,7 @@
   text-align: center;
   color: #fff
 }
-.why-choose-us-desc {
+.whyChooseUsDesc {
   color: #ffffffcc;
   font-family: Barlow;
   font-weight: 400;

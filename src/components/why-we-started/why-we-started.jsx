@@ -4,9 +4,9 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
-import quoteImg from "../../assets/why-we-started/icon.png";
-import arrowLeft from "../../assets/why-we-started/left-button.png";
-import arrowRight from "../../assets/why-we-started/right-Button.png";
+import quoteImg from "/assets/why-we-started/icon.png";
+import arrowLeft from "/assets/why-we-started/left-button.png";
+import arrowRight from "/assets/why-we-started/right-Button.png";
 
 import styles from "./why-we-started.module.css";
 
@@ -15,22 +15,22 @@ export default function WhyWeStarted() {
   const nextRef = useRef(null);
 
   return (
-    <section className={styles["started-section"]}>
-      <div className={`container ${styles["started-container"]}`}>
-        <h3 className={`section-title ${styles["started-title"]}`}>
+    <section className={styles.startedSection}>
+      <div className={`container ${styles.startedContainer}`}>
+        <h3 className={`sectionTitle ${styles.startedTitle}`}>
           What Our Clients Say
         </h3>
 
         {/* Custom nav buttons */}
         <button
-          className={`${styles["ts-nav"]} ${styles["ts-prev"]}`}
+          className={`${styles.tsNav} ${styles.tsPrev}`}
           ref={prevRef}
           aria-label="Previous testimonial"
         >
           <img src={arrowLeft} alt="" width="20" height="20" />
         </button>
         <button
-          className={`${styles["ts-nav"]} ${styles["ts-next"]}`}
+          className={`${styles.tsNav} ${styles.tsNext}`}
           ref={nextRef}
           aria-label="Next testimonial"
         >
@@ -63,13 +63,13 @@ export default function WhyWeStarted() {
             900: { slidesPerView: 2, spaceBetween: 22 },
             1200: { slidesPerView: 3, spaceBetween: 28 },
           }}
-          className={styles["testimonial-slider"]}
+          className={styles.testimonialSlider}
         >
           {data.testimonials.map((t, i) => (
-            <SwiperSlide key={i} className={styles["testimonial-card"]}>
-              <div className={styles["quote-line"]}>
+            <SwiperSlide key={i} className={styles.testimonialCard}>
+              <div className={styles.quoteLine}>
                 <img
-                  className={styles["quote-icon"]}
+                  className={styles.quoteIcon}
                   src={quoteImg}
                   alt=""
                   width="18"
@@ -79,12 +79,12 @@ export default function WhyWeStarted() {
               </div>
 
               {/* The actual testimonial text */}
-              <p className={styles["testimonial-quote"]}>{t.quote}</p>
+              <p className={styles.testimonialQuote}>{t.quote}</p>
 
               {/* Reviewer + role */}
-              <div className={styles["testimonial-reviewer"]}>
+              <div className={styles.testimonialReviewer}>
                 {t.reviewer}
-                <div className={styles["testimonial-text"]}>{t.role}</div>
+                <div className={styles.testimonialText}>{t.role}</div>
               </div>
             </SwiperSlide>
           ))}

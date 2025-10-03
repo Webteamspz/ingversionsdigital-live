@@ -12,7 +12,8 @@
   --card-800: #121a2f
 }
 * {
-  box-sizing: border-box
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box
 }
 #root,
 body,
@@ -23,7 +24,8 @@ body {
   margin: 0;
   font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
   background: var(--bg-900);
-  color: var(--text-200)
+  color: var(--text-200);
+  font-family: "Barlow", sans-serif;
 }
 .container {
   max-width: 1260px;
@@ -32,21 +34,30 @@ body {
   padding: 0 15px
 }
 .grid {
+  display: -ms-grid;
   display: grid;
   gap: 24px
 }
 .btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   width: 162px;
   max-width: 100%;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
   background: #0a84ff;
   color: #fff;
   font-weight: 800;
   text-decoration: none;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
   font-family: Barlow,sans-serif;
   font-weight: 700;
@@ -64,12 +75,12 @@ body {
   background: #1a1a1a;
   border-radius: 18px;
   padding: 22px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35)
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.35);
+          box-shadow: 0 10px 24px rgba(0,0,0,.35)
 }
 .section-title {
   color: var(--text-100);
   margin: 0 0 14px;
-  text-align: center;
   font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 36px;
@@ -91,34 +102,50 @@ section[id] {
 .c-btn,
 .social-btn {
   position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 1.5px solid #0a84ff;
   border-radius: 10px;
   background: 0 0;
   color: #0a84ff;
   font-weight: 600;
   text-decoration: none;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out
 }
 .btn-hero:hover,
 .c-btn:hover,
 .social-btn:hover {
   background: rgba(255,255,255,.05);
-  box-shadow: 0 0 14px rgba(10,132,255,.4);
+  -webkit-box-shadow: 0 0 14px rgba(10,132,255,.4);
+          box-shadow: 0 0 14px rgba(10,132,255,.4);
   color: #0a84ff;
-  transform: translateY(-2px)
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px)
 }
 .footer-logo,
 .hero-visual-img,
 .logo-row img {
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   cursor: pointer
 }
 .footer-logo:hover,
 .hero-visual-img:hover,
 .logo-row img:hover {
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
-  transform: scale(1.05)
+  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
+          filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05)
 }

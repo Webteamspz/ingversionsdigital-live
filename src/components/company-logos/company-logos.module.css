@@ -15,10 +15,14 @@
 }
 .logosSection:before {
   left: 0;
+  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
+  background: -o-linear-gradient(right,transparent,#030303);
   background: linear-gradient(to left,transparent,#030303)
 }
 .logosSection:after {
   right: 0;
+  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
+  background: -o-linear-gradient(left,transparent,#030303);
   background: linear-gradient(to right,transparent,#030303)
 }
 .marquee {
@@ -27,29 +31,53 @@
   position: relative
 }
 .marqueeGroup {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   gap: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
+  -webkit-animation: scroll-left 40s linear infinite;
   animation: scroll-left 40s linear infinite
 }
 .marqueeGroup img {
   width: 100%;
   max-width: 249px;
+  -webkit-filter: grayscale(1) brightness(1.4);
   filter: grayscale(1) brightness(1.4);
   opacity: .9;
   display: block;
+  -o-object-fit: contain;
   object-fit: contain;
-  transition: filter .3s ease
+  -webkit-transition: -webkit-filter .3s ease;
+  transition: -webkit-filter .3s ease;
+  -o-transition: filter .3s ease;
+  transition: filter .3s ease;
+  transition: filter .3s ease,-webkit-filter .3s ease
 }
 .marqueeGroup img:hover {
+  -webkit-filter: grayscale(0) brightness(1);
   filter: grayscale(0) brightness(1);
   opacity: 1
 }
-@keyframes scroll-left {
+@-webkit-keyframes scroll-left {
   0% {
+    -webkit-transform: translateX(0);
     transform: translateX(0)
   }
   100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+}
+@keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
   }
 }

@@ -5,16 +5,27 @@
   right: 0;
   z-index: 9999;
   background: #030303;
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px)
 }
 .headerRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   min-height: 104px
 }
 .brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 10px
 }
@@ -22,6 +33,7 @@
   max-width: 261px;
   width: 100%;
   display: block;
+  -o-object-fit: cover;
   object-fit: cover
 }
 .brandText {
@@ -33,6 +45,8 @@
   margin-left: 6px
 }
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 22px
 }
@@ -44,6 +58,8 @@
   font-size: 16px;
   line-height: 100%;
   padding: 10px;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out
 }
 .nav a:hover {

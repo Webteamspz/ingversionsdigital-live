@@ -1,9 +1,7 @@
-.kpi-section {
-  padding: 38px 0;
-  margin-top: 28px
-}
 .kpis {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: repeat(4,1fr);
   gap: 10px;
   margin-top: 49px
@@ -13,11 +11,20 @@
   border-radius: 12px;
   padding: 18px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  min-height: 125px;
+  min-height: 125px
 }
 .kpi .value {
   color: #fff;
@@ -27,7 +34,7 @@
   line-height: normal;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: -5px;
+  margin-bottom: -5px
 }
 .kpi .label {
   color: #fff;
