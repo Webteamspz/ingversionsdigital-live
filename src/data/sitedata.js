@@ -3,11 +3,14 @@ export default {
     links: [
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#cro-services" },
-      { label: "Review", href: "#success" },
+      { label: "Review", href: "#why-we-started" },
       { label: "About Us", href: "#work-process" },
       { label: "FAQ", href: "#FAQ" },
     ],
-    cta: { label: "Book a Call", href: "https://calendly.com/ingversionsdigital/30min?month=2025-10" },
+    cta: {
+      label: "Book a Call",
+      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+    },
   },
   hero: {
     titleLeading: "From idea to",
@@ -104,48 +107,48 @@ export default {
     },
   ],
   testimonials: [
-  {
-    reviewer: "John Doe",
-    reviewerRole: "Founder & CEO",
-    quote:
-      "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
-  },
-  {
-    reviewer: "John Doe",
-    reviewerRole: "Founder & CEO",
-    quote:
-      "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
-  },
-  {
-    reviewer: "John Doe",
-    reviewerRole: "Founder & CEO",
-    quote:
-      "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
-  },
-  {
-    reviewer: "Jane Roe",
-    reviewerRole: "CTO",
-    quote:
-      "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
-  },
-  {
-    reviewer: "Alex Kim",
-    reviewerRole: "COO",
-    quote:
-      "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
-  },
-  {
-    reviewer: "Priya Shah",
-    reviewerRole: "Head of Product",
-    quote:
-      "We ship small, learn fast, and let real user value guide the roadmap.",
-  },
-],
+    {
+      reviewer: "John Doe",
+      reviewerRole: "Founder & CEO",
+      quote:
+        "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
+    },
+    {
+      reviewer: "John Doe",
+      reviewerRole: "Founder & CEO",
+      quote:
+        "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
+    },
+    {
+      reviewer: "John Doe",
+      reviewerRole: "Founder & CEO",
+      quote:
+        "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
+    },
+    {
+      reviewer: "Jane Roe",
+      reviewerRole: "CTO",
+      quote:
+        "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
+    },
+    {
+      reviewer: "Alex Kim",
+      reviewerRole: "COO",
+      quote:
+        "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
+    },
+    {
+      reviewer: "Priya Shah",
+      reviewerRole: "Head of Product",
+      quote:
+        "We ship small, learn fast, and let real user value guide the roadmap.",
+    },
+  ],
   contact: {
     heading: "Contact Us",
     form: {
       title: "Send Us a Message",
-      country: { flag: "🇮🇳", dial: "+91" }, 
+      country: { flag: "🇮🇳", dial: "+91" },
       fields: [
         {
           type: "text",
@@ -192,7 +195,10 @@ export default {
         title: "Contact Information",
         description:
           "Want to discuss your project in detail? Schedule a free 30-minute consultation with our team of experts. We'll help you understand how our solutions can benefit your business.",
-        cta: { label: "Book a Call", href: "https://calendly.com/ingversionsdigital/30min?month=2025-10" },
+        cta: {
+          label: "Book a Call",
+          href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+        },
       },
     ],
   },
@@ -229,6 +235,109 @@ export default {
       },
     ],
   },
+  pricing: {
+    heading: "The Right Plan for you",
+    sub: "We have several powerful plans to showcase your business and get discovered as a creative entrepreneurs. Everything you need.",
+    plans: [
+      { name: "Starter", price: 999 },
+      { name: "Growth", price: 1899 },
+      { name: "Premium", price: 2999, badge: "Most Popular" },
+      { name: "Elite", contact: { label: "Contact US", href: "#contact" } },
+    ],
+    sections: [
+      {
+        title: "A/B TEST SERVICES",
+        rows: [
+          {
+            label: "Number of Test",
+            values: ["2 to 3", "4 to 5", "Upto 10", "High Volume Test"],
+          },
+          {
+            label: "Test Type",
+            values: [
+              "Simple (UI changes only)",
+              "Average (UI + Functional)",
+              "Complex",
+              "Complex (Price, Template/Theme)",
+            ],
+          },
+        ],
+      },
+      {
+        title: "SHOPIFY SERVICES",
+        rows: [
+          {
+            label: "Shopify Test",
+            values: [{ icon: "cross" }, "1", "2", "3 to 4"],
+          },
+          {
+            label: "Winning Test Implantation",
+            values: [{ icon: "cross" }, "Upto 2", "Upto 4", "6"],
+          },
+        ],
+      },
+      {
+        title: "DEDICATED SUPPORT",
+        rows: [
+          {
+            label: "Technical Support",
+            values: [
+              "Limited Support",
+              "Email or Scheduled Calls",
+              "Priority Support",
+              "Super Priority Support",
+            ],
+          },
+        ],
+      },
+      {
+        title: "QA SERVICES",
+        rows: [
+          {
+            label: "Visual QA",
+            values: [
+              { icon: "cross" },
+              { icon: "check" },
+              { icon: "check" },
+              { icon: "check" },
+            ],
+          },
+          {
+            label: "Technical QA (Browser + Devices)",
+            values: [
+              { icon: "cross" },
+              { icon: "cross" },
+              { icon: "check" },
+              { icon: "check" },
+            ],
+          },
+          {
+            label: "Full QA (Edge Case)",
+            values: [
+              { icon: "cross" },
+              { icon: "cross" },
+              { icon: "cross" },
+              { icon: "check" },
+            ],
+          },
+        ],
+      },
+      {
+        title: "REPORTING",
+        rows: [
+          {
+            label: "Reporting Duration",
+            values: [
+              "One Time Report",
+              "Bi-weekly Detailed Report",
+              "Weekly Detailed Report",
+              "Each Task Detailed Report",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
@@ -237,7 +346,10 @@ export default {
     email: "hello@ingversionsdigital.com",
     phone: "+91-8103684321",
     socials: [
-      { name: "facebook", href: "https://www.facebook.com/p/Ingversions-Digital-Pvt-Ltd-61573019451087" },
+      {
+        name: "facebook",
+        href: "https://www.facebook.com/p/Ingversions-Digital-Pvt-Ltd-61573019451087",
+      },
       { name: "twitter", href: "https://x.com/Ingversions" },
       { name: "linkedin", href: "https://in.linkedin.com/company/ingversions" },
       { name: "instagram", href: "https://www.instagram.com/ingversions/" },

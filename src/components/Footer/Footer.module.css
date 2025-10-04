@@ -51,7 +51,7 @@
   display: flex;
   width: 200px;
   max-width: 100%;
-  gap: 10px;
+  gap: 10px
 }
 .socialBtn {
   width: 40px;
@@ -107,16 +107,6 @@
   font-size: 16px;
   line-height: 150%
 }
-.addrIcon {
-  color: #2d9aff;
-  display: -ms-inline-grid;
-  display: inline-grid;
-  place-items: center
-}
-.addrIcon svg {
-  width: 18px;
-  height: 18px
-}
 .footContacts {
   position: absolute;
   right: 0;
@@ -131,6 +121,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  gap: 10px
 }
 .footContact {
   display: -webkit-box;
@@ -146,16 +137,6 @@
   font-size: 16px;
   line-height: 150%
 }
-.fcIcon {
-  color: #2d9aff;
-  display: -ms-inline-grid;
-  display: inline-grid;
-  place-items: center
-}
-.fcIcon svg {
-  width: 18px;
-  height: 18px
-}
 .footerBottom {
   text-align: center;
   color: #98989a;
@@ -164,4 +145,10 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%
+}
+.uiIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  display: block
 }

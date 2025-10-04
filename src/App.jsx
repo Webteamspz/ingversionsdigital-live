@@ -1,4 +1,4 @@
-import Header from "./components/header/header";
+import Header from "./components/header/Header";
 import Hero from "./components/hero/hero";
 import TrackRecord from "./components/track-record/track-record";
 import Services from "./components/services/services";
@@ -9,6 +9,8 @@ import Contact from "./components/contact/contact";
 import FAQ from "./components/faq/faq";
 import Footer from "./components/footer/footer";
 import Preloader from "./components/preloader/preloader";
+import PricingTable from "./components/pricing/pricing";
+
 
 export default function App() {
   return (
@@ -26,6 +28,7 @@ export default function App() {
       <WhyWeStarted />
       <Contact />
       <FAQ />
+      <PricingTable />
       <Footer />
     </>
   );

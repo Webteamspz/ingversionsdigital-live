@@ -15,7 +15,7 @@ export default function WhyWeStarted() {
   const nextRef = useRef(null);
 
   return (
-    <section className={styles.startedSection}>
+    <section className={styles.startedSection} id="why-we-started">
       <div className={`container ${styles.startedContainer}`}>
         <h3 className={`sectionTitle ${styles.startedTitle}`}>
           What Our Clients Say
