@@ -1,6 +1,6 @@
-import data from "../../data/siteData";       
-import CompanyLogos from "../company-logos/company-logos";  
-import styles from "./hero.module.css";      
+import data from "../../data/siteData";
+import CompanyLogos from "../company-logos/company-logos";
+import styles from "./hero.module.css";
 
 export default function Hero() {
   const h = data.hero;

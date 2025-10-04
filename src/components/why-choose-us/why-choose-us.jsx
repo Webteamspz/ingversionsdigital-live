@@ -1,6 +1,6 @@
-import data from "../../data/siteData";           
+import data from "../../data/siteData";
 import icon from "/assets/why-choose-us/checkmark.png";
-import styles from "./why-choose-us.module.css";        
+import styles from "./why-choose-us.module.css";
 
 export default function WhyChooseUs() {
   return (

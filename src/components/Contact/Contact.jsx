@@ -1,4 +1,3 @@
-// src/components/contact/contact.jsx
 import { useState } from "react";
 import data from "../../data/siteData";
 import styles from "./contact.module.css";
@@ -7,7 +6,6 @@ import PhoneField from "../contact/phone-field";
 import mailIcon from "/assets/contact/email.svg";
 import phoneIcon from "/assets/contact/phone.svg";
 import mapIcon from "/assets/contact/location.svg";
-
 
 const Icon = ({ name }) => {
   const icons = {
@@ -22,50 +20,44 @@ const Icon = ({ name }) => {
   return <img src={src} alt={`${name} icon`} width={20} height={20} />;
 };
 
-
 export default function Contact() {
   const { heading, form, infoCards } = data.contact;
 
-  // -------------------------------
-  // Form state
-  // -------------------------------
   const [formData, setFormData] = useState({
     phone: "",
     message: "",
   });
-  const [errors, setErrors] = useState({});   // { field: "message" }
-  const [touched, setTouched] = useState({}); // { field: true } -> show errors only after user interacted
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   const setField = (name, value) => {
     setFormData((p) => ({ ...p, [name]: value }));
   };
   const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
   const setError = (name, msg) =>
-    setErrors((p) => (msg ? { ...p, [name]: msg } : (delete p[name], { ...p })));
+    setErrors((p) =>
+      msg ? { ...p, [name]: msg } : (delete p[name], { ...p })
+    );
 
-  // -------------------------------
-  // Validation rules
-  // -------------------------------
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const lettersRegex = /^[\p{L}\s'-]+$/u; // letters, spaces, apostrophes, dashes
+  const lettersRegex = /^[\p{L}\s'-]+$/u;
   const onlyDigits = (s) => /^\d+$/.test(s);
 
   const validateField = (name, value) => {
     let msg = "";
 
     if (/name/i.test(name)) {
-      // allow typing anything, but flag when numbers appear
       if (value.trim() && !lettersRegex.test(value)) {
         msg = "Only letters are accepted.";
       } else if (!value.trim()) {
-        // optional: you can require it; or leave empty as valid
         msg = "This field is required";
       }
     }
 
     if (name === "email") {
       if (!value.trim()) msg = "Email is required";
-      else if (!emailRegex.test(value)) msg = "Please enter a valid email address";
+      else if (!emailRegex.test(value))
+        msg = "Please enter a valid email address";
     }
 
     if (name === "company") {
@@ -78,12 +70,9 @@ export default function Contact() {
     }
 
     if (name === "phone") {
-      // ✨ No default alert. Only validate after the user typed something (touched.phone)
       if (!touched.phone) {
-        msg = ""; // do not show anything before interaction
+        msg = "";
       } else if (!value) {
-        // If you do NOT want to show an error when it's empty even after touch,
-        // keep this empty string. If you want to require it, set a message here.
         msg = "";
       } else {
         const digits = value.replace(/\D/g, "");
@@ -112,7 +101,7 @@ export default function Contact() {
   const handleInput = (f) => (e) => {
     const val = e.currentTarget.value;
     setField(f.name, val);
-    touch(f.name); // mark as interacted
+    touch(f.name);
     validateField(f.name, val);
   };
 
@@ -132,14 +121,10 @@ export default function Contact() {
     <section id="contact" className={styles.contactSection}>
       <div className="container">
         <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
-
         <div className={styles.contactGrid}>
-          {/* LEFT (form) */}
           <div className={`${styles.contactCard} ${styles.formCard}`}>
             <h4 className={styles.contactPanelTitle}>{form.title}</h4>
-
             <form onSubmit={handleSubmit} noValidate>
-              {/* half cols */}
               <div className={`${styles.grid} ${styles.two}`}>
                 {form.fields
                   .filter((f) => f.col === "half")
@@ -147,7 +132,9 @@ export default function Contact() {
                     f.type === "textarea" ? null : (
                       <div key={f.name}>
                         <input
-                          className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
+                          className={`${styles.cInput} ${
+                            errors[f.name] ? styles.invalid : ""
+                          }`}
                           type={f.type}
                           name={f.name}
                           placeholder={f.placeholder}
@@ -156,21 +143,26 @@ export default function Contact() {
                           inputMode={/name/i.test(f.name) ? "text" : undefined}
                         />
                         {errors[f.name] && (
-                          <div className={styles.errorMessage}>{errors[f.name]}</div>
+                          <div className={styles.errorMessage}>
+                            {errors[f.name]}
+                          </div>
                         )}
                       </div>
                     )
                   )}
               </div>
-
-              {/* full width (except phone/message) */}
               {form.fields
-                .filter((f) => f.col === "full" && !["phone", "message"].includes(f.name))
+                .filter(
+                  (f) =>
+                    f.col === "full" && !["phone", "message"].includes(f.name)
+                )
                 .map((f) =>
                   f.type === "textarea" ? null : (
                     <div key={f.name} className={styles.mt}>
                       <input
-                        className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
+                        className={`${styles.cInput} ${
+                          errors[f.name] ? styles.invalid : ""
+                        }`}
                         type={f.type}
                         name={f.name}
                         placeholder={f.placeholder}
@@ -179,13 +171,13 @@ export default function Contact() {
                         inputMode={/name/i.test(f.name) ? "text" : undefined}
                       />
                       {errors[f.name] && (
-                        <div className={styles.errorMessage}>{errors[f.name]}</div>
+                        <div className={styles.errorMessage}>
+                          {errors[f.name]}
+                        </div>
                       )}
                     </div>
                   )
                 )}
-
-              {/* phone */}
               {form.fields.some((f) => f.name === "phone") && (
                 <div className={styles.mt}>
                   <PhoneField
@@ -201,14 +193,14 @@ export default function Contact() {
                   )}
                 </div>
               )}
-
-              {/* message */}
               {form.fields
                 .filter((f) => f.name === "message")
                 .map((f) => (
                   <div key={f.name} className={styles.mt}>
                     <textarea
-                      className={`${styles.cInput} ${styles.mt} ${errors.message ? styles.invalid : ""}`}
+                      className={`${styles.cInput} ${styles.mt} ${
+                        errors.message ? styles.invalid : ""
+                      }`}
                       name={f.name}
                       placeholder={f.placeholder}
                       onInput={(e) => {
@@ -223,23 +215,27 @@ export default function Contact() {
                       }}
                     />
                     {errors.message && (
-                      <div className={styles.errorMessage}>{errors.message}</div>
+                      <div className={styles.errorMessage}>
+                        {errors.message}
+                      </div>
                     )}
                   </div>
                 ))}
-
-              {/* submit */}
-              <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
+              <button
+                className={`btn ${styles.cBtn} ${styles.mt}`}
+                type="submit"
+              >
                 {form.submit.label}
                 <img src={planeIcon} alt="Send" className={styles.plane} />
               </button>
             </form>
           </div>
-
-          {/* RIGHT (info cards) */}
           <div className={styles.rightCol}>
             {infoCards.map((card, idx) => (
-              <div key={idx} className={`${styles.contactCard} ${styles.infoCard}`}>
+              <div
+                key={idx}
+                className={`${styles.contactCard} ${styles.infoCard}`}
+              >
                 <h4 className={styles.contactPanelTitle}>{card.title}</h4>
                 {card.items && (
                   <ul className={styles.cList}>
@@ -253,14 +249,18 @@ export default function Contact() {
                           .map((line, li) => (
                             <span key={li}>
                               {line}
-                              {li < String(it.text).split("\n").length - 1 && <br />}
+                              {li < String(it.text).split("\n").length - 1 && (
+                                <br />
+                              )}
                             </span>
                           ))}
                       </li>
                     ))}
                   </ul>
                 )}
-                {card.description && <p className={styles.contactNote}>{card.description}</p>}
+                {card.description && (
+                  <p className={styles.contactNote}>{card.description}</p>
+                )}
                 {card.cta && (
                   <a className={`btn ${styles.cBtn}`} href={card.cta.href}>
                     {card.cta.label}

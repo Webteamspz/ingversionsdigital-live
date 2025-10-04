@@ -1,4 +1,3 @@
-// src/components/pricing/PricingCompare.jsx
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
@@ -13,11 +12,10 @@ import prevSvg from "/assets/pricing/left.svg";
 import nextSvg from "/assets/pricing/right.svg";
 
 export default function PricingCompare() {
-  const { pricing } = data; // { heading, sub, plans, sections }
+  const { pricing } = data;
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  // map value → extra class for tick / cross
   const valueClass = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     return t === "check"
@@ -27,7 +25,6 @@ export default function PricingCompare() {
       : "";
   };
 
-  // render value (string/number or icon)
   const renderValue = (v, alt = "value") => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
@@ -48,10 +45,7 @@ export default function PricingCompare() {
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
-
-        {/* -------------------- DESKTOP TABLE -------------------- */}
         <div className={styles.tableWrap}>
-          {/* plans header */}
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
             {pricing.plans.map((p, i) => (
@@ -82,19 +76,14 @@ export default function PricingCompare() {
               </div>
             ))}
           </div>
-
-          {/* sections */}
           {pricing.sections.map((sec, sIdx) => (
             <div key={sIdx} className={styles.sectionBlock}>
-              {/* section title */}
               <div className={`${styles.row} ${styles.sectionTitle}`}>
                 <div className={`${styles.cell} ${styles.stub}`}>
                   {sec.title}
                 </div>
                 <div className={`${styles.cell} ${styles.spanner}`} />
               </div>
-
-              {/* rows */}
               {sec.rows.map((r, rIdx) => (
                 <div key={rIdx} className={`${styles.row} ${styles.rowLine}`}>
                   <div className={`${styles.cell} ${styles.labelCell}`}>
@@ -110,10 +99,7 @@ export default function PricingCompare() {
             </div>
           ))}
         </div>
-
-        {/* -------------------- MOBILE: FIXED LABELS + SWIPER -------------------- */}
         <div className={styles.mobileCompare}>
-          {/* fixed labels */}
           <div className={styles.labelsCol}>
             <div className={styles.labelsHeadSpacer} />
             {pricing.sections.map((sec, sIdx) => (
@@ -127,8 +113,6 @@ export default function PricingCompare() {
               </div>
             ))}
           </div>
-
-          {/* swiper */}
           <div className={styles.plansCol}>
             <button
               className={`${styles.navBtn} ${styles.prev}`}
@@ -138,7 +122,6 @@ export default function PricingCompare() {
             >
               <img src={prevSvg} alt="" className={styles.navIcon} />
             </button>
-
             <button
               className={`${styles.navBtn} ${styles.next}`}
               ref={nextRef}
@@ -147,7 +130,6 @@ export default function PricingCompare() {
             >
               <img src={nextSvg} alt="" className={styles.navIcon} />
             </button>
-
             <Swiper
               modules={[Navigation, A11y]}
               speed={500}
@@ -183,7 +165,6 @@ export default function PricingCompare() {
                       </div>
                     )}
                   </div>
-
                   {pricing.sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
                       <div className={styles.mSectionTitle}>{sec.title}</div>

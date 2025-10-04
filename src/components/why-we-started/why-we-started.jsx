@@ -18,10 +18,8 @@ export default function WhyWeStarted() {
     <section className={styles.startedSection} id="why-we-started">
       <div className={`container ${styles.startedContainer}`}>
         <h3 className={`sectionTitle ${styles.startedTitle}`}>
-          What Our Clients Say
+          Client Reviews
         </h3>
-
-        {/* Custom nav buttons */}
         <button
           className={`${styles.tsNav} ${styles.tsPrev}`}
           ref={prevRef}
@@ -36,7 +34,6 @@ export default function WhyWeStarted() {
         >
           <img src={arrowRight} alt="" />
         </button>
-
         <Swiper
           modules={[Navigation, A11y]}
           speed={600}
@@ -77,11 +74,7 @@ export default function WhyWeStarted() {
                   loading="lazy"
                 />
               </div>
-
-              {/* The actual testimonial text */}
               <p className={styles.testimonialQuote}>{t.quote}</p>
-
-              {/* Reviewer + role */}
               <div className={styles.testimonialReviewer}>
                 {t.reviewer}
                 <div className={styles.testimonialText}>{t.role}</div>

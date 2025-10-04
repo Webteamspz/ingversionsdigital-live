@@ -1,7 +1,6 @@
 import data from "../../data/siteData";
 import styles from "./footer.module.css";
 
-/** Social icons (already images) */
 const SOCIAL_ICONS = {
   facebook: "/assets/footer/fb.png",
   twitter: "/assets/footer/x.png",
@@ -24,11 +23,10 @@ const SocialIcon = ({ name }) => {
   );
 };
 
-
 const UI_ICON_PATHS = {
-  pin: "/assets/footer/location.svg",    
-  mail: "/assets/footer/email.svg",   
-  phone: "/assets/footer/phone.svg", 
+  pin: "/assets/footer/location.svg",
+  mail: "/assets/footer/email.svg",
+  phone: "/assets/footer/phone.svg",
 };
 
 const UIIcon = ({ name, className }) => {
@@ -52,27 +50,34 @@ export default function Footer() {
   return (
     <footer className={styles.siteFooter}>
       <div className={styles.footerBorder} />
-
       <div className={`container ${styles.footerTop}`}>
         <div className={styles.footLeft}>
-          <img src={f.logo} alt={`${f.company} logo`} className={styles.footerLogo} />
+          <img
+            src={f.logo}
+            alt={`${f.company} logo`}
+            className={styles.footerLogo}
+          />
         </div>
-
         <nav className={styles.footNav}>
           {f.links.map((l, i) => (
-            <a key={i} href="#">{l}</a>
+            <a key={i} href="#">
+              {l}
+            </a>
           ))}
         </nav>
-
         <div className={styles.footSocials}>
           {f.socials.map((s, i) => (
-            <a key={i} href={s.href} aria-label={s.name} className={styles.socialBtn}>
+            <a
+              key={i}
+              href={s.href}
+              aria-label={s.name}
+              className={styles.socialBtn}
+            >
               <SocialIcon name={s.name} />
             </a>
           ))}
         </div>
       </div>
-
       <div className={`container ${styles.footerMid}`}>
         <div className={styles.footAddress}>
           <span className={styles.addrIcon}>
@@ -80,7 +85,6 @@ export default function Footer() {
           </span>
           <span>{f.address}</span>
         </div>
-
         <div className={styles.footContacts}>
           <a href={`mailto:${f.email}`} className={styles.footContact}>
             <span className={`${styles.fcIcon} ${styles.mail}`}>
@@ -96,7 +100,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
       <div className={`container ${styles.footerBottom}`}>
         © {f.year} {f.company}. All rights reserved.
       </div>

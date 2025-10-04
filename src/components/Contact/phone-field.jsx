@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";   // ✅ Import styles
+import "react-international-phone/style.css";
 import styles from "./contact.module.css";
 
 export default function PhoneField({ defaultCountry = "in", onChange }) {

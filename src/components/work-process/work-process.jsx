@@ -9,8 +9,9 @@ export default function WorkProcess() {
           Our Simple Work Process
         </h3>
         <p className={styles.processSub}>
-          Delivering innovative solutions We provide our best service of our consumers choices.
-          Lot of happy customers we have. Cross diverse industries with deep domain expertise.
+          Delivering innovative solutions with deep domain expertise, we provide
+          top-notch services tailored to consumer choices, earning the trust of
+          countless happy customers across diverse industries.
         </p>
         <div className={styles.processGrid}>
           {data.process.map((p, i) => (

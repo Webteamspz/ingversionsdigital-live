@@ -4,7 +4,7 @@
 }
 .servicesSub {
   color: #ffffffe5;
-  margin: 0 0 50px;
+  margin: 0 0 45px;
   text-align: center;
   font-family: Barlow;
   font-weight: 400;
@@ -53,13 +53,13 @@
   transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease
 }
 .icon {
-  height: 150px;
-  width: 150px;
-  margin: 24px auto 32px;
+  width: 100%;
+  max-width: 150px;
+  margin: 26px auto 35px;
   display: block
 }
 .serviceTitle {
-  margin: 0 0 32px;
+  margin: 0 0 34px;
   color: #fff;
   font-family: Barlow;
   font-weight: 600;

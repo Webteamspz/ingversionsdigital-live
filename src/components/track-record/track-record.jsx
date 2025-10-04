@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import data from "../../data/siteData";         
-import styles from "./track-record.module.css";  
+import data from "../../data/siteData";
+import styles from "./track-record.module.css";
 
 function Counter({ value, duration = 3000 }) {
   const ref = useRef(null);
@@ -28,7 +28,11 @@ function Counter({ value, duration = 3000 }) {
     return () => clearInterval(timer);
   }, [numericPart, suffix, duration]);
 
-  return <div ref={ref} className={styles.value}>0{suffix}</div>;
+  return (
+    <div ref={ref} className={styles.value}>
+      0{suffix}
+    </div>
+  );
 }
 
 export default function TrackRecord() {

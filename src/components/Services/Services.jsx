@@ -1,4 +1,4 @@
-import data from "../../data/siteData"; 
+import data from "../../data/siteData";
 import styles from "./services.module.css";
 
 export default function Services() {
@@ -7,7 +7,8 @@ export default function Services() {
       <div className="container">
         <h3 className="section-title">Our CRO Services</h3>
         <p className={styles.servicesSub}>
-          Delivering innovative solutions across diverse industries with deep domain expertise.
+          Delivering innovative solutions across diverse industries with deep
+          domain expertise.
         </p>
         <div className={styles.services}>
           {data.services.map((s, i) => (

@@ -36,7 +36,6 @@ function FAQItem({ index, q, a, isOpen, onToggle }) {
       >
         {q}
       </button>
-
       <div
         id={`faq-panel-${index}`}
         role="region"
