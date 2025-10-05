@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import styles from "./preloader.module.css";
+import styles from "./Preloader.module.css";
 
 export default function Preloader({ minDuration = 800, logoSrc }) {
   const [visible, setVisible] = useState(true);

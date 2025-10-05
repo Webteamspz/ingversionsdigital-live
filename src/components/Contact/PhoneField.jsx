@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import styles from "./contact.module.css";
+import styles from "./Contact.module.css";
 
 export default function PhoneField({ defaultCountry = "in", onChange }) {
   const [value, setValue] = useState("");

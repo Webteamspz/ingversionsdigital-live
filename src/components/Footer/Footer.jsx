@@ -1,5 +1,5 @@
 import data from "../../data/siteData";
-import styles from "./footer.module.css";
+import styles from "./Footer.module.css";
 
 const SOCIAL_ICONS = {
   facebook: "/assets/footer/fb.png",

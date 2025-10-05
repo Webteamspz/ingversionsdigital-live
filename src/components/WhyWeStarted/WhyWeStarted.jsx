@@ -8,7 +8,7 @@ import quoteImg from "/assets/why-we-started/icon.png";
 import arrowLeft from "/assets/why-we-started/left-button.png";
 import arrowRight from "/assets/why-we-started/right-Button.png";
 
-import styles from "./why-we-started.module.css";
+import styles from "./WhyWeStarted.module.css";
 
 export default function WhyWeStarted() {
   const prevRef = useRef(null);

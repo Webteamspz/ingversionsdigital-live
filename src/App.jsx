@@ -1,15 +1,15 @@
-import Header from "./components/header/Header";
-import Hero from "./components/hero/hero";
-import TrackRecord from "./components/track-record/track-record";
-import Services from "./components/services/services";
-import WorkProcess from "./components/work-process/work-process";
-import WhyChooseUs from "./components/why-choose-us/why-choose-us";
-import WhyWeStarted from "./components/why-we-started/why-we-started";
-import Contact from "./components/contact/contact";
-import FAQ from "./components/faq/faq";
-import Footer from "./components/footer/footer";
-import Preloader from "./components/preloader/preloader";
-import PricingTable from "./components/pricing/pricing";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import TrackRecord from "./components/TrackRecord/TrackRecord";
+import Services from "./components/Services/Services";
+import WorkProcess from "./components/WorkProcess/WorkProcess";
+import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import WhyWeStarted from "./components/WhyWeStarted/WhyWeStarted";
+import Contact from "./components/Contact/Contact";
+import FAQ from "./components/FAQ/FAQ";
+import Footer from "./components/Footer/Footer";
+import Preloader from "./components/Preloader/Preloader";
+import PricingTable from "./components/Pricing/Pricing";
 
 
 export default function App() {

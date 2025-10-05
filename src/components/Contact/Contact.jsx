@@ -1,8 +1,8 @@
 import { useState } from "react";
 import data from "../../data/siteData";
-import styles from "./contact.module.css";
+import styles from "./Contact.module.css";
 import planeIcon from "/assets/contact/vector.png";
-import PhoneField from "../contact/phone-field";
+import PhoneField from "./PhoneField"
 import mailIcon from "/assets/contact/email.svg";
 import phoneIcon from "/assets/contact/phone.svg";
 import mapIcon from "/assets/contact/location.svg";
