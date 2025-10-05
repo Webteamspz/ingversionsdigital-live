@@ -90,7 +90,8 @@ html {
   scroll-behavior: smooth
 }
 section[id] {
-  scroll-margin-top: 84px
+  scroll-margin-top: 84px;
+  overflow: hidden;
 }
 @media (max-width:991px) {
   section[id] {

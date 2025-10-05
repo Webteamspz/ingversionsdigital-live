@@ -30,8 +30,8 @@
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto 220px 1fr;
-  grid-template-rows: auto 220px 1fr;
+  -ms-grid-rows: auto 210px 1fr;
+  grid-template-rows: auto 210px 1fr;
   -webkit-box-shadow: 0 8px 20px rgba(0,0,0,.25);
   box-shadow: 0 8px 20px rgba(0,0,0,.25)
 }
@@ -48,9 +48,6 @@
   border-bottom: 1px solid rgba(255,255,255,.08)
 }
 .stepBody {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #1f1f1f;
   border-bottom: 2px solid #262626
 }
@@ -58,16 +55,16 @@
   display: block;
   max-width: 150px;
   width: 100%;
-  margin: 30px auto;
+  margin: 28px auto;
   object-fit: cover;
   -webkit-filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
 }
 .stepDesc {
   color: #b3b3b2;
-  font-family: "Roboto Flex",sans-serif;
+  font-family: "Barlow";
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  padding: 21px
+  padding: 21px 23px 23px;
 }

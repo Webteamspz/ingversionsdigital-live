@@ -39,7 +39,7 @@ export default function WhyWeStarted() {
           speed={600}
           loop
           grabCursor
-          spaceBetween={28}
+          spaceBetween={30}
           slidesPerView={3}
           centeredSlides={false}
           onBeforeInit={(swiper) => {
@@ -58,7 +58,7 @@ export default function WhyWeStarted() {
             0: { slidesPerView: 1, spaceBetween: 16 },
             640: { slidesPerView: 1, spaceBetween: 18 },
             900: { slidesPerView: 2, spaceBetween: 22 },
-            1200: { slidesPerView: 3, spaceBetween: 28 },
+            1200: { slidesPerView: 3, spaceBetween: 30 },
           }}
           className={styles.testimonialSlider}
         >
@@ -77,7 +77,7 @@ export default function WhyWeStarted() {
               <p className={styles.testimonialQuote}>{t.quote}</p>
               <div className={styles.testimonialReviewer}>
                 {t.reviewer}
-                <div className={styles.testimonialText}>{t.role}</div>
+                <div className={styles.testimonialText}>{t.reviewerRole}</div>
               </div>
             </SwiperSlide>
           ))}
