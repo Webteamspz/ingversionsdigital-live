@@ -4,9 +4,9 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
-import quoteImg from "/assets/review/icon.png";
-import arrowLeft from "/assets/review/left-button.png";
-import arrowRight from "/assets/review/right-Button.png";
+import quoteImg from "/assets/reviews/icon.png";
+import arrowLeft from "/assets/reviews/left-button.png";
+import arrowRight from "/assets/reviews/right-Button.png";
 
 import styles from "./Reviews.module.css";
 

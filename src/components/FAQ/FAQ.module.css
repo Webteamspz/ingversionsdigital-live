@@ -33,6 +33,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   cursor: pointer;
   background: #1e1e1e;
@@ -48,14 +49,40 @@
 .accordionItem.open .accordionItemHeader {
   color: #0a84ff;
 }
-.accordionItemHeader::after {
-  content: "\002B";
-  position: absolute;
-  right: 45px;
-  font-size: 40px
+.accordionItemIcon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
 }
-.accordionItem.open .accordionItemHeader::after {
-  content: "\2212"
+.accordionItem.open .accordionItemIcon:before {
+  transform: translateY(-50%) rotate(-90deg);
+  opacity: 0;
+}
+.accordionItem.open .accordionItemIcon:after {
+  transform: translateY(-50%) rotate(0);
+}
+.accordionItemIcon:before,
+.accordionItemIcon:after {
+  content: "";
+  display: block;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transition: 0.35s;
+  width: 100%;
+  height: 3px;
+}
+.accordionItem.open .accordionItemIcon:before,
+.accordionItem.open .accordionItemIcon:after {
+  background-color: #0a84ff;
+}
+.accordionItemIcon:before {
+  transform: translateY(-50%);
+}
+.accordionItemIcon:after {
+  transform: translateY(-50%) rotate(90deg);
 }
 .accordionItemBody {
   max-height: 0;

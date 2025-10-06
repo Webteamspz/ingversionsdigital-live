@@ -4,31 +4,39 @@
   color: #fff;
   height: 800px
 }
+.teamContainer {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
 .title {
-  margin: 0 0 8px;
+  margin: 0 0 60px;
   text-align: center;
   font-family: Barlow,system-ui,sans-serif;
-  font-weight: 800;
-  font-size: 50px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #FFFFFF;
 }
 .pill {
-  background: #0a84ff;
+  display: inline-block;
   color: #fff;
-  padding: .14em .5em .2em;
-  border-radius: 8px;
-  display: inline-block
+  position: relative;
+  z-index: 1
 }
-.subtitle {
-  margin: 0 auto 28px;
-  text-align: center;
-  color: #cfcfcf;
-  max-width: 820px;
-  font-size: clamp(14px,1.4vw,18px);
-  line-height: 1.6
+.pill:after {
+  position: absolute;
+  content: '';
+  left: -4px;
+  bottom: 3px;
+  background: #0a84ff;
+  width: 98px;
+  height: 47px;
+  border-radius: 16px;
+  z-index: -1
 }
 .slider {
   width: 100%;
-  padding: 6px 4px 24px
+  max-width: 100%;
 }
 .cardSlide {
   width: clamp(220px,22vw,280px)!important
@@ -39,31 +47,37 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(0,0,0,.28);
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 550px;
-  width: 100%
-}
-.photoWrap {
-  aspect-ratio: 2/3.8;
-  background: #0e0e0e;
-  position: relative
-}
-.photoWrap img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(.1) contrast(1.1) brightness(.95)
+  padding: 45px 0
 }
-@media (hover:hover) {
-  .card {
-    transition: transform .2s ease,box-shadow .2s ease
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(0,0,0,.34)
-  }
+.memberImg {
+  max-width: 377px;
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: block;
+  object-fit: cover
+}
+.infoName {
+  font-family: Barlow;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 10px auto;
+}
+.infoRole {
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0 auto;
 }

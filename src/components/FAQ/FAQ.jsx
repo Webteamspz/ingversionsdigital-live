@@ -34,7 +34,8 @@ function FAQItem({ index, q, a, isOpen, onToggle }) {
         aria-controls={`faq-panel-${index}`}
         id={`faq-button-${index}`}
       >
-        {q}
+        <span>{q}</span>
+        <div className={styles.accordionItemIcon}></div>
       </button>
       <div
         id={`faq-panel-${index}`}
