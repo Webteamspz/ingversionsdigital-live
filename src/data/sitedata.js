@@ -338,6 +338,53 @@ export default {
       },
     ],
   },
+  team: [
+    { name: "Rahul Patil",     role: "Founder and CEO", photo: "/assets/team/rahul.jpg" },
+    { name: "Harsh Jariwala",  role: "Founder and CEO", photo: "/assets/team/harsh.jpg" },
+    { name: "Kranthika Ele",   role: "QA",              photo: "/assets/team/kranthika.jpg" },
+    { name: "Nafees Hasnat",   role: "CRO Dev",         photo: "/assets/team/nafees.jpg" },
+    { name: "Kundan Mali",     role: "Shopify Dev",     photo: "/assets/team/kundan.jpg" },
+      {
+        name: "Sree Priya",
+        role: "QA",
+        photo: "/assets/team/sree.jpg"
+      },
+      {
+        name: "Piyush Ranipa",
+        role: "Wordpress Dev",
+        photo: "/assets/team/piyush.jpg"
+      },
+      {
+        name: "Bhumika Paladiya",
+        role: "CRO Dev",
+        photo: "/assets/team/bhumika.jpg"
+      },
+      {
+        name: "Writwik Seti",
+        role: "React Dev",
+        photo: "/assets/team/writwik.jpg"
+      },
+      {
+        name: "Vishal Kumawat",
+        role: "Shopify Dev",
+        photo: "/assets/team/vishal.jpg"
+      },
+      {
+        name: "Hemanth Dhataram",
+        role: "HR",
+        photo: "/assets/team/hemanth.jpg"
+      },
+      {
+        name: "Ayushi Shah",
+        role: "Shopify Dev",
+        photo: "/assets/team/ayushi.jpg"
+      },
+      {
+        name: "Mritunjay Rajak",
+        role: "Intern Dev",
+        photo: "/assets/team/mrityunjay.jpg"
+      }
+  ],
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",

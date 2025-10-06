@@ -10,6 +10,7 @@ import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
 import PricingTable from "./components/Pricing/Pricing";
+import Team from "./components/Team/Team";
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
       <Contact />
       <FAQ />
       <PricingTable />
+      <Team />
       <Footer />
     </>
   );
