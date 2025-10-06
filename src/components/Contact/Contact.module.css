@@ -13,14 +13,13 @@
 }
 .contactCard {
   background: #141414;
-  border: 1px solid rgba(255,255,255,.08);
   border-radius: 16px;
-  padding: 22px;
+  padding: 32px 40px;
   -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
   box-shadow: 0 10px 24px rgba(0,0,0,.25)
 }
 .formCard {
-  padding: 26px
+  padding: 32px 40px
 }
 .rightCol {
   display: -ms-grid;
@@ -40,7 +39,7 @@
 textarea.cInput {
   width: 100%;
   background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,0);
   border-radius: 5px;
   color: #ffffff99;
   padding: 12px 14px;
@@ -48,7 +47,8 @@ textarea.cInput {
 }
 textarea.cInput {
   min-height: 160px;
-  resize: vertical
+  resize: vertical;
+  margin-top: 0
 }
 .grid.two {
   display: -ms-grid;
@@ -66,7 +66,7 @@ textarea.cInput {
   margin: 0;
   display: -ms-grid;
   display: grid;
-  gap: 14px
+  gap: 24px
 }
 .cIco {
   width: 24px;
@@ -86,9 +86,6 @@ textarea.cInput {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   color: #e6e6e6;
   font-family: Barlow,sans-serif;
   font-weight: 400;
@@ -96,6 +93,13 @@ textarea.cInput {
   line-height: 150%;
   text-align: center;
   vertical-align: middle
+}
+.cList li:last-child {
+  max-width: 250px;
+  width: 100%;
+}
+.cList li:last-child span:last-child {
+  text-align: left;
 }
 .cBtn {
   width: 100%!important;

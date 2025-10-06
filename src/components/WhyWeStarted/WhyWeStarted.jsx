@@ -18,7 +18,7 @@ export default function WhyWeStarted() {
     <section className={styles.startedSection} id="why-we-started">
       <div className={`container ${styles.startedContainer}`}>
         <h3 className={`sectionTitle ${styles.startedTitle}`}>
-          Client Reviews
+          Reviews
         </h3>
         <button
           className={`${styles.tsNav} ${styles.tsPrev}`}

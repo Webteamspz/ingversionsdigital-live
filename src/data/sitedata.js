@@ -187,7 +187,7 @@ export default {
           { icon: "phone", text: "+91-8103684321" },
           {
             icon: "map",
-            text: "2599 Shiv Krupa Association,Kansad, Sachin, Surat 394230 India",
+            text: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230 India.",
           },
         ],
       },
@@ -339,51 +339,67 @@ export default {
     ],
   },
   team: [
-    { name: "Rahul Patil",     role: "Founder and CEO", photo: "/assets/team/rahul.jpg" },
-    { name: "Harsh Jariwala",  role: "Founder and CEO", photo: "/assets/team/harsh.jpg" },
-    { name: "Kranthika Ele",   role: "QA",              photo: "/assets/team/kranthika.jpg" },
-    { name: "Nafees Hasnat",   role: "CRO Dev",         photo: "/assets/team/nafees.jpg" },
-    { name: "Kundan Mali",     role: "Shopify Dev",     photo: "/assets/team/kundan.jpg" },
-      {
-        name: "Sree Priya",
-        role: "QA",
-        photo: "/assets/team/sree.jpg"
-      },
-      {
-        name: "Piyush Ranipa",
-        role: "Wordpress Dev",
-        photo: "/assets/team/piyush.jpg"
-      },
-      {
-        name: "Bhumika Paladiya",
-        role: "CRO Dev",
-        photo: "/assets/team/bhumika.jpg"
-      },
-      {
-        name: "Writwik Seti",
-        role: "React Dev",
-        photo: "/assets/team/writwik.jpg"
-      },
-      {
-        name: "Vishal Kumawat",
-        role: "Shopify Dev",
-        photo: "/assets/team/vishal.jpg"
-      },
-      {
-        name: "Hemanth Dhataram",
-        role: "HR",
-        photo: "/assets/team/hemanth.jpg"
-      },
-      {
-        name: "Ayushi Shah",
-        role: "Shopify Dev",
-        photo: "/assets/team/ayushi.jpg"
-      },
-      {
-        name: "Mritunjay Rajak",
-        role: "Intern Dev",
-        photo: "/assets/team/mrityunjay.jpg"
-      }
+    {
+      name: "Rahul Patil",
+      role: "Founder and CEO",
+      photo: "/assets/team/rahul.jpg",
+    },
+    {
+      name: "Harsh Jariwala",
+      role: "Founder and CEO",
+      photo: "/assets/team/harsh.jpg",
+    },
+    { name: "Kranthika Ele", role: "QA", photo: "/assets/team/kranthika.jpg" },
+    {
+      name: "Nafees Hasnat",
+      role: "CRO Dev",
+      photo: "/assets/team/nafees.jpg",
+    },
+    {
+      name: "Kundan Mali",
+      role: "Shopify Dev",
+      photo: "/assets/team/kundan.jpg",
+    },
+    {
+      name: "Sree Priya",
+      role: "QA",
+      photo: "/assets/team/sree.jpg",
+    },
+    {
+      name: "Piyush Ranipa",
+      role: "Wordpress Dev",
+      photo: "/assets/team/piyush.jpg",
+    },
+    {
+      name: "Bhumika Paladiya",
+      role: "CRO Dev",
+      photo: "/assets/team/bhumika.jpg",
+    },
+    {
+      name: "Writwik Seti",
+      role: "React Dev",
+      photo: "/assets/team/writwik.jpg",
+    },
+    {
+      name: "Vishal Kumawat",
+      role: "Shopify Dev",
+      photo: "/assets/team/vishal.jpg",
+    },
+    {
+      name: "Hemanth Dhataram",
+      role: "HR",
+      photo: "/assets/team/hemanth.jpg",
+    },
+    {
+      name: "Ayushi Shah",
+      role: "Shopify Dev",
+      photo: "/assets/team/ayushi.jpg",
+    },
+    {
+      name: "Mritunjay Rajak",
+      role: "Intern Dev",
+      photo: "/assets/team/mrityunjay.jpg",
+    },
   ],
   footer: {
     logo: "/assets/logos/main-logo.png",
@@ -391,24 +407,25 @@ export default {
     links: [
       {
         name: "Home",
-        href: "#hero"
+        href: "#hero",
       },
       {
         name: "Services",
-        href: "#cro-services"
+        href: "#cro-services",
       },
       {
         name: "Review",
-        href: "#why-we-started"
+        href: "#why-we-started",
       },
       {
         name: "About Us",
-        href: "#contact"
+        href: "#contact",
       },
       {
         name: "FAQ",
-        href: "#faq"
-      }],
+        href: "#faq",
+      },
+    ],
     address: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230",
     email: "hello@ingversionsdigital.com",
     phone: "+91-8103684321",

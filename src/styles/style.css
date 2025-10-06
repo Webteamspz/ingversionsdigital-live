@@ -64,7 +64,8 @@ body {
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0a84ff
+  border: 1px solid #0a84ff;
+  cursor: pointer
 }
 .btn:hover {
   background: #fffFFF1A;
@@ -148,4 +149,67 @@ section[id] {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05)
+}
+input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 1000px transpernt inset !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-text-fill-color: #ffffff99;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+::-webkit-input-placeholder {
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  color: #FFFFFF99 !important;
+}
+.react-international-phone-input-container {
+  position: relative;
+}
+.react-international-phone-country-selector {
+  position: static;
+}
+.react-international-phone-country-selector button {
+  padding-left: 14px;
+}
+.react-international-phone-input {
+  width: 100%;
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0) !important;
+  border-radius: 5px;
+  color: #ffffff99 !important;
+  padding: 12px 14px !important;
+  outline: 0;
+  min-height: 40.67px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  font-family: Barlow;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 100% !important;
+  color: #FFFFFF99 !important;
+}
+.react-international-phone-input-container .react-international-phone-country-selector-button {
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0) !important;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  min-height: 40.67px;
+}
+.react-international-phone-country-selector-dropdown {
+  width: 100%;
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0) !important;
+  border-radius: 5px;
+  color: #ffffff99 !important;
+  outline: none;
+}
+.react-international-phone-country-selector-dropdown__list-item--focused {
+  background: #0a84ff !important;
+  color: #fff !important;
+}
+.react-international-phone-country-selector-dropdown__list-item--selected .react-international-phone-country-selector-dropdown__list-item-dial-code, 
+.react-international-phone-country-selector-dropdown__list-item--focused .react-international-phone-country-selector-dropdown__list-item-dial-code {
+  color: #fff !important;
 }

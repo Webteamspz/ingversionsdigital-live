@@ -1,7 +1,6 @@
 import { useState } from "react";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
-import planeIcon from "/assets/contact/vector.png";
 import PhoneField from "./PhoneField"
 import mailIcon from "/assets/contact/email.svg";
 import phoneIcon from "/assets/contact/phone.svg";
@@ -184,7 +183,7 @@ export default function Contact() {
                     defaultCountry="in"
                     onChange={(val) => {
                       setField("phone", val);
-                      touch("phone"); // mark interacted when user changes phone
+                      touch("phone"); 
                       validateField("phone", val);
                     }}
                   />
@@ -226,7 +225,6 @@ export default function Contact() {
                 type="submit"
               >
                 {form.submit.label}
-                <img src={planeIcon} alt="Send" className={styles.plane} />
               </button>
             </form>
           </div>
