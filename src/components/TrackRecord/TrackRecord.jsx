@@ -39,9 +39,9 @@ export default function TrackRecord() {
   return (
     <section className={styles.kpiSection} id="track-record">
       <div className="container">
-        <h3 className="section-title">Our Track Record</h3>
+        <h3 className="section-title">{data.records.heading}</h3>
         <div className={styles.kpis}>
-          {data.kpis.map((k, i) => (
+          {data.records.list.map((k, i) => (
             <div key={i} className={styles.kpi}>
               <div className={styles.label}>{k.label}</div>
               <Counter value={k.value} duration={3000} />

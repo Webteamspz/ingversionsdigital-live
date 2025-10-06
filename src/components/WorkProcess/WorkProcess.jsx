@@ -6,15 +6,13 @@ export default function WorkProcess() {
     <section className={styles.processSection} id="work-process">
       <div className="container">
         <h3 className={`section-title ${styles["process-title"]}`}>
-          Our Simple Work Process
+          {data.process.heading}
         </h3>
         <p className={styles.processSub}>
-          Delivering innovative solutions with deep domain expertise, we provide
-          top-notch services tailored to consumer choices, earning the trust of
-          countless happy customers across diverse industries.
+          {data.process.sub}
         </p>
         <div className={styles.processGrid}>
-          {data.process.map((p, i) => (
+          {data.process.list.map((p, i) => (
             <article key={i} className={styles.step}>
               <div className={styles.stepHead}>{p.title}</div>
 

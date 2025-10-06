@@ -51,7 +51,7 @@ function FAQItem({ index, q, a, isOpen, onToggle }) {
 }
 
 export default function FAQ() {
-  const { heading, items } = data.faqSection;
+  const { heading, list } = data.faq;
   const [openIndex, setOpenIndex] = useState(-1);
 
   const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));
@@ -60,7 +60,7 @@ export default function FAQ() {
     <section className={styles.faqWrapper} id="faq">
       <h1>{heading}</h1>
       <div className={styles.accordion}>
-        {items.map((it, i) => (
+        {list.map((it, i) => (
           <FAQItem
             key={i}
             index={i}

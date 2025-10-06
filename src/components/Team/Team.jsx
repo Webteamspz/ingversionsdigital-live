@@ -1,4 +1,3 @@
-// Team.jsx
 import data from "../../data/siteData";
 import styles from "./team.module.css";
 
@@ -12,15 +11,12 @@ export default function Team() {
   return (
     <section className={styles.teamSection} id="team">
       <div className="container">
-        {/* Heading */}
         <h2 className={styles.title}>
-          Meet Our <span className={styles.pill}>Team</span>
+          {data.team.heading}<span className={styles.pill}>{data.team.pill}</span>
         </h2>
         <p className={styles.subtitle}>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
-
-        {/* Slider */}
         <Swiper
           modules={[Autoplay, A11y, FreeMode]}
           className={styles.slider}
@@ -29,11 +25,11 @@ export default function Team() {
           freeMode
           freeModeMomentum={false}
           loop
-          loopAdditionalSlides={members.length}         
+          loopAdditionalSlides={members.list.length}         
           speed={2000}                                 
           autoplay={{ delay: 1, disableOnInteraction: false, pauseOnMouseEnter: true }}
         >
-          {members.map((m, i) => (
+          {members.list.map((m, i) => (
             <SwiperSlide key={i} className={styles.cardSlide}>
               <article className={styles.card}>
                 <div className={styles.photoWrap}>

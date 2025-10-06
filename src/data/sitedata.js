@@ -2,8 +2,8 @@ export default {
   header: {
     links: [
       { label: "Home", href: "#hero" },
-      { label: "Services", href: "#cro-services" },
-      { label: "Review", href: "#why-we-started" },
+      { label: "Services", href: "#services" },
+      { label: "Review", href: "#reviews" },
       { label: "About Us", href: "#contact" },
       { label: "FAQ", href: "#faq" },
     ],
@@ -13,9 +13,9 @@ export default {
     },
   },
   hero: {
-    titleLeading: "From idea to",
+    heading: "From idea to",
     pill: "Impact",
-    subtitle: "CRO-Driven Websites That Work for You",
+    sub: "CRO-Driven Websites That Work for You",
     cta: { label: "Book a Call", href: "#contact" },
     avatars: [
       "/assets/hero/hero-client-1.png",
@@ -33,117 +33,134 @@ export default {
     "/assets/hero/amazon.png",
     "/assets/hero/adobe.png",
   ],
-  kpis: [
-    { value: "10+", label: "Clients" },
-    { value: "500+", label: "Projects" },
-    { value: "100%", label: "Happy clients" },
-    { value: "5+", label: "Years of experience" },
-  ],
-  services: [
-    {
-      title: "A/B Testing",
-      desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
-      icon: "/assets/services/ab-testing.png",
-    },
-    {
-      title: "Shopify Development",
-      desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
-      icon: "/assets/services/shopify.png",
-    },
-    {
-      title: "Quality Assurance",
-      desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
-      icon: "/assets/services/qa.png",
-    },
-    {
-      title: "WordPress Development",
-      desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-      icon: "/assets/services/wordpress.png",
-    },
-    {
-      title: "Landing Page Personalization",
-      desc: "Deliver tailored experiences that adapt to user behavior, boosting engagement and conversions.",
-      icon: "/assets/services/landing-page.png",
-    },
-  ],
-  process: [
-    {
-      title: "Project Discussion",
-      desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
-      icon: "/assets/work-process/project-discussion.png",
-    },
-    {
-      title: "Plan & Approach",
-      desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-      icon: "/assets/work-process/plan.png",
-    },
-    {
-      title: "Development",
-      desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-      icon: "/assets/work-process/dev.png",
-    },
-    {
-      title: "Launch",
-      desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-      icon: "/assets/work-process/goal.png",
-    },
-  ],
-  why: [
-    {
-      title: "Innovation",
-      desc: "Pushing boundaries with AI and quantitative trading to deliver cutting-edge solutions.",
-    },
-    {
-      title: "Collaboration",
-      desc: "Working closely with clients to develop tailored solutions that drive measurable success.",
-    },
-    {
-      title: "Excellence",
-      desc: "Maintaining the highest standards in code quality, system performance, and client outcomes.",
-    },
-    {
-      title: "Integrity",
-      desc: "Operating with transparency and ethical considerations at the forefront of all decisions.",
-    },
-  ],
-  testimonials: [
-    {
-      reviewer: "John Doe",
-      reviewerRole: "Founder & CEO",
-      quote:
-        "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
-    },
-    {
-      reviewer: "John Doe",
-      reviewerRole: "Founder & CEO",
-      quote:
-        "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
-    },
-    {
-      reviewer: "John Doe",
-      reviewerRole: "Founder & CEO",
-      quote:
-        "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
-    },
-    {
-      reviewer: "Jane Roe",
-      reviewerRole: "CTO",
-      quote:
-        "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
-    },
-    {
-      reviewer: "Alex Kim",
-      reviewerRole: "COO",
-      quote:
-        "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
-    },
-    {
-      reviewer: "Priya Shah",
-      reviewerRole: "Head of Product",
-      quote:
-        "We ship small, learn fast, and let real user value guide the roadmap.",
-    },
-  ],
+  records: {
+    heading: "Our Track Record",
+    list: [
+      { value: "10+", label: "Clients" },
+      { value: "500+", label: "Projects" },
+      { value: "100%", label: "Happy clients" },
+      { value: "5+", label: "Years of experience" },
+    ],
+  },
+  services: {
+    heading: "Our CRO Services",
+    sub: "Delivering innovative solutions across diverse industries with deep domain expertise.",
+    list: [
+      {
+        title: "A/B Testing",
+        desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
+        icon: "/assets/services/ab-testing.png",
+      },
+      {
+        title: "Shopify Development",
+        desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
+        icon: "/assets/services/shopify.png",
+      },
+      {
+        title: "Quality Assurance",
+        desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
+        icon: "/assets/services/qa.png",
+      },
+      {
+        title: "WordPress Development",
+        desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
+        icon: "/assets/services/wordpress.png",
+      },
+      {
+        title: "Landing Page Personalization",
+        desc: "Deliver tailored experiences that adapt to user behavior, boosting engagement and conversions.",
+        icon: "/assets/services/landing-page.png",
+      },
+    ],
+  },
+  process: {
+    heading: "Our Simple Work Process",
+    sub: "Delivering innovative solutions with deep domain expertise, we provide top-notch services tailored to consumer choices, earning the trust of countless happy customers across diverse industries.",
+    list: [
+      {
+        title: "Project Discussion",
+        desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
+        icon: "/assets/work-process/project-discussion.png",
+      },
+      {
+        title: "Plan & Approach",
+        desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
+        icon: "/assets/work-process/plan.png",
+      },
+      {
+        title: "Development",
+        desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
+        icon: "/assets/work-process/dev.png",
+      },
+      {
+        title: "Launch",
+        desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
+        icon: "/assets/work-process/goal.png",
+      },
+    ],
+  },
+  why: {
+    heading: "Why Choose Us",
+    list: [
+      {
+        title: "Innovation",
+        desc: "Pushing boundaries with AI and quantitative trading to deliver cutting-edge solutions.",
+      },
+      {
+        title: "Collaboration",
+        desc: "Working closely with clients to develop tailored solutions that drive measurable success.",
+      },
+      {
+        title: "Excellence",
+        desc: "Maintaining the highest standards in code quality, system performance, and client outcomes.",
+      },
+      {
+        title: "Integrity",
+        desc: "Operating with transparency and ethical considerations at the forefront of all decisions.",
+      },
+    ],
+  },
+  review: {
+    heading: "Reviews",
+    testimonials: [
+      {
+        reviewer: "John Doe",
+        reviewerRole: "Founder & CEO",
+        quote:
+          "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
+      },
+      {
+        reviewer: "John Doe",
+        reviewerRole: "Founder & CEO",
+        quote:
+          "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
+      },
+      {
+        reviewer: "John Doe",
+        reviewerRole: "Founder & CEO",
+        quote:
+          "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
+      },
+      {
+        reviewer: "Jane Roe",
+        reviewerRole: "CTO",
+        quote:
+          "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
+      },
+      {
+        reviewer: "Alex Kim",
+        reviewerRole: "COO",
+        quote:
+          "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
+      },
+      {
+        reviewer: "Priya Shah",
+        reviewerRole: "Head of Product",
+        quote:
+          "We ship small, learn fast, and let real user value guide the roadmap.",
+      },
+    ],
+  },
   contact: {
     heading: "Contact Us",
     form: {
@@ -187,7 +204,7 @@ export default {
           { icon: "phone", text: "+91-8103684321" },
           {
             icon: "map",
-            text: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230 India.",
+            text: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India.",
           },
         ],
       },
@@ -202,11 +219,11 @@ export default {
       },
     ],
   },
-  faqSection: {
+  faq: {
     heading: "Frequently Asked Questions",
-    items: [
+    list: [
       {
-        q: "What is Conversion Rate Optimisation?",
+        q: "What is Conversion Rate Optimization?",
         a: "Conversion Rate Optimization (CRO) is the process of refining a website to better convert visitors into customers or subscribers. Essentially, it involves boosting the percentage of visitors who complete a specific action—whether that’s making a purchase, signing up for a newsletter, or downloading a file. By carefully analyzing user behavior and employing techniques such as A/B testing, design adjustments, and improved navigation, businesses can create a more engaging and effective online experience.",
       },
       {
@@ -237,7 +254,7 @@ export default {
   },
   pricing: {
     heading: "The Right Plan for you",
-    sub: "We have several powerful plans to showcase your business and get discovered as a creative entrepreneurs. Everything you need.",
+    sub: "We offer powerful plans to showcase your business and help creative entrepreneurs get discovered with everything you need to succeed.",
     plans: [
       { name: "Starter", price: 999 },
       { name: "Growth", price: 1899 },
@@ -338,69 +355,77 @@ export default {
       },
     ],
   },
-  team: [
-    {
-      name: "Rahul Patil",
-      role: "Founder and CEO",
-      photo: "/assets/team/rahul.jpg",
-    },
-    {
-      name: "Harsh Jariwala",
-      role: "Founder and CEO",
-      photo: "/assets/team/harsh.jpg",
-    },
-    { name: "Kranthika Ele", role: "QA", photo: "/assets/team/kranthika.jpg" },
-    {
-      name: "Nafees Hasnat",
-      role: "CRO Dev",
-      photo: "/assets/team/nafees.jpg",
-    },
-    {
-      name: "Kundan Mali",
-      role: "Shopify Dev",
-      photo: "/assets/team/kundan.jpg",
-    },
-    {
-      name: "Sree Priya",
-      role: "QA",
-      photo: "/assets/team/sree.jpg",
-    },
-    {
-      name: "Piyush Ranipa",
-      role: "Wordpress Dev",
-      photo: "/assets/team/piyush.jpg",
-    },
-    {
-      name: "Bhumika Paladiya",
-      role: "CRO Dev",
-      photo: "/assets/team/bhumika.jpg",
-    },
-    {
-      name: "Writwik Seti",
-      role: "React Dev",
-      photo: "/assets/team/writwik.jpg",
-    },
-    {
-      name: "Vishal Kumawat",
-      role: "Shopify Dev",
-      photo: "/assets/team/vishal.jpg",
-    },
-    {
-      name: "Hemanth Dhataram",
-      role: "HR",
-      photo: "/assets/team/hemanth.jpg",
-    },
-    {
-      name: "Ayushi Shah",
-      role: "Shopify Dev",
-      photo: "/assets/team/ayushi.jpg",
-    },
-    {
-      name: "Mritunjay Rajak",
-      role: "Intern Dev",
-      photo: "/assets/team/mrityunjay.jpg",
-    },
-  ],
+  team: {
+    heading: "Meet Our ",
+    pill: "Team",
+    list: [
+      {
+        name: "Rahul Patil",
+        role: "Founder and CEO",
+        photo: "/assets/team/rahul.jpg",
+      },
+      {
+        name: "Harsh Jariwala",
+        role: "Founder and CEO",
+        photo: "/assets/team/harsh.jpg",
+      },
+      {
+        name: "Kranthika Ele",
+        role: "QA",
+        photo: "/assets/team/kranthika.jpg",
+      },
+      {
+        name: "Nafees Hasnat",
+        role: "CRO Dev",
+        photo: "/assets/team/nafees.jpg",
+      },
+      {
+        name: "Kundan Mali",
+        role: "Shopify Dev",
+        photo: "/assets/team/kundan.jpg",
+      },
+      {
+        name: "Sree Priya",
+        role: "QA",
+        photo: "/assets/team/sree.jpg",
+      },
+      {
+        name: "Piyush Ranipa",
+        role: "Wordpress Dev",
+        photo: "/assets/team/piyush.jpg",
+      },
+      {
+        name: "Bhumika Paladiya",
+        role: "CRO Dev",
+        photo: "/assets/team/bhumika.jpg",
+      },
+      {
+        name: "Writwik Seti",
+        role: "React Dev",
+        photo: "/assets/team/writwik.jpg",
+      },
+      {
+        name: "Vishal Kumawat",
+        role: "Shopify Dev",
+        photo: "/assets/team/vishal.jpg",
+      },
+      {
+        name: "Hemanth Dhataram",
+        role: "HR",
+        photo: "/assets/team/hemanth.jpg",
+      },
+      {
+        name: "Ayushi Shah",
+        role: "Shopify Dev",
+        photo: "/assets/team/ayushi.jpg",
+      },
+      {
+        name: "Mritunjay Rajak",
+        role: "Intern Dev",
+        photo: "/assets/team/mrityunjay.jpg",
+      },
+    ],
+  },
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
@@ -411,11 +436,11 @@ export default {
       },
       {
         name: "Services",
-        href: "#cro-services",
+        href: "#services",
       },
       {
         name: "Review",
-        href: "#why-we-started",
+        href: "#reviews",
       },
       {
         name: "About Us",
@@ -426,7 +451,7 @@ export default {
         href: "#faq",
       },
     ],
-    address: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230",
+    address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
     email: "hello@ingversionsdigital.com",
     phone: "+91-8103684321",
     socials: [

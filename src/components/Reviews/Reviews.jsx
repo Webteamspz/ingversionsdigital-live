@@ -4,21 +4,21 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
-import quoteImg from "/assets/why-we-started/icon.png";
-import arrowLeft from "/assets/why-we-started/left-button.png";
-import arrowRight from "/assets/why-we-started/right-Button.png";
+import quoteImg from "/assets/review/icon.png";
+import arrowLeft from "/assets/review/left-button.png";
+import arrowRight from "/assets/review/right-Button.png";
 
-import styles from "./WhyWeStarted.module.css";
+import styles from "./Reviews.module.css";
 
-export default function WhyWeStarted() {
+export default function Reviews() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
-    <section className={styles.startedSection} id="why-we-started">
+    <section className={styles.startedSection} id="reviews">
       <div className={`container ${styles.startedContainer}`}>
         <h3 className={`sectionTitle ${styles.startedTitle}`}>
-          Reviews
+          {data.review.heading}
         </h3>
         <button
           className={`${styles.tsNav} ${styles.tsPrev}`}
@@ -62,7 +62,7 @@ export default function WhyWeStarted() {
           }}
           className={styles.testimonialSlider}
         >
-          {data.testimonials.map((t, i) => (
+          {data.review.testimonials.map((t, i) => (
             <SwiperSlide key={i} className={styles.testimonialCard}>
               <div className={styles.quoteLine}>
                 <img
