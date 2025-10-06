@@ -64,7 +64,8 @@
   transition: -webkit-transform .15s ease,-webkit-filter .15s ease;
   -o-transition: transform .15s ease,filter .15s ease;
   transition: transform .15s ease,filter .15s ease;
-  transition: transform .15s ease,filter .15s ease,-webkit-transform .15s ease,-webkit-filter .15s ease
+  transition: transform .15s ease,filter .15s ease,-webkit-transform .15s ease,-webkit-filter .15s ease;
+  background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%)
 }
 .socialBtn:hover {
   -webkit-transform: translateY(-1px);

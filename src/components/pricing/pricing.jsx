@@ -25,7 +25,7 @@ export default function PricingCompare() {
       : "";
   };
 
-  const renderValue = (v, alt = "value") => {
+  const renderValue = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
       return (
@@ -69,7 +69,7 @@ export default function PricingCompare() {
                   </a>
                 ) : (
                   <div className={styles.planPrice}>
-                    ${p.price}
+                    $ {p.price}
                     <span className={styles.period}>/month</span>
                   </div>
                 )}

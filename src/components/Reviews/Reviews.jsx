@@ -5,8 +5,6 @@ import "swiper/css";
 
 import data from "../../data/siteData";
 import quoteImg from "/assets/reviews/icon.png";
-import arrowLeft from "/assets/reviews/left-button.png";
-import arrowRight from "/assets/reviews/right-Button.png";
 
 import styles from "./Reviews.module.css";
 
@@ -25,14 +23,14 @@ export default function Reviews() {
           ref={prevRef}
           aria-label="Previous testimonial"
         >
-          <img src={arrowLeft} alt="" width="20" height="20" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" /></svg>
         </button>
         <button
           className={`${styles.tsNav} ${styles.tsNext}`}
           ref={nextRef}
           aria-label="Next testimonial"
         >
-          <img src={arrowRight} alt="" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" /></svg>
         </button>
         <Swiper
           modules={[Navigation, A11y]}

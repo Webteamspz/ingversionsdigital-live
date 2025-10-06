@@ -9,7 +9,7 @@
   font-weight: 700!important
 }
 .sub {
-  max-width: 680px;
+  max-width: 536px;
   margin: 0 auto 85px;
   text-align: center;
   color: #b8b8b8;
@@ -23,17 +23,18 @@
 .row {
   display: grid;
   grid-template-columns: 280px repeat(4,1fr);
-  height: 40px;
-  margin-bottom: 20px
+  height: 70px
 }
 .headerRow {
-  background: 0 0
+  background: 0 0;
+  margin-bottom: 20px
 }
 .sectionTitle {
-  background: #1a1a1a
+  background: #1a1a1a;
+  height: 40px;
 }
 .cell {
-  padding: 14px 16px 18px;
+  padding: 11px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +49,9 @@
 .cell:first-child {
   border-left: none;
   justify-content: flex-start;
-  text-align: left
+  text-align: left;
+  padding: 6px 12px;
+  min-height: 40px
 }
 .sectionBlock:not(:last-child) {
   border-bottom: 1px solid rgba(255,255,255,.06)
@@ -63,7 +66,9 @@
 .planHead {
   position: relative;
   flex-direction: column;
-  gap: 6px
+  gap: 6px;
+  min-height: 70px;
+  justify-content: flex-end
 }
 .planName {
   font-family: Barlow;
@@ -91,11 +96,6 @@
   text-align: center;
   vertical-align: middle
 }
-.period {
-  margin-left: 4px;
-  font-size: 12px;
-  opacity: .9
-}
 .cta {
   color: #0a84ff;
   text-decoration: none;
@@ -106,6 +106,9 @@
   text-align: center;
   vertical-align: middle
 }
+.cta:hover {
+  color: #FFF;
+}
 .badge {
   background: #0a84ff;
   color: #fff;
@@ -115,34 +118,56 @@
   font-weight: 800;
   font-size: 12px;
   line-height: 14px;
-  text-align: center
+  text-align: center;
+  text-transform: uppercase
 }
 .mHead,
 .planHead {
   position: relative;
-  padding-top: 28px
+  padding: 0
 }
 .mHead .badge,
 .planHead .badge {
   position: absolute;
   left: 50%!important;
-  top: -14px!important;
-  right: auto!important;
+  top: 0px!important;
   bottom: auto!important;
   transform: translateX(-50%);
   z-index: 2
 }
-.headerRow .cell {
-  padding-bottom: 20px
-}
 .spanner {
-  grid-column: 2/-1
+  grid-column: 2/-1;
+  padding: 6px 12px;
+  min-height: 40px
 }
 .mobileCompare {
   display: none
 }
-.sectionBlock .rowLine:last-of-type {
-  border-bottom: none
+.labelCell {
+  color: #fff;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: left
+}
+.badge.cta,
+.planHead .cta {
+  text-decoration: none;
+  font-weight: 700
+}
+.rowLine {
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  height: 50px
+}
+.valueIcon {
+  width: 16px;
+  height: 16px;
+  display: inline-block
+}
+.crossCell .valueIcon,
+.tickCell .valueIcon {
+  filter: none
 }
 @media (max-width:900px) {
   .tableWrap {
@@ -251,29 +276,4 @@
   .navBtn:hover .navIcon {
     filter: brightness(1.08)
   }
-}
-.labelCell {
-  color: #fff;
-  font-family: Barlow;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  text-align: left
-}
-.badge.cta,
-.planHead .cta {
-  text-decoration: none;
-  font-weight: 700
-}
-.rowLine {
-  border-bottom: 1px solid rgba(255,255,255,.06)
-}
-.valueIcon {
-  width: 16px;
-  height: 16px;
-  display: inline-block
-}
-.crossCell .valueIcon,
-.tickCell .valueIcon {
-  filter: none
 }

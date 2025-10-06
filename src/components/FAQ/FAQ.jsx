@@ -59,18 +59,20 @@ export default function FAQ() {
 
   return (
     <section className={styles.faqWrapper} id="faq">
-      <h1>{heading}</h1>
-      <div className={styles.accordion}>
-        {list.map((it, i) => (
-          <FAQItem
-            key={i}
-            index={i}
-            q={it.q}
-            a={it.a}
-            isOpen={openIndex === i}
-            onToggle={handleToggle}
-          />
-        ))}
+      <div className="container">
+        <h3>{heading}</h3>
+        <div className={styles.accordion}>
+          {list.map((it, i) => (
+            <FAQItem
+              key={i}
+              index={i}
+              q={it.q}
+              a={it.a}
+              isOpen={openIndex === i}
+              onToggle={handleToggle}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

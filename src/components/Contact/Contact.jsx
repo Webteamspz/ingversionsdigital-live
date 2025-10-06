@@ -1,23 +1,8 @@
 import { useState } from "react";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
-import PhoneField from "./PhoneField"
-import mailIcon from "/assets/contact/email.svg";
-import phoneIcon from "/assets/contact/phone.svg";
-import mapIcon from "/assets/contact/location.svg";
-
-const Icon = ({ name }) => {
-  const icons = {
-    mail: mailIcon,
-    phone: phoneIcon,
-    map: mapIcon,
-  };
-
-  const src = icons[name];
-  if (!src) return null;
-
-  return <img src={src} alt={`${name} icon`} width={20} height={20} />;
-};
+import PhoneField from "./PhoneField";
+import parse from 'html-react-parser';
 
 export default function Contact() {
   const { heading, form, infoCards } = data.contact;
@@ -240,7 +225,7 @@ export default function Contact() {
                     {card.items.map((it, i) => (
                       <li key={i}>
                         <span className={styles.cIco}>
-                          <Icon name={it.icon} />
+                          {parse(it.icon)}
                         </span>
                         {String(it.text)
                           .split("\n")
