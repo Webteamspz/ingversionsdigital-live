@@ -3,7 +3,7 @@ import styles from "./CompanyLogos.module.css";
 
 export default function CompanyLogos() {
   return (
-    <section className={styles.logosSection}>
+    <section className={styles.logosSection} id="client-logos">
       <div className={styles.marquee}>
         <div className={styles.marqueeGroup}>
           {data.logos.map((src, i) => (

@@ -48,20 +48,20 @@ export default function Footer() {
   const f = data.footer;
 
   return (
-    <footer className={styles.siteFooter}>
+    <footer className={styles.siteFooter} id="footer">
       <div className={styles.footerBorder} />
       <div className={`container ${styles.footerTop}`}>
-        <div className={styles.footLeft}>
+        <a href="/" className={styles.footerLeft}>
           <img
             src={f.logo}
             alt={`${f.company} logo`}
             className={styles.footerLogo}
           />
-        </div>
+        </a>
         <nav className={styles.footNav}>
           {f.links.map((l, i) => (
-            <a key={i} href="#">
-              {l}
+            <a key={i} href={l.href}>
+              {l.name}
             </a>
           ))}
         </nav>
@@ -72,6 +72,8 @@ export default function Footer() {
               href={s.href}
               aria-label={s.name}
               className={styles.socialBtn}
+              target="_blank"
+              rel="noreferrer"
             >
               <SocialIcon name={s.name} />
             </a>

@@ -57,7 +57,7 @@ export default function FAQ() {
   const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));
 
   return (
-    <section className={styles.faqWrapper}>
+    <section className={styles.faqWrapper} id="faq">
       <h1>{heading}</h1>
       <div className={styles.accordion}>
         {items.map((it, i) => (

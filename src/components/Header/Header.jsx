@@ -6,11 +6,11 @@ export default function Header() {
   const { links, cta } = data.header;
 
   return (
-    <header className={styles.siteHeader}>
+    <header className={styles.siteHeader} id="header">
       <div className={`container ${styles.headerRow}`}>
-        <div className={styles.brand}>
+        <a href="/" className={styles.brand}>
           <img src={logo} alt="Ingversions Logo" className={styles.brandLogo} />
-        </div>
+        </a>
         <nav className={styles.nav}>
           {links.map((l, i) => (
             <a key={i} href={l.href}>

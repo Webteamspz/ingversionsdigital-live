@@ -37,7 +37,7 @@ function Counter({ value, duration = 3000 }) {
 
 export default function TrackRecord() {
   return (
-    <section className={styles.kpiSection} id="success">
+    <section className={styles.kpiSection} id="track-record">
       <div className="container">
         <h3 className="section-title">Our Track Record</h3>
         <div className={styles.kpis}>

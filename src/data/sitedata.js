@@ -4,8 +4,8 @@ export default {
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#cro-services" },
       { label: "Review", href: "#why-we-started" },
-      { label: "About Us", href: "#work-process" },
-      { label: "FAQ", href: "#FAQ" },
+      { label: "About Us", href: "#contact" },
+      { label: "FAQ", href: "#faq" },
     ],
     cta: {
       label: "Book a Call",
@@ -341,7 +341,27 @@ export default {
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
-    links: ["Home", "Services", "Review", "About Us", "FAQ"],
+    links: [
+      {
+        name: "Home",
+        href: "#hero"
+      },
+      {
+        name: "Services",
+        href: "#cro-services"
+      },
+      {
+        name: "Review",
+        href: "#why-we-started"
+      },
+      {
+        name: "About Us",
+        href: "#contact"
+      },
+      {
+        name: "FAQ",
+        href: "#faq"
+      }],
     address: "2599 Shiv Krupa Association, Kansad, Sachin, Surat 394230",
     email: "hello@ingversionsdigital.com",
     phone: "+91-8103684321",

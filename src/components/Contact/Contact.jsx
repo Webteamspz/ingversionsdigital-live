@@ -118,7 +118,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={styles.contactSection}>
+    <section className={styles.contactSection} id="contact" >
       <div className="container">
         <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
         <div className={styles.contactGrid}>

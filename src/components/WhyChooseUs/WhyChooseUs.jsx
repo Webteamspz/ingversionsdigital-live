@@ -4,7 +4,7 @@ import styles from "./WhyChooseUs.module.css";
 
 export default function WhyChooseUs() {
   return (
-    <section className={styles.whyChooseUsSection}>
+    <section className={styles.whyChooseUsSection} id="#why-choose-us">
       <div className="container">
         <h3 className="section-title">Why Choose Us</h3>
         <div className={styles.whyChooseUsCards}>
