@@ -7,7 +7,6 @@ export default function Footer() {
 
   return (
     <footer className={styles.siteFooter} id="footer">
-      <div className={styles.footerBorder} />
       <div className={`container ${styles.footerTop}`}>
         <a href="/" className={styles.footerLeft}>
           <img
