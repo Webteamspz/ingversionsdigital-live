@@ -147,3 +147,15 @@
 .testimonialSlider::before {
   left: 0
 }
+@media (max-width: 1230.98px) {
+  .quoteLine::after,
+  .quoteLine::before {
+    max-width: 160px;
+  }
+  .tsPrev {
+    left: 10px
+  }
+  .tsNext {
+    right: 10px
+  }
+}

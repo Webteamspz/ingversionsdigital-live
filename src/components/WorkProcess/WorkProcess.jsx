@@ -11,7 +11,7 @@ export default function WorkProcess() {
         <p className={styles.processSub}>{data.process.sub}</p>
         <div className={styles.processGrid}>
           {data.process.list.map((p, i) => (
-            <article key={i} className={styles.step}>
+            <div key={i} className={styles.step}>
               <div className={styles.stepHead}>{p.title}</div>
               <div className={styles.stepBody}>
                 <img
@@ -23,7 +23,7 @@ export default function WorkProcess() {
                 />
               </div>
               <div className={styles.stepDesc}>{p.desc}</div>
-            </article>
+            </div>
           ))}
         </div>
       </div>

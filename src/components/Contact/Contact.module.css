@@ -9,7 +9,7 @@
   display: grid;
   -ms-grid-columns: 1.1fr 24px 0.9fr;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px
+  gap: 22px
 }
 .contactCard {
   background: #141414;
@@ -24,7 +24,7 @@
 .rightCol {
   display: -ms-grid;
   display: grid;
-  gap: 24px
+  gap: 22px
 }
 .contactPanelTitle {
   margin: 0 0 24px;
@@ -105,7 +105,8 @@ textarea.cInput {
   -ms-flex-pack: center;
   justify-content: center;
   background: #0a84ff;
-  margin-top: 20px
+  margin-top: 20px;
+  max-width: 100% !important
 }
 .contactNote {
   color: #ffffffcc;

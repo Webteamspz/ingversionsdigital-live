@@ -1,7 +1,7 @@
 .siteFooter {
   background: #030303;
   position: relative;
-  border-top: 1px solid #fff
+  border-top: 1px solid #ffffffcc
 }
 .footerTop {
   display: -webkit-box;
@@ -102,7 +102,7 @@
   -ms-flex-align: center;
   align-items: center;
   gap: 15px;
-  color: #fff;
+  color: #ffffffcc;
   text-align: center;
   font-family: Barlow;
   font-weight: 400;
@@ -127,7 +127,7 @@
   -ms-flex-align: center;
   align-items: center;
   gap: 15px;
-  color: #fff;
+  color: #ffffffcc;
   text-decoration: none;
   font-family: Barlow;
   font-weight: 400;
@@ -139,7 +139,7 @@
 }
 .footerBottom {
   text-align: center;
-  color: #fff;
+  color: #ffffffcc;
   padding: 8px 0 50px;
   font-family: Barlow;
   font-weight: 400;

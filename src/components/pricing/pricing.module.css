@@ -161,7 +161,8 @@
 .badge.cta,
 .planHead .cta {
   text-decoration: none;
-  font-weight: 700
+  font-weight: 700;
+  width: max-content
 }
 .rowLine {
   border-bottom: 1px solid rgba(255,255,255,.06);

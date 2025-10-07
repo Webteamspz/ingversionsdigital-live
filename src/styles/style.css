@@ -84,7 +84,8 @@ body {
   font-weight: 600;
   font-size: 36px;
   line-height: 56px;
-  text-align: center
+  text-align: center;
+  text-transform: capitalize
 }
 html {
   scroll-behavior: smooth
@@ -213,4 +214,9 @@ input:-webkit-autofill {
 .react-international-phone-country-selector-dropdown__list-item--focused .react-international-phone-country-selector-dropdown__list-item-dial-code,
 .react-international-phone-country-selector-dropdown__list-item--selected .react-international-phone-country-selector-dropdown__list-item-dial-code {
   color: #fff!important
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 1024px
+  }
 }

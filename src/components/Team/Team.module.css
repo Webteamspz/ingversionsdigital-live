@@ -109,3 +109,8 @@
   color: #ffffffcc;
   margin: 0 auto
 }
+@media (max-width: 1199.98px) {
+  .card {
+    padding: 30px 0
+  }
+}

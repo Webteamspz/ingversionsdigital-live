@@ -3,7 +3,7 @@
   display: grid;
   -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: repeat(4,1fr);
-  gap: 10px;
+  gap: 22px;
   margin-top: 49px
 }
 .kpi {
@@ -42,4 +42,6 @@
   line-height: 150%;
   text-align: center;
   text-transform: uppercase
+}
+@media (max-width: 1199.98px) {
 }

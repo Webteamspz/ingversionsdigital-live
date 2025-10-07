@@ -16,10 +16,9 @@
   width: 100%
 }
 .processGrid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 22px 1fr 22px 1fr 22px 1fr;
-  grid-template-columns: repeat(4,1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px
 }
 .step {
@@ -27,10 +26,10 @@
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 14px;
   overflow: hidden;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto 210px 1fr;
-  grid-template-rows: auto 210px 1fr;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% / 4 - 17px);
+  width: 100%;
   -webkit-box-shadow: 0 8px 20px rgba(0,0,0,.25);
   box-shadow: 0 8px 20px rgba(0,0,0,.25)
 }
@@ -65,4 +64,9 @@
   font-size: 16px;
   line-height: 150%;
   padding: 21px 23px 23px
+}
+@media (max-width: 1199.98px) {
+  .step {
+    max-width: 377px
+  }
 }

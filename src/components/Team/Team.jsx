@@ -19,7 +19,7 @@ export default function Team() {
           modules={[Autoplay]}
           className={styles.slider}
           slidesPerView="auto"
-          spaceBetween={18}
+          spaceBetween={22}
           loop={true}
           grabCursor={true}
           speed={2000}
@@ -31,11 +31,11 @@ export default function Team() {
         >
           {members.list.map((m, i) => (
             <SwiperSlide key={i} className={styles.cardSlide}>
-              <article className={styles.card}>
+              <div className={styles.card}>
                 <img className={styles.memberImg} src={m.photo} alt={m.name} />
                 <h4 className={styles.infoName}>{m.name}</h4>
                 <h5 className={styles.infoRole}>{m.role}</h5>
-              </article>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

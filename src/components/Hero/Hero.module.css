@@ -2,7 +2,7 @@ section#hero {
   overflow: hidden
 }
 .bannerBg {
-  padding: 161px 0 60px;
+  padding: 161px 0 20px;
   position: relative;
   z-index: 0;
   isolation: isolate
@@ -38,7 +38,7 @@ section#hero {
   font-size: 72px;
   line-height: 88px;
   color: #fff;
-  white-space: nowrap
+  text-transform: capitalize;
 }
 .heroTitlePill {
   display: inline-block;
@@ -199,4 +199,19 @@ section#hero {
   -webkit-transform: translateY(14px);
   -ms-transform: translateY(14px);
   transform: translateY(14px)
+}
+@media (max-width: 1199.98px) {
+  .textHeroArea,
+  .heroVisual {
+    max-width: 50%;
+    width: 100%;
+  }
+  .heroTitle {
+    font-size: 60px;
+    line-height: 76px
+  }
+  .heroTitlePill:after {
+    width: 209.09px;
+    height: 70px;
+  }
 }

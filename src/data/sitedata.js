@@ -3,9 +3,8 @@ export default {
     links: [
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#services" },
-      { label: "Review", href: "#reviews" },
-      { label: "About Us", href: "#contact" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Contact Us", href: "#contact" }
     ],
     cta: {
       label: "Book a Call",
@@ -71,6 +70,11 @@ export default {
         desc: "Deliver tailored experiences that adapt to user behavior, boosting engagement and conversions.",
         icon: "/assets/services/landing-page.png",
       },
+      {
+        title: "Lead Generation",
+        desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
+        icon: "/assets/services/lead.png",
+      }
     ],
   },
   process: {
@@ -245,7 +249,7 @@ export default {
     ],
   },
   pricing: {
-    heading: "The Right Plan for you",
+    heading: "The Right Plan For You",
     sub: "We offer powerful plans to showcase your business and help creative entrepreneurs get discovered with everything you need to succeed.",
     plans: [
       { name: "Starter", price: 999 },
@@ -431,17 +435,13 @@ export default {
         href: "#services",
       },
       {
-        name: "Review",
-        href: "#reviews",
+        name: "Pricing",
+        href: "#pricing",
       },
       {
-        name: "About Us",
+        name: "Contact Us",
         href: "#contact",
-      },
-      {
-        name: "FAQ",
-        href: "#faq",
-      },
+      }
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
     email: "hello@ingversionsdigital.com",
