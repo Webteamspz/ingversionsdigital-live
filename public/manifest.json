@@ -6,6 +6,6 @@
   "background_color": "#030303",
   "theme_color": "#030303",
   "icons": [
-    { "src": "/assets/Logo.svg", "sizes": "512x512", "type": "image/svg+xml" }
+    { "src": "/assets/logos/logo.svg", "sizes": "512x512", "type": "image/svg+xml" }
   ]
 }

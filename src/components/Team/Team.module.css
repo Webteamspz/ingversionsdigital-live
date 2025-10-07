@@ -48,11 +48,11 @@
   position: absolute;
   content: '';
   left: -4px;
-  bottom: 3px;
+  bottom: 5px;
   background: #0a84ff;
   width: 98px;
-  height: 47px;
-  border-radius: 16px;
+  height: 42px;
+  border-radius: 8px;
   z-index: -1
 }
 .slider {

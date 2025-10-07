@@ -162,7 +162,7 @@
 }
 @media (max-width: 1199.98px) {
   .footAddress {
-    max-width: 350px;
+    max-width: 290px;
     align-items: flex-start
   }
   .footAddress span {
