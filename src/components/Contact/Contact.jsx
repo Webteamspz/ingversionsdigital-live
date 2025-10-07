@@ -41,7 +41,7 @@ export default function Contact() {
     if (name === "email") {
       if (!value.trim()) msg = "Email is required";
       else if (!emailRegex.test(value))
-        msg = "Please enter a valid email address";
+        msg = "Please enter a valid email";
     }
 
     if (name === "company") {
@@ -61,7 +61,7 @@ export default function Contact() {
       } else {
         const digits = value.replace(/\D/g, "");
         if (!onlyDigits(digits)) msg = "Only numbers are accepted";
-        else if (digits.length < 6) msg = "Please enter a valid phone number";
+        else if (digits.length < 6) msg = "Phone number is required ";
       }
     }
 
@@ -171,6 +171,7 @@ export default function Contact() {
                       touch("phone");
                       validateField("phone", val);
                     }}
+                    classSelector = {`${errors.phone ? styles.invalid : ""}`}
                   />
                   {errors.phone && (
                     <div className={styles.errorMessage}>{errors.phone}</div>
@@ -217,7 +218,7 @@ export default function Contact() {
             {infoCards.map((card, idx) => (
               <div
                 key={idx}
-                className={`${styles.contactCard} ${styles.infoCard}`}
+                className={`${styles.contactCard}`}
               >
                 <h4 className={styles.contactPanelTitle}>{card.title}</h4>
                 {card.items && (

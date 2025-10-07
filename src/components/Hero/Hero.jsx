@@ -6,7 +6,7 @@ export default function Hero() {
   const h = data.hero;
 
   return (
-    <section className={`${styles.bannerBg} ${styles.bannerArea}`} id="hero">
+    <section className={`${styles.bannerBg}`} id="hero">
       <div className={`container ${styles.heroRow}`}>
         <div className={styles.textHeroArea}>
           <h1 className={styles.heroTitle}>
