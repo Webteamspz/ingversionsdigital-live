@@ -8,14 +8,11 @@ export default function WorkProcess() {
         <h3 className={`section-title ${styles["process-title"]}`}>
           {data.process.heading}
         </h3>
-        <p className={styles.processSub}>
-          {data.process.sub}
-        </p>
+        <p className={styles.processSub}>{data.process.sub}</p>
         <div className={styles.processGrid}>
           {data.process.list.map((p, i) => (
             <article key={i} className={styles.step}>
               <div className={styles.stepHead}>{p.title}</div>
-
               <div className={styles.stepBody}>
                 <img
                   src={p.icon}

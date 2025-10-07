@@ -21,6 +21,7 @@
   overflow: hidden
 }
 .row {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: 280px repeat(4,1fr);
   height: 70px
@@ -31,12 +32,18 @@
 }
 .sectionTitle {
   background: #1a1a1a;
-  height: 40px;
+  height: 40px
 }
 .cell {
   padding: 11px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
   min-height: 48px;
@@ -48,6 +55,8 @@
 }
 .cell:first-child {
   border-left: none;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
   padding: 6px 12px;
@@ -65,9 +74,14 @@
 }
 .planHead {
   position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 6px;
   min-height: 70px;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end
 }
 .planName {
@@ -107,7 +121,7 @@
   vertical-align: middle
 }
 .cta:hover {
-  color: #FFF;
+  color: #fff
 }
 .badge {
   background: #0a84ff;
@@ -130,8 +144,10 @@
 .planHead .badge {
   position: absolute;
   left: 50%!important;
-  top: 0px!important;
+  top: 0!important;
   bottom: auto!important;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   z-index: 2
 }
@@ -167,6 +183,7 @@
 }
 .crossCell .valueIcon,
 .tickCell .valueIcon {
+  -webkit-filter: none;
   filter: none
 }
 @media (max-width:900px) {
@@ -174,7 +191,9 @@
     display: none
   }
   .mobileCompare {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: minmax(150px,46%) 0 1fr;
     grid-template-columns: minmax(150px,46%) 1fr;
     gap: 0;
     position: relative;
@@ -203,7 +222,11 @@
     border-top: 1px solid rgba(255,255,255,.06)
   }
   .mRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 12px;
     min-height: 48px;
@@ -237,8 +260,14 @@
     min-height: 72px
   }
   .valRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     min-height: 48px;
     padding: 12px;
@@ -274,6 +303,7 @@
     height: 25px
   }
   .navBtn:hover .navIcon {
+    -webkit-filter: brightness(1.08);
     filter: brightness(1.08)
   }
 }

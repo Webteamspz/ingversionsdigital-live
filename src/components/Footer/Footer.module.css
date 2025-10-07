@@ -1,14 +1,7 @@
 .siteFooter {
   background: #030303;
-  color: rgba(255,255,255,.88);
-  padding-top: 8px;
   position: relative;
-  height: 288px
-}
-.footerBorder {
-  height: 1px;
-  background: rgba(255,255,255,.15);
-  width: 100%
+  border-top: 1px solid #fff
 }
 .footerTop {
   display: -webkit-box;
@@ -21,18 +14,20 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 22px;
-  padding: 60px 0 40px!important
+  padding: 60px 0 14px!important
 }
 .footerLogo {
-  height: 34px;
-  width: auto;
-  display: block
+  max-width: 261px;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover
 }
 .footNav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 26px
+  gap: 22px
 }
 .footNav a {
   color: #fff;
@@ -40,10 +35,12 @@
   font-family: Barlow;
   font-weight: 400;
   font-size: 18px;
-  line-height: 100%
+  line-height: 100%;
+  padding: 10px
 }
 .footNav a:hover {
-  color: #fff
+  font-weight: 600;
+  color: #0a84ff
 }
 .footSocials {
   display: -webkit-box;
@@ -65,7 +62,9 @@
   -o-transition: transform .15s ease,filter .15s ease;
   transition: transform .15s ease,filter .15s ease;
   transition: transform .15s ease,filter .15s ease,-webkit-transform .15s ease,-webkit-filter .15s ease;
-  background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%)
+  background: -webkit-gradient(linear,left top,left bottom,from(#242424),to(rgba(36,36,36,0)));
+  background: -o-linear-gradient(top,#242424 0,rgba(36,36,36,0) 100%);
+  background: linear-gradient(180deg,#242424 0,rgba(36,36,36,0) 100%)
 }
 .socialBtn:hover {
   -webkit-transform: translateY(-1px);
@@ -86,12 +85,15 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   gap: 30px;
-  padding: 8px 0 20px;
-  position: relative
+  padding: 17px 0 10px;
+  position: relative;
+  max-width: 837px;
+  width: 100%;
+  margin: 0 0 0 auto
 }
 .footAddress {
   display: -webkit-box;
@@ -100,8 +102,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 10px;
-  color: #e6e6e6;
+  gap: 15px;
+  color: #fff;
   text-align: center;
   font-family: Barlow;
   font-weight: 400;
@@ -109,12 +111,6 @@
   line-height: 150%
 }
 .footContacts {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -131,7 +127,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #e6e6e6;
+  gap: 15px;
+  color: #fff;
   text-decoration: none;
   font-family: Barlow;
   font-weight: 400;
@@ -140,8 +137,8 @@
 }
 .footerBottom {
   text-align: center;
-  color: #98989a;
-  padding: 8px 0 16px;
+  color: #fff;
+  padding: 8px 0 50px;
   font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
@@ -154,6 +151,6 @@
   display: block
 }
 .footerLeft {
-  outline: none;
-  text-decoration: none;
+  outline: 0;
+  text-decoration: none
 }

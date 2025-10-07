@@ -2,7 +2,7 @@ import { useState } from "react";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 export default function Contact() {
   const { heading, form, infoCards } = data.contact;
@@ -102,7 +102,7 @@ export default function Contact() {
   };
 
   return (
-    <section className={styles.contactSection} id="contact" >
+    <section className={styles.contactSection} id="contact">
       <div className="container">
         <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
         <div className={styles.contactGrid}>
@@ -168,7 +168,7 @@ export default function Contact() {
                     defaultCountry="in"
                     onChange={(val) => {
                       setField("phone", val);
-                      touch("phone"); 
+                      touch("phone");
                       validateField("phone", val);
                     }}
                   />
@@ -224,9 +224,7 @@ export default function Contact() {
                   <ul className={styles.cList}>
                     {card.items.map((it, i) => (
                       <li key={i}>
-                        <span className={styles.cIco}>
-                          {parse(it.icon)}
-                        </span>
+                        <span className={styles.cIco}>{parse(it.icon)}</span>
                         {String(it.text)
                           .split("\n")
                           .map((line, li) => (

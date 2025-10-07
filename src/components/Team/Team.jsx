@@ -12,7 +12,8 @@ export default function Team() {
     <section className={styles.teamSection} id="team">
       <div className={`container ${styles.teamContainer}`}>
         <h2 className={styles.title}>
-          {data.team.heading}<span className={styles.pill}>{data.team.pill}</span>
+          {data.team.heading}
+          <span className={styles.pill}>{data.team.pill}</span>
         </h2>
         <Swiper
           modules={[Autoplay]}
@@ -20,16 +21,20 @@ export default function Team() {
           slidesPerView="auto"
           spaceBetween={18}
           loop={true}
-          grabCursor={true}        
-          speed={2000}                                
-          autoplay={{ delay: 10, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          grabCursor={true}
+          speed={2000}
+          autoplay={{
+            delay: 10,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
         >
           {members.list.map((m, i) => (
             <SwiperSlide key={i} className={styles.cardSlide}>
               <article className={styles.card}>
                 <img className={styles.memberImg} src={m.photo} alt={m.name} />
-                  <h4 className={styles.infoName}>{m.name}</h4>
-                  <h5 className={styles.infoRole}>{m.role}</h5>
+                <h4 className={styles.infoName}>{m.name}</h4>
+                <h5 className={styles.infoRole}>{m.role}</h5>
               </article>
             </SwiperSlide>
           ))}

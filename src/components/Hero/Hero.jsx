@@ -10,8 +10,7 @@ export default function Hero() {
       <div className={`container ${styles.heroRow}`}>
         <div className={styles.textHeroArea}>
           <h1 className={styles.heroTitle}>
-            {h.heading}{" "}
-            <span className={styles.heroTitlePill}>{h.pill}</span>
+            {h.heading} <span className={styles.heroTitlePill}>{h.pill}</span>
           </h1>
           <p className={styles.heroSubtitle}>{h.sub}</p>
           <div className={styles.heroCtaWrap}>

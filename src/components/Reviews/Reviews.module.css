@@ -18,7 +18,7 @@
 .testimonialSlider {
   position: relative;
   padding: 8px 35px!important;
-  margin-top: 44px;
+  margin-top: 44px
 }
 .testimonialCard {
   background: 0 0;
@@ -57,6 +57,7 @@
   max-width: 44px;
   width: 100%;
   height: 44px;
+  -o-object-fit: cover;
   object-fit: cover
 }
 .testimonialQuote {
@@ -85,13 +86,15 @@
 .tsNav {
   position: absolute;
   top: 50%;
+  -webkit-transform: translateY(calc(-50% + 38px));
+  -ms-transform: translateY(calc(-50% + 38px));
   transform: translateY(calc(-50% + 38px));
   width: 52px;
   height: 52px;
   border: none;
   border-radius: 50%;
-  background: #0A84FF;
-  border: 1px solid #0A84FF;
+  background: #0a84ff;
+  border: 1px solid #0a84ff;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,14 +120,16 @@
   display: block
 }
 .tsNav:hover svg path {
-  stroke: #0A84FF;
+  stroke: #0A84FF
 }
 .tsNav.tsPrev svg {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg)
 }
 .tsNav:hover {
-  border: 1px solid #0A84FF;
-  background: #FFFFFF1A
+  border: 1px solid #0a84ff;
+  background: #fffFFF1A
 }
 .testimonialSlider::after,
 .testimonialSlider::before {

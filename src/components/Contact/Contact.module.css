@@ -80,6 +80,7 @@ textarea.cInput {
 .cIco svg {
   width: 24px;
   height: 24px;
+  -o-object-fit: contain;
   object-fit: contain
 }
 .cList li {
@@ -96,10 +97,10 @@ textarea.cInput {
 }
 .cList li:last-child {
   max-width: 250px;
-  width: 100%;
+  width: 100%
 }
 .cList li:last-child span:last-child {
-  text-align: left;
+  text-align: left
 }
 .cBtn {
   width: 100%!important;

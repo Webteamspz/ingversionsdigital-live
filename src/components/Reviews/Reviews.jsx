@@ -23,14 +23,40 @@ export default function Reviews() {
           ref={prevRef}
           aria-label="Previous testimonial"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" /></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+          >
+            <path
+              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
         <button
           className={`${styles.tsNav} ${styles.tsNext}`}
           ref={nextRef}
           aria-label="Next testimonial"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" /></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+          >
+            <path
+              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
         <Swiper
           modules={[Navigation, A11y]}

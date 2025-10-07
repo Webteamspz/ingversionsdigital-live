@@ -55,6 +55,7 @@
   max-width: 33px;
   width: 100%;
   display: block;
+  -o-object-fit: cover;
   object-fit: cover;
   margin-bottom: 15px;
   -webkit-filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));

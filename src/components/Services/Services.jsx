@@ -6,9 +6,7 @@ export default function Services() {
     <section className={styles.servicesSection} id="services">
       <div className="container">
         <h3 className="section-title">{data.services.heading}</h3>
-        <p className={styles.servicesSub}>
-          {data.services.sub}
-        </p>
+        <p className={styles.servicesSub}>{data.services.sub}</p>
         <div className={styles.services}>
           {data.services.list.map((s, i) => (
             <article key={i} className={`${styles.card} ${styles.service}`}>

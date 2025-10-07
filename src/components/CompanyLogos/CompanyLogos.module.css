@@ -15,14 +15,14 @@
 }
 .logosSection:before {
   left: 0;
-  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
   background: -o-linear-gradient(right,transparent,#030303);
+  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
   background: linear-gradient(to left,transparent,#030303)
 }
 .logosSection:after {
   right: 0;
-  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
   background: -o-linear-gradient(left,transparent,#030303);
+  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
   background: linear-gradient(to right,transparent,#030303)
 }
 .marquee {
@@ -54,6 +54,7 @@
   transition: -webkit-filter .3s ease;
   -o-transition: filter .3s ease;
   transition: filter .3s ease;
+  transition: filter .3s ease,-webkit-filter .3s ease;
   transition: filter .3s ease,-webkit-filter .3s ease
 }
 .marqueeGroup img:hover {

@@ -14,7 +14,7 @@
   font-size: 16px;
   line-height: 150%;
   max-width: 690px;
-  width: 100%;
+  width: 100%
 }
 .processGrid {
   display: -ms-grid;
@@ -41,7 +41,7 @@
   text-align: center;
   padding: 13.17px 14px;
   font-family: Barlow;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
@@ -56,15 +56,16 @@
   max-width: 150px;
   width: 100%;
   margin: 28px auto;
+  -o-object-fit: cover;
   object-fit: cover;
   -webkit-filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
 }
 .stepDesc {
   color: #b3b3b2;
-  font-family: "Barlow";
+  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  padding: 21px 23px 23px;
+  padding: 21px 23px 23px
 }

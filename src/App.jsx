@@ -12,13 +12,12 @@ import Preloader from "./components/Preloader/Preloader";
 import PricingTable from "./components/Pricing/Pricing";
 import Team from "./components/Team/Team";
 
-
 export default function App() {
   return (
     <>
-        <Preloader
-        minDuration={1300}
-        logoSrc={"/assets/preloader/preloader.png"}   
+      <Preloader
+        minDuration={3000}
+        logoSrc={"/assets/preloader/preloader.png"}
       />
       <Header />
       <Hero />
