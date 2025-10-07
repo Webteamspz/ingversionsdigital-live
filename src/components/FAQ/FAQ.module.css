@@ -1,12 +1,11 @@
 .faqWrapper {
   background-color: #030303;
   color: #fff;
-  padding: 32px 0
+  padding: 12px 0 70px
 }
 .faqWrapper h3 {
   text-align: center;
   margin: 0 0 60px;
-  font-family: Barlow;
   font-weight: 600;
   font-size: 36px;
   line-height: 56px
@@ -40,12 +39,14 @@
   background: #141414;
   border: 0;
   text-align: left;
-  font-family: Barlow;
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
   color: #fff;
   outline: 0
+}
+.accordionItemHeader:hover {
+  color: #0a84ff;
 }
 .accordionItem.open .accordionItemHeader {
   color: #0a84ff;
@@ -86,6 +87,10 @@
 .accordionItem.open .accordionItemIcon:before {
   background-color: #0a84ff
 }
+.accordionItemHeader:hover .accordionItemIcon:after,
+.accordionItemHeader:hover .accordionItemIcon:before {
+  background-color: #0a84ff
+}
 .accordionItemIcon:before {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -103,15 +108,14 @@
   -o-transition: max-height .2s ease-out;
   transition: max-height .2s ease-out;
   background: #1e1e1e;
-  color: #e6e6e6
+  color: #fff
 }
 .accordionItemBodyContent {
   padding: 0 50px 30px;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;
-  color: #e6e6e6
+  color: #fff
 }
 @media (max-width:767px) {
   html {

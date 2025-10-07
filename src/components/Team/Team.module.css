@@ -1,6 +1,6 @@
 .teamSection {
   background: #030303;
-  padding: 56px 0 24px;
+  padding: 36px 0 24px;
   color: #fff;
   position: relative
 }
@@ -33,7 +33,6 @@
 .title {
   margin: 0 0 60px;
   text-align: center;
-  font-family: Barlow,system-ui,sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 56px;
@@ -93,7 +92,6 @@
   object-fit: cover
 }
 .infoName {
-  font-family: Barlow;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
@@ -103,12 +101,11 @@
   margin: 10px auto
 }
 .infoRole {
-  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0;
   text-align: center;
-  color: #fff;
+  color: #ffffffcc;
   margin: 0 auto
 }

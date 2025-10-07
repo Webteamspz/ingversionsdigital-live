@@ -1,5 +1,5 @@
 .contactSection {
-  padding: 56px 0
+  padding: 36px 0 46px
 }
 .contactHeading {
   margin-bottom: 40px!important
@@ -29,11 +29,9 @@
 .contactPanelTitle {
   margin: 0 0 24px;
   color: #fff;
-  font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 100%;
-  letter-spacing: -2%
+  line-height: 100%
 }
 .cInput,
 textarea.cInput {
@@ -87,8 +85,7 @@ textarea.cInput {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #e6e6e6;
-  font-family: Barlow,sans-serif;
+  color: #ffffffcc;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -113,7 +110,6 @@ textarea.cInput {
 .contactNote {
   color: #ffffffcc;
   margin: 6px 0 16px;
-  font-family: Barlow,sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px

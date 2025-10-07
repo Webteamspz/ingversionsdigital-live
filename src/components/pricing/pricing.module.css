@@ -1,7 +1,7 @@
 .pricingSection {
   background: #030303;
   color: #fff;
-  padding: 56px 0 40px
+  padding: 36px 0 40px
 }
 .heading {
   margin-bottom: 10px;
@@ -12,9 +12,8 @@
   max-width: 536px;
   margin: 0 auto 85px;
   text-align: center;
-  color: #b8b8b8;
+  color: #ffffffcc;
   line-height: 1.5;
-  font-family: Barlow,system-ui,sans-serif
 }
 .tableWrap {
   border-radius: 10px;
@@ -48,7 +47,6 @@
   text-align: center;
   min-height: 48px;
   color: #fff;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%
@@ -67,7 +65,6 @@
 }
 .stub {
   color: #0a84ff;
-  font-family: Barlow;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%
@@ -85,7 +82,6 @@
   justify-content: flex-end
 }
 .planName {
-  font-family: Barlow;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
@@ -94,7 +90,6 @@
 }
 .premiumName {
   color: #0a84ff;
-  font-family: Barlow;
   font-weight: 700;
   font-style: Bold;
   font-size: 18px;
@@ -103,7 +98,6 @@
 }
 .planPrice {
   color: #fff;
-  font-family: Barlow;
   font-weight: 800;
   font-size: 16px;
   line-height: 18px;
@@ -113,7 +107,6 @@
 .cta {
   color: #0a84ff;
   text-decoration: none;
-  font-family: Barlow;
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
@@ -128,7 +121,6 @@
   color: #fff;
   border-radius: 2px;
   padding: 2px 8px;
-  font-family: Barlow;
   font-weight: 800;
   font-size: 12px;
   line-height: 14px;
@@ -161,7 +153,6 @@
 }
 .labelCell {
   color: #fff;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;

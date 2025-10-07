@@ -1,12 +1,10 @@
 .servicesSection {
-  padding: 34px 0;
-  margin-top: 26px
+  padding: 50px 0 34px
 }
 .servicesSub {
-  color: #ffffffe5;
+  color: #ffffffcc;
   margin: 0 0 45px;
   text-align: center;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%
@@ -61,15 +59,13 @@
 .serviceTitle {
   margin: 0 0 34px;
   color: #fff;
-  font-family: Barlow;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
   text-align: center
 }
 .serviceDesc {
-  color: #fff;
-  font-family: Barlow;
+  color: #ffffffcc;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;

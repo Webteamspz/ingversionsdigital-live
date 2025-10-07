@@ -6,10 +6,9 @@
   margin-bottom: 20px
 }
 .processSub {
-  color: #ffffffe5;
+  color: #ffffffcc;
   margin: 0 auto 48px;
   text-align: center;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -37,10 +36,9 @@
 }
 .stepHead {
   background: #1a1a1a;
-  color: #81807e;
+  color: #fff;
   text-align: center;
   padding: 13.17px 14px;
-  font-family: Barlow;
   font-weight: 700;
   font-size: 14px;
   line-height: 150%;
@@ -62,8 +60,7 @@
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
 }
 .stepDesc {
-  color: #b3b3b2;
-  font-family: Barlow;
+  color: #ffffffcc;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;

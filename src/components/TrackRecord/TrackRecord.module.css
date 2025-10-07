@@ -28,7 +28,6 @@
 }
 .kpi .value {
   color: #fff;
-  font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 40px;
   line-height: normal;
@@ -37,8 +36,7 @@
   margin-bottom: -5px
 }
 .kpi .label {
-  color: #fff;
-  font-family: Barlow,sans-serif;
+  color: #ffffffcc;
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;

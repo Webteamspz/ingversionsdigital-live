@@ -1,5 +1,5 @@
 .whyChooseUsSection {
-  padding: 36px 0;
+  padding: 16px 0 36px;
   text-align: center
 }
 .whyChooseUsCards {
@@ -63,7 +63,6 @@
 }
 .whyChooseUsTitle {
   margin: 0 0 22px;
-  font-family: Barlow;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -72,7 +71,6 @@
 }
 .whyChooseUsDesc {
   color: #ffffffcc;
-  font-family: Barlow;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;

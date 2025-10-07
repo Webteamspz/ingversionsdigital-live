@@ -18,7 +18,7 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-height: 104px
+  min-height: 90px
 }
 .brand {
   display: -webkit-box;
@@ -30,7 +30,7 @@
   gap: 10px
 }
 .brandLogo {
-  max-width: 261px;
+  max-width: 230px;
   width: 100%;
   display: block;
   -o-object-fit: cover;
@@ -63,6 +63,5 @@
   transition: .3s all ease-in-out
 }
 .nav a:hover {
-  font-weight: 600;
   color: #0a84ff
 }

@@ -1,13 +1,12 @@
 .startedSection {
   position: relative;
-  padding: 90px 0 60px;
+  padding: 50px 0 30px;
   background: #030303
 }
 .startedContainer {
   position: relative
 }
 .startedTitle {
-  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 34px;
   line-height: 100%;
@@ -65,13 +64,11 @@
   max-width: 317px;
   width: 100%;
   margin: 40px auto 16px;
-  font-family: Barlow,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%
 }
 .testimonialReviewer {
-  font-family: Barlow,sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
@@ -79,7 +76,7 @@
   margin-top: 39px
 }
 .testimonialText {
-  color: #0a84ff;
+  color: #ffffffcc;
   font-weight: 400;
   font-size: 11px
 }
