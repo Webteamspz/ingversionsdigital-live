@@ -60,7 +60,7 @@ export default function FAQ() {
   return (
     <section className={styles.faqWrapper} id="faq">
       <div className="container">
-        <h3>{heading}</h3>
+        <h3 className="section-title">{heading}</h3>
         <div className={styles.accordion}>
           {list.map((it, i) => (
             <FAQItem

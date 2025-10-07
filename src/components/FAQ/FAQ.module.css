@@ -24,7 +24,7 @@
 .accordionItemHeader {
   width: 100%;
   min-height: 94px;
-  padding: 30px 50px;
+  padding: 30px 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,7 +111,7 @@
   color: #fff
 }
 .accordionItemBodyContent {
-  padding: 0 50px 30px;
+  padding: 0 35px 30px;
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;

@@ -11,7 +11,7 @@ export default function Team() {
   return (
     <section className={styles.teamSection} id="team">
       <div className={`container ${styles.teamContainer}`}>
-        <h2 className={styles.title}>
+        <h2 className={`section-title ${styles.title}`}>
           {data.team.heading}
           <span className={styles.pill}>{data.team.pill}</span>
         </h2>

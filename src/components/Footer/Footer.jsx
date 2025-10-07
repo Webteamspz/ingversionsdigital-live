@@ -39,6 +39,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={`${styles.footerMid}`}>
+          <div className={styles.emptyCell}>&nbsp;</div>
           <div className={styles.footAddress}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

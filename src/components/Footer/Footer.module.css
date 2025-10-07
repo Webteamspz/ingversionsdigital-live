@@ -90,7 +90,7 @@
   gap: 30px;
   padding: 17px 0 10px;
   position: relative;
-  max-width: 837px;
+  max-width: 100%;
   width: 100%;
   margin: 0 0 0 auto
 }
@@ -155,4 +155,18 @@
 .footerLeft {
   outline: 0;
   text-decoration: none
+}
+.emptyCell {
+  max-width: 242.54px;
+  width: 100%;
+}
+@media (max-width: 1199.98px) {
+  .footAddress {
+    max-width: 350px;
+    align-items: flex-start
+  }
+  .footAddress span {
+    max-width: calc(100% - 40px);
+    text-align: left
+  }
 }
