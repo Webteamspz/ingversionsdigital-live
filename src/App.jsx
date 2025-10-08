@@ -17,7 +17,7 @@ export default function App() {
     <>
       <Preloader
         minDuration={3000}
-        logoSrc={"/assets/preloader/preloader.png"}
+        logoSrc={"/ingversionsdigital-live/assets/preloader/preloader.png"}
       />
       <Header />
       <Hero />
