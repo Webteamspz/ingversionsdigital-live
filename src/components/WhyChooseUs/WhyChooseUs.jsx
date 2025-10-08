@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
         <div className={styles.whyChooseUsCards}>
           {data.why.list.map((w, i) => (
             <div key={i} className={styles.whyChooseUsCard}>
-              <img src={icon} alt="" className={styles.whyChooseUsIcon} />
+              <img src={icon} alt="Check" className={styles.whyChooseUsIcon} />
               <h4 className={styles.whyChooseUsTitle}>{w.title}</h4>
               <p className={styles.whyChooseUsDesc}>{w.desc}</p>
             </div>

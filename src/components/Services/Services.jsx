@@ -10,7 +10,7 @@ export default function Services() {
         <div className={styles.services}>
           {data.services.list.map((s, i) => (
             <div key={i} className={`${styles.card} ${styles.service}`}>
-              <img className={styles.icon} src={s.icon} alt="" />
+              <img className={styles.icon} src={s.icon} alt={s.title} />
               <h4 className={styles.serviceTitle}>{s.title}</h4>
               <p className={styles.serviceDesc}>{s.desc}</p>
             </div>

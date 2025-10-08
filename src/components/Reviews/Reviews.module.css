@@ -8,7 +8,7 @@
 }
 .startedTitle {
   font-weight: 700;
-  font-size: 34px;
+  font-size: 36px;
   line-height: 100%;
   color: #fff;
   text-align: center;
@@ -106,10 +106,10 @@
   cursor: pointer
 }
 .tsPrev {
-  left: 0
+  left: 8px
 }
 .tsNext {
-  right: 0
+  right: 8px
 }
 .tsNav svg {
   max-width: 18px;

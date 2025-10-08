@@ -15,12 +15,11 @@ export default function CompanyLogos() {
               slidesPerView={5}
               spaceBetween={22}
               loop={true}
-              grabCursor={true}
               speed={2000}
+              allowTouchMove={false}
               autoplay={{
                 delay: 1000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
+                disableOnInteraction: false
               }}
               breakpoints={{
               310: {
@@ -37,9 +36,9 @@ export default function CompanyLogos() {
               },
         }}
             >
-              {data.logos.map((src, i) => (
+              {data.logos.map((a, i) => (
               <SwiperSlide key={i} className={styles.cardSlide}>
-                <img key={`logo1-${i}`} src={src} alt={`logo-${i}`} />
+                <img key={`logo1-${i}`} src={a.img} alt={a.name} />
               </SwiperSlide>
               ))}
         </Swiper>

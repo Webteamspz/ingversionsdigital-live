@@ -15,7 +15,7 @@ export default function Reviews() {
   return (
     <section className={styles.startedSection} id="reviews">
       <div className={`container ${styles.startedContainer}`}>
-        <h3 className={`sectionTitle ${styles.startedTitle}`}>
+        <h3 className={`section-title ${styles.startedTitle}`}>
           {data.review.heading}
         </h3>
         <button
@@ -92,7 +92,7 @@ export default function Reviews() {
                 <img
                   className={styles.quoteIcon}
                   src={quoteImg}
-                  alt=""
+                  alt="Quote"
                   width="18"
                   height="18"
                   loading="lazy"

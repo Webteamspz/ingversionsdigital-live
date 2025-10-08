@@ -5,8 +5,6 @@
 }
 .heading {
   margin-bottom: 10px;
-  font-size: 40px!important;
-  font-weight: 700!important
 }
 .sub {
   max-width: 536px;
@@ -30,7 +28,7 @@
   margin-bottom: 20px
 }
 .sectionTitle {
-  background: #1a1a1a;
+  background: #141414;
   height: 40px
 }
 .cell {
@@ -207,7 +205,7 @@
     margin: 0
   }
   .mSectionTitle {
-    background: #1a1a1a;
+    background: #141414;
     color: #bdbdbd;
     padding: 10px 12px;
     font-weight: 600;
