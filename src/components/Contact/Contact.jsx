@@ -95,7 +95,7 @@ const Contact = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-// Replace your current handleSubmit with this:
+
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validateAll()) return;
@@ -107,27 +107,20 @@ const handleSubmit = async (e) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(formData), // includes name/email/company/phone/message you’ve been collecting
+      body: JSON.stringify(formData),
     });
 
     if (res.ok) {
       alert("Thanks! Your details have been sent.");
-      // if you want a hard refresh:
       window.location.reload();
-      // or, if you prefer a soft reset instead of reloading:
-      // setFormData({ phone: "", message: "" });
-      // setTouched({});
-      // setErrors({});
-      // e.target.reset?.();
     } else {
       const err = await res.json().catch(() => ({}));
       alert(err?.error || "Something went wrong. Please try again.");
     }
   } catch (err) {
-    alert("Network error. Please try again.");
+    alert("Found some error please try again.", err);
   }
 };
-
 
   return (
     <section className={styles.contactSection} id="contact">

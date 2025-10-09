@@ -1,11 +1,9 @@
-// src/components/Header/Header.jsx
 import { useState, useEffect } from "react";
 import data from "../../data/siteData";
 import logo from "/assets/logos/main-logo.png";          
 import mobileLogo from "/assets/logos/mobile-logo.png";  
 import styles from "./Header.module.css";
 
-/* Inline SVGs for buttons */
 const HamburgerIcon = (props) => (
   <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
     <path d="M9 13.1221H27.75M9 24.6221H39M20.25 36.1221H39" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -31,25 +29,17 @@ const Header = () => {
     <header className={styles.siteHeader} id="header">
       <div className={`container ${styles.headerRow}`}>
         <a href="/" className={styles.brand}>
-          {/* Desktop logo */}
           <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
-          {/* Mobile logo (file, as before) */}
-          <img src={mobileLogo} alt="Ingversions Mobile Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
+          <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
         </a>
-
-        {/* desktop nav */}
         <nav className={styles.nav}>
           {links.map((l, i) => (
             <a key={i} href={l.href}>{l.label}</a>
           ))}
         </nav>
-
-        {/* desktop CTA */}
         <a className={`btn ${styles.desktopCta}`} href={cta.href}>
           {cta.label}
         </a>
-
-        {/* hamburger (<=1024px) */}
         <button
           className={styles.hamburger}
           aria-label="Toggle menu"
@@ -61,20 +51,14 @@ const Header = () => {
           <HamburgerIcon className={styles.menuIcon} />
         </button>
       </div>
-
-      {/* overlay */}
       <div className={`${styles.overlay} ${open ? styles.show : ""}`} onClick={() => setOpen(false)} />
-
-      {/* mobile drawer */}
       <aside id="mobile-menu" className={`${styles.mobileMenu} ${open ? styles.open : ""}`}>
         <div className={styles.mobileHeader}>
-          {/* Keep using the mobile logo file inside the drawer too */}
-          <img src={mobileLogo} alt="Ingversions Mobile Logo" className={styles.mobileLogo} />
+          <img src={mobileLogo} alt="Ingversions Logo" className={styles.mobileLogo} />
           <button className={styles.closeBtn} aria-label="Close menu" onClick={() => setOpen(false)} type="button">
             <CloseIcon className={styles.closeIcon} />
           </button>
         </div>
-
         <nav className={styles.mobileNav}>
           {links.map((l, i) => (
             <a key={i} href={l.href} onClick={() => setOpen(false)}>
@@ -82,7 +66,6 @@ const Header = () => {
             </a>
           ))}
         </nav>
-
         <a className={`btn ${styles.mobileCta}`} href={cta.href} onClick={() => setOpen(false)}>
           {cta.label}
         </a>

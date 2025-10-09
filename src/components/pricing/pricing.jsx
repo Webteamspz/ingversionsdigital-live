@@ -45,8 +45,6 @@ const PricingCompare = () => {
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
-
-        {/* Desktop table */}
         <div className={styles.tableWrap}>
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
@@ -102,8 +100,6 @@ const PricingCompare = () => {
             </div>
           ))}
         </div>
-
-        {/* Mobile Swiper */}
         <div className={styles.mobileCompare}>
           <div className={styles.labelsCol}>
             <div className={styles.labelsHeadSpacer} />
@@ -118,7 +114,6 @@ const PricingCompare = () => {
               </div>
             ))}
           </div>
-
           <div className={styles.plansCol}>
             <button
               className={`${styles.navBtn} ${styles.prev}`}
