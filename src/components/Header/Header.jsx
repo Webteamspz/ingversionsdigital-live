@@ -1,16 +1,27 @@
+// src/components/Header/Header.jsx
 import { useState, useEffect } from "react";
 import data from "../../data/siteData";
-import logo from "/assets/logos/main-logo.png";
-import mobileLogo from "/assets/header/mobile-logo.svg";
-import hamburger from "/assets/header/hamburger.svg";
-import close from "/assets/header/cross.svg";
+import logo from "/assets/logos/main-logo.png";          
+import mobileLogo from "/assets/logos/mobile-logo.png";  
 import styles from "./Header.module.css";
+
+/* Inline SVGs for buttons */
+const HamburgerIcon = (props) => (
+  <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+    <path d="M9 13.1221H27.75M9 24.6221H39M20.25 36.1221H39" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const CloseIcon = (props) => (
+  <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+    <path d="M26.5608 0.439274C25.9751 -0.146425 25.0255 -0.146425 24.4398 0.439274L13.5 11.3791L2.56024 0.439274C1.97456 -0.146425 1.02496 -0.146425 0.439275 0.439274C-0.146425 1.02496 -0.146425 1.97456 0.439275 2.56024L11.379 13.5L0.439305 24.4397C-0.146395 25.0255 -0.146395 25.975 0.439305 26.5608C1.02499 27.1464 1.97459 27.1464 2.56027 26.5608L13.5 15.621L24.4398 26.5608C25.0255 27.1464 25.9751 27.1464 26.5608 26.5608C27.1464 25.975 27.1464 25.0255 26.5608 24.4398L15.6209 13.5L26.5608 2.56024C27.1464 1.97456 27.1464 1.02496 26.5608 0.439274Z" fill="white"/>
+  </svg>
+);
 
 const Header = () => {
   const { links, cta } = data.header;
   const [open, setOpen] = useState(false);
 
-  // lock scroll when menu is open
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     return () => (document.documentElement.style.overflow = "");
@@ -21,25 +32,15 @@ const Header = () => {
       <div className={`container ${styles.headerRow}`}>
         <a href="/" className={styles.brand}>
           {/* Desktop logo */}
-          <img
-            src={logo}
-            alt="Ingversions Logo"
-            className={`${styles.brandLogo} ${styles.desktopLogo}`}
-          />
-          {/* Mobile logo */}
-          <img
-            src={mobileLogo}
-            alt="Ingversions Mobile Logo"
-            className={`${styles.brandLogo} ${styles.mobileLogoOnly}`}
-          />
+          <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
+          {/* Mobile logo (file, as before) */}
+          <img src={mobileLogo} alt="Ingversions Mobile Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
         </a>
 
         {/* desktop nav */}
         <nav className={styles.nav}>
           {links.map((l, i) => (
-            <a key={i} href={l.href}>
-              {l.label}
-            </a>
+            <a key={i} href={l.href}>{l.label}</a>
           ))}
         </nav>
 
@@ -48,7 +49,7 @@ const Header = () => {
           {cta.label}
         </a>
 
-        {/* hamburger (visible <=1024px) */}
+        {/* hamburger (<=1024px) */}
         <button
           className={styles.hamburger}
           aria-label="Toggle menu"
@@ -57,34 +58,20 @@ const Header = () => {
           onClick={() => setOpen((v) => !v)}
           type="button"
         >
-          <img src={hamburger} alt="menu" className={styles.menuIcon} />
+          <HamburgerIcon className={styles.menuIcon} />
         </button>
       </div>
 
       {/* overlay */}
-      <div
-        className={`${styles.overlay} ${open ? styles.show : ""}`}
-        onClick={() => setOpen(false)}
-      />
+      <div className={`${styles.overlay} ${open ? styles.show : ""}`} onClick={() => setOpen(false)} />
 
       {/* mobile drawer */}
-      <aside
-        id="mobile-menu"
-        className={`${styles.mobileMenu} ${open ? styles.open : ""}`}
-      >
+      <aside id="mobile-menu" className={`${styles.mobileMenu} ${open ? styles.open : ""}`}>
         <div className={styles.mobileHeader}>
-          <img
-            src={mobileLogo}
-            alt="Ingversions Mobile Logo"
-            className={styles.mobileLogo}
-          />
-          <button
-            className={styles.closeBtn}
-            aria-label="Close menu"
-            onClick={() => setOpen(false)}
-            type="button"
-          >
-            <img src={close} alt="close" className={styles.closeIcon} />
+          {/* Keep using the mobile logo file inside the drawer too */}
+          <img src={mobileLogo} alt="Ingversions Mobile Logo" className={styles.mobileLogo} />
+          <button className={styles.closeBtn} aria-label="Close menu" onClick={() => setOpen(false)} type="button">
+            <CloseIcon className={styles.closeIcon} />
           </button>
         </div>
 
@@ -96,11 +83,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <a
-          className={`btn ${styles.mobileCta}`}
-          href={cta.href}
-          onClick={() => setOpen(false)}
-        >
+        <a className={`btn ${styles.mobileCta}`} href={cta.href} onClick={() => setOpen(false)}>
           {cta.label}
         </a>
       </aside>
