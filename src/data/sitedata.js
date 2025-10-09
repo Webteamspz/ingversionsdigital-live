@@ -42,7 +42,7 @@ export default {
       name: "Dive Right in Scuba",
     },
     {
-      img: "/ingversionsdigit al-live/assets/hero/logo-5.png",
+      img: "/ingversionsdigital-live/assets/hero/logo-5.png",
       name: "Patriot Crew",
     },
     {
