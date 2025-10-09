@@ -3,6 +3,7 @@ import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
 import parse from "html-react-parser";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnngbedd"; 
 
 const Contact = () => {
   const { heading, form, infoCards } = data.contact;
@@ -94,12 +95,39 @@ const Contact = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validateAll()) return;
-    console.log("✅ Contact form submitted:", formData);
-    alert("Form submitted successfully!");
-  };
+// Replace your current handleSubmit with this:
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateAll()) return;
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData), // includes name/email/company/phone/message you’ve been collecting
+    });
+
+    if (res.ok) {
+      alert("Thanks! Your details have been sent.");
+      // if you want a hard refresh:
+      window.location.reload();
+      // or, if you prefer a soft reset instead of reloading:
+      // setFormData({ phone: "", message: "" });
+      // setTouched({});
+      // setErrors({});
+      // e.target.reset?.();
+    } else {
+      const err = await res.json().catch(() => ({}));
+      alert(err?.error || "Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    alert("Network error. Please try again.");
+  }
+};
+
 
   return (
     <section className={styles.contactSection} id="contact">
