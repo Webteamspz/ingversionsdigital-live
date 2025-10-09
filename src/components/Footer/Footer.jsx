@@ -2,7 +2,7 @@ import data from "../../data/siteData";
 import styles from "./Footer.module.css";
 import parse from "html-react-parser";
 
-export default function Footer() {
+const Footer = () => {
   const f = data.footer;
 
   return (
@@ -102,4 +102,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

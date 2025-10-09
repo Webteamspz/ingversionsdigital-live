@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import data from "../../data/siteData";
 import styles from "./TrackRecord.module.css";
 
-function Counter({ value, duration = 3000 }) {
+const Counter = ({ value, duration = 3000 }) => {
   const ref = useRef(null);
 
   const numericPart = parseInt(value, 10);
@@ -33,9 +33,9 @@ function Counter({ value, duration = 3000 }) {
       0{suffix}
     </div>
   );
-}
+};
 
-export default function TrackRecord() {
+const TrackRecord = () => {
   return (
     <section className={styles.kpiSection} id="track-record">
       <div className="container">
@@ -51,4 +51,6 @@ export default function TrackRecord() {
       </div>
     </section>
   );
-}
+};
+
+export default TrackRecord;

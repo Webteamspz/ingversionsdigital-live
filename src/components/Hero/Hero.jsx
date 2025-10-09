@@ -2,7 +2,7 @@ import data from "../../data/siteData";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+const Hero = () => {
   const h = data.hero;
 
   return (
@@ -42,4 +42,6 @@ export default function Hero() {
       <CompanyLogos />
     </section>
   );
-}
+};
+
+export default Hero;

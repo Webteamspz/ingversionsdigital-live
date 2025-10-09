@@ -1,7 +1,7 @@
 import data from "../../data/siteData";
 import styles from "./Services.module.css";
 
-export default function Services() {
+const Services = () => {
   return (
     <section className={styles.servicesSection} id="services">
       <div className="container">
@@ -19,4 +19,6 @@ export default function Services() {
       </div>
     </section>
   );
-}
+};
+
+export default Services;

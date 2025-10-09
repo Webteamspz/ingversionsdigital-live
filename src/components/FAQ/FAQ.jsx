@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import data from "../../data/siteData";
 import styles from "./FAQ.module.css";
 
-function FAQItem({ index, q, a, isOpen, onToggle }) {
+const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
   const bodyRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
 
@@ -49,9 +49,9 @@ function FAQItem({ index, q, a, isOpen, onToggle }) {
       </div>
     </div>
   );
-}
+};
 
-export default function FAQ() {
+const FAQ = () => {
   const { heading, list } = data.faq;
   const [openIndex, setOpenIndex] = useState(-1);
 
@@ -76,4 +76,6 @@ export default function FAQ() {
       </div>
     </section>
   );
-}
+};
+
+export default FAQ;

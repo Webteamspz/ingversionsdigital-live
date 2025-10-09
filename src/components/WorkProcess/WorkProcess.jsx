@@ -1,7 +1,7 @@
 import data from "../../data/siteData";
 import styles from "./WorkProcess.module.css";
 
-export default function WorkProcess() {
+const WorkProcess = () => {
   return (
     <section className={styles.processSection} id="work-process">
       <div className="container">
@@ -29,4 +29,6 @@ export default function WorkProcess() {
       </div>
     </section>
   );
-}
+};
+
+export default WorkProcess;

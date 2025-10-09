@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import styles from "./Preloader.module.css";
 
-export default function Preloader({ minDuration = 800, logoSrc }) {
+const Preloader = ({ minDuration = 800, logoSrc }) => {
   const [visible, setVisible] = useState(true);
   const startTimeRef = useRef(Date.now());
 
@@ -37,4 +37,6 @@ export default function Preloader({ minDuration = 800, logoSrc }) {
       </div>
     </div>
   );
-}
+};
+
+export default Preloader;

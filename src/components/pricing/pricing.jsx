@@ -11,7 +11,7 @@ import crossIcon from "/assets/pricing/cross.svg";
 import prevSvg from "/assets/pricing/left.svg";
 import nextSvg from "/assets/pricing/right.svg";
 
-export default function PricingCompare() {
+const PricingCompare = () => {
   const { pricing } = data;
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -45,6 +45,8 @@ export default function PricingCompare() {
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
+
+        {/* Desktop table */}
         <div className={styles.tableWrap}>
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
@@ -76,6 +78,7 @@ export default function PricingCompare() {
               </div>
             ))}
           </div>
+
           {pricing.sections.map((sec, sIdx) => (
             <div key={sIdx} className={styles.sectionBlock}>
               <div className={`${styles.row} ${styles.sectionTitle}`}>
@@ -99,6 +102,8 @@ export default function PricingCompare() {
             </div>
           ))}
         </div>
+
+        {/* Mobile Swiper */}
         <div className={styles.mobileCompare}>
           <div className={styles.labelsCol}>
             <div className={styles.labelsHeadSpacer} />
@@ -113,6 +118,7 @@ export default function PricingCompare() {
               </div>
             ))}
           </div>
+
           <div className={styles.plansCol}>
             <button
               className={`${styles.navBtn} ${styles.prev}`}
@@ -130,6 +136,7 @@ export default function PricingCompare() {
             >
               <img src={nextSvg} alt="" className={styles.navIcon} />
             </button>
+
             <Swiper
               modules={[Navigation, A11y]}
               speed={500}
@@ -165,6 +172,7 @@ export default function PricingCompare() {
                       </div>
                     )}
                   </div>
+
                   {pricing.sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
                       <div className={styles.mSectionTitle}>{sec.title}</div>
@@ -190,4 +198,6 @@ export default function PricingCompare() {
       </div>
     </section>
   );
-}
+};
+
+export default PricingCompare;

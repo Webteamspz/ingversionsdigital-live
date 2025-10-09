@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-export default function Team() {
+const Team = () => {
   const members = data.team || [];
 
   return (
@@ -42,4 +42,6 @@ export default function Team() {
       </div>
     </section>
   );
-}
+};
+
+export default Team;

@@ -4,7 +4,7 @@ import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
 import parse from "html-react-parser";
 
-export default function Contact() {
+const Contact = () => {
   const { heading, form, infoCards } = data.contact;
 
   const [formData, setFormData] = useState({
@@ -171,7 +171,7 @@ export default function Contact() {
                       touch("phone");
                       validateField("phone", val);
                     }}
-                    classSelector = {`${errors.phone ? styles.invalid : ""}`}
+                    classSelector={`${errors.phone ? styles.invalid : ""}`}
                   />
                   {errors.phone && (
                     <div className={styles.errorMessage}>{errors.phone}</div>
@@ -216,10 +216,7 @@ export default function Contact() {
           </div>
           <div className={styles.rightCol}>
             {infoCards.map((card, idx) => (
-              <div
-                key={idx}
-                className={`${styles.contactCard}`}
-              >
+              <div key={idx} className={`${styles.contactCard}`}>
                 <h4 className={styles.contactPanelTitle}>{card.title}</h4>
                 {card.items && (
                   <ul className={styles.cList}>
@@ -255,4 +252,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

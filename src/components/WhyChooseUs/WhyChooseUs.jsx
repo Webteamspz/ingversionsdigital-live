@@ -2,7 +2,7 @@ import data from "../../data/siteData";
 import icon from "/assets/why-choose-us/checkmark.png";
 import styles from "./WhyChooseUs.module.css";
 
-export default function WhyChooseUs() {
+const WhyChooseUs = () => {
   return (
     <section className={styles.whyChooseUsSection} id="#why-choose-us">
       <div className="container">
@@ -19,4 +19,6 @@ export default function WhyChooseUs() {
       </div>
     </section>
   );
-}
+};
+
+export default WhyChooseUs;
