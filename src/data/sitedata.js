@@ -170,40 +170,40 @@ export default {
     heading: "Reviews",
     testimonials: [
       {
-        reviewer: "John Doe",
-        reviewerRole: "Founder & CEO",
+        reviewer: "James R",
+        reviewerRole: "Founder",
         quote:
-          "That’s when we knew there had to be a better way — a smarter, faster, more intuitive solution.",
+          "Reliable, fast, and super professional. They helped us optimize our Shopify store and we instantly saw better conversions.",
       },
       {
-        reviewer: "John Doe",
-        reviewerRole: "Founder & CEO",
+        reviewer: "Emily T",
+        reviewerRole: "Director",
         quote:
-          "So we built a platform that empowers companies to transform raw data into real-time decisions using the power of AI.",
+          "The CRO experiments they ran boosted our sales within weeks. Smart strategies, well executed.",
       },
       {
-        reviewer: "John Doe",
-        reviewerRole: "Founder & CEO",
+        reviewer: "Oliver K",
+        reviewerRole: "Vice Prescient",
         quote:
-          "We’re here to make intelligent systems accessible, actionable, and aligned with real business goals.",
+          "They rebuilt our homepage and PDPs with clean design and better UX. Our bounce rate dropped noticeably",
       },
       {
-        reviewer: "Jane Roe",
+        reviewer: "Abhijit M",
         reviewerRole: "CTO",
         quote:
-          "From day one, we focused on reliability and performance so teams can trust the insights they act on.",
+          "Amazing Shopify experts! They customized our store flawlessly and gave us a clear CRO roadmap.",
       },
       {
-        reviewer: "Alex Kim",
-        reviewerRole: "COO",
+        reviewer: "Daniel H",
+        reviewerRole: "CEO",
         quote:
-          "Our mission is to remove friction, reduce guesswork, and elevate outcomes for every customer.",
+          "We saw a 20% lift in conversions after their changes to our cart and checkout. Highly recommend.",
       },
       {
-        reviewer: "Priya Shah",
+        reviewer: "Mia L.",
         reviewerRole: "Head of Product",
         quote:
-          "We ship small, learn fast, and let real user value guide the roadmap.",
+          "Their A/B testing insights were game-changing. We’re finally making decisions with data, not guesses.",
       },
     ],
   },

@@ -66,7 +66,7 @@ body {
   cursor: pointer
 }
 .btn:hover {
-  background: #fffFFF1A;
+  background: #ffffff1a;
   color: #0a84ff
 }
 .card {
@@ -145,7 +145,7 @@ section[id] {
 .footer-logo:hover,
 .hero-visual-img:hover,
 .logo-row img:hover {
-  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(10,132,255,.5));
+  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(10,132,255,0.5));
   filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -219,6 +219,35 @@ input:-webkit-autofill {
 }
 .react-international-phone-country-selector-dropdown__list-item-dial-code {
   color: #fff
+}
+.swiper-pagination-bullet {
+  display: inline-block;
+  background: var(--swiper-pagination-bullet-inactive-color,#0a84ff)
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 9998
+}
+body.menu-open {
+  overflow: hidden
+}
+body.menu-open .overlay {
+  opacity: 1;
+  pointer-events: auto
+}
+.mobileMenu {
+  z-index: 9999
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
 }
 @media (max-width:1199.98px) {
   .container {

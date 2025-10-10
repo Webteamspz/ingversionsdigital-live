@@ -87,7 +87,7 @@ export default function Reviews() {
           }}
           breakpoints={{
             0: { slidesPerView: 1, spaceBetween: 16 },
-            640: { slidesPerView: 1, spaceBetween: 18 },
+            640: { slidesPerView: 2, spaceBetween: 18 },
             900: { slidesPerView: 2, spaceBetween: 22 },
             1200: { slidesPerView: 3, spaceBetween: 30 },
           }}

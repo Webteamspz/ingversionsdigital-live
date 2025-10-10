@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import data from "../../data/siteData";
-import logo from "/assets/logos/main-logo.png";          
-import mobileLogo from "/assets/logos/mobile-logo.png";  
+import logo from "/assets/logos/main-logo.png";
+import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 
 const HamburgerIcon = (props) => (
@@ -20,57 +21,89 @@ const Header = () => {
   const { links, cta } = data.header;
   const [open, setOpen] = useState(false);
 
+  // lock scroll + add body class for global overlay CSS
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
-    return () => (document.documentElement.style.overflow = "");
+    document.body.classList.toggle("menu-open", open);
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.classList.remove("menu-open");
+    };
   }, [open]);
 
-  return (
-    <header className={styles.siteHeader} id="header">
-      <div className={`container ${styles.headerRow}`}>
-        <a href="/" className={styles.brand}>
-          <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
-          <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
-        </a>
-        <nav className={styles.nav}>
-          {links.map((l, i) => (
-            <a key={i} href={l.href}>{l.label}</a>
-          ))}
-        </nav>
-        <a className={`btn ${styles.desktopCta}`} href={cta.href}>
-          {cta.label}
-        </a>
-        <button
-          className={styles.hamburger}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
-          type="button"
-        >
-          <HamburgerIcon className={styles.menuIcon} />
+  const Overlay = (
+    <div
+      className={`${styles.overlay} ${open ? styles.show : ""}`}
+      onClick={() => setOpen(false)}
+      aria-hidden="true"
+    />
+  );
+
+  const Drawer = (
+    <aside
+      id="mobile-menu"
+      className={`${styles.mobileMenu} ${open ? styles.open : ""}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile menu"
+    >
+      <div className={styles.mobileHeader}>
+        <img src={mobileLogo} alt="Ingversions Logo" className={styles.mobileLogo} />
+        <button className={styles.closeBtn} aria-label="Close menu" onClick={() => setOpen(false)} type="button">
+          <CloseIcon className={styles.closeIcon} />
         </button>
       </div>
-      <div className={`${styles.overlay} ${open ? styles.show : ""}`} onClick={() => setOpen(false)} />
-      <aside id="mobile-menu" className={`${styles.mobileMenu} ${open ? styles.open : ""}`}>
-        <div className={styles.mobileHeader}>
-          <img src={mobileLogo} alt="Ingversions Logo" className={styles.mobileLogo} />
-          <button className={styles.closeBtn} aria-label="Close menu" onClick={() => setOpen(false)} type="button">
-            <CloseIcon className={styles.closeIcon} />
+
+      <nav className={styles.mobileNav}>
+        {links.map((l, i) => (
+          <a key={i} href={l.href} onClick={() => setOpen(false)}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+      <a className={`btn ${styles.mobileCta}`} href={cta.href} onClick={() => setOpen(false)}>
+        {cta.label}
+      </a>
+    </aside>
+  );
+
+  return (
+    <>
+      <header className={styles.siteHeader} id="header">
+        <div className={`container ${styles.headerRow}`}>
+          <a href="/" className={styles.brand}>
+            <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
+            <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
+          </a>
+
+          <nav className={styles.nav}>
+            {links.map((l, i) => (
+              <a key={i} href={l.href}>{l.label}</a>
+            ))}
+          </nav>
+
+          <a className={`btn ${styles.desktopCta}`} href={cta.href}>
+            {cta.label}
+          </a>
+
+          <button
+            className={styles.hamburger}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+            type="button"
+          >
+            <HamburgerIcon className={styles.menuIcon} />
           </button>
         </div>
-        <nav className={styles.mobileNav}>
-          {links.map((l, i) => (
-            <a key={i} href={l.href} onClick={() => setOpen(false)}>
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <a className={`btn ${styles.mobileCta}`} href={cta.href} onClick={() => setOpen(false)}>
-          {cta.label}
-        </a>
-      </aside>
-    </header>
+      </header>
+
+      {/* render overlay + drawer as siblings to header (above the whole page) */}
+      {createPortal(Overlay, document.body)}
+      {createPortal(Drawer, document.body)}
+    </>
   );
 };
 
