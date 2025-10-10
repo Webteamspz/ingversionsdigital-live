@@ -110,16 +110,16 @@ body.menu-open .overlay {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 78vw;
-  max-width: 360px;
+  width: 60%;
+  max-width: 100%;
   background: #0b0b0b;
-  border-left: 1px solid rgba(255,255,255,.08);
+  border-left: 1px solid #141414;
   transform: translateX(100%);
   transition: transform .28s ease;
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  padding: 16px 16px 20px
+  padding: 30px 20px
 }
 .mobileMenu.open {
   transform: translateX(0)
@@ -127,9 +127,9 @@ body.menu-open .overlay {
 .mobileHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,.08)
+  justify-content: flex-end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #141414
 }
 .mobileLogo {
   width: 160px;
@@ -139,8 +139,8 @@ body.menu-open .overlay {
   display: grid;
   gap: 0;
   padding: 0;
-  border-top: 1px solid rgba(255,255,255,.08);
-  border-bottom: 1px solid rgba(255,255,255,.08)
+  border-top: 1px solid #141414;
+  border-bottom: 1px solid #141414
 }
 .mobileNav a {
   color: #fff;
@@ -156,13 +156,13 @@ body.menu-open .overlay {
 .mobileCta {
   margin-top: auto;
   width: 100%!important;
-  max-width: 330px!important;
+  max-width: 100%!important;
   justify-content: center
 }
 .desktopCta {
   display: inline-flex
 }
-@media (max-width:1024px) {
+@media (max-width:1023.98px) {
   .nav {
     display: none
   }
@@ -206,7 +206,7 @@ body.menu-open .overlay {
 .desktopLogo {
   display: block
 }
-@media (max-width:768px) {
+@media (max-width:767.98px) {
   .desktopLogo {
     display: none
   }

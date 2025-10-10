@@ -79,7 +79,16 @@
   width: 100%;
   margin: 0 auto
 }
-@media (max-width:767px) {
+@media (max-width:1023.98px) {
+  .whyChooseUsCard {
+    max-width: 216px;
+    min-height: 216px;
+  }
+  .whyChooseUsDesc {
+    max-width: 127px
+  }
+}
+@media (max-width:767.98px) {
   .whyChooseUsSection {
     padding: 20px 0 48px
   }
@@ -93,7 +102,6 @@
   }
   .whyChooseUsCard {
     max-width: 220px;
-    width: 100%;
     min-height: 220px;
     border-radius: 50%;
     border-width: 8px;
@@ -121,7 +129,7 @@
     margin: 0 auto
   }
 }
-@media (max-width:420px) {
+@media (max-width:419.98px) {
   .whyChooseUsCard {
     max-width: 200px;
     min-height: 200px;
@@ -140,7 +148,7 @@
     max-width: 130px
   }
 }
-@media (max-width:360px) {
+@media (max-width:359.98px) {
   .whyChooseUsCard {
     max-width: 190px;
     min-height: 190px;

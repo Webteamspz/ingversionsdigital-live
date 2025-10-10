@@ -206,7 +206,7 @@ textarea.cInput {
 .mt > .errorMessage {
   margin-bottom: -2px
 }
-@media (max-width:1023px) and (min-width:768px) {
+@media (max-width:1023.98px){
   .contactSection {
     padding: 28px 0 40px
   }
@@ -227,7 +227,7 @@ textarea.cInput {
     padding: 28px 28px
   }
   .contactPanelTitle {
-    font-size: 18px;
+
     margin: 0 0 18px
   }
   .grid.two {
@@ -237,14 +237,12 @@ textarea.cInput {
   .cInput,
   textarea.cInput {
     padding: 12px 14px;
-    font-size: 14px
   }
   textarea.cInput {
     min-height: 150px
   }
   .iti__tel-input {
     height: 44px;
-    font-size: 14px
   }
   .iti--separate-dial-code .iti__selected-country {
     height: 44px;
@@ -256,27 +254,14 @@ textarea.cInput {
   .cList {
     gap: 18px
   }
-  .cList li {
-    font-size: 15px;
-    line-height: 22px
-  }
   .cList li:last-child {
     max-width: 100%
-  }
-  .cIco,
-  .cIco svg {
-    width: 22px;
-    height: 22px
-  }
-  .contactNote {
-    font-size: 14px;
-    line-height: 18px
   }
   .cBtn {
     margin-top: 16px
   }
 }
-@media (max-width:767px) {
+@media (max-width:767.98px) {
   .contactSection {
     padding: 24px 0 36px
   }
@@ -357,7 +342,7 @@ textarea.cInput {
     margin-top: 16px
   }
 }
-@media (max-width:360px) {
+@media (max-width:359.98px) {
   .contactSection {
     padding: 22px 0 30px
   }

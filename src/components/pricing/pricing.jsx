@@ -170,7 +170,7 @@ const PricingCompare = () => {
 
                   {pricing.sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
-                      <div className={styles.mSectionTitle}>{sec.title}</div>
+                      <div className={styles.mSectionTitle}>&nbsp;</div>
                       {sec.rows.map((r, rIdx) => (
                         <div
                           key={`m-val-${pIdx}-${sIdx}-${rIdx}`}

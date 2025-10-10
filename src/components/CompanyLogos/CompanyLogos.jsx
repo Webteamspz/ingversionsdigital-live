@@ -16,6 +16,7 @@ const CompanyLogos = () => {
             spaceBetween={22}
             loop={true}
             speed={2000}
+            centeredSlides={true}
             allowTouchMove={false}
             autoplay={{
               delay: 1000,

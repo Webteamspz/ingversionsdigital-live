@@ -175,11 +175,14 @@
 .testimonialSlider::after {
   z-index: 5;
 }
-
 @media (max-width:1230.98px) {
   .quoteLine::after,
   .quoteLine::before {
     max-width: 160px
+  }
+  .tsNav {
+    width: 42px;
+    height: 42px
   }
   .tsPrev {
     left: 10px
@@ -188,15 +191,13 @@
     right: 10px
   }
 }
-@media (max-width:767px) {
+@media (max-width:767.98px) {
   .tsNav {
     display: none
   }
   .testimonialSlider {
     padding: 8px 16px 36px!important
   }
-}
-@media (max-width:767px) {
   .quoteLine::after,
   .quoteLine::before {
     max-width: 100px

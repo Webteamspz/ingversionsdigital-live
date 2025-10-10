@@ -176,7 +176,7 @@
   -webkit-filter: none;
   filter: none
 }
-@media (max-width:900px) {
+@media (max-width:1023.98px) {
   .tableWrap {
     display: none
   }
@@ -197,7 +197,7 @@
     overflow: hidden
   }
   .labelsHeadSpacer {
-    height: 72px;
+    height: 78px;
     border-bottom: 1px solid rgba(255,255,255,.12);
     background: #111
   }
@@ -206,8 +206,8 @@
   }
   .mSectionTitle {
     background: #141414;
-    color: #bdbdbd;
-    padding: 10px 12px;
+    color: #0A84FF;
+    padding: 10px 20px;
     font-weight: 600;
     border-top: 1px solid rgba(255,255,255,.06)
   }
@@ -218,7 +218,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 12px;
+    padding: 12px 20px;
     min-height: 48px;
     border-top: 1px solid rgba(255,255,255,.06)
   }
@@ -247,7 +247,7 @@
     position: relative;
     background: #111;
     border-bottom: 1px solid rgba(255,255,255,.12);
-    min-height: 72px
+    min-height: 78px
   }
   .valRow {
     display: -webkit-box;
@@ -270,7 +270,7 @@
   }
   .navBtn {
     position: absolute;
-    top: 16px;
+    top: 27px;
     z-index: 5;
     padding: 0;
     margin: 0;

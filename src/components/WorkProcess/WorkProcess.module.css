@@ -68,6 +68,8 @@
     max-width: 377px
   }
 }
-@media (max-width: 767px) and (min-width: 360px) {
-  
+@media (max-width: 1023.98px) {
+  .step {
+    max-width: calc(100% / 2 - 15px)
+  }
 }

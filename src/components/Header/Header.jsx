@@ -21,7 +21,6 @@ const Header = () => {
   const { links, cta } = data.header;
   const [open, setOpen] = useState(false);
 
-  // lock scroll + add body class for global overlay CSS
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
@@ -48,12 +47,10 @@ const Header = () => {
       aria-label="Mobile menu"
     >
       <div className={styles.mobileHeader}>
-        <img src={mobileLogo} alt="Ingversions Logo" className={styles.mobileLogo} />
         <button className={styles.closeBtn} aria-label="Close menu" onClick={() => setOpen(false)} type="button">
           <CloseIcon className={styles.closeIcon} />
         </button>
       </div>
-
       <nav className={styles.mobileNav}>
         {links.map((l, i) => (
           <a key={i} href={l.href} onClick={() => setOpen(false)}>
@@ -61,7 +58,6 @@ const Header = () => {
           </a>
         ))}
       </nav>
-
       <a className={`btn ${styles.mobileCta}`} href={cta.href} onClick={() => setOpen(false)}>
         {cta.label}
       </a>
@@ -76,17 +72,14 @@ const Header = () => {
             <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
             <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
           </a>
-
           <nav className={styles.nav}>
             {links.map((l, i) => (
               <a key={i} href={l.href}>{l.label}</a>
             ))}
           </nav>
-
           <a className={`btn ${styles.desktopCta}`} href={cta.href}>
             {cta.label}
           </a>
-
           <button
             className={styles.hamburger}
             aria-label="Toggle menu"
@@ -99,8 +92,6 @@ const Header = () => {
           </button>
         </div>
       </header>
-
-      {/* render overlay + drawer as siblings to header (above the whole page) */}
       {createPortal(Overlay, document.body)}
       {createPortal(Drawer, document.body)}
     </>

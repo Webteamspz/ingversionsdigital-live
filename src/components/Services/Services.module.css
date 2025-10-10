@@ -74,7 +74,7 @@
   max-width: 315px;
   width: 100%
 }
-@media (max-width:1023px) and (min-width:768px) {
+@media (max-width:1023.98px) {
   .services {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -86,8 +86,11 @@
     justify-content: center;
     gap: 23px
   }
+  .card.service {
+    max-width: calc(100% / 2 - 15px)
+  }
 }
-@media (max-width:767px) and (min-width:360px) {
+@media (max-width:767.98px) {
   .services {
     display: none
   }
@@ -132,6 +135,4 @@
   .swiper-pagination-bullet-active {
     background: #0a84ff
   }
-  
-  
 }

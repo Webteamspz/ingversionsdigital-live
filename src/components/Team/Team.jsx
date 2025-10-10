@@ -21,6 +21,7 @@ const Team = () => {
           slidesPerView="auto"
           spaceBetween={22}
           loop={true}
+          centeredSlides={true}
           grabCursor={true}
           speed={2000}
           autoplay={{
