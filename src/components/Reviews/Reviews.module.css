@@ -147,15 +147,58 @@
 .testimonialSlider::before {
   left: 0
 }
-@media (max-width: 1230.98px) {
+.testimonialSlider {
+  padding: 8px 35px 36px!important
+}
+.testimonialSlider .swiper-pagination {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 11;
+  pointer-events: auto
+}
+.testimonialSlider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 1;
+}
+.testimonialSlider .swiper-pagination-bullet-active {
+  background: #0a84ff
+}
+.testimonialSlider::before,
+.testimonialSlider::after {
+  z-index: 5;
+}
+
+@media (max-width:1230.98px) {
   .quoteLine::after,
   .quoteLine::before {
-    max-width: 160px;
+    max-width: 160px
   }
   .tsPrev {
     left: 10px
   }
   .tsNext {
     right: 10px
+  }
+}
+@media (max-width:767px) {
+  .tsNav {
+    display: none
+  }
+  .testimonialSlider {
+    padding: 8px 16px 36px!important
+  }
+}
+@media (max-width:767px) {
+  .quoteLine::after,
+  .quoteLine::before {
+    max-width: 100px
   }
 }

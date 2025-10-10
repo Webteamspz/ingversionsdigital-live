@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
@@ -59,7 +59,7 @@ export default function Reviews() {
           </svg>
         </button>
         <Swiper
-          modules={[Navigation, A11y]}
+          modules={[Navigation, Pagination, Autoplay, A11y]}
           speed={600}
           loop
           grabCursor
@@ -77,6 +77,13 @@ export default function Reviews() {
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
+          }}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+            stopOnLastSlide: false,
           }}
           breakpoints={{
             0: { slidesPerView: 1, spaceBetween: 16 },

@@ -158,9 +158,9 @@
 }
 .emptyCell {
   max-width: 242.54px;
-  width: 100%;
+  width: 100%
 }
-@media (max-width: 1199.98px) {
+@media (max-width:1199.98px) {
   .footAddress {
     max-width: 290px;
     align-items: flex-start
@@ -168,5 +168,122 @@
   .footAddress span {
     max-width: calc(100% - 40px);
     text-align: left
+  }
+}
+@media (max-width:767px) {
+  .footAddress,
+  .footContact {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: left;
+    width: 100%;
+    list-style: none
+  }
+  .uiIcon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    flex: 0 0 20px;
+    line-height: 0;
+    margin-right: 0;
+    display: block;
+    color: #0a84ff
+  }
+  .uiIcon img,
+  .uiIcon svg {
+    width: 100%;
+    height: 100%;
+    display: block
+  }
+  .footAddress span,
+  .footContact span {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 100%
+  }
+  .footerTop {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 28px 0 12px!important
+  }
+  .footerLogo {
+    max-width: 180px
+  }
+  .footNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px
+  }
+  .footNav a {
+    font-size: 16px;
+    line-height: 100%;
+    padding: 10px 12px
+  }
+  .footSocials {
+    justify-content: center;
+    width: auto;
+    gap: 12px
+  }
+  .socialBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px
+  }
+  .socialIcon {
+    width: 24px;
+    height: 24px
+  }
+  .footerMid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0 8px;
+    margin: 0
+  }
+  .footContacts {
+    align-items: center
+  }
+  .footAddress,
+  .footContacts {
+    width: 100%
+  }
+  .emptyCell {
+    display: none
+  }
+  .footerBottom {
+    padding: 8px 0 24px;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #98989A;
+  }
+}
+@media (max-width:360px) {
+  .footerLogo {
+    max-width: 160px
+  }
+  .footNav a {
+    font-size: 15px
+  }
+  .socialBtn {
+    width: 40px;
+    height: 40px
+  }
+  .socialIcon {
+    width: 22px;
+    height: 22px
+  }
+  .footAddress,
+  .footContact {
+    font-size: 13px
+  }
+  .footerBottom {
+    font-size: 12px;
+    color: #98989A;
   }
 }

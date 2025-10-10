@@ -79,3 +79,85 @@
   width: 100%;
   margin: 0 auto
 }
+@media (max-width:767px) {
+  .whyChooseUsSection {
+    padding: 20px 0 48px
+  }
+  .whyChooseUsCards {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-top: 28px
+  }
+  .whyChooseUsCard {
+    max-width: 220px;
+    width: 100%;
+    min-height: 220px;
+    border-radius: 50%;
+    border-width: 8px;
+    box-shadow: 2px 4px 8px 0 #ffffff40;
+    z-index: 1
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-left: 0;
+    margin-top: -36px
+  }
+  .whyChooseUsIcon {
+    max-width: 28px;
+    width: 100%;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.35))
+  }
+  .whyChooseUsTitle {
+    font-size: 18px;
+    margin: 0 0 12px
+  }
+  .whyChooseUsDesc {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 140px;
+    margin: 0 auto
+  }
+}
+@media (max-width:420px) {
+  .whyChooseUsCard {
+    max-width: 200px;
+    min-height: 200px;
+    border-width: 7px
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-top: -28px
+  }
+  .whyChooseUsIcon {
+    max-width: 26px
+  }
+  .whyChooseUsTitle {
+    font-size: 17px
+  }
+  .whyChooseUsDesc {
+    max-width: 130px
+  }
+}
+@media (max-width:360px) {
+  .whyChooseUsCard {
+    max-width: 190px;
+    min-height: 190px;
+    border-width: 6px
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-top: -24px
+  }
+  .whyChooseUsIcon {
+    max-width: 24px
+  }
+  .whyChooseUsTitle {
+    font-size: 16px
+  }
+  .whyChooseUsDesc {
+    font-size: 11px;
+    line-height: 15px;
+    max-width: 120px
+  }
+}

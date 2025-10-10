@@ -188,7 +188,7 @@ input:-webkit-autofill {
   border-top-left-radius: 0;
   font-weight: 400!important;
   font-size: 15px!important;
-  line-height: 100%!important;
+  line-height: 100%!important
 }
 .react-international-phone-input-container .react-international-phone-country-selector-button {
   background: #1a1a1a!important;
@@ -215,13 +215,23 @@ input:-webkit-autofill {
   color: #fff!important
 }
 .react-international-phone-country-selector-dropdown__list-item:hover {
-  background: #0a84ff!important;
+  background: #0a84ff!important
 }
-.react-international-phone-country-selector-dropdown__list-item-dial-code{
-  color: #fff;
+.react-international-phone-country-selector-dropdown__list-item-dial-code {
+  color: #fff
 }
 @media (max-width:1199.98px) {
   .container {
     max-width: 1024px
+  }
+}
+@media (max-width:767px) and (min-width:360px) {
+  .section-title {
+    font-family: Barlow;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center
   }
 }

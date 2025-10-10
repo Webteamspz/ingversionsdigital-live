@@ -3,7 +3,7 @@ import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
 import parse from "html-react-parser";
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnngbedd"; 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz"; 
 
 const Contact = () => {
   const { heading, form, infoCards } = data.contact;

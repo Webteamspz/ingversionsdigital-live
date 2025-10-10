@@ -215,3 +215,149 @@ section#hero {
     height: 70px;
   }
 }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .heroRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .textHeroArea {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .heroTitle {
+    font-size: 52px;
+    line-height: 62px;
+    margin-bottom: 24px;
+  }
+
+  .heroTitlePill:after {
+    width: 180px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .heroSubtitle {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 24px;
+  }
+
+  .heroCtaWrap {
+    align-items: center;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .btnHero {
+    max-width: 220px;
+    font-size: 15px;
+  }
+
+  .heroSocialProof {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    max-width: 400px;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .heroVisualImg {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767px) and (min-width: 360px) {
+  .heroRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .textHeroArea {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 20px;
+  }
+
+  .heroTitlePill:after {
+    width: 130px;
+    height: 46px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .heroSubtitle {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 24px;
+    color: #ffffffcc;
+  }
+
+  .heroCtaWrap {
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .btnHero {
+    max-width: 200px;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+
+  .heroSocialProof {
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatarStack img {
+    width: 36px;
+    height: 36px;
+    margin-left: -14px;
+  }
+
+  .proofText {
+    font-size: 14px;
+  }
+
+  .heroVisual {
+    max-width: 320px;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .heroVisualImg {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .bannerBg {
+    padding: 120px 0 40px;
+  }
+
+  .bannerBg:before {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 550px;
+    top: -10px;
+  }
+}
