@@ -46,10 +46,10 @@
   outline: 0
 }
 .accordionItemHeader span {
-  font-family: Barlow;
+  font-family: Barlow
 }
 .accordionItemHeader:hover {
-  color: #0a84ff;
+  color: #0a84ff
 }
 .accordionItem.open .accordionItemHeader {
   color: #0a84ff;

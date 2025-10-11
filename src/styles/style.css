@@ -254,15 +254,15 @@ body.menu-open .overlay {
     max-width: 1024px
   }
   .swiper-pagination-bullet {
-    background: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    background: #fff;
+    border: 1px solid #fff;
     opacity: 1;
     width: 10px;
     height: 10px;
-    margin: 0 6px !important
+    margin: 0 6px!important
   }
   .swiper-pagination-bullet-active {
-    background: #0A84FF
+    background: #0a84ff
   }
 }
 @media (max-width:1023.98px) {

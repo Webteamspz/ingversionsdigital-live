@@ -4,7 +4,7 @@ export default {
       { label: "Home", href: "#hero" },
       { label: "Services", href: "#services" },
       { label: "Pricing", href: "#pricing" },
-      { label: "Contact Us", href: "#contact" }
+      { label: "Contact Us", href: "#contact" },
     ],
     cta: {
       label: "Book a Call",

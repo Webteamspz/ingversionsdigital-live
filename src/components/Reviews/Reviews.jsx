@@ -1,63 +1,78 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/siteData";
 import quoteImg from "/assets/reviews/icon.png";
-
 import styles from "./Reviews.module.css";
+
+/* GTM helpers */
+import { dl, ctaClick } from "../../gtm";
 
 export default function Reviews() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const sectionRef = useRef(null);
+  const viewedRef = useRef(false);
+  const swiperRef = useRef(null);
+
+  // Fire a "reviews_view" once when section is ≥50% visible
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!viewedRef.current && entry?.isIntersecting && entry.intersectionRatio >= 0.5) {
+          viewedRef.current = true;
+          dl().push({ event: "reviews_view", section: "Reviews" });
+          io.disconnect();
+        }
+      },
+      { threshold: [0.5] }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <section className={styles.startedSection} id="reviews">
+    <section ref={sectionRef} className={styles.startedSection} id="reviews">
       <div className={`container ${styles.startedContainer}`}>
         <h3 className={`section-title ${styles.startedTitle}`}>
           {data.review.heading}
         </h3>
+
         <button
           className={`${styles.tsNav} ${styles.tsPrev}`}
           ref={prevRef}
           aria-label="Previous testimonial"
+          data-cta="Reviews Prev"
+          data-cta-loc="Reviews"
+          onClick={() => ctaClick({ label: "Reviews Prev", location: "Reviews" })}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
-            viewBox="0 0 17 17"
-            fill="none"
-          >
-            <path
-              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+            <path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+                  stroke="white" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </button>
+
         <button
           className={`${styles.tsNav} ${styles.tsNext}`}
           ref={nextRef}
           aria-label="Next testimonial"
+          data-cta="Reviews Next"
+          data-cta-loc="Reviews"
+          onClick={() => ctaClick({ label: "Reviews Next", location: "Reviews" })}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
-            viewBox="0 0 17 17"
-            fill="none"
-          >
-            <path
-              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+            <path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+                  stroke="white" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </button>
+
         <Swiper
           modules={[Navigation, Pagination, Autoplay, A11y]}
           speed={600}
@@ -71,13 +86,44 @@ export default function Reviews() {
             swiper.params.navigation.nextEl = nextRef.current;
           }}
           onInit={(swiper) => {
+            swiperRef.current = swiper;
             swiper.navigation.init();
             swiper.navigation.update();
+
+            // Listen for pagination bullet clicks -> GTM event
+            const el = swiper.pagination?.el;
+            if (el) {
+              el.addEventListener("click", (e) => {
+                const target = e.target;
+                if (target && target.classList.contains("swiper-pagination-bullet")) {
+                  const bullets = Array.from(el.children);
+                  const index = bullets.indexOf(target);
+                  dl().push({ event: "reviews_pagination_click", index });
+                }
+              });
+            }
+
+            // First visible slide event
+            const idx = swiper.realIndex ?? 0;
+            const t = data.review.testimonials[idx];
+            dl().push({
+              event: "reviews_slide_change",
+              index: idx,
+              reviewer: t?.reviewer || "",
+              role: t?.reviewerRole || "",
+            });
           }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+          onSlideChange={(swiper) => {
+            const idx = swiper.realIndex ?? 0;
+            const t = data.review.testimonials[idx];
+            dl().push({
+              event: "reviews_slide_change",
+              index: idx,
+              reviewer: t?.reviewer || "",
+              role: t?.reviewerRole || "",
+            });
           }}
+          navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
           pagination={{ clickable: true }}
           autoplay={{
             delay: 1500,

@@ -9,8 +9,8 @@ import Contact from "./components/Contact/Contact";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
-import PricingTable from "./components/Pricing/Pricing";
 import Team from "./components/Team/Team";
+import PricingCompare from "./components/Pricing/Pricing";
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
       <TrackRecord />
       <Services />
       <WorkProcess />
-      <PricingTable />
+      <PricingCompare />
       <WhyChooseUs />
       <Reviews />
       <Team />

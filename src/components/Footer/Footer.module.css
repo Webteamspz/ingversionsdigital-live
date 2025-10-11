@@ -61,8 +61,8 @@
   -o-transition: transform .15s ease,filter .15s ease;
   transition: transform .15s ease,filter .15s ease;
   transition: transform .15s ease,filter .15s ease,-webkit-transform .15s ease,-webkit-filter .15s ease;
-  background: -webkit-gradient(linear,left top,left bottom,from(#242424),to(rgba(36,36,36,0)));
   background: -o-linear-gradient(top,#242424 0,rgba(36,36,36,0) 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#242424),to(rgba(36,36,36,0)));
   background: linear-gradient(180deg,#242424 0,rgba(36,36,36,0) 100%)
 }
 .socialBtn:hover {
@@ -163,6 +163,8 @@
 @media (max-width:1199.98px) {
   .footAddress {
     max-width: 290px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start
   }
   .footAddress span {
@@ -172,32 +174,53 @@
 }
 @media (max-width:1023.98px) {
   .footerTop {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     gap: 18px;
     padding: 28px 0 12px!important
   }
   .emptyCell {
-    display: none;
+    display: none
   }
 }
 @media (max-width:767.98px) {
   .footAddress,
   .footContact {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 24px 10px 1fr;
+    grid-template-columns: 24px 1fr;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: left;
     font-size: 14px;
     line-height: 150%;
-    text-align: left;
-    width: 100%;
     list-style: none
   }
   .uiIcon {
     width: 20px;
     height: 20px;
     min-width: 20px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20px;
     flex: 0 0 20px;
     line-height: 0;
     margin-right: 0;
@@ -212,15 +235,18 @@
   }
   .footAddress span,
   .footContact span {
-    display: block;
-    flex: 1 1 auto;
-    max-width: 100%
+    display: block
   }
   .footerLogo {
     max-width: 180px
   }
   .footNav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 12px
   }
@@ -230,6 +256,8 @@
     padding: 10px 12px
   }
   .footSocials {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: auto;
     gap: 12px
@@ -244,18 +272,25 @@
     height: 24px
   }
   .footerMid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
-    align-items: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     gap: 16px;
     padding: 12px 0 8px;
     margin: 0
   }
   .footContacts {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center
   }
   .footAddress,
   .footContacts {
-    width: 100%
+    width: 55%
   }
   .emptyCell {
     display: none
@@ -265,9 +300,8 @@
     font-size: 13px;
     line-height: 150%;
     text-align: center;
-    color: #98989A;
+    color: #98989a
   }
-
 }
 @media (max-width:359.98px) {
   .footerLogo {
@@ -290,6 +324,6 @@
   }
   .footerBottom {
     font-size: 12px;
-    color: #98989A;
+    color: #98989a
   }
 }

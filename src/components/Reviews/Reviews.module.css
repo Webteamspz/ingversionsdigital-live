@@ -155,7 +155,11 @@
   left: 0;
   right: 0;
   bottom: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   gap: 8px;
   z-index: 11;
@@ -166,14 +170,14 @@
   height: 10px;
   border-radius: 50%;
   background: #fff;
-  opacity: 1;
+  opacity: 1
 }
 .testimonialSlider .swiper-pagination-bullet-active {
   background: #0a84ff
 }
-.testimonialSlider::before,
-.testimonialSlider::after {
-  z-index: 5;
+.testimonialSlider::after,
+.testimonialSlider::before {
+  z-index: 5
 }
 @media (max-width:1230.98px) {
   .quoteLine::after,

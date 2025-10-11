@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
@@ -16,6 +16,11 @@ const PricingCompare = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  // NEW: refs for syncing heights on mobile
+  const labelsColRef = useRef(null);
+  const plansColRef = useRef(null);
+  const swiperRef = useRef(null);
+
   const valueClass = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     return t === "check"
@@ -27,24 +32,63 @@ const PricingCompare = () => {
 
   const renderValue = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
-    if (t === "check") {
+    if (t === "check")
       return (
         <img className={styles.valueIcon} src={checkIcon} alt="Included" />
       );
-    }
-    if (t === "cross") {
+    if (t === "cross")
       return (
         <img className={styles.valueIcon} src={crossIcon} alt="Not included" />
       );
-    }
     return <>{t}</>;
   };
+
+  // NEW: sync heights between left (labels) and right (active slide)
+  const syncRowHeights = useCallback(() => {
+    const labelsCol = labelsColRef.current;
+    const plansCol = plansColRef.current;
+    if (!labelsCol || !plansCol) return;
+
+    const leftRows = Array.from(
+      labelsCol.querySelectorAll(`.${styles.mSectionTitle}, .${styles.mRow}`)
+    );
+
+    const activeSlide = plansCol.querySelector(
+      `.${styles.slide}.swiper-slide-active`
+    );
+    if (!activeSlide) return;
+
+    const rightRows = Array.from(
+      activeSlide.querySelectorAll(
+        `.${styles.mSectionTitle}, .${styles.valRow}`
+      )
+    );
+
+    // clear any previous values
+    rightRows.forEach((el) => (el.style.minHeight = ""));
+
+    leftRows.forEach((leftEl, i) => {
+      const rightEl = rightRows[i];
+      if (!rightEl) return;
+      const h = Math.max(leftEl.offsetHeight, 48); // base row height
+      rightEl.style.minHeight = `${h}px`;
+    });
+  }, []);
+
+  // Re-sync on window resize (mobile widths where wrapping changes)
+  useEffect(() => {
+    const onResize = () => syncRowHeights();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [syncRowHeights]);
 
   return (
     <section className={styles.pricingSection} id="pricing">
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
+
+        {/* DESKTOP/TABLET TABLE */}
         <div className={styles.tableWrap}>
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
@@ -62,7 +106,6 @@ const PricingCompare = () => {
                 >
                   {p.name}
                 </div>
-
                 {p.contact ? (
                   <a className={styles.cta} href={p.contact.href}>
                     {p.contact.label}
@@ -100,8 +143,11 @@ const PricingCompare = () => {
             </div>
           ))}
         </div>
+
+        {/* MOBILE COMPARISON */}
         <div className={styles.mobileCompare}>
-          <div className={styles.labelsCol}>
+          {/* LEFT: labels */}
+          <div className={styles.labelsCol} ref={labelsColRef}>
             <div className={styles.labelsHeadSpacer} />
             {pricing.sections.map((sec, sIdx) => (
               <div key={`m-sec-${sIdx}`} className={styles.mSection}>
@@ -114,7 +160,9 @@ const PricingCompare = () => {
               </div>
             ))}
           </div>
-          <div className={styles.plansCol}>
+
+          {/* RIGHT: swiper plans */}
+          <div className={styles.plansCol} ref={plansColRef}>
             <button
               className={`${styles.navBtn} ${styles.prev}`}
               ref={prevRef}
@@ -142,8 +190,14 @@ const PricingCompare = () => {
                 sw.params.navigation.nextEl = nextRef.current;
               }}
               onInit={(sw) => {
+                swiperRef.current = sw;
                 sw.navigation.init();
                 sw.navigation.update();
+                // wait a frame for layout, then sync
+                requestAnimationFrame(syncRowHeights);
+                // keep in sync on slide change / internal resize
+                sw.on("slideChangeTransitionEnd", syncRowHeights);
+                sw.on("resize", syncRowHeights);
               }}
               className={styles.planSwiper}
             >
@@ -170,6 +224,7 @@ const PricingCompare = () => {
 
                   {pricing.sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
+                      {/* Spacer aligned with left section title */}
                       <div className={styles.mSectionTitle}>&nbsp;</div>
                       {sec.rows.map((r, rIdx) => (
                         <div

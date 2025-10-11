@@ -4,14 +4,14 @@
   padding: 36px 0 40px
 }
 .heading {
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 .sub {
   max-width: 536px;
   margin: 0 auto 85px;
   text-align: center;
   color: #ffffffcc;
-  line-height: 1.5;
+  line-height: 1.5
 }
 .tableWrap {
   border-radius: 10px;
@@ -160,6 +160,8 @@
 .planHead .cta {
   text-decoration: none;
   font-weight: 700;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content
 }
 .rowLine {
@@ -206,10 +208,17 @@
   }
   .mSectionTitle {
     background: #141414;
-    color: #0A84FF;
+    color: #0a84ff;
     padding: 10px 20px;
     font-weight: 600;
-    border-top: 1px solid rgba(255,255,255,.06)
+    border-top: 1px solid rgba(255,255,255,.06);
+    min-height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
   }
   .mRow {
     display: -webkit-box;
@@ -295,5 +304,13 @@
   .navBtn:hover .navIcon {
     -webkit-filter: brightness(1.08);
     filter: brightness(1.08)
+  }
+  .plansCol .mSectionTitle {
+    color: transparent;
+    background: #111;
+    padding: 12px;
+    min-height: 48px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-left: 1px solid rgba(255,255,255,.06)
   }
 }
