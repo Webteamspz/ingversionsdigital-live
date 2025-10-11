@@ -284,18 +284,18 @@ section#hero {
     padding: 0 20px
   }
   .heroTitle {
-    font-size: 38px;
+    font-size: 40px;
     line-height: 46px;
     margin-bottom: 20px
   }
   .heroTitlePill:after {
-    width: 130px;
+    width: 138px;
     height: 46px;
     left: 50%;
     transform: translateX(-50%)
   }
   .heroSubtitle {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 26px;
     margin-bottom: 24px;
     color: #ffffffcc
@@ -306,7 +306,7 @@ section#hero {
     gap: 16px
   }
   .btnHero {
-    max-width: 200px;
+    max-width: 318px;
     width: 100%;
     font-size: 14px;
     padding: 12px 18px
@@ -321,7 +321,7 @@ section#hero {
     margin-left: -14px
   }
   .proofText {
-    font-size: 14px
+    font-size: 15px
   }
   .heroVisual {
     max-width: 320px;

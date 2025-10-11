@@ -76,9 +76,9 @@
   margin-top: 39px
 }
 .testimonialText {
-  color: #ffffffcc;
-  font-weight: 400;
-  font-size: 11px
+  color: #0a84FF69;
+  font-weight: 500;
+  font-size: 16px
 }
 .tsNav {
   position: absolute;
@@ -180,9 +180,32 @@
   z-index: 5
 }
 @media (max-width:1230.98px) {
+  .quoteLine {
+    position: relative;
+    height: 44px;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    margin-bottom: 0
+  }
   .quoteLine::after,
   .quoteLine::before {
-    max-width: 160px
+    content: "";
+    position: absolute;
+    top: 50%;
+    max-width: 116px;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+  .quoteLine::before {
+    left: 0
+  }
+  .quoteLine::after {
+    right: 0
   }
   .tsNav {
     width: 42px;

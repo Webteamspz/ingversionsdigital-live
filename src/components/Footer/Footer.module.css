@@ -211,8 +211,8 @@
     max-width: 360px;
     margin: 0 auto;
     text-align: left;
-    font-size: 14px;
-    line-height: 150%;
+    font-size: 16px;
+    line-height: 130%;
     list-style: none
   }
   .uiIcon {
@@ -251,7 +251,7 @@
     gap: 12px
   }
   .footNav a {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 100%;
     padding: 10px 12px
   }
@@ -297,8 +297,8 @@
   }
   .footerBottom {
     padding: 8px 0 24px;
-    font-size: 13px;
-    line-height: 150%;
+    font-size: 14px;
+    line-height: 130%;
     text-align: center;
     color: #98989a
   }

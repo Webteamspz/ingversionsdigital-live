@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import styles from "./FAQ.module.css";
 
 const FAQItem = ({ index, q, a, isOpen, onToggle }) => {

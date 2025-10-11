@@ -1,4 +1,4 @@
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
 import parse from "html-react-parser";
 

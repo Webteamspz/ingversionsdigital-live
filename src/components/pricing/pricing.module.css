@@ -192,26 +192,23 @@
     margin-top: 8px
   }
   .labelsCol {
-    border: 1px solid rgba(255,255,255,.08);
     border-right: none;
-    background: #111;
     border-radius: 10px 0 0 10px;
     overflow: hidden
   }
   .labelsHeadSpacer {
     height: 78px;
-    border-bottom: 1px solid rgba(255,255,255,.12);
-    background: #111
+    border-bottom: 1px solid rgba(255,255,255,.12)
   }
   .mSection {
     margin: 0
   }
   .mSectionTitle {
-    background: #141414;
     color: #0a84ff;
     padding: 10px 20px;
     font-weight: 600;
     border-top: 1px solid rgba(255,255,255,.06);
+    background: #141414;
     min-height: 48px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -237,9 +234,7 @@
   }
   .plansCol {
     position: relative;
-    border: 1px solid rgba(255,255,255,.08);
     border-left: none;
-    background: #111;
     border-radius: 0 10px 10px 0;
     overflow: hidden
   }
@@ -254,7 +249,6 @@
     text-align: center;
     padding: 16px 10px 14px;
     position: relative;
-    background: #111;
     border-bottom: 1px solid rgba(255,255,255,.12);
     min-height: 78px
   }
@@ -271,8 +265,7 @@
     min-height: 48px;
     padding: 12px;
     border-top: 1px solid rgba(255,255,255,.06);
-    border-left: 1px solid rgba(255,255,255,.06);
-    background: #111
+    border-left: 1px solid rgba(255,255,255,.06)
   }
   .mValue {
     font-weight: 600
@@ -307,7 +300,6 @@
   }
   .plansCol .mSectionTitle {
     color: transparent;
-    background: #111;
     padding: 12px;
     min-height: 48px;
     border-top: 1px solid rgba(255,255,255,.06);

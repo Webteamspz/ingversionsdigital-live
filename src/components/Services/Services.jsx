@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import styles from "./Services.module.css";
 
 /* GTM helpers */

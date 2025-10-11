@@ -285,7 +285,7 @@ textarea.cInput {
     padding: 20px 18px
   }
   .contactPanelTitle {
-    font-size: 17px;
+    font-size: 20px;
     margin: 0 0 16px
   }
   .grid.two {
@@ -299,7 +299,7 @@ textarea.cInput {
   .cInput,
   textarea.cInput {
     padding: 12px 12px;
-    font-size: 14px
+    font-size: 15px
   }
   textarea.cInput {
     min-height: 140px
@@ -323,7 +323,7 @@ textarea.cInput {
     gap: 16px
   }
   .cList li {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px
   }
   .cList li:last-child {
@@ -336,7 +336,7 @@ textarea.cInput {
     margin-right: 8px
   }
   .contactNote {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 18px;
     margin: 6px 0 14px
   }

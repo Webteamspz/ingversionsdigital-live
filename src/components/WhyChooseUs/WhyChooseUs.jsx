@@ -1,4 +1,4 @@
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import icon from "/assets/why-choose-us/checkmark.png";
 import styles from "./WhyChooseUs.module.css";
 
