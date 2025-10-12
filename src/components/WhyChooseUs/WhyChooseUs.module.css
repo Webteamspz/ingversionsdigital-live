@@ -109,8 +109,8 @@
     margin-top: 28px
   }
   .whyChooseUsCard {
-    max-width: 220px;
-    min-height: 220px;
+    max-width: 230px;
+    min-height: 230px;
     border-radius: 50%;
     border-width: 8px;
     -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
@@ -141,8 +141,6 @@
 }
 @media (max-width:419.98px) {
   .whyChooseUsCard {
-    max-width: 200px;
-    min-height: 200px;
     border-width: 7px
   }
   .whyChooseUsCard + .whyChooseUsCard {
@@ -153,9 +151,6 @@
   }
   .whyChooseUsTitle {
     font-size: 20px
-  }
-  .whyChooseUsDesc {
-    max-width: 130px
   }
 }
 @media (max-width:359.98px) {

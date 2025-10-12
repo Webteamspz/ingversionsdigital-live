@@ -1,18 +1,16 @@
-// /src/gtm.js
-export const GTM_ID = 'GTM-WXDBWNBH';
+export const GTM_ID = "GTM-WXDBWNBH";
 export const dl = () => (window.dataLayer = window.dataLayer || []);
 
-/* ---------------- Core pushes ---------------- */
 export function pageview(
   path = location.pathname + location.search,
   title = document.title
 ) {
-  dl().push({ event: 'virtual_pageview', page_path: path, page_title: title });
+  dl().push({ event: "virtual_pageview", page_path: path, page_title: title });
 }
 
 export function ctaClick({ label, location, href }) {
   dl().push({
-    event: 'cta_click',
+    event: "cta_click",
     cta_label: label,
     cta_location: location,
     cta_href: href || null,
@@ -20,24 +18,16 @@ export function ctaClick({ label, location, href }) {
 }
 
 export function formSubmit({ form_id, form_name }) {
-  dl().push({ event: 'form_submit', form_id, form_name });
+  dl().push({ event: "form_submit", form_id, form_name });
 }
 
 export function formSuccess({ form_id, form_name }) {
-  dl().push({ event: 'form_success', form_id, form_name });
+  dl().push({ event: "form_success", form_id, form_name });
 }
 
-/* ---------------- View/Swiper helpers ---------------- */
-/**
- * Fire a custom event once when the element is >= threshold visible.
- * @param {Element} el
- * @param {string} eventName e.g. 'hero_view'
- * @param {object} extra additional payload
- * @param {number} threshold default 0.5
- */
 export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
   if (!el || !eventName) return;
-  if (el.__gtmObserved) return; // guard
+  if (el.__gtmObserved) return;
   el.__gtmObserved = true;
 
   const io = new IntersectionObserver(
@@ -55,64 +45,11 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
   return () => io.disconnect();
 }
 
-/**
- * Attach analytics to a Swiper instance.
- * Emits:
- *  - `${ns}_slide_change` { index, label }
- *  - `${ns}_pagination_click` { index }
- *
- * @param {Swiper} swiper
- * @param {{ns: string, items?: any[], getLabel?:(i:number)=>string}} opts
- */
-export function bindSwiperAnalytics(swiper, opts) {
-  if (!swiper || !opts || !opts.ns) return;
-  if (swiper.__gtmBound) return;
-  swiper.__gtmBound = true;
-
-  const ns = opts.ns;
-  const items = Array.isArray(opts.items) ? opts.items : [];
-  const getLabel =
-    typeof opts.getLabel === 'function'
-      ? opts.getLabel
-      : (i) =>
-          (items[i] && (items[i].title || items[i].reviewer)) ||
-          String(i + 1);
-
-  // initial emit (after Swiper finishes init)
-  queueMicrotask(() => {
-    const idx = swiper.realIndex ?? 0;
-    dl().push({ event: `${ns}_slide_change`, index: idx, label: getLabel(idx) });
-  });
-
-  swiper.on('slideChange', () => {
-    const idx = swiper.realIndex ?? 0;
-    dl().push({ event: `${ns}_slide_change`, index: idx, label: getLabel(idx) });
-  });
-
-  // pagination clicks
-  const pagEl = swiper.pagination?.el;
-  if (pagEl && !pagEl.__gtmBound) {
-    pagEl.__gtmBound = true;
-    pagEl.addEventListener('click', (e) => {
-      const t = e.target;
-      if (t && t.classList.contains('swiper-pagination-bullet')) {
-        const bullets = Array.from(pagEl.children || []);
-        const index = bullets.indexOf(t);
-        if (index >= 0) {
-          dl().push({ event: `${ns}_pagination_click`, index });
-        }
-      }
-    });
-  }
-}
-
-/* ---------------- Bootstrap: global tracking ---------------- */
 export function initGTMTracking() {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
-  // SPA pageviews
   const firePV = () => pageview();
-  ['pushState', 'replaceState'].forEach((m) => {
+  ["pushState", "replaceState"].forEach((m) => {
     const orig = history[m];
     history[m] = function (...args) {
       const ret = orig.apply(this, args);
@@ -120,38 +57,34 @@ export function initGTMTracking() {
       return ret;
     };
   });
-  window.addEventListener('popstate', firePV);
+  window.addEventListener("popstate", firePV);
   pageview();
 
-  // CTA delegation (works alongside explicit ctaClick in components)
-  document.addEventListener('click', (e) => {
-    const el = e.target.closest?.('[data-cta]');
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest?.("[data-cta]");
     if (!el) return;
     ctaClick({
-      label: el.getAttribute('data-cta') || el.textContent.trim(),
-      location: el.getAttribute('data-cta-loc') || 'unknown',
-      href: el.getAttribute('href') || null,
+      label: el.getAttribute("data-cta") || el.textContent.trim(),
+      location: el.getAttribute("data-cta-loc") || "unknown",
+      href: el.getAttribute("href") || null,
     });
   });
 
-  // Forms
-  document.addEventListener('submit', (e) => {
-    const form = e.target.closest?.('form[data-gtm-form]');
+  document.addEventListener("submit", (e) => {
+    const form = e.target.closest?.("form[data-gtm-form]");
     if (!form) return;
-    const form_name = form.getAttribute('data-gtm-form');
+    const form_name = form.getAttribute("data-gtm-form");
     const form_id = form.id || form_name;
     formSubmit({ form_id, form_name });
   });
 
-  // Helper you can call after an actual async success
   window.__gtmFormSuccess = (form) => {
     if (!form) return;
-    const form_name = form.getAttribute('data-gtm-form') || form.name || 'form';
+    const form_name = form.getAttribute("data-gtm-form") || form.name || "form";
     const form_id = form.id || form_name;
     formSuccess({ form_id, form_name });
   };
 
-  // Scroll depth (25/50/75/100 once per page)
   const marks = new Set();
   const thresholds = [25, 50, 75, 100];
   const onScroll = () => {
@@ -165,10 +98,10 @@ export function initGTMTracking() {
     thresholds.forEach((t) => {
       if (!marks.has(t) && pct >= t) {
         marks.add(t);
-        dl().push({ event: 'scroll_depth', percent: t });
+        dl().push({ event: "scroll_depth", percent: t });
       }
     });
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 }

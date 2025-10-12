@@ -131,7 +131,15 @@
   }
   .accordionItemHeader {
     font-weight: 500;
-    font-size: 15px
+    font-size: 16px;
+    line-height: 120%;
+    min-height: 75px;
+    padding: 20px 18px;
+    gap: 15px
+  }
+  .accordionItemHeader span {
+    max-width: calc(100% - 30px);
+    width: 100%
   }
   .accordionItemIcon {
     width: 15px;
@@ -139,6 +147,7 @@
   }
   .accordionItemBodyContent {
     font-weight: 400;
-    font-size: 14px
+    font-size: 14px;
+    padding: 0 18px 20px
   }
 }

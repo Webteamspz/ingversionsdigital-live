@@ -16,7 +16,7 @@ const CompanyLogos = () => {
             spaceBetween={22}
             loop={true}
             speed={2000}
-            centeredSlides={true}
+            centeredSlides={false}
             allowTouchMove={false}
             autoplay={{
               delay: 1000,
@@ -25,15 +25,20 @@ const CompanyLogos = () => {
             breakpoints={{
               310: {
                 slidesPerView: 2,
+                spaceBetween: 10,
+                centeredSlides: true,
               },
               768: {
                 slidesPerView: 3,
+                centeredSlides: true,
               },
               1024: {
                 slidesPerView: 5,
+                centeredSlides: true,
               },
               1600: {
                 slidesPerView: 7,
+                centeredSlides: false,
               },
             }}
           >

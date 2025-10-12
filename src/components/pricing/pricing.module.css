@@ -179,6 +179,9 @@
   filter: none
 }
 @media (max-width:1023.98px) {
+  .sub {
+    margin: 0 auto 45px
+  }
   .tableWrap {
     display: none
   }
@@ -304,5 +307,26 @@
     min-height: 48px;
     border-top: 1px solid rgba(255,255,255,.06);
     border-left: 1px solid rgba(255,255,255,.06)
+  }
+}
+@media (max-width:767.98px) {
+  .mobileCompare {
+    -ms-grid-columns: minmax(150px,49%) 1fr;
+    grid-template-columns: minmax(150px,49%) 1fr
+  }
+  .valRow {
+    text-align: center
+  }
+  .mRow,
+  .mSectionTitle,
+  .plansCol .mSectionTitle,
+  .valRow {
+    min-height: 60px
+  }
+  .prev {
+    left: 0
+  }
+  .next {
+    right: 0
   }
 }

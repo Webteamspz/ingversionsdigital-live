@@ -208,7 +208,9 @@
     -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
-    max-width: 360px;
+    max-width: -webkit-max-content;
+    max-width: -moz-max-content;
+    max-width: max-content;
     margin: 0 auto;
     text-align: left;
     font-size: 16px;
@@ -236,9 +238,6 @@
   .footAddress span,
   .footContact span {
     display: block
-  }
-  .footerLogo {
-    max-width: 180px
   }
   .footNav {
     -webkit-box-orient: vertical;
@@ -286,21 +285,31 @@
   .footContacts {
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
   }
-  .footAddress,
+  .footAddress {
+    max-width: 320px;
+    width: 100%
+  }
   .footContacts {
-    width: 55%
+    width: 100%
   }
   .emptyCell {
     display: none
   }
   .footerBottom {
-    padding: 8px 0 24px;
+    padding: 8px 0 44px;
     font-size: 14px;
     line-height: 130%;
     text-align: center;
     color: #98989a
+  }
+  .footAddress span {
+    max-width: 100%;
+    text-align: center
   }
 }
 @media (max-width:359.98px) {

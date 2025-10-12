@@ -217,7 +217,12 @@ section#hero {
 }
 @media (max-width:1023.98px) {
   .heroRow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-align: center;
     gap: 48px
@@ -235,6 +240,8 @@ section#hero {
     width: 180px;
     height: 60px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%)
   }
   .heroSubtitle {
@@ -243,7 +250,12 @@ section#hero {
     margin-bottom: 24px
   }
   .heroCtaWrap {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 18px
   }
@@ -252,6 +264,8 @@ section#hero {
     font-size: 15px
   }
   .heroSocialProof {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center
   }
   .heroVisual {
@@ -268,20 +282,26 @@ section#hero {
     top: inherit;
     bottom: -20%;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%)
   }
 }
 @media (max-width:767.98px) {
   .heroRow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-align: center;
     gap: 40px
   }
   .textHeroArea {
     max-width: 100%;
-    width: 100%;
-    padding: 0 20px
+    width: 100%
   }
   .heroTitle {
     font-size: 40px;
@@ -292,6 +312,8 @@ section#hero {
     width: 138px;
     height: 46px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%)
   }
   .heroSubtitle {
@@ -301,7 +323,12 @@ section#hero {
     color: #ffffffcc
   }
   .heroCtaWrap {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 16px
   }
@@ -312,6 +339,8 @@ section#hero {
     padding: 12px 18px
   }
   .heroSocialProof {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     gap: 10px
   }
@@ -338,9 +367,11 @@ section#hero {
   }
   .bannerBg:before {
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 750px;
-    height: 550px;
-    top: -10px
+    height: 420px;
+    bottom: 4%
   }
 }

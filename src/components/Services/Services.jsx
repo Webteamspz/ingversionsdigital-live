@@ -7,7 +7,7 @@ import { Pagination } from "swiper/modules";
 import data from "../../data/sitedata";
 import styles from "./Services.module.css";
 
-/* GTM helpers */
+
 import { dl } from "../../gtm";
 
 const Services = () => {
@@ -23,7 +23,7 @@ const Services = () => {
     return () => window.removeEventListener("resize", checkWidth);
   }, []);
 
-  // Fire a single view event when section is ≥50% visible
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -58,40 +58,6 @@ const Services = () => {
             slidesPerView={1}
             className={styles.servicesSwiper}
             autoplay={true}
-            onInit={(sw) => {
-              swiperRef.current = sw;
-
-              // initial slide event
-              const idx = sw.realIndex ?? 0;
-              const svc = data.services.list[idx];
-              dl().push({
-                event: "services_slide_change",
-                index: idx,
-                title: svc?.title || "",
-              });
-
-              // pagination click -> GTM
-              const el = sw.pagination?.el;
-              if (el) {
-                el.addEventListener("click", (e) => {
-                  const t = e.target;
-                  if (t && t.classList.contains("swiper-pagination-bullet")) {
-                    const bullets = Array.from(el.children);
-                    const index = bullets.indexOf(t);
-                    dl().push({ event: "services_pagination_click", index });
-                  }
-                });
-              }
-            }}
-            onSlideChange={(sw) => {
-              const idx = sw.realIndex ?? 0;
-              const svc = data.services.list[idx];
-              dl().push({
-                event: "services_slide_change",
-                index: idx,
-                title: svc?.title || "",
-              });
-            }}
           >
             {data.services.list.map((s, i) => (
               <SwiperSlide key={i}>
@@ -104,7 +70,6 @@ const Services = () => {
             ))}
           </Swiper>
         ) : (
-          // Normal grid layout for tablet & desktop
           <div className={styles.services}>
             {data.services.list.map((s, i) => (
               <div key={i} className={`${styles.card} ${styles.service}`}>

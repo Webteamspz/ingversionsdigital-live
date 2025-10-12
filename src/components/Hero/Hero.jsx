@@ -3,7 +3,6 @@ import data from "../../data/siteData";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import styles from "./Hero.module.css";
 
-/* GTM helpers */
 import { ctaClick, dl } from "../../gtm";
 
 const Hero = () => {

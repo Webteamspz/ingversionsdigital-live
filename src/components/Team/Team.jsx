@@ -21,13 +21,21 @@ const Team = () => {
           slidesPerView="auto"
           spaceBetween={22}
           loop={true}
-          centeredSlides={true}
+          centeredSlides={false}
           grabCursor={true}
           speed={2000}
           autoplay={{
             delay: 10,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            310: {
+              centeredSlides: true,
+            },
+            1024: {
+              centeredSlides: false,
+            },
           }}
         >
           {members.list.map((m, i) => (

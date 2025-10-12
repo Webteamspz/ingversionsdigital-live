@@ -116,14 +116,14 @@
 }
 @media (max-width:767.98px) {
   .pill:after {
-  position: absolute;
-  content: '';
-  left: -4px;
-  bottom: -9px;
-  background: #0a84ff;
-  width: 70px;
-  height: 42px;
-  border-radius: 8px;
-  z-index: -1
-}
+    position: absolute;
+    content: '';
+    left: -4px;
+    bottom: -9px;
+    background: #0a84ff;
+    width: 70px;
+    height: 42px;
+    border-radius: 8px;
+    z-index: -1
+  }
 }

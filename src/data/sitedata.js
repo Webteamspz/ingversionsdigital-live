@@ -15,7 +15,10 @@ export default {
     heading: "From idea to",
     pill: "Impact",
     sub: "CRO-Driven Websites That Work for You",
-    cta: { label: "Book a Call", href: "https://calendly.com/ingversionsdigital/30min?month=2025-10" },
+    cta: {
+      label: "Book a Call",
+      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+    },
     avatars: [
       "/ingversionsdigital-live/assets/hero/hero-client-1.png",
       "/ingversionsdigital-live/assets/hero/hero-client-2.png",
