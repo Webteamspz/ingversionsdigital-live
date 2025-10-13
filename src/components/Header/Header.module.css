@@ -1,0 +1,253 @@
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #030303;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px)
+}
+.headerRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-height: 90px
+}
+.brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 10px
+}
+.brandLogo {
+  max-width: 230px;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.brandText {
+  color: #fff;
+  font-weight: 800
+}
+.brandText span {
+  opacity: .6;
+  margin-left: 6px
+}
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 22px
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Barlow,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  padding: 10px;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
+  transition: .3s all ease-in-out
+}
+.nav a:hover {
+  color: #0a84ff
+}
+.hamburger {
+  display: none;
+  background: 0 0;
+  border: none;
+  padding: 0;
+  cursor: pointer
+}
+.hamburger span {
+  display: none
+}
+.hamburger span:nth-child(1) {
+  top: 14px
+}
+.hamburger span:nth-child(2) {
+  top: 20px
+}
+.hamburger span:nth-child(3) {
+  top: 26px
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity .25s ease;
+  -o-transition: opacity .25s ease;
+  transition: opacity .25s ease;
+  z-index: 9999
+}
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto
+}
+body.menu-open {
+  overflow: hidden
+}
+body.menu-open .overlay {
+  opacity: 1;
+  pointer-events: auto
+}
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 60%;
+  max-width: 100%;
+  background: #0b0b0b;
+  border-left: 1px solid #141414;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: -webkit-transform .28s ease;
+  transition: -webkit-transform .28s ease;
+  -o-transition: transform .28s ease;
+  transition: transform .28s ease;
+  transition: transform .28s ease,-webkit-transform .28s ease;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 30px 20px
+}
+.mobileMenu.open {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0)
+}
+.mobileHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #141414
+}
+.mobileLogo {
+  width: 160px;
+  height: auto
+}
+.mobileNav {
+  display: -ms-grid;
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid #141414;
+  border-bottom: 1px solid #141414
+}
+.mobileNav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Barlow,sans-serif;
+  font-size: 16px;
+  padding: 14px 2px;
+  border-bottom: 1px solid rgba(255,255,255,.06)
+}
+.mobileNav a:last-child {
+  border-bottom: none
+}
+.mobileCta {
+  margin-top: auto;
+  width: 100%!important;
+  max-width: 100%!important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.desktopCta {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex
+}
+@media (max-width:1023.98px) {
+  .nav {
+    display: none
+  }
+  .desktopCta {
+    display: none!important
+  }
+  .hamburger {
+    display: inline-block
+  }
+  .brandLogo {
+    max-width: 200px
+  }
+  .headerRow {
+    min-height: 80px
+  }
+}
+.menuIcon {
+  width: 44px;
+  height: 44px;
+  display: block
+}
+.closeBtn {
+  background: 0 0;
+  border: none;
+  padding: 0;
+  cursor: pointer
+}
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  display: block
+}
+.mobileLogo {
+  width: 45px;
+  height: 50px;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.mobileLogoOnly {
+  display: none
+}
+.desktopLogo {
+  display: block
+}
+@media (max-width:767.98px) {
+  .desktopLogo {
+    display: none
+  }
+  .mobileLogoOnly {
+    display: block;
+    width: 45px;
+    height: 50px;
+    -o-object-fit: contain;
+    object-fit: contain
+  }
+}
+@media (max-width:599.98px) {
+  .mobileMenu {
+    width: 100%
+  }
+}

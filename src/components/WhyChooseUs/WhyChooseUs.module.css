@@ -1,0 +1,176 @@
+.whyChooseUsSection {
+  padding: 16px 0 36px;
+  text-align: center
+}
+.whyChooseUsCards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0;
+  margin-top: 36px;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap
+}
+.whyChooseUsCard {
+  position: relative;
+  max-width: 244px;
+  width: 100%;
+  min-height: 240px;
+  border-radius: 50%;
+  background: #141414;
+  border: 10px solid #000;
+  -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
+  box-shadow: 2px 4px 8px 0 #ffffff40;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-transition: z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
+  transition: z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
+  -o-transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease;
+  transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease;
+  transition: transform .18s ease,box-shadow .18s ease,z-index .18s ease,-webkit-transform .18s ease,-webkit-box-shadow .18s ease;
+  z-index: 1
+}
+.whyChooseUsCard + .whyChooseUsCard {
+  margin-left: -42px
+}
+.whyChooseUsIcon {
+  max-width: 33px;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-bottom: 15px;
+  -webkit-filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35))
+}
+.whyChooseUsTitle {
+  margin: 0 0 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: center;
+  color: #fff
+}
+.whyChooseUsDesc {
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  max-width: 141px;
+  width: 100%;
+  margin: 0 auto
+}
+@media (max-width:1023.98px) {
+  .whyChooseUsCard {
+    max-width: 216px;
+    min-height: 216px
+  }
+  .whyChooseUsDesc {
+    max-width: 127px
+  }
+}
+@media (max-width:767.98px) {
+  .whyChooseUsSection {
+    padding: 20px 0 48px
+  }
+  .whyChooseUsCards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-top: 28px
+  }
+  .whyChooseUsCard {
+    max-width: 230px;
+    min-height: 230px;
+    border-radius: 50%;
+    border-width: 8px;
+    -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
+    box-shadow: 2px 4px 8px 0 #ffffff40;
+    z-index: 1
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-left: 0;
+    margin-top: -36px
+  }
+  .whyChooseUsIcon {
+    max-width: 28px;
+    width: 100%;
+    margin-bottom: 12px;
+    -webkit-filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.35))
+  }
+  .whyChooseUsTitle {
+    font-size: 20px;
+    margin: 0 0 12px
+  }
+  .whyChooseUsDesc {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 140px;
+    margin: 0 auto
+  }
+}
+@media (max-width:419.98px) {
+  .whyChooseUsCard {
+    border-width: 7px
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-top: -28px
+  }
+  .whyChooseUsIcon {
+    max-width: 26px
+  }
+  .whyChooseUsTitle {
+    font-size: 20px
+  }
+}
+@media (max-width:359.98px) {
+  .whyChooseUsCard {
+    max-width: 190px;
+    min-height: 190px;
+    border-width: 6px
+  }
+  .whyChooseUsCard + .whyChooseUsCard {
+    margin-top: -24px
+  }
+  .whyChooseUsIcon {
+    max-width: 24px
+  }
+  .whyChooseUsTitle {
+    font-size: 20px
+  }
+  .whyChooseUsDesc {
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 120px
+  }
+}

@@ -1,0 +1,129 @@
+.teamSection {
+  background: #030303;
+  padding: 36px 0 24px;
+  color: #fff;
+  position: relative
+}
+.teamSection:after,
+.teamSection:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none
+}
+.teamSection:before {
+  left: 0;
+  background: -o-linear-gradient(right,transparent,#030303);
+  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
+  background: linear-gradient(to left,transparent,#030303)
+}
+.teamSection:after {
+  right: 0;
+  background: -o-linear-gradient(left,transparent,#030303);
+  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
+  background: linear-gradient(to right,transparent,#030303)
+}
+.teamContainer {
+  max-width: 100%!important;
+  padding: 0!important
+}
+.title {
+  margin: 0 0 60px!important;
+  text-align: center;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #fff
+}
+.pill {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  z-index: 1
+}
+.pill:after {
+  position: absolute;
+  content: '';
+  left: -4px;
+  bottom: 5px;
+  background: #0a84ff;
+  width: 98px;
+  height: 42px;
+  border-radius: 8px;
+  z-index: -1
+}
+.slider {
+  width: 100%;
+  max-width: 100%
+}
+.cardSlide {
+  width: clamp(220px,22vw,280px)!important
+}
+.card {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-width: 550px;
+  width: 100%;
+  padding: 45px 0
+}
+.memberImg {
+  max-width: 377px;
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.infoName {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #fff;
+  margin: 10px auto
+}
+.infoRole {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #ffffffcc;
+  margin: 0 auto
+}
+@media (max-width:1199.98px) {
+  .card {
+    padding: 30px 0
+  }
+}
+@media (max-width:767.98px) {
+  .pill:after {
+    position: absolute;
+    content: '';
+    left: -4px;
+    bottom: -2px;
+    background: #0a84ff;
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    z-index: -1
+  }
+}
