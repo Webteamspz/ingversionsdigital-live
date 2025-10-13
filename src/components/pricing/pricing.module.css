@@ -102,6 +102,10 @@
   text-align: center;
   vertical-align: middle
 }
+.planSpacer {
+  min-height: 18px;
+  line-height: 18px
+}
 .cta {
   color: #0a84ff;
   text-decoration: none;
@@ -174,6 +178,72 @@
   display: inline-block
 }
 .crossCell .valueIcon,
+.tickCell .valueIcon {
+  -webkit-filter: none;
+  filter: none
+}
+.btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  max-width: 162px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 10px;
+  background: #0a84ff;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
+  transition: .3s all ease-in-out;
+  font-family: Barlow,sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #0a84ff;
+  cursor: pointer
+}
+.btn:hover {
+  background: #ffffff1a;
+  color: #0a84ff
+}
+.planCtaPlaceholder {
+  display: inline-block;
+  height: 42px
+}
+.footerCtas {
+  height: auto;
+  margin-top: 8px;
+  padding: 0;
+  border-top: 0;
+  background: 0 0
+}
+.footerCtas .cell {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  min-height: 0
+}
+.mobileCtaBar {
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding: 16px 12px 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.crossCell .mValue img,
+.crossCell .valueIcon,
+.tickCell .mValue img,
 .tickCell .valueIcon {
   -webkit-filter: none;
   filter: none
@@ -308,6 +378,11 @@
     border-top: 1px solid rgba(255,255,255,.06);
     border-left: 1px solid rgba(255,255,255,.06)
   }
+  .mobileCtaBar .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center
+  }
 }
 @media (max-width:767.98px) {
   .mobileCompare {
@@ -328,5 +403,8 @@
   }
   .next {
     right: 0
+  }
+  .mobileCtaBar {
+    padding: 18px 12px 26px
   }
 }
