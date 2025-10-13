@@ -7,7 +7,7 @@ export default {
       { label: "Contact Us", href: "#contact" },
     ],
     cta: {
-      label: "Book a Call",
+      label: "Book A Call",
       href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
     },
   },
@@ -16,64 +16,64 @@ export default {
     pill: "Impact",
     sub: "CRO-Driven Websites That Work for You",
     cta: {
-      label: "Book a Call",
+      label: "Book A Call",
       href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
     },
     avatars: [
-      "/ingversionsdigital-live/assets/hero/hero-client-1.png",
-      "/ingversionsdigital-live/assets/hero/hero-client-2.png",
-      "/ingversionsdigital-live/assets/hero/hero-client-3.png",
+      "/assets/hero/hero-client-1.png",
+      "/assets/hero/hero-client-2.png",
+      "/assets/hero/hero-client-3.png",
     ],
     proof: "Over <strong>10+</strong> clients have worked with us",
-    visual: "/ingversionsdigital-live/assets/hero/hero-main.png",
+    visual: "/assets/hero/hero-main.png",
   },
   logos: [
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-1.png",
+      img: "/assets/hero/logo-1.png",
       name: "Plastic Place",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-2.png",
+      img: "/assets/hero/logo-2.png",
       name: "Dan Henry",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-3.png",
+      img: "/assets/hero/logo-3.png",
       name: "Northline Express",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-4.png",
+      img: "/assets/hero/logo-4.png",
       name: "Dive Right in Scuba",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-5.png",
+      img: "/assets/hero/logo-5.png",
       name: "Patriot Crew",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-6.png",
+      img: "/assets/hero/logo-6.png",
       name: "Scgolistico",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-7.png",
+      img: "/assets/hero/logo-7.png",
       name: "Ripley Radar",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-8.png",
+      img: "/assets/hero/logo-8.png",
       name: "Hedon",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-9.png",
+      img: "/assets/hero/logo-9.png",
       name: "Robust",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-10.png",
+      img: "/assets/hero/logo-10.png",
       name: "Ruff Greens",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-11.png",
+      img: "/assets/hero/logo-11.png",
       name: "Ridge & River",
     },
     {
-      img: "/ingversionsdigital-live/assets/hero/logo-12.png",
+      img: "/assets/hero/logo-12.png",
       name: "Pavoi",
     },
   ],
@@ -93,32 +93,32 @@ export default {
       {
         title: "A/B Testing",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
-        icon: "/ingversionsdigital-live/assets/services/ab-testing.png",
+        icon: "/assets/services/ab-testing.png",
       },
       {
         title: "Shopify Development",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
-        icon: "/ingversionsdigital-live/assets/services/shopify.png",
+        icon: "/assets/services/shopify.png",
       },
       {
         title: "Quality Assurance",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
-        icon: "/ingversionsdigital-live/assets/services/qa.png",
+        icon: "/assets/services/qa.png",
       },
       {
         title: "WordPress Development",
         desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-        icon: "/ingversionsdigital-live/assets/services/wordpress.png",
+        icon: "/assets/services/wordpress.png",
       },
       {
         title: "Landing Page Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
-        icon: "/ingversionsdigital-live/assets/services/landing-page.png",
+        icon: "/assets/services/landing-page.png",
       },
       {
         title: "Lead Generation",
         desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
-        icon: "/ingversionsdigital-live/assets/services/lead.png",
+        icon: "/assets/services/lead.png",
       },
     ],
   },
@@ -129,22 +129,22 @@ export default {
       {
         title: "Project Discussion",
         desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
-        icon: "/ingversionsdigital-live/assets/work-process/project-discussion.png",
+        icon: "/assets/work-process/project-discussion.png",
       },
       {
         title: "Plan & Approach",
         desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-        icon: "/ingversionsdigital-live/assets/work-process/plan.png",
+        icon: "/assets/work-process/plan.png",
       },
       {
         title: "Development",
         desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-        icon: "/ingversionsdigital-live/assets/work-process/dev.png",
+        icon: "/assets/work-process/dev.png",
       },
       {
         title: "Launch",
         desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-        icon: "/ingversionsdigital-live/assets/work-process/goal.png",
+        icon: "/assets/work-process/goal.png",
       },
     ],
   },
@@ -268,7 +268,7 @@ export default {
         description:
           "Want to discuss your project in detail? Schedule a free 30-minute consultation with our team of experts. We'll help you understand how our solutions can benefit your business.",
         cta: {
-          label: "Book a Call",
+          label: "Book A Call",
           href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
         },
       },
@@ -417,72 +417,72 @@ export default {
       {
         name: "Rahul Patil",
         role: "Founder and CEO",
-        photo: "/ingversionsdigital-live/assets/team/rahul.png",
+        photo: "/assets/team/rahul.png",
       },
       {
         name: "Harsh Jariwala",
         role: "Founder and CEO",
-        photo: "/ingversionsdigital-live/assets/team/harsh.png",
+        photo: "/assets/team/harsh.png",
       },
       {
         name: "Kranthika Ele",
         role: "QA",
-        photo: "/ingversionsdigital-live/assets/team/kranthika.png",
+        photo: "/assets/team/kranthika.png",
       },
       {
         name: "Nafees Hasnat",
         role: "CRO Dev",
-        photo: "/ingversionsdigital-live/assets/team/nafees.png",
+        photo: "/assets/team/nafees.png",
       },
       {
         name: "Kundan Mali",
         role: "Shopify Dev",
-        photo: "/ingversionsdigital-live/assets/team/kundan.png",
+        photo: "/assets/team/kundan.png",
       },
       {
         name: "Sree Priya",
         role: "QA",
-        photo: "/ingversionsdigital-live/assets/team/sree.png",
+        photo: "/assets/team/sree.png",
       },
       {
         name: "Piyush Ranipa",
         role: "Wordpress Dev",
-        photo: "/ingversionsdigital-live/assets/team/piyush.png",
+        photo: "/assets/team/piyush.png",
       },
       {
         name: "Bhumika Paladiya",
         role: "CRO Dev",
-        photo: "/ingversionsdigital-live/assets/team/bhumika.png",
+        photo: "/assets/team/bhumika.png",
       },
       {
         name: "Writwik Seti",
         role: "React Dev",
-        photo: "/ingversionsdigital-live/assets/team/writwik.png",
+        photo: "/assets/team/writwik.png",
       },
       {
         name: "Vishal Kumawat",
         role: "Shopify Dev",
-        photo: "/ingversionsdigital-live/assets/team/vishal.png",
+        photo: "/assets/team/vishal.png",
       },
       {
         name: "Hemanth Dhataram",
         role: "HR",
-        photo: "/ingversionsdigital-live/assets/team/hemanth.png",
+        photo: "/assets/team/hemanth.png",
       },
       {
         name: "Ayushi Shah",
         role: "Shopify Dev",
-        photo: "/ingversionsdigital-live/assets/team/ayushi.png",
+        photo: "/assets/team/ayushi.png",
       },
       {
         name: "Mritunjay Rajak",
         role: "Intern Dev",
-        photo: "/ingversionsdigital-live/assets/team/mrityunjay.png",
+        photo: "/assets/team/mrityunjay.png",
       },
     ],
   },
   footer: {
-    logo: "/ingversionsdigital-live/assets/logos/main-logo.png",
+    logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
     links: [
       {
