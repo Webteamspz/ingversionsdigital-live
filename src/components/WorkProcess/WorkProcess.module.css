@@ -1,0 +1,124 @@
+.processSection {
+  padding: 24px 0
+}
+.processTitle {
+  text-align: center;
+  margin-bottom: 20px
+}
+.processSub {
+  color: #ffffffcc;
+  margin: 0 auto 48px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  max-width: 690px;
+  width: 100%
+}
+.processGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 22px
+}
+.step {
+  background: #141414;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: calc(100% / 4 - 17px);
+  width: 100%;
+  -webkit-box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25)
+}
+.stepHead {
+  background: #141414;
+  color: #fff;
+  text-align: center;
+  padding: 13.17px 14px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase
+}
+.stepBody {
+  background: #1f1f1f
+}
+.stepIcon {
+  display: block;
+  max-width: 150px;
+  width: 100%;
+  margin: 28px auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
+}
+.stepDesc {
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  padding: 21px 23px 23px
+}
+@media (max-width:1199.98px) {
+  .step {
+    max-width: 377px
+  }
+}
+@media (max-width:1023.98px) {
+  .step {
+    max-width: calc(100% / 2 - 15px)
+  }
+}
+@media (max-width:767.98px) {
+  .processGrid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: stretch
+  }
+  .step {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden
+  }
+  .stepHead {
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center
+  }
+  .stepBody {
+    background: #1f1f1f
+  }
+  .stepIcon {
+    max-width: 150px;
+    margin: 20px auto
+  }
+  .stepDesc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 16px
+  }
+  .processSub {
+    font-weight: 400;
+    font-size: 14px
+  }
+}

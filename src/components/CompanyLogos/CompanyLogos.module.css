@@ -1,0 +1,64 @@
+.logosSection {
+  padding: 65px 0 40px;
+  position: relative;
+  overflow: hidden;
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgb(246 246 246 / 0)),to(#030303));
+  background: -o-linear-gradient(top,rgb(246 246 246 / 0) 0,#030303 100%);
+  background: linear-gradient(180deg,rgb(246 246 246 / 0) 0,#030303 100%)
+}
+.logosSection:after,
+.logosSection:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none
+}
+.logosSection:before {
+  left: 0;
+  background: -o-linear-gradient(right,transparent,#030303);
+  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
+  background: linear-gradient(to left,transparent,#030303)
+}
+.logosSection:after {
+  right: 0;
+  background: -o-linear-gradient(left,transparent,#030303);
+  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
+  background: linear-gradient(to right,transparent,#030303)
+}
+.marqueeGroup img {
+  width: 100%;
+  max-width: 249px;
+  -webkit-filter: grayscale(1) brightness(1.4);
+  filter: grayscale(1) brightness(1.4);
+  opacity: .9;
+  display: block;
+  margin: 0 auto
+}
+.marqueeGroup img:hover {
+  -webkit-filter: grayscale(0) brightness(1);
+  filter: grayscale(0) brightness(1);
+  opacity: 1
+}
+@-webkit-keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+}
+@keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+}

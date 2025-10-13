@@ -1,0 +1,167 @@
+.servicesSection {
+  padding: 50px 0 34px
+}
+.servicesSub {
+  color: #ffffffcc;
+  margin: 0 0 45px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%
+}
+.services {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 22px
+}
+.card.service {
+  width: 100%;
+  max-width: calc(100% / 3 - 15px);
+  min-height: 425px;
+  background: #141414;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  padding: 28px 26px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
+  transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
+  -o-transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease
+}
+.icon {
+  width: 100%;
+  max-width: 150px;
+  margin: 26px auto 35px;
+  display: block
+}
+.serviceTitle {
+  margin: 0 0 34px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center
+}
+.serviceDesc {
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 315px;
+  width: 100%
+}
+@media (max-width:1023.98px) {
+  .services {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 23px
+  }
+  .card.service {
+    max-width: calc(100% / 2 - 15px)
+  }
+}
+@media (max-width:767.98px) {
+  .servicesSwiper .swiper-slide {
+    height: auto!important
+  }
+  .card.service {
+    width: 100%;
+    max-width: 100%;
+    min-height: 360px;
+    background: #141414;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    text-align: center;
+    padding: 22px 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0
+  }
+  .servicesSub {
+    font-weight: 400;
+    font-size: 14px
+  }
+  .icon {
+    max-width: 150px;
+    margin: 16px auto 18px
+  }
+  .serviceTitle {
+    font-weight: 600;
+    margin-bottom: 12px
+  }
+  .serviceDesc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 260px;
+    margin: 0 auto
+  }
+  .servicesSwiper {
+    padding-bottom: 56px;
+    overflow: visible;
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: #0a84ff
+  }
+  .servicesSwiper .swiper-pagination {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 2
+  }
+  .servicesSwiper .swiper-slide {
+    height: auto!important
+  }
+  .card.service {
+    margin-bottom: 0
+  }
+  .servicesSwiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    background: var(--swiper-pagination-bullet-inactive-color)
+  }
+}
+.servicesSwiper .swiper-pagination-bullet-active {
+  background: var(--swiper-pagination-color)
+}

@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #030303;
+  z-index: 9999;
+  display: -ms-grid;
+  display: grid;
+  place-items: center
+}
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  gap: 18px
+}
+.logo {
+  width: 80px;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -webkit-animation: logoPulse 0.9s ease-in-out infinite alternate;
+  animation: logoPulse 0.9s ease-in-out infinite alternate
+}
+@-webkit-keyframes logoPulse {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+  to {
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12)
+  }
+}
+@keyframes logoPulse {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+  to {
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12)
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .logo {
+    -webkit-animation: none;
+    animation: none
+  }
+}

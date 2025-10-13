@@ -1,0 +1,396 @@
+.contactSection {
+  padding: 36px 0 46px
+}
+.contactHeading {
+  margin-bottom: 40px!important
+}
+.contactGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.1fr 24px 0.9fr;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px
+}
+.contactCard {
+  background: #141414;
+  border-radius: 16px;
+  padding: 32px 40px;
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+}
+.formCard {
+  padding: 32px 40px
+}
+.rightCol {
+  display: -ms-grid;
+  display: grid;
+  gap: 22px
+}
+.contactPanelTitle {
+  margin: 0 0 24px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%
+}
+.cInput,
+textarea.cInput {
+  font-family: 'Barlow';
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0);
+  border-radius: 5px;
+  color: #ffffff99;
+  padding: 12px 14px;
+  outline: 0
+}
+textarea.cInput {
+  min-height: 160px;
+  resize: vertical;
+  margin-top: 0
+}
+.grid.two {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 12px 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px
+}
+.mt {
+  margin-top: 12px
+}
+.cList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  gap: 24px
+}
+.cIco {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  place-items: center;
+  margin-right: 10px
+}
+.cIco svg {
+  width: 24px;
+  height: 24px;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.cList li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  vertical-align: middle
+}
+.cList li:last-child {
+  max-width: 250px;
+  width: 100%
+}
+.cList li:last-child span:last-child {
+  text-align: left
+}
+.cBtn {
+  width: 100%!important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #0a84ff;
+  margin-top: 20px;
+  max-width: 100%!important
+}
+.contactNote {
+  color: #ffffffcc;
+  margin: 6px 0 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px
+}
+.plane {
+  margin-left: 8px;
+  width: 13px;
+  height: 13px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle
+}
+.iti {
+  width: 100%!important;
+  max-width: 609px
+}
+.iti__tel-input {
+  width: 100%!important;
+  height: 44px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 5px;
+  color: #ffffff99;
+  padding: 12px 14px;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 14px
+}
+.iti__tel-input:focus {
+  border-color: rgba(255,255,255,.12);
+  background: #1a1a1a;
+  color: #fff
+}
+.iti--separate-dial-code .iti__selected-country {
+  background: #1e2633;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px 0 0 10px;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 12px
+}
+.iti--separate-dial-code .iti__selected-country-primary,
+.iti--separate-dial-code .iti__selected-dial-code {
+  color: #141414;
+  font-weight: 600
+}
+.iti__arrow {
+  border-top-color: #fff;
+  opacity: .9
+}
+.iti--separate-dial-code .iti__tel-input {
+  padding-left: 140px
+}
+.iti__country-list {
+  background: #0f1724;
+  color: #141414;
+  border: 1px solid rgba(255,255,255,.12);
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+}
+.iti__country.iti__highlight {
+  background: #1e2633
+}
+.iti__divider {
+  border-top-color: rgba(255,255,255,.12)
+}
+.iti--allow-dropdown .iti__flag-container:hover {
+  background: #141414
+}
+.phoneWrap {
+  gap: 10px
+}
+.phoneWrap .countryPill {
+  display: none
+}
+.errorMessage {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff6b6b
+}
+.invalid {
+  border-color: #ff6b6b!important
+}
+.grid.two > div > .errorMessage,
+.mt > .errorMessage {
+  margin-bottom: -2px
+}
+@media (max-width:1023.98px) {
+  .contactSection {
+    padding: 28px 0 40px
+  }
+  .contactHeading {
+    margin-bottom: 28px!important
+  }
+  .contactGrid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 18px
+  }
+  .rightCol {
+    gap: 18px
+  }
+  .contactCard {
+    padding: 28px 28px
+  }
+  .formCard {
+    padding: 28px 28px
+  }
+  .contactPanelTitle {
+    margin: 0 0 18px
+  }
+  .grid.two {
+    -ms-grid-columns: 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+  }
+  .cInput,
+  textarea.cInput {
+    padding: 12px 14px
+  }
+  textarea.cInput {
+    min-height: 150px
+  }
+  .iti__tel-input {
+    height: 44px
+  }
+  .iti--separate-dial-code .iti__selected-country {
+    height: 44px;
+    padding: 0 10px
+  }
+  .iti--separate-dial-code .iti__tel-input {
+    padding-left: 120px
+  }
+  .cList {
+    gap: 18px
+  }
+  .cList li:last-child {
+    max-width: 100%
+  }
+  .cBtn {
+    margin-top: 16px
+  }
+}
+@media (max-width:767.98px) {
+  .contactSection {
+    padding: 24px 0 36px
+  }
+  .contactHeading {
+    margin-bottom: 24px!important
+  }
+  .contactGrid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 16px
+  }
+  .rightCol {
+    gap: 16px
+  }
+  .contactCard {
+    padding: 20px 18px;
+    border-radius: 14px
+  }
+  .formCard {
+    padding: 20px 18px
+  }
+  .contactPanelTitle {
+    font-size: 20px;
+    margin: 0 0 16px
+  }
+  .grid.two {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 10px
+  }
+  .mt {
+    margin-top: 10px
+  }
+  .cInput,
+  textarea.cInput {
+    padding: 12px 12px;
+    font-size: 15px
+  }
+  textarea.cInput {
+    min-height: 140px
+  }
+  .iti {
+    max-width: 100%
+  }
+  .iti__tel-input {
+    height: 44px;
+    font-size: 14px
+  }
+  .iti--separate-dial-code .iti__selected-country {
+    height: 44px;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px
+  }
+  .iti--separate-dial-code .iti__tel-input {
+    padding-left: 112px
+  }
+  .cList {
+    gap: 16px
+  }
+  .cList li {
+    font-size: 16px;
+    line-height: 20px
+  }
+  .cList li:last-child {
+    max-width: 100%
+  }
+  .cIco,
+  .cIco svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px
+  }
+  .contactNote {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 6px 0 14px
+  }
+  .cBtn {
+    width: 100%!important;
+    margin-top: 16px
+  }
+}
+@media (max-width:359.98px) {
+  .contactSection {
+    padding: 22px 0 30px
+  }
+  .contactCard,
+  .formCard {
+    padding: 18px 16px
+  }
+  .contactPanelTitle {
+    font-size: 16px;
+    margin: 0 0 14px
+  }
+  .cInput,
+  textarea.cInput {
+    font-size: 13px
+  }
+  textarea.cInput {
+    min-height: 130px
+  }
+  .iti__tel-input {
+    height: 42px;
+    font-size: 13px
+  }
+  .iti--separate-dial-code .iti__selected-country {
+    height: 42px;
+    padding: 0 8px
+  }
+  .iti--separate-dial-code .iti__tel-input {
+    padding-left: 108px
+  }
+  .cList {
+    gap: 14px
+  }
+  .cList li {
+    font-size: 13px;
+    line-height: 18px
+  }
+  .cIco,
+  .cIco svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px
+  }
+  .contactNote {
+    font-size: 12px;
+    line-height: 16px
+  }
+}
