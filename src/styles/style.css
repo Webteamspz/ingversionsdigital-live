@@ -177,6 +177,7 @@ input:-webkit-autofill {
 }
 .react-international-phone-input {
   width: 100%;
+  font-family: 'Barlow' !important;
   background: #1a1a1a!important;
   border: none!important;
   border-radius: 5px;
@@ -191,6 +192,7 @@ input:-webkit-autofill {
   line-height: 100%!important
 }
 .react-international-phone-input-container .react-international-phone-country-selector-button {
+  outline: none !important;
   background: #1a1a1a!important;
   border: none!important;
   border-radius: 5px;

@@ -119,10 +119,10 @@
     position: absolute;
     content: '';
     left: -4px;
-    bottom: -9px;
+    bottom: -2px;
     background: #0a84ff;
     width: 70px;
-    height: 42px;
+    height: 30px;
     border-radius: 8px;
     z-index: -1
   }

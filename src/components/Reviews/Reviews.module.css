@@ -227,6 +227,6 @@
   }
   .quoteLine::after,
   .quoteLine::before {
-    max-width: 100px
+    max-width: 35%
   }
 }
