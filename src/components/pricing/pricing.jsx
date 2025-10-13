@@ -18,39 +18,36 @@ const PricingCompare = () => {
   const pricing = data?.pricing || {};
   const plans = pricing?.plans || [];
   const sections = pricing?.sections || [];
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
   const valueClass = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
-    return t === "check"
-      ? styles.tickCell
-      : t === "cross"
-      ? styles.crossCell
-      : "";
+    return t === "check" ? styles.tickCell : t === "cross" ? styles.crossCell : "";
   };
 
   const renderValue = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
-    if (t === "check")
-      return (
-        <img className={styles.valueIcon} src={checkIcon} alt="Included" />
-      );
-    if (t === "cross")
-      return (
-        <img className={styles.valueIcon} src={crossIcon} alt="Not included" />
-      );
+    if (t === "check") return <img className={styles.valueIcon} src={checkIcon} alt="Included" />;
+    if (t === "cross") return <img className={styles.valueIcon} src={crossIcon} alt="Not included" />;
     return <>{t}</>;
   };
 
-  // Lookup from optional pricing.ctaButtons
+  // normalize just this one label casing without affecting others
+  const formatCtaLabel = (s) =>
+    typeof s === "string" && s.trim().toLowerCase() === "get started"
+      ? "Get Started"
+      : s;
+
+  // Build lookup from optional pricing.ctaButtons
   const ctaByPlan = useMemo(() => {
     const out = {};
     (pricing?.ctaButtons || []).forEach((b) => {
       if (!b?.plan) return;
       out[b.plan] = {
-        label: b.label || "Get started",
+        label: b.label || "Get Started",
         href: b.href || DEFAULT_CTA_HREF,
         hide: Boolean(b.hide),
       };
@@ -66,7 +63,7 @@ const PricingCompare = () => {
 
     const isPaid = typeof plan?.price === "number" && plan.price > 0;
     if (name === "Elite" || isPaid) {
-      return { label: "Get started", href: DEFAULT_CTA_HREF };
+      return { label: "Get Started", href: DEFAULT_CTA_HREF };
     }
     return null;
   };
@@ -74,9 +71,7 @@ const PricingCompare = () => {
   return (
     <section className={styles.pricingSection} id="pricing">
       <div className="container">
-        <h3 className={`section-title ${styles.heading}`}>
-          {pricing?.heading || "Pricing"}
-        </h3>
+        <h3 className={`section-title ${styles.heading}`}>{pricing?.heading || "Pricing"}</h3>
         {pricing?.sub && <p className={styles.sub}>{pricing.sub}</p>}
 
         {/* ======= DESKTOP TABLE ======= */}
@@ -85,29 +80,19 @@ const PricingCompare = () => {
             <div className={`${styles.cell} ${styles.stub}`} />
             {plans.map((p, i) => (
               <div key={i} className={`${styles.cell} ${styles.planHead}`}>
-                {p?.badge && (
-                  <span className={`${styles.badge} ${styles.cta}`}>
-                    {p.badge}
-                  </span>
-                )}
-                <div
-                  className={`${styles.planName} ${
-                    p?.name === "Premium" ? styles.premiumName : ""
-                  }`}
-                >
+                {p?.badge && <span className={`${styles.badge} ${styles.cta}`}>{p.badge}</span>}
+                <div className={`${styles.planName} ${p?.name === "Premium" ? styles.premiumName : ""}`}>
                   {p?.name || ""}
                 </div>
 
-                {/* Remove 'Contact Us' – keep alignment via spacer */}
+                {/* Remove 'Contact Us' — keep alignment via spacer */}
                 {typeof p?.price === "number" ? (
                   <div className={styles.planPrice}>
                     ${p.price}
                     <span className={styles.period}>/month</span>
                   </div>
                 ) : (
-                  <div className={styles.planSpacer} aria-hidden="true">
-                    &nbsp;
-                  </div>
+                  <div className={styles.planSpacer} aria-hidden="true">&nbsp;</div>
                 )}
               </div>
             ))}
@@ -116,21 +101,15 @@ const PricingCompare = () => {
           {sections.map((sec, sIdx) => (
             <div key={sIdx} className={styles.sectionBlock}>
               <div className={`${styles.row} ${styles.sectionTitle}`}>
-                <div className={`${styles.cell} ${styles.stub}`}>
-                  {sec?.title || ""}
-                </div>
+                <div className={`${styles.cell} ${styles.stub}`}>{sec?.title || ""}</div>
                 <div className={`${styles.cell} ${styles.spanner}`} />
               </div>
 
               {(sec?.rows || []).map((r, rIdx) => (
                 <div key={rIdx} className={`${styles.row} ${styles.rowLine}`}>
-                  <div className={`${styles.cell} ${styles.labelCell}`}>
-                    {r?.label || ""}
-                  </div>
+                  <div className={`${styles.cell} ${styles.labelCell}`}>{r?.label || ""}</div>
                   {(r?.values || []).map((v, i) => (
-                    <div key={i} className={`${styles.cell} ${valueClass(v)}`}>
-                      {renderValue(v)}
-                    </div>
+                    <div key={i} className={`${styles.cell} ${valueClass(v)}`}>{renderValue(v)}</div>
                   ))}
                 </div>
               ))}
@@ -138,18 +117,15 @@ const PricingCompare = () => {
           ))}
 
           {/* ======= FOOTER CTAS (DESKTOP) ======= */}
-          {/* DESKTOP FOOTER CTAS */}
           <div className={`${styles.row} ${styles.footerCtas}`}>
-            <div
-              className={`${styles.cell} ${styles.stub} ${styles.emptyStub}`}
-            />
+            <div className={`${styles.cell} ${styles.stub} ${styles.emptyStub}`} />
             {plans.map((p, i) => {
               const cta = getPlanCta(p);
               return (
                 <div key={`fcta-${i}`} className={styles.cell}>
                   {cta ? (
                     <a className={styles.btn} href={cta.href}>
-                      {cta.label}
+                      {formatCtaLabel(cta.label)}
                     </a>
                   ) : (
                     <span className={styles.planCtaPlaceholder} />
@@ -215,11 +191,7 @@ const PricingCompare = () => {
                 return (
                   <SwiperSlide key={`m-plan-${pIdx}`} className={styles.slide}>
                     <div className={styles.mHead}>
-                      {p?.badge && (
-                        <span className={`${styles.badge} ${styles.cta}`}>
-                          {p.badge}
-                        </span>
-                      )}
+                      {p?.badge && <span className={`${styles.badge} ${styles.cta}`}>{p.badge}</span>}
                       <div className={styles.planName}>{p?.name || ""}</div>
 
                       {typeof p?.price === "number" ? (
@@ -228,9 +200,7 @@ const PricingCompare = () => {
                           <span className={styles.period}>/month</span>
                         </div>
                       ) : (
-                        <div className={styles.planSpacer} aria-hidden="true">
-                          &nbsp;
-                        </div>
+                        <div className={styles.planSpacer} aria-hidden="true">&nbsp;</div>
                       )}
                     </div>
 
@@ -240,9 +210,7 @@ const PricingCompare = () => {
                         {(sec?.rows || []).map((r, rIdx) => (
                           <div
                             key={`m-val-${pIdx}-${sIdx}-${rIdx}`}
-                            className={`${styles.valRow} ${valueClass(
-                              (r?.values || [])[pIdx]
-                            )}`}
+                            className={`${styles.valRow} ${valueClass((r?.values || [])[pIdx])}`}
                           >
                             <span className={styles.mValue}>
                               {renderValue((r?.values || [])[pIdx])}
@@ -252,11 +220,10 @@ const PricingCompare = () => {
                       </div>
                     ))}
 
-                    {/* MOBILE CTA inside each slide */}
                     <div className={styles.mobileCtaBar}>
                       {cta ? (
                         <a className={styles.btn} href={cta.href}>
-                          {cta.label}
+                          {formatCtaLabel(cta.label)}
                         </a>
                       ) : (
                         <span className={styles.planCtaPlaceholder} />
