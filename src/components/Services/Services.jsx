@@ -8,8 +8,6 @@ import data from "../../data/sitedata";
 import styles from "./Services.module.css";
 
 
-import { dl } from "../../gtm";
-
 const Services = () => {
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
@@ -24,25 +22,6 @@ const Services = () => {
   }, []);
 
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!viewedRef.current && entry?.isIntersecting && entry.intersectionRatio >= 0.5) {
-          viewedRef.current = true;
-          dl().push({ event: "services_view", section: "Services" });
-          io.disconnect();
-        }
-      },
-      { threshold: [0.5] }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
 
   return (
     <section ref={sectionRef} className={styles.servicesSection} id="services">

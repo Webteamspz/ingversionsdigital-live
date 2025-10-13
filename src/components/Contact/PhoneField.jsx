@@ -3,7 +3,7 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import styles from "./Contact.module.css";
 
-const PhoneField = ({ defaultCountry = "in", onChange, classSelector }) => {
+const PhoneField = ({ defaultCountry = "in", onChange, onFocus, classSelector }) => {
   const [value, setValue] = useState("");
 
   return (
@@ -11,9 +11,10 @@ const PhoneField = ({ defaultCountry = "in", onChange, classSelector }) => {
       <PhoneInput
         defaultCountry={defaultCountry}
         value={value}
+        onFocus={onFocus}               
         onChange={(val, meta) => {
           setValue(val);
-          onChange?.(val, meta);
+          onChange?.(val, meta);        
         }}
         forceDialCode
         className={classSelector}

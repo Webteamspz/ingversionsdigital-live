@@ -3,6 +3,7 @@ import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
 import parse from "html-react-parser";
+
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
 
 const Contact = () => {
@@ -14,15 +15,14 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [phoneInteracted, setPhoneInteracted] = useState(false); // NEW
 
   const setField = (name, value) => {
     setFormData((p) => ({ ...p, [name]: value }));
   };
   const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
   const setError = (name, msg) =>
-    setErrors((p) =>
-      msg ? { ...p, [name]: msg } : (delete p[name], { ...p })
-    );
+    setErrors((p) => (msg ? { ...p, [name]: msg } : (delete p[name], { ...p })));
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const lettersRegex = /^[\p{L}\s'-]+$/u;
@@ -53,16 +53,12 @@ const Contact = () => {
       else if (value.length < 5) msg = "Message must be at least 5 characters";
     }
 
+    // Phone: required, but only validate after user interaction
     if (name === "phone") {
-      if (!touched.phone) {
-        msg = "";
-      } else if (!value) {
-        msg = "";
-      } else {
-        const digits = value.replace(/\D/g, "");
-        if (!onlyDigits(digits)) msg = "Only numbers are accepted";
-        else if (digits.length < 6) msg = "Phone number is required ";
-      }
+      const digits = (value || "").replace(/\D/g, "");
+      if (!digits) msg = "Phone number is required";
+      else if (!onlyDigits(digits)) msg = "Only numbers are accepted";
+      else if (digits.length < 6) msg = "Please enter a valid phone number";
     }
 
     setError(name, msg);
@@ -79,6 +75,12 @@ const Contact = () => {
     });
     touch("message");
     ok = validateField("message", formData.message || "") && ok;
+
+    // Ensure phone is validated at submit time even if not interacted
+    setPhoneInteracted(true);
+    touch("phone");
+    ok = validateField("phone", formData.phone || "") && ok;
+
     return ok;
   };
 
@@ -144,6 +146,7 @@ const Contact = () => {
                           onInput={handleInput(f)}
                           onBlur={handleBlur(f)}
                           inputMode={/name/i.test(f.name) ? "text" : undefined}
+                          aria-invalid={!!errors[f.name]}
                         />
                         {errors[f.name] && (
                           <div className={styles.errorMessage}>
@@ -154,6 +157,7 @@ const Contact = () => {
                     )
                   )}
               </div>
+
               {form.fields
                 .filter(
                   (f) =>
@@ -172,6 +176,7 @@ const Contact = () => {
                         onInput={handleInput(f)}
                         onBlur={handleBlur(f)}
                         inputMode={/name/i.test(f.name) ? "text" : undefined}
+                        aria-invalid={!!errors[f.name]}
                       />
                       {errors[f.name] && (
                         <div className={styles.errorMessage}>
@@ -181,22 +186,33 @@ const Contact = () => {
                     </div>
                   )
                 )}
+
               {form.fields.some((f) => f.name === "phone") && (
                 <div className={styles.mt}>
                   <PhoneField
                     defaultCountry="in"
+                    classSelector={`${errors.phone ? styles.invalid : ""}`}
+                    // When user focuses phone, start validating it
+                    onFocus={() => {
+                      setPhoneInteracted(true);
+                      touch("phone");
+                      validateField("phone", formData.phone || "");
+                    }}
+                    // Only validate on change after user has interacted
                     onChange={(val) => {
                       setField("phone", val);
-                      touch("phone");
-                      validateField("phone", val);
+                      if (phoneInteracted) {
+                        touch("phone");
+                        validateField("phone", val);
+                      }
                     }}
-                    classSelector={`${errors.phone ? styles.invalid : ""}`}
                   />
                   {errors.phone && (
                     <div className={styles.errorMessage}>{errors.phone}</div>
                   )}
                 </div>
               )}
+
               {form.fields
                 .filter((f) => f.name === "message")
                 .map((f) => (
@@ -207,6 +223,12 @@ const Contact = () => {
                       }`}
                       name={f.name}
                       placeholder={f.placeholder}
+                      // If user jumps to Message, force phone validation now
+                      onFocus={() => {
+                        setPhoneInteracted(true);
+                        touch("phone");
+                        validateField("phone", formData.phone || "");
+                      }}
                       onInput={(e) => {
                         const v = e.currentTarget.value;
                         setField("message", v);
@@ -217,6 +239,7 @@ const Contact = () => {
                         touch("message");
                         validateField("message", e.currentTarget.value);
                       }}
+                      aria-invalid={!!errors.message}
                     />
                     {errors.message && (
                       <div className={styles.errorMessage}>
@@ -225,14 +248,13 @@ const Contact = () => {
                     )}
                   </div>
                 ))}
-              <button
-                className={`btn ${styles.cBtn} ${styles.mt}`}
-                type="submit"
-              >
+
+              <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
                 {form.submit.label}
               </button>
             </form>
           </div>
+
           <div className={styles.rightCol}>
             {infoCards.map((card, idx) => (
               <div key={idx} className={`${styles.contactCard}`}>

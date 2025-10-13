@@ -7,8 +7,6 @@ import data from "../../data/siteData";
 import quoteImg from "/assets/reviews/icon.png";
 import styles from "./Reviews.module.css";
 
-import { dl, ctaClick } from "../../gtm";
-
 export default function Reviews() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -16,29 +14,6 @@ export default function Reviews() {
   const viewedRef = useRef(false);
   const swiperRef = useRef(null);
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (
-          !viewedRef.current &&
-          entry?.isIntersecting &&
-          entry.intersectionRatio >= 0.5
-        ) {
-          viewedRef.current = true;
-          dl().push({ event: "reviews_view", section: "Reviews" });
-          io.disconnect();
-        }
-      },
-      { threshold: [0.5] }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
 
   return (
     <section ref={sectionRef} className={styles.startedSection} id="reviews">
