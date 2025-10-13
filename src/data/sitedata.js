@@ -408,6 +408,30 @@ export default {
           },
         ],
       },
+      {
+        ctaButtons: [
+          {
+            plan: "Starter",
+            label: "Get Started",
+            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+          },
+          {
+            plan: "Growth",
+            label: "Get Started",
+            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+          },
+          {
+            plan: "Premium",
+            label: "Get Started",
+            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+          },
+          {
+            plan: "Elite",
+            label: "Get Started",
+            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+          },
+        ],
+      },
     ],
   },
   team: {
