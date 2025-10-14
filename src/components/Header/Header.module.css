@@ -197,7 +197,7 @@ body.menu-open .overlay {
 }
 .menuCtaBar {
   position: fixed;
-  bottom: 0;
+  bottom: 4%;
   left: 20px;
   right: 0;
   background: rgba(11,11,11,.98);
