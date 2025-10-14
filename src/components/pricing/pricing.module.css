@@ -220,11 +220,10 @@
   height: 42px
 }
 .footerCtas {
+  background: 0 0;
   height: auto;
-  margin-top: 8px;
-  padding: 0;
-  border-top: 0;
-  background: 0 0
+  padding-top: 18px;
+  padding-bottom: 26px
 }
 .footerCtas .cell {
   padding-top: 16px;
@@ -232,7 +231,6 @@
   min-height: 0
 }
 .mobileCtaBar {
-  border-top: 1px solid rgba(255,255,255,.12);
   padding: 16px 12px 22px;
   display: -webkit-box;
   display: -ms-flexbox;
