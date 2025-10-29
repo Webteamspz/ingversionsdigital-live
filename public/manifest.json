@@ -1,13 +1,13 @@
 {
   "name": "Ingversions Digital",
   "short_name": "Ingversions",
-  "start_url": "",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#030303",
   "theme_color": "#030303",
   "icons": [
     {
-      "src": "/ingversionsdigital-live/assets/logos/logo.svg",
+      "src": "/assets/logos/logo.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }

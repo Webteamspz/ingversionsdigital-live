@@ -51,10 +51,7 @@ const Header = () => {
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
-    dl().push({
-      event: open ? "menu_open" : "menu_close",
-      menu_location: "Header",
-    });
+    dl().push({ event: open ? "menu_open" : "menu_close", menu_location: "Header" });
     return () => {
       document.documentElement.style.overflow = "";
       document.body.classList.remove("menu-open");
@@ -92,35 +89,41 @@ const Header = () => {
         </button>
       </div>
 
-      <nav className={styles.mobileNav}>
-        {links.map((l, i) => (
+      {/* NEW: scrollable body so long menus don’t push CTA off-screen */}
+      <div className={styles.menuBody}>
+        <nav className={styles.mobileNav}>
+          {links.map((l, i) => (
+            <a
+              key={i}
+              href={l.href}
+              data-cta={l.label}
+              data-cta-loc="Mobile Nav"
+              onClick={() => {
+                handleNavClick(l.label, "Mobile Nav", l.href);
+                setOpen(false);
+              }}
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* NEW: sticky CTA bar – always visible */}
+        <div className={styles.menuCtaBar}>
           <a
-            key={i}
-            href={l.href}
-            data-cta={l.label}
-            data-cta-loc="Mobile Nav"
-            onClick={(e) => {
-              handleNavClick(l.label, "Mobile Nav", l.href);
+            className={`btn ${styles.mobileCta}`}
+            href={cta.href}
+            data-cta={cta.label}
+            data-cta-loc="Mobile Header CTA"
+            onClick={() => {
+              handleNavClick(cta.label, "Mobile Header CTA", cta.href);
               setOpen(false);
             }}
           >
-            {l.label}
+            {cta.label}
           </a>
-        ))}
-      </nav>
-
-      <a
-        className={`btn ${styles.mobileCta}`}
-        href={cta.href}
-        data-cta={cta.label}
-        data-cta-loc="Mobile Header CTA"
-        onClick={(e) => {
-          handleNavClick(cta.label, "Mobile Header CTA", cta.href);
-          setOpen(false);
-        }}
-      >
-        {cta.label}
-      </a>
+        </div>
+      </div>
     </aside>
   );
 
@@ -135,16 +138,8 @@ const Header = () => {
             data-cta-loc="Header Brand"
             onClick={() => handleNavClick("Logo", "Header Brand", "/")}
           >
-            <img
-              src={logo}
-              alt="Ingversions Logo"
-              className={`${styles.brandLogo} ${styles.desktopLogo}`}
-            />
-            <img
-              src={mobileLogo}
-              alt="Ingversions Logo"
-              className={`${styles.brandLogo} ${styles.mobileLogoOnly}`}
-            />
+            <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
+            <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
           </a>
 
           <nav className={styles.nav}>
