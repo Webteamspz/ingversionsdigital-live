@@ -1,0 +1,106 @@
+.cardWrap {
+  position: relative;
+  margin-bottom: 20px;
+  background: 0 0
+}
+.cardHover {
+  overflow: hidden
+}
+.media {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f1628;
+  aspect-ratio: 4/3
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(1);
+  transition: transform .35s ease,filter .35s ease
+}
+.cardHover:hover .media img {
+  transform: scale(1.04);
+  filter: brightness(1.06)
+}
+.floatContent {
+  background: #1a1a1a;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  min-width: 50%;
+  display: block;
+  border-radius: 0 20px 0 18px;
+  padding: 22px 26px 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  transition: all .3s
+}
+.cardHover .floatContent {
+  bottom: -14%
+}
+.cardHover:hover .floatContent {
+  bottom: 0
+}
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px
+}
+.name {
+  color: var(--text-100);
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 0 4px 0
+}
+.deptPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: var(--muted-400);
+  color: var(--text-200);
+  white-space: nowrap
+}
+.role {
+  color: var(--text-300);
+  margin: 0 0 4px;
+  font-size: 14px
+}
+.location {
+  color: var(--text-300);
+  margin: 0 0 8px;
+  font-size: 12px;
+  opacity: .85
+}
+.socialRow {
+  display: block
+}
+.socialList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 12px 0 0;
+  gap: 8px;
+  list-style: none;
+  padding: 0
+}
+.socialList li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  background: #a6a9c6;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: all .25s ease-in-out
+}
+.socialList li a:hover {
+  background: #0a84ff
+}

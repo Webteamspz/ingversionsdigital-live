@@ -5,6 +5,7 @@ export default {
       { label: "Services", href: "#services" },
       { label: "Pricing", href: "#pricing" },
       { label: "Contact Us", href: "#contact" },
+      { label: "Team Page", href: "/teampage" },
     ],
     cta: {
       label: "Book A Call",
