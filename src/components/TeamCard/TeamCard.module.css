@@ -7,40 +7,32 @@
   overflow: hidden
 }
 .media {
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  background: #0f1628;
-  aspect-ratio: 4/3
+  background: #141414;
+  height: 400px
 }
 .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(1);
   transition: transform .35s ease,filter .35s ease
 }
-.cardHover:hover .media img {
-  transform: scale(1.04);
-  filter: brightness(1.06)
-}
 .floatContent {
-  background: #1a1a1a;
   position: absolute;
   left: 0;
   bottom: 0;
-  min-width: 50%;
-  display: block;
-  border-radius: 0 20px 0 18px;
-  padding: 22px 26px 20px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35);
-  transition: all .3s
-}
-.cardHover .floatContent {
-  bottom: -14%
+  min-width: 56%;
+  background: #141414;
+  color: #fff;
+  border-radius: 0px 20px 0px 18px;
+  padding: 14px 16px 12px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.2);
+  transition: padding .25s ease,bottom .25s ease,transform .25s ease
 }
 .cardHover:hover .floatContent {
-  bottom: 0
+  padding: 16px 16px 16px
 }
 .headerRow {
   display: flex;
@@ -49,8 +41,8 @@
   gap: 8px
 }
 .name {
-  color: var(--text-100);
-  font-size: 17px;
+  color: #fff;
+  font-size: 16px;
   line-height: 1.3;
   margin: 0 0 4px 0
 }
@@ -61,46 +53,53 @@
   border-radius: 999px;
   padding: 6px 10px;
   font-size: 12px;
-  background: var(--muted-400);
-  color: var(--text-200);
+  background: #eef2ff;
+  color: #334155;
   white-space: nowrap
 }
 .role {
-  color: var(--text-300);
-  margin: 0 0 4px;
-  font-size: 14px
-}
-.location {
-  color: var(--text-300);
-  margin: 0 0 8px;
-  font-size: 12px;
-  opacity: .85
+  color: #6b7280;
+  margin: 0;
+  font-size: 13px
 }
 .socialRow {
-  display: block
+  margin-top: 12px
 }
 .socialList {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 12px 0 0;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
-  padding: 0
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-4px);
+  overflow: hidden;
+  transition: opacity .25s ease,max-height .25s ease,transform .25s ease
+}
+.cardHover:hover .socialList {
+  opacity: 1;
+  max-height: 50px;
+  transform: translateY(0)
 }
 .socialList li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  font-size: 12px;
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
   background: #a6a9c6;
   border-radius: 50%;
   color: #fff;
   text-decoration: none;
-  transition: all .25s ease-in-out
+  transition: background .2s ease,transform .2s ease
 }
 .socialList li a:hover {
-  background: #0a84ff
+  background: #0a84ff;
+  transform: translateY(-2px)
+}
+.location {
+  display: none
 }

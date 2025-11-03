@@ -1,5 +1,4 @@
-// src/components/TeamCard/TeamCard.jsx
-import styles from './TeamCard.module.css';
+import styles from "./TeamCard.module.css";
 
 const TeamCard = ({ member }) => {
   const {
@@ -24,7 +23,9 @@ const TeamCard = ({ member }) => {
         <div className={styles.floatContent}>
           <div className={styles.headerRow}>
             <h3 className={styles.name}>{name}</h3>
-            {department && <span className={styles.deptPill}>{department}</span>}
+            {department && (
+              <span className={styles.deptPill}>{department}</span>
+            )}
           </div>
 
           {title && <p className={styles.role}>{title}</p>}
@@ -35,7 +36,9 @@ const TeamCard = ({ member }) => {
               <ul className={styles.socialList}>
                 {socialEntries.map(([key, url]) => (
                   <li key={key}>
-                    <a href={url} target="_blank" rel="noreferrer">{key}</a>
+                    <a href={url} target="_blank" rel="noreferrer">
+                      {key}
+                    </a>
                   </li>
                 ))}
               </ul>

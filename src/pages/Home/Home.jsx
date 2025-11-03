@@ -7,7 +7,6 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Reviews from "../../components/Reviews/Reviews";
 import Contact from "../../components/Contact/Contact";
 import FAQ from "../../components/FAQ/FAQ";
-import Footer from "../../components/Footer/Footer";
 import Preloader from "../../components/Preloader/Preloader";
 import Team from "../../components/Team/Team";
 import PricingCompare from "../../components/Pricing/Pricing";

@@ -1,5 +1,6 @@
 .gridWrap {
-  position: relative
+  position: relative;
+  margin-top: 80px
 }
 .emptyState {
   background: var(--card-800);
@@ -11,51 +12,16 @@
 }
 .grid {
   display: grid;
-  gap: 24px
+  gap: 28px;
+  grid-template-columns: repeat(3,1fr)
 }
-.sliderWrap {
-  width: 100%
+@media (max-width:1023.98px) {
+  .grid {
+    grid-template-columns: repeat(2,1fr)
+  }
 }
-.slideCol {
-  padding: 0 15px
-}
-.sliderWrap :global(.slick-dots) {
-  margin: 40px 0 0;
-  display: flex!important;
-  justify-content: center;
-  gap: 10px
-}
-.sliderWrap :global(.slick-dotsli) {
-  list-style: none;
-  line-height: 0
-}
-.sliderWrap :global(.slick-dotslibutton) {
-  text-indent: -999999px;
-  padding: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.18);
-  background: 0 0;
-  position: relative;
-  transition: .3s ease-in-out
-}
-.sliderWrap :global(.slick-dotsli.slick-activebutton) {
-  border-color: #0a84ff
-}
-.sliderWrap :global(.slick-dotslibutton::before) {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #0a84ff;
-  transform: translate(-50%,-50%);
-  transition: .3s ease-in-out;
-  opacity: 0
-}
-.sliderWrap :global(.slick-dotsli.slick-activebutton::before) {
-  opacity: 1
+@media (max-width:639.98px) {
+  .grid {
+    grid-template-columns: 1fr
+  }
 }

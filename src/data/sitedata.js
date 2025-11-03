@@ -1,7 +1,7 @@
 export default {
   header: {
     links: [
-      { label: "Home", href: "#hero" },
+      { label: "Home", href: "/" },
       { label: "Services", href: "#services" },
       { label: "Pricing", href: "#pricing" },
       { label: "Contact Us", href: "#contact" },
@@ -490,19 +490,9 @@ export default {
         photo: "/assets/team/vishal.png",
       },
       {
-        name: "Hemanth Dhataram",
-        role: "HR",
-        photo: "/assets/team/hemanth.png",
-      },
-      {
         name: "Ayushi Shah",
         role: "Shopify Dev",
         photo: "/assets/team/ayushi.png",
-      },
-      {
-        name: "Mritunjay Rajak",
-        role: "Intern Dev",
-        photo: "/assets/team/mrityunjay.png",
       },
     ],
   },

@@ -5,7 +5,6 @@ import App from "./App.jsx";
 import "react-international-phone/style.css";
 import "./styles/style.css";
 import "./styles/fonts.css";
-import './styles/slick.css';
 import { initGTMTracking } from "./gtm";
 
 initGTMTracking();
