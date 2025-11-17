@@ -516,6 +516,10 @@ export default {
         name: "Contact Us",
         href: "#contact",
       },
+      {
+        name: "Team Page",
+        href: "/teampage",
+      },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
     email: "hello@ingversionsdigital.com",
