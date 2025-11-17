@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
-import TeamPage from "./pages/TeamPage/teampage.jsx";
+import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 
 
 function App() {
