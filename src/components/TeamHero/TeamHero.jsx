@@ -1,10 +1,14 @@
 import styles from "./TeamHero.module.css";
 
-const TeamHero = ({ eyebrow, heading, subtext }) => {
+const TeamHero = ({ eyebrow, heading, pill, subtext }) => {
   return (
     <div className={styles.heroWrap}>
+      <h2 className={styles.heroTitle}>
+        {heading}
+        <span className={styles.pill}>{pill}</span>
+      </h2>
       {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
-      <h1 className="section-title">{heading}</h1>
+
       {subtext && <p className={styles.subtext}>{subtext}</p>}
     </div>
   );

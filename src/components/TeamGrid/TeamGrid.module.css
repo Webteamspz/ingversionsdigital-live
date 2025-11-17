@@ -1,6 +1,6 @@
 .gridWrap {
   position: relative;
-  margin-top: 80px
+  margin-top: 40px
 }
 .emptyState {
   background: var(--card-800);

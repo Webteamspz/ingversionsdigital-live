@@ -18,7 +18,7 @@ export default {
     sub: "CRO-Driven Websites That Work for You",
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+      href: "#contact",
     },
     avatars: [
       "/assets/hero/hero-client-1.png",

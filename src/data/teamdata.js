@@ -1,34 +1,10 @@
 export const teamPage = {
   hero: {
-    eyebrow: "Meet the Crew",
-    heading: "Our People, Your Advantage",
+    heading: "Meet Our ",
+    pill: "Team",
+    eyebrow: "Our People, Your Advantage",
     subtext:
       "From Shopify innovators to CRO strategists and A/B testing experts, our diverse team blends creativity, analytics, and technology to craft high-converting digital experiences for global brands.",
-  },
-  search: {
-    placeholder: "Search by name, skill, or title…",
-  },
-  filters: {
-    departments: [
-      "All",
-      "Engineering",
-      "Design",
-      "CRO",
-      "QA",
-      "Project Management",
-      "Business",
-    ],
-    roles: [
-      "All",
-      "Front-End Developer",
-      "Shopify Developer",
-      "CRO Strategist",
-      "Designer",
-      "QA Engineer",
-      "Project Manager",
-      "CTO",
-      "CEO",
-    ],
   },
 };
 
@@ -144,4 +120,3 @@ export const teamMembers = [
     socials: {},
   },
 ];
-

@@ -1,4 +1,5 @@
 import styles from "./TeamCard.module.css";
+import OptimizedImg from "../OptimizedImg/OptimizedImg";
 
 const TeamCard = ({ member }) => {
   const {
@@ -15,11 +16,19 @@ const TeamCard = ({ member }) => {
   return (
     <article className={styles.cardWrap}>
       <div className={styles.cardHover}>
+        
+        {/* Image Container */}
         <div className={styles.media}>
-          <img src={avatar} alt={name} loading="lazy" />
+          <OptimizedImg
+            src={avatar}
+            alt={name}
+            width={400}      // placeholder but CLS-safe
+            height={500}
+            className={styles.avatarImg}
+          />
         </div>
 
-        {/* floating bottom content (slides up on hover) */}
+        {/* Floating bottom content */}
         <div className={styles.floatContent}>
           <div className={styles.headerRow}>
             <h3 className={styles.name}>{name}</h3>
