@@ -1,10 +1,11 @@
 export default {
   header: {
     links: [
-      { label: "Home", href: "#hero" },
+      { label: "Home", href: "/" },
       { label: "Services", href: "#services" },
       { label: "Pricing", href: "#pricing" },
       { label: "Contact Us", href: "#contact" },
+      { label: "Team Page", href: "/teampage" },
     ],
     cta: {
       label: "Book A Call",
@@ -17,7 +18,7 @@ export default {
     sub: "CRO-Driven Websites That Work for You",
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+      href: "#contact",
     },
     avatars: [
       "/assets/hero/hero-client-1.png",
@@ -489,19 +490,9 @@ export default {
         photo: "/assets/team/vishal.png",
       },
       {
-        name: "Hemanth Dhataram",
-        role: "HR",
-        photo: "/assets/team/hemanth.png",
-      },
-      {
         name: "Ayushi Shah",
         role: "Shopify Dev",
         photo: "/assets/team/ayushi.png",
-      },
-      {
-        name: "Mritunjay Rajak",
-        role: "Intern Dev",
-        photo: "/assets/team/mrityunjay.png",
       },
     ],
   },
