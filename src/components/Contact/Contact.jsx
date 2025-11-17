@@ -5,6 +5,8 @@ import PhoneField from "./PhoneField";
 import parse from "html-react-parser";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const REDIRECT_URL =
+  "https://calendly.com/ingversionsdigital/30min?month=2025-10";
 
 const Contact = () => {
   const { heading, form, infoCards } = data.contact;
@@ -96,31 +98,32 @@ const Contact = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateAll()) return;
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateAll()) return;
 
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-      if (res.ok) {
-        alert("Thanks! Your details have been sent.");
-        window.location.reload();
-      } else {
-        const err = await res.json().catch(() => ({}));
-        alert(err?.error || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      alert("Found some error please try again.", err);
+    if (res.ok) {
+      // form data successfully sent to Formspree
+      window.location.href = REDIRECT_URL; // redirect instead of reload
+    } else {
+      const err = await res.json().catch(() => ({}));
+      alert(err?.error || "Something went wrong. Please try again.");
     }
-  };
+  } catch (err) {
+    alert("Found some error please try again.");
+  }
+};
+
 
   return (
     <section className={styles.contactSection} id="contact">

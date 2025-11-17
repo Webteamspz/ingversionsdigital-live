@@ -1,9 +1,30 @@
 import { useEffect, useRef } from "react";
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import styles from "./Hero.module.css";
-
 import { ctaClick, dl } from "../../gtm";
+
+const OptimizedImg = ({
+  src,
+  alt,
+  width,
+  height,
+  priority = false,
+  className,
+  ...rest
+}) => (
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={priority ? "eager" : "lazy"}
+    fetchPriority={priority ? "high" : "auto"}
+    decoding="async"
+    className={className}
+    {...rest}
+  />
+);
 
 const Hero = () => {
   const h = data.hero;
@@ -39,10 +60,16 @@ const Hero = () => {
   };
 
   return (
-    <section ref={sectionRef} className={`${styles.bannerBg}`} id="hero">
+    <section
+      ref={sectionRef}
+      className={styles.bannerBg}
+      id="hero"
+      aria-labelledby="hero-heading"
+    >
       <div className={`container ${styles.heroRow}`}>
+        {/* LEFT TEXT */}
         <div className={styles.textHeroArea}>
-          <h1 className={styles.heroTitle}>
+          <h1 id="hero-heading" className={styles.heroTitle}>
             {h.heading} <span className={styles.heroTitlePill}>{h.pill}</span>
           </h1>
           <p className={styles.heroSubtitle}>{h.sub}</p>
@@ -61,7 +88,12 @@ const Hero = () => {
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
                 {h.avatars.map((src, i) => (
-                  <img key={i} src={src} alt={`client ${i + 1}`} />
+                  <OptimizedImg
+                    key={i}
+                    src={src}
+                    alt={`Client ${i + 1}`}
+                    priority={false}
+                  />
                 ))}
               </div>
               <span
@@ -72,16 +104,19 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className={styles.heroVisual} onClick={handleVisual}>
-          <img
+        {/* RIGHT VISUAL (LCP) */}
+        <div
+          type="button"
+          className={styles.heroVisual}
+          onClick={handleVisual}
+          data-cta="Hero Visual"
+          data-cta-loc="Hero"
+        >
+          <OptimizedImg
             src={h.visual}
-            alt="Security bot"
-            className={styles.heroVisualImg}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => (e.key === "Enter" ? handleVisual() : null)}
-            data-cta="Hero Visual"
-            data-cta-loc="Hero"
+            alt="Security bot preview"
+            className={styles.heroVisualImg} 
+            priority={true}
           />
           <div className={styles.heroShadow} />
         </div>
