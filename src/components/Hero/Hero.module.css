@@ -154,7 +154,7 @@ section#hero {
   top: 0;
   max-width: 479px;
   width: 100%;
-  aspect-ratio: 479;
+  /* aspect-ratio: 479; */
 }
 .heroVisualImg {
   max-width: 100%;
@@ -281,7 +281,7 @@ section#hero {
   }
   .bannerBg:before {
     top: inherit;
-    bottom: -20%;
+    bottom: -1%;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -373,6 +373,6 @@ section#hero {
     transform: translateX(-50%);
     width: 750px;
     height: 420px;
-    bottom: 4%
+    bottom: 25%
   }
 }
