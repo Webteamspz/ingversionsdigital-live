@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { Link, useLocation } from "react-router-dom";
 import data from "../../data/siteData";
 import logo from "/assets/logos/main-logo.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
-
 import { ctaClick, dl } from "../../gtm";
 
 const HamburgerIcon = (props) => (
@@ -44,14 +44,26 @@ const CloseIcon = (props) => (
   </svg>
 );
 
+const isExternalHref = (href = "") =>
+  /^https?:\/\//i.test(href) ||
+  href.startsWith("mailto:") ||
+  href.startsWith("tel:");
+
 const Header = () => {
   const { links, cta } = data.header;
   const [open, setOpen] = useState(false);
 
+  const location = useLocation();
+  const isTeamPage = location.pathname === "/teampage";
+  const ctaHref = isTeamPage ? "/#contact" : cta.href;
+
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
-    dl().push({ event: open ? "menu_open" : "menu_close", menu_location: "Header" });
+    dl().push({
+      event: open ? "menu_open" : "menu_close",
+      menu_location: "Header",
+    });
     return () => {
       document.documentElement.style.overflow = "";
       document.body.classList.remove("menu-open");
@@ -60,6 +72,74 @@ const Header = () => {
 
   const handleNavClick = (label, loc, href) => {
     ctaClick({ label, location: loc, href });
+  };
+
+  const renderDesktopNavLink = (linkItem, index) => {
+    const { href, label } = linkItem;
+
+    // hash-only (e.g. "#services") or external -> normal <a>
+    if (href.startsWith("#") || isExternalHref(href)) {
+      return (
+        <a
+          key={index}
+          href={href}
+          data-cta={label}
+          data-cta-loc="Header Nav"
+          onClick={() => handleNavClick(label, "Header Nav", href)}
+        >
+          {label}
+        </a>
+      );
+    }
+
+    // internal route -> React Router Link
+    return (
+      <Link
+        key={index}
+        to={href}
+        data-cta={label}
+        data-cta-loc="Header Nav"
+        onClick={() => handleNavClick(label, "Header Nav", href)}
+      >
+        {label}
+      </Link>
+    );
+  };
+
+  const renderMobileNavLink = (linkItem, index) => {
+    const { href, label } = linkItem;
+
+    if (href.startsWith("#") || isExternalHref(href)) {
+      return (
+        <a
+          key={index}
+          href={href}
+          data-cta={label}
+          data-cta-loc="Mobile Nav"
+          onClick={() => {
+            handleNavClick(label, "Mobile Nav", href);
+            setOpen(false);
+          }}
+        >
+          {label}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={index}
+        to={href}
+        data-cta={label}
+        data-cta-loc="Mobile Nav"
+        onClick={() => {
+          handleNavClick(label, "Mobile Nav", href);
+          setOpen(false);
+        }}
+      >
+        {label}
+      </Link>
+    );
   };
 
   const Overlay = (
@@ -89,39 +169,39 @@ const Header = () => {
         </button>
       </div>
 
-      {/* NEW: scrollable body so long menus don’t push CTA off-screen */}
       <div className={styles.menuBody}>
         <nav className={styles.mobileNav}>
-          {links.map((l, i) => (
+          {links.map((linkItem, index) => renderMobileNavLink(linkItem, index))}
+        </nav>
+
+        <div className={styles.menuCtaBar}>
+          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
             <a
-              key={i}
-              href={l.href}
-              data-cta={l.label}
-              data-cta-loc="Mobile Nav"
+              className={`btn ${styles.mobileCta}`}
+              href={ctaHref}
+              data-cta={cta.label}
+              data-cta-loc="Mobile Header CTA"
               onClick={() => {
-                handleNavClick(l.label, "Mobile Nav", l.href);
+                handleNavClick(cta.label, "Mobile Header CTA", ctaHref);
                 setOpen(false);
               }}
             >
-              {l.label}
+              {cta.label}
             </a>
-          ))}
-        </nav>
-
-        {/* NEW: sticky CTA bar – always visible */}
-        <div className={styles.menuCtaBar}>
-          <a
-            className={`btn ${styles.mobileCta}`}
-            href={cta.href}
-            data-cta={cta.label}
-            data-cta-loc="Mobile Header CTA"
-            onClick={() => {
-              handleNavClick(cta.label, "Mobile Header CTA", cta.href);
-              setOpen(false);
-            }}
-          >
-            {cta.label}
-          </a>
+          ) : (
+            <Link
+              className={`btn ${styles.mobileCta}`}
+              to={ctaHref}
+              data-cta={cta.label}
+              data-cta-loc="Mobile Header CTA"
+              onClick={() => {
+                handleNavClick(cta.label, "Mobile Header CTA", ctaHref);
+                setOpen(false);
+              }}
+            >
+              {cta.label}
+            </Link>
+          )}
         </div>
       </div>
     </aside>
@@ -131,41 +211,57 @@ const Header = () => {
     <>
       <header className={styles.siteHeader} id="header">
         <div className={`container ${styles.headerRow}`}>
-          <a
-            href="/"
+          {/* Brand logo -> SPA navigation */}
+          <Link
+            to="/"
             className={styles.brand}
             data-cta="Logo"
             data-cta-loc="Header Brand"
             onClick={() => handleNavClick("Logo", "Header Brand", "/")}
           >
-            <img src={logo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.desktopLogo}`} />
-            <img src={mobileLogo} alt="Ingversions Logo" className={`${styles.brandLogo} ${styles.mobileLogoOnly}`} />
-          </a>
+            <img
+              src={logo}
+              alt="Ingversions Logo"
+              className={`${styles.brandLogo} ${styles.desktopLogo}`}
+            />
+            <img
+              src={mobileLogo}
+              alt="Ingversions Logo"
+              className={`${styles.brandLogo} ${styles.mobileLogoOnly}`}
+            />
+          </Link>
 
+          {/* Desktop nav */}
           <nav className={styles.nav}>
-            {links.map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                data-cta={l.label}
-                data-cta-loc="Header Nav"
-                onClick={() => handleNavClick(l.label, "Header Nav", l.href)}
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((linkItem, index) =>
+              renderDesktopNavLink(linkItem, index)
+            )}
           </nav>
 
-          <a
-            className={`btn ${styles.desktopCta}`}
-            href={cta.href}
-            data-cta={cta.label}
-            data-cta-loc="Header CTA"
-            onClick={() => handleNavClick(cta.label, "Header CTA", cta.href)}
-          >
-            {cta.label}
-          </a>
+          {/* Desktop CTA */}
+          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
+            <a
+              className={`btn ${styles.desktopCta}`}
+              href={ctaHref}
+              data-cta={cta.label}
+              data-cta-loc="Header CTA"
+              onClick={() => handleNavClick(cta.label, "Header CTA", ctaHref)}
+            >
+              {cta.label}
+            </a>
+          ) : (
+            <Link
+              className={`btn ${styles.desktopCta}`}
+              to={ctaHref}
+              data-cta={cta.label}
+              data-cta-loc="Header CTA"
+              onClick={() => handleNavClick(cta.label, "Header CTA", ctaHref)}
+            >
+              {cta.label}
+            </Link>
+          )}
 
+          {/* Mobile hamburger */}
           <button
             className={styles.hamburger}
             aria-label="Toggle menu"

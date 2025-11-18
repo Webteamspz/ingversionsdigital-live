@@ -19,12 +19,12 @@ const TeamPage = () => {
 
   return (
     <>
-      {showPreloader && (
+      {/* {showPreloader && (
         <Preloader
           minDuration={1500}
           logoSrc={"/assets/preloader/preloader.png"}
         />
-      )}
+      )} */}
 
       <Layout header={1} footer={1}>
         <main className={styles.teamPage}>
