@@ -2,14 +2,14 @@ export default {
   header: {
     links: [
       { label: "Home", href: "/" },
-      { label: "Services", href: "#services" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Contact Us", href: "#contact" },
+      { label: "Services", href: "/#services" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
     ],
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+      href: "#contact",
     },
   },
   hero: {
@@ -264,15 +264,7 @@ export default {
           },
         ],
       },
-      {
-        title: "Contact Information",
-        description:
-          "Want to discuss your project in detail? Schedule a free 30-minute consultation with our team of experts. We'll help you understand how our solutions can benefit your business.",
-        cta: {
-          label: "Book A Call",
-          href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
-        },
-      },
+      
     ],
   },
   faq: {
@@ -506,15 +498,15 @@ export default {
       },
       {
         name: "Services",
-        href: "#services",
+        href: "/#services",
       },
       {
         name: "Pricing",
-        href: "#pricing",
+        href: "/#pricing",
       },
       {
         name: "Contact Us",
-        href: "#contact",
+        href: "/#contact",
       },
       {
         name: "Team Page",

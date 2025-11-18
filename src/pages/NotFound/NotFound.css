@@ -1,0 +1,44 @@
+.nfWrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px
+}
+.nfCard {
+  text-align: center;
+  background: #141414;
+  padding: 50px 60px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4)
+}
+.nfTitle {
+  font-size: 80px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background-image: linear-gradient(90deg,#0a84ff,#38bdf8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block
+}
+.nfSubtitle {
+  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: .85
+}
+.nfBtn {
+  background: #0a84ff;
+  padding: 12px 26px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: .2s ease-in-out
+}
+.nfBtn:hover {
+  background: #006fe0
+}

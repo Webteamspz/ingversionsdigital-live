@@ -17,14 +17,16 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const [phoneInteracted, setPhoneInteracted] = useState(false); // NEW
+  const [phoneInteracted, setPhoneInteracted] = useState(false);
 
   const setField = (name, value) => {
     setFormData((p) => ({ ...p, [name]: value }));
   };
   const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
   const setError = (name, msg) =>
-    setErrors((p) => (msg ? { ...p, [name]: msg } : (delete p[name], { ...p })));
+    setErrors((p) =>
+      msg ? { ...p, [name]: msg } : (delete p[name], { ...p })
+    );
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const lettersRegex = /^[\p{L}\s'-]+$/u;
@@ -55,7 +57,6 @@ const Contact = () => {
       else if (value.length < 5) msg = "Message must be at least 5 characters";
     }
 
-    // Phone: required, but only validate after user interaction
     if (name === "phone") {
       const digits = (value || "").replace(/\D/g, "");
       if (!digits) msg = "Phone number is required";
@@ -78,7 +79,6 @@ const Contact = () => {
     touch("message");
     ok = validateField("message", formData.message || "") && ok;
 
-    // Ensure phone is validated at submit time even if not interacted
     setPhoneInteracted(true);
     touch("phone");
     ok = validateField("phone", formData.phone || "") && ok;
@@ -98,38 +98,44 @@ const Contact = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateAll()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateAll()) return;
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      // form data successfully sent to Formspree
-      window.location.href = REDIRECT_URL; // redirect instead of reload
-    } else {
-      const err = await res.json().catch(() => ({}));
-      alert(err?.error || "Something went wrong. Please try again.");
+      if (res.ok) {
+        window.location.href = REDIRECT_URL;
+      } else {
+        const err = await res.json().catch(() => ({}));
+        alert(err?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Found some error please try again.");
     }
-  } catch (err) {
-    alert("Found some error please try again.");
-  }
-};
+  };
 
+  const ratingMetrics = [
+    "Overall satisfaction",
+    "Value for money",
+    "Punctuality of work",
+    "Communication Clarity",
+  ];
 
   return (
     <section className={styles.contactSection} id="contact">
       <div className="container">
         <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
         <div className={styles.contactGrid}>
+          {/* LEFT: FORM */}
           <div className={`${styles.contactCard} ${styles.formCard}`}>
             <h4 className={styles.contactPanelTitle}>{form.title}</h4>
             <form data-gtm-form="contact" onSubmit={handleSubmit} noValidate>
@@ -195,13 +201,11 @@ const handleSubmit = async (e) => {
                   <PhoneField
                     defaultCountry="in"
                     classSelector={`${errors.phone ? styles.invalid : ""}`}
-                    // When user focuses phone, start validating it
                     onFocus={() => {
                       setPhoneInteracted(true);
                       touch("phone");
                       validateField("phone", formData.phone || "");
                     }}
-                    // Only validate on change after user has interacted
                     onChange={(val) => {
                       setField("phone", val);
                       if (phoneInteracted) {
@@ -226,7 +230,6 @@ const handleSubmit = async (e) => {
                       }`}
                       name={f.name}
                       placeholder={f.placeholder}
-                      // If user jumps to Message, force phone validation now
                       onFocus={() => {
                         setPhoneInteracted(true);
                         touch("phone");
@@ -252,45 +255,113 @@ const handleSubmit = async (e) => {
                   </div>
                 ))}
 
-              <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
+              <button
+                className={`btn ${styles.cBtn} ${styles.mt}`}
+                type="submit"
+              >
                 {form.submit.label}
               </button>
             </form>
           </div>
 
+          {/* RIGHT COLUMN */}
+          {/* RIGHT COLUMN – single combined card */}
           <div className={styles.rightCol}>
-            {infoCards.map((card, idx) => (
-              <div key={idx} className={`${styles.contactCard}`}>
-                <h4 className={styles.contactPanelTitle}>{card.title}</h4>
-                {card.items && (
-                  <ul className={styles.cList}>
-                    {card.items.map((it, i) => (
-                      <li key={i}>
-                        <span className={styles.cIco}>{parse(it.icon)}</span>
-                        {String(it.text)
-                          .split("\n")
-                          .map((line, li) => (
-                            <span key={li}>
-                              {line}
-                              {li < String(it.text).split("\n").length - 1 && (
-                                <br />
-                              )}
-                            </span>
-                          ))}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {card.description && (
-                  <p className={styles.contactNote}>{card.description}</p>
-                )}
-                {card.cta && (
-                  <a className={`btn ${styles.cBtn}`} href={card.cta.href}>
-                    {card.cta.label}
-                  </a>
-                )}
+            <div className={`${styles.contactCard} ${styles.highlightCard}`}>
+              {/* TOP: Success Snapshot */}
+              <h4 className={styles.contactPanelTitle}>
+                <span className={styles.snapshotEmoji} aria-hidden="true">
+                  🚀
+                </span>{" "}
+                Success Snapshot
+              </h4>
+
+              <p className={styles.snapshotText}>
+                Increased a D2C brand&apos;s conversions by{" "}
+                <span className={styles.snapshotEmphasis}>27%</span> in 60 days.
+              </p>
+
+              <div className={styles.snapshotBlock}>
+                <p className={styles.snapshotRatingsLineTop}>
+                  <span className={styles.snapshotStars} aria-hidden="true">
+                    ★★★★★
+                  </span>{" "}
+                  <span className={styles.snapshotTitleInline}>
+                    Client Ratings
+                  </span>
+                </p>
+                <p className={styles.snapshotRatingsDetail}>
+                  Overall: <strong>5/5</strong> | Communication{" "}
+                  <strong>5/5</strong> | On-time <strong>5/5</strong> | Value{" "}
+                  <strong>5/5</strong>
+                </p>
               </div>
-            ))}
+
+              <p className={styles.snapshotTrust}>
+                <span aria-hidden="true">👥</span> Trusted by{" "}
+                <strong>6+ agencies</strong> and <strong>10+ brands in Ecommerce</strong>
+              </p>
+
+              <p className={styles.snapshotSubheading}>
+                <span aria-hidden="true">🔗</span> What You Get on the Call
+              </p>
+
+              <ul className={styles.snapshotList}>
+                <li>30-minute free audit</li>
+                <li>CRO roadmap tailored to your goals</li>
+                <li>Zero obligations</li>
+              </ul>
+
+              {/* Divider between snapshot + contact info */}
+              <div className={styles.contactDivider} />
+
+              {/* BOTTOM: dynamic contact info from infoCards[0] */}
+              {infoCards[0] && (
+                <div className={styles.contactInfoBlock}>
+                  <h4 className={styles.contactPanelTitle}>
+                    {infoCards[0].title}
+                  </h4>
+
+                  {infoCards[0].items && (
+                    <ul className={styles.cList}>
+                      {infoCards[0].items.map((item, i) => (
+                        <li key={i}>
+                          <span className={styles.cIco}>
+                            {parse(item.icon)}
+                          </span>
+                          {String(item.text)
+                            .split("\n")
+                            .map((line, li) => (
+                              <span key={li}>
+                                {line}
+                                {li <
+                                  String(item.text).split("\n").length - 1 && (
+                                  <br />
+                                )}
+                              </span>
+                            ))}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {infoCards[0].description && (
+                    <p className={styles.contactNote}>
+                      {infoCards[0].description}
+                    </p>
+                  )}
+
+                  {infoCards[0].cta && (
+                    <a
+                      className={`btn ${styles.cBtn}`}
+                      href={infoCards[0].cta.href}
+                    >
+                      {infoCards[0].cta.label}
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
