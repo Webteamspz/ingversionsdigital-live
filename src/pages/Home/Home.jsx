@@ -17,14 +17,23 @@ const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
 
-export default function Home() {
-  const [showPreloader, setShowPreloader] = useState(true);
+const Home = () => {
+  const [showPreloader, setShowPreloader] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPreloader(false);
-    }, 1500);
-    return () => clearTimeout(timer);
+    const hasSeenPreloader = localStorage.getItem("hasSeenPreloader");
+
+    if (!hasSeenPreloader) {
+      // first visit → show preloader
+      setShowPreloader(true);
+
+      const timer = setTimeout(() => {
+        setShowPreloader(false);
+        localStorage.setItem("hasSeenPreloader", "true"); // remember it
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -36,10 +45,8 @@ export default function Home() {
         />
       )}
 
-      {/* Layout handles header + footer */}
       <Layout header={1} footer={1}>
         <Hero />
-
         <TrackRecord />
         <Services />
         <WorkProcess />
@@ -53,11 +60,6 @@ export default function Home() {
           <Reviews />
         </Suspense>
 
-        
-        {/* <Suspense fallback={null}>
-          <Team />
-        </Suspense> */}
-
         <Contact />
 
         <Suspense fallback={null}>
@@ -66,4 +68,6 @@ export default function Home() {
       </Layout>
     </>
   );
-}
+};
+
+export default Home;

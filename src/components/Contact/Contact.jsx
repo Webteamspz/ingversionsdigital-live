@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
@@ -19,13 +20,23 @@ const Contact = () => {
   const [touched, setTouched] = useState({});
   const [phoneInteracted, setPhoneInteracted] = useState(false);
 
+  const location = useLocation();
+
   const setField = (name, value) => {
     setFormData((p) => ({ ...p, [name]: value }));
   };
-  const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
+
+  const touch = (name) =>
+    setTouched((p) => ({
+      ...p,
+      [name]: true,
+    }));
+
   const setError = (name, msg) =>
     setErrors((p) =>
-      msg ? { ...p, [name]: msg } : (delete p[name], { ...p })
+      msg
+        ? { ...p, [name]: msg }
+        : (delete p[name], { ...p })
     );
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,14 +65,16 @@ const Contact = () => {
 
     if (name === "message") {
       if (!value.trim()) msg = "Message is required";
-      else if (value.length < 5) msg = "Message must be at least 5 characters";
+      else if (value.length < 5)
+        msg = "Message must be at least 5 characters";
     }
 
     if (name === "phone") {
       const digits = (value || "").replace(/\D/g, "");
       if (!digits) msg = "Phone number is required";
       else if (!onlyDigits(digits)) msg = "Only numbers are accepted";
-      else if (digits.length < 6) msg = "Please enter a valid phone number";
+      else if (digits.length < 6)
+        msg = "Please enter a valid phone number";
     }
 
     setError(name, msg);
@@ -123,6 +136,25 @@ const Contact = () => {
     }
   };
 
+  // 🔹 Always sync message with latest ?plan=... param
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+
+    if (!plan) return;
+
+    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+
+    setFormData((prev) => ({
+      ...prev,
+      message: defaultMessage,
+    }));
+
+    setTouched((prev) => ({ ...prev, message: true }));
+    setError("message", "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search]);
+
   const ratingMetrics = [
     "Overall satisfaction",
     "Value for money",
@@ -133,12 +165,18 @@ const Contact = () => {
   return (
     <section className={styles.contactSection} id="contact">
       <div className="container">
-        <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
+        <h3 className={`section-title ${styles.contactHeading}`}>
+          {heading}
+        </h3>
         <div className={styles.contactGrid}>
           {/* LEFT: FORM */}
           <div className={`${styles.contactCard} ${styles.formCard}`}>
             <h4 className={styles.contactPanelTitle}>{form.title}</h4>
-            <form data-gtm-form="contact" onSubmit={handleSubmit} noValidate>
+            <form
+              data-gtm-form="contact"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <div className={`${styles.grid} ${styles.two}`}>
                 {form.fields
                   .filter((f) => f.col === "half")
@@ -154,7 +192,9 @@ const Contact = () => {
                           placeholder={f.placeholder}
                           onInput={handleInput(f)}
                           onBlur={handleBlur(f)}
-                          inputMode={/name/i.test(f.name) ? "text" : undefined}
+                          inputMode={
+                            /name/i.test(f.name) ? "text" : undefined
+                          }
                           aria-invalid={!!errors[f.name]}
                         />
                         {errors[f.name] && (
@@ -170,7 +210,8 @@ const Contact = () => {
               {form.fields
                 .filter(
                   (f) =>
-                    f.col === "full" && !["phone", "message"].includes(f.name)
+                    f.col === "full" &&
+                    !["phone", "message"].includes(f.name)
                 )
                 .map((f) =>
                   f.type === "textarea" ? null : (
@@ -184,7 +225,9 @@ const Contact = () => {
                         placeholder={f.placeholder}
                         onInput={handleInput(f)}
                         onBlur={handleBlur(f)}
-                        inputMode={/name/i.test(f.name) ? "text" : undefined}
+                        inputMode={
+                          /name/i.test(f.name) ? "text" : undefined
+                        }
                         aria-invalid={!!errors[f.name]}
                       />
                       {errors[f.name] && (
@@ -200,7 +243,9 @@ const Contact = () => {
                 <div className={styles.mt}>
                   <PhoneField
                     defaultCountry="in"
-                    classSelector={`${errors.phone ? styles.invalid : ""}`}
+                    classSelector={`${
+                      errors.phone ? styles.invalid : ""
+                    }`}
                     onFocus={() => {
                       setPhoneInteracted(true);
                       touch("phone");
@@ -215,7 +260,9 @@ const Contact = () => {
                     }}
                   />
                   {errors.phone && (
-                    <div className={styles.errorMessage}>{errors.phone}</div>
+                    <div className={styles.errorMessage}>
+                      {errors.phone}
+                    </div>
                   )}
                 </div>
               )}
@@ -230,6 +277,7 @@ const Contact = () => {
                       }`}
                       name={f.name}
                       placeholder={f.placeholder}
+                      value={formData.message || ""}
                       onFocus={() => {
                         setPhoneInteracted(true);
                         touch("phone");
@@ -243,7 +291,10 @@ const Contact = () => {
                       }}
                       onBlur={(e) => {
                         touch("message");
-                        validateField("message", e.currentTarget.value);
+                        validateField(
+                          "message",
+                          e.currentTarget.value
+                        );
                       }}
                       aria-invalid={!!errors.message}
                     />
@@ -264,13 +315,16 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* RIGHT COLUMN */}
-          {/* RIGHT COLUMN – single combined card */}
+          {/* RIGHT COLUMN – combined Success Snapshot + Contact info */}
           <div className={styles.rightCol}>
-            <div className={`${styles.contactCard} ${styles.highlightCard}`}>
-              {/* TOP: Success Snapshot */}
+            <div
+              className={`${styles.contactCard} ${styles.highlightCard}`}
+            >
               <h4 className={styles.contactPanelTitle}>
-                <span className={styles.snapshotEmoji} aria-hidden="true">
+                <span
+                  className={styles.snapshotEmoji}
+                  aria-hidden="true"
+                >
                   🚀
                 </span>{" "}
                 Success Snapshot
@@ -278,12 +332,16 @@ const Contact = () => {
 
               <p className={styles.snapshotText}>
                 Increased a D2C brand&apos;s conversions by{" "}
-                <span className={styles.snapshotEmphasis}>27%</span> in 60 days.
+                <span className={styles.snapshotEmphasis}>27%</span> in
+                60 days.
               </p>
 
               <div className={styles.snapshotBlock}>
                 <p className={styles.snapshotRatingsLineTop}>
-                  <span className={styles.snapshotStars} aria-hidden="true">
+                  <span
+                    className={styles.snapshotStars}
+                    aria-hidden="true"
+                  >
                     ★★★★★
                   </span>{" "}
                   <span className={styles.snapshotTitleInline}>
@@ -292,18 +350,21 @@ const Contact = () => {
                 </p>
                 <p className={styles.snapshotRatingsDetail}>
                   Overall: <strong>5/5</strong> | Communication{" "}
-                  <strong>5/5</strong> | On-time <strong>5/5</strong> | Value{" "}
+                  <strong>5/5</strong> | On-time{" "}
+                  <strong>5/5</strong> | Value{" "}
                   <strong>5/5</strong>
                 </p>
               </div>
 
               <p className={styles.snapshotTrust}>
                 <span aria-hidden="true">👥</span> Trusted by{" "}
-                <strong>6+ agencies</strong> and <strong>10+ brands in Ecommerce</strong>
+                <strong>6+ agencies</strong> and{" "}
+                <strong>10+ brands in Ecommerce</strong>
               </p>
 
               <p className={styles.snapshotSubheading}>
-                <span aria-hidden="true">🔗</span> What You Get on the Call
+                <span aria-hidden="true">🔗</span> What You Get on the
+                Call
               </p>
 
               <ul className={styles.snapshotList}>
@@ -312,10 +373,8 @@ const Contact = () => {
                 <li>Zero obligations</li>
               </ul>
 
-              {/* Divider between snapshot + contact info */}
               <div className={styles.contactDivider} />
 
-              {/* BOTTOM: dynamic contact info from infoCards[0] */}
               {infoCards[0] && (
                 <div className={styles.contactInfoBlock}>
                   <h4 className={styles.contactPanelTitle}>
@@ -335,9 +394,9 @@ const Contact = () => {
                               <span key={li}>
                                 {line}
                                 {li <
-                                  String(item.text).split("\n").length - 1 && (
-                                  <br />
-                                )}
+                                  String(item.text).split("\n")
+                                    .length -
+                                    1 && <br />}
                               </span>
                             ))}
                         </li>
