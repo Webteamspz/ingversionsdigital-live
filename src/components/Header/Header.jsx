@@ -51,12 +51,26 @@ const isExternalHref = (href = "") =>
 
 const Header = () => {
   const { links, cta } = data.header;
+  const location = useLocation();
+
   const [open, setOpen] = useState(false);
 
-  const location = useLocation();
+  // CTA hide/show behaviour
+  const [ctaScrollMode, setCtaScrollMode] = useState(false);
+  const [hideHeaderCta, setHideHeaderCta] = useState(false);
+
   const isTeamPage = location.pathname === "/teampage";
   const ctaHref = isTeamPage ? "/#contact" : cta.href;
 
+  // Restore scroll mode from sessionStorage (for cross-page navigation)
+  useEffect(() => {
+    const flag = sessionStorage.getItem("ctaScrollMode");
+    if (flag === "1") {
+      setCtaScrollMode(true);
+    }
+  }, []);
+
+  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
@@ -70,14 +84,58 @@ const Header = () => {
     };
   }, [open]);
 
+  // Scroll-based hide/show for CTA when CTA has been clicked
+  useEffect(() => {
+    if (!ctaScrollMode) {
+      setHideHeaderCta(false);
+      return;
+    }
+
+    const handleScroll = () => {
+      const contactEl = document.getElementById("contact");
+      const headerEl = document.getElementById("header");
+
+      if (!contactEl || !headerEl) return;
+
+      const headerHeight = headerEl.offsetHeight || 0;
+      const rect = contactEl.getBoundingClientRect();
+      const contactTopRelativeToViewport = rect.top - headerHeight;
+
+      // At or below contact => hide CTA and clear scroll mode flag
+      if (contactTopRelativeToViewport <= 0) {
+        setHideHeaderCta(true);
+        sessionStorage.removeItem("ctaScrollMode");
+      } else {
+        // Above contact => show CTA again
+        setHideHeaderCta(false);
+      }
+    };
+
+    // Run once initially (in case scroll already happened)
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [ctaScrollMode]);
+
   const handleNavClick = (label, loc, href) => {
     ctaClick({ label, location: loc, href });
+  };
+
+  // Shared "Book a call" CTA click handler (desktop + mobile)
+  const handleBookCallClick = (loc) => {
+    handleNavClick(cta.label, loc, ctaHref);
+
+    // Only trigger special scroll behaviour when CTA targets contact
+    if (ctaHref.includes("#contact")) {
+      sessionStorage.setItem("ctaScrollMode", "1");
+      setCtaScrollMode(true);
+    }
   };
 
   const renderDesktopNavLink = (linkItem, index) => {
     const { href, label } = linkItem;
 
-    // hash-only (e.g. "#services") or external -> normal <a>
     if (href.startsWith("#") || isExternalHref(href)) {
       return (
         <a
@@ -92,7 +150,6 @@ const Header = () => {
       );
     }
 
-    // internal route -> React Router Link
     return (
       <Link
         key={index}
@@ -171,10 +228,12 @@ const Header = () => {
 
       <div className={styles.menuBody}>
         <nav className={styles.mobileNav}>
-          {links.map((linkItem, index) => renderMobileNavLink(linkItem, index))}
+          {links.map((linkItem, index) =>
+            renderMobileNavLink(linkItem, index)
+          )}
         </nav>
 
-        <div className={styles.menuCtaBar}>
+        {/* <div className={styles.menuCtaBar}>
           {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
             <a
               className={`btn ${styles.mobileCta}`}
@@ -182,7 +241,7 @@ const Header = () => {
               data-cta={cta.label}
               data-cta-loc="Mobile Header CTA"
               onClick={() => {
-                handleNavClick(cta.label, "Mobile Header CTA", ctaHref);
+                handleBookCallClick("Mobile Header CTA");
                 setOpen(false);
               }}
             >
@@ -195,14 +254,14 @@ const Header = () => {
               data-cta={cta.label}
               data-cta-loc="Mobile Header CTA"
               onClick={() => {
-                handleNavClick(cta.label, "Mobile Header CTA", ctaHref);
+                handleBookCallClick("Mobile Header CTA");
                 setOpen(false);
               }}
             >
               {cta.label}
             </Link>
           )}
-        </div>
+        </div> */}
       </div>
     </aside>
   );
@@ -238,28 +297,29 @@ const Header = () => {
             )}
           </nav>
 
-          {/* Desktop CTA */}
-          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
-            <a
-              className={`btn ${styles.desktopCta}`}
-              href={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Header CTA"
-              onClick={() => handleNavClick(cta.label, "Header CTA", ctaHref)}
-            >
-              {cta.label}
-            </a>
-          ) : (
-            <Link
-              className={`btn ${styles.desktopCta}`}
-              to={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Header CTA"
-              onClick={() => handleNavClick(cta.label, "Header CTA", ctaHref)}
-            >
-              {cta.label}
-            </Link>
-          )}
+          {/* Desktop CTA – hidden when scroll logic says so */}
+          {!hideHeaderCta &&
+            (isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
+              <a
+                className={`btn ${styles.desktopCta}`}
+                href={ctaHref}
+                data-cta={cta.label}
+                data-cta-loc="Header CTA"
+                onClick={() => handleBookCallClick("Header CTA")}
+              >
+                {cta.label}
+              </a>
+            ) : (
+              <Link
+                className={`btn ${styles.desktopCta}`}
+                to={ctaHref}
+                data-cta={cta.label}
+                data-cta-loc="Header CTA"
+                onClick={() => handleBookCallClick("Header CTA")}
+              >
+                {cta.label}
+              </Link>
+            ))}
 
           {/* Mobile hamburger */}
           <button

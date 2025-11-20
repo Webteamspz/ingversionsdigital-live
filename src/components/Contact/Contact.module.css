@@ -207,11 +207,6 @@ textarea.cInput {
 .mt > .errorMessage {
   margin-bottom: -2px
 }
-.highlightCard {
-  background: radial-gradient(circle at top left,#1d2837 0,#101010 55%,#050505 100%);
-  border: 1px solid rgba(10,132,255,.4);
-  box-shadow: 0 18px 40px rgba(0,0,0,.6)
-}
 .snapshotEmoji {
   font-size: 20px;
   margin-right: 4px
@@ -219,7 +214,7 @@ textarea.cInput {
 .snapshotText {
   margin: 10px 0 16px;
   color: #e5e7eb;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5
 }
 .snapshotEmphasis {
@@ -234,8 +229,8 @@ textarea.cInput {
   align-items: center;
   gap: 6px;
   color: #f9fafb;
-  font-size: 15px;
-  margin: 0 0 6px
+  font-size: 14px;
+  margin: 0 0 8px
 }
 .snapshotStars {
   letter-spacing: 1px;
@@ -257,9 +252,9 @@ textarea.cInput {
 
 .snapshotSubheading {
   margin: 10px 0 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #e5e7eb
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff
 }
 .snapshotList {
   list-style: none;
@@ -268,7 +263,7 @@ textarea.cInput {
   display: grid;
   gap: 6px;
   font-size: 14px;
-  color: #e5e7eb
+  color: #ffffffcc
 }
 .snapshotList li::before {
   content: "•";
