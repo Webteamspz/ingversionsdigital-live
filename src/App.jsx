@@ -5,7 +5,7 @@ import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 const ScrollManager = () => {
-  const { pathname, hash, search } = useLocation(); // 👈 include search
+  const { pathname, hash, search } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -15,9 +15,16 @@ const ScrollManager = () => {
           document.getElementById(targetId) || document.querySelector(hash);
         if (!el) return;
 
-        el.scrollIntoView({
+        const header = document.getElementById("header");
+        const headerHeight = header ? header.offsetHeight : 0;
+
+        const rect = el.getBoundingClientRect();
+        const targetY =
+          rect.top + window.scrollY - headerHeight + 100; 
+
+        window.scrollTo({
+          top: targetY,
           behavior: "smooth",
-          block: "start",
         });
       };
 
@@ -33,7 +40,7 @@ const ScrollManager = () => {
     } else {
       window.scrollTo({ top: 0, left: 0 });
     }
-  }, [pathname, hash, search]); 
+  }, [pathname, hash, search]);
 
   return null;
 };
