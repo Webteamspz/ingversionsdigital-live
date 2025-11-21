@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
@@ -17,14 +18,26 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const [phoneInteracted, setPhoneInteracted] = useState(false); // NEW
+  const [phoneInteracted, setPhoneInteracted] = useState(false);
+
+  const location = useLocation();
 
   const setField = (name, value) => {
     setFormData((p) => ({ ...p, [name]: value }));
   };
-  const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
+
+  const touch = (name) =>
+    setTouched((p) => ({
+      ...p,
+      [name]: true,
+    }));
+
   const setError = (name, msg) =>
-    setErrors((p) => (msg ? { ...p, [name]: msg } : (delete p[name], { ...p })));
+    setErrors((p) =>
+      msg
+        ? { ...p, [name]: msg }
+        : (delete p[name], { ...p })
+    );
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const lettersRegex = /^[\p{L}\s'-]+$/u;
@@ -52,15 +65,16 @@ const Contact = () => {
 
     if (name === "message") {
       if (!value.trim()) msg = "Message is required";
-      else if (value.length < 5) msg = "Message must be at least 5 characters";
+      else if (value.length < 5)
+        msg = "Message must be at least 5 characters";
     }
 
-    // Phone: required, but only validate after user interaction
     if (name === "phone") {
       const digits = (value || "").replace(/\D/g, "");
       if (!digits) msg = "Phone number is required";
       else if (!onlyDigits(digits)) msg = "Only numbers are accepted";
-      else if (digits.length < 6) msg = "Please enter a valid phone number";
+      else if (digits.length < 6)
+        msg = "Please enter a valid phone number";
     }
 
     setError(name, msg);
@@ -78,7 +92,6 @@ const Contact = () => {
     touch("message");
     ok = validateField("message", formData.message || "") && ok;
 
-    // Ensure phone is validated at submit time even if not interacted
     setPhoneInteracted(true);
     touch("phone");
     ok = validateField("phone", formData.phone || "") && ok;
@@ -98,41 +111,72 @@ const Contact = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateAll()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateAll()) return;
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      // form data successfully sent to Formspree
-      window.location.href = REDIRECT_URL; // redirect instead of reload
-    } else {
-      const err = await res.json().catch(() => ({}));
-      alert(err?.error || "Something went wrong. Please try again.");
+      if (res.ok) {
+        window.location.href = REDIRECT_URL;
+      } else {
+        const err = await res.json().catch(() => ({}));
+        alert(err?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Found some error please try again.");
     }
-  } catch (err) {
-    alert("Found some error please try again.");
-  }
-};
+  };
 
+  // 🔹 Always sync message with latest ?plan=... param
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+
+    if (!plan) return;
+
+    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+
+    setFormData((prev) => ({
+      ...prev,
+      message: defaultMessage,
+    }));
+
+    setTouched((prev) => ({ ...prev, message: true }));
+    setError("message", "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search]);
+
+  const ratingMetrics = [
+    "Overall satisfaction",
+    "Value for money",
+    "Punctuality of work",
+    "Communication Clarity",
+  ];
 
   return (
     <section className={styles.contactSection} id="contact">
       <div className="container">
-        <h3 className={`section-title ${styles.contactHeading}`}>{heading}</h3>
+        <h3 className={`section-title ${styles.contactHeading}`}>
+          {heading}
+        </h3>
         <div className={styles.contactGrid}>
+          {/* LEFT: FORM */}
           <div className={`${styles.contactCard} ${styles.formCard}`}>
             <h4 className={styles.contactPanelTitle}>{form.title}</h4>
-            <form data-gtm-form="contact" onSubmit={handleSubmit} noValidate>
+            <form
+              data-gtm-form="contact"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <div className={`${styles.grid} ${styles.two}`}>
                 {form.fields
                   .filter((f) => f.col === "half")
@@ -148,7 +192,9 @@ const handleSubmit = async (e) => {
                           placeholder={f.placeholder}
                           onInput={handleInput(f)}
                           onBlur={handleBlur(f)}
-                          inputMode={/name/i.test(f.name) ? "text" : undefined}
+                          inputMode={
+                            /name/i.test(f.name) ? "text" : undefined
+                          }
                           aria-invalid={!!errors[f.name]}
                         />
                         {errors[f.name] && (
@@ -164,7 +210,8 @@ const handleSubmit = async (e) => {
               {form.fields
                 .filter(
                   (f) =>
-                    f.col === "full" && !["phone", "message"].includes(f.name)
+                    f.col === "full" &&
+                    !["phone", "message"].includes(f.name)
                 )
                 .map((f) =>
                   f.type === "textarea" ? null : (
@@ -178,7 +225,9 @@ const handleSubmit = async (e) => {
                         placeholder={f.placeholder}
                         onInput={handleInput(f)}
                         onBlur={handleBlur(f)}
-                        inputMode={/name/i.test(f.name) ? "text" : undefined}
+                        inputMode={
+                          /name/i.test(f.name) ? "text" : undefined
+                        }
                         aria-invalid={!!errors[f.name]}
                       />
                       {errors[f.name] && (
@@ -194,14 +243,14 @@ const handleSubmit = async (e) => {
                 <div className={styles.mt}>
                   <PhoneField
                     defaultCountry="in"
-                    classSelector={`${errors.phone ? styles.invalid : ""}`}
-                    // When user focuses phone, start validating it
+                    classSelector={`${
+                      errors.phone ? styles.invalid : ""
+                    }`}
                     onFocus={() => {
                       setPhoneInteracted(true);
                       touch("phone");
                       validateField("phone", formData.phone || "");
                     }}
-                    // Only validate on change after user has interacted
                     onChange={(val) => {
                       setField("phone", val);
                       if (phoneInteracted) {
@@ -211,7 +260,9 @@ const handleSubmit = async (e) => {
                     }}
                   />
                   {errors.phone && (
-                    <div className={styles.errorMessage}>{errors.phone}</div>
+                    <div className={styles.errorMessage}>
+                      {errors.phone}
+                    </div>
                   )}
                 </div>
               )}
@@ -226,7 +277,7 @@ const handleSubmit = async (e) => {
                       }`}
                       name={f.name}
                       placeholder={f.placeholder}
-                      // If user jumps to Message, force phone validation now
+                      value={formData.message || ""}
                       onFocus={() => {
                         setPhoneInteracted(true);
                         touch("phone");
@@ -240,7 +291,10 @@ const handleSubmit = async (e) => {
                       }}
                       onBlur={(e) => {
                         touch("message");
-                        validateField("message", e.currentTarget.value);
+                        validateField(
+                          "message",
+                          e.currentTarget.value
+                        );
                       }}
                       aria-invalid={!!errors.message}
                     />
@@ -252,45 +306,121 @@ const handleSubmit = async (e) => {
                   </div>
                 ))}
 
-              <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
+              <button
+                className={`btn ${styles.cBtn} ${styles.mt}`}
+                type="submit"
+              >
                 {form.submit.label}
               </button>
             </form>
           </div>
 
+          {/* RIGHT COLUMN – combined Success Snapshot + Contact info */}
           <div className={styles.rightCol}>
-            {infoCards.map((card, idx) => (
-              <div key={idx} className={`${styles.contactCard}`}>
-                <h4 className={styles.contactPanelTitle}>{card.title}</h4>
-                {card.items && (
-                  <ul className={styles.cList}>
-                    {card.items.map((it, i) => (
-                      <li key={i}>
-                        <span className={styles.cIco}>{parse(it.icon)}</span>
-                        {String(it.text)
-                          .split("\n")
-                          .map((line, li) => (
-                            <span key={li}>
-                              {line}
-                              {li < String(it.text).split("\n").length - 1 && (
-                                <br />
-                              )}
-                            </span>
-                          ))}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {card.description && (
-                  <p className={styles.contactNote}>{card.description}</p>
-                )}
-                {card.cta && (
-                  <a className={`btn ${styles.cBtn}`} href={card.cta.href}>
-                    {card.cta.label}
-                  </a>
-                )}
+            <div
+              className={`${styles.contactCard} ${styles.highlightCard}`}
+            >
+              <h4 className={styles.contactPanelTitle}>
+                <span
+                  className={styles.snapshotEmoji}
+                  aria-hidden="true"
+                >
+                  🚀
+                </span>{" "}
+                Success Snapshot
+              </h4>
+
+              <p className={styles.snapshotText}>
+                Increased a D2C brand&apos;s conversions by{" "}
+                <span className={styles.snapshotEmphasis}>27%</span> in
+                60 days.
+              </p>
+
+              <div className={styles.snapshotBlock}>
+                <p className={styles.snapshotRatingsLineTop}>
+                  <span
+                    className={styles.snapshotStars}
+                    aria-hidden="true"
+                  >
+                    ★★★★★
+                  </span>{" "}
+                  <span className={styles.snapshotTitleInline}>
+                    Client Ratings
+                  </span>
+                </p>
+                <p className={styles.snapshotRatingsDetail}>
+                  Overall: <strong>5/5</strong> | Communication{" "}
+                  <strong>5/5</strong> | On-time{" "}
+                  <strong>5/5</strong> | Value{" "}
+                  <strong>5/5</strong>
+                </p>
               </div>
-            ))}
+
+              <p className={styles.snapshotTrust}>
+                <span aria-hidden="true">👥</span> Trusted by{" "}
+                <strong>6+ agencies</strong> and{" "}
+                <strong>10+ brands in Ecommerce</strong>
+              </p>
+
+              <p className={styles.snapshotSubheading}>
+                <span aria-hidden="true">🔗</span> What You Get on the
+                Call
+              </p>
+
+              <ul className={styles.snapshotList}>
+                <li>30-minute free audit</li>
+                <li>CRO roadmap tailored to your goals</li>
+                <li>Zero obligations</li>
+              </ul>
+
+              <div className={styles.contactDivider} />
+
+              {infoCards[0] && (
+                <div className={styles.contactInfoBlock}>
+                  <h4 className={styles.contactPanelTitle}>
+                    {infoCards[0].title}
+                  </h4>
+
+                  {infoCards[0].items && (
+                    <ul className={styles.cList}>
+                      {infoCards[0].items.map((item, i) => (
+                        <li key={i}>
+                          <span className={styles.cIco}>
+                            {parse(item.icon)}
+                          </span>
+                          {String(item.text)
+                            .split("\n")
+                            .map((line, li) => (
+                              <span key={li}>
+                                {line}
+                                {li <
+                                  String(item.text).split("\n")
+                                    .length -
+                                    1 && <br />}
+                              </span>
+                            ))}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {infoCards[0].description && (
+                    <p className={styles.contactNote}>
+                      {infoCards[0].description}
+                    </p>
+                  )}
+
+                  {infoCards[0].cta && (
+                    <a
+                      className={`btn ${styles.cBtn}`}
+                      href={infoCards[0].cta.href}
+                    >
+                      {infoCards[0].cta.label}
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
