@@ -26,7 +26,7 @@ export default {
       "/assets/hero/hero-client-3.png",
     ],
     proof: "Trusted by <strong>6+ agencies</strong> and <strong> 10+ brands in Ecommerce</strong>",
-    visual: "/assets/hero/hero-main.png",
+    visual: "/assets/hero/hero-main-1.png",
   },
   logos: [
     {
