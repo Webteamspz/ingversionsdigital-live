@@ -10,20 +10,20 @@ export const teamPage = {
 
 export const teamMembers = [
   {
-    id: "rahul-patil",
-    name: "Rahul Patil",
+    id: "harsh-jariwala",
+    name: "Harsh Jariwala",
     title: "Founder and CEO",
-    avatar: "/assets/team/rahul.png",
+    avatar: "/assets/team/harsh.png",
     location: "",
     badges: [],
     skills: [],
     socials: {},
   },
-  {
-    id: "harsh-jariwala",
-    name: "Harsh Jariwala",
-    title: "Founder and CEO",
-    avatar: "/assets/team/harsh.png",
+    {
+    id: "rahul-patil",
+    name: "Rahul Patil",
+    title: "CRO Dev",
+    avatar: "/assets/team/rahul.png",
     location: "",
     badges: [],
     skills: [],
