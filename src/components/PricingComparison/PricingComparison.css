@@ -1,0 +1,109 @@
+.pricingComparison {
+  padding: 50px 0 10px;
+}
+
+.sectionTitle {
+  color: var(--text-100);
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+.sectionTitleCenter {
+  text-align: center;
+}
+
+.sectionSubtitle {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  text-align: center;
+  color: var(--text-300);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.pricingTableWrap {
+  background: #141414;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.pricingTable {
+  width: 100%;
+}
+
+.pricingTableSection {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pricingTableRow {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.2fr) repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pricingTableHead {
+  border-top: none;
+  background: rgba(10, 132, 255, 0.06);
+}
+
+.pricingCell {
+  padding: 14px 16px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+}
+
+.pricingFeatureCol {
+  font-weight: 600;
+  color: var(--text-100);
+}
+
+.pricingPlanCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingMark {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pricingMark.isOn {
+  color: #b8ffda;
+  background: rgba(0, 255, 132, 0.08);
+}
+
+.pricingMark.isOff {
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 1023.98px) {
+  .pricingTableWrap {
+    overflow-x: auto;
+  }
+
+  .pricingTable {
+    min-width: 820px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

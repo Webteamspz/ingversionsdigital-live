@@ -3,9 +3,10 @@ export default {
     links: [
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
+      { label: "About Us", href: "/about-us" },
     ],
     cta: {
       label: "Book A Call",
@@ -502,7 +503,7 @@ export default {
       },
       {
         name: "Pricing",
-        href: "/#pricing",
+        href: "/pricing",
       },
       {
         name: "Contact Us",

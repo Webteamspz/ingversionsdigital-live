@@ -1,0 +1,172 @@
+.pricingPlans {
+  padding: 30px 0 10px;
+}
+
+.pricingPlansGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pricingPlanCard {
+  background: #141414;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+/* .pricingPlanFeatured {
+  border: 1px solid rgba(10, 132, 255, 0.55);
+  box-shadow: 0 0 22px rgba(10, 132, 255, 0.18);
+  transform: translateY(-4px);
+} */
+ .pricingPlanCard {
+  background: #141414;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+
+.pricingPlanCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(10, 132, 255, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(10, 132, 255, 0.16);
+}
+
+
+.pricingPlanBadge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(10, 132, 255, 0.15);
+  color: #8ecbff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pricingPlanName {
+  margin: 10px 0 6px;
+  color: var(--text-100);
+  font-size: 18px;
+}
+
+.pricingPlanPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pricingPlanPrice {
+  color: var(--text-100);
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.pricingPlanPeriod {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+}
+
+.pricingPlanDesc {
+  margin: 0 0 14px;
+  color: var(--text-300);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pricingPlanHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.pricingPlanHighlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+}
+
+.checkDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0a84ff;
+  box-shadow: 0 0 10px rgba(10, 132, 255, 0.45);
+  flex: 0 0 auto;
+}
+
+.pricingPlanBtn {
+  width: 100%;
+  max-width: none;
+}
+
+.pricingPlanDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 18px 0;
+}
+
+.pricingPlanFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.pricingPlanFeature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricingFeatureIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pricingFeatureIcon.isOn {
+  color: #b8ffda;
+  background: rgba(0, 255, 132, 0.08);
+}
+
+.pricingFeatureIcon.isOff {
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pricingFeatureText {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+}
+
+@media (max-width: 1023.98px) {
+  .pricingPlansGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pricingPlansGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricingPlanFeatured {
+    transform: none;
+  }
+}

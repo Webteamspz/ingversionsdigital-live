@@ -1,0 +1,9 @@
+/* .aboutPage {
+padding: 136px 80px;
+} */
+@media (max-width:767.98px) {
+  .aboutPage {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important
+  }
+}
