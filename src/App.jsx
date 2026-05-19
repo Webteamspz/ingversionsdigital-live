@@ -5,7 +5,6 @@ import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import AboutUs from "./pages/AboutUs/AboutUs.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
-
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
 

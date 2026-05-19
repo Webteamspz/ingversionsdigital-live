@@ -7,6 +7,7 @@ export default {
       { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
+      { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
       label: "Book A Call",
@@ -488,6 +489,51 @@ export default {
         photo: "/assets/team/ayushi.png",
       },
     ],
+  },
+  blog: {
+    heading: "Latest Articles",
+    list: [
+      {
+        id: 1,
+        title: "5 Shopify Theme Customizations That Boost Sales",
+        category: "Shopify Development",
+        desc: "From product page layouts to checkout optimizations, these theme changes can...",
+        date: "April 8, 2026",
+        readTime: "6 min read",
+        image: "/assets/blog-page/inner_blog_img01.jpg", 
+        url: "https://blog.ingversionsdigital.com/shopify-theme-customizations-boost-sales"
+      },
+      {
+        id: 2,
+        title: "A/B Testing Mistakes That Cost You Money",
+        category: "A/B Testing",
+        desc: "Common pitfalls in conversion testing and how to avoid them. Learn from real client...",
+        date: "April 5, 2026",
+        readTime: "5 min read",
+        image: "/assets/blog-page/inner_blog_img02.jpg",
+        url: "https://blog.ingversionsdigital.com/ab-testing-mistakes-cost-money"
+      },
+      {
+        id: 3,
+        title: "CRO Fundamentals: Where to Start From",
+        category: "CRO",
+        desc: "New to conversion rate optimization? This guide covers the essential frameworks and...",
+        date: "April 3, 2026",
+        readTime: "7 min read",
+        image: "/assets/blog-page/inner_blog_img03.jpg",
+        url: "https://blog.ingversionsdigital.com/cro-fundamentals-where-to-start"
+      },
+      {
+        id: 4,
+        title: "CRO Fundamentals: Where to Start From",
+        category: "CRO",
+        desc: "New to conversion rate optimization? This guide covers the essential frameworks and...",
+        date: "April 9, 2026",
+        readTime: "7 min read",
+        image: "/assets/blog-page/inner_blog_img01.jpg",
+        url: "https://blog.ingversionsdigital.com/cro-fundamentals-where-to-start"
+      }
+    ]
   },
   footer: {
     logo: "/assets/logos/main-logo.png",
