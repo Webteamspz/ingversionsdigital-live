@@ -1,15 +1,15 @@
 .pricingComparison {
   background: #030303;
   color: #fff;
-  padding: 50px 0 60px;
+  padding: 50px 0 60px
 }
 .sectionTitle {
   color: #fff;
   margin: 0 0 10px;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 36px;
-  text-align: center;
+  text-align: center
 }
 .sectionSubtitle {
   max-width: 600px;
@@ -17,30 +17,28 @@
   text-align: center;
   color: #ffffffcc;
   line-height: 1.5;
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
+  font-family: Barlow,sans-serif;
+  font-size: 16px
 }
 .tableWrap {
-  border-radius: 10px;
-  overflow: hidden;
-  background: transparent;
+  display: none
 }
 .row {
   display: grid;
-  height: 70px;
+  height: 70px
 }
 .headerRow {
-  background: transparent;
+  background: 0 0;
   margin-bottom: 20px;
-  min-height: 100px;
+  min-height: 100px
 }
 .sectionTitleRow {
   background: #141414;
-  height: 40px; /* Original pricing layout height */
+  height: 40px
 }
 .rowLine {
   border-bottom: 1px solid rgba(255,255,255,.06);
-  min-height: 50px; /* Matched with original pricing row height */
+  min-height: 50px
 }
 .cell {
   padding: 11px 12px;
@@ -50,60 +48,60 @@
   text-align: center;
   color: #fff;
   font-weight: 400;
-  font-size: 16px; /* Matched original */
+  font-size: 16px;
   line-height: 100%;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif
 }
 .cell:first-child {
   justify-content: flex-start;
   text-align: left;
-  padding: 6px 12px;
+  padding: 6px 12px
 }
 .stub {
   color: #0a84ff;
   font-weight: 700;
-  font-size: 18px; /* Matched original from 16px */
-  line-height: 100%;
+  font-size: 18px;
+  line-height: 100%
 }
 .spanner {
-  grid-column: 2/-1;
+  grid-column: 2/-1
 }
 .labelCell {
   color: #fff;
   font-weight: 400;
-  font-size: 16px; /* Matched original from 14px */
+  font-size: 16px;
   line-height: 100%;
-  text-align: left;
+  text-align: left
 }
 .planHead {
   flex-direction: column;
   justify-content: flex-end;
   gap: 6px;
   position: relative;
-  min-height: 70px;
+  min-height: 70px
 }
 .planName {
   font-weight: 400;
   font-size: 18px;
-  line-height: 26px; /* Matched original */
-  letter-spacing: 0;
+  line-height: 26px;
+  letter-spacing: 0
 }
 .premiumName {
   color: #0a84ff;
   font-weight: 700;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 26px
 }
 .planPrice {
   color: #fff;
   font-weight: 800;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 18px
 }
 .period {
   font-weight: 400;
   font-size: 14px;
-  color: #ffffffcc;
+  color: #ffffffcc
 }
 .badge {
   background: #0a84ff;
@@ -111,15 +109,15 @@
   border-radius: 2px;
   padding: 2px 8px;
   font-weight: 800;
-  font-size: 12px; /* Matched original */
+  font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
   position: absolute;
-  top: -10px;
+  top: -10px
 }
 .footerRow {
   height: auto;
-  padding-top: 30px;
+  padding-top: 30px
 }
 .btn {
   display: inline-flex;
@@ -127,183 +125,190 @@
   max-width: 150px;
   align-items: center;
   justify-content: center;
-  padding: 14px 22px; /* Matched original button padding */
+  padding: 14px 22px;
   border-radius: 10px;
   background: #0a84ff;
   color: #fff;
   text-decoration: none;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
   transition: .3s all ease-in-out;
-  border: 1px solid #0a84ff;
+  border: 1px solid #0a84ff
 }
 .btn:hover {
   background: rgba(255,255,255,.1);
-  color: #0a84ff;
+  color: #0a84ff
 }
 .textValue {
-  font-size: 16px; /* Updated to 16px for consistency */
+  font-size: 16px;
   color: rgba(255,255,255,.9);
-  font-weight: 400;
+  font-weight: 400
 }
 .valueIcon {
   width: 16px;
   height: 16px;
   display: block;
-  filter: none;
+  filter: none
 }
 .mobileCompare {
-  display: none;
+  display: grid;
+  grid-template-columns: minmax(200px,46%) 1fr;
+  gap: 0;
+  position: relative;
+  margin-top: 8px
 }
-
-/* ========================================= */
-/* MOBILE STYLES                             */
-/* ========================================= */
-@media (max-width: 1023.98px) {
-  .tableWrap {
-    display: none;
-  }
+.labelsCol {
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  overflow: hidden
+}
+.labelsHeadSpacer {
+  height: 78px;
+  border-bottom: 1px solid rgba(255,255,255,.12)
+}
+.mSectionTitle {
+  color: #0a84ff;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: #141414;
+  min-height: 48px;
+  display: flex;
+  align-items: center
+}
+.emptySecTitle {
+  color: transparent;
+  border-left: 1px solid rgba(255,255,255,.06)
+}
+.mRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  min-height: 48px;
+  border-top: 1px solid rgba(255,255,255,.06)
+}
+.mLabel {
+  color: #dcdcdc;
+  font-weight: 500;
+  font-size: 16px
+}
+.plansCol {
+  position: relative;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  overflow: hidden
+}
+.planSwiper {
+  padding-top: 0
+}
+.slide {
+  background: 0 0;
+  border: none
+}
+.mHead {
+  text-align: center;
+  padding: 16px 10px 14px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  min-height: 78px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px
+}
+.mHead .badge {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%)
+}
+.valRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-left: 1px solid rgba(255,255,255,.06)
+}
+.mValue {
+  font-weight: 600;
+  font-size: 16px
+}
+.navBtn {
+  position: absolute;
+  top: 27px;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: 0 0;
+  cursor: pointer
+}
+.prev {
+  left: 12px
+}
+.next {
+  right: 12px
+}
+.navIcon {
+  display: block;
+  width: 25px;
+  height: 25px
+}
+.navBtn:hover .navIcon {
+  filter: brightness(1.08)
+}
+.mobileCtaBar {
+  padding: 16px 12px 22px;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid rgba(255,255,255,.06)
+}
+.mobileCtaBar .btn {
+  width: 100%;
+  max-width: 320px;
+  text-align: center
+}
+@media (min-width:1024px) {
   .mobileCompare {
-    display: grid;
-    grid-template-columns: minmax(150px, 46%) 1fr;
-    gap: 0;
-    position: relative;
-    margin-top: 8px;
+    grid-template-columns: minmax(280px,40%) 1fr
   }
-  .labelsCol {
-    border-right: none;
-    border-radius: 10px 0 0 10px;
-    overflow: hidden;
-  }
-  .labelsHeadSpacer {
-    height: 78px; /* Matched original mobile spacer */
-    border-bottom: 1px solid rgba(255,255,255,.12);
-  }
-  .mSectionTitle {
-    color: #0a84ff;
-    padding: 10px 20px;
-    font-weight: 600; /* Matched original */
-    font-size: 14px;
-    border-top: 1px solid rgba(255,255,255,.06);
-    background: #141414;
-    min-height: 48px; /* Matched original */
-    display: flex;
-    align-items: center;
-  }
-  .emptySecTitle {
-    color: transparent;
-    border-left: 1px solid rgba(255,255,255,.06);
-  }
-  .mRow {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    min-height: 48px; /* Matched original */
-    border-top: 1px solid rgba(255,255,255,.06);
+  .emptySecTitle,
+  .mRow,
+  .mSectionTitle,
+  .valRow {
+    min-height: 60px
   }
   .mLabel {
-    color: #dcdcdc;
-    font-weight: 500;
-    font-size: 16px; /* Matched desktop cell size */
-  }
-  .plansCol {
-    position: relative;
-    border-left: none;
-    border-radius: 0 10px 10px 0;
-    overflow: hidden;
-  }
-  .planSwiper {
-    padding-top: 0;
-  }
-  .slide {
-    background: transparent;
-    border: none;
-  }
-  .mHead {
-    text-align: center;
-    padding: 16px 10px 14px;
-    position: relative;
-    border-bottom: 1px solid rgba(255,255,255,.12);
-    min-height: 78px; /* Matched original */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 8px;
-  }
-  .mHead .badge {
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-  }
-  .valRow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px; /* Matched original */
-    padding: 12px;
-    border-top: 1px solid rgba(255,255,255,.06);
-    border-left: 1px solid rgba(255,255,255,.06);
+    font-size: 16px
   }
   .mValue {
-    font-weight: 600;
-    font-size: 16px;
-  }
-  .navBtn {
-    position: absolute;
-    top: 27px; /* Matched original arrow alignment */
-    z-index: 5;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-  }
-  .prev {
-    left: 12px;
-  }
-  .next {
-    right: 12px;
-  }
-  .navIcon {
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
-  .navBtn:hover .navIcon {
-    filter: brightness(1.08);
-  }
-  .mobileCtaBar {
-    padding: 16px 12px 22px;
-    display: flex;
-    justify-content: center;
-    border-left: 1px solid rgba(255,255,255,.06);
-  }
-  .mobileCtaBar .btn {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .mobileCompare {
-    grid-template-columns: minmax(150px, 49%) 1fr;
-  }
-  .mRow,
-  .valRow,
-  .mSectionTitle,
-  .emptySecTitle {
-    min-height: 60px; /* Original mobile spacing */
-  }
-  .prev {
-    left: 0;
-  }
-  .next {
-    right: 0;
+    font-size: 16px
   }
   .sectionTitle {
-    font-size: 28px;
+    font-size: 36px
+  }
+}
+@media (max-width:767.98px) {
+  .mobileCompare {
+    grid-template-columns: minmax(150px,49%) 1fr
+  }
+  .emptySecTitle,
+  .mRow,
+  .mSectionTitle,
+  .valRow {
+    min-height: 60px
+  }
+  .prev {
+    left: 0
+  }
+  .next {
+    right: 0
+  }
+  .sectionTitle {
+    font-size: 28px
   }
 }

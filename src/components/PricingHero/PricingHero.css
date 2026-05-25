@@ -83,19 +83,17 @@ font-family: Barlow, sans-serif;
   border: 1px solid #0a84ff
 }
 .pricingPrimaryBtn:hover {
-  background: #2492ff;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(10,132,255,.25)
-}
-.cBtn {
-  border: 1.5px solid #0a84ff;
-  background: 0 0;
+  background: #ffffff1a;
   color: #0a84ff
 }
+.cBtn {
+  background: 0 0;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2)
+}
 .cBtn:hover {
-  background: rgba(10,132,255,.08);
-  box-shadow: 0 0 18px rgba(10,132,255,.2);
-  transform: translateY(-2px)
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.4)
 }
 @media (max-width:1024px) {
   .pricingHero {

@@ -21,7 +21,7 @@ export const pricingPlans = [
       "Monthly reporting"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
+    ctaHref: "/#hero"
   },
   {
     name: "Growth",
@@ -34,7 +34,7 @@ export const pricingPlans = [
       "Weekly reporting"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
+    ctaHref: "/#hero"
   },
   {
     name: "Premium",
@@ -49,7 +49,7 @@ export const pricingPlans = [
       "Priority support"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
+    ctaHref: "/#hero"
   },
   {
     name: "Elite",
@@ -62,7 +62,7 @@ export const pricingPlans = [
       "Super Priority support"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
+    ctaHref: "/#hero"
   }
 ];
 

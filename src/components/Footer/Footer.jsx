@@ -1,9 +1,14 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
 import parse from "html-react-parser";
 
 const Footer = () => {
-  const f = data.footer;
+  const f = data?.footer;
+
+  // Agar galti se footer ka data nahi hai, toh crash se bachne ke liye fallback
+  if (!f) return null;
 
   return (
     <footer className={styles.siteFooter} id="footer">
@@ -14,18 +19,20 @@ const Footer = () => {
           
           {/* Column 1: Logo, Bio & Socials */}
           <div className={styles.brandCol}>
-            <a href="/" className={styles.footerLeft}>
-              <img
-                src={f.logo}
-                alt={`${f.company} logo`}
-                className={styles.footerLogo}
-              />
-            </a>
+            <Link to="/" className={styles.footerLeft}>
+              {f?.logo && (
+                <img
+                  src={f.logo}
+                  alt={`${f.company} logo`}
+                  className={styles.footerLogo}
+                />
+              )}
+            </Link>
             <p className={styles.companyBio}>
               {f.bio || "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development."}
             </p>
             
-            {/* Moved Follow Us Section Here */}
+            {/* Follow Us Section */}
             <div className={`${styles.linkGroup} ${styles.brandSocials}`}>
               <div className={styles.footSocials}>
                 {f.socials.map((s, i) => (
@@ -47,13 +54,39 @@ const Footer = () => {
           {/* Columns 2 & 3: Links Grid */}
           <div className={styles.linksWrapper}>
             
-            {/* Column 2: Quick Links */}
-            <div className={styles.linkGroup}>
-              {f.links.map((l, i) => (
-                <a key={i} href={l.href}>
-                  {l.name}
-                </a>
-              ))}
+            {/* Column 2: Quick Links (FIXED: Merged class and style) */}
+            <div 
+              className={styles.linkGroup}
+              style={{ 
+                display: "grid", 
+                gridTemplateRows: "repeat(6, auto)", // Max 6 items vertical
+                gridAutoFlow: "column",              // Automatically shift to next column after 6
+                columnGap: "30px", 
+                rowGap: "12px"     
+              }}
+            >
+              {f.links.map((l, i) => {
+                const isExternal =
+                  l.href.startsWith("http") ||
+                  l.href.startsWith("mailto:") ||
+                  l.href.startsWith("tel:");
+                  
+                const displayText = l.name || l.label || "Link";
+
+                if (isExternal) {
+                  return (
+                    <a key={i} href={l.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                      {displayText}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link key={i} to={l.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    {displayText}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Column 3: Contact Info */}

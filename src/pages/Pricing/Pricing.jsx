@@ -2,7 +2,7 @@ import PricingHero from "../../components/PricingHero/PricingHero";
 import PricingPlans from "../../components/PricingPlans/PricingPlans";
 import PricingComparison from "../../components/PricingComparison/PricingComparison";
 import PricingFaq from "../../components/PricingFaq/PricingFaq";
-import PricingCta from "../../components/PricingCta/PricingCta";
+// import PricingCta from "../../components/PricingCta/PricingCta";
 
 import Layout from "../../Layouts/Layouts";
 
@@ -14,7 +14,7 @@ const Pricing = () => {
         <PricingPlans />
         <PricingComparison />
         <PricingFaq />
-        <PricingCta />
+        {/* <PricingCta /> */}
       </main>
     </Layout>
   );
