@@ -1,0 +1,57 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches:
+      - production
+      - stage
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Deploy production Docker project
+        if: github.ref_name == 'production'
+        uses: hostinger/deploy-on-vps@v2
+        with:
+          api-key: ${{ secrets.HOSTINGER_API_KEY }}
+          virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
+          project-name: ingversionsdigital-live
+          docker-compose-path: docker-compose.production.yml
+          personal-token: ${{ secrets.HOSTINGER_PERSONAL_ACCESS_TOKEN }}
+          environment-variables: |
+            COMPOSE_PROJECT_NAME=ingversionsdigital-live
+            CONTAINER_NAME=ingversionsdigital-live-production
+            DOCKER_NETWORK_NAME=ingversionsdigital-live-network
+            TRAEFIK_ROUTER_NAME=ingversionsdigital-live
+            TRAEFIK_SERVICE_NAME=ingversionsdigital-live
+            WEBSITE_PUBLIC_PORT=8090
+            WEBSITE_DOMAIN=ingversionsdigital.com
+            WWW_DOMAIN=www.ingversionsdigital.com
+
+      - name: Deploy staging Docker project
+        if: github.ref_name == 'stage'
+        uses: hostinger/deploy-on-vps@v2
+        with:
+          api-key: ${{ secrets.HOSTINGER_API_KEY }}
+          virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
+          project-name: ingversionsdigital-live-stage
+          docker-compose-path: docker-compose.stage.yml
+          personal-token: ${{ secrets.HOSTINGER_PERSONAL_ACCESS_TOKEN }}
+          environment-variables: |
+            COMPOSE_PROJECT_NAME=ingversionsdigital-live-stage
+            CONTAINER_NAME=ingversionsdigital-live-stage
+            DOCKER_NETWORK_NAME=ingversionsdigital-live-stage-network
+            TRAEFIK_ROUTER_NAME=ingversionsdigital-live-stage
+            TRAEFIK_SERVICE_NAME=ingversionsdigital-live-stage
+            WEBSITE_PUBLIC_PORT=8091
+            WEBSITE_DOMAIN=staging.ingversionsdigital.com
