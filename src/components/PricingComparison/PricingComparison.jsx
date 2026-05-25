@@ -1,142 +1,182 @@
-import React, { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "./PricingComparison.css";
-import { comparisonData } from "../../data/pricingdata";
+
+import data from "../../data/siteData";
 
 import checkIcon from "/assets/pricing/tickmark.svg";
 import crossIcon from "/assets/pricing/cross.svg";
-// Ensure these paths match your project
-import prevSvg from "/assets/pricing/left.svg"; 
-import nextSvg from "/assets/pricing/right.svg"; 
+import prevSvg from "/assets/pricing/left.svg";
+import nextSvg from "/assets/pricing/right.svg";
 
 const PricingComparison = () => {
+  const { pricing } = data;
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
+  // PricingPlans se event sunna
+  useEffect(() => {
+    const handler = (e) => {
+      const index = e.detail?.index ?? 0;
+      if (swiperRef.current) {
+        swiperRef.current.slideTo(index, 400);
+      }
+    };
+    window.addEventListener("gotoComparisonPlan", handler);
+    return () => window.removeEventListener("gotoComparisonPlan", handler);
+  }, []);
+
   const renderValue = (v) => {
-    if (v === true || v === "true" || v === "check") {
+    const t = typeof v === "object" && v?.icon ? v.icon : v;
+    if (t === "check") {
       return <img className="valueIcon" src={checkIcon} alt="Included" />;
     }
-    if (v === false || v === "false" || v === "cross") {
+    if (t === "cross") {
       return <img className="valueIcon" src={crossIcon} alt="Not included" />;
     }
-    return <span className="textValue">{v}</span>;
+    return <span className="textValue">{t}</span>;
   };
 
-  const colCount = comparisonData.columns.length;
+  const isPaidPlan = (p) => typeof p?.price === "number" && p.price > 0;
+  const shouldShowCTA = (p) => isPaidPlan(p) || p?.name === "Elite";
+  const footerCtaLabel = (p) => p?.ctaLabel || "Get Started";
+  const planContactHref = (p) => `/?plan=${encodeURIComponent(p.name)}#hero`;
+
+  const sections = (pricing?.sections || []).filter(
+    (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0
+  );
+
+  const colCount = pricing.plans.length;
 
   return (
     <section className="pricingComparison" id="pricingComparison">
       <div className="container">
-        <h2 className="sectionTitle">{comparisonData.title}</h2>
-        <p className="sectionSubtitle">{comparisonData.subtitle}</p>
+        <h2 className="sectionTitle">{pricing.heading}</h2>
+        {pricing.sub && <p className="sectionSubtitle">{pricing.sub}</p>}
 
         {/* ======= DESKTOP TABLE ======= */}
         <div className="tableWrap">
-          
+
           {/* Header Row */}
-          {/* <div 
-            className="row headerRow" 
+          <div
+            className="row headerRow"
             style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
           >
-            <div className="cell stub"></div>
-            {comparisonData.columns.map((c, idx) => (
-              <div key={idx} className="cell planHead">
-                {c.badge && <span className="badge">{c.badge}</span>}
-                <div className={`planName ${c.isPremium ? 'premiumName' : ''}`}>{c.name}</div>
-                {c.price && (
+            <div className="cell stub" />
+            {pricing.plans.map((p, i) => (
+              <div key={i} className="cell planHead">
+                {p.badge && <span className="badge">{p.badge}</span>}
+                <div className={`planName ${p.name === "Premium" ? "premiumName" : ""}`}>
+                  {p.name}
+                </div>
+                {p.contact ? (
+                  p.name === "Elite" ? (
+                    <div className="planSpacer">&nbsp;</div>
+                  ) : (
+                    <a className="ctaLink" href={p.contact.href}>
+                      {p.contact.label}
+                    </a>
+                  )
+                ) : (
                   <div className="planPrice">
-                    {c.price}
-                    {c.price !== "Custom" && <span className="period">/month</span>}
+                    ${p.price}
+                    <span className="period">/month</span>
                   </div>
                 )}
               </div>
             ))}
-          </div> */}
+          </div>
 
           {/* Table Body */}
-          <div className="sectionBlock">
-            {comparisonData.rows.map((row, idx) => {
-              
-              if (row.section) {
-                return (
-                  <div 
-                    key={`${row.section}-${idx}`} 
-                    className="row sectionTitleRow"
-                    style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
-                  >
-                    <div className="cell stub">{row.section}</div>
-                    <div className="cell spanner" />
-                  </div>
-                );
-              }
-
-              return (
-                <div 
-                  key={row.label} 
+          {sections.map((sec, sIdx) => (
+            <div key={sIdx} className="sectionBlock">
+              {sec.title && (
+                <div
+                  className="row sectionTitleRow"
+                  style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
+                >
+                  <div className="cell stub">{sec.title}</div>
+                  <div className="cell spanner" />
+                </div>
+              )}
+              {sec.rows.map((r, rIdx) => (
+                <div
+                  key={rIdx}
                   className="row rowLine"
                   style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
                 >
-                  <div className="cell labelCell">{row.label}</div>
-                  {row.values.map((v, i) => (
+                  <div className="cell labelCell">{r.label}</div>
+                  {r.values.map((v, i) => (
                     <div key={i} className="cell">
                       {renderValue(v)}
                     </div>
                   ))}
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          ))}
 
-          {/* Footer Row */}
-          {/* <div 
+          {/* Footer CTAs */}
+          <div
             className="row footerRow"
             style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
           >
-            <div className="cell stub"></div>
-            {comparisonData.columns.map((c, idx) => (
-              <div key={`btn-${idx}`} className="cell">
-                <a href={c.link || "#"} className="btn">Get Started</a>
+            <div className="cell stub" />
+            {pricing.plans.map((p, i) => (
+              <div key={`fcta-${i}`} className="cell">
+                {shouldShowCTA(p) ? (
+                  <Link className="btn" to={planContactHref(p)}>
+                    {footerCtaLabel(p)}
+                  </Link>
+                ) : null}
               </div>
             ))}
-          </div> */}
-
+          </div>
         </div>
 
         {/* ======= MOBILE SWIPER ======= */}
         <div className="mobileCompare">
-          
-          {/* Left Column (Sticky Labels) */}
+
+          {/* Labels Column */}
           <div className="labelsCol">
             <div className="labelsHeadSpacer" />
-            {comparisonData.rows.map((row, idx) => {
-              if (row.section) {
-                return (
-                  <div key={`m-sec-${idx}`} className="mSectionTitle">
-                    {row.section}
+            {sections.map((sec, sIdx) => (
+              <div key={`m-sec-${sIdx}`}>
+                {sec.title && (
+                  <div className="mSectionTitle">{sec.title}</div>
+                )}
+                {sec.rows.map((r, rIdx) => (
+                  <div key={`m-l-${sIdx}-${rIdx}`} className="mRow">
+                    <span className="mLabel">{r.label}</span>
                   </div>
-                );
-              }
-              return (
-                <div key={`m-lbl-${idx}`} className="mRow">
-                  <span className="mLabel">{row.label}</span>
-                </div>
-              );
-            })}
+                ))}
+              </div>
+            ))}
           </div>
 
-          {/* Right Column (Swiper for Plans) */}
+          {/* Plans Swiper Column */}
           <div className="plansCol">
-            {/* Arrows removed/commented out as requested */}
-            {/* <button className="navBtn prev" ref={prevRef} aria-label="Previous plan">
-              <img src={prevSvg} alt="Prev" className="navIcon" />
+            <button
+              className="navBtn prev"
+              ref={prevRef}
+              aria-label="Previous plan"
+              type="button"
+            >
+              <img src={prevSvg} alt="" className="navIcon" />
             </button>
-            <button className="navBtn next" ref={nextRef} aria-label="Next plan">
-              <img src={nextSvg} alt="Next" className="navIcon" />
-            </button> */}
+            <button
+              className="navBtn next"
+              ref={nextRef}
+              aria-label="Next plan"
+              type="button"
+            >
+              <img src={nextSvg} alt="" className="navIcon" />
+            </button>
 
             <Swiper
               modules={[Navigation, A11y]}
@@ -154,37 +194,55 @@ const PricingComparison = () => {
               }}
               className="planSwiper"
             >
-              {comparisonData.columns.map((c, pIdx) => (
+              {pricing.plans.map((p, pIdx) => (
                 <SwiperSlide key={`m-plan-${pIdx}`} className="slide">
-                  
-                  {/* Slide Header - Content commented out, but div kept so vertical alignment doesn't break */}
+
+                  {/* Slide Header */}
                   <div className="mHead">
-                    {/* {c.badge && <span className="badge">{c.badge}</span>}
-                    <div className={`planName ${c.isPremium ? 'premiumName' : ''}`}>{c.name}</div>
-                    {c.price && (
+                    {p.badge && <span className="badge">{p.badge}</span>}
+                    <div className={`planName ${p.name === "Premium" ? "premiumName" : ""}`}>
+                      {p.name}
+                    </div>
+                    {p.contact ? (
+                      p.name === "Elite" ? (
+                        <div className="planSpacer">&nbsp;</div>
+                      ) : (
+                        <a className="ctaLink" href={p.contact.href}>
+                          {p.contact.label}
+                        </a>
+                      )
+                    ) : (
                       <div className="planPrice">
-                        {c.price}
-                        {c.price !== "Custom" && <span className="period">/month</span>}
+                        ${p.price}
+                        <span className="period">/month</span>
                       </div>
-                    )} */}
+                    )}
                   </div>
 
                   {/* Slide Values */}
-                  {comparisonData.rows.map((row, rIdx) => {
-                    if (row.section) {
-                      return <div key={`m-secval-${pIdx}-${rIdx}`} className="mSectionTitle emptySecTitle">&nbsp;</div>;
-                    }
-                    return (
-                      <div key={`m-val-${pIdx}-${rIdx}`} className="valRow">
-                        <span className="mValue">{renderValue(row.values[pIdx])}</span>
-                      </div>
-                    );
-                  })}
+                  {sections.map((sec, sIdx) => (
+                    <div key={`m-secvals-${pIdx}-${sIdx}`}>
+                      {sec.title && (
+                        <div className="mSectionTitle emptySecTitle">&nbsp;</div>
+                      )}
+                      {sec.rows.map((r, rIdx) => (
+                        <div key={`m-val-${pIdx}-${sIdx}-${rIdx}`} className="valRow">
+                          <span className="mValue">
+                            {renderValue(r.values[pIdx])}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
 
                   {/* Slide Footer CTA */}
-                  {/* <div className="mobileCtaBar">
-                    <a href={c.link || "#"} className="btn">Get Started</a>
-                  </div> */}
+                  <div className="mobileCtaBar">
+                    {shouldShowCTA(p) ? (
+                      <Link className="btn" to={planContactHref(p)}>
+                        {footerCtaLabel(p)}
+                      </Link>
+                    ) : null}
+                  </div>
 
                 </SwiperSlide>
               ))}
@@ -192,7 +250,6 @@ const PricingComparison = () => {
           </div>
 
         </div>
-
       </div>
     </section>
   );

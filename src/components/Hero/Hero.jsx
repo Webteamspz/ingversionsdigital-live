@@ -107,34 +107,49 @@ const Hero = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateAll()) return;
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) window.location.href = REDIRECT_URL;
-      else {
-        const err = await res.json().catch(() => ({}));
-        alert(err?.error || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      alert("Found some error please try again.");
-    }
+// handleSubmit — selected_plan ensure karo
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateAll()) return;
+
+  const params = new URLSearchParams(location.search);
+  const plan = params.get("plan");
+
+  const payload = {
+    ...formData,
+    selected_plan: plan || "No plan selected — Direct form fill",
   };
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const plan = params.get("plan");
-    if (!plan) return;
-    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
-    setFormData((prev) => ({ ...prev, message: defaultMessage }));
-    setTouched((prev) => ({ ...prev, message: true }));
-    setError("message", "");
-  }, [location.search]);
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) window.location.href = REDIRECT_URL;
+    else {
+      const err = await res.json().catch(() => ({}));
+      alert(err?.error || "Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    alert("Found some error please try again.");
+  }
+};
+
+// Plan URL se read karo aur formData mein save karo
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const plan = params.get("plan");
+  if (!plan) return;
+  const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+  setFormData((prev) => ({
+    ...prev,
+    message: defaultMessage,
+    selected_plan: plan, // hidden field — Formspree ko jaayega
+  }));
+  setTouched((prev) => ({ ...prev, message: true }));
+  setError("message", "");
+}, [location.search]);
   // --- FORM STATE & LOGIC END ---
 
   useEffect(() => {

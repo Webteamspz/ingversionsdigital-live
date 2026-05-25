@@ -2,9 +2,10 @@ import PricingHero from "../../components/PricingHero/PricingHero";
 import PricingPlans from "../../components/PricingPlans/PricingPlans";
 import PricingComparison from "../../components/PricingComparison/PricingComparison";
 import PricingFaq from "../../components/PricingFaq/PricingFaq";
-import PricingCta from "../../components/PricingCta/PricingCta";
 
 import Layout from "../../Layouts/Layouts";
+import PricingCompare from "../../components/pricing/pricing";
+// import PricingCompare from "../../components/PricingComparison/PricingComparison";
 
 const Pricing = () => {
   return (
@@ -12,9 +13,9 @@ const Pricing = () => {
       <main className="pricingPage">
         <PricingHero />
         <PricingPlans />
-        <PricingComparison />
+            <PricingCompare />
         <PricingFaq />
-        <PricingCta />
+        {/* <PricingCta /> */}
       </main>
     </Layout>
   );
