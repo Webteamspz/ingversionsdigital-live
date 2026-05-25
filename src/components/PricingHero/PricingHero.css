@@ -1,0 +1,177 @@
+.pricingHero {
+  padding: 150px 40px 40px
+}
+.pricingHeroInner {
+  width: 100%;
+  padding: 56px 48px;
+  background: linear-gradient(135deg,#111 0,#161616 100%);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 28px;
+  overflow: hidden
+}
+.pricingTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color: var(--text-200);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase
+}
+.pricingHeroTitle {
+  margin: 20px 0 18px;
+font-family: Barlow, sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 56px;
+    text-transform: capitalize;
+  color: var(--text-100)
+}
+.pricingHeroSubtitle {
+  margin: 0;
+  max-width: 760px;
+    color: #fffc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.pricingHeroActions {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap
+}
+.cBtn,
+.pricingPrimaryBtn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+    max-width: 168px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: #0a84ff;
+    color: #fff;
+    font-weight: 800;
+    text-decoration: none;
+    -webkit-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+    font-family: Barlow, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #0a84ff;
+    cursor: pointer;
+}
+.pricingPrimaryBtn {
+  background: #0a84ff;
+  color: #fff;
+  border: 1px solid #0a84ff
+}
+.pricingPrimaryBtn:hover {
+  background: #2492ff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(10,132,255,.25)
+}
+.cBtn {
+  border: 1.5px solid #0a84ff;
+  background: 0 0;
+  color: #0a84ff
+}
+.cBtn:hover {
+  background: rgba(10,132,255,.08);
+  box-shadow: 0 0 18px rgba(10,132,255,.2);
+  transform: translateY(-2px)
+}
+@media (max-width:1024px) {
+  .pricingHero {
+    padding: 130px 24px 32px
+  }
+  .pricingHeroInner {
+    padding: 44px 36px
+  }
+  .pricingHeroTitle {
+    font-size: 46px;
+    line-height: 1.18
+  }
+  .pricingHeroSubtitle {
+    max-width: 100%;
+    font-size: 17px;
+    line-height: 1.7
+  }
+  .pricingHeroActions {
+    margin-top: 28px;
+    gap: 14px
+  }
+  .cBtn,
+  .pricingPrimaryBtn {
+    min-width: 210px;
+    height: 58px;
+    font-size: 15px;
+    padding: 0 24px
+  }
+}
+@media (max-width:767.98px) {
+  .pricingHero {
+    padding: 120px 16px 24px
+  }
+  .pricingHeroInner {
+    padding: 32px 22px;
+    border-radius: 22px
+  }
+  .pricingTag {
+    font-size: 11px;
+    padding: 7px 12px
+  }
+  .pricingHeroTitle {
+    margin: 18px 0 14px;
+    font-size: 34px;
+    line-height: 1.2
+  }
+  .pricingHeroSubtitle {
+    font-size: 15px;
+    line-height: 1.7
+  }
+  .pricingHeroActions {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px
+  }
+  .cBtn,
+  .pricingPrimaryBtn {
+    width: 100%;
+    min-width: 100%;
+    height: 56px;
+    font-size: 15px;
+    padding: 0 20px;
+    white-space: nowrap
+  }
+}
+@media (max-width:480px) {
+  .pricingHeroTitle {
+    font-size: 30px
+  }
+  .pricingHeroSubtitle {
+    font-size: 14px
+  }
+  .cBtn,
+  .pricingPrimaryBtn {
+    height: 54px;
+    font-size: 14px
+  }
+}

@@ -49,21 +49,13 @@
       content="https://ingversionsdigital.com/assets/seo/og-image.jpg"
     />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Ingversions Digital | Shopify Development & CRO Agency"
-    />
-    <meta
-      name="twitter:description"
-      content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts."
-    />
-    <meta
-      name="twitter:image"
-      content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg"
-    />
-    <meta name="twitter:site" content="@ingversions" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ingversions Digital | Shopify Development & CRO Agency">
+  <meta name="twitter:description" content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts.">
+  <meta name="twitter:image" content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg">
+  <meta name="twitter:site" content="@ingversions">
+  <meta name="keywords" content="Ingversions,ingversions,inversions,versions,cro, CRO,ingversionsdigital,digital inversion,ingversion, Inversions, Ingversion, Ingversions Digital" />
 
     <!-- Org Schema -->
     <script type="application/ld+json">
@@ -81,47 +73,61 @@
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-8103684321",
+          "telephone": "+91-8866167750",
           "contactType": "customer service",
-          "email": "hello@ingversionsdigital.com",
+          "email": "ingversionsdigital@gmail.com",
           "areaServed": "Worldwide",
           "availableLanguage": ["English", "Hindi"]
         }
       }
     </script>
 
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
 
-    <!-- GTM -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){
+        (c[a].q=c[a].q||[]).push(arguments)
+      };
+      t=l.createElement(r);
+      t.async=1;
+      t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wqx46kxwy8");
+  </script>
+
+  <!-- GTM -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src =
-          "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
-    </script>
-  </head>
 
-  <body>
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe>
-    </noscript>
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
+  </script>
+</head>
 
-    <div id="root"></div>
+<body>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
 
-    <!-- Vite Entry -->
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <div id="root"></div>
+
+  <!-- Vite will transform this for prod; keep it like this -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

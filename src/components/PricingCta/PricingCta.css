@@ -1,0 +1,48 @@
+.pricingCta {
+  padding: 60px 40px;
+}
+
+.pricingCtaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  background: linear-gradient(135deg, #0f1628, #121a2f);
+  border-radius: 20px;
+}
+
+.pricingCtaText h2 {
+  margin: 0 0 8px;
+font-family: Barlow, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    text-transform: capitalize;
+  text-align: left;
+  color: var(--text-100);
+}
+
+.pricingCtaText p {
+  margin: 0;
+    color: #fffc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.pricingCtaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cBtn {
+    width: 100%;
+    max-width: 162px;
+}
+
+@media (max-width: 1023.98px) {
+  .pricingCtaInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

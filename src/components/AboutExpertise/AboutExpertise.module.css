@@ -1,0 +1,146 @@
+.aboutExpertise {
+  padding: 50px 0 34px
+}
+.sectionTitleCenter {
+  text-align: center
+}
+.sectionSubtitle {
+  color: #ffffffcc;
+  margin: 0 auto 45px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  max-width: 650px
+}
+.aboutExpertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 22px
+}
+.card.aboutExpertiseCard {
+  width: 100%;
+  min-height: 425px;
+  background: #141414;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  padding: 28px 26px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: border-color .15s ease,transform .15s ease,box-shadow .15s ease;
+  box-sizing: border-box
+}
+/* .card.aboutExpertiseCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,.1);
+  box-shadow: 0 15px 30px rgba(0,0,0,.4)
+} */
+.aboutIconWrap {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 26px;
+  margin-bottom: 35px
+}
+.aboutIconWrap img {
+  width: 100%;
+  max-width: 150px;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto
+}
+.aboutExpertiseCard h3 {
+  margin: 0 0 34px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center
+}
+.aboutExpertiseCard p {
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 315px;
+  width: 100%
+}
+@media (max-width:1023.98px) {
+  .aboutExpertiseGrid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 23px
+  }
+}
+@media (max-width:767.98px) {
+  .sectionSubtitle {
+    font-weight: 400;
+    font-size: 14px
+  }
+  .card.aboutExpertiseCard {
+    width: 100%;
+    max-width: 100%;
+    min-height: 360px;
+    background: #141414;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    text-align: center;
+    padding: 22px 16px;
+    margin: 0
+  }
+  .aboutIconWrap img {
+    max-width: 150px;
+    margin: 16px auto 18px
+  }
+  .aboutExpertiseCard h3 {
+    font-weight: 600;
+    margin-bottom: 12px
+  }
+  .aboutExpertiseCard p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 260px;
+    margin: 0 auto
+  }
+  .aboutExpertiseSwiper {
+    padding-bottom: 56px;
+    overflow: visible;
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: #0a84ff
+  }
+  .aboutExpertiseSwiper .swiper-slide {
+    height: auto!important
+  }
+  .aboutExpertiseSwiper .swiper-pagination {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 2
+  }
+  .aboutExpertiseSwiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    background: var(--swiper-pagination-bullet-inactive-color);
+    border-radius: 50%;
+    cursor: pointer
+  }
+  .aboutExpertiseSwiper .swiper-pagination-bullet-active {
+    background: var(--swiper-pagination-color)
+  }
+}
