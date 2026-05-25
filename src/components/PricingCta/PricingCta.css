@@ -13,22 +13,31 @@
 
 .pricingCtaText h2 {
   margin: 0 0 8px;
-  font-size: 24px;
+font-family: Barlow, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    text-transform: capitalize;
   text-align: left;
   color: var(--text-100);
 }
 
 .pricingCtaText p {
   margin: 0;
-  font-size: 14px;
-  color: var(--text-300);
-  line-height: 1.6;
+    color: #fffc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .pricingCtaActions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+.cBtn {
+    width: 100%;
+    max-width: 162px;
 }
 
 @media (max-width: 1023.98px) {

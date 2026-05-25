@@ -11,7 +11,7 @@ export const heroData = {
     { label: 'HQ', value: 'Remote-first' }
   ],
   primaryCta: 'Book a strategy call',
-  primaryCtaHref: '#aboutContact',
+  primaryCtaHref: '/#hero',
   imageSrc: '/assets/about-hero/hero-img.png',
   imageAlt: 'Data-driven CRO dashboards'
 };
@@ -148,7 +148,7 @@ export const ctaData = {
   title: 'Ready to discuss your next experiment?',
   text: 'Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.',
   primaryLabel: 'Schedule a call',
-  primaryHref: '/#contact',
+  primaryHref: '/#hero',
   secondaryLabel: 'Download sample test roadmap',
-  secondaryHref: '/#contact'
+  secondaryHref: '/#hero'
 };

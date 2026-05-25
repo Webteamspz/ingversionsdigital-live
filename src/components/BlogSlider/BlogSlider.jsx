@@ -1,7 +1,6 @@
-// src/components/BlogSlider/BlogSlider.jsx
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
 import data from "../../data/sitedata";
 
 import 'swiper/css';
@@ -17,10 +16,15 @@ const BlogSlider = () => {
     <section className="blog-section">
       <div className="container blog-container">
         
-        {/* Heading exactly review jaisi */}
-        <div className="section-header text-center">
+        {/* === Updated Header Section === */}
+        <div className="blog-section-header">
           <h2 className="startedTitle">{data.blog.heading}</h2>
+          
+          <a href={data.blog.seeMoreUrl} className="see-more-link">
+            {data.blog.seeMoreText}
+          </a>
         </div>
+        {/* ============================== */}
 
         {/* Custom Prev Button */}
         <button
@@ -45,7 +49,7 @@ const BlogSlider = () => {
         </button>
 
         <Swiper
-          modules={[Navigation, Pagination, Autoplay, A11y]}
+          modules={[Navigation, Pagination, A11y]}
           spaceBetween={30}
           slidesPerView={1}
           onBeforeInit={(swiper) => {
@@ -58,7 +62,6 @@ const BlogSlider = () => {
           }}
           navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },

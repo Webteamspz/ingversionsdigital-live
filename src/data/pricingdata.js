@@ -11,91 +11,154 @@ export const pricingHeroData = {
 
 export const pricingPlans = [
   {
-    badge: "Starter",
-    name: "Growth",
+    name: "Starter",
     price: "$999",
     period: "/month",
     description: "For early-stage brands starting CRO + testing.",
-    highlights: ["2 Experiments / month", "Basic UX audit", "Monthly reporting"],
-    features: [
-      { label: "CRO Audit", value: true },
-      { label: "Experiment Roadmap", value: true },
-      { label: "A/B Testing", value: true },
-      { label: "Shopify Dev Support", value: true },
-      { label: "Dedicated QA", value: true },
-      { label: "Weekly Sync", value: false },
-      { label: "Landing Page Personalization", value: false },
-      { label: "Priority Support", value: false },
+    highlights: [
+      "2 Experiments / month",
+      "Basic UX audit",
+      "Monthly reporting"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "/#contact",
-    featured: false,
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
   {
-    badge: "Most Popular",
-    name: "Scale",
-    price: "$1499",
+    name: "Growth",
+    price: "$1899",
     period: "/month",
     description: "For brands scaling paid traffic & optimizing funnel steps.",
-    highlights: ["4 Experiments / month", "Advanced insights", "Weekly reporting"],
-    features: [
-      { label: "CRO Audit", value: true },
-      { label: "Experiment Roadmap", value: true },
-      { label: "A/B Testing", value: true },
-      { label: "Shopify Dev Support", value: true },
-      { label: "Dedicated QA", value: true },
-      { label: "Weekly Sync", value: true },
-      { label: "Landing Page Personalization", value: true },
-      { label: "Priority Support", value: false },
+    highlights: [
+      "4 Experiments / month",
+      "Advanced insights",
+      "Weekly reporting"
     ],
-    ctaLabel: "Choose Scale",
-    ctaHref: "/#contact",
-    featured: true,
+    ctaLabel: "Get Started",
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
   {
-    badge: "Premium",
-    name: "Enterprise",
-    price: "$1999",
+    name: "Premium",
+    price: "$2999",
     period: "/month",
+    badge: "MOST POPULAR",
+    isPremium: true,
     description: "For teams needing faster velocity & deeper analysis.",
-    highlights: ["6 Experiments / month", "Full funnel CRO", "Priority support"],
-    features: [
-      { label: "CRO Audit", value: true },
-      { label: "Experiment Roadmap", value: true },
-      { label: "A/B Testing", value: true },
-      { label: "Shopify Dev Support", value: true },
-      { label: "Dedicated QA", value: true },
-      { label: "Weekly Sync", value: true },
-      { label: "Landing Page Personalization", value: true },
-      { label: "Priority Support", value: true },
+    highlights: [
+      "6 Experiments / month",
+      "Full funnel CRO",
+      "Priority support"
     ],
-    ctaLabel: "Talk to Us",
-    ctaHref: "/#contact",
-    featured: false,
+    ctaLabel: "Get Started",
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
+  {
+    name: "Elite",
+    price: "Custom",
+    period: "", // Custom price ke aage /month hatane ke liye
+    description: "For enterprise brands requiring high-volume testing programs.",
+    highlights: [
+      "Custom test volume",
+      "Dedicated growth pod",
+      "Super Priority support"
+    ],
+    ctaLabel: "Get Started",
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
+  }
 ];
 
 export const comparisonData = {
-  title: "Compare Plans",
-  subtitle:
-    "Everything is designed for measurable experiments. The difference is velocity, depth, and support.",
-  columns: ["Growth", "Scale", "Enterprise"],
-  rows: [
-    { section: "CRO Strategy" },
-    { label: "CRO Audit", values: [true, true, true] },
-    { label: "Experiment Roadmap", values: [true, true, true] },
-    { label: "Analytics Setup Review", values: [false, true, true] },
-
-    { section: "Execution" },
-    { label: "A/B Testing Setup", values: [true, true, true] },
-    { label: "Shopify Development", values: [true, true, true] },
-    { label: "QA & Rollback Plan", values: [true, true, true] },
-    { label: "Landing Page Personalization", values: [false, true, true] },
-
-    { section: "Support" },
-    { label: "Weekly Sync", values: [false, true, true] },
-    { label: "Priority Support", values: [false, false, true] },
+  title: "The Right Plan For You",
+  subtitle: "We offer powerful plans to showcase your business and help creative entrepreneurs get discovered with everything you need to succeed",
+  
+  // Headers aur Footers yahan se render honge
+  columns: [
+    { 
+      name: "Starter", 
+      price: "$999", 
+      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
+    },
+    { 
+      name: "Growth", 
+      price: "$1899", 
+      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
+    },
+    { 
+      name: "Premium", 
+      price: "$2999", 
+      badge: "MOST POPULAR", 
+      isPremium: true, 
+      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
+    },
+    { 
+      name: "Elite", 
+      price: "Custom", 
+      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
+    }
   ],
+
+  // Table ki body yahan se render hogi
+  rows: [
+    { section: "A/B TEST SERVICES" },
+    { 
+      label: "Number of Tests", 
+      values: ["2 to 3", "4 to 5", "Upto 10", "High Volume Test"] 
+    },
+    { 
+      label: "Test Type", 
+      values: [
+        "Simple (UI changes only)", 
+        "Average (UI + Functional)", 
+        "Complex", 
+        "Complex (Price, Template/Theme)"
+      ] 
+    },
+
+    { section: "SHOPIFY SERVICES" },
+    { 
+      label: "Shopify Test", 
+      values: ["cross", "1", "2", "3 to 4"] 
+    },
+    { 
+      label: "Winning Test Implantation", 
+      values: ["cross", "Upto 2", "Upto 4", "6"] 
+    },
+
+    { section: "DEDICATED SUPPORT" },
+    { 
+      label: "Technical Support", 
+      values: [
+        "Limited Support", 
+        "Email or Scheduled Calls", 
+        "Priority Support", 
+        "Super Priority Support"
+      ] 
+    },
+
+    { section: "QA SERVICES" },
+    { 
+      label: "Visual QA", 
+      values: ["cross", "check", "check", "check"] 
+    },
+    { 
+      label: "Technical QA (Browser + Devices)", 
+      values: ["cross", "cross", "check", "check"] 
+    },
+    { 
+      label: "Full QA (Edge Case)", 
+      values: ["cross", "cross", "cross", "check"] 
+    },
+
+    { section: "REPORTING" },
+    { 
+      label: "Reporting Duration", 
+      values: [
+        "One Time Report", 
+        "Bi-weekly Detailed Report", 
+        "Weekly Detailed Report", 
+        "Each Task Detailed Report"
+      ] 
+    }
+  ]
 };
 
 export const pricingFaq = {

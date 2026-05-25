@@ -11,7 +11,7 @@ import Preloader from "../../components/Preloader/Preloader";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
 
 // Lazy sections
-const PricingCompare = lazy(() => import("../../components/Pricing/Pricing"));
+// const PricingCompare = lazy(() => import("../../components/Pricing/Pricing"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
@@ -51,9 +51,9 @@ const Home = () => {
         <WorkProcess />
         <WhyChooseUs />
 
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <PricingCompare />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={null}>
           <Reviews />

@@ -6,14 +6,39 @@
 .blog-container {
   position: relative
 }
+.blog-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  padding: 0 25px
+}
 .startedTitle {
   font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;
   color: #fff;
-  text-align: center;
-  margin: 0 0 40px
+  margin: 0;
+  text-align: left
+}
+.see-more-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Barlow,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffffcc;
+  text-decoration: none;
+  transition: all .3s ease;
+  padding-bottom: 2px
+}
+.see-more-link svg {
+  transition: transform .3s ease
+}
+.see-more-link:hover {
+  color: #0a84ff
 }
 .tsNav {
   position: absolute;
@@ -99,10 +124,6 @@
   display: flex;
   flex-direction: column
 }
-/* .blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(27, 14, 14, 0.25)
-} */
 .img-wrapper {
   position: relative;
   width: 100%;
@@ -121,7 +142,7 @@
   background-color: #0a84ff;
   color: #fff;
   padding: 4px 12px;
-  border-radius: 12px;
+  border-radius: 2px;
   font-size: 12px;
   font-weight: 700;
   font-family: Barlow,sans-serif
@@ -161,6 +182,9 @@
   padding-top: 15px;
   margin-top: auto
 }
+.tsNav.swiper-button-disabled {
+  display: none!important
+}
 @media (max-width:1230.98px) {
   .tsNav {
     width: 42px;
@@ -173,16 +197,34 @@
     right: 0
   }
 }
+@media (max-width:799px) {
+  .tsNav {
+    width: 42px;
+    height: 42px
+  }
+  .tsPrev {
+    left: 5px
+  }
+  .tsNext {
+    right: 5px
+  }
+}
 @media (max-width:767.98px) {
   .tsNav {
     display: none
   }
   .blog-swiper {
-    /* Yahan pehle '10px 0 36px' tha. Ab '15px' side padding add ki hai equal spacing ke liye */
-    padding: 10px 15px 36px !important;
+    padding: 10px 15px 36px!important
+  }
+  .blog-section-header {
+    padding: 0 15px;
+    margin-bottom: 30px
   }
   .startedTitle {
-    font-size: 28px
+    font-size: 24px
+  }
+  .see-more-link {
+    font-size: 14px
   }
   .blog-title {
     font-size: 20px
