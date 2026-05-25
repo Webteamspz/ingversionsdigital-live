@@ -74,11 +74,13 @@ The workflow is:
 .github/workflows/deploy.yml
 ```
 
-It uses:
+Production uses:
 
 ```yaml
 hostinger/deploy-on-vps@v2
 ```
+
+Staging uses Hostinger's Docker API directly, matching the `hrms-payroll` staging workflow. This avoids Hostinger trying to checkout a stage-only commit from a default-branch clone.
 
 Production deploy settings:
 
