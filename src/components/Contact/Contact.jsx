@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 import styles from "./Contact.module.css";
 import PhoneField from "./PhoneField";
 import parse from "html-react-parser";

@@ -1,0 +1,109 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches:
+      - production
+      - stage
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Deploy production Docker project
+        if: github.ref_name == 'production'
+        env:
+          HOSTINGER_API_KEY: ${{ secrets.HOSTINGER_API_KEY }}
+          HOSTINGER_VM_ID: ${{ vars.HOSTINGER_VM_ID }}
+          PROJECT_URL: ${{ github.server_url }}/${{ github.repository }}/blob/production/docker-compose.production.yml
+          PROJECT_NAME: ingversionsdigital-live
+          DEPLOY_ENVIRONMENT: |
+            COMPOSE_PROJECT_NAME=ingversionsdigital-live
+            CONTAINER_NAME=ingversionsdigital-live-production
+            DOCKER_NETWORK_NAME=ingversionsdigital-live-network
+            TRAEFIK_ROUTER_NAME=ingversionsdigital-live
+            TRAEFIK_SERVICE_NAME=ingversionsdigital-live
+            WEBSITE_PUBLIC_PORT=8090
+            WEBSITE_DOMAIN=ingversionsdigital.com
+            WWW_DOMAIN=www.ingversionsdigital.com
+        run: |
+          BODY=$(jq -n \
+            --arg content "$PROJECT_URL" \
+            --arg project_name "$PROJECT_NAME" \
+            --arg environment "$DEPLOY_ENVIRONMENT" \
+            '{
+              project_name: $project_name,
+              content: $content,
+              environment: $environment
+            }')
+
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+            -H "Authorization: Bearer $HOSTINGER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$BODY" \
+            "https://developers.hostinger.com/api/vps/v1/virtual-machines/$HOSTINGER_VM_ID/docker")
+
+          HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
+          HTTP_STATUS=$(echo "$RESPONSE" | tail -n1)
+
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Production deployment initiated successfully."
+            echo "Project URL: $PROJECT_URL"
+          else
+            echo "Production deployment failed with status code: $HTTP_STATUS"
+            echo "$HTTP_BODY"
+            exit 1
+          fi
+
+      - name: Deploy staging Docker project
+        if: github.ref_name == 'stage'
+        env:
+          HOSTINGER_API_KEY: ${{ secrets.HOSTINGER_API_KEY }}
+          HOSTINGER_VM_ID: ${{ vars.HOSTINGER_VM_ID }}
+          PROJECT_URL: ${{ github.server_url }}/${{ github.repository }}/blob/stage/docker-compose.stage.yml
+          PROJECT_NAME: ingversionsdigital-live-stage
+          DEPLOY_ENVIRONMENT: |
+            COMPOSE_PROJECT_NAME=ingversionsdigital-live-stage
+            CONTAINER_NAME=ingversionsdigital-live-stage
+            DOCKER_NETWORK_NAME=ingversionsdigital-live-stage-network
+            TRAEFIK_ROUTER_NAME=ingversionsdigital-live-stage
+            TRAEFIK_SERVICE_NAME=ingversionsdigital-live-stage
+            WEBSITE_PUBLIC_PORT=8091
+            WEBSITE_DOMAIN=staging.ingversionsdigital.com
+        run: |
+          BODY=$(jq -n \
+            --arg content "$PROJECT_URL" \
+            --arg project_name "$PROJECT_NAME" \
+            --arg environment "$DEPLOY_ENVIRONMENT" \
+            '{
+              project_name: $project_name,
+              content: $content,
+              environment: $environment
+            }')
+
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+            -H "Authorization: Bearer $HOSTINGER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$BODY" \
+            "https://developers.hostinger.com/api/vps/v1/virtual-machines/$HOSTINGER_VM_ID/docker")
+
+          HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
+          HTTP_STATUS=$(echo "$RESPONSE" | tail -n1)
+
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Staging deployment initiated successfully."
+            echo "Project URL: $PROJECT_URL"
+          else
+            echo "Staging deployment failed with status code: $HTTP_STATUS"
+            echo "$HTTP_BODY"
+            exit 1
+          fi
