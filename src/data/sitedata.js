@@ -1,7 +1,7 @@
 export default {
   header: {
     links: [
-      { label: "Home", href: "/" },
+      { label: "Homeee", href: "/" },
       { label: "Services", href: "/#services" },
       { label: "Pricing", href: "/#pricing" },
       { label: "Contact Us", href: "/#contact" },
@@ -264,7 +264,7 @@ export default {
           },
         ],
       },
-      
+
     ],
   },
   faq: {
