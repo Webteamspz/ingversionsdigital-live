@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./TrackRecord.module.css";
 
 const Counter = ({ value, duration = 3000 }) => {

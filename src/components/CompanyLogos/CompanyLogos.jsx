@@ -1,4 +1,4 @@
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./CompanyLogos.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";

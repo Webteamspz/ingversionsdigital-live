@@ -1,5 +1,5 @@
-import data from "../../data/sitedata";
-import styles from "./Team.module.css";
+import data from "../../data/siteData";
+import styles from "./team.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";

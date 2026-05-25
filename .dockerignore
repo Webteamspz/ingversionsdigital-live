@@ -1,6 +1,0 @@
-node_modules
-.git
-.github
-dist/.vite
-npm-debug.log*
-.DS_Store

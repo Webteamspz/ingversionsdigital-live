@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
-import data from "../../data/sitedata";
-import styles from "./pricing.module.css";
+import data from "../../data/siteData";
+import styles from "./Pricing.module.css";
 
 import checkIcon from "/assets/pricing/tickmark.svg";
 import crossIcon from "/assets/pricing/cross.svg";

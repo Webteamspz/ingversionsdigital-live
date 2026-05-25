@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import quoteImg from "/assets/reviews/icon.png";
 import styles from "./Reviews.module.css";
 

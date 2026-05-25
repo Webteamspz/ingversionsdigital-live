@@ -1,4 +1,4 @@
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./WorkProcess.module.css";
 
 const WorkProcess = () => {
