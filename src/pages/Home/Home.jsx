@@ -7,11 +7,11 @@ import WorkProcess from "../../components/WorkProcess/WorkProcess";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/Preloader/Preloader";
+import Preloader from "../../components/preloader/preloader";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
 
 // Lazy sections
-// const PricingCompare = lazy(() => import("../../components/Pricing/Pricing"));
+// const PricingCompare = lazy(() => import("../../components/pricing/pricing"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));

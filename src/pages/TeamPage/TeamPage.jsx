@@ -3,7 +3,7 @@ import styles from "./TeamPage.module.css";
 import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
 import TeamHero from "../../components/TeamHero/TeamHero";
 import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/Preloader/Preloader";
+import Preloader from "../../components/preloader/preloader";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 
