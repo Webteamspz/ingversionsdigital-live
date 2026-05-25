@@ -55,11 +55,9 @@ const PricingPlans = () => {
               </ul>
 
               <div className="cardButtons">
-                <a className="btn pricingPlanBtn"
- href={`/?plan=${encodeURIComponent(plan.name)}#hero`}
->
-  {plan.ctaLabel || "Get Started"}
-</a>
+                <a className="btn pricingPlanBtn" href={plan.ctaHref || "#"}>
+                  {plan.ctaLabel || "Get Started"}
+                </a>
                 <button
                   className="btnOutline"
                   onClick={function() { handleSeeComparison(idx); }}
@@ -95,11 +93,9 @@ const PricingPlans = () => {
               </div>
 
               <div className="wideButtons">
-                <a className="btn pricingPlanBtn"
-  href={`/?plan=${encodeURIComponent(elitePlan.name)}#hero`}
->
-  {elitePlan.ctaLabel || "Book a strategy call"}
-</a>
+                <a className="btn pricingPlanBtn" href={elitePlan.ctaHref || "#"}>
+                  {elitePlan.ctaLabel || "Book a strategy call"}
+                </a>
                 <button
                   className="btnOutline"
                   onClick={function() { handleSeeComparison(3); }}

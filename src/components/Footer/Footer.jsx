@@ -75,14 +75,14 @@ const Footer = () => {
 
                 if (isExternal) {
                   return (
-                    <a key={i} href={l.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <a key={i} href={l.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                       {displayText}
                     </a>
                   );
                 }
 
                 return (
-                  <Link key={i} to={l.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link key={i} to={l.href} style={{ textDecoration: 'none' }}>
                     {displayText}
                   </Link>
                 );

@@ -87,13 +87,14 @@ font-family: Barlow, sans-serif;
   color: #0a84ff
 }
 .cBtn {
-  background: 0 0;
-  color: #fff;
+  background: #ffffff1a;
+  color: #0a84ff;
   border: 1px solid rgba(255,255,255,.2)
 }
 .cBtn:hover {
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.4)
+  background: #0a84ff;
+  color: #fff;
+  border: 1px solid #0a84ff
 }
 @media (max-width:1024px) {
   .pricingHero {

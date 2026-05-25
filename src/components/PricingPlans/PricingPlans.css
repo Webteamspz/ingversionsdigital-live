@@ -31,14 +31,16 @@
 }
 .pricingPlanBadge {
   display: inline-flex;
-  padding: 5px 12px;
-  border-radius: 20px;
-  background: rgba(10,132,255,.12);
-  color: #0a84ff;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color: var(--text-200);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase
 }
 .emptyBadge {
   background: 0 0
@@ -117,8 +119,8 @@
   transition: all .3s ease;
   text-align: center
 }
-.cardButtons,
-.cardButtons .btnOutline {
+.cardButtons .btnOutline,
+.cardButtons .pricingPlanBtn {
   flex: 1;
   width: 100%;
   padding: 14px 10px;
@@ -131,9 +133,7 @@
   max-width: 100%!important;
   padding: 14px 10px;
   font-size: 14px;
-  white-space: nowrap
-}
-.pricingPlanBtn {
+  white-space: nowrap;
   background: #0a84ff;
   color: #fff;
   border: 1px solid #0a84ff
@@ -143,14 +143,19 @@
   color: #0a84ff
 }
 .btnOutline {
-  background: 0 0;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.2)
+  background: #ffffff1a;
+  color: #0a84ff;
+  border: 1px solid rgba(255,255,255,.2);
+  cursor: pointer;
+  font-family: Barlow,sans-serif
 }
 .btnOutline:hover {
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.4)
+  background: #0a84ff;
+  color: #fff;
+  border: 1px solid #0a84ff
 }
+
+/* ===== WIDE CARD (ELITE) ===== */
 .wideCard {
   width: 100%;
   max-width: 1240px;
@@ -181,17 +186,19 @@
   flex-grow: 0
 }
 .wideBadge {
-  display: inline-flex;
   max-width: fit-content;
-  padding: 6px 14px;
-  border-radius: 20px;
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.8);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color: var(--text-200);
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: .08em;
-  margin-bottom: 20px
+  margin-bottom: 10px;
+  text-transform: uppercase
 }
 .wideTitle {
   font-size: 32px;
@@ -212,16 +219,20 @@
 .wideButtons .btnOutline,
 .wideButtons .pricingPlanBtn {
   width: auto;
-  min-width: 180px;
+  min-width: 317px;
   padding: 14px 24px;
   font-size: 15px
 }
+
+/* Desktop par mobileOnly chupaao, desktopOnly dikhao */
 .mobileOnlyHighlights {
   display: none
 }
 .desktopOnlyHighlights {
   display: block
 }
+
+/* ===== 1024px ===== */
 @media (max-width:1023.98px) {
   .pricingPlansGrid {
     gap: 16px;
@@ -238,10 +249,49 @@
   .wideCard {
     margin: 0 16px;
     padding: 30px;
-    gap: 24px;
-    width: calc(100% - 32px)
+    gap: 20px;
+    width: calc(100% - 32px);
+    flex-direction: column; /* column layout */
+    align-items: flex-start
+  }
+  .wideCardLeft {
+    max-width: 100%;
+    width: 100%
+  }
+
+  /* Tablet par mobileOnlyHighlights dikhao (buttons ke upar) */
+  .mobileOnlyHighlights {
+    display: block;
+    width: 100%;
+    padding: 0;
+    flex: none;
+    margin: 0 0 20px 0
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    margin: 0
+  }
+
+  /* Desktop wali side column hide karo */
+  .desktopOnlyHighlights {
+    display: none
+  }
+
+  .wideButtons {
+    width: 100%
+  }
+  .wideButtons .btnOutline,
+  .wideButtons .pricingPlanBtn {
+    min-width: unset;
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14px
+  }
+  .wideDesc {
+    margin: 0 0 10px
   }
 }
+
+/* ===== 767px ===== */
 @media (max-width:767.98px) {
   .pricingPlansGrid {
     padding: 0
@@ -258,11 +308,12 @@
   }
   .pricingPlanDesc {
     text-align: center;
+    margin: 0 0 16px;
     min-height: auto
   }
   .pricingPlanHighlights {
     align-items: center;
-    margin: 0
+    margin: 0 0 32px 0; 
   }
   .pricingPlanHighlight {
     justify-content: center
@@ -283,41 +334,26 @@
     width: 100%;
     margin: 0;
     padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px
   }
   .wideCardLeft {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px
-  }
-  .wideBadge {
-    margin-bottom: 0
+    align-items: center
   }
   .wideTitle {
     font-size: 26px;
-    margin: 0
   }
   .wideDesc {
-    margin: 0;
     text-align: center
-  }
-  .desktopOnlyHighlights {
-    display: none
   }
   .mobileOnlyHighlights {
     display: block;
-    width: 100%
+    width: 100%;
+    margin: 0 0 20px 0
   }
   .mobileOnlyHighlights .pricingPlanHighlights {
-    margin: 0;
+    margin: 0 0 32px 0; 
     padding: 0;
     align-items: center
   }
@@ -326,7 +362,6 @@
   }
   .wideButtons {
     width: 100%;
-    display: flex;
     flex-direction: column;
     gap: 12px
   }

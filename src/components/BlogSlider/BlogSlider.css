@@ -23,21 +23,40 @@
   text-align: left
 }
 .see-more-link {
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  max-width: 162px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  gap: 8px;
-  font-family: Barlow,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffffcc;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 10px;
+  background: #0a84ff;
+  color: #fff;
+  font-weight: 800;
   text-decoration: none;
-  transition: all .3s ease;
-  padding-bottom: 2px
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
+  transition: .3s all ease-in-out;
+  font-family: Barlow,sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #0a84ff;
+  cursor: pointer
 }
 .see-more-link svg {
   transition: transform .3s ease
 }
 .see-more-link:hover {
+  background: #ffffff1a;
   color: #0a84ff
 }
 .tsNav {
