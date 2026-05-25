@@ -1,7 +1,7 @@
 export default {
   header: {
     links: [
-      { label: "Homeee", href: "/" },
+      { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
       { label: "Pricing", href: "/#pricing" },
       { label: "Contact Us", href: "/#contact" },
