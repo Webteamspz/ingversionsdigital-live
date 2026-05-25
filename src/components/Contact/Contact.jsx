@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../data/siteData"; // Yahan siteData chal raha tha as per your code
+import data from "../../data/sitedata";
 import styles from "./Contact.module.css";
 import parse from "html-react-parser";
 
