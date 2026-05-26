@@ -1,7 +1,7 @@
 .faqWrapper {
   background-color: #030303;
   color: #fff;
-  padding: 12px 0 70px
+  padding: 50px 0
 }
 .faqWrapper h3 {
   text-align: center;
@@ -103,6 +103,9 @@
   color: #fff
 }
 @media (max-width:767.98px) {
+  .faqWrapper {
+  padding: 20px 0
+}
   .faqWrapper h3 {
     font-weight: 700;
     font-size: 24px;

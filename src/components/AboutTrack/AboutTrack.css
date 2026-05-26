@@ -1,5 +1,5 @@
 .aboutTrack {
-  padding-top: 40px
+  padding-top: 50px
 }
 .aboutTrackGrid {
   display: grid;
@@ -92,6 +92,9 @@
   }
 }
 @media (max-width:767.98px) {
+  .aboutTrack {
+  padding: 40px 0
+}
   .aboutImpactGrid,
   .aboutTrackGrid {
     grid-template-columns: minmax(0,1fr)
