@@ -11,7 +11,6 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 40px;
-  padding: 0 25px
 }
 .startedTitle {
   font-family: Barlow,sans-serif;
@@ -98,7 +97,7 @@
   stroke: #0a84ff
 }
 .blog-swiper {
-  padding: 10px 25px 45px!important
+  padding: 10px 0 45px!important
 }
 .blog-swiper .swiper-pagination {
   position: absolute;

@@ -62,7 +62,7 @@ const PricingPlans = () => {
                   className="btnOutline"
                   onClick={function() { handleSeeComparison(idx); }}
                 >
-                  See comparison
+                  Compare Plans
                 </button>
               </div>
 
@@ -100,7 +100,7 @@ const PricingPlans = () => {
                   className="btnOutline"
                   onClick={function() { handleSeeComparison(3); }}
                 >
-                  See comparison
+                  Compare Plans
                 </button>
               </div>
 
