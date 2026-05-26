@@ -33,12 +33,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  color: var(--text-200);
+  background-color: #173b5e;
+  border: none;
+  color: #0a84ff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase
 }
@@ -145,7 +146,7 @@
 .btnOutline {
   background: #ffffff1a;
   color: #0a84ff;
-  border: 1px solid rgba(255,255,255,.2);
+  border: 1px solid #0a84ff;
   cursor: pointer;
   font-family: Barlow,sans-serif
 }
@@ -190,12 +191,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  color: var(--text-200);
+  background-color: #173b5e;
+  border: none;
+  color: #0a84ff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: .08em;
   margin-bottom: 10px;
   text-transform: uppercase
@@ -236,7 +238,6 @@
 @media (max-width:1023.98px) {
   .pricingPlansGrid {
     gap: 16px;
-    padding: 0 16px
   }
   .pricingPlansGrid .pricingPlanCard {
     flex: 0 0 calc(33.333% - 11px);
@@ -247,10 +248,9 @@
     flex-direction: column
   }
   .wideCard {
-    margin: 0 16px;
     padding: 30px;
     gap: 20px;
-    width: calc(100% - 32px);
+    width: 100%;
     flex-direction: column; /* column layout */
     align-items: flex-start
   }
