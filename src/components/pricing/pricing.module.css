@@ -248,7 +248,8 @@
 }
 @media (max-width:1023.98px) {
   .sub {
-    margin: 0 auto 45px
+    margin: 0 auto 45px;
+
   }
   .tableWrap {
     display: none
@@ -385,6 +386,9 @@
 @media (max-width:767.98px) {
   .pricingSection {
   padding: 40px 0 
+}
+.sub {
+  font-size: 16px;
 }
   .mobileCompare {
     -ms-grid-columns: minmax(150px,49%) 1fr;
