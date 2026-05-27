@@ -5,7 +5,7 @@ export const pricingHeroData = {
     "Choose a plan that fits your growth stage. Every plan includes CRO strategy, experiment execution, and transparent reporting.",
   primaryCta: "Book a strategy call",
   primaryHref: "/#contact",
-  secondaryCta: "See comparison",
+  secondaryCta: "Compare Plans",
   secondaryHref: "#pricingComparison",
 };
 
