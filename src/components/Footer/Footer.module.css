@@ -225,7 +225,7 @@
   }
   .footAddress,
   .footContact {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 130%;
     display: grid;
     grid-template-columns: 20px 1fr;

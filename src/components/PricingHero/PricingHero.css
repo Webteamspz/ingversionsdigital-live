@@ -90,7 +90,7 @@
 .cBtn {
   background: #ffffff1a;
   color: #0a84ff;
-  border: 1px solid rgba(255,255,255,.2)
+  border: 1px solid #0a84ff;
 }
 .cBtn:hover {
   background: #0a84ff;
