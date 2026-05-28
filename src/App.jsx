@@ -5,6 +5,10 @@ import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import AboutUs from "./pages/AboutUs/AboutUs.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
+
+// StagingLogin import kar liya (Dhyan rakhna ki file same folder me ho)
+import StagingLogin from "../src/components/StagingLogin/StagingLogin.jsx";
+
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
 
@@ -21,7 +25,7 @@ const ScrollManager = () => {
 
         const rect = el.getBoundingClientRect();
         const targetY =
-          rect.top + window.scrollY - headerHeight + 100; 
+          rect.top + window.scrollY - headerHeight + 100;
 
         window.scrollTo({
           top: targetY,
@@ -47,7 +51,8 @@ const ScrollManager = () => {
 };
 
 const App = () => (
-  <>
+  // Poore app ko StagingLogin se wrap kar diya
+  <StagingLogin>
     <ScrollManager />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -56,7 +61,7 @@ const App = () => (
       <Route path="/pricing" element={<Pricing />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  </>
+  </StagingLogin>
 );
 
 export default App;
