@@ -6,7 +6,8 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN npm run build
+ARG BUILD_MODE=production
+RUN npm run build:${BUILD_MODE}
 
 FROM nginx:1.27-alpine
 

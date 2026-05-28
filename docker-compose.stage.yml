@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        BUILD_MODE: staging
     image: ingversionsdigital-live:stage
     restart: unless-stopped
     labels:

@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        BUILD_MODE: production
     image: ingversionsdigital-live:production
     restart: unless-stopped
     labels:

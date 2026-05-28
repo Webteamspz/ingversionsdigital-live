@@ -44,6 +44,39 @@ compose: docker-compose.stage.yml
 direct test: http://72.62.226.183:8091
 ```
 
+## Build Modes
+
+Production Docker builds use:
+
+```bash
+npm run build:production
+```
+
+Staging Docker builds use:
+
+```bash
+npm run build:staging
+```
+
+Use this helper when adding staging-only behavior:
+
+```js
+import { stagingFeaturesEnabled } from "../config/deploy";
+
+if (stagingFeaturesEnabled) {
+  // staging-only code
+}
+```
+
+Adjust the relative import path based on the component file location.
+
+The public Vite flags are:
+
+```txt
+.env.production -> VITE_DEPLOY_ENV=production, VITE_ENABLE_STAGING_FEATURES=false
+.env.staging    -> VITE_DEPLOY_ENV=staging, VITE_ENABLE_STAGING_FEATURES=true
+```
+
 ## Cloudflare DNS
 
 ```txt
