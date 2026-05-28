@@ -24,17 +24,22 @@ const StagingLogin = ({ children }) => {
   if (loggedInUser) {
     return (
       <>
-        {/* Ek chota sa badge jo dikhayega ki kisne login kiya hai (Optional) */}
         <div style={{ 
-          position: 'fixed', bottom: '10px', left: '10px', 
-          background: 'rgba(0,0,0,0.8)', color: '#fff', 
-          padding: '5px 10px', borderRadius: '5px', 
-          fontSize: '12px', zIndex: 9999 
+          position: 'fixed', bottom: '15px', left: '15px', 
+          background: '#1e293b', color: '#f8fafc', 
+          padding: '8px 12px', borderRadius: '6px', 
+          fontSize: '13px', zIndex: 9999,
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          display: 'flex', alignItems: 'center', gap: '10px'
         }}>
-          Logged in as: <strong>{loggedInUser}</strong>
+          <span>Logged in as: <strong style={{ color: '#38bdf8' }}>{loggedInUser}</strong></span>
           <button 
             onClick={() => { sessionStorage.removeItem('staging_user'); window.location.reload(); }}
-            style={{ marginLeft: '10px', background: 'red', color: 'white', border: 'none', borderRadius: '3px', cursor: 'pointer', padding: '2px 5px' }}
+            style={{ 
+              background: '#ef4444', color: 'white', border: 'none', 
+              borderRadius: '4px', cursor: 'pointer', padding: '4px 8px',
+              fontSize: '12px', fontWeight: 'bold'
+            }}
           >
             Logout
           </button>
@@ -50,14 +55,12 @@ const StagingLogin = ({ children }) => {
     e.preventDefault();
     
     try {
-      // .env se JSON string read karke object mein convert kar rahe hain
       const envUsers = import.meta.env.VITE_STAGING_USERS || "{}";
       const validUsers = JSON.parse(envUsers);
       
-      // Check karo ki username exist karta hai aur password match karta hai
       if (validUsers[username] && validUsers[username] === password) {
         setLoggedInUser(username);
-        sessionStorage.setItem('staging_user', username); // Session mein save kar lo
+        sessionStorage.setItem('staging_user', username);
       } else {
         alert("Galat Username ya Password!");
       }
@@ -68,32 +71,97 @@ const StagingLogin = ({ children }) => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: '#f3f4f6' }}>
-      <form onSubmit={handleLogin} style={{ padding: '30px', background: 'white', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textAlign: 'center', width: '300px' }}>
-        <h2>Staging Access</h2>
-        <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666' }}>Please login to view staging.</p>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      height: '100vh', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      backgroundColor: '#e2e8f0', // Thoda darker gray background taaki card highlight ho
+      fontFamily: 'system-ui, -apple-system, sans-serif'
+    }}>
+      <form onSubmit={handleLogin} style={{ 
+        padding: '40px', 
+        background: '#ffffff', 
+        borderRadius: '12px', 
+        boxShadow: '0 10px 25px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05)', // Premium shadow
+        textAlign: 'center', 
+        width: '100%',
+        maxWidth: '360px',
+        boxSizing: 'border-box'
+      }}>
+        {/* Explicit Dark Colors diye hain taaki gayab na ho */}
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', color: '#0f172a', fontWeight: '700' }}>
+          Staging Access
+        </h2>
+        <p style={{ margin: '0 0 25px 0', fontSize: '14px', color: '#64748b' }}>
+          Please enter your credentials.
+        </p>
         
-        <input 
-          type="text" 
-          placeholder="Username" 
-          value={username}
-          onChange={(e) => setUsername(e.target.value.toLowerCase())} // Taki case-sensitive issue na ho
-          style={{ padding: '10px', width: '100%', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
-          required
-        />
+        <div style={{ textAlign: 'left', marginBottom: '16px' }}>
+          <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', color: '#475569', fontWeight: '600' }}>
+            Username
+          </label>
+          <input 
+            type="text" 
+            placeholder="e.g. developer" 
+            value={username}
+            onChange={(e) => setUsername(e.target.value.toLowerCase())}
+            style={{ 
+              padding: '12px', 
+              width: '100%', 
+              border: '1px solid #cbd5e1', 
+              borderRadius: '8px', 
+              boxSizing: 'border-box',
+              fontSize: '14px',
+              color: '#0f172a', // Input text color explicitly dark
+              backgroundColor: '#f8fafc',
+              outline: 'none'
+            }}
+            required
+          />
+        </div>
         
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: '10px', width: '100%', marginBottom: '20px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
-          required
-        />
+        <div style={{ textAlign: 'left', marginBottom: '24px' }}>
+          <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', color: '#475569', fontWeight: '600' }}>
+            Password
+          </label>
+          <input 
+            type="password" 
+            placeholder="••••••••" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={{ 
+              padding: '12px', 
+              width: '100%', 
+              border: '1px solid #cbd5e1', 
+              borderRadius: '8px', 
+              boxSizing: 'border-box',
+              fontSize: '14px',
+              color: '#0f172a', // Input text color explicitly dark
+              backgroundColor: '#f8fafc',
+              outline: 'none'
+            }}
+            required
+          />
+        </div>
         
         <button 
           type="submit"
-          style={{ padding: '10px', width: '100%', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}
+          style={{ 
+            padding: '12px', 
+            width: '100%', 
+            backgroundColor: '#2563eb', // Bright Blue
+            color: '#ffffff', 
+            border: 'none', 
+            borderRadius: '8px', 
+            cursor: 'pointer', 
+            fontWeight: '600',
+            fontSize: '15px',
+            transition: 'background-color 0.2s'
+          }}
+          onMouseOver={(e) => e.target.style.backgroundColor = '#1d4ed8'}
+          onMouseOut={(e) => e.target.style.backgroundColor = '#2563eb'}
         >
           Login
         </button>
