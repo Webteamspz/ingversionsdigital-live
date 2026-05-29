@@ -1,16 +1,18 @@
 .blog-section {
   position: relative;
   padding: 0 0 30px;
-  background: #030303
+  background: #030303;
+  overflow: hidden
 }
 .blog-container {
-  position: relative
+  position: relative;
+  padding: 0 40px
 }
 .blog-section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 40px
 }
 .startedTitle {
   font-family: Barlow,sans-serif;
@@ -37,7 +39,6 @@
   border-radius: 10px;
   background: #0a84ff;
   color: #fff;
-  font-weight: 800;
   text-decoration: none;
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
@@ -60,7 +61,7 @@
 }
 .tsNav {
   position: absolute;
-  top: 55%;
+  top: 62%;
   transform: translateY(-50%);
   width: 52px;
   height: 52px;
@@ -76,10 +77,10 @@
   transition: all .3s ease
 }
 .tsPrev {
-  left: -20px
+  left: 6px
 }
 .tsNext {
-  right: -20px
+  right: 6px
 }
 .tsNav svg {
   max-width: 18px;
@@ -161,6 +162,7 @@
   color: #fff;
   padding: 4px 12px;
   border-radius: 2px;
+  text-align: center;
   font-size: 12px;
   font-weight: 700;
   font-family: Barlow,sans-serif
@@ -209,6 +211,18 @@
     height: 42px
   }
   .tsPrev {
+    left: 6px
+  }
+  .tsNext {
+    right: 6px
+  }
+}
+@media (max-width:1023.98px) {
+  .tsNav {
+    width: 42px;
+    height: 42px
+  }
+  .tsPrev {
     left: 0
   }
   .tsNext {
@@ -221,13 +235,16 @@
     height: 42px
   }
   .tsPrev {
-    left: 5px
+    left: 0
   }
   .tsNext {
-    right: 5px
+    right: 0
   }
 }
 @media (max-width:767.98px) {
+  .blog-container {
+    padding: 0
+  }
   .tsNav {
     display: none
   }
