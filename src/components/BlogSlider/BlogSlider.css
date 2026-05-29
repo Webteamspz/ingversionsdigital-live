@@ -268,3 +268,9 @@
     font-size: 14px
   }
 }
+@media (max-width: 399.98px) {
+  .see-more-link {
+    width: 100%;
+    max-width: 130px;
+  }
+}
