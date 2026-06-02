@@ -62,7 +62,7 @@ const StagingLogin = ({ children }) => {
         setLoggedInUser(username);
         sessionStorage.setItem('staging_user', username);
       } else {
-        alert("Galat Username ya Password!");
+        alert("Username or password are incorrect.");
       }
     } catch (error) {
       console.error("JSON parse error in VITE_STAGING_USERS", error);
