@@ -4,10 +4,10 @@ export default {
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Contact Us", href: "/#contact" },
+      // { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
-      // { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
+      { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
       label: "Book A Call",
@@ -613,13 +613,21 @@ export default {
         name: "Pricing",
         href: "/pricing",
       },
-      {
-        name: "Contact Us",
-        href: "/#contact",
-      },
+      // {
+      //   name: "Contact Us",
+      //   href: "/#contact",
+      // },
       {
         name: "Team Page",
         href: "/teampage",
+      },
+       {
+        name: "About Us",
+        href: "/about-us",
+      },
+       {
+        name: "Blog",
+        href: "https://blog.ingversionsdigital.com/",
       },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
