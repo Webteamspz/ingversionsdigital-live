@@ -26,11 +26,14 @@
   width: 100%
 }
 .pricingPlanBadgeWrap {
-  min-height: 24px;
-  margin-bottom: 12px
+  margin-bottom: 2px
 }
 .pricingPlanBadge {
   display: inline-flex;
+      position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50px);
   align-items: center;
   justify-content: center;
   padding: 8px 18px;
@@ -188,7 +191,7 @@
 }
 .wideBadge {
   max-width: fit-content;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 8px 18px;
@@ -238,6 +241,9 @@
 @media (max-width:1023.98px) {
   .pricingPlansGrid {
     gap: 16px;
+  }
+  .pricingPlanBadge {
+  padding: 8px 10px;
   }
   .pricingPlansGrid .pricingPlanCard {
     flex: 0 0 calc(33.333% - 11px);
@@ -297,12 +303,13 @@
   padding: 40px 0;
 }
   .pricingPlansGrid {
-    padding: 0
+    padding: 0;
+    gap: 36px;
   }
   .pricingPlansGrid .pricingPlanCard {
     flex: 0 0 100%;
     max-width: 100%;
-    padding: 32px 24px;
+    padding: 20px 24px 32px 24px;
     text-align: center;
     align-items: center
   }
@@ -379,4 +386,11 @@
     flex: none;
     margin: 0
   }
+}
+@media (max-width:499.98px) {
+  .pricingPlanHighlights {
+        align-items: flex-start;
+        width: 100%;
+    }
+
 }

@@ -227,6 +227,7 @@
   .footContact {
     font-size: 18px;
     line-height: 130%;
+    color: #fff;
     display: grid;
     grid-template-columns: 20px 1fr;
     gap: 9px;

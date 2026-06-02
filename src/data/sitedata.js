@@ -603,7 +603,7 @@ export default {
     links: [
       {
         name: "Home",
-        href: "#hero",
+        href: "/#hero",
       },
       {
         name: "Services",
