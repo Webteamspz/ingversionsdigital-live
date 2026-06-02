@@ -3,13 +3,15 @@ export default {
     links: [
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
+      { label: "About Us", href: "/about-us" },
+      // { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
       label: "Book A Call",
-      href: "#contact",
+      href: "#hero",
     },
   },
   hero: {
@@ -26,7 +28,7 @@ export default {
       "/assets/hero/hero-client-3.png",
     ],
     proof: "Trusted by <strong>6+ agencies</strong> and <strong> 10+ brands in Ecommerce</strong>",
-    visual: "/assets/hero/hero-main.png",
+    visual: "/assets/hero/hero-main-1.png",
   },
   logos: [
     {
@@ -214,23 +216,23 @@ export default {
   contact: {
     heading: "Contact Us",
     form: {
-      title: "Send Us a Message",
+      title: "Ready To Scale Your Conversions ?",
       country: { flag: "🇮🇳", dial: "+91" },
       fields: [
         {
           type: "text",
           name: "firstName",
-          placeholder: "First Name",
+          placeholder: "Your Full Name",
           col: "half",
         },
         {
           type: "text",
-          name: "lastName",
-          placeholder: "Last Name",
+          name: "organization",
+          placeholder: "Organization",
           col: "half",
         },
-        { type: "email", name: "email", placeholder: "Email", col: "full" },
-        { type: "text", name: "company", placeholder: "Company", col: "full" },
+        { type: "email", name: "email", placeholder: "Work Email", col: "full" },
+        { type: "text", name: "main website url", placeholder: "Main Website URL", col: "full" },
         {
           type: "tel",
           name: "phone",
@@ -240,7 +242,7 @@ export default {
         {
           type: "textarea",
           name: "message",
-          placeholder: "Message",
+          placeholder: "Share Your Project Details and Goals",
           col: "full",
         },
       ],
@@ -488,13 +490,120 @@ export default {
       },
     ],
   },
+  blog: {
+    heading: "Latest Articles",
+    seeMoreText: "See More",          // Naya text
+    seeMoreUrl: "https://blog.ingversionsdigital.com/",
+    list: [
+      {
+        id: 1,
+        title: "5 Shopify Theme Customizations That Boost Sales",
+        category: "Shopify Development",
+        desc: "From product page layouts to checkout optimizations, these theme changes can significantly improve conversions and customer retention...",
+        date: "April 8, 2026",
+        readTime: "6 min read",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/shopify-theme-customizations-boost-sales"
+      },
+      {
+        id: 2,
+        title: "A/B Testing Mistakes That Cost You Money",
+        category: "A/B Testing",
+        desc: "Avoid common experimentation mistakes that lead to inaccurate data and poor conversion decisions in your marketing funnels...",
+        date: "April 5, 2026",
+        readTime: "5 min read",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/ab-testing-mistakes-cost-money"
+      },
+      {
+        id: 3,
+        title: "CRO Fundamentals: Where to Start From",
+        category: "CRO",
+        desc: "Learn the core principles of conversion rate optimization and how to build a strategy that drives measurable growth...",
+        date: "April 3, 2026",
+        readTime: "7 min read",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/cro-fundamentals-where-to-start"
+      },
+      {
+        id: 4,
+        title: "The Psychology of High-Converting Landing Pages",
+        category: "CRO",
+        desc: "Understand how visual hierarchy, trust signals, and emotional triggers influence user actions on landing pages...",
+        date: "April 12, 2026",
+        readTime: "8 min read",
+        image: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/psychology-high-converting-landing-pages"
+      },
+      {
+        id: 5,
+        title: "Essential QA Checklists Before Launching Your Store",
+        category: "Quality Assurance",
+        desc: "A complete pre-launch checklist to ensure your ecommerce website is bug-free, responsive, and optimized for users...",
+        date: "April 15, 2026",
+        readTime: "5 min read",
+        image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/qa-checklist-before-launching-store"
+      },
+      {
+        id: 6,
+        title: "Headless Shopify: Is It Right for Your Brand?",
+        category: "Shopify Development",
+        desc: "Explore the pros and cons of headless commerce and whether your business actually needs a decoupled storefront...",
+        date: "April 18, 2026",
+        readTime: "9 min read",
+        image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/headless-shopify-is-it-right-for-your-brand"
+      },
+      {
+        id: 7,
+        title: "Multivariate vs A/B Testing: When to Use Which",
+        category: "A/B Testing",
+        desc: "Compare multivariate testing with standard A/B testing and learn which approach delivers better insights for your campaigns...",
+        date: "April 20, 2026",
+        readTime: "6 min read",
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/multivariate-vs-ab-testing"
+      },
+      {
+        id: 8,
+        title: "Micro-Commitments: The Secret to Better Funnels",
+        category: "CRO",
+        desc: "Small user actions can lead to larger conversions. Discover how micro-commitments improve engagement and reduce bounce rates...",
+        date: "April 24, 2026",
+        readTime: "7 min read",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/micro-commitments-better-funnels"
+      },
+      {
+        id: 9,
+        title: "Automated UI Testing for E-commerce Websites",
+        category: "Quality Assurance",
+        desc: "Implement automated frontend testing workflows to catch UI bugs early and maintain a seamless shopping experience...",
+        date: "April 28, 2026",
+        readTime: "8 min read",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/automated-ui-testing-ecommerce"
+      },
+      {
+        id: 10,
+        title: "Optimizing Shopify Core Web Vitals for SEO",
+        category: "Shopify Development",
+        desc: "Improve loading speed, visual stability, and responsiveness in Shopify to rank better and convert more visitors...",
+        date: "May 2, 2026",
+        readTime: "10 min read",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/optimizing-shopify-core-web-vitals"
+      }
+    ]
+  },
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
     links: [
       {
         name: "Home",
-        href: "#hero",
+        href: "/#hero",
       },
       {
         name: "Services",
@@ -502,7 +611,7 @@ export default {
       },
       {
         name: "Pricing",
-        href: "/#pricing",
+        href: "/pricing",
       },
       {
         name: "Contact Us",

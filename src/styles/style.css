@@ -3,7 +3,7 @@
   --bg-800: #0f1628;
   --text-100: #ffffff;
   --text-200: rgba(255, 255, 255, 0.9);
-  --text-300:  #FFFFFFE5;
+  --text-300: #FFFFFFE5;
   --muted-400: rgba(255, 255, 255, 0.08);
   --accent-500: #1ea7ff;
   --pill-500: #3b82f6;
@@ -177,7 +177,7 @@ input:-webkit-autofill {
 }
 .react-international-phone-input {
   width: 100%;
-  font-family: 'Barlow' !important;
+  font-family: Barlow!important;
   background: #1a1a1a!important;
   border: none!important;
   border-radius: 5px;
@@ -192,7 +192,7 @@ input:-webkit-autofill {
   line-height: 100%!important
 }
 .react-international-phone-input-container .react-international-phone-country-selector-button {
-  outline: none !important;
+  outline: 0!important;
   background: #1a1a1a!important;
   border: none!important;
   border-radius: 5px;
@@ -276,6 +276,14 @@ body.menu-open .overlay {
 }
 @media (max-width:767.98px) {
   .section-title {
+    font-family: Barlow;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center
+  }
+    .sectionTitle {
     font-family: Barlow;
     font-weight: 700;
     font-style: Bold;

@@ -3,7 +3,8 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-
+import AboutUs from "./pages/AboutUs/AboutUs.jsx";
+import Pricing from "./pages/Pricing/Pricing.jsx";
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
 
@@ -51,6 +52,8 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/teampage" element={<TeamPage />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/pricing" element={<Pricing />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </>
