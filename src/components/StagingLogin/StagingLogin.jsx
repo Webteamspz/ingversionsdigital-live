@@ -80,6 +80,21 @@ const StagingLogin = ({ children }) => {
       backgroundColor: '#e2e8f0', // Thoda darker gray background taaki card highlight ho
       fontFamily: 'system-ui, -apple-system, sans-serif'
     }}>
+      
+      {/* YEH STYLE BLOCK ADD KIYA HAI AUTOFILL FIX KARNE KE LIYE */}
+      <style>
+        {`
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover, 
+          input:-webkit-autofill:focus, 
+          input:-webkit-autofill:active {
+              -webkit-box-shadow: 0 0 0 30px #f8fafc inset !important;
+              -webkit-text-fill-color: #000 !important; /* Yahan #000 force kar diya hai */
+              transition: background-color 5000s ease-in-out 0s;
+          }
+        `}
+      </style>
+
       <form onSubmit={handleLogin} style={{ 
         padding: '40px', 
         background: '#ffffff', 
