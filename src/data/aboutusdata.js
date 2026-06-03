@@ -78,7 +78,7 @@ export const expertiseCards = [
     text: 'Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.'
   },
   {
-    icon: '/assets/about-expertise/esports.png',
+    icon: '/assets/about-expertise/analytics.png',
     title: 'Analysis & Learnings',
     text: 'Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.'
   }

@@ -65,6 +65,9 @@
 .linkGroup > a:hover {
   color: #0a84ff
 }
+.footerLink:hover {
+  color: #0a84ff
+}
 .footerBottomRow {
   display: flex;
   justify-content: center;
@@ -115,6 +118,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%
+}
+.footAddress{
+  font-size: 18px;
 }
 .footContact:hover {
   color: #0a84ff
@@ -227,7 +233,6 @@
   .footContact {
     font-size: 18px;
     line-height: 130%;
-    color: #fff;
     display: grid;
     grid-template-columns: 20px 1fr;
     gap: 9px;
@@ -252,12 +257,12 @@
     max-width: 160px
   }
   .socialBtn {
-    width: 44px;
-    height: 44px
+    width: 40px;
+    height: 40px
   }
   .socialBtn svg {
-    width: 24px;
-    height: 24px
+    width: 22px;
+    height: 22px
   }
   .linkGroup > a {
     font-size: 15px

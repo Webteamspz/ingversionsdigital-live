@@ -30,10 +30,10 @@
 }
 .pricingPlanBadge {
   display: inline-flex;
-      position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translate(-50px);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%);
   align-items: center;
   justify-content: center;
   padding: 8px 18px;
@@ -158,8 +158,6 @@
   color: #fff;
   border: 1px solid #0a84ff
 }
-
-/* ===== WIDE CARD (ELITE) ===== */
 .wideCard {
   width: 100%;
   max-width: 1240px;
@@ -228,22 +226,18 @@
   padding: 14px 24px;
   font-size: 15px
 }
-
-/* Desktop par mobileOnly chupaao, desktopOnly dikhao */
 .mobileOnlyHighlights {
   display: none
 }
 .desktopOnlyHighlights {
   display: block
 }
-
-/* ===== 1024px ===== */
 @media (max-width:1023.98px) {
   .pricingPlansGrid {
-    gap: 16px;
+    gap: 16px
   }
   .pricingPlanBadge {
-  padding: 8px 10px;
+    padding: 8px 10px
   }
   .pricingPlansGrid .pricingPlanCard {
     flex: 0 0 calc(33.333% - 11px);
@@ -257,15 +251,13 @@
     padding: 30px;
     gap: 20px;
     width: 100%;
-    flex-direction: column; /* column layout */
+    flex-direction: column;
     align-items: flex-start
   }
   .wideCardLeft {
     max-width: 100%;
     width: 100%
   }
-
-  /* Tablet par mobileOnlyHighlights dikhao (buttons ke upar) */
   .mobileOnlyHighlights {
     display: block;
     width: 100%;
@@ -276,12 +268,9 @@
   .mobileOnlyHighlights .pricingPlanHighlights {
     margin: 0
   }
-
-  /* Desktop wali side column hide karo */
   .desktopOnlyHighlights {
     display: none
   }
-
   .wideButtons {
     width: 100%
   }
@@ -296,15 +285,13 @@
     margin: 0 0 10px
   }
 }
-
-/* ===== 767px ===== */
 @media (max-width:767.98px) {
   .pricingPlans {
-  padding: 40px 0;
-}
+    padding: 40px 0
+  }
   .pricingPlansGrid {
     padding: 0;
-    gap: 36px;
+    gap: 36px
   }
   .pricingPlansGrid .pricingPlanCard {
     flex: 0 0 100%;
@@ -322,11 +309,13 @@
     min-height: auto
   }
   .pricingPlanHighlights {
-    align-items: center;
-    margin: 0 0 32px 0; 
+    width: fit-content;
+    margin: 0 auto 32px auto;
+    align-items: flex-start
   }
   .pricingPlanHighlight {
-    justify-content: center
+    justify-content: flex-start;
+    text-align: left
   }
   .cardButtons {
     width: 100%;
@@ -352,7 +341,7 @@
     align-items: center
   }
   .wideTitle {
-    font-size: 26px;
+    font-size: 26px
   }
   .wideDesc {
     text-align: center
@@ -363,12 +352,14 @@
     margin: 0 0 20px 0
   }
   .mobileOnlyHighlights .pricingPlanHighlights {
-    margin: 0 0 32px 0; 
+    width: fit-content;
+    margin: 0 auto 32px auto;
     padding: 0;
-    align-items: center
+    align-items: flex-start
   }
   .mobileOnlyHighlights .pricingPlanHighlight {
-    justify-content: center
+    justify-content: flex-start;
+    text-align: left
   }
   .wideButtons {
     width: 100%;
@@ -389,8 +380,11 @@
 }
 @media (max-width:499.98px) {
   .pricingPlanHighlights {
-        align-items: flex-start;
-        width: 100%;
-    }
-
+    align-items: flex-start;
+    width: 100%
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    align-items: flex-start;
+    width: 100%
+  }
 }
