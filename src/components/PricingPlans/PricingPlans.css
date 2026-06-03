@@ -392,5 +392,9 @@
         align-items: flex-start;
         width: 100%;
     }
+        .mobileOnlyHighlights .pricingPlanHighlights   {
+      align-items: flex-start;
+        width: 100%;
+    }
 
 }
