@@ -18,22 +18,24 @@
     <meta name="author" content="Ingversions Digital" />
     <meta name="theme-color" content="#030303" />
 
-    <!-- FAVICONS (Google requires PNG for search icons) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+
+    <!-- <link rel="preload" href="/fonts/Barlow-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Barlow-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="preload" href="/assets/images/hero-bg.webp" as="image" fetchpriority="high" /> -->
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/logos/logo-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/logos/logo-96.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/logos/logo-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/logos/logo-512.png" />
 
-    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 
-    <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://ingversionsdigital.com/" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ingversionsdigital.com/" />
     <meta
@@ -49,15 +51,13 @@
       content="https://ingversionsdigital.com/assets/seo/og-image.jpg"
     />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ingversions Digital | Shopify Development & CRO Agency">
-  <meta name="twitter:description" content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts.">
-  <meta name="twitter:image" content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg">
-  <meta name="twitter:site" content="@ingversions">
-  <meta name="keywords" content="Ingversions,ingversions,inversions,versions,cro, CRO,ingversionsdigital,digital inversion,ingversion, Inversions, Ingversion, Ingversions Digital" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ingversions Digital | Shopify Development & CRO Agency">
+    <meta name="twitter:description" content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts.">
+    <meta name="twitter:image" content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg">
+    <meta name="twitter:site" content="@ingversions">
+    <meta name="keywords" content="Ingversions,ingversions,inversions,versions,cro, CRO,ingversionsdigital,digital inversion,ingversion, Inversions, Ingversion, Ingversions Digital" />
 
-    <!-- Org Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -82,52 +82,51 @@
       }
     </script>
 
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
 
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){
-        (c[a].q=c[a].q||[]).push(arguments)
-      };
-      t=l.createElement(r);
-      t.async=1;
-      t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wqx46kxwy8");
-  </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){
+            (c[a].q=c[a].q||[]).push(arguments)
+          };
+          t=l.createElement(r);
+          t.async=1;
+          t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wqx46kxwy8");
+      });
+    </script>
 
-  <!-- GTM -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-      var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
 
-      j.async = true;
-      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
-  </script>
-</head>
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
+    </script>
+  </head>
 
-<body>
-  <noscript>
-    <iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
-  </noscript>
+  <body>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
 
-  <div id="root"></div>
+    <div id="root"></div>
 
-  <!-- Vite will transform this for prod; keep it like this -->
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
