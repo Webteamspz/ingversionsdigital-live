@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
-import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import styles from "./Hero.module.css";
 import { ctaClick, dl } from "../../gtm";
-import PhoneField from "../Contact/PhoneField"; // <-- Path check kar lena
+import PhoneField from "../Contact/PhoneField";
+
+// CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
+const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
@@ -107,50 +109,47 @@ const Hero = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-// handleSubmit — selected_plan ensure karo
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateAll()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateAll()) return;
 
-  const params = new URLSearchParams(location.search);
-  const plan = params.get("plan");
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
 
-  const payload = {
-    ...formData,
-    selected_plan: plan || "No plan selected — Direct form fill",
+    const payload = {
+      ...formData,
+      selected_plan: plan || "No plan selected — Direct form fill",
+    };
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) window.location.href = REDIRECT_URL;
+      else {
+        const err = await res.json().catch(() => ({}));
+        alert(err?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Found some error please try again.");
+    }
   };
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (res.ok) window.location.href = REDIRECT_URL;
-    else {
-      const err = await res.json().catch(() => ({}));
-      alert(err?.error || "Something went wrong. Please try again.");
-    }
-  } catch (err) {
-    alert("Found some error please try again.");
-  }
-};
-
-// Plan URL se read karo aur formData mein save karo
-useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const plan = params.get("plan");
-  if (!plan) return;
-  const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
-  setFormData((prev) => ({
-    ...prev,
-    message: defaultMessage,
-    selected_plan: plan, // hidden field — Formspree ko jaayega
-  }));
-  setTouched((prev) => ({ ...prev, message: true }));
-  setError("message", "");
-}, [location.search]);
-  // --- FORM STATE & LOGIC END ---
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+    if (!plan) return;
+    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+    setFormData((prev) => ({
+      ...prev,
+      message: defaultMessage,
+      selected_plan: plan,
+    }));
+    setTouched((prev) => ({ ...prev, message: true }));
+    setError("message", "");
+  }, [location.search]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -189,7 +188,14 @@ useEffect(() => {
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
                 {h.avatars.map((src, i) => (
-                  <OptimizedImg key={i} src={src} alt={`Client ${i + 1}`} priority={false} />
+                  <OptimizedImg 
+                    key={i} 
+                    src={src} 
+                    alt={`Client ${i + 1}`} 
+                    priority={true} // LCP fix
+                    width="48"      // CLS fix (Adjust as per your design)
+                    height="48"     // CLS fix 
+                  />
                 ))}
               </div>
               <span className={styles.proofText} dangerouslySetInnerHTML={{ __html: h.proof }} />
@@ -295,7 +301,11 @@ useEffect(() => {
           </form>
         </div>
       </div>
-      <CompanyLogos />
+      
+      {/* Fallback height set karein taaki shift na ho */}
+      <Suspense fallback={<div style={{ minHeight: "100px", width: "100%" }}></div>}>
+        <CompanyLogos />
+      </Suspense>
     </section>
   );
 };
