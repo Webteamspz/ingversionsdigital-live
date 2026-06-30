@@ -164,64 +164,6 @@ input:-webkit-autofill {
   line-height: 100%;
   color: #ffffff99!important
 }
-.react-international-phone-input-container {
-  position: relative;
-  border: 1px solid rgba(255,255,255,0);
-  border-radius: 5px
-}
-.react-international-phone-country-selector {
-  position: static
-}
-.react-international-phone-country-selector button {
-  padding-left: 14px
-}
-.react-international-phone-input {
-  width: 100%;
-  font-family: Barlow!important;
-  background: #1a1a1a!important;
-  border: none!important;
-  border-radius: 5px;
-  color: #ffffff99!important;
-  padding: 12px 14px!important;
-  outline: 0;
-  min-height: 40.67px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  font-weight: 400!important;
-  font-size: 15px!important;
-  line-height: 100%!important
-}
-.react-international-phone-input-container .react-international-phone-country-selector-button {
-  outline: 0!important;
-  background: #1a1a1a!important;
-  border: none!important;
-  border-radius: 5px;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  min-height: 40.67px
-}
-.react-international-phone-country-selector-dropdown {
-  width: 100%;
-  background: #1a1a1a!important;
-  border: 1px solid rgba(255,255,255,0)!important;
-  border-radius: 5px;
-  color: #ffffff99!important;
-  outline: 0
-}
-.react-international-phone-country-selector-dropdown__list-item--focused {
-  background: #0a84ff!important;
-  color: #fff!important
-}
-.react-international-phone-country-selector-dropdown__list-item--focused .react-international-phone-country-selector-dropdown__list-item-dial-code,
-.react-international-phone-country-selector-dropdown__list-item--selected .react-international-phone-country-selector-dropdown__list-item-dial-code {
-  color: #fff!important
-}
-.react-international-phone-country-selector-dropdown__list-item:hover {
-  background: #0a84ff!important
-}
-.react-international-phone-country-selector-dropdown__list-item-dial-code {
-  color: #fff
-}
 .swiper-pagination-bullet {
   display: inline-block;
   background: var(--swiper-pagination-bullet-inactive-color,#0a84ff)
@@ -275,6 +217,12 @@ body.menu-open .overlay {
   }
 }
 @media (max-width:767.98px) {
+  body {
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif!important
+  }
+  body * {
+    font-family: inherit!important
+  }
   .section-title {
     font-family: Barlow;
     font-weight: 700;

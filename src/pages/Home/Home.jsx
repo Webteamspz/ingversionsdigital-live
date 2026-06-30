@@ -1,35 +1,21 @@
-import { Suspense, lazy, useState, useEffect } from "react";
+import { lazy, useState, useEffect } from "react";
 
 import Hero from "../../components/Hero/Hero";
-import TrackRecord from "../../components/TrackRecord/TrackRecord";
-import Services from "../../components/Services/Services";
-import WorkProcess from "../../components/WorkProcess/WorkProcess";
-import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
-import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/preloader/preloader";
-import BlogSlider from "../../components/BlogSlider/BlogSlider";
+import DeferredComponent from "../../components/DeferredComponent/DeferredComponent";
 import "./Home.css";
 
+const TrackRecord = lazy(() => import("../../components/TrackRecord/TrackRecord"));
+const Services = lazy(() => import("../../components/Services/Services"));
+const WorkProcess = lazy(() => import("../../components/WorkProcess/WorkProcess"));
+const WhyChooseUs = lazy(() => import("../../components/WhyChooseUs/WhyChooseUs"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
-const Team = lazy(() => import("../../components/Team/Team"));
+const Contact = lazy(() => import("../../components/Contact/Contact"));
+const BlogSlider = lazy(() => import("../../components/BlogSlider/BlogSlider"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
 
 const Home = () => {
-  const [showPreloader, setShowPreloader] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const hasSeenPreloader = localStorage.getItem("hasSeenPreloader");
-    if (!hasSeenPreloader) {
-      setShowPreloader(true);
-      const timer = setTimeout(() => {
-        setShowPreloader(false);
-        localStorage.setItem("hasSeenPreloader", "true");
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
 useEffect(() => {
   const handleScroll = () => {
@@ -45,30 +31,16 @@ useEffect(() => {
 
   return (
     <>
-      {showPreloader && (
-        <Preloader
-          minDuration={1200}
-          logoSrc={"/assets/preloader/preloader.png"}
-        />
-      )}
-
       <Layout header={1} footer={1}>
         <Hero />
-        <TrackRecord />
-        <Services />
-        <WorkProcess />
-        <WhyChooseUs />
-
-        <Suspense fallback={null}>
-          <Reviews />
-        </Suspense>
-
-        <Contact />
-        <BlogSlider />
-
-        <Suspense fallback={null}>
-          <FAQ />
-        </Suspense>
+        <DeferredComponent component={TrackRecord} minHeight={300} />
+        <DeferredComponent component={Services} minHeight={560} />
+        <DeferredComponent component={WorkProcess} minHeight={540} />
+        <DeferredComponent component={WhyChooseUs} minHeight={560} />
+        <DeferredComponent component={Reviews} minHeight={520} />
+        <DeferredComponent component={Contact} id="contact" minHeight={760} />
+        <DeferredComponent component={BlogSlider} minHeight={600} />
+        <DeferredComponent component={FAQ} minHeight={520} />
       </Layout>
 
       {/* Scroll to Top Button */}

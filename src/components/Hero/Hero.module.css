@@ -254,6 +254,7 @@ textarea.cInput {
   }
   .heroTitlePill:after {
     width: 138px;
+    bottom: -4px;
     height: 46px;
     left: 50%;
     transform: translateX(-50%)
