@@ -7,6 +7,7 @@ const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
+const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
 
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
@@ -59,6 +60,7 @@ const App = () => (
         <Route path="/teampage" element={<TeamPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

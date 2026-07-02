@@ -1,0 +1,117 @@
+.heroTop {
+  text-align: center;
+  padding: 60px 0 0;
+  margin: 0 auto
+}
+.tag {
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  margin-bottom: 30px
+}
+.heading {
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  margin: 0 0 16px
+}
+.highlight {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  isolation: isolate
+}
+.highlight:after {
+  position: absolute;
+  content: "";
+  left: -4px;
+  bottom: -1px;
+  background: #0a84ff;
+  width: 195.09px;
+  height: 60px;
+  border-radius: 16px;
+  z-index: -1
+}
+.description {
+  color: #fffc;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0 auto 36px;
+  max-width: 560px
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 56px
+}
+.filterBtn {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,.08);
+    color: #fffc;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  padding: 12px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s ease,color .2s ease,border-color .2s ease;
+  white-space: nowrap
+}
+.filterBtn:hover {
+  border-color: rgba(255,255,255,.2)
+}
+.filterBtn.active {
+  background: #0a84ff;
+  border-color: #0a84ff;
+  color: #fff
+}
+@media (max-width:1199.98px) {
+  .highlight:after {
+    width: 209.09px;
+    height: 70px
+  }
+}
+@media (max-width:1023.98px) {
+  .heading {
+    font-size: 38px
+  }
+  .highlight:after {
+    width: 180px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+}
+@media (max-width:767.98px) {
+  .heading {
+    font-size: 30px
+  }
+  .description {
+    font-size: 14px
+  }
+  .highlight:after {
+    width: 138px;
+    bottom: -4px;
+    height: 46px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+    margin-bottom: 40px
+  }
+  .filterBtn {
+    padding: 12px 10px
+  }
+}

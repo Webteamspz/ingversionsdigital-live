@@ -7,6 +7,7 @@ export default {
       // { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
+      { label: "Projects", href: "/projects" },
       { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
