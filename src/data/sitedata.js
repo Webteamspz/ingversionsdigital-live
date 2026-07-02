@@ -614,10 +614,10 @@ export default {
         name: "Pricing",
         href: "/pricing",
       },
-      // {
-      //   name: "Contact Us",
-      //   href: "/#contact",
-      // },
+      {
+        name: "Projects",
+        href: "/projects",
+      },
       {
         name: "Team Page",
         href: "/teampage",
