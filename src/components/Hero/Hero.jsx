@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { useEffect, useRef, useState, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
 import { ctaClick, dl } from "../../gtm";
-import PhoneField from "../Contact/PhoneField";
 
 // CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
@@ -181,9 +180,9 @@ const Hero = () => {
           <p className={styles.heroSubtitle}>{h.sub}</p>
 
           <div className={styles.heroCtaWrap}>
-            <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
+            {/* <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
               {h.cta.label}
-            </a>
+            </a> */}
 
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
@@ -192,9 +191,8 @@ const Hero = () => {
                     key={i} 
                     src={src} 
                     alt={`Client ${i + 1}`} 
-                    priority={true} // LCP fix
-                    width="48"      // CLS fix (Adjust as per your design)
-                    height="48"     // CLS fix 
+                    width="48"
+                    height="48"
                   />
                 ))}
               </div>
@@ -247,15 +245,21 @@ const Hero = () => {
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
-                <PhoneField
-                  defaultCountry="in"
-                  classSelector={`${errors.phone ? styles.invalid : ""}`}
+                <input
+                  className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone || ""}
+                  placeholder="Phone Number"
+                  autoComplete="tel"
+                  inputMode="tel"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
-                  onChange={(val) => {
+                  onInput={(event) => {
+                    const val = event.currentTarget.value;
                     setField("phone", val);
                     if (phoneInteracted) {
                       touch("phone");
@@ -301,11 +305,7 @@ const Hero = () => {
           </form>
         </div>
       </div>
-      
-      {/* Fallback height set karein taaki shift na ho */}
-      <Suspense fallback={<div style={{ minHeight: "100px", width: "100%" }}></div>}>
-        <CompanyLogos />
-      </Suspense>
+    
     </section>
   );
 };

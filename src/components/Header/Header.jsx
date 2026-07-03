@@ -58,9 +58,11 @@ const Header = () => {
   // CTA hide/show behaviour
   const [ctaScrollMode, setCtaScrollMode] = useState(false);
   const [hideHeaderCta, setHideHeaderCta] = useState(false);
+  const [hideCtaOnHero, setHideCtaOnHero] = useState(false); // New state to hide CTA on Hero
 
-  const isTeamPage = location.pathname === "/teampage";
-  const ctaHref = isTeamPage ? "/#contact" : cta.href;
+  const isBlogPage = location.pathname.startsWith("/blog");
+  const ctaHref = isBlogPage ? cta.href : "/#hero";
+  const isHomePage = location.pathname === "/"; // Check if we are on Homepage
 
   // Restore scroll mode from sessionStorage (for cross-page navigation)
   useEffect(() => {
@@ -117,6 +119,31 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ctaScrollMode]);
+
+  // Hide CTA when Hero section is visible (Only on Homepage)
+  useEffect(() => {
+    if (!isHomePage) {
+      setHideCtaOnHero(false);
+      return;
+    }
+
+    const heroEl = document.getElementById("hero");
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideCtaOnHero(entry.isIntersecting);
+      },
+      { threshold: 0.2 } // CTA will reappear when 80% of hero is out of view
+    );
+
+    observer.observe(heroEl);
+
+    return () => {
+      if (heroEl) observer.unobserve(heroEl);
+      observer.disconnect();
+    };
+  }, [isHomePage]);
 
   const handleNavClick = (label, loc, href) => {
     ctaClick({ label, location: loc, href });
@@ -232,36 +259,6 @@ const Header = () => {
             renderMobileNavLink(linkItem, index)
           )}
         </nav>
-
-        {/* <div className={styles.menuCtaBar}>
-          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
-            <a
-              className={`btn ${styles.mobileCta}`}
-              href={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Mobile Header CTA"
-              onClick={() => {
-                handleBookCallClick("Mobile Header CTA");
-                setOpen(false);
-              }}
-            >
-              {cta.label}
-            </a>
-          ) : (
-            <Link
-              className={`btn ${styles.mobileCta}`}
-              to={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Mobile Header CTA"
-              onClick={() => {
-                handleBookCallClick("Mobile Header CTA");
-                setOpen(false);
-              }}
-            >
-              {cta.label}
-            </Link>
-          )}
-        </div> */}
       </div>
     </aside>
   );
@@ -297,8 +294,8 @@ const Header = () => {
             )}
           </nav>
 
-          {/* Desktop CTA – hidden when scroll logic says so */}
-          {!hideHeaderCta &&
+          {/* Desktop CTA – hidden when scroll logic says so OR when hero is visible */}
+          {!hideHeaderCta && !hideCtaOnHero &&
             (isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
               <a
                 className={`btn ${styles.desktopCta}`}
