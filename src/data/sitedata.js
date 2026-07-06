@@ -275,7 +275,7 @@ export default {
     list: [
       {
         q: "What is Conversion Rate Optimization?",
-        a: "Conversion Rate Optimization (CRO) is the process of refining a website to better convert visitors into customers or subscribers. Essentially, it involves boosting the percentage of visitors who complete a specific action—whether that’s making a purchase, signing up for a newsletter, or downloading a file. By carefully analyzing user behavior and employing techniques such as A/B testing, design adjustments, and improved navigation, businesses can create a more engaging and effective online experience.",
+        a: "Conversion Rate Optimization (CRO) is the process of refining a website to better convert visitors into customers or subscribers. Essentially, it involves boosting the percentage of visitors who complete a specific action—whether that's making a purchase, signing up for a newsletter, or downloading a file. By carefully analyzing user behavior and employing techniques such as A/B testing, design adjustments, and improved navigation, businesses can create a more engaging and effective online experience.",
       },
       {
         q: "How can a CRO agency help your business?",
@@ -294,7 +294,7 @@ export default {
         a: "Not necessarily. We start with targeted improvements and experiments before considering a full redesign.",
       },
       {
-        q: "Will CRO impact my website’s SEO?",
+        q: "Will CRO impact my website's SEO?",
         a: "We follow technical best practices; CRO and SEO often complement each other when implemented correctly.",
       },
       {
@@ -597,6 +597,95 @@ export default {
         url: "https://blog.ingversionsdigital.com/optimizing-shopify-core-web-vitals"
       }
     ]
+  },
+  projects: {
+    heading: "Explore Our",
+    pill: "Projects",
+    eyebrow: "Our Amazing Work",
+    sub: "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
+    filters: ["All Projects", "Websites", "Landing Pages", "E-commerce", "Branding"],
+    list: [
+       {
+      id: 1,
+      industry: "Pet Care",
+      title: "Ruff Greens",
+      type: "Landing Pages",
+      image: "/assets/project/vet-approved-guide-2026.webp",
+      link: "https://ruffgreens.com/",
+    },
+    {
+      id: 2,
+      industry: "Household Supplies",
+      title: "Match With Nature",
+      type: "Websites",
+      image: "/assets/project/Fragrance.webp",
+      link: "https://matchwithnature.com/",
+    },
+    {
+      id: 3,
+      industry: "Wireless Communication",
+      title: "Rapid Radios",
+      type: "Websites",
+      image: "/assets/project/Rapidradios.webp",
+      link: "https://rapidradios.com/",
+    },
+    {
+      id: 4,
+      industry: "Online Learning",
+      title: "Grooved Learning",
+      type: "E-commerce",
+      image: "/assets/project/codebreakers.webp",
+      link: "https://groovedlearning.com/",
+    },
+    {
+      id: 5,
+      industry: "Personal Protective Equipment",
+      title: "Safety Gear",
+      type: "E-commerce",
+      image: "/assets/project/safetgear.webp",
+      link: "https://www.safetygear.com/",
+    },
+    {
+      id: 6,
+      industry: "Jewelry & Accessories",
+      title: "Olivia & Pearl",
+      type: "Landing Pages",
+      image: "/assets/project/oliviapearl.webp",
+      link: "https://oliviaandpearl.com/",
+    },
+    {
+      id: 7,
+      industry: "Mattresses & Sleep Products",
+      title: "Sonno",
+      type: "Landing Pages",
+      image: "/assets/project/sonno.webp",
+      link: "https://www.sleepsonno.com/",
+    },
+    {
+      id: 8,
+      industry: "Fashion",
+      title: "Manto Store",
+      type: "E-commerce",
+      image: "/assets/project/manto.webp",
+      link: "https://www.manto.ae/",
+    },
+    {
+      id: 9,
+      industry: "Outdoor Play Equipment",
+      title: "Bijou Build",
+      type: "Landing Pages",
+      image: "/assets/project/bijoubuild.webp",
+      link: "https://bijoubuild.com/",
+    },
+    {
+      id: 10,
+      industry: "Business",
+      title: "Dan Henry Watches",
+      type: "Websites",
+      image: "/assets/project/danhenry.jpg",
+      link: "https://danhenrywatches.com/",
+    }
+    ],
   },
   footer: {
     logo: "/assets/logos/main-logo.png",

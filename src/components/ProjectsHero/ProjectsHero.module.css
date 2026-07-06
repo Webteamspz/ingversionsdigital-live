@@ -53,26 +53,26 @@
   margin-bottom: 56px
 }
 .filterBtn {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,.08);
-    color: #fffc;
-    text-align: center;
-    font-weight: 400;
-    font-size: 16px;
+    cursor: pointer;
+    background-color: #141414;
+    border: 1px solid #0000;
+    color: #fff;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 700;
     line-height: 150%;
-  padding: 12px 24px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background .2s ease,color .2s ease,border-color .2s ease;
+    transition: all .2s;
   white-space: nowrap
 }
-.filterBtn:hover {
-  border-color: rgba(255,255,255,.2)
-}
 .filterBtn.active {
-  background: #0a84ff;
   border-color: #0a84ff;
-  color: #fff
+    color: #fff;
+    background-color: #0a84ff;
+}
+.filterBtn.inactive {
+color: #d1d5db;
+    background-color: #ffffff1a;
 }
 @media (max-width:1199.98px) {
   .highlight:after {

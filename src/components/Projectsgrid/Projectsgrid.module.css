@@ -19,10 +19,10 @@
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.card:hover {
+/* .card:hover {
   transform: translateY(-4px);
   border-color: rgba(23, 112, 255, 0.5);
-}
+} */
 
 .imageWrap {
   width: 100%;
@@ -39,9 +39,9 @@
   transition: transform 0.4s ease;
 }
 
-.card:hover .imageWrap img {
+/* .card:hover .imageWrap img {
   transform: scale(1.06);
-}
+} */
 
 .cardFooter {
   display: flex;
@@ -122,11 +122,11 @@
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
   }
-
+/* 
   .viewMoreBtn:hover {
     background: #1770ff;
     color: #fff;
-  }
+  } */
 
   .chevron {
     font-size: 12px;

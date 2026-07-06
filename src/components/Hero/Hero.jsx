@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
 import { ctaClick, dl } from "../../gtm";
-import DeferredComponent from "../DeferredComponent/DeferredComponent";
+
 
 // CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
@@ -307,13 +307,6 @@ const Hero = () => {
           </form>
         </div>
       </div>
-      
-      <DeferredComponent
-        component={CompanyLogos}
-        id="client-logos"
-        minHeight={170}
-        rootMargin="300px 0px"
-      />
     </section>
   );
 };
