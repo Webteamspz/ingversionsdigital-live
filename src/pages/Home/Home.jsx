@@ -47,7 +47,7 @@ useEffect(() => {
     <>
       {showPreloader && (
         <Preloader
-          minDuration={1200}
+          minDuration={800}
           logoSrc={"/assets/preloader/preloader.png"}
         />
       )}
