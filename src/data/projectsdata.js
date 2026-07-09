@@ -16,6 +16,7 @@ const projectsData = {
     "A/B Testing",
     "E-commerce",
     "Shopify",
+    "Q&A"
   ],
 
   // ---------- Project cards ----------
