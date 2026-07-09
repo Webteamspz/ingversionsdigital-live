@@ -218,6 +218,14 @@ body.menu-open .overlay {
   display: -ms-inline-flexbox;
   display: inline-flex
 }
+
+/* CTA is always rendered/laid out — this just visually hides it while
+   keeping its box (and therefore the header's spacing) exactly the same. */
+.desktopCtaHidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @media (max-width:1023.98px) {
   .nav {
     display: none

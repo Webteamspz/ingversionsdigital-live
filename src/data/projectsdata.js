@@ -13,16 +13,18 @@ const projectsData = {
   filters: [
     "All Projects",
     "Websites",
-    "Landing Pages",
+    "A/B Testing",
     "E-commerce",
-    "Branding",
+    "Shopify",
   ],
 
   // ---------- Project cards ----------
-  // industry -> small label shown above the title (e.g. "Fitness")
-  // type     -> must match one of the values in `filters` above (used for filtering)
-  // image    -> path/URL to the project thumbnail
-  // link     -> where the card should navigate to (live site / case study)
+  // industry    -> small label shown above the title (e.g. "Fitness")
+  // type        -> must match one of the values in `filters` above (used for filtering)
+  // image       -> path/URL to the project thumbnail shown in the grid
+  // beforeImage -> (OPTIONAL) path to the "Before" image for the modal slider
+  // afterImage  -> (OPTIONAL) path to the "After" image for the modal slider
+  // link        -> where the card should navigate to (live site / case study)
   projects: [
     {
       id: 1,
@@ -44,8 +46,11 @@ const projectsData = {
       id: 3,
       industry: "Wireless Communication",
       title: "Rapid Radios",
-      type: "Websites",
+      type: "A/B Testing",
       image: "/assets/project/Rapidradios.webp",
+      mainImage: "/assets/project/Rapidradios.webp",
+      beforeImage: "/assets/project/afterrapidradio.png",
+      afterImage: "/assets/project/beforerapidradio.png",
       link: "https://rapidradios.com/",
     },
     {
@@ -54,6 +59,7 @@ const projectsData = {
       title: "Grooved Learning",
       type: "E-commerce",
       image: "/assets/project/codebreakers.webp",
+      // No before/after images here -> Clicking this will just open a single large modal image!
       link: "https://groovedlearning.com/",
     },
     {
@@ -68,15 +74,19 @@ const projectsData = {
       id: 6,
       industry: "Jewelry & Accessories",
       title: "Olivia & Pearl",
-      type: "Landing Pages",
+      type: "A/B Testing",
       image: "/assets/project/oliviapearl.webp",
+      beforeImage: "/assets/project/Beforenecklace.png", 
+      afterImage: "/assets/project/afternecklace.png",
       link: "https://oliviaandpearl.com/",
     },
     {
       id: 7,
       industry: "Mattresses & Sleep Products",
       title: "Sonno",
-      type: "Landing Pages",
+      type: "A/B Testing",
+      beforeImage: "/assets/project/beforesonno.png", 
+      afterImage: "/assets/project/aftersonno.png",
       image: "/assets/project/sonno.webp",
       link: "https://www.sleepsonno.com/",
     },
@@ -92,7 +102,9 @@ const projectsData = {
       id: 9,
       industry: "Outdoor Play Equipment",
       title: "Bijou Build",
-      type: "Landing Pages",
+      type: "A/B Testing",
+      beforeImage: "/assets/project/beforebijou.png", 
+      afterImage: "/assets/project/afterbijou.png",
       image: "/assets/project/bijoubuild.webp",
       link: "https://bijoubuild.com/",
     },
@@ -104,70 +116,22 @@ const projectsData = {
       image: "/assets/project/danhenry.jpg",
       link: "https://danhenrywatches.com/",
     },
-    // {
-    //   id: 11,
-    //   industry: "Business",
-    //   title: "Elite Consulting",
-    //   type: "Websites",
-    //   image: "/assets/projects/elite-consulting.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 12,
-    //   industry: "Jewelry",
-    //   title: "Golden Touch",
-    //   type: "E-commerce",
-    //   image: "/assets/projects/golden-touch.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 13,
-    //   industry: "Education",
-    //   title: "Bright Future Academy",
-    //   type: "Websites",
-    //   image: "/assets/projects/bright-future-academy.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 14,
-    //   industry: "Healthcare",
-    //   title: "LifeCare Hospital",
-    //   type: "Websites",
-    //   image: "/assets/projects/lifecare-hospital.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 15,
-    //   industry: "Art & Design",
-    //   title: "Color Canvas",
-    //   type: "Branding",
-    //   image: "/assets/projects/color-canvas.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 16,
-    //   industry: "Technology",
-    //   title: "CodeCraft Labs",
-    //   type: "Websites",
-    //   image: "/assets/projects/codecraft-labs.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 17,
-    //   industry: "Fitness",
-    //   title: "Zen Yoga Studio",
-    //   type: "Landing Pages",
-    //   image: "/assets/projects/zen-yoga-studio.jpg",
-    //   link: "#",
-    // },
-    // {
-    //   id: 18,
-    //   industry: "Entertainment",
-    //   title: "BeatWave Events",
-    //   type: "Branding",
-    //   image: "/assets/projects/beatwave-events.jpg",
-    //   link: "#",
-    // },
+    {
+      id: 11,
+      industry: "Healthcare",
+      title: "JS Dental",
+      type: "Websites",
+      image: "/assets/project/jsdental.webp",
+      link: "https://jsdentallab.com/",
+    },
+    {
+      id: 12,
+      industry: "Fitness",
+      title: "SHAPERLUV",
+      type: "Shopify",
+      image: "/assets/project/shaperluv.webp",
+      link: "https://shaperluv.com/",
+    },
   ],
 
   // ---------- Bottom call-to-action box ----------

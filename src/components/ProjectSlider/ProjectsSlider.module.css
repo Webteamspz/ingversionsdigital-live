@@ -6,71 +6,54 @@
 .startedContainer {
   position: relative;
 }
-.eyebrow {
-  text-align: center;
-  color: #a3a3a3;
-  font-size: 14px;
-  font-weight: 500;
-  margin: 0 0 10px;
+
+/* === Header row — copied 1:1 from BlogSlider.css .blog-section-header === */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 .startedTitle {
+  font-family: Barlow, sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;
   color: #fff;
-  text-align: center;
-  margin: 0 0 16px;
+  margin: 0;
+  text-align: left;
 }
-.pill {
-  background: #0a84ff;
-  color: #fff;
-  padding: 4px 14px;
-  border-radius: 12px;
-  display: inline-block;
-}
-.subText {
-  text-align: center;
-  color: #a3a3a3;
-  max-width: 640px;
-  margin: 0 auto 32px;
-  font-size: 16px;
-  line-height: 150%;
-}
-
-/* Filter tabs */
-.filterTabs {
-  display: flex;
-  flex-wrap: wrap;
+.seeMoreLink {
+  display: inline-flex;
+  width: 100%;
+  max-width: 162px;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.filterBtn {
-  padding: 8px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #141414;
-  color: #d4d4d4;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.filterBtn:hover {
-  background: #1e1e1e;
-}
-.filterBtnActive,
-.filterBtnActive:hover {
+  padding: 14px 22px;
+  border-radius: 10px;
   background: #0a84ff;
-  border-color: #0a84ff;
   color: #fff;
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+  font-family: Barlow, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #0a84ff;
+  cursor: pointer;
 }
+.seeMoreLink:hover {
+  background: #ffffff1a;
+  color: #0a84ff;
+}
+/* ========================================================================= */
 
 /* ===== Slider + arrows — same mechanics/classes as Reviews.module.css ===== */
 .testimonialSlider {
   position: relative;
-  padding: 8px 35px 36px !important;
+  padding: 8px 0px 36px !important;
   margin-top: 20px;
 }
 .testimonialSlider::after,
@@ -93,7 +76,7 @@
 
 .tsNav {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(calc(-50% + 38px));
   width: 52px;
   height: 52px;
@@ -143,10 +126,7 @@
   text-decoration: none;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
-/* .cardLink:hover {
-  border-color: rgba(10, 132, 255, 0.5);
-  transform: translateY(-2px);
-} */
+
 .cardImageWrap {
   width: 100%;
   height: 200px;
@@ -160,9 +140,7 @@
   display: block;
   transition: transform 0.4s ease;
 }
-/* .cardLink:hover .cardImage {
-  transform: scale(1.05);
-} */
+
 .cardBody {
   display: flex;
   align-items: center;
@@ -226,11 +204,24 @@
   .testimonialSlider {
     padding: 8px 0 36px !important;
   }
+  .sectionHeader {
+    margin-bottom: 30px;
+  }
   .startedTitle {
     font-family: Barlow;
     font-weight: 700;
     font-size: 24px;
     line-height: 120%;
-    text-align: center;
+    text-align: left;
+  }
+  .seeMoreLink {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .seeMoreLink {
+    width: 100%;
+    max-width: 130px;
   }
 }

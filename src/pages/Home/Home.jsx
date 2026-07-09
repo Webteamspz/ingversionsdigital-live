@@ -14,9 +14,7 @@ import "./Home.css";
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
-// NOTE: filename casing must match the actual file exactly
-// (components/ProjectSlider/ProjectsSlider.jsx) or this import breaks
-// on case-sensitive hosts like Vercel/Netlify/Linux CI.
+const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
 const ProjectsSlider = lazy(() => import("../../components/ProjectSlider/ProjectsSlider"));
 
 const Home = () => {
@@ -72,6 +70,10 @@ const Home = () => {
 
         <Suspense fallback={null}>
           <ProjectsSlider />
+        </Suspense>
+
+        <Suspense fallback={null}>
+          <EngagementModels />
         </Suspense>
 
         <Suspense fallback={null}>

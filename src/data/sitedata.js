@@ -152,6 +152,57 @@ export default {
       },
     ],
   },
+  engagement: {
+    heading: "Flexible Engagement Models",
+    sub: "We recognize that every business has unique needs and priorities. That's why we offer flexible engagement models to deliver the support and expertise you need, when you need it.",
+    list: [
+      {
+        title: "Retainer-Based Partnerships",
+        desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
+        icon: "/assets/engagement/retainer.png",
+        features: [
+          "Predictable Costs",
+          "Dedicated Resources",
+          "Priority Service",
+          "Long-Term Collaboration",
+        ],
+        cta: {
+          label: "Learn more",
+          href: "#contact",
+        },
+      },
+      {
+        title: "Block of Hours",
+        desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
+        icon: "/assets/engagement/hoursblock.png",
+        features: [
+          "Flexibility",
+          "On-Demand Support",
+          "Budget Control",
+          "Trial Opportunity",
+        ],
+        cta: {
+          label: "Learn more",
+          href: "#contact",
+        },
+      },
+      {
+        title: "Project-Based Engagements",
+        desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
+        icon: "/assets/engagement/projectengagement.png",
+        features: [
+          "Defined Scope and Timeline",
+          "Focused Expertise",
+          "Transparent Pricing",
+          "Specialized Solutions",
+        ],
+        cta: {
+          label: "Learn more",
+          href: "#contact",
+        },
+      },
+    ],
+  },
   why: {
     heading: "Why Choose Us",
     list: [
@@ -210,7 +261,7 @@ export default {
         reviewer: "Mia L.",
         reviewerRole: "Head of Product",
         quote:
-          "Their A/B testing insights were game-changing. We’re finally making decisions with data, not guesses.",
+          "Their A/B testing insights were game-changing. We're finally making decisions with data, not guesses.",
       },
     ],
   },
@@ -599,11 +650,9 @@ export default {
     ]
   },
   projects: {
-    heading: "Explore Our",
-    pill: "Projects",
-    eyebrow: "Our Amazing Work",
-    sub: "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
-    filters: ["All Projects", "Websites", "Landing Pages", "E-commerce", "Branding"],
+    heading: "Our Work",
+       seeMoreText: "Discover",
+    seeMoreUrl: "/projects",
     list: [
        {
       id: 1,

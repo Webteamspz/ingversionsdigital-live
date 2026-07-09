@@ -76,8 +76,8 @@ color: #d1d5db;
 }
 @media (max-width:1199.98px) {
   .highlight:after {
-    width: 209.09px;
-    height: 70px
+        width: 186.09px;
+        height: 60px;
   }
 }
 @media (max-width:1023.98px) {
@@ -85,8 +85,8 @@ color: #d1d5db;
     font-size: 38px
   }
   .highlight:after {
-    width: 180px;
-    height: 60px;
+    width: 150px;
+        height: 50px;
     left: 50%;
     transform: translateX(-50%)
   }
@@ -99,7 +99,7 @@ color: #d1d5db;
     font-size: 14px
   }
   .highlight:after {
-    width: 138px;
+    width: 120px;
     bottom: -4px;
     height: 46px;
     left: 50%;

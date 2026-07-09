@@ -1,69 +1,74 @@
 .gridWrap {
-  width: 100%;
+  width: 100%
 }
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px
 }
-
 .card {
   display: flex;
   flex-direction: column;
   background: #141414;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(255,255,255,.06);
+  transition: transform .25s ease,border-color .25s ease
 }
-
-/* .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(23, 112, 255, 0.5);
-} */
-
 .imageWrap {
   width: 100%;
-  aspect-ratio: 1 / 1.05;
+  aspect-ratio: 1/1.05;
   overflow: hidden;
   background: #1a1a1a;
+  position: relative;
+  cursor: pointer
 }
-
 .imageWrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform .4s ease
 }
-
-/* .card:hover .imageWrap img {
-  transform: scale(1.06);
-} */
-
+.imageWrap:hover img {
+  transform: scale(1.06)
+}
+.zoomHint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,.1)
+}
+.imageWrap:hover .zoomHint {
+  opacity: 1
+}
 .cardFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 16px 18px;
+  text-decoration: none
 }
-
 .cardText {
-  min-width: 0;
+  min-width: 0
 }
-
 .category {
   display: block;
-  color: #4ea1ff;
+  color: #0a84ff;
   font-size: 12px;
   font-weight: 500;
   text-transform: capitalize;
-  margin-bottom: 4px;
+  margin-bottom: 4px
 }
-
 .title {
   color: #fff;
   font-size: 17px;
@@ -71,40 +76,188 @@
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis
 }
-
 .arrow {
   flex-shrink: 0;
-  color: #1770ff;
+  color: #0a84ff;
   font-size: 20px;
-  line-height: 1;
+  line-height: 1
 }
-
 .empty {
-  grid-column: 1 / -1;
+  grid-column: 1/-1;
   text-align: center;
   color: #ffffff80;
-  padding: 60px 0;
+  padding: 60px 0
 }
-
 .viewMoreBtn {
-  display: none;
+  display: none
 }
-
-@media (max-width: 1023.98px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out
+}
+.modalContent {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background: #141414;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,.6)
+}
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background .2s ease,transform .2s ease
+}
+.closeBtn:hover {
+  background: #0a84ff;
+  transform: scale(1.1)
+}
+.modalSingleImage {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  background: #090909
+}
+.modalCaption {
+  padding: 16px 24px;
+  background: #141414;
+  border-top: 1px solid rgba(255,255,255,.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.modalCaption h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 18px
+}
+.modalCaption span {
+  color: #0a84ff;
+  font-size: 14px;
+  font-weight: 500
+}
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  max-height: 75vh;
+  overflow: hidden;
+  background: #141414;
+  user-select: none
+}
+.sliderImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none
+}
+.clippedLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #090909;
+  transition: clip-path 50ms linear
+}
+.sliderInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 5;
+  margin: 0
+}
+.sliderHandleWrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 4
+}
+.sliderLine {
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,.5)
+}
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 48px;
+  height: 48px;
+  background: #141414;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,.4)
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(.98)
+  }
+  to {
+    opacity: 1;
+    transform: scale(1)
   }
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:1023.98px) {
   .grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px
   }
-
+}
+@media (max-width:767.98px) {
+  .grid {
+    grid-template-columns: repeat(1,1fr);
+    gap: 20px
+  }
   .viewMoreBtn {
     display: flex;
     align-items: center;
@@ -113,22 +266,19 @@
     width: 100%;
     margin-top: 32px;
     padding: 15px 20px;
-    background: transparent;
-    border: 1px solid #1770ff;
-    color: #1770ff;
+    background: 0 0;
+    border: 1px solid #0a84ff;
+    color: #0a84ff;
     font-weight: 600;
     font-size: 15px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background .2s ease,color .2s ease
   }
-/* 
-  .viewMoreBtn:hover {
-    background: #1770ff;
-    color: #fff;
-  } */
-
   .chevron {
-    font-size: 12px;
+    font-size: 12px
+  }
+  .sliderContainer {
+    height: 45vh
   }
 }

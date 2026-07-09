@@ -28,7 +28,7 @@ const AboutExpertise = () => {
     // 2. Classes ko styles object ke through pass kiya
     <section className={styles.aboutExpertise} id="coreExpertise">
       <div className="container"> 
-        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCenter}`}>
+        <h2 className="section-title">
           Core Expertise
         </h2>
         <p className={styles.sectionSubtitle}>

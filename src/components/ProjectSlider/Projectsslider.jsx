@@ -11,9 +11,9 @@ import styles from "./ProjectsSlider.module.css";
 const MAX_VISIBLE = 10;
 
 export default function ProjectsSlider() {
-  const { heading, pill, eyebrow, sub, filters, list } = data.projects;
+  const { heading, list, seeMoreText, seeMoreUrl } = data.projects;
 
-  const [activeFilter, setActiveFilter] = useState("All Projects");
+  const [activeFilter] = useState("All Projects");
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
@@ -28,25 +28,15 @@ export default function ProjectsSlider() {
   return (
     <section className={styles.startedSection} id="projects">
       <div className={`container ${styles.startedContainer}`}>
-        {/* <p className={styles.eyebrow}>{eyebrow}</p> */}
-        <h3 className={`section-title ${styles.startedTitle}`}>
-          {heading} <span className={styles.pill}>{pill}</span>
-        </h3>
-        {/* <p className={styles.subText}>{sub}</p> */}
+        {/* === Header row, same pattern as BlogSlider === */}
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.startedTitle}>{heading}</h2>
 
-        {/* <div className={styles.filterTabs}>
-          {filters.map((tab) => (
-            <button
-              key={tab}
-              className={`${styles.filterBtn} ${
-                activeFilter === tab ? styles.filterBtnActive : ""
-              }`}
-              onClick={() => setActiveFilter(tab)}
-            >
-              {tab}
-            </button>
-          ))}
-        </div> */}
+          <a href={seeMoreUrl} className={styles.seeMoreLink}>
+            {seeMoreText}
+          </a>
+        </div>
+        {/* ================================================ */}
 
         <button
           className={`${styles.tsNav} ${styles.tsPrev}`}
