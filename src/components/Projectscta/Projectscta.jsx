@@ -1,5 +1,5 @@
-import styles from "./ProjectsCTA.module.css";
-import data from "../../data/projectsData";
+import styles from "./Projectscta.module.css";
+import data from "../../data/projectsdata";
 
 const ProjectsCTA = () => {
   return (

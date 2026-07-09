@@ -15,7 +15,7 @@ const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
 const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
-const ProjectsSlider = lazy(() => import("../../components/ProjectSlider/ProjectsSlider"));
+const ProjectsSlider = lazy(() => import("../../components/ProjectSlider/Projectsslider"));
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);

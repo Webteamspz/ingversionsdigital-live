@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./ProjectsGrid.module.css";
+import styles from "./Projectsgrid.module.css";
 
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;

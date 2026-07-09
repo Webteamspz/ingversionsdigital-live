@@ -1,5 +1,5 @@
 import styles from "./ProjectsHero.module.css";
-import data from "../../data/projectsData";
+import data from "../../data/projectsdata";
 
 const ProjectsHero = ({ activeFilter, onFilterChange }) => {
   return (
