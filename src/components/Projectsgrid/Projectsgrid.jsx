@@ -4,42 +4,38 @@ import styles from "./Projectsgrid.module.css";
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
-// Sub-component for the interactive 3-image comparison slider
-// mainImg  = static center image, fully visible when sliderPos = 50 (rest)
-// afterImg = revealed growing in from the LEFT as sliderPos moves below 50 (drag left)
-// beforeImg = revealed growing in from the RIGHT as sliderPos moves above 50 (drag right)
-const BeforeAfterSlider = ({ mainImg, beforeImg, afterImg, title }) => {
-  const [sliderPos, setSliderPos] = useState(50); // 50 = centered, mainImg fully visible
-
-  // How much of afterImg to reveal (0-100), only when dragging left of center
-  const leftReveal = sliderPos < 50 ? ((50 - sliderPos) / 50) * 100 : 0;
-  // How much of beforeImg to reveal (0-100), only when dragging right of center
-  const rightReveal = sliderPos > 50 ? ((sliderPos - 50) / 50) * 100 : 0;
+// Sub-component for the interactive 2-image comparison slider
+// beforeImg = background layer, always fully visible underneath
+// afterImg  = top layer, revealed from the LEFT as sliderPos increases (drag right)
+const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
+  const [sliderPos, setSliderPos] = useState(50); // 0 = only before, 100 = only after
 
   return (
     <div className={styles.sliderContainer}>
-      {/* Main Image (Background layer, always fully visible underneath) */}
-      <img src={mainImg} alt={`${title}`} className={styles.sliderImage} />
+      {/* Before Image (background layer, always fully visible) */}
+      <img src={beforeImg} alt={`Before - ${title}`} className={styles.sliderImage} />
 
-      {/* After Image (revealed from the LEFT edge as slider is dragged left) */}
-      {afterImg && (
-        <div
-          className={styles.clippedLayer}
-          style={{ clipPath: `inset(0 ${100 - leftReveal}% 0 0)` }}
-        >
-          <img src={afterImg} alt={`After - ${title}`} className={styles.sliderImage} />
-        </div>
-      )}
+      {/* After Image (revealed from the LEFT edge as slider moves right) */}
+      <div
+        className={styles.clippedLayer}
+        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+      >
+        <img src={afterImg} alt={`After - ${title}`} className={styles.sliderImage} />
+      </div>
 
-      {/* Before Image (revealed from the RIGHT edge as slider is dragged right) */}
-      {beforeImg && (
-        <div
-          className={styles.clippedLayer}
-          style={{ clipPath: `inset(0 0 0 ${100 - rightReveal}%)` }}
-        >
-          <img src={beforeImg} alt={`Before - ${title}`} className={styles.sliderImage} />
-        </div>
-      )}
+      {/* Labels fade in/out based on how much of that image is currently revealed */}
+      <span
+        className={`${styles.sliderLabel} ${styles.labelBefore}`}
+        style={{ opacity: (100 - sliderPos) / 100 }}
+      >
+        Before
+      </span>
+      <span
+        className={`${styles.sliderLabel} ${styles.labelAfter}`}
+        style={{ opacity: sliderPos / 100 }}
+      >
+        After
+      </span>
 
       {/* Invisible range input overlaying the entire container to capture drags/touches */}
       <input
@@ -103,13 +99,12 @@ const ProjectsGrid = ({ projects }) => {
     <div className={styles.gridWrap}>
       <div className={styles.grid}>
         {visibleProjects.map((project) => {
-          // A project gets the slider modal if it has at least one of beforeImage / afterImage.
-          // The resting/center layer is mainImage, falling back to the thumbnail image.
-          const hasSlider = Boolean(project.beforeImage || project.afterImage);
+          // A project gets the slider modal only if it has BOTH before and after images.
+          const hasSlider = Boolean(project.beforeImage && project.afterImage);
 
           return (
             <div key={project.id} className={styles.card}>
-              {/* If project has slider images, clicking opens the lightbox/slider modal.
+              {/* If project has both before/after images, clicking opens the slider modal.
                   Otherwise, clicking the thumbnail navigates directly to the project link. */}
               {hasSlider ? (
                 <div
@@ -193,11 +188,10 @@ const ProjectsGrid = ({ projects }) => {
               &times;
             </button>
 
-            {/* If project has slider images, render the 3-image slider (main center, after left, before right).
+            {/* If project has both before/after images, render the 2-image slider.
                 Otherwise render single large image. */}
-            {selectedProject.beforeImage || selectedProject.afterImage ? (
+            {selectedProject.beforeImage && selectedProject.afterImage ? (
               <BeforeAfterSlider
-                mainImg={selectedProject.mainImage || selectedProject.image}
                 beforeImg={selectedProject.beforeImage}
                 afterImg={selectedProject.afterImage}
                 title={selectedProject.title}
