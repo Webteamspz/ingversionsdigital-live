@@ -1,3 +1,8 @@
 .teamPage {
-  padding: 136px 0 80px;
+  padding: 120px 0 80px;
+}
+@media (max-width:767.98px) {
+  .teamPage {
+    padding-top: 80px;
+  }
 }

@@ -7,7 +7,7 @@ import WorkProcess from "../../components/WorkProcess/WorkProcess";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/Preloader/Preloader";
+import Preloader from "../../components/preloader/preloader";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
 import "./Home.css";
 

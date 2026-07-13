@@ -5,7 +5,7 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "./PricingComparison.css";
 
-import data from "../../data/siteData";
+import data from "../../data/sitedata";
 
 import checkIcon from "/assets/pricing/tickmark.svg";
 import crossIcon from "/assets/pricing/cross.svg";

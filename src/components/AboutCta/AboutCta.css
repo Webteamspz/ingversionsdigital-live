@@ -1,5 +1,5 @@
 .aboutCta {
-  padding: 60px 0
+  padding: 50px 0
 }
 .aboutCta-box {
   margin: 0 auto;
@@ -54,6 +54,9 @@
   color: #0a84ff
 }
 @media (max-width:767.98px) {
+  .aboutCta {
+    padding: 40px 0
+  }
   .aboutCta-box {
     padding: 2rem 1.5rem
   }

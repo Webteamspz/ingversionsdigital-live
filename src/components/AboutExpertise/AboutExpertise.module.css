@@ -1,5 +1,5 @@
 .aboutExpertise {
-  padding: 50px 0 34px
+  padding-top: 50px;
 }
 .sectionTitleCenter {
   text-align: center
@@ -81,6 +81,9 @@
   }
 }
 @media (max-width:767.98px) {
+  .aboutExpertise {
+  padding: 40px 0;
+}
   .sectionSubtitle {
     font-weight: 400;
     font-size: 14px
