@@ -18,22 +18,22 @@
     <meta name="author" content="Ingversions Digital" />
     <meta name="theme-color" content="#030303" />
 
-    <!-- FAVICONS (Google requires PNG for search icons) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="/assets/frame.svg" as="image" type="image/svg+xml">
+
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/logos/logo-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/logos/logo-96.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/logos/logo-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/logos/logo-512.png" />
 
-    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 
-    <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://ingversionsdigital.com/" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ingversionsdigital.com/" />
     <meta
@@ -49,23 +49,13 @@
       content="https://ingversionsdigital.com/assets/seo/og-image.jpg"
     />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Ingversions Digital | Shopify Development & CRO Agency"
-    />
-    <meta
-      name="twitter:description"
-      content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts."
-    />
-    <meta
-      name="twitter:image"
-      content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg"
-    />
-    <meta name="twitter:site" content="@ingversions" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ingversions Digital | Shopify Development & CRO Agency">
+    <meta name="twitter:description" content="High-performance Shopify stores built for conversion. A/B testing, CRO, and development experts.">
+    <meta name="twitter:image" content="https://ingversionsdigital.com/assets/seo/twitter-image.jpg">
+    <meta name="twitter:site" content="@ingversions">
+    <meta name="keywords" content="Ingversions,ingversions,inversions,versions,cro, CRO,ingversionsdigital,digital inversion,ingversion, Inversions, Ingversion, Ingversions Digital" />
 
-    <!-- Org Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -81,47 +71,21 @@
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-8103684321",
+          "telephone": "+91-8866167750",
           "contactType": "customer service",
-          "email": "hello@ingversionsdigital.com",
+          "email": "ingversionsdigital@gmail.com",
           "areaServed": "Worldwide",
           "availableLanguage": ["English", "Hindi"]
         }
       }
     </script>
 
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-
-    <!-- GTM -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src =
-          "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
-    </script>
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
   </head>
 
   <body>
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe>
-    </noscript>
-
     <div id="root"></div>
-
-    <!-- Vite Entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
