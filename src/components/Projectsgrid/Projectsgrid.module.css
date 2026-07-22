@@ -13,8 +13,24 @@
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.06);
-  transition: transform .25s ease,border-color .25s ease
+  transition: transform .25s ease,border-color .25s ease;
+  position: relative;
+  isolation: isolate
 }
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+  z-index: 2
+}
+.card:hover::after {
+  opacity: 1
+}
+
 .imageWrap {
   width: 100%;
   aspect-ratio: 1/1.05;
@@ -45,7 +61,8 @@
   opacity: 0;
   transition: opacity .3s ease;
   pointer-events: none;
-  border: 1px solid rgba(255,255,255,.1)
+  border: 1px solid rgba(255,255,255,.1);
+  z-index: 3
 }
 .imageWrap:hover .zoomHint {
   opacity: 1
@@ -56,7 +73,9 @@
   justify-content: space-between;
   gap: 12px;
   padding: 16px 18px;
-  text-decoration: none
+  text-decoration: none;
+  position: relative;
+  z-index: 3
 }
 .cardText {
   min-width: 0

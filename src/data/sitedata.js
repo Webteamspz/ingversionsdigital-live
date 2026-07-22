@@ -3,11 +3,11 @@ export default {
     links: [
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
+      { label: "Projects", href: "/projects" },
       { label: "Pricing", href: "/pricing" },
       // { label: "Contact Us", href: "/#contact" },
-      { label: "Team Page", href: "/teampage" },
+      // { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
-      { label: "Projects", href: "/projects" },
       { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
@@ -168,7 +168,7 @@ export default {
         ],
         cta: {
           label: "Learn more",
-          href: "#contact",
+          href: "/pricing",
         },
       },
       {
@@ -182,7 +182,7 @@ export default {
           "Trial Opportunity",
         ],
         cta: {
-          label: "Learn more",
+          label: "Contact Us",
           href: "#contact",
         },
       },
@@ -197,7 +197,7 @@ export default {
           "Specialized Solutions",
         ],
         cta: {
-          label: "Learn more",
+          label: "Contact Us",
           href: "#contact",
         },
       },
@@ -736,37 +736,26 @@ export default {
     }
     ],
   },
-  footer: {
+footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
-    links: [
+    linkGroups: [
       {
-        name: "Home",
-        href: "/#hero",
-      },
-      {
-        name: "Services",
-        href: "/#services",
-      },
-      {
-        name: "Pricing",
-        href: "/pricing",
+        title: "Quick Links",
+        links: [
+          { name: "Home", href: "/#hero" },
+          { name: "Services", href: "/#services" },
+          { name: "Pricing", href: "/pricing" },
+          { name: "Projects", href: "/projects" },
+        ],
       },
       {
-        name: "Projects",
-        href: "/projects",
-      },
-      {
-        name: "Team Page",
-        href: "/teampage",
-      },
-       {
-        name: "About Us",
-        href: "/about-us",
-      },
-       {
-        name: "Blog",
-        href: "https://blog.ingversionsdigital.com/",
+        title: "Company",
+        links: [
+          { name: "Team Page", href: "/teampage" },
+          { name: "About Us", href: "/about-us" },
+          { name: "Blog", href: "https://blog.ingversionsdigital.com/" },
+        ],
       },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",

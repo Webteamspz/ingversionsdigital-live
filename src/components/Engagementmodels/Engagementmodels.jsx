@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Engagement.css";
 import siteData from "../../data/sitedata";
+import ContactModal from "../ContactModal/ContactModal";
 
 const EngagementModels = () => {
   const { heading, sub, list } = siteData.engagement;
+  
+  // State to handle modal visibility and track which card was clicked
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalSource, setModalSource] = useState(""); 
+
+  // Updated handler to accept the model title
+  const handleCtaClick = (e, cta, title) => {
+    if (cta.href === "#contact") {
+      e.preventDefault();
+      setModalSource(title); // Save the specific card title (e.g., "Block of Hours")
+      setIsModalOpen(true);
+    }
+  };
 
   return (
     <section className="engagement-section" id="engagement">
@@ -46,13 +60,25 @@ const EngagementModels = () => {
                 ))}
               </ul>
 
-              <a href={model.cta.href} className="engagement-learn-more-btn">
+              <a
+                href={model.cta.href}
+                className="engagement-learn-more-btn"
+                // Pass the model.title into the click handler
+                onClick={(e) => handleCtaClick(e, model.cta, model.title)}
+              >
                 {model.cta.label}
               </a>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Pass the captured title to the ContactModal via the source prop */}
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        source={modalSource} 
+      />
     </section>
   );
 };

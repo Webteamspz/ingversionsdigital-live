@@ -16,7 +16,6 @@ const projectsData = {
     "A/B Testing",
     "E-commerce",
     "Shopify",
-    "Q&A"
   ],
 
   // ---------- Project cards ----------
@@ -132,6 +131,44 @@ const projectsData = {
       type: "Shopify",
       image: "/assets/project/shaperluv.webp",
       link: "https://shaperluv.com/",
+    },
+      {
+      id: 13,
+      industry: "Luxury Home Decor",
+      title: "Belare Home ",
+      type: "A/B Testing",
+      beforeImage: "/assets/project/beforebelare.png", 
+      afterImage: "/assets/project/afterbelare.png",
+      image: "/assets/project/belare.jpg",
+      link: "https://www.belarehome.com/",
+    },
+       {
+      id: 14,
+      industry: "Wellness",
+      title: "UltimaPeak ",
+      type: "A/B Testing",
+      beforeImage: "/assets/project/beforeultimapeak.png", 
+      afterImage: "/assets/project/afterultimapeak.png",
+      image: "/assets/project/ultimapeak.webp",
+      link: "https://www.ultimapeak.com/",
+    },
+      {
+      id: 15,
+      industry: "Alchoholic Beverages",
+      title: "Glass Vodka",
+      type: "Websites",
+      image: "/assets/project/glassvodka.webp",
+      link: "https://glassvodka.com/",
+    },
+      {
+      id: 16,
+      industry: "Fitness",
+      title: "Factory Weights ",
+      type: "A/B Testing",
+      beforeImage: "/assets/project/beforefactoryweights.png", 
+      afterImage: "/assets/project/afterfactoryweights.png",
+      image: "/assets/project/factoryweights.webp",
+      link: "https://www.factoryweights.com/",
     },
   ],
 
