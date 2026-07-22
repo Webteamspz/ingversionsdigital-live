@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
-import data from "../../data/siteData";
-import styles from "./Pricing.module.css";
+import data from "../../data/sitedata";
+import styles from "./pricing.module.css";
 
 import checkIcon from "/assets/pricing/tickmark.svg";
 import crossIcon from "/assets/pricing/cross.svg";
@@ -20,6 +20,18 @@ const PricingCompare = () => {
   const labelsColRef = useRef(null);
   const plansColRef = useRef(null);
   const swiperRef = useRef(null);
+
+  // PricingPlans se event sunkar specific plan par slide karne ka logic
+  useEffect(() => {
+    const handler = (e) => {
+      const index = e.detail?.index ?? 0;
+      if (swiperRef.current) {
+        swiperRef.current.slideTo(index, 400);
+      }
+    };
+    window.addEventListener("gotoComparisonPlan", handler);
+    return () => window.removeEventListener("gotoComparisonPlan", handler);
+  }, []);
 
   const valueClass = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
@@ -45,8 +57,7 @@ const PricingCompare = () => {
     return <>{t}</>;
   };
 
-  const isPaidPlan = (p) =>
-    typeof p?.price === "number" && p.price > 0;
+  const isPaidPlan = (p) => typeof p?.price === "number" && p.price > 0;
 
   const shouldShowCTA = (p) => isPaidPlan(p) || p?.name === "Elite";
 
@@ -61,7 +72,8 @@ const PricingCompare = () => {
   );
 
   return (
-    <section className={styles.pricingSection} id="pricing">
+    
+    <section className={styles.pricingSection} id="pricingComparison">
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>
           {pricing.heading}
@@ -142,24 +154,6 @@ const PricingCompare = () => {
               ))}
             </div>
           ))}
-
-          {/* ======= FOOTER CTAS (DESKTOP) ======= */}
-          <div className={`${styles.row} ${styles.footerCtas}`}>
-            <div
-              className={`${styles.cell} ${styles.stub} ${styles.emptyStub}`}
-            />
-            {pricing.plans.map((p, i) => (
-              <div key={`fcta-${i}`} className={styles.cell}>
-                {shouldShowCTA(p) ? (
-                  <Link className={styles.btn} to={planContactHref(p)}>
-                    {footerCtaLabel(p)}
-                  </Link>
-                ) : (
-                  <span className={styles.planCtaPlaceholder} />
-                )}
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* ======= MOBILE / SWIPER ======= */}
@@ -277,19 +271,6 @@ const PricingCompare = () => {
                       ))}
                     </div>
                   ))}
-
-                  <div className={styles.mobileCtaBar}>
-                    {shouldShowCTA(p) ? (
-                      <Link
-                        className={styles.btn}
-                        to={planContactHref(p)}
-                      >
-                        {footerCtaLabel(p)}
-                      </Link>
-                    ) : (
-                      <span className={styles.planCtaPlaceholder} />
-                    )}
-                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>

@@ -279,4 +279,7 @@ body.menu-open .overlay {
   .mobileMenu {
     width: 100%
   }
+  .menuCtaBar{
+    bottom: 30%;
+  }
 }

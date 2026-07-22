@@ -1,0 +1,382 @@
+.pricingPlans {
+  padding: 50px 0 10px;
+  font-family: Barlow,sans-serif
+}
+.pricingPlansGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto 32px auto
+}
+.pricingPlanCard {
+  background: #141414;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255,255,255,.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+  will-change: transform
+}
+.pricingPlansGrid .pricingPlanCard {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
+  width: 100%
+}
+.pricingPlanBadgeWrap {
+  min-height: 24px;
+  margin-bottom: 12px
+}
+.pricingPlanBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: #173b5e;
+  border: none;
+  color: #0a84ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase
+}
+.emptyBadge {
+  background: 0 0
+}
+.pricingPlanName {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700
+}
+.pricingPlanPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px
+}
+.pricingPlanPrice {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1
+}
+.pricingPlanPeriod {
+  color: rgba(255,255,255,.5);
+  font-size: 14px;
+  font-weight: 500
+}
+.pricingPlanDesc {
+  margin: 0 0 24px;
+  color: #ffffffcc;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 42px
+}
+.pricingPlanHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1
+}
+.pricingPlanHighlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffffcc;
+  font-size: 14px
+}
+.checkDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0a84ff;
+  flex-shrink: 0
+}
+.cardButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto
+}
+.btnOutline,
+.pricingPlanBtn {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-family: Barlow,sans-serif;
+  font-weight: 700;
+  color: #ffffffcc;
+  text-decoration: none;
+  transition: all .3s ease;
+  text-align: center
+}
+.cardButtons .btnOutline,
+.cardButtons .pricingPlanBtn {
+  flex: 1;
+  width: 100%;
+  padding: 14px 10px;
+  font-size: 14px;
+  white-space: nowrap
+}
+.pricingPlanBtn {
+  flex: 1;
+  width: 100%;
+  max-width: 100%!important;
+  padding: 14px 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #0a84ff;
+  color: #fff;
+  border: 1px solid #0a84ff
+}
+.pricingPlanBtn:hover {
+  background: rgba(10,132,255,.1);
+  color: #0a84ff
+}
+.btnOutline {
+  background: #ffffff1a;
+  color: #0a84ff;
+  border: 1px solid #0a84ff;
+  cursor: pointer;
+  font-family: Barlow,sans-serif
+}
+.btnOutline:hover {
+  background: #0a84ff;
+  color: #fff;
+  border: 1px solid #0a84ff
+}
+
+/* ===== WIDE CARD (ELITE) ===== */
+.wideCard {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 40px
+}
+.wideCard:hover {
+  border-color: rgba(255,255,255,.1)
+}
+.wideCardLeft {
+  flex: 1;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+.wideCardRight {
+  flex: 0 0 320px;
+  padding: 24px;
+  border-radius: 12px
+}
+.wideCardRight .pricingPlanHighlights {
+  margin: 0;
+  flex-grow: 0
+}
+.wideBadge {
+  max-width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: #173b5e;
+  border: none;
+  color: #0a84ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+  text-transform: uppercase
+}
+.wideTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 14px
+}
+.wideDesc {
+  font-size: 16px;
+  color: rgba(255,255,255,.7);
+  margin: 0 0 28px;
+  line-height: 1.6
+}
+.wideButtons {
+  display: flex;
+  gap: 16px
+}
+.wideButtons .btnOutline,
+.wideButtons .pricingPlanBtn {
+  width: auto;
+  min-width: 317px;
+  padding: 14px 24px;
+  font-size: 15px
+}
+
+/* Desktop par mobileOnly chupaao, desktopOnly dikhao */
+.mobileOnlyHighlights {
+  display: none
+}
+.desktopOnlyHighlights {
+  display: block
+}
+
+/* ===== 1024px ===== */
+@media (max-width:1023.98px) {
+  .pricingPlansGrid {
+    gap: 16px;
+  }
+  .pricingPlansGrid .pricingPlanCard {
+    flex: 0 0 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+    padding: 24px 16px
+  }
+  .cardButtons {
+    flex-direction: column
+  }
+  .wideCard {
+    padding: 30px;
+    gap: 20px;
+    width: 100%;
+    flex-direction: column; /* column layout */
+    align-items: flex-start
+  }
+  .wideCardLeft {
+    max-width: 100%;
+    width: 100%
+  }
+
+  /* Tablet par mobileOnlyHighlights dikhao (buttons ke upar) */
+  .mobileOnlyHighlights {
+    display: block;
+    width: 100%;
+    padding: 0;
+    flex: none;
+    margin: 0 0 20px 0
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    margin: 0
+  }
+
+  /* Desktop wali side column hide karo */
+  .desktopOnlyHighlights {
+    display: none
+  }
+
+  .wideButtons {
+    width: 100%
+  }
+  .wideButtons .btnOutline,
+  .wideButtons .pricingPlanBtn {
+    min-width: unset;
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14px
+  }
+  .wideDesc {
+    margin: 0 0 10px
+  }
+}
+
+/* ===== 767px ===== */
+@media (max-width:767.98px) {
+  .pricingPlans {
+  padding: 40px 0;
+}
+  .pricingPlansGrid {
+    padding: 0
+  }
+  .pricingPlansGrid .pricingPlanCard {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 32px 24px;
+    text-align: center;
+    align-items: center
+  }
+  .pricingPlanPriceRow {
+    justify-content: center
+  }
+  .pricingPlanDesc {
+    text-align: center;
+    margin: 0 0 16px;
+    min-height: auto
+  }
+  .pricingPlanHighlights {
+    align-items: center;
+    margin: 0 0 32px 0; 
+  }
+  .pricingPlanHighlight {
+    justify-content: center
+  }
+  .cardButtons {
+    width: 100%;
+    flex-direction: column
+  }
+  .cardButtons .btnOutline,
+  .cardButtons .pricingPlanBtn {
+    width: 100%;
+    max-width: 100%
+  }
+  .pricingPlanCard:hover {
+    transform: none
+  }
+  .wideCard {
+    width: 100%;
+    margin: 0;
+    padding: 30px 24px;
+    align-items: center;
+    text-align: center;
+    gap: 20px
+  }
+  .wideCardLeft {
+    align-items: center
+  }
+  .wideTitle {
+    font-size: 26px;
+  }
+  .wideDesc {
+    text-align: center
+  }
+  .mobileOnlyHighlights {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    margin: 0 0 32px 0; 
+    padding: 0;
+    align-items: center
+  }
+  .mobileOnlyHighlights .pricingPlanHighlight {
+    justify-content: center
+  }
+  .wideButtons {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px
+  }
+  .wideButtons .btnOutline,
+  .wideButtons .pricingPlanBtn {
+    width: 100%;
+    max-width: 100%
+  }
+  .wideCardRight {
+    width: 100%;
+    padding: 0;
+    flex: none;
+    margin: 0
+  }
+}

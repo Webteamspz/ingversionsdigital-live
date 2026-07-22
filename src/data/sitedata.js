@@ -3,13 +3,15 @@ export default {
     links: [
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/#contact" },
       { label: "Team Page", href: "/teampage" },
+      { label: "About Us", href: "/about-us" },
+      // { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
     cta: {
       label: "Book A Call",
-      href: "#contact",
+      href: "#hero",
     },
   },
   hero: {
@@ -214,23 +216,23 @@ export default {
   contact: {
     heading: "Contact Us",
     form: {
-      title: "Send Us a Message",
+      title: "Ready To Scale Your Conversions ?",
       country: { flag: "🇮🇳", dial: "+91" },
       fields: [
         {
           type: "text",
           name: "firstName",
-          placeholder: "First Name",
+          placeholder: "Your Full Name",
           col: "half",
         },
         {
           type: "text",
-          name: "lastName",
-          placeholder: "Last Name",
+          name: "organization",
+          placeholder: "Organization",
           col: "half",
         },
-        { type: "email", name: "email", placeholder: "Email", col: "full" },
-        { type: "text", name: "company", placeholder: "Company", col: "full" },
+        { type: "email", name: "email", placeholder: "Work Email", col: "full" },
+        { type: "text", name: "main website url", placeholder: "Main Website URL", col: "full" },
         {
           type: "tel",
           name: "phone",
@@ -240,7 +242,7 @@ export default {
         {
           type: "textarea",
           name: "message",
-          placeholder: "Message",
+          placeholder: "Share Your Project Details and Goals",
           col: "full",
         },
       ],
@@ -252,11 +254,11 @@ export default {
         items: [
           {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M1.5 8.6691V17.25C1.5 18.9069 2.84315 20.25 4.5 20.25H19.5C21.1569 20.25 22.5 18.9069 22.5 17.25V8.6691L13.5723 14.1631C12.6081 14.7564 11.3919 14.7564 10.4277 14.1631L1.5 8.6691Z" fill="#0A84FF"/><path d="M22.5 6.90783V6.75C22.5 5.09315 21.1569 3.75 19.5 3.75H4.5C2.84315 3.75 1.5 5.09315 1.5 6.75V6.90783L11.2139 12.8856C11.696 13.1823 12.304 13.1823 12.7861 12.8856L22.5 6.90783Z" fill="#0A84FF"/></svg>',
-            text: "hello@ingversionsdigital.com",
+            text: "ingversionsdigital@gmail.com",
           },
           {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 4.5C1.5 2.84315 2.84315 1.5 4.5 1.5H5.87163C6.732 1.5 7.48197 2.08556 7.69064 2.92025L8.79644 7.34343C8.97941 8.0753 8.70594 8.84555 8.10242 9.29818L6.8088 10.2684C6.67447 10.3691 6.64527 10.5167 6.683 10.6197C7.81851 13.7195 10.2805 16.1815 13.3803 17.317C13.4833 17.3547 13.6309 17.3255 13.7316 17.1912L14.7018 15.8976C15.1545 15.2941 15.9247 15.0206 16.6566 15.2036L21.0798 16.3094C21.9144 16.518 22.5 17.268 22.5 18.1284V19.5C22.5 21.1569 21.1569 22.5 19.5 22.5H17.25C8.55151 22.5 1.5 15.4485 1.5 6.75V4.5Z" fill="#0A84FF"/></svg>',
-            text: "+91-8103684321",
+            text: "+91-8866167750",
           },
           {
             icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.5397 22.351C11.57 22.3685 11.5937 22.3821 11.6105 22.3915L11.6384 22.4071C11.8613 22.5294 12.1378 22.5285 12.3608 22.4075L12.3895 22.3915C12.4063 22.3821 12.43 22.3685 12.4603 22.351C12.5207 22.316 12.607 22.265 12.7155 22.1982C12.9325 22.0646 13.2388 21.8676 13.6046 21.6091C14.3351 21.0931 15.3097 20.3274 16.2865 19.3273C18.2307 17.3368 20.25 14.3462 20.25 10.5C20.25 5.94365 16.5563 2.25 12 2.25C7.44365 2.25 3.75 5.94365 3.75 10.5C3.75 14.3462 5.76932 17.3368 7.71346 19.3273C8.69025 20.3274 9.66491 21.0931 10.3954 21.6091C10.7612 21.8676 11.0675 22.0646 11.2845 22.1982C11.393 22.265 11.4793 22.316 11.5397 22.351ZM12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z" fill="#0A84FF"/></svg>',
@@ -264,7 +266,7 @@ export default {
           },
         ],
       },
-      
+
     ],
   },
   faq: {
@@ -488,6 +490,113 @@ export default {
       },
     ],
   },
+  blog: {
+    heading: "Latest Articles",
+    seeMoreText: "See More",          // Naya text
+    seeMoreUrl: "https://blog.ingversionsdigital.com/",
+    list: [
+      {
+        id: 1,
+        title: "5 Shopify Theme Customizations That Boost Sales",
+        category: "Shopify Development",
+        desc: "From product page layouts to checkout optimizations, these theme changes can significantly improve conversions and customer retention...",
+        date: "April 8, 2026",
+        readTime: "6 min read",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/shopify-theme-customizations-boost-sales"
+      },
+      {
+        id: 2,
+        title: "A/B Testing Mistakes That Cost You Money",
+        category: "A/B Testing",
+        desc: "Avoid common experimentation mistakes that lead to inaccurate data and poor conversion decisions in your marketing funnels...",
+        date: "April 5, 2026",
+        readTime: "5 min read",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/ab-testing-mistakes-cost-money"
+      },
+      {
+        id: 3,
+        title: "CRO Fundamentals: Where to Start From",
+        category: "CRO",
+        desc: "Learn the core principles of conversion rate optimization and how to build a strategy that drives measurable growth...",
+        date: "April 3, 2026",
+        readTime: "7 min read",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/cro-fundamentals-where-to-start"
+      },
+      {
+        id: 4,
+        title: "The Psychology of High-Converting Landing Pages",
+        category: "CRO",
+        desc: "Understand how visual hierarchy, trust signals, and emotional triggers influence user actions on landing pages...",
+        date: "April 12, 2026",
+        readTime: "8 min read",
+        image: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/psychology-high-converting-landing-pages"
+      },
+      {
+        id: 5,
+        title: "Essential QA Checklists Before Launching Your Store",
+        category: "Quality Assurance",
+        desc: "A complete pre-launch checklist to ensure your ecommerce website is bug-free, responsive, and optimized for users...",
+        date: "April 15, 2026",
+        readTime: "5 min read",
+        image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/qa-checklist-before-launching-store"
+      },
+      {
+        id: 6,
+        title: "Headless Shopify: Is It Right for Your Brand?",
+        category: "Shopify Development",
+        desc: "Explore the pros and cons of headless commerce and whether your business actually needs a decoupled storefront...",
+        date: "April 18, 2026",
+        readTime: "9 min read",
+        image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/headless-shopify-is-it-right-for-your-brand"
+      },
+      {
+        id: 7,
+        title: "Multivariate vs A/B Testing: When to Use Which",
+        category: "A/B Testing",
+        desc: "Compare multivariate testing with standard A/B testing and learn which approach delivers better insights for your campaigns...",
+        date: "April 20, 2026",
+        readTime: "6 min read",
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/multivariate-vs-ab-testing"
+      },
+      {
+        id: 8,
+        title: "Micro-Commitments: The Secret to Better Funnels",
+        category: "CRO",
+        desc: "Small user actions can lead to larger conversions. Discover how micro-commitments improve engagement and reduce bounce rates...",
+        date: "April 24, 2026",
+        readTime: "7 min read",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/micro-commitments-better-funnels"
+      },
+      {
+        id: 9,
+        title: "Automated UI Testing for E-commerce Websites",
+        category: "Quality Assurance",
+        desc: "Implement automated frontend testing workflows to catch UI bugs early and maintain a seamless shopping experience...",
+        date: "April 28, 2026",
+        readTime: "8 min read",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/automated-ui-testing-ecommerce"
+      },
+      {
+        id: 10,
+        title: "Optimizing Shopify Core Web Vitals for SEO",
+        category: "Shopify Development",
+        desc: "Improve loading speed, visual stability, and responsiveness in Shopify to rank better and convert more visitors...",
+        date: "May 2, 2026",
+        readTime: "10 min read",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+        url: "https://blog.ingversionsdigital.com/optimizing-shopify-core-web-vitals"
+      }
+    ]
+  },
   footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
@@ -502,7 +611,7 @@ export default {
       },
       {
         name: "Pricing",
-        href: "/#pricing",
+        href: "/pricing",
       },
       {
         name: "Contact Us",
@@ -514,8 +623,8 @@ export default {
       },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
-    email: "hello@ingversionsdigital.com",
-    phone: "+91-8103684321",
+    email: "ingversionsdigital@gmail.com",
+    phone: "+91-8866167750",
     socials: [
       {
         name: "facebook",
