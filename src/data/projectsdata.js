@@ -48,8 +48,8 @@ const projectsData = {
       type: "A/B Testing",
       image: "/assets/project/Rapidradios.webp",
       mainImage: "/assets/project/Rapidradios.webp",
-      beforeImage: "/assets/project/beforerapidradio.png",
-      afterImage: "/assets/project/afterrapidradio.png",
+      beforeImage: "/assets/project/Beforerapidradio.png",
+      afterImage: "/assets/project/Afterrapidradio.png",
       link: "https://rapidradios.com/",
     },
     {
