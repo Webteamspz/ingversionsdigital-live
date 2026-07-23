@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ContactModal.css";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
@@ -13,12 +13,25 @@ const initialState = {
 const countryOptions = ["United States", "United Kingdom", "India", "Canada", "Australia", "Other"];
 const employeeOptions = ["1-10", "11-50", "51-200", "201-500", "500+"];
 
-// Added 'source' prop here
 const ContactModal = ({ isOpen, onClose, source }) => {
   const [formData, setFormData] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+
+  // Prevent background scrolling when the modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function in case the component unmounts while open
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -43,8 +56,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
       inquiry: formData.inquiry,
       country: formData.country,
       employee_count: formData.employeeCount,
-      // This sends the hidden source to Formspree, defaulting to "General" if not provided
-      source: source || "General Inquiry", 
+      source: source || "General Inquiry",
     };
 
     try {
@@ -56,7 +68,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
       if (res.ok) {
         setIsSubmitted(true);
-        // Reset the form fields right away so it's fresh for next time
         setFormData(initialState);
       } else {
         const err = await res.json().catch(() => ({}));

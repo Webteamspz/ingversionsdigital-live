@@ -5,22 +5,27 @@ const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
 // Sub-component for the interactive 2-image comparison slider
-// beforeImg = background layer, always fully visible underneath
-// afterImg  = top layer, revealed from the LEFT as sliderPos increases (drag right)
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
   const [sliderPos, setSliderPos] = useState(50); // 0 = only before, 100 = only after
 
   return (
     <div className={styles.sliderContainer}>
-      {/* Before Image (background layer, always fully visible) */}
-      <img src={beforeImg} alt={`Before - ${title}`} className={styles.sliderImage} />
+      {/* Before Image (Dictates the actual size of the container) */}
+      <img 
+        src={beforeImg} 
+        alt={`Before - ${title}`} 
+        className={styles.sliderImage} 
+      />
 
-      {/* After Image (revealed from the LEFT edge as slider moves right) */}
+      {/* After Image (Absolutely positioned perfectly over the Before image) */}
       <div
         className={styles.clippedLayer}
         style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
       >
-        <img src={afterImg} alt={`After - ${title}`} className={styles.sliderImage} />
+        <img 
+          src={afterImg} 
+          alt={`After - ${title}`} 
+        />
       </div>
 
       {/* Labels fade in/out based on how much of that image is currently revealed */}
@@ -49,7 +54,10 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
       />
 
       {/* Custom visual dividing line and handle button */}
-      <div className={styles.sliderHandleWrap} style={{ left: `${sliderPos}%` }}>
+      <div 
+        className={styles.sliderHandleWrap} 
+        style={{ left: `${sliderPos}%` }}
+      >
         <div className={styles.sliderLine} />
         <div className={styles.sliderButton}>
           <span>&#8594;</span>
@@ -63,7 +71,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
 const ProjectsGrid = ({ projects }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [visibleCount, setVisibleCount] = useState(projects.length);
-  const [selectedProject, setSelectedProject] = useState(null); // Tracks modal state
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     const checkScreen = () => {
@@ -74,7 +82,7 @@ const ProjectsGrid = ({ projects }) => {
     checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
-  }, []);
+  }, [projects.length]);
 
   useEffect(() => {
     setVisibleCount(isMobile ? INITIAL_MOBILE_COUNT : projects.length);
@@ -99,13 +107,10 @@ const ProjectsGrid = ({ projects }) => {
     <div className={styles.gridWrap}>
       <div className={styles.grid}>
         {visibleProjects.map((project) => {
-          // A project gets the slider modal only if it has BOTH before and after images.
           const hasSlider = Boolean(project.beforeImage && project.afterImage);
 
           return (
             <div key={project.id} className={styles.card}>
-              {/* If project has both before/after images, clicking opens the slider modal.
-                  Otherwise, clicking the thumbnail navigates directly to the project link. */}
               {hasSlider ? (
                 <div
                   className={styles.imageWrap}
@@ -177,7 +182,7 @@ const ProjectsGrid = ({ projects }) => {
         >
           <div
             className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the image
+            onClick={(e) => e.stopPropagation()} 
           >
             <button
               type="button"
@@ -188,8 +193,6 @@ const ProjectsGrid = ({ projects }) => {
               &times;
             </button>
 
-            {/* If project has both before/after images, render the 2-image slider.
-                Otherwise render single large image. */}
             {selectedProject.beforeImage && selectedProject.afterImage ? (
               <BeforeAfterSlider
                 beforeImg={selectedProject.beforeImage}
