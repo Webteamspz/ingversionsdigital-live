@@ -5,6 +5,7 @@ import TeamPage from "./pages/TeamPage/TeamPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import AboutUs from "./pages/AboutUs/AboutUs.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
+import Projects from "./pages/Projects/Projects.jsx";
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
 
@@ -54,6 +55,7 @@ const App = () => (
       <Route path="/teampage" element={<TeamPage />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/pricing" element={<Pricing />} />
+      <Route path="/projects" element={<Projects />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </>

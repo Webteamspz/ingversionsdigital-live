@@ -14,6 +14,7 @@ import "./Home.css";
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
+const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);
@@ -26,18 +27,18 @@ const Home = () => {
       const timer = setTimeout(() => {
         setShowPreloader(false);
         localStorage.setItem("hasSeenPreloader", "true");
-      }, 1500);
+      }, 1200);
       return () => clearTimeout(timer);
     }
   }, []);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setShowScrollTop(window.scrollY > 100);
-  };
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -65,6 +66,10 @@ useEffect(() => {
 
         <Contact />
         <BlogSlider />
+
+        <Suspense fallback={null}>
+          <EngagementModels />
+        </Suspense>
 
         <Suspense fallback={null}>
           <FAQ />

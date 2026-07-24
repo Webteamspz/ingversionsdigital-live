@@ -3,9 +3,10 @@ export default {
     links: [
       { label: "Home", href: "/" },
       { label: "Services", href: "/#services" },
+      { label: "Projects", href: "/projects" },
       { label: "Pricing", href: "/pricing" },
       // { label: "Contact Us", href: "/#contact" },
-      { label: "Team Page", href: "/teampage" },
+      // { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
       { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
@@ -151,6 +152,57 @@ export default {
       },
     ],
   },
+  engagement: {
+    heading: "Flexible Engagement Models",
+    sub: "We recognize that every business has unique needs and priorities. That's why we offer flexible engagement models to deliver the support and expertise you need, when you need it.",
+    list: [
+      {
+        title: "Retainer-Based Partnerships",
+        desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
+        icon: "/assets/engagement/retainer.png",
+        features: [
+          "Predictable Costs",
+          "Dedicated Resources",
+          "Priority Service",
+          "Long-Term Collaboration",
+        ],
+        cta: {
+          label: "Learn more",
+          href: "/pricing",
+        },
+      },
+      {
+        title: "Block of Hours",
+        desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
+        icon: "/assets/engagement/hoursblock.png",
+        features: [
+          "Flexibility",
+          "On-Demand Support",
+          "Budget Control",
+          "Trial Opportunity",
+        ],
+        cta: {
+          label: "Contact Us",
+          href: "#contact",
+        },
+      },
+      {
+        title: "Project-Based Engagements",
+        desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
+        icon: "/assets/engagement/projectengagement.png",
+        features: [
+          "Defined Scope and Timeline",
+          "Focused Expertise",
+          "Transparent Pricing",
+          "Specialized Solutions",
+        ],
+        cta: {
+          label: "Contact Us",
+          href: "#contact",
+        },
+      },
+    ],
+  },
   why: {
     heading: "Why Choose Us",
     list: [
@@ -209,7 +261,7 @@ export default {
         reviewer: "Mia L.",
         reviewerRole: "Head of Product",
         quote:
-          "Their A/B testing insights were game-changing. We’re finally making decisions with data, not guesses.",
+          "Their A/B testing insights were game-changing. We're finally making decisions with data, not guesses.",
       },
     ],
   },
@@ -274,7 +326,7 @@ export default {
     list: [
       {
         q: "What is Conversion Rate Optimization?",
-        a: "Conversion Rate Optimization (CRO) is the process of refining a website to better convert visitors into customers or subscribers. Essentially, it involves boosting the percentage of visitors who complete a specific action—whether that’s making a purchase, signing up for a newsletter, or downloading a file. By carefully analyzing user behavior and employing techniques such as A/B testing, design adjustments, and improved navigation, businesses can create a more engaging and effective online experience.",
+        a: "Conversion Rate Optimization (CRO) is the process of refining a website to better convert visitors into customers or subscribers. Essentially, it involves boosting the percentage of visitors who complete a specific action—whether that's making a purchase, signing up for a newsletter, or downloading a file. By carefully analyzing user behavior and employing techniques such as A/B testing, design adjustments, and improved navigation, businesses can create a more engaging and effective online experience.",
       },
       {
         q: "How can a CRO agency help your business?",
@@ -293,7 +345,7 @@ export default {
         a: "Not necessarily. We start with targeted improvements and experiments before considering a full redesign.",
       },
       {
-        q: "Will CRO impact my website’s SEO?",
+        q: "Will CRO impact my website's SEO?",
         a: "We follow technical best practices; CRO and SEO often complement each other when implemented correctly.",
       },
       {
@@ -597,37 +649,113 @@ export default {
       }
     ]
   },
-  footer: {
+  projects: {
+    heading: "Our Work",
+       seeMoreText: "Discover",
+    seeMoreUrl: "/projects",
+    list: [
+       {
+      id: 1,
+      industry: "Pet Care",
+      title: "Ruff Greens",
+      type: "Landing Pages",
+      image: "/assets/project/vet-approved-guide-2026.webp",
+      link: "https://ruffgreens.com/",
+    },
+    {
+      id: 2,
+      industry: "Household Supplies",
+      title: "Match With Nature",
+      type: "Websites",
+      image: "/assets/project/Fragrance.webp",
+      link: "https://matchwithnature.com/",
+    },
+    {
+      id: 3,
+      industry: "Wireless Communication",
+      title: "Rapid Radios",
+      type: "Websites",
+      image: "/assets/project/Rapidradios.webp",
+      link: "https://rapidradios.com/",
+    },
+    {
+      id: 4,
+      industry: "Online Learning",
+      title: "Grooved Learning",
+      type: "E-commerce",
+      image: "/assets/project/codebreakers.webp",
+      link: "https://groovedlearning.com/",
+    },
+    {
+      id: 5,
+      industry: "Personal Protective Equipment",
+      title: "Safety Gear",
+      type: "E-commerce",
+      image: "/assets/project/safetgear.webp",
+      link: "https://www.safetygear.com/",
+    },
+    {
+      id: 6,
+      industry: "Jewelry & Accessories",
+      title: "Olivia & Pearl",
+      type: "Landing Pages",
+      image: "/assets/project/oliviapearl.webp",
+      link: "https://oliviaandpearl.com/",
+    },
+    {
+      id: 7,
+      industry: "Mattresses & Sleep Products",
+      title: "Sonno",
+      type: "Landing Pages",
+      image: "/assets/project/sonno.webp",
+      link: "https://www.sleepsonno.com/",
+    },
+    {
+      id: 8,
+      industry: "Fashion",
+      title: "Manto Store",
+      type: "E-commerce",
+      image: "/assets/project/manto.webp",
+      link: "https://www.manto.ae/",
+    },
+    {
+      id: 9,
+      industry: "Outdoor Play Equipment",
+      title: "Bijou Build",
+      type: "Landing Pages",
+      image: "/assets/project/bijoubuild.webp",
+      link: "https://bijoubuild.com/",
+    },
+    {
+      id: 10,
+      industry: "Business",
+      title: "Dan Henry Watches",
+      type: "Websites",
+      image: "/assets/project/danhenry.jpg",
+      link: "https://danhenrywatches.com/",
+    }
+    ],
+  },
+footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
-    links: [
+    linkGroups: [
       {
-        name: "Home",
-        href: "/#hero",
+        title: "Quick Links",
+        links: [
+          { name: "Home", href: "/#hero" },
+          { name: "Services", href: "/#services" },
+          { name: "Pricing", href: "/pricing" },
+          { name: "Projects", href: "/projects" },
+        ],
       },
       {
-        name: "Services",
-        href: "/#services",
-      },
-      {
-        name: "Pricing",
-        href: "/pricing",
-      },
-      // {
-      //   name: "Contact Us",
-      //   href: "/#contact",
-      // },
-      {
-        name: "Team Page",
-        href: "/teampage",
-      },
-       {
-        name: "About Us",
-        href: "/about-us",
-      },
-       {
-        name: "Blog",
-        href: "https://blog.ingversionsdigital.com/",
+        title: "Company",
+        links: [
+          { name: "Team Page", href: "/teampage" },
+          { name: "About Us", href: "/about-us" },
+          { name: "Blog", href: "https://blog.ingversionsdigital.com/" },
+        ],
       },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",

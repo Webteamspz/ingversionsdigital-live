@@ -36,6 +36,7 @@ const Footer = () => {
             <div className={`${styles.linkGroup} ${styles.brandSocials}`}>
               <div className={styles.footSocials}>
                 {f.socials.map((s, i) => (
+                  /* FIX: Added missing `<a ` opening tag below */
                   <a
                     key={i}
                     href={s.href}
@@ -53,43 +54,44 @@ const Footer = () => {
 
           {/* Columns 2 & 3: Links Grid */}
           <div className={styles.linksWrapper}>
-            
-            {/* Column 2: Quick Links (FIXED: Merged class and style) */}
-            <div 
-              className={styles.linkGroup}
-              style={{ 
-                display: "grid", 
-                gridTemplateRows: "repeat(6, auto)", // Max 6 items vertical
-                gridAutoFlow: "column",              // Automatically shift to next column after 6
-                columnGap: "30px", 
-                rowGap: "12px"     
-              }}
-            >
-              {f.links.map((l, i) => {
-                const isExternal =
-                  l.href.startsWith("http") ||
-                  l.href.startsWith("mailto:") ||
-                  l.href.startsWith("tel:");
-                  
-                const displayText = l.name || l.label || "Link";
 
-                if (isExternal) {
+            {/* Columns 2 & onward: Grouped Links */}
+            {f.linkGroups.map((group, gi) => (
+              <div className={styles.linkGroup} key={gi}>
+                <h4>{group.title}</h4>
+                {group.links.map((l, i) => {
+                  const isExternal =
+                    l.href.startsWith("http") ||
+                    l.href.startsWith("mailto:") ||
+                    l.href.startsWith("tel:");
+
+                  const displayText = l.name || l.label || "Link";
+
+                  if (isExternal) {
+                    return (
+                      /* FIX: Added missing `<a ` opening tag below */
+                      <a
+                        key={i}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        {displayText}
+                      </a>
+                    );
+                  }
+
                   return (
-                    <a key={i} href={l.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                    <Link key={i} to={l.href} style={{ textDecoration: "none" }}>
                       {displayText}
-                    </a>
+                    </Link>
                   );
-                }
+                })}
+              </div>
+            ))}
 
-                return (
-                  <Link key={i} to={l.href} style={{ textDecoration: 'none' }}>
-                    {displayText}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Column 3: Contact Info */}
+            {/* Column: Contact Info */}
             <div className={styles.linkGroup}>
               
               <a href={`mailto:${f.email}`} className={styles.footContact}>
