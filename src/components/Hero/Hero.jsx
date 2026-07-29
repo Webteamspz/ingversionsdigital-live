@@ -32,6 +32,20 @@ const OptimizedImg = ({
   />
 );
 
+// Maps each form field's `name` to the correct HTML autocomplete token.
+// Keeps working even if new fields are added later in sitedata.js.
+const getAutocomplete = (name = "") => {
+  const n = name.toLowerCase();
+  if (n.includes("first") || n.includes("full") || n === "name") return "name";
+  if (n.includes("last")) return "family-name";
+  if (n.includes("email")) return "email";
+  if (n.includes("organization") || n.includes("company")) return "organization";
+  if (n.includes("url") || n.includes("website")) return "url";
+  if (n.includes("phone") || n.includes("tel")) return "tel";
+  if (n.includes("message")) return "off";
+  return "on";
+};
+
 const Hero = () => {
   const h = data.hero;
   const { form } = data.contact; // Contact data se form fetch kar rahe hain
@@ -214,6 +228,7 @@ const Hero = () => {
                       type={f.type}
                       name={f.name}
                       placeholder={f.placeholder}
+                      autoComplete={getAutocomplete(f.name)}
                       onInput={handleInput(f)}
                       onBlur={handleBlur(f)}
                       inputMode={/name/i.test(f.name) ? "text" : undefined}
@@ -233,6 +248,7 @@ const Hero = () => {
                     type={f.type}
                     name={f.name}
                     placeholder={f.placeholder}
+                    autoComplete={getAutocomplete(f.name)}
                     onInput={handleInput(f)}
                     onBlur={handleBlur(f)}
                     inputMode={/name/i.test(f.name) ? "text" : undefined}
@@ -278,6 +294,7 @@ const Hero = () => {
                   name={f.name}
                   placeholder={f.placeholder}
                   value={formData.message || ""}
+                  autoComplete="off"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
