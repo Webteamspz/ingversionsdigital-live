@@ -24,13 +24,13 @@ const Home = () => {
     const hasSeenPreloader = localStorage.getItem("hasSeenPreloader");
     if (!hasSeenPreloader) {
       setShowPreloader(true);
-      const timer = setTimeout(() => {
-        setShowPreloader(false);
-        localStorage.setItem("hasSeenPreloader", "true");
-      }, 1200);
-      return () => clearTimeout(timer);
     }
   }, []);
+
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+    localStorage.setItem("hasSeenPreloader", "true");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +50,7 @@ const Home = () => {
         <Preloader
           minDuration={800}
           logoSrc={"/assets/preloader/preloader.png"}
+          onComplete={handlePreloaderComplete}
         />
       )}
 

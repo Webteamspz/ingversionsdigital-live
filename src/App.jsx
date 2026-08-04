@@ -13,38 +13,58 @@ const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      const scrollToHash = () => {
-        const targetId = hash.slice(1);
-        const el =
-          document.getElementById(targetId) || document.querySelector(hash);
-        if (!el) return;
-
-        const header = document.getElementById("header");
-        const headerHeight = header ? header.offsetHeight : 0;
-
-        const rect = el.getBoundingClientRect();
-        const targetY =
-          rect.top + window.scrollY - headerHeight + 100;
-
-        window.scrollTo({
-          top: targetY,
-          behavior: "smooth",
-        });
-      };
-
-      const t1 = setTimeout(scrollToHash, 0);
-      const t2 = setTimeout(scrollToHash, 400);
-      const t3 = setTimeout(scrollToHash, 900);
-
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-        clearTimeout(t3);
-      };
-    } else {
+    if (!hash) {
       window.scrollTo({ top: 0, left: 0 });
+      return;
     }
+
+    const targetId = hash.slice(1);
+
+    const scrollToEl = (el) => {
+      const header = document.getElementById("header");
+      const headerHeight = header ? header.offsetHeight : 0;
+
+      const rect = el.getBoundingClientRect();
+      const targetY = rect.top + window.scrollY - headerHeight + 100;
+
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
+    };
+
+    const existing =
+      document.getElementById(targetId) || document.querySelector(hash);
+
+    if (existing) {
+      scrollToEl(existing);
+      return;
+    }
+
+    // Element not mounted yet (likely a lazy-loaded section) —
+    // watch the DOM and scroll as soon as it appears.
+    const observer = new MutationObserver(() => {
+      const el =
+        document.getElementById(targetId) || document.querySelector(hash);
+      if (el) {
+        scrollToEl(el);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Safety net: stop watching after 5s so we don't observe forever
+    // if the target never mounts (e.g. typo'd hash).
+    const timeout = setTimeout(() => observer.disconnect(), 5000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, [pathname, hash, search]);
 
   return null;
