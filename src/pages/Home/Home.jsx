@@ -9,6 +9,7 @@ import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
 import Preloader from "../../components/preloader/preloader";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
+import Seo from "../../components/Seo/Seo";
 import "./Home.css";
 
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
@@ -46,6 +47,12 @@ const Home = () => {
 
   return (
     <>
+      <Seo
+        title="Ingversions Digital | Shopify, CRO and A/B Testing Agency"
+        description="Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands."
+        path="/"
+      />
+
       {showPreloader && (
         <Preloader
           minDuration={800}
