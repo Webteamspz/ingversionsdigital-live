@@ -4,6 +4,7 @@ import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
 import TeamHero from "../../components/TeamHero/TeamHero";
 import Layout from "../../Layouts/Layouts";
 import Preloader from "../../components/preloader/preloader";
+import Seo from "../../components/Seo/Seo";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 
@@ -19,6 +20,12 @@ const TeamPage = () => {
 
   return (
     <>
+      <Seo
+        title="Our Team | Ingversions Digital"
+        description="Meet the team behind Ingversions Digital's Shopify CRO and conversion optimization work."
+        path="/teampage"
+      />
+
       {/* {showPreloader && (
         <Preloader
           minDuration={1500}
