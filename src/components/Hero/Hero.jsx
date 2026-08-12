@@ -11,9 +11,6 @@ const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-1
 // CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
-const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
-
 const OptimizedImg = ({
   src,
   alt,
