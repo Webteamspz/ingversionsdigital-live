@@ -7,19 +7,27 @@ import AboutValues from '../../components/AboutValues/AboutValues';
 import AboutCta from '../../components/AboutCta/AboutCta';
 import './AboutUs.css';
 import Layout from '../../Layouts/Layouts';
+import Seo from '../../components/Seo/Seo';
 
 const AboutUs = () => {
   return (
-     <Layout header={1} footer={1}>
-    <main className="aboutPage">
-      <AboutHero />
-      <AboutStory />
-      <AboutExpertise />
-      <AboutTrack />
-      <AboutValues />
-      <AboutCta />
-    </main>
-    </Layout>
+    <>
+      <Seo
+        title="About Us | Ingversions Digital"
+        description="Ingversions Digital is a Shopify CRO agency serving ecommerce brands worldwide, based in Surat, India."
+        path="/about-us"
+      />
+      <Layout header={1} footer={1}>
+        <main className="aboutPage">
+          <AboutHero />
+          <AboutStory />
+          <AboutExpertise />
+          <AboutTrack />
+          <AboutValues />
+          <AboutCta />
+        </main>
+      </Layout>
+    </>
   );
 };
 

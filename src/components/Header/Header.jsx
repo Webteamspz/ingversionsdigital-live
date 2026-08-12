@@ -58,9 +58,17 @@ const Header = () => {
   // CTA hide/show behaviour
   const [ctaScrollMode, setCtaScrollMode] = useState(false);
   const [hideHeaderCta, setHideHeaderCta] = useState(false);
+  const [hideCtaOnHero, setHideCtaOnHero] = useState(false); // New state to hide CTA on Hero
 
-  const isTeamPage = location.pathname === "/teampage";
-  const ctaHref = isTeamPage ? "/#contact" : cta.href;
+  const isBlogPage = location.pathname.startsWith("/blog");
+  const ctaHref = isBlogPage ? cta.href : "/#hero";
+  const isHomePage = location.pathname === "/"; // Check if we are on Homepage
+
+  // Whether the CTA should be visually hidden right now. We still always
+  // render the CTA element itself (see below) — only its visibility is
+  // toggled — so its box keeps reserving the exact same layout space and
+  // nothing else in the header ever has to shift or resize.
+  const shouldHideCta = hideHeaderCta || hideCtaOnHero;
 
   // Restore scroll mode from sessionStorage (for cross-page navigation)
   useEffect(() => {
@@ -117,6 +125,31 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ctaScrollMode]);
+
+  // Hide CTA when Hero section is visible (Only on Homepage)
+  useEffect(() => {
+    if (!isHomePage) {
+      setHideCtaOnHero(false);
+      return;
+    }
+
+    const heroEl = document.getElementById("hero");
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideCtaOnHero(entry.isIntersecting);
+      },
+      { threshold: 0.18 } 
+    );
+
+    observer.observe(heroEl);
+
+    return () => {
+      if (heroEl) observer.unobserve(heroEl);
+      observer.disconnect();
+    };
+  }, [isHomePage]);
 
   const handleNavClick = (label, loc, href) => {
     ctaClick({ label, location: loc, href });
@@ -232,39 +265,25 @@ const Header = () => {
             renderMobileNavLink(linkItem, index)
           )}
         </nav>
-
-        {/* <div className={styles.menuCtaBar}>
-          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
-            <a
-              className={`btn ${styles.mobileCta}`}
-              href={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Mobile Header CTA"
-              onClick={() => {
-                handleBookCallClick("Mobile Header CTA");
-                setOpen(false);
-              }}
-            >
-              {cta.label}
-            </a>
-          ) : (
-            <Link
-              className={`btn ${styles.mobileCta}`}
-              to={ctaHref}
-              data-cta={cta.label}
-              data-cta-loc="Mobile Header CTA"
-              onClick={() => {
-                handleBookCallClick("Mobile Header CTA");
-                setOpen(false);
-              }}
-            >
-              {cta.label}
-            </Link>
-          )}
-        </div> */}
       </div>
     </aside>
   );
+
+  // The CTA is always rendered — never conditionally removed from the DOM —
+  // so its box always reserves the exact same space in the flex row.
+  // We only toggle `styles.desktopCtaHidden` (visibility: hidden) to show/hide it.
+  const ctaClassName = `btn ${styles.desktopCta} ${
+    shouldHideCta ? styles.desktopCtaHidden : ""
+  }`;
+
+  const ctaCommonProps = {
+    className: ctaClassName,
+    "data-cta": cta.label,
+    "data-cta-loc": "Header CTA",
+    onClick: () => handleBookCallClick("Header CTA"),
+    "aria-hidden": shouldHideCta ? "true" : undefined,
+    tabIndex: shouldHideCta ? -1 : undefined,
+  };
 
   return (
     <>
@@ -297,29 +316,17 @@ const Header = () => {
             )}
           </nav>
 
-          {/* Desktop CTA – hidden when scroll logic says so */}
-          {!hideHeaderCta &&
-            (isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
-              <a
-                className={`btn ${styles.desktopCta}`}
-                href={ctaHref}
-                data-cta={cta.label}
-                data-cta-loc="Header CTA"
-                onClick={() => handleBookCallClick("Header CTA")}
-              >
-                {cta.label}
-              </a>
-            ) : (
-              <Link
-                className={`btn ${styles.desktopCta}`}
-                to={ctaHref}
-                data-cta={cta.label}
-                data-cta-loc="Header CTA"
-                onClick={() => handleBookCallClick("Header CTA")}
-              >
-                {cta.label}
-              </Link>
-            ))}
+          {/* Desktop CTA — always rendered, visually hidden via CSS when
+              needed so its space is always reserved (see ctaClassName). */}
+          {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
+            <a href={ctaHref} {...ctaCommonProps}>
+              {cta.label}
+            </a>
+          ) : (
+            <Link to={ctaHref} {...ctaCommonProps}>
+              {cta.label}
+            </Link>
+          )}
 
           {/* Mobile hamburger */}
           <button

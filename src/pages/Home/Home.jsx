@@ -9,11 +9,13 @@ import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
 import Preloader from "../../components/preloader/preloader";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
+import Seo from "../../components/Seo/Seo";
 import "./Home.css";
 
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
+const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);
@@ -23,21 +25,21 @@ const Home = () => {
     const hasSeenPreloader = localStorage.getItem("hasSeenPreloader");
     if (!hasSeenPreloader) {
       setShowPreloader(true);
-      const timer = setTimeout(() => {
-        setShowPreloader(false);
-        localStorage.setItem("hasSeenPreloader", "true");
-      }, 1500);
-      return () => clearTimeout(timer);
     }
   }, []);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setShowScrollTop(window.scrollY > 100);
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+    localStorage.setItem("hasSeenPreloader", "true");
   };
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -45,10 +47,17 @@ useEffect(() => {
 
   return (
     <>
+      <Seo
+        title="Ingversions Digital | Shopify, CRO and A/B Testing Agency"
+        description="Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands."
+        path="/"
+      />
+
       {showPreloader && (
         <Preloader
-          minDuration={1200}
+          minDuration={800}
           logoSrc={"/assets/preloader/preloader.png"}
+          onComplete={handlePreloaderComplete}
         />
       )}
 
@@ -65,6 +74,10 @@ useEffect(() => {
 
         <Contact />
         <BlogSlider />
+
+        <Suspense fallback={null}>
+          <EngagementModels />
+        </Suspense>
 
         <Suspense fallback={null}>
           <FAQ />

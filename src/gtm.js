@@ -128,5 +128,7 @@ export function initGTMTracking() {
     });
   };
   window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+
+
+  requestAnimationFrame(onScroll);
 }

@@ -1,10 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
-import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import styles from "./Hero.module.css";
 import { ctaClick, dl } from "../../gtm";
 import PhoneField from "../Contact/PhoneField"; // <-- Path check kar lena
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
+
+// CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
+const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
@@ -30,6 +35,20 @@ const OptimizedImg = ({
     {...rest}
   />
 );
+
+// Maps each form field's `name` to the correct HTML autocomplete token.
+// Keeps working even if new fields are added later in sitedata.js.
+const getAutocomplete = (name = "") => {
+  const n = name.toLowerCase();
+  if (n.includes("first") || n.includes("full") || n === "name") return "name";
+  if (n.includes("last")) return "family-name";
+  if (n.includes("email")) return "email";
+  if (n.includes("organization") || n.includes("company")) return "organization";
+  if (n.includes("url") || n.includes("website")) return "url";
+  if (n.includes("phone") || n.includes("tel")) return "tel";
+  if (n.includes("message")) return "off";
+  return "on";
+};
 
 const Hero = () => {
   const h = data.hero;
@@ -107,50 +126,47 @@ const Hero = () => {
     validateField(f.name, e.currentTarget.value);
   };
 
-// handleSubmit — selected_plan ensure karo
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateAll()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateAll()) return;
 
-  const params = new URLSearchParams(location.search);
-  const plan = params.get("plan");
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
 
-  const payload = {
-    ...formData,
-    selected_plan: plan || "No plan selected — Direct form fill",
+    const payload = {
+      ...formData,
+      selected_plan: plan || "No plan selected — Direct form fill",
+    };
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) window.location.href = REDIRECT_URL;
+      else {
+        const err = await res.json().catch(() => ({}));
+        alert(err?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Found some error please try again.");
+    }
   };
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (res.ok) window.location.href = REDIRECT_URL;
-    else {
-      const err = await res.json().catch(() => ({}));
-      alert(err?.error || "Something went wrong. Please try again.");
-    }
-  } catch (err) {
-    alert("Found some error please try again.");
-  }
-};
-
-// Plan URL se read karo aur formData mein save karo
-useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const plan = params.get("plan");
-  if (!plan) return;
-  const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
-  setFormData((prev) => ({
-    ...prev,
-    message: defaultMessage,
-    selected_plan: plan, // hidden field — Formspree ko jaayega
-  }));
-  setTouched((prev) => ({ ...prev, message: true }));
-  setError("message", "");
-}, [location.search]);
-  // --- FORM STATE & LOGIC END ---
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+    if (!plan) return;
+    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+    setFormData((prev) => ({
+      ...prev,
+      message: defaultMessage,
+      selected_plan: plan,
+    }));
+    setTouched((prev) => ({ ...prev, message: true }));
+    setError("message", "");
+  }, [location.search]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -182,14 +198,20 @@ useEffect(() => {
           <p className={styles.heroSubtitle}>{h.sub}</p>
 
           <div className={styles.heroCtaWrap}>
-            <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
+            {/* <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
               {h.cta.label}
-            </a>
+            </a> */}
 
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
                 {h.avatars.map((src, i) => (
-                  <OptimizedImg key={i} src={src} alt={`Client ${i + 1}`} priority={false} />
+                  <OptimizedImg 
+                    key={i} 
+                    src={src} 
+                    alt={`Client ${i + 1}`} 
+                    width="48"
+                    height="48"
+                  />
                 ))}
               </div>
               <span className={styles.proofText} dangerouslySetInnerHTML={{ __html: h.proof }} />
@@ -210,6 +232,7 @@ useEffect(() => {
                       type={f.type}
                       name={f.name}
                       placeholder={f.placeholder}
+                      autoComplete={getAutocomplete(f.name)}
                       onInput={handleInput(f)}
                       onBlur={handleBlur(f)}
                       inputMode={/name/i.test(f.name) ? "text" : undefined}
@@ -229,6 +252,7 @@ useEffect(() => {
                     type={f.type}
                     name={f.name}
                     placeholder={f.placeholder}
+                    autoComplete={getAutocomplete(f.name)}
                     onInput={handleInput(f)}
                     onBlur={handleBlur(f)}
                     inputMode={/name/i.test(f.name) ? "text" : undefined}
@@ -241,15 +265,21 @@ useEffect(() => {
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
-                <PhoneField
-                  defaultCountry="in"
-                  classSelector={`${errors.phone ? styles.invalid : ""}`}
+                <input
+                  className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone || ""}
+                  placeholder="Phone Number"
+                  autoComplete="tel"
+                  inputMode="tel"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
-                  onChange={(val) => {
+                  onInput={(event) => {
+                    const val = event.currentTarget.value;
                     setField("phone", val);
                     if (phoneInteracted) {
                       touch("phone");
@@ -268,6 +298,7 @@ useEffect(() => {
                   name={f.name}
                   placeholder={f.placeholder}
                   value={formData.message || ""}
+                  autoComplete="off"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
@@ -295,7 +326,7 @@ useEffect(() => {
           </form>
         </div>
       </div>
-      <CompanyLogos />
+    
     </section>
   );
 };
