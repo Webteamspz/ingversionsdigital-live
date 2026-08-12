@@ -22,7 +22,7 @@ const EngagementModels = () => {
   return (
     <section className="engagement-section" id="engagement">
       <div className="engagement-container">
-        <h2 className="engagement-heading">{heading}</h2>
+        <h3 className="engagement-heading">{heading}</h3>
         <p className="engagement-subheading">{sub}</p>
 
         <div className="engagement-cards-grid">

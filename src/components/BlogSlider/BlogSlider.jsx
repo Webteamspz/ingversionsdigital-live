@@ -18,7 +18,7 @@ const BlogSlider = () => {
         
         {/* === Updated Header Section === */}
         <div className="blog-section-header">
-          <h2 className="startedTitle">{data.blog.heading}</h2>
+          <h3 className="startedTitle">{data.blog.heading}</h3>
           
           <a href={data.blog.seeMoreUrl} className="see-more-link">
             {data.blog.seeMoreText}

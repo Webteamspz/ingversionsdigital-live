@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
 import { ctaClick, dl } from "../../gtm";
+import PhoneField from "../Contact/PhoneField";
 
 
 // CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
@@ -44,6 +45,7 @@ const Hero = () => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [phoneInteracted, setPhoneInteracted] = useState(false);
+  const [formError, setFormError] = useState("");
   const location = useLocation();
 
   const setField = (name, value) => setFormData((p) => ({ ...p, [name]: value }));
@@ -111,6 +113,7 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError("");
     if (!validateAll()) return;
 
     const params = new URLSearchParams(location.search);
@@ -130,10 +133,10 @@ const Hero = () => {
       if (res.ok) window.location.href = REDIRECT_URL;
       else {
         const err = await res.json().catch(() => ({}));
-        alert(err?.error || "Something went wrong. Please try again.");
+        setFormError(err?.error || "Something went wrong. Please try again.");
       }
     } catch (err) {
-      alert("Found some error please try again.");
+      setFormError("Something went wrong. Please try again.");
     }
   };
 
@@ -181,9 +184,9 @@ const Hero = () => {
           <p className={styles.heroSubtitle}>{h.sub}</p>
 
           <div className={styles.heroCtaWrap}>
-            {/* <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
+            <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
               {h.cta.label}
-            </a> */}
+            </a>
 
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
@@ -211,7 +214,9 @@ const Hero = () => {
               {form.fields.filter((f) => f.col === "half").map((f) =>
                 f.type === "textarea" ? null : (
                   <div key={f.name}>
+                    <label htmlFor={`hero-${f.name}`} className={styles.srOnly}>{f.placeholder}</label>
                     <input
+                      id={`hero-${f.name}`}
                       className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                       type={f.type}
                       name={f.name}
@@ -220,8 +225,13 @@ const Hero = () => {
                       onBlur={handleBlur(f)}
                       inputMode={/name/i.test(f.name) ? "text" : undefined}
                       aria-invalid={!!errors[f.name]}
+                      aria-describedby={errors[f.name] ? `hero-${f.name}-error` : undefined}
                     />
-                    {errors[f.name] && <div className={styles.errorMessage}>{errors[f.name]}</div>}
+                    {errors[f.name] && (
+                      <div id={`hero-${f.name}-error`} role="alert" className={styles.errorMessage}>
+                        {errors[f.name]}
+                      </div>
+                    )}
                   </div>
                 )
               )}
@@ -230,7 +240,9 @@ const Hero = () => {
             {form.fields.filter((f) => f.col === "full" && !["phone", "message"].includes(f.name)).map((f) =>
               f.type === "textarea" ? null : (
                 <div key={f.name} className={styles.mt}>
+                  <label htmlFor={`hero-${f.name}`} className={styles.srOnly}>{f.placeholder}</label>
                   <input
+                    id={`hero-${f.name}`}
                     className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                     type={f.type}
                     name={f.name}
@@ -239,29 +251,31 @@ const Hero = () => {
                     onBlur={handleBlur(f)}
                     inputMode={/name/i.test(f.name) ? "text" : undefined}
                     aria-invalid={!!errors[f.name]}
+                    aria-describedby={errors[f.name] ? `hero-${f.name}-error` : undefined}
                   />
-                  {errors[f.name] && <div className={styles.errorMessage}>{errors[f.name]}</div>}
+                  {errors[f.name] && (
+                    <div id={`hero-${f.name}-error`} role="alert" className={styles.errorMessage}>
+                      {errors[f.name]}
+                    </div>
+                  )}
                 </div>
               )
             )}
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
-                <input
-                  className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
-                  type="tel"
-                  name="phone"
-                  value={formData.phone || ""}
-                  placeholder="Phone Number"
-                  autoComplete="tel"
-                  inputMode="tel"
+                <label htmlFor="hero-phone" className={styles.srOnly}>Phone Number</label>
+                <PhoneField
+                  id="hero-phone"
+                  invalid={!!errors.phone}
+                  ariaInvalid={!!errors.phone}
+                  ariaDescribedby={errors.phone ? "hero-phone-error" : undefined}
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
-                  onInput={(event) => {
-                    const val = event.currentTarget.value;
+                  onChange={(val) => {
                     setField("phone", val);
                     if (phoneInteracted) {
                       touch("phone");
@@ -269,13 +283,19 @@ const Hero = () => {
                     }
                   }}
                 />
-                {errors.phone && <div className={styles.errorMessage}>{errors.phone}</div>}
+                {errors.phone && (
+                  <div id="hero-phone-error" role="alert" className={styles.errorMessage}>
+                    {errors.phone}
+                  </div>
+                )}
               </div>
             )}
 
             {form.fields.filter((f) => f.name === "message").map((f) => (
               <div key={f.name} className={styles.mt}>
+                <label htmlFor="hero-message" className={styles.srOnly}>{f.placeholder}</label>
                 <textarea
+                  id="hero-message"
                   className={`${styles.cInput} ${styles.mt} ${errors.message ? styles.invalid : ""}`}
                   name={f.name}
                   placeholder={f.placeholder}
@@ -296,10 +316,21 @@ const Hero = () => {
                     validateField("message", e.currentTarget.value);
                   }}
                   aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "hero-message-error" : undefined}
                 />
-                {errors.message && <div className={styles.errorMessage}>{errors.message}</div>}
+                {errors.message && (
+                  <div id="hero-message-error" role="alert" className={styles.errorMessage}>
+                    {errors.message}
+                  </div>
+                )}
               </div>
             ))}
+
+            {formError && (
+              <div id="hero-form-error" role="alert" className={`${styles.errorMessage} ${styles.mt}`}>
+                {formError}
+              </div>
+            )}
 
             <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
               {form.submit.label}

@@ -49,7 +49,7 @@ const Home = () => {
     <>
       <Seo
         title="Ingversions Digital | Shopify, CRO and A/B Testing Agency"
-        description="Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands."
+        description="Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for ecommerce brands."
         path="/"
       />
 

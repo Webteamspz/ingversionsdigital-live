@@ -46,6 +46,13 @@ const TeamPage = () => {
             <Suspense fallback={null}>
               <TeamGrid members={teamMembers} />
             </Suspense>
+
+            <div className={styles.culture}>
+              <h2>{teamCopy.culture.heading}</h2>
+              {teamCopy.culture.paragraphs.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </section>
         </main>
       </Layout>

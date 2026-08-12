@@ -6,6 +6,13 @@ export const teamPage = {
     subtext:
       "From Shopify innovators to CRO strategists and A/B testing experts, our diverse team blends creativity, analytics, and technology to craft high-converting digital experiences for global brands.",
   },
+  culture: {
+    heading: "How We Work Together",
+    paragraphs: [
+      "We're a remote-first team based out of Surat, India, working as an extension of our clients' in-house teams rather than a siloed outside agency. Shopify developers, CRO strategists, and QA engineers sit together in lean pods so research, design, development, and testing move as one workflow instead of separate handoffs.",
+      "Every experiment we ship follows the same discipline: a hypothesis backed by data, a build that's QA'd before launch, and a clear readout once results are in — win or lose. That structure is what lets us keep experiment velocity high without cutting corners on quality.",
+    ],
+  },
 };
 
 export const teamMembers = [

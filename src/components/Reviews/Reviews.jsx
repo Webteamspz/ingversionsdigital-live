@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,13 +6,26 @@ import "swiper/css";
 import data from "../../data/sitedata";
 import quoteImg from "/assets/reviews/icon.png";
 import styles from "./Reviews.module.css";
+import { ctaClick } from "../../gtm";
 
 export default function Reviews() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const sectionRef = useRef(null);
-  const viewedRef = useRef(false);
   const swiperRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const toggleAutoplay = () => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+    if (isPaused) {
+      swiper.autoplay.start();
+    } else {
+      swiper.autoplay.stop();
+    }
+    setIsPaused((v) => !v);
+    ctaClick({ label: isPaused ? "Reviews Play" : "Reviews Pause", location: "Reviews" });
+  };
 
 
   return (
@@ -74,6 +87,27 @@ export default function Reviews() {
           </svg>
         </button>
 
+        <button
+          className={`${styles.tsNav} ${styles.tsPause}`}
+          aria-label={isPaused ? "Play testimonial rotation" : "Pause testimonial rotation"}
+          aria-pressed={isPaused}
+          data-cta={isPaused ? "Reviews Play" : "Reviews Pause"}
+          data-cta-loc="Reviews"
+          onClick={toggleAutoplay}
+          type="button"
+        >
+          {isPaused ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 1.5L14 8L3 14.5V1.5Z" fill="white" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <rect x="3" y="1.5" width="3.5" height="13" fill="white" />
+              <rect x="9.5" y="1.5" width="3.5" height="13" fill="white" />
+            </svg>
+          )}
+        </button>
+
         <Swiper
           modules={[Navigation, Pagination, Autoplay, A11y]}
           speed={600}
@@ -94,9 +128,9 @@ export default function Reviews() {
           navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 1500,
+            delay: 4500,
             disableOnInteraction: false,
-            pauseOnMouseEnter: false,
+            pauseOnMouseEnter: true,
             stopOnLastSlide: false,
           }}
           breakpoints={{

@@ -30,6 +30,22 @@ body {
   margin: 0 auto;
   padding: 0 15px
 }
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  z-index: 9999;
+  background: #0a84ff;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top .2s ease
+}
+.skip-link:focus {
+  top: 8px
+}
 .grid {
   display: -ms-grid;
   display: grid;

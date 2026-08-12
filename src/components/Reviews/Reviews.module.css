@@ -128,6 +128,17 @@
   border: 1px solid #0a84ff;
   background: #fffFFF1A
 }
+.tsPause {
+  top: 0;
+  right: 8px;
+  left: auto;
+  transform: none;
+  width: 36px;
+  height: 36px
+}
+.tsPause svg {
+  max-width: 14px
+}
 .testimonialSlider::after,
 .testimonialSlider::before {
   content: "";

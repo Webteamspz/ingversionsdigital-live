@@ -1,6 +1,33 @@
 .contactSection {
   padding: 36px 0 46px
 }
+.phoneLibWrap {
+  --react-international-phone-background-color: #1a1a1a;
+  --react-international-phone-text-color: #ffffff99;
+  --react-international-phone-border-color: rgba(255,255,255,0);
+  --react-international-phone-height: 42px;
+  --react-international-phone-border-radius: 5px;
+  --react-international-phone-font-size: 15px;
+  --react-international-phone-country-selector-background-color: #1a1a1a;
+  --react-international-phone-country-selector-background-color-hover: #242424;
+  --react-international-phone-selected-dropdown-item-background-color: #242424;
+  --react-international-phone-dropdown-item-background-color: #1a1a1a;
+}
+.phoneLibWrap :global(.react-international-phone-input-container) {
+  width: 100%;
+}
+.phoneLibWrap :global(.react-international-phone-input) {
+  width: 100%;
+  flex: 1;
+  font-family: Barlow;
+}
+.phoneLibWrap :global(.react-international-phone-country-selector-button__button-content) {
+  padding: 0 8px;
+}
+.phoneLibWrap.invalid :global(.react-international-phone-input),
+.phoneLibWrap.invalid :global(.react-international-phone-country-selector-button) {
+  border-color: #ff6b6b !important;
+}
 .contactHeading {
   margin-bottom: 40px!important
 }
