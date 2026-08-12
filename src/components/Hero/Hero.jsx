@@ -12,6 +12,12 @@ const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
 
+// CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
+const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
+
 const OptimizedImg = ({
   src,
   alt,
@@ -34,6 +40,20 @@ const OptimizedImg = ({
   />
 );
 
+// Maps each form field's `name` to the correct HTML autocomplete token.
+// Keeps working even if new fields are added later in sitedata.js.
+const getAutocomplete = (name = "") => {
+  const n = name.toLowerCase();
+  if (n.includes("first") || n.includes("full") || n === "name") return "name";
+  if (n.includes("last")) return "family-name";
+  if (n.includes("email")) return "email";
+  if (n.includes("organization") || n.includes("company")) return "organization";
+  if (n.includes("url") || n.includes("website")) return "url";
+  if (n.includes("phone") || n.includes("tel")) return "tel";
+  if (n.includes("message")) return "off";
+  return "on";
+};
+
 const Hero = () => {
   const h = data.hero;
   const { form } = data.contact; // Contact data se form fetch kar rahe hain
@@ -45,7 +65,6 @@ const Hero = () => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [phoneInteracted, setPhoneInteracted] = useState(false);
-  const [formError, setFormError] = useState("");
   const location = useLocation();
 
   const setField = (name, value) => setFormData((p) => ({ ...p, [name]: value }));
@@ -113,7 +132,6 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormError("");
     if (!validateAll()) return;
 
     const params = new URLSearchParams(location.search);
@@ -133,10 +151,10 @@ const Hero = () => {
       if (res.ok) window.location.href = REDIRECT_URL;
       else {
         const err = await res.json().catch(() => ({}));
-        setFormError(err?.error || "Something went wrong. Please try again.");
+        alert(err?.error || "Something went wrong. Please try again.");
       }
     } catch (err) {
-      setFormError("Something went wrong. Please try again.");
+      alert("Found some error please try again.");
     }
   };
 
@@ -184,9 +202,9 @@ const Hero = () => {
           <p className={styles.heroSubtitle}>{h.sub}</p>
 
           <div className={styles.heroCtaWrap}>
-            <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
+            {/* <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
               {h.cta.label}
-            </a>
+            </a> */}
 
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
@@ -197,7 +215,6 @@ const Hero = () => {
                     alt={`Client ${i + 1}`} 
                     width="48"
                     height="48"
-                    priority={true}
                   />
                 ))}
               </div>
@@ -214,24 +231,18 @@ const Hero = () => {
               {form.fields.filter((f) => f.col === "half").map((f) =>
                 f.type === "textarea" ? null : (
                   <div key={f.name}>
-                    <label htmlFor={`hero-${f.name}`} className={styles.srOnly}>{f.placeholder}</label>
                     <input
-                      id={`hero-${f.name}`}
                       className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                       type={f.type}
                       name={f.name}
                       placeholder={f.placeholder}
+                      autoComplete={getAutocomplete(f.name)}
                       onInput={handleInput(f)}
                       onBlur={handleBlur(f)}
                       inputMode={/name/i.test(f.name) ? "text" : undefined}
                       aria-invalid={!!errors[f.name]}
-                      aria-describedby={errors[f.name] ? `hero-${f.name}-error` : undefined}
                     />
-                    {errors[f.name] && (
-                      <div id={`hero-${f.name}-error`} role="alert" className={styles.errorMessage}>
-                        {errors[f.name]}
-                      </div>
-                    )}
+                    {errors[f.name] && <div className={styles.errorMessage}>{errors[f.name]}</div>}
                   </div>
                 )
               )}
@@ -240,42 +251,39 @@ const Hero = () => {
             {form.fields.filter((f) => f.col === "full" && !["phone", "message"].includes(f.name)).map((f) =>
               f.type === "textarea" ? null : (
                 <div key={f.name} className={styles.mt}>
-                  <label htmlFor={`hero-${f.name}`} className={styles.srOnly}>{f.placeholder}</label>
                   <input
-                    id={`hero-${f.name}`}
                     className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                     type={f.type}
                     name={f.name}
                     placeholder={f.placeholder}
+                    autoComplete={getAutocomplete(f.name)}
                     onInput={handleInput(f)}
                     onBlur={handleBlur(f)}
                     inputMode={/name/i.test(f.name) ? "text" : undefined}
                     aria-invalid={!!errors[f.name]}
-                    aria-describedby={errors[f.name] ? `hero-${f.name}-error` : undefined}
                   />
-                  {errors[f.name] && (
-                    <div id={`hero-${f.name}-error`} role="alert" className={styles.errorMessage}>
-                      {errors[f.name]}
-                    </div>
-                  )}
+                  {errors[f.name] && <div className={styles.errorMessage}>{errors[f.name]}</div>}
                 </div>
               )
             )}
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
-                <label htmlFor="hero-phone" className={styles.srOnly}>Phone Number</label>
-                <PhoneField
-                  id="hero-phone"
-                  invalid={!!errors.phone}
-                  ariaInvalid={!!errors.phone}
-                  ariaDescribedby={errors.phone ? "hero-phone-error" : undefined}
+                <input
+                  className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone || ""}
+                  placeholder="Phone Number"
+                  autoComplete="tel"
+                  inputMode="tel"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
-                  onChange={(val) => {
+                  onInput={(event) => {
+                    const val = event.currentTarget.value;
                     setField("phone", val);
                     if (phoneInteracted) {
                       touch("phone");
@@ -283,23 +291,18 @@ const Hero = () => {
                     }
                   }}
                 />
-                {errors.phone && (
-                  <div id="hero-phone-error" role="alert" className={styles.errorMessage}>
-                    {errors.phone}
-                  </div>
-                )}
+                {errors.phone && <div className={styles.errorMessage}>{errors.phone}</div>}
               </div>
             )}
 
             {form.fields.filter((f) => f.name === "message").map((f) => (
               <div key={f.name} className={styles.mt}>
-                <label htmlFor="hero-message" className={styles.srOnly}>{f.placeholder}</label>
                 <textarea
-                  id="hero-message"
                   className={`${styles.cInput} ${styles.mt} ${errors.message ? styles.invalid : ""}`}
                   name={f.name}
                   placeholder={f.placeholder}
                   value={formData.message || ""}
+                  autoComplete="off"
                   onFocus={() => {
                     setPhoneInteracted(true);
                     touch("phone");
@@ -316,21 +319,10 @@ const Hero = () => {
                     validateField("message", e.currentTarget.value);
                   }}
                   aria-invalid={!!errors.message}
-                  aria-describedby={errors.message ? "hero-message-error" : undefined}
                 />
-                {errors.message && (
-                  <div id="hero-message-error" role="alert" className={styles.errorMessage}>
-                    {errors.message}
-                  </div>
-                )}
+                {errors.message && <div className={styles.errorMessage}>{errors.message}</div>}
               </div>
             ))}
-
-            {formError && (
-              <div id="hero-form-error" role="alert" className={`${styles.errorMessage} ${styles.mt}`}>
-                {formError}
-              </div>
-            )}
 
             <button className={`btn ${styles.cBtn} ${styles.mt}`} type="submit">
               {form.submit.label}
@@ -338,6 +330,7 @@ const Hero = () => {
           </form>
         </div>
       </div>
+    
     </section>
   );
 };

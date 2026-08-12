@@ -25,10 +25,10 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
   return (
     <div className={styles.heroTop}>
       <span className={styles.tag}>{data.hero.tag}</span>
-      <h1 className={styles.heading}>
+      <h2 className={styles.heading}>
         {data.hero.headingPart1}{" "}
         <span className={styles.highlight}>{data.hero.headingHighlight}</span>
-      </h1>
+      </h2>
       <p className={styles.description}>{data.hero.description}</p>
 
       {/* Desktop / tablet button group */}

@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./ContactModal.css";
-
-const FOCUSABLE_SELECTOR =
-  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
 
@@ -21,8 +18,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const modalRef = useRef(null);
-  const triggerElRef = useRef(null);
 
   // Prevent background scrolling when the modal is open
   useEffect(() => {
@@ -37,47 +32,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
-
-  // Move focus into the modal on open, restore it to the trigger on close;
-  // Escape closes the modal; Tab is trapped within the modal while open.
-  useEffect(() => {
-    if (!isOpen) return;
-
-    triggerElRef.current = document.activeElement;
-    modalRef.current?.focus();
-
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
-        return;
-      }
-
-      if (e.key !== "Tab" || !modalRef.current) return;
-
-      const focusable = Array.from(
-        modalRef.current.querySelectorAll(FOCUSABLE_SELECTOR)
-      );
-      if (focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      triggerElRef.current?.focus?.();
-    };
-  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -132,14 +86,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
   return (
     <div className="contact-modal-overlay" onClick={handleOverlayClick}>
-      <div
-        className="contact-modal"
-        ref={modalRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="contact-modal-title"
-        tabIndex={-1}
-      >
+      <div className="contact-modal">
         <button className="contact-modal-close" onClick={handleClose} aria-label="Close">
           &times;
         </button>
@@ -157,7 +104,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 />
               </svg>
             </div>
-            <h3 id="contact-modal-title">Thank you for sharing your details!</h3>
+            <h3>Thank you for sharing your details!</h3>
             <p>We'll get in touch with you shortly.</p>
             <button className="contact-modal-submit" onClick={handleClose}>
               Close
@@ -166,7 +113,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
         ) : (
           <>
             <div className="contact-modal-header">
-              <h3 id="contact-modal-title">Tell us a bit about yourself</h3>
+              <h3>Tell us a bit about yourself</h3>
               <span className="contact-modal-required">
                 <span className="required-star">*</span> Required Information
               </span>
@@ -238,11 +185,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 </select>
               </div>
 
-              {submitError && (
-                <div className="errorMessage contact-modal-error" role="alert">
-                  {submitError}
-                </div>
-              )}
+              {submitError && <div className="errorMessage contact-modal-error">{submitError}</div>}
 
               <button type="submit" className="contact-modal-submit" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Continue"}
