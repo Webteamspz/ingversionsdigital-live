@@ -5,7 +5,7 @@
   text-align: center
 }
 .sectionSubtitle {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   margin: 0 auto 45px;
   text-align: center;
   font-weight: 400;
@@ -21,7 +21,7 @@
 .card.aboutExpertiseCard {
   width: 100%;
   min-height: 425px;
-  background: #141414;
+  background: var(--palette-bg-800);
   border: 1px solid transparent;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,.25);
@@ -58,14 +58,14 @@
 }
 .aboutExpertiseCard h3 {
   margin: 0 0 34px;
-  color: #fff;
+  color: var(--palette-text-primary);
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
   text-align: center
 }
 .aboutExpertiseCard p {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -92,7 +92,7 @@
     width: 100%;
     max-width: 100%;
     min-height: 360px;
-    background: #141414;
+    background: var(--palette-bg-800);
     border-radius: 16px;
     box-shadow: 0 10px 24px rgba(0,0,0,.25);
     text-align: center;
@@ -117,9 +117,9 @@
   .aboutExpertiseSwiper {
     padding-bottom: 56px;
     overflow: visible;
-    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: #0a84ff
+    --swiper-pagination-color: var(--palette-accent)
   }
   .aboutExpertiseSwiper .swiper-slide {
     height: auto!important

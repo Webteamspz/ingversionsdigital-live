@@ -14,6 +14,21 @@
     <meta name="author" content="Ingversions Digital" />
     <meta name="theme-color" content="#030303" />
 
+    <!-- Apply saved theme before first paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var saved = window.localStorage.getItem("magic-theme-mode");
+          document.documentElement.setAttribute(
+            "data-theme",
+            saved === "day" || saved === "night" ? saved : "night"
+          );
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "night");
+        }
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />

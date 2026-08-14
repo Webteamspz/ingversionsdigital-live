@@ -7,7 +7,7 @@
   margin-top: 49px
 }
 .kpi {
-  background: #141414;
+  background: var(--palette-bg-800);
   border-radius: 12px;
   padding: 18px;
   text-align: center;
@@ -27,7 +27,7 @@
   min-height: 125px
 }
 .kpi .value {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-weight: 600;
   font-size: 40px;
   line-height: normal;
@@ -36,7 +36,7 @@
   margin-bottom: -5px
 }
 .kpi .label {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;

@@ -11,7 +11,7 @@
   align-items: center
 }
 .contactCard {
-  background: #141414;
+  background: var(--palette-bg-800);
   border-radius: 16px;
   padding: 32px 40px;
   box-shadow: 0 10px 24px rgba(0,0,0,.25)
@@ -22,7 +22,7 @@
 }
 .contactPanelTitle {
   margin: 0 0 24px;
-  color: #fff;
+  color: var(--palette-text-primary);
   font-weight: 600;
   font-size: 20px;
   line-height: 100%
@@ -49,14 +49,14 @@
 }
 .cList li {
   display: flex;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   align-items: flex-start
 }
 .contactNote {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   margin: 16px 0;
   font-weight: 400;
   font-size: 16px
@@ -106,12 +106,12 @@
 }
 .snapshotText {
   margin: 10px 0 16px;
-  color: #e5e7eb;
+  color: var(--palette-text-secondary);
   font-size: 16px;
   line-height: 1.5
 }
 .snapshotEmphasis {
-  color: #38bdf8;
+  color: var(--palette-accent-strong);
   font-weight: 700
 }
 .snapshotBlock {
@@ -121,7 +121,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #f9fafb;
+  color: var(--palette-text-primary);
   font-size: 14px;
   margin: 0 0 8px
 }
@@ -135,18 +135,18 @@
 .snapshotRatingsDetail {
   margin: 2px;
   font-size: 15px;
-  color: #cbd5f5
+  color: var(--palette-text-secondary)
 }
 .snapshotTrust {
   margin: 12px 0 14px;
   font-size: 15px;
-  color: #a5b4fc
+  color: var(--palette-text-secondary)
 }
 .snapshotSubheading {
   margin: 10px 0 8px;
   font-size: 16px;
   font-weight: 700;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 .snapshotList {
   list-style: none;
@@ -155,16 +155,16 @@
   display: grid;
   gap: 6px;
   font-size: 14px;
-  color: #ffffffcc
+  color: var(--palette-text-secondary)
 }
 .snapshotList li::before {
   content: "•";
   margin-right: 6px;
-  color: #38bdf8
+  color: var(--palette-accent-strong)
 }
 .contactDivider {
   margin: 26px 0 18px;
-  border-top: 1px solid rgba(148,163,184,.45)
+  border-top: 1px solid var(--palette-border-soft)
 }
 .contactInfoBlock {
   margin-top: 4px

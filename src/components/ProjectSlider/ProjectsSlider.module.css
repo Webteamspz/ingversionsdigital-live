@@ -1,7 +1,7 @@
 .startedSection {
   position: relative;
   padding: 50px 0 30px;
-  background: #030303;
+  background: var(--palette-bg-950);
 }
 .startedContainer {
   position: relative;
@@ -19,7 +19,7 @@
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;
-  color: #fff;
+  color: var(--palette-text-primary);
   margin: 0;
   text-align: left;
 }
@@ -31,7 +31,7 @@
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
   transition: 0.3s all ease-in-out;
@@ -41,12 +41,12 @@
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0a84ff;
+  border: 1px solid var(--palette-accent);
   cursor: pointer;
 }
 .seeMoreLink:hover {
-  background: #ffffff1a;
-  color: #0a84ff;
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent);
 }
 /* ========================================================================= */
 
@@ -82,8 +82,8 @@
   height: 52px;
   border: none;
   border-radius: 50%;
-  background: #0a84ff;
-  border: 1px solid #0a84ff;
+  background: var(--palette-accent);
+  border: 1px solid var(--palette-accent);
   color: #fff;
   display: flex;
   align-items: center;
@@ -103,14 +103,14 @@
   display: block;
 }
 .tsNav:hover svg path {
-  stroke: #0a84ff;
+  stroke: var(--palette-accent);
 }
 .tsNav.tsPrev svg {
   transform: rotate(180deg);
 }
 .tsNav:hover {
-  border: 1px solid #0a84ff;
-  background: #ffffff1a;
+  border: 1px solid var(--palette-accent);
+  background: var(--palette-hover-ghost);
 }
 
 /* ===== Project cards ===== */
@@ -119,8 +119,8 @@
 }
 .cardLink {
   display: block;
-  background: #0e0e0e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--palette-bg-800);
+  border: 1px solid var(--palette-border-soft);
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
@@ -149,7 +149,7 @@
   padding: 18px 20px;
 }
 .cardCategory {
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -157,7 +157,7 @@
   letter-spacing: 0.02em;
 }
 .cardTitle {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-size: 18px;
   font-weight: 700;
   margin: 0;
@@ -167,19 +167,19 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #1c1c1c;
-  color: #0a84ff;
+  background: var(--palette-bg-700);
+  color: var(--palette-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease, color 0.2s ease;
 }
 .cardLink:hover .cardArrow {
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
 }
 .emptyState {
-  color: #a3a3a3;
+  color: var(--palette-text-muted);
   text-align: center;
   padding: 60px 0;
 }

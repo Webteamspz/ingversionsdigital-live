@@ -1,7 +1,7 @@
 .teamSection {
-  background: #030303;
+  background: var(--palette-bg-950);
   padding: 36px 0 24px;
-  color: #fff;
+  color: var(--palette-text-primary);
   position: relative
 }
 .teamSection:after,
@@ -16,15 +16,11 @@
 }
 .teamSection:before {
   left: 0;
-  background: -o-linear-gradient(right,transparent,#030303);
-  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
-  background: linear-gradient(to left,transparent,#030303)
+  background: linear-gradient(to left,transparent,var(--palette-bg-950))
 }
 .teamSection:after {
   right: 0;
-  background: -o-linear-gradient(left,transparent,#030303);
-  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
-  background: linear-gradient(to right,transparent,#030303)
+  background: linear-gradient(to right,transparent,var(--palette-bg-950))
 }
 .teamContainer {
   max-width: 100%!important;
@@ -36,7 +32,7 @@
   font-weight: 700;
   font-size: 36px;
   line-height: 56px;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 .pill {
   display: inline-block;
@@ -49,7 +45,7 @@
   content: '';
   left: -4px;
   bottom: 5px;
-  background: #0a84ff;
+  background: var(--palette-accent);
   width: 98px;
   height: 42px;
   border-radius: 8px;
@@ -63,8 +59,8 @@
   width: clamp(220px,22vw,280px)!important
 }
 .card {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,.08);
+  background: var(--palette-bg-800);
+  border: 1px solid var(--palette-border-soft);
   border-radius: 14px;
   overflow: hidden;
   -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.28);
@@ -97,7 +93,7 @@
   line-height: 100%;
   letter-spacing: 0;
   text-align: center;
-  color: #fff;
+  color: var(--palette-text-primary);
   margin: 10px auto
 }
 .infoRole {
@@ -106,7 +102,7 @@
   line-height: 20px;
   letter-spacing: 0;
   text-align: center;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   margin: 0 auto
 }
 @media (max-width:1199.98px) {
@@ -120,7 +116,7 @@
     content: '';
     left: -4px;
     bottom: -2px;
-    background: #0a84ff;
+    background: var(--palette-accent);
     width: 70px;
     height: 30px;
     border-radius: 8px;

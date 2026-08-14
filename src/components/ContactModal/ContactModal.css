@@ -1,7 +1,7 @@
 .contact-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.7);
+  background: var(--palette-overlay);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 .contact-modal {
   position: relative;
-  background: #141414;
+  background: var(--palette-bg-800);
   border: 1px solid rgba(10,132,255,.35);
   border-radius: 16px;
   width: 100%;
@@ -47,14 +47,14 @@
   right: 16px;
   background: 0 0;
   border: none;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 24px;
   line-height: 1;
   cursor: pointer;
   transition: color .2s ease
 }
 .contact-modal-close:hover {
-  color: #0a84ff
+  color: var(--palette-accent)
 }
 .contact-modal-header {
   display: flex;
@@ -63,7 +63,7 @@
   margin-bottom: 24px
 }
 .contact-modal-header h3 {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-size: 24px;
   font-weight: 600;
   margin: 0;
@@ -71,7 +71,7 @@
 }
 .contact-modal-required {
   font-size: 14px;
-  color: #ffffffcc
+  color: var(--palette-text-secondary)
 }
 .required-star {
   color: #ff4d4f
@@ -89,15 +89,15 @@
 .form-group label {
   font-size: 14px;
   font-weight: 600;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 .form-group input,
 .form-group select {
-  background: #1e1e1e;
-  border: 1px solid #333;
+  background: var(--palette-bg-700);
+  border: 1px solid var(--palette-border);
   border-radius: 10px;
   padding: 12px 14px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 14px;
   outline: 0;
   transition: border-color .2s ease;
@@ -111,16 +111,16 @@
   cursor: pointer
 }
 .form-group input::placeholder {
-  color: #ffffffcc
+  color: var(--palette-text-secondary)
 }
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #0a84ff
+  border-color: var(--palette-accent)
 }
 .multiselect {
   position: relative;
-  background: #1e1e1e;
-  border: 1px solid #333;
+  background: var(--palette-bg-700);
+  border: 1px solid var(--palette-border);
   border-radius: 10px;
   min-height: 46px;
   padding: 8px 32px 8px 10px;
@@ -135,14 +135,14 @@
   flex: 1
 }
 .multiselect-placeholder {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 14px;
   padding: 4px 0
 }
 .chip {
   background: #0a84ff22;
   border: 1px solid #0a84ff55;
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   font-weight: 600;
   border-radius: 20px;
@@ -154,7 +154,7 @@
 .chip-remove {
   background: 0 0;
   border: none;
-  color: #0a84ff;
+  color: var(--palette-accent);
   cursor: pointer;
   font-size: 14px;
   line-height: 1;
@@ -165,7 +165,7 @@
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   transition: transform .2s ease;
   pointer-events: none
@@ -178,8 +178,8 @@
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  background: #1e1e1e;
-  border: 1px solid #333;
+  background: var(--palette-bg-700);
+  border: 1px solid var(--palette-border);
   border-radius: 10px;
   padding: 8px;
   z-index: 10;
@@ -193,7 +193,7 @@
   gap: 8px;
   padding: 8px 10px;
   font-size: 14px;
-  color: #fff;
+  color: var(--palette-text-primary);
   border-radius: 6px;
   cursor: pointer
 }
@@ -201,12 +201,12 @@
   background: #0a84ff1a
 }
 .multiselect-option input {
-  accent-color: #0a84ff
+  accent-color: var(--palette-accent)
 }
 .contact-modal-submit {
-  background-color: #0a84ff;
+  background-color: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff;
+  border: 1px solid var(--palette-accent);
   border-radius: 10px;
   padding: 14px 20px;
   font-size: 15px;
@@ -216,8 +216,8 @@
   transition: background-color .3s ease,transform .2s ease
 }
 .contact-modal-submit:hover {
-  background: rgba(255,255,255,.05);
-  color: #0a84ff;
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent);
   transform: translateY(-2px)
 }
 .contact-modal-thankyou {
@@ -239,13 +239,13 @@
   margin-bottom: 20px
 }
 .contact-modal-thankyou h3 {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 8px 0
 }
 .contact-modal-thankyou p {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 14px;
   margin: 0 0 24px 0
 }
