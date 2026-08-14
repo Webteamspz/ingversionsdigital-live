@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: #030303;
+  background: #f7f8fb;
   z-index: 9999;
   display: -ms-grid;
   display: grid;

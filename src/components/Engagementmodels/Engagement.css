@@ -1,7 +1,7 @@
 .engagement-section {
   padding: 30px 24px;
-  background-color: #000;
-  color: #fff
+  background-color: #f7f8fb;
+  color: #0b0f19
 }
 .engagement-container {
   max-width: 1260px;
@@ -16,11 +16,11 @@
   line-height: 56px;
   text-align: center;
   margin-bottom: 16px;
-  color: #fff
+  color: #0b0f19
 }
 .engagement-subheading {
   font-size: 16px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   max-width: 750px;
   margin: 0 auto 60px auto;
   line-height: 1.6
@@ -32,7 +32,8 @@
   text-align: left
 }
 .engagement-card {
-  background-color: #141414;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 32px;
   display: flex;
@@ -47,7 +48,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  color: #0a84ff;
+  color: #1d4ed8;
   overflow: hidden;
   flex-shrink: 0
 }
@@ -63,12 +64,12 @@
 .engagement-card-title {
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: #0b0f19;
   margin-bottom: 12px
 }
 .engagement-card-description {
   font-size: 16px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   line-height: 1.6;
   min-height: 96px;
   margin-bottom: 24px
@@ -87,19 +88,19 @@
   align-items: center;
   gap: 10px;
   font-size: .9rem;
-  color: #d0d0d0
+  color: rgba(11,15,25,.72)
 }
 .engagement-check-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0a84ff;
+  color: #1d4ed8;
   flex-shrink: 0
 }
 .engagement-learn-more-btn {
-  background-color: #0a84ff;
+  background-color: #1d4ed8;
   color: #fff;
-  border: 1px solid #0a84ff;
+  border: 1px solid #1d4ed8;
   border-radius: 10px;
   padding: 12px 20px;
   font-size: 14px;
@@ -112,7 +113,7 @@
 }
 .engagement-learn-more-btn:hover {
   background: rgba(255,255,255,.05);
-  color: #0a84ff;
+  color: #1d4ed8;
   -webkit-transform: translateY(-2px);
   -ms-transform: translateY(-2px);
   transform: translateY(-2px)

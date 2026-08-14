@@ -1,36 +1,39 @@
-/* ===== SCROLL TO TOP BUTTON ===== */
 .scrollTopBtn {
-  position: fixed !important;
+  position: fixed!important;
   bottom: 32px;
   right: 28px;
-  top: unset !important;
+  top: unset!important;
   z-index: 999;
-  transition: opacity 0.3s ease, transform 0.3s ease,
-    background 0.3s ease, border 0.3s ease !important;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #1d4ed8;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  cursor: pointer;
+  transition: opacity .3s ease,transform .3s ease,background .3s ease,border .3s ease!important
 }
-
 .scrollTopArrow {
   display: block;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg)
 }
-
 .scrollTopVisible {
   opacity: 1;
-  transform: translateY(0) !important;
-  pointer-events: auto;
+  transform: translateY(0)!important;
+  pointer-events: auto
 }
-
 .scrollTopHidden {
   opacity: 0;
-  transform: translateY(20px) !important;
-  pointer-events: none;
+  transform: translateY(20px)!important;
+  pointer-events: none
 }
-
-/* Mobile par bhi dikhaye — BlogSlider.css ka display:none override */
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
   .scrollTopBtn {
-    display: flex !important;
+    display: flex!important;
     bottom: 20px;
-    right: 16px;
+    right: 16px
   }
 }

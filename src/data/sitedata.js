@@ -737,7 +737,7 @@ export default {
     ],
   },
 footer: {
-    logo: "/assets/logos/main-logo.png",
+    logo: "/assets/logos/mobile-logo.png",
     company: "Ingversions Digital",
     linkGroups: [
       {
@@ -755,6 +755,13 @@ footer: {
           { name: "Team Page", href: "/teampage" },
           { name: "About Us", href: "/about-us" },
           { name: "Blog", href: "https://blog.ingversionsdigital.com/" },
+        ],
+      },
+      {
+        title: "Legal",
+        links: [
+          { name: "Privacy Policy", href: "/privacy-policy" },
+          { name: "Terms of Service", href: "/terms-of-service" },
         ],
       },
     ],

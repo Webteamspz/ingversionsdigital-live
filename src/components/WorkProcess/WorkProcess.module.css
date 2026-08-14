@@ -6,7 +6,7 @@
   margin-bottom: 20px
 }
 .processSub {
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   margin: 0 auto 48px;
   text-align: center;
   font-weight: 400;
@@ -27,8 +27,8 @@
   gap: 22px
 }
 .step {
-  background: #141414;
-  border: 1px solid transparent;
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   overflow: hidden;
   display: -webkit-box;
@@ -44,8 +44,8 @@
   box-shadow: 0 8px 20px rgba(0,0,0,.25)
 }
 .stepHead {
-  background: #141414;
-  color: #fff;
+  background: #fff;
+  color: #0b0f19;
   text-align: center;
   padding: 13.17px 14px;
   font-weight: 700;
@@ -54,7 +54,7 @@
   text-transform: uppercase
 }
 .stepBody {
-  background: #1f1f1f
+  background: #eef1f6
 }
 .stepIcon {
   display: block;
@@ -67,7 +67,7 @@
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
 }
 .stepDesc {
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -105,7 +105,7 @@
     text-align: center
   }
   .stepBody {
-    background: #1f1f1f
+    background: #eef1f6
   }
   .stepIcon {
     max-width: 150px;

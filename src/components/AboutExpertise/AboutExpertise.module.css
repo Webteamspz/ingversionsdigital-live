@@ -1,11 +1,11 @@
 .aboutExpertise {
-  padding-top: 50px;
+  padding-top: 50px
 }
 .sectionTitleCenter {
   text-align: center
 }
 .sectionSubtitle {
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   margin: 0 auto 45px;
   text-align: center;
   font-weight: 400;
@@ -21,8 +21,8 @@
 .card.aboutExpertiseCard {
   width: 100%;
   min-height: 425px;
-  background: #141414;
-  border: 1px solid transparent;
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,.25);
   padding: 28px 26px;
@@ -34,11 +34,6 @@
   transition: border-color .15s ease,transform .15s ease,box-shadow .15s ease;
   box-sizing: border-box
 }
-/* .card.aboutExpertiseCard:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255,255,255,.1);
-  box-shadow: 0 15px 30px rgba(0,0,0,.4)
-} */
 .aboutIconWrap {
   width: 100%;
   height: 160px;
@@ -58,14 +53,14 @@
 }
 .aboutExpertiseCard h3 {
   margin: 0 0 34px;
-  color: #fff;
+  color: #0b0f19;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
   text-align: center
 }
 .aboutExpertiseCard p {
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -82,8 +77,8 @@
 }
 @media (max-width:767.98px) {
   .aboutExpertise {
-  padding: 40px 0;
-}
+    padding: 40px 0
+  }
   .sectionSubtitle {
     font-weight: 400;
     font-size: 14px
@@ -92,7 +87,7 @@
     width: 100%;
     max-width: 100%;
     min-height: 360px;
-    background: #141414;
+    background: #fff;
     border-radius: 16px;
     box-shadow: 0 10px 24px rgba(0,0,0,.25);
     text-align: center;
@@ -117,9 +112,9 @@
   .aboutExpertiseSwiper {
     padding-bottom: 56px;
     overflow: visible;
-    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-color: #d1d5db;
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: #0a84ff
+    --swiper-pagination-color: #1d4ed8
   }
   .aboutExpertiseSwiper .swiper-slide {
     height: auto!important

@@ -1,44 +1,44 @@
 .pricingComparison {
-  background: #030303;
-  color: #fff;
-  padding: 50px 0 60px;
+  background: #f7f8fb;
+  color: #0b0f19;
+  padding: 50px 0 60px
 }
 .sectionTitle {
-  color: #fff;
+  color: #0b0f19;
   margin: 0 0 10px;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 36px;
-  text-align: center;
+  text-align: center
 }
 .sectionSubtitle {
   max-width: 600px;
   margin: 0 auto 85px;
   text-align: center;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   line-height: 1.5;
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
+  font-family: Barlow,sans-serif;
+  font-size: 16px
 }
 .tableWrap {
-  display: none; /* sabhi screens par hidden — mobile layout use hoga */
+  display: none
 }
 .row {
   display: grid;
-  height: 70px;
+  height: 70px
 }
 .headerRow {
-  background: transparent;
+  background: 0 0;
   margin-bottom: 20px;
-  min-height: 100px;
+  min-height: 100px
 }
 .sectionTitleRow {
-  background: #141414;
-  height: 40px;
+  background: #eef1f6;
+  height: 40px
 }
 .rowLine {
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  min-height: 50px;
+  border-bottom: 1px solid rgba(11,15,25,.06);
+  min-height: 50px
 }
 .cell {
   padding: 11px 12px;
@@ -46,79 +46,79 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: #0b0f19;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif
 }
 .cell:first-child {
   justify-content: flex-start;
   text-align: left;
-  padding: 6px 12px;
+  padding: 6px 12px
 }
 .stub {
-  color: #0a84ff;
+  color: #1d4ed8;
   font-weight: 700;
   font-size: 18px;
-  line-height: 100%;
+  line-height: 100%
 }
 .spanner {
-  grid-column: 2/-1;
+  grid-column: 2/-1
 }
 .labelCell {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  text-align: left;
+  text-align: left
 }
 .planHead {
   flex-direction: column;
   justify-content: flex-end;
   gap: 6px;
   position: relative;
-  min-height: 70px;
+  min-height: 70px
 }
 .planName {
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  letter-spacing: 0;
+  letter-spacing: 0
 }
 .premiumName {
-  color: #0a84ff;
+  color: #1d4ed8;
   font-weight: 700;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 26px
 }
 .planPrice {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 800;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 18px
 }
 .planSpacer {
   min-height: 18px;
-  line-height: 18px;
+  line-height: 18px
 }
 .period {
   font-weight: 400;
   font-size: 14px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72)
 }
 .ctaLink {
-  color: #0a84ff;
+  color: #1d4ed8;
   text-decoration: none;
   font-weight: 700;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 18px
 }
 .ctaLink:hover {
-  color: #fff;
+  color: #0b0f19
 }
 .badge {
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
   border-radius: 2px;
   padding: 2px 8px;
@@ -129,12 +129,12 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%)
 }
 .footerRow {
   height: auto;
   padding-top: 18px;
-  padding-bottom: 26px;
+  padding-bottom: 26px
 }
 .btn {
   display: inline-flex;
@@ -144,99 +144,97 @@
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
   text-decoration: none;
-  font-family: 'Barlow', sans-serif;
+  font-family: Barlow,sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
   transition: .3s all ease-in-out;
-  border: 1px solid #0a84ff;
+  border: 1px solid #1d4ed8
 }
 .btn:hover {
   background: rgba(255,255,255,.1);
-  color: #0a84ff;
+  color: #1d4ed8
 }
 .textValue {
   font-size: 16px;
-  color: rgba(255,255,255,.9);
-  font-weight: 400;
+  color: rgba(11,15,25,.72);
+  font-weight: 400
 }
 .valueIcon {
   width: 16px;
   height: 16px;
-  display: block;
+  display: block
 }
-
-/* ======= MOBILE COMPARE — ALL SCREENS ======= */
 .mobileCompare {
   display: grid;
-  grid-template-columns: minmax(200px, 46%) 1fr;
+  grid-template-columns: minmax(200px,46%) 1fr;
   gap: 0;
   position: relative;
-  margin-top: 8px;
+  margin-top: 8px
 }
 .labelsCol {
   border-right: none;
   border-radius: 10px 0 0 10px;
-  overflow: hidden;
+  overflow: hidden
 }
 .labelsHeadSpacer {
   height: 78px;
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(11,15,25,.12)
 }
 .mSectionTitle {
-  color: #0a84ff;
+  color: #1d4ed8;
   padding: 10px 20px;
   font-weight: 600;
   font-size: 14px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  background: #141414;
+  border-top: 1px solid rgba(11,15,25,.06);
+  background: #eef1f6;
   min-height: 48px;
   display: flex;
-  align-items: center;
+  align-items: center
 }
 .emptySecTitle {
   color: transparent;
-  border-left: 1px solid rgba(255,255,255,.06);
-  background: #141414;
+  border-left: 1px solid rgba(11,15,25,.06);
+  background: #eef1f6
 }
 .mRow {
   display: flex;
   align-items: center;
   padding: 12px 20px;
   min-height: 48px;
-  border-top: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(11,15,25,.06)
 }
 .mLabel {
-  color: #dcdcdc;
+  color: #6b7280;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 14px
 }
 .plansCol {
   position: relative;
   border-left: none;
   border-radius: 0 10px 10px 0;
-  overflow: hidden;
+  overflow: hidden
 }
 .planSwiper {
-  padding-top: 0;
+  padding-top: 0
 }
 .slide {
-  background: transparent;
-  border: none;
+  background: 0 0;
+  border: none
 }
 .mHead {
   text-align: center;
   padding: 16px 10px 14px;
   position: relative;
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(11,15,25,.12);
   min-height: 78px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 6px
 }
 .valRow {
   display: flex;
@@ -244,12 +242,12 @@
   justify-content: center;
   min-height: 48px;
   padding: 12px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-left: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(11,15,25,.06);
+  border-left: 1px solid rgba(11,15,25,.06)
 }
 .mValue {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 14px
 }
 .navBtn {
   position: absolute;
@@ -258,75 +256,71 @@
   padding: 0;
   margin: 0;
   border: none;
-  background: transparent;
+  background: 0 0;
   cursor: pointer;
   width: auto;
   height: auto;
-  line-height: 0;
+  line-height: 0
 }
 .prev {
-  left: 12px;
+  left: 12px
 }
 .next {
-  right: 12px;
+  right: 12px
 }
 .navIcon {
   display: block;
   width: 25px;
-  height: 25px;
+  height: 25px
 }
 .navBtn:hover .navIcon {
-  filter: brightness(1.08);
+  filter: brightness(1.08)
 }
 .mobileCtaBar {
   padding: 16px 12px 22px;
   display: flex;
   justify-content: center;
-  border-left: 1px solid rgba(255,255,255,.06);
+  border-left: 1px solid rgba(11,15,25,.06)
 }
 .mobileCtaBar .btn {
   width: 100%;
   max-width: 320px;
-  text-align: center;
+  text-align: center
 }
-
-/* ======= DESKTOP TWEAKS ======= */
-@media (min-width: 1024px) {
+@media (min-width:1024px) {
   .mobileCompare {
-    grid-template-columns: minmax(280px, 38%) 1fr;
+    grid-template-columns: minmax(280px,38%) 1fr
   }
   .mLabel {
-    font-size: 15px;
+    font-size: 15px
   }
   .mValue {
-    font-size: 15px;
+    font-size: 15px
   }
   .sectionSubtitle {
-    margin-bottom: 85px;
+    margin-bottom: 85px
   }
 }
-
-/* ======= MOBILE TWEAKS ======= */
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
   .mobileCompare {
-    grid-template-columns: minmax(150px, 49%) 1fr;
+    grid-template-columns: minmax(150px,49%) 1fr
   }
+  .emptySecTitle,
   .mRow,
-  .valRow,
   .mSectionTitle,
-  .emptySecTitle {
-    min-height: 60px;
+  .valRow {
+    min-height: 60px
   }
   .prev {
-    left: 0;
+    left: 0
   }
   .next {
-    right: 0;
+    right: 0
   }
   .sectionTitle {
-    font-size: 28px;
+    font-size: 28px
   }
   .sectionSubtitle {
-    margin-bottom: 40px;
+    margin-bottom: 40px
   }
 }

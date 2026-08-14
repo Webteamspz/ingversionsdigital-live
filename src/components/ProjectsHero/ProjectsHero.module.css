@@ -5,14 +5,14 @@
 }
 .tag {
   display: inline-block;
-  color: #fff;
+  color: #0b0f19;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;
   margin-bottom: 30px
 }
 .heading {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 700;
   font-size: 48px;
   line-height: 1.2;
@@ -29,14 +29,14 @@
   content: "";
   left: -4px;
   bottom: -4px;
-  background: #0a84ff;
+  background: #1d4ed8;
   width: 190.95px;
   height: 60px;
   border-radius: 16px;
   z-index: -1
 }
 .description {
-  color: #fffc;
+  color: rgba(11,15,25,.72);
   text-align: center;
   font-weight: 400;
   font-size: 16px;
@@ -53,35 +53,34 @@
   margin-bottom: 56px
 }
 .filterBtn {
-    cursor: pointer;
-    background-color: #141414;
-    border: 1px solid #0000;
-    color: #fff;
-    border-radius: 12px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 150%;
-    transition: all .2s;
+  cursor: pointer;
+  background-color: #eef1f6;
+  border: 1px solid #0000;
+  color: #0b0f19;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+  transition: all .2s;
   white-space: nowrap
 }
 .filterBtn.active {
-  border-color: #0a84ff;
-    color: #fff;
-    background-color: #0a84ff;
+  border-color: #1d4ed8;
+  color: #fff;
+  background-color: #1d4ed8
 }
 .filterBtn.inactive {
-color: #d1d5db;
-    background-color: #ffffff1a;
+  color: #6b7280;
+  background-color: rgba(11,15,25,.05)
 }
 .mobileFilterWrap {
   display: none;
   position: relative;
   max-width: 320px;
   margin: 0 auto 56px;
-  text-align: left;
+  text-align: left
 }
-
 .dropdownTrigger {
   width: 100%;
   display: flex;
@@ -89,82 +88,73 @@ color: #d1d5db;
   justify-content: space-between;
   gap: 12px;
   cursor: pointer;
-  background-color: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: #eef1f6;
+  border: 1px solid rgba(11,15,25,.1);
+  color: #0b0f19;
   border-radius: 12px;
   padding: 14px 16px;
   font-size: 14px;
   font-weight: 700;
   line-height: 150%;
-  transition: border-color 0.2s ease;
+  transition: border-color .2s ease
 }
-
 .dropdownTrigger:hover {
-  border-color: #0a84ff;
+  border-color: #1d4ed8
 }
-
 .dropdownArrow {
   flex-shrink: 0;
-  color: #0a84ff;
+  color: #1d4ed8;
   font-size: 11px;
-  transition: transform 0.2s ease;
-  transform: rotate(180deg);
+  transition: transform .2s ease;
+  transform: rotate(180deg)
 }
-
 .dropdownArrow.arrowOpen {
-  transform: rotate(0deg);
+  transform: rotate(0)
 }
-
 .dropdownList {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background-color: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #eef1f6;
+  border: 1px solid rgba(11,15,25,.1);
   border-radius: 12px;
   overflow: hidden;
   list-style: none;
   margin: 0;
   padding: 6px;
   z-index: 30;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,.5)
 }
-
 .dropdownItem {
   width: 100%;
   text-align: left;
   cursor: pointer;
-  background: transparent;
+  background: 0 0;
   border: none;
-  color: #d1d5db;
+  color: #0b0f19;
   border-radius: 8px;
   padding: 10px 12px;
   font-size: 14px;
   font-weight: 600;
   line-height: 150%;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color .15s ease,color .15s ease
 }
-
 .dropdownItem:hover {
-  background-color: #ffffff1a;
-  color: #fff;
+  background-color: rgba(11,15,25,.06);
+  color: #0b0f19
 }
-
 .dropdownItemActive {
-  background-color: #0a84ff;
-  color: #fff;
+  background-color: #1d4ed8;
+  color: #fff
 }
-
 .dropdownItemActive:hover {
-  background-color: #0a84ff;
+  background-color: #1d4ed8
 }
-
 @media (max-width:1199.98px) {
   .highlight:after {
-        width: 186.09px;
-        height: 60px;
+    width: 186.09px;
+    height: 60px
   }
 }
 @media (max-width:1023.98px) {
@@ -173,7 +163,7 @@ color: #d1d5db;
   }
   .highlight:after {
     width: 150px;
-        height: 50px;
+    height: 50px;
     left: 50%;
     transform: translateX(-50%)
   }
@@ -201,11 +191,10 @@ color: #d1d5db;
   .filterBtn {
     padding: 12px 10px
   }
-    .filters {
-    display: none;
+  .filters {
+    display: none
   }
-
   .mobileFilterWrap {
-    display: block;
+    display: block
   }
 }

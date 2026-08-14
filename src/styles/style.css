@@ -1,13 +1,14 @@
 :root {
-  --bg-900: #030303;
-  --bg-800: #0f1628;
-  --text-100: #ffffff;
-  --text-200: rgba(255, 255, 255, 0.9);
-  --text-300: #FFFFFFE5;
-  --muted-400: rgba(255, 255, 255, 0.08);
-  --accent-500: #1ea7ff;
-  --pill-500: #3b82f6;
-  --card-800: #121a2f
+  --bg-900: #f7f8fb;
+  --bg-800: #eef1f6;
+  --text-100: #0b0f19;
+  --text-200: rgba(11, 15, 25, 0.82);
+  --text-300: rgba(11, 15, 25, 0.78);
+  --muted-400: rgba(11, 15, 25, 0.08);
+  --accent-500: #1d4ed8;
+  --pill-500: #2563eb;
+  --accent-warm-500: #b45309;
+  --card-800: #ffffff
 }
 * {
   -webkit-box-sizing: border-box;
@@ -49,7 +50,7 @@ body {
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: var(--accent-500);
   color: #fff;
   font-weight: 800;
   text-decoration: none;
@@ -62,19 +63,46 @@ body {
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0a84ff;
+  border: 1px solid var(--accent-500);
   cursor: pointer
 }
 .btn:hover {
   background: #ffffff1a;
-  color: #0a84ff
+  color: var(--accent-500);
+  box-shadow: 0 0 14px rgba(29,78,216,.4);
+  transform: translateY(-2px)
+}
+.gradient-text {
+  background-image: linear-gradient(90deg,var(--accent-500),#0369a1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .5s ease,transform .5s ease
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0)
+}
+@media (prefers-reduced-motion:reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none
+  }
 }
 .card {
-  background: #1a1a1a;
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 18px;
   padding: 22px;
-  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.35);
-  box-shadow: 0 10px 24px rgba(0,0,0,.35)
+  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08)
 }
 .section-title {
   color: var(--text-100);
@@ -113,10 +141,10 @@ section[id] {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  border: 1.5px solid #0a84ff;
+  border: 1.5px solid var(--accent-500);
   border-radius: 10px;
   background: 0 0;
-  color: #0a84ff;
+  color: var(--accent-500);
   font-weight: 600;
   text-decoration: none;
   -webkit-transition: all .25s ease-in-out;
@@ -127,9 +155,9 @@ section[id] {
 .c-btn:hover,
 .social-btn:hover {
   background: rgba(255,255,255,.05);
-  -webkit-box-shadow: 0 0 14px rgba(10,132,255,.4);
-  box-shadow: 0 0 14px rgba(10,132,255,.4);
-  color: #0a84ff;
+  -webkit-box-shadow: 0 0 14px rgba(29,78,216,.4);
+  box-shadow: 0 0 14px rgba(29,78,216,.4);
+  color: var(--accent-500);
   -webkit-transform: translateY(-2px);
   -ms-transform: translateY(-2px);
   transform: translateY(-2px)
@@ -145,8 +173,8 @@ section[id] {
 .footer-logo:hover,
 .hero-visual-img:hover,
 .logo-row img:hover {
-  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(10,132,255,0.5));
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
+  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(29,78,216,0.5));
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(29, 78, 216, .5));
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05)
@@ -154,7 +182,7 @@ section[id] {
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px transpernt inset!important;
   -webkit-transition: background-color 5000s ease-in-out 0s!important;
-  -webkit-text-fill-color: #ffffff99;
+  -webkit-text-fill-color: rgba(11,15,25,.85);
   transition: background-color 5000s ease-in-out 0s!important
 }
 ::-webkit-input-placeholder {
@@ -162,7 +190,7 @@ input:-webkit-autofill {
   font-weight: 400;
   font-size: 15px;
   line-height: 100%;
-  color: #ffffff99!important
+  color: rgba(11,15,25,.5)!important
 }
 .react-international-phone-input-container {
   position: relative;
@@ -178,10 +206,10 @@ input:-webkit-autofill {
 .react-international-phone-input {
   width: 100%;
   font-family: Barlow!important;
-  background: #1a1a1a!important;
+  background: #eef1f6!important;
   border: none!important;
   border-radius: 5px;
-  color: #ffffff99!important;
+  color: rgba(11,15,25,.85)!important;
   padding: 12px 14px!important;
   outline: 0;
   min-height: 40.67px;
@@ -193,7 +221,7 @@ input:-webkit-autofill {
 }
 .react-international-phone-input-container .react-international-phone-country-selector-button {
   outline: 0!important;
-  background: #1a1a1a!important;
+  background: #eef1f6!important;
   border: none!important;
   border-radius: 5px;
   border-bottom-right-radius: 0;
@@ -202,14 +230,14 @@ input:-webkit-autofill {
 }
 .react-international-phone-country-selector-dropdown {
   width: 100%;
-  background: #1a1a1a!important;
-  border: 1px solid rgba(255,255,255,0)!important;
+  background: #fff!important;
+  border: 1px solid #e5e7eb!important;
   border-radius: 5px;
-  color: #ffffff99!important;
+  color: rgba(11,15,25,.85)!important;
   outline: 0
 }
 .react-international-phone-country-selector-dropdown__list-item--focused {
-  background: #0a84ff!important;
+  background: var(--accent-500)!important;
   color: #fff!important
 }
 .react-international-phone-country-selector-dropdown__list-item--focused .react-international-phone-country-selector-dropdown__list-item-dial-code,
@@ -217,14 +245,14 @@ input:-webkit-autofill {
   color: #fff!important
 }
 .react-international-phone-country-selector-dropdown__list-item:hover {
-  background: #0a84ff!important
+  background: var(--accent-500)!important
 }
 .react-international-phone-country-selector-dropdown__list-item-dial-code {
-  color: #fff
+  color: rgba(11,15,25,.85)
 }
 .swiper-pagination-bullet {
   display: inline-block;
-  background: var(--swiper-pagination-bullet-inactive-color,#0a84ff)
+  background: var(--swiper-pagination-bullet-inactive-color,var(--accent-500))
 }
 .overlay {
   position: fixed;
@@ -254,15 +282,15 @@ body.menu-open .overlay {
   box-sizing: border-box
 }
 .swiper-pagination-bullet {
-  background: #fff;
-  border: 1px solid #fff;
+  background: #d1d5db;
+  border: 1px solid #d1d5db;
   opacity: 1;
   width: 10px;
   height: 10px;
   margin: 0 6px!important
 }
 .swiper-pagination-bullet-active {
-  background: #0a84ff
+  background: var(--accent-500)
 }
 @media (max-width:1199.98px) {
   .container {
@@ -283,7 +311,7 @@ body.menu-open .overlay {
     line-height: 120%;
     text-align: center
   }
-    .sectionTitle {
+  .sectionTitle {
     font-family: Barlow;
     font-weight: 700;
     font-style: Bold;

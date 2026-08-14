@@ -2,9 +2,9 @@
   padding: 65px 0 40px;
   position: relative;
   overflow: hidden;
-  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgb(246 246 246 / 0)),to(#030303));
-  background: -o-linear-gradient(top,rgb(246 246 246 / 0) 0,#030303 100%);
-  background: linear-gradient(180deg,rgb(246 246 246 / 0) 0,#030303 100%)
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgb(246 246 246 / 0)),to(#f7f8fb));
+  background: -o-linear-gradient(top,rgb(246 246 246 / 0) 0,#f7f8fb 100%);
+  background: linear-gradient(180deg,rgb(246 246 246 / 0) 0,#f7f8fb 100%)
 }
 .logosSection:after,
 .logosSection:before {
@@ -18,15 +18,15 @@
 }
 .logosSection:before {
   left: 0;
-  background: -o-linear-gradient(right,transparent,#030303);
-  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#030303));
-  background: linear-gradient(to left,transparent,#030303)
+  background: -o-linear-gradient(right,transparent,#f7f8fb);
+  background: -webkit-gradient(linear,right top,left top,from(transparent),to(#f7f8fb));
+  background: linear-gradient(to left,transparent,#f7f8fb)
 }
 .logosSection:after {
   right: 0;
-  background: -o-linear-gradient(left,transparent,#030303);
-  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#030303));
-  background: linear-gradient(to right,transparent,#030303)
+  background: -o-linear-gradient(left,transparent,#f7f8fb);
+  background: -webkit-gradient(linear,left top,right top,from(transparent),to(#f7f8fb));
+  background: linear-gradient(to right,transparent,#f7f8fb)
 }
 .marqueeGroup img {
   width: 100%;

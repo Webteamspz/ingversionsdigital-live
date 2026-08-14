@@ -9,7 +9,7 @@ h2 {
   font-weight: 700;
   font-size: 36px;
   line-height: 56px;
-  color: #fff
+  color: #0b0f19
 }
 .eyebrow {
   display: inline-block;
@@ -31,7 +31,7 @@ h2 {
   content: '';
   left: -4px;
   bottom: 5px;
-  background: #0a84ff;
+  background: #1d4ed8;
   width: 98px;
   height: 42px;
   border-radius: 8px;

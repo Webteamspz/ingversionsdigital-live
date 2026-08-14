@@ -4,7 +4,8 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #030303;
+  background: rgba(247,248,251,.92);
+  border-bottom: 1px solid #e5e7eb;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px)
 }
@@ -29,16 +30,18 @@
   align-items: center;
   gap: 10px
 }
-.brandLogo {
-  max-width: 230px;
-  width: 100%;
+.brandIcon {
+  width: 40px;
+  height: 40px;
   display: block;
-  -o-object-fit: cover;
-  object-fit: cover
+  -o-object-fit: contain;
+  object-fit: contain
 }
 .brandText {
-  color: #fff;
-  font-weight: 800
+  color: #0b0f19;
+  font-weight: 800;
+  font-size: 20px;
+  white-space: nowrap
 }
 .brandText span {
   opacity: .6;
@@ -51,7 +54,7 @@
   gap: 22px
 }
 .nav a {
-  color: #fff;
+  color: #0b0f19;
   text-decoration: none;
   font-family: Barlow,sans-serif;
   font-weight: 400;
@@ -63,7 +66,7 @@
   transition: .3s all ease-in-out
 }
 .nav a:hover {
-  color: #0a84ff
+  color: #1d4ed8
 }
 .hamburger {
   display: none;
@@ -115,8 +118,8 @@ body.menu-open .overlay {
   height: 100vh;
   width: 60%;
   max-width: 100%;
-  background: #0b0b0b;
-  border-left: 1px solid #141414;
+  background: #fff;
+  border-left: 1px solid #e5e7eb;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -151,27 +154,23 @@ body.menu-open .overlay {
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding-bottom: 40px;
-  border-bottom: 1px solid #141414
-}
-.mobileLogo {
-  width: 160px;
-  height: auto
+  border-bottom: 1px solid #e5e7eb
 }
 .mobileNav {
   display: -ms-grid;
   display: grid;
   gap: 0;
   padding: 0;
-  border-top: 1px solid #141414;
-  border-bottom: 1px solid #141414
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb
 }
 .mobileNav a {
-  color: #fff;
+  color: #0b0f19;
   text-decoration: none;
   font-family: Barlow,sans-serif;
   font-size: 16px;
   padding: 14px 2px;
-  border-bottom: 1px solid rgba(255,255,255,.06)
+  border-bottom: 1px solid rgba(11,15,25,.08)
 }
 .mobileNav a:last-child {
   border-bottom: none
@@ -200,9 +199,9 @@ body.menu-open .overlay {
   bottom: 4%;
   left: 20px;
   right: 0;
-  background: rgba(11,11,11,.98);
+  background: rgba(255,255,255,.98);
   backdrop-filter: blur(4px);
-  border-top: 1px solid #141414;
+  border-top: 1px solid #e5e7eb;
   width: 90%;
   max-width: 100%;
   padding: 16px 0 calc(16px + env(safe-area-inset-bottom))
@@ -218,14 +217,10 @@ body.menu-open .overlay {
   display: -ms-inline-flexbox;
   display: inline-flex
 }
-
-/* CTA is always rendered/laid out — this just visually hides it while
-   keeping its box (and therefore the header's spacing) exactly the same. */
 .desktopCtaHidden {
   visibility: hidden;
-  pointer-events: none;
+  pointer-events: none
 }
-
 @media (max-width:1023.98px) {
   .nav {
     display: none
@@ -235,9 +230,6 @@ body.menu-open .overlay {
   }
   .hamburger {
     display: inline-block
-  }
-  .brandLogo {
-    max-width: 200px
   }
   .headerRow {
     min-height: 80px
@@ -259,35 +251,11 @@ body.menu-open .overlay {
   height: 24px;
   display: block
 }
-.mobileLogo {
-  width: 45px;
-  height: 50px;
-  -o-object-fit: contain;
-  object-fit: contain
-}
-.mobileLogoOnly {
-  display: none
-}
-.desktopLogo {
-  display: block
-}
-@media (max-width:767.98px) {
-  .desktopLogo {
-    display: none
-  }
-  .mobileLogoOnly {
-    display: block;
-    width: 45px;
-    height: 50px;
-    -o-object-fit: contain;
-    object-fit: contain
-  }
-}
 @media (max-width:599.98px) {
   .mobileMenu {
     width: 100%
   }
-  .menuCtaBar{
-    bottom: 30%;
+  .menuCtaBar {
+    bottom: 30%
   }
 }

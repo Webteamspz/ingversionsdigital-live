@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
-import logo from "/assets/logos/main-logo.png";
-import mobileLogo from "/assets/logos/mobile-logo.png";
+import logoIcon from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 import { ctaClick, dl } from "../../gtm";
+import { isExternalHref } from "../../utils/url";
 
 const HamburgerIcon = (props) => (
   <svg
@@ -19,7 +19,7 @@ const HamburgerIcon = (props) => (
   >
     <path
       d="M9 13.1221H27.75M9 24.6221H39M20.25 36.1221H39"
-      stroke="white"
+      stroke="#0b0f19"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -39,15 +39,10 @@ const CloseIcon = (props) => (
   >
     <path
       d="M26.5608 0.439274C25.9751 -0.146425 25.0255 -0.146425 24.4398 0.439274L13.5 11.3791L2.56024 0.439274C1.97456 -0.146425 1.02496 -0.146425 0.439275 0.439274C-0.146425 1.02496 -0.146425 1.97456 0.439275 2.56024L11.379 13.5L0.439305 24.4397C-0.146395 25.0255 -0.146395 25.975 0.439305 26.5608C1.02499 27.1464 1.97459 27.1464 2.56027 26.5608L13.5 15.621L24.4398 26.5608C25.0255 27.1464 25.9751 27.1464 26.5608 26.5608C27.1464 25.975 27.1464 25.0255 26.5608 24.4398L15.6209 13.5L26.5608 2.56024C27.1464 1.97456 27.1464 1.02496 26.5608 0.439274Z"
-      fill="white"
+      fill="#0b0f19"
     />
   </svg>
 );
-
-const isExternalHref = (href = "") =>
-  /^https?:\/\//i.test(href) ||
-  href.startsWith("mailto:") ||
-  href.startsWith("tel:");
 
 const Header = () => {
   const { links, cta } = data.header;
@@ -297,16 +292,8 @@ const Header = () => {
             data-cta-loc="Header Brand"
             onClick={() => handleNavClick("Logo", "Header Brand", "/")}
           >
-            <img
-              src={logo}
-              alt="Ingversions Logo"
-              className={`${styles.brandLogo} ${styles.desktopLogo}`}
-            />
-            <img
-              src={mobileLogo}
-              alt="Ingversions Logo"
-              className={`${styles.brandLogo} ${styles.mobileLogoOnly}`}
-            />
+            <img src={logoIcon} alt="" className={styles.brandIcon} />
+            <span className={styles.brandText}>Ingversions Digital</span>
           </Link>
 
           {/* Desktop nav */}

@@ -1,6 +1,6 @@
 .pricingSection {
-  background: #030303;
-  color: #fff;
+  background: #f7f8fb;
+  color: #0b0f19;
   padding: 50px 0 40px
 }
 .heading {
@@ -10,7 +10,7 @@
   max-width: 536px;
   margin: 0 auto 75px;
   text-align: center;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   line-height: 1.5
 }
 .tableWrap {
@@ -28,7 +28,7 @@
   margin-bottom: 20px
 }
 .sectionTitle {
-  background: #141414;
+  background: #eef1f6;
   height: 40px
 }
 .cell {
@@ -44,7 +44,7 @@
   justify-content: center;
   text-align: center;
   min-height: 48px;
-  color: #fff;
+  color: #0b0f19;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%
@@ -59,10 +59,10 @@
   min-height: 40px
 }
 .sectionBlock:not(:last-child) {
-  border-bottom: 1px solid rgba(255,255,255,.06)
+  border-bottom: 1px solid rgba(11,15,25,.06)
 }
 .stub {
-  color: #0a84ff;
+  color: #1d4ed8;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%
@@ -87,7 +87,7 @@
   text-align: center
 }
 .premiumName {
-  color: #0a84ff;
+  color: #1d4ed8;
   font-weight: 700;
   font-style: Bold;
   font-size: 18px;
@@ -95,7 +95,7 @@
   text-align: center
 }
 .planPrice {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 800;
   font-size: 16px;
   line-height: 18px;
@@ -107,7 +107,7 @@
   line-height: 18px
 }
 .cta {
-  color: #0a84ff;
+  color: #1d4ed8;
   text-decoration: none;
   font-weight: 700;
   font-size: 16px;
@@ -116,10 +116,10 @@
   vertical-align: middle
 }
 .cta:hover {
-  color: #fff
+  color: #0b0f19
 }
 .badge {
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
   border-radius: 2px;
   padding: 2px 8px;
@@ -154,7 +154,7 @@
   display: none
 }
 .labelCell {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
@@ -169,7 +169,7 @@
   width: max-content
 }
 .rowLine {
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(11,15,25,.06);
   height: 50px
 }
 .valueIcon {
@@ -196,7 +196,7 @@
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
   text-decoration: none;
   -webkit-transition: .3s all ease-in-out;
@@ -208,12 +208,12 @@
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0a84ff;
+  border: 1px solid #1d4ed8;
   cursor: pointer
 }
 .btn:hover {
   background: #ffffff1a;
-  color: #0a84ff
+  color: #1d4ed8
 }
 .planCtaPlaceholder {
   display: inline-block;
@@ -248,8 +248,7 @@
 }
 @media (max-width:1023.98px) {
   .sub {
-    margin: 0 auto 45px;
-
+    margin: 0 auto 45px
   }
   .tableWrap {
     display: none
@@ -270,17 +269,17 @@
   }
   .labelsHeadSpacer {
     height: 78px;
-    border-bottom: 1px solid rgba(255,255,255,.12)
+    border-bottom: 1px solid rgba(11,15,25,.12)
   }
   .mSection {
     margin: 0
   }
   .mSectionTitle {
-    color: #0a84ff;
+    color: #1d4ed8;
     padding: 10px 20px;
     font-weight: 600;
-    border-top: 1px solid rgba(255,255,255,.06);
-    background: #141414;
+    border-top: 1px solid rgba(11,15,25,.06);
+    background: #eef1f6;
     min-height: 48px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -298,10 +297,10 @@
     align-items: center;
     padding: 12px 20px;
     min-height: 48px;
-    border-top: 1px solid rgba(255,255,255,.06)
+    border-top: 1px solid rgba(11,15,25,.06)
   }
   .mLabel {
-    color: #dcdcdc;
+    color: #6b7280;
     font-weight: 500
   }
   .plansCol {
@@ -321,7 +320,7 @@
     text-align: center;
     padding: 16px 10px 14px;
     position: relative;
-    border-bottom: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(11,15,25,.12);
     min-height: 78px
   }
   .valRow {
@@ -336,8 +335,8 @@
     justify-content: center;
     min-height: 48px;
     padding: 12px;
-    border-top: 1px solid rgba(255,255,255,.06);
-    border-left: 1px solid rgba(255,255,255,.06)
+    border-top: 1px solid rgba(11,15,25,.06);
+    border-left: 1px solid rgba(11,15,25,.06)
   }
   .mValue {
     font-weight: 600
@@ -374,8 +373,8 @@
     color: transparent;
     padding: 12px;
     min-height: 48px;
-    border-top: 1px solid rgba(255,255,255,.06);
-    border-left: 1px solid rgba(255,255,255,.06)
+    border-top: 1px solid rgba(11,15,25,.06);
+    border-left: 1px solid rgba(11,15,25,.06)
   }
   .mobileCtaBar .btn {
     width: 100%;
@@ -385,11 +384,11 @@
 }
 @media (max-width:767.98px) {
   .pricingSection {
-  padding: 40px 0 
-}
-.sub {
-  font-size: 16px;
-}
+    padding: 40px 0
+  }
+  .sub {
+    font-size: 16px
+  }
   .mobileCompare {
     -ms-grid-columns: minmax(150px,49%) 1fr;
     grid-template-columns: minmax(150px,49%) 1fr
@@ -425,7 +424,7 @@
   .mSectionTitle,
   .plansCol .mSectionTitle {
     padding: 8px 18px;
-    font-size: 14px;
+    font-size: 14px
   }
   .mLabel {
     font-size: 14px;

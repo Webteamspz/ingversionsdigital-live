@@ -17,7 +17,7 @@
 }
 .aboutStory .aboutStoryText p {
   margin: 0 0 14px;
-  color: #ffffffcc!important;
+  color: rgba(11,15,25,.72)!important;
   font-weight: 400!important;
   font-size: 16px!important;
   line-height: 150%;
@@ -40,7 +40,7 @@
 }
 .aboutStory .aboutMissionCard h3 {
   margin: 0 0 12px;
-  color: #fff!important;
+  color: #0b0f19!important;
   font-weight: 600!important;
   font-size: 24px!important;
   line-height: 100%;
@@ -48,7 +48,7 @@
 }
 .aboutStory .aboutMissionCard p {
   margin: 0;
-  color: #fffc!important;
+  color: rgba(11,15,25,.72)!important;
   font-weight: 400!important;
   font-size: 16px!important;
   line-height: 24px

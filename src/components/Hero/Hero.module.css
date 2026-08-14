@@ -36,7 +36,7 @@ section#hero {
   font-weight: 900;
   font-size: 64px;
   line-height: 88px;
-  color: #fff;
+  color: #0b0f19;
   text-transform: capitalize
 }
 .heroTitlePill {
@@ -49,7 +49,7 @@ section#hero {
   content: '';
   left: -8px;
   bottom: -1px;
-  background: #0a84ff;
+  background: #1d4ed8;
   width: 225.09px;
   height: 77px;
   border-radius: 16px;
@@ -57,7 +57,7 @@ section#hero {
 }
 .heroSubtitle {
   margin: 0 0 33px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-weight: 400;
   font-size: 26px;
   line-height: 32px
@@ -77,7 +77,7 @@ section#hero {
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
   text-decoration: none;
   transition: .3s all ease-in-out;
@@ -85,11 +85,11 @@ section#hero {
   font-size: 16px;
   line-height: 14px;
   text-align: center;
-  border: 1px solid #0a84ff
+  border: 1px solid #1d4ed8
 }
 .btnHero:hover {
   background: #fffFFF1A;
-  color: #0a84ff
+  color: #1d4ed8
 }
 .heroSocialProof {
   display: inline-flex;
@@ -110,29 +110,30 @@ section#hero {
   margin-left: 0
 }
 .proofText {
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-weight: 400;
   font-size: 16px;
   line-height: 100%
 }
 .proofText strong {
-  color: #fff;
+  color: #0b0f19;
   font-weight: 600;
   font-size: 16px
 }
 .contactCard {
   flex: 0 0 530px;
-  background: #141414;
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 32px 40px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+  box-shadow: 0 10px 24px rgba(0,0,0,.08)
 }
 .formCard {
   padding: 32px 40px
 }
 .contactPanelTitle {
   margin: 0 0 24px;
-  color: #fff;
+  color: #0b0f19;
   font-weight: 600;
   font-size: 20px;
   text-align: center;
@@ -142,10 +143,10 @@ section#hero {
 textarea.cInput {
   font-family: Barlow;
   width: 100%;
-  background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,0);
+  background: #eef1f6;
+  border: 1px solid rgba(11,15,25,0);
   border-radius: 5px;
-  color: #ffffff99;
+  color: rgba(11,15,25,.85);
   padding: 12px 14px;
   outline: 0
 }
@@ -166,7 +167,7 @@ textarea.cInput {
   width: 100%!important;
   max-width: none!important;
   justify-content: center;
-  background: #0a84ff;
+  background: #1d4ed8;
   margin-top: 20px;
   padding: 14px;
   border: none;

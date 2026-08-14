@@ -9,10 +9,10 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: #141414;
+  background: #fff;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.06);
+  border: 1px solid rgba(11,15,25,.06);
   transition: transform .25s ease,border-color .25s ease;
   position: relative;
   isolation: isolate
@@ -34,7 +34,7 @@
   width: 100%;
   aspect-ratio: 1/1.05;
   overflow: hidden;
-  background: #1a1a1a;
+  background: #eef1f6;
   position: relative;
   cursor: pointer
 }
@@ -81,14 +81,14 @@
 }
 .category {
   display: block;
-  color: #0a84ff;
+  color: #1d4ed8;
   font-size: 12px;
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 4px
 }
 .title {
-  color: #fff;
+  color: #0b0f19;
   font-size: 17px;
   font-weight: 600;
   margin: 0;
@@ -98,14 +98,14 @@
 }
 .arrow {
   flex-shrink: 0;
-  color: #0a84ff;
+  color: #1d4ed8;
   font-size: 20px;
   line-height: 1
 }
 .empty {
   grid-column: 1/-1;
   text-align: center;
-  color: #ffffff80;
+  color: rgba(11,15,25,.5);
   padding: 60px 0
 }
 .viewMoreBtn {
@@ -154,7 +154,7 @@
   transition: background .2s ease,transform .2s ease
 }
 .closeBtn:hover {
-  background: #0a84ff;
+  background: #1d4ed8;
   transform: scale(1.1)
 }
 .modalSingleImage {
@@ -180,7 +180,7 @@
   font-size: 18px
 }
 .modalCaption span {
-  color: #0a84ff;
+  color: #1d4ed8;
   font-size: 14px;
   font-weight: 500;
   text-align: right
@@ -311,8 +311,8 @@
     margin-top: 32px;
     padding: 15px 20px;
     background: 0 0;
-    border: 1px solid #0a84ff;
-    color: #0a84ff;
+    border: 1px solid #1d4ed8;
+    color: #1d4ed8;
     font-weight: 600;
     font-size: 15px;
     border-radius: 10px;
@@ -367,21 +367,21 @@
     font-size: 16px
   }
   .modalCaption span {
-    color: #0a84ff;
+    color: #1d4ed8;
     font-size: 12px;
     font-weight: 500;
     text-align: right
   }
   .category {
     display: block;
-    color: #0a84ff;
+    color: #1d4ed8;
     font-size: 12px;
     font-weight: 500;
     text-transform: capitalize;
     margin-bottom: 4px
   }
   .title {
-    color: #fff;
+    color: #0b0f19;
     font-size: 16px;
     font-weight: 600;
     margin: 0;
@@ -390,8 +390,8 @@
     text-overflow: ellipsis
   }
   .imageWrap {
-  aspect-ratio: 6/4;
-}
+    aspect-ratio: 6/4
+  }
 }
 @media (max-width:499.98px) {
   .modalCaption {

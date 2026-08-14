@@ -1,10 +1,9 @@
 .projectsSection {
-  background: #000;
-  padding: 90px 0;
+  background: #f7f8fb;
+  padding: 90px 0
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
   .projectsSection {
-    padding: 50px 0;
+    padding: 50px 0
   }
 }

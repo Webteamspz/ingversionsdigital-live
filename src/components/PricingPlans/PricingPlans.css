@@ -11,10 +11,10 @@
   margin: 0 auto 32px auto
 }
 .pricingPlanCard {
-  background: #141414;
+  background: #fff;
   border-radius: 16px;
   padding: 32px 24px;
-  border: 1px solid rgba(255,255,255,.04);
+  border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   transition: transform .3s ease,border-color .3s ease,box-shadow .3s ease;
@@ -38,9 +38,9 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: #173b5e;
+  background-color: #fff4e0;
   border: none;
-  color: #0a84ff;
+  color: var(--accent-warm-500);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
@@ -51,7 +51,7 @@
 }
 .pricingPlanName {
   margin: 0 0 8px;
-  color: #fff;
+  color: #0b0f19;
   font-size: 24px;
   font-weight: 700
 }
@@ -62,19 +62,19 @@
   margin-bottom: 16px
 }
 .pricingPlanPrice {
-  color: #fff;
+  color: #0b0f19;
   font-size: 36px;
   font-weight: 700;
   line-height: 1
 }
 .pricingPlanPeriod {
-  color: rgba(255,255,255,.5);
+  color: rgba(11,15,25,.5);
   font-size: 14px;
   font-weight: 500
 }
 .pricingPlanDesc {
   margin: 0 0 24px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-size: 14px;
   line-height: 1.5;
   min-height: 42px
@@ -92,14 +92,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   font-size: 14px
 }
 .checkDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0a84ff;
+  background: #1d4ed8;
   flex-shrink: 0
 }
 .cardButtons {
@@ -118,7 +118,7 @@
   border-radius: 8px;
   font-family: Barlow,sans-serif;
   font-weight: 700;
-  color: #ffffffcc;
+  color: rgba(11,15,25,.72);
   text-decoration: none;
   transition: all .3s ease;
   text-align: center
@@ -138,25 +138,25 @@
   padding: 14px 10px;
   font-size: 14px;
   white-space: nowrap;
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid #1d4ed8
 }
 .pricingPlanBtn:hover {
-  background: rgba(10,132,255,.1);
-  color: #0a84ff
+  background: rgba(29,78,216,.1);
+  color: #1d4ed8
 }
 .btnOutline {
-  background: #ffffff1a;
-  color: #0a84ff;
-  border: 1px solid #0a84ff;
+  background: 0 0;
+  color: #1d4ed8;
+  border: 1px solid #1d4ed8;
   cursor: pointer;
   font-family: Barlow,sans-serif
 }
 .btnOutline:hover {
-  background: #0a84ff;
+  background: #1d4ed8;
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid #1d4ed8
 }
 .wideCard {
   width: 100%;
@@ -169,7 +169,7 @@
   gap: 40px
 }
 .wideCard:hover {
-  border-color: rgba(255,255,255,.1)
+  border-color: rgba(11,15,25,.1)
 }
 .wideCardLeft {
   flex: 1;
@@ -194,9 +194,9 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: #173b5e;
+  background-color: #1d4ed81a;
   border: none;
-  color: #0a84ff;
+  color: #1d4ed8;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
@@ -206,12 +206,12 @@
 .wideTitle {
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: #0b0f19;
   margin: 0 0 14px
 }
 .wideDesc {
   font-size: 16px;
-  color: rgba(255,255,255,.7);
+  color: rgba(11,15,25,.72);
   margin: 0 0 28px;
   line-height: 1.6
 }
