@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Engagement.css";
 import siteData from "../../data/sitedata";
 import ContactModal from "../ContactModal/ContactModal";
@@ -10,7 +10,6 @@ const EngagementModels = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSource, setModalSource] = useState(""); 
 
-  // Updated handler to accept the model title
   const handleCtaClick = (e, cta, title) => {
     if (cta.href === "#contact") {
       e.preventDefault();
@@ -63,7 +62,6 @@ const EngagementModels = () => {
               <a
                 href={model.cta.href}
                 className="engagement-learn-more-btn"
-                // Pass the model.title into the click handler
                 onClick={(e) => handleCtaClick(e, model.cta, model.title)}
               >
                 {model.cta.label}

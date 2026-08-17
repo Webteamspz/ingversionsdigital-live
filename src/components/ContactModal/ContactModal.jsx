@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ContactModal.css";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
@@ -73,7 +73,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
         const err = await res.json().catch(() => ({}));
         setSubmitError(err?.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setSubmitError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -97,7 +97,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M20 6L9 17L4 12"
-                  stroke="#0a84ff"
+                  stroke="#1d4ed8"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -198,4 +198,4 @@ const ContactModal = ({ isOpen, onClose, source }) => {
   );
 };
 
-export default ContactModal;
+export default ContactModal;

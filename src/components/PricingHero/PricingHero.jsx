@@ -1,4 +1,3 @@
-import React from "react";
 import "./PricingHero.css";
 import { pricingHeroData } from "../../data/pricingdata";
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -6,13 +7,12 @@ import { Pagination } from "swiper/modules";
 
 import data from "../../data/sitedata";
 import styles from "./Services.module.css";
+import Reveal from "../Reveal/Reveal";
 
 
 const Services = () => {
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
-  const viewedRef = useRef(false);
-  const swiperRef = useRef(null);
 
   useEffect(() => {
     const checkWidth = () => setIsMobile(window.innerWidth < 768);
@@ -44,6 +44,12 @@ const Services = () => {
                   <img className={styles.icon} src={s.icon} alt={s.title} />
                   <h4 className={styles.serviceTitle}>{s.title}</h4>
                   <p className={styles.serviceDesc}>{s.desc}</p>
+                  <Link
+                    className={styles.learnMore}
+                    to={{ pathname: "/", search: `?service=${encodeURIComponent(s.title)}`, hash: "hero" }}
+                  >
+                    Learn more →
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}
@@ -51,11 +57,17 @@ const Services = () => {
         ) : (
           <div className={styles.services}>
             {data.services.list.map((s, i) => (
-              <div key={i} className={`${styles.card} ${styles.service}`}>
+              <Reveal key={i} delay={i * 80} className={`${styles.card} ${styles.service}`}>
                 <img className={styles.icon} src={s.icon} alt={s.title} />
                 <h4 className={styles.serviceTitle}>{s.title}</h4>
                 <p className={styles.serviceDesc}>{s.desc}</p>
-              </div>
+                <Link
+                  className={styles.learnMore}
+                  to={{ pathname: "/", search: `?service=${encodeURIComponent(s.title)}`, hash: "hero" }}
+                >
+                  Learn more →
+                </Link>
+              </Reveal>
             ))}
           </div>
         )}
