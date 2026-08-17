@@ -1,4 +1,4 @@
-export const GTM_ID = "GTM-P5BGX7H7";
+export const GTM_ID = import.meta.env.VITE_GTM_ID;
 export const dl = () => (window.dataLayer = window.dataLayer || []);
 
 /* ---------- helpers ---------- */

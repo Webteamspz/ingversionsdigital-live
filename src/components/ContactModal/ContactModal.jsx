@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ContactModal.css";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 const initialState = {
   email: "",

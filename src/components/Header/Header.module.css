@@ -58,6 +58,7 @@
   font-size: 16px;
   line-height: 100%;
   padding: 10px;
+  white-space: nowrap;
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out
@@ -233,6 +234,13 @@ body.menu-open .overlay {
   }
   .headerThemeToggle .themeToggleBtn span {
     display: none
+  }
+  .nav {
+    gap: 12px
+  }
+  .nav a {
+    padding: 10px 6px;
+    font-size: 15px
   }
 }
 @media (max-width:1023.98px) {

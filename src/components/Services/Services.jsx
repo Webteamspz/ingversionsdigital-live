@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -44,12 +43,6 @@ const Services = () => {
                   <img className={styles.icon} src={s.icon} alt={s.title} />
                   <h4 className={styles.serviceTitle}>{s.title}</h4>
                   <p className={styles.serviceDesc}>{s.desc}</p>
-                  <Link
-                    className={styles.learnMore}
-                    to={{ pathname: "/", search: `?service=${encodeURIComponent(s.title)}`, hash: "hero" }}
-                  >
-                    Learn more →
-                  </Link>
                 </div>
               </SwiperSlide>
             ))}
@@ -61,12 +54,6 @@ const Services = () => {
                 <img className={styles.icon} src={s.icon} alt={s.title} />
                 <h4 className={styles.serviceTitle}>{s.title}</h4>
                 <p className={styles.serviceDesc}>{s.desc}</p>
-                <Link
-                  className={styles.learnMore}
-                  to={{ pathname: "/", search: `?service=${encodeURIComponent(s.title)}`, hash: "hero" }}
-                >
-                  Learn more →
-                </Link>
               </Reveal>
             ))}
           </div>

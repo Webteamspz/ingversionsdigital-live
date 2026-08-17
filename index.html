@@ -43,7 +43,8 @@
 
     <link rel="manifest" href="/manifest.json" />
 
-    <link rel="canonical" href="https://ingversionsdigital.com/" />
+    <!-- Canonical is set per-route by the Seo component (react-helmet-async);
+         a static one here would duplicate it on "/" and be wrong on every other route. -->
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
@@ -77,7 +78,7 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "name": "Ingversions Digital",
         "alternateName": ["Ingversions", "Versions Digital", "Shopify CRO Agency", "Conversion Rate Optimization", "A/B Testing Agency", "Ecommerce CRO"],
         "url": "https://ingversionsdigital.com",
@@ -203,7 +204,7 @@
           t.src = "https://www.clarity.ms/tag/" + i;
           y = l.getElementsByTagName(r)[0];
           y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "wqx46kxwy8");
+        })(window, document, "clarity", "script", "%VITE_CLARITY_ID%");
       });
     </script> -->
 
@@ -219,7 +220,7 @@
           j.async = true;
           j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
           f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-P5BGX7H7");
+        })(window, document, "script", "dataLayer", "%VITE_GTM_ID%");
       });
     </script> -->
   </head>
@@ -228,7 +229,7 @@
     <!-- ✅ GTM noscript fallback -->
     <!-- <noscript>
       <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-P5BGX7H7"
+        src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_ID%"
         height="0"
         width="0"
         style="display:none;visibility:hidden"
@@ -237,7 +238,7 @@
 
     <div id="root"></div>
     <noscript>
-      <h1>Ingversions Digital — Shopify, CRO and A/B Testing Agency</h1>
+      <h2>Ingversions Digital — Shopify, CRO and A/B Testing Agency</h2>
       <p>
         We build high-converting Shopify stores through A/B testing, conversion rate optimization,
         and custom Shopify development for fast-growing ecommerce brands.
@@ -261,7 +262,8 @@
       <h2>Contact</h2>
       <p>
         Email: ingversionsdigital@gmail.com<br />
-        Phone: +91-8866167750
+        Phone: +91-8866167750<br />
+        Address: 2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230, India
       </p>
 
       <nav aria-label="Site">

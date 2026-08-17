@@ -53,7 +53,8 @@
 .aboutImpactGrid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 18px
+  gap: 18px;
+  padding: 10px 0px;
 }
 .aboutTrack .aboutImpactCard {
   background: var(--palette-bg-700)!important
@@ -82,10 +83,12 @@
 }
 @media (max-width:1023.98px) {
   .aboutTrackGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
   }
   .aboutImpactGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
   }
   .aboutTrack .sectionTitle {
     font-size: 28px!important

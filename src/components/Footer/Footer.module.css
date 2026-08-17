@@ -34,7 +34,7 @@
 .linksWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 65px;
+  gap: 25px;
   justify-content: flex-end;
   flex: 1
 }

@@ -46,6 +46,10 @@
   letter-spacing: .08em;
   text-transform: uppercase
 }
+html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
+}
 .emptyBadge {
   background: 0 0
 }
@@ -202,6 +206,10 @@
   letter-spacing: .08em;
   margin-bottom: 10px;
   text-transform: uppercase
+}
+html[data-theme="day"] .wideBadge {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
 }
 .wideTitle {
   font-size: 32px;

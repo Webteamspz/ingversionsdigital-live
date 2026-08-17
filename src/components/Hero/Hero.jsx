@@ -7,7 +7,7 @@ import OptimizedImg from "../OptimizedImg/OptimizedImg";
 
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
 
 const getAutocomplete = (name = "") => {
@@ -185,7 +185,11 @@ const Hero = () => {
               {form.fields.filter((f) => f.col === "half").map((f) =>
                 f.type === "textarea" ? null : (
                   <div key={f.name}>
+                    <label htmlFor={`hero-${f.name}`} className="sr-only">
+                      {f.placeholder}
+                    </label>
                     <input
+                      id={`hero-${f.name}`}
                       className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                       type={f.type}
                       name={f.name}
@@ -205,7 +209,11 @@ const Hero = () => {
             {form.fields.filter((f) => f.col === "full" && !["phone", "message"].includes(f.name)).map((f) =>
               f.type === "textarea" ? null : (
                 <div key={f.name} className={styles.mt}>
+                  <label htmlFor={`hero-${f.name}`} className="sr-only">
+                    {f.placeholder}
+                  </label>
                   <input
+                    id={`hero-${f.name}`}
                     className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                     type={f.type}
                     name={f.name}
@@ -223,7 +231,11 @@ const Hero = () => {
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
+                <label htmlFor="hero-phone" className="sr-only">
+                  Phone Number
+                </label>
                 <input
+                  id="hero-phone"
                   className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
                   type="tel"
                   name="phone"
@@ -249,7 +261,11 @@ const Hero = () => {
 
             {form.fields.filter((f) => f.name === "message").map((f) => (
               <div key={f.name} className={styles.mt}>
+                <label htmlFor="hero-message" className="sr-only">
+                  {f.placeholder}
+                </label>
                 <textarea
+                  id="hero-message"
                   className={`${styles.cInput} ${styles.mt} ${errors.message ? styles.invalid : ""}`}
                   name={f.name}
                   placeholder={f.placeholder}

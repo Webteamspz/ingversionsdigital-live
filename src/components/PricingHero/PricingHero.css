@@ -23,6 +23,10 @@
   letter-spacing: .08em;
   text-transform: uppercase
 }
+html[data-theme="day"] .pricingTag {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
+}
 .pricingHeroTitle {
   margin: 20px 0 18px;
   font-family: Barlow,sans-serif;
