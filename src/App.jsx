@@ -8,6 +8,8 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
 const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
+const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
+const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
 
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
@@ -81,6 +83,8 @@ const App = () => (
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
