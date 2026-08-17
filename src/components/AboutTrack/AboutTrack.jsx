@@ -1,4 +1,3 @@
-import React from 'react';
 import './AboutTrack.css';
 import { trackRecordCards, impactCards } from '../../data/aboutusdata';
 

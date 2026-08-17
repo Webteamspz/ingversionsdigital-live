@@ -1,33 +1,11 @@
-import React from "react";
 import data from "../../data/sitedata";
 import styles from "./Contact.module.css";
 import parse from "html-react-parser";
-
-const OptimizedImg = ({
-  src,
-  alt,
-  width,
-  height,
-  priority = false,
-  className,
-  ...rest
-}) => (
-  <img
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={priority ? "eager" : "lazy"}
-    fetchPriority={priority ? "high" : "auto"}
-    decoding="async"
-    className={className}
-    {...rest}
-  />
-);
+import OptimizedImg from "../OptimizedImg/OptimizedImg";
 
 const Contact = () => {
   const { heading, infoCards } = data.contact;
-  const h = data.hero; // Image Hero data se aayegi
+  const h = data.hero; // hero image data
 
   return (
     <section className={styles.contactSection} id="contact">

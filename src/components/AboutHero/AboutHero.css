@@ -31,12 +31,12 @@
   color: var(--text-100)
 }
 .accentText {
-  color: #0a84ff
+  color: var(--palette-accent)
 }
 .aboutHeroSubtitle {
   margin: 0;
   max-width: 560px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
 font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -48,7 +48,7 @@ font-weight: 400;
 }
 .aboutMetaItem {
   padding: 10px 14px;
-background: #141414;
+background: var(--palette-bg-800);
     border: 1px solid transparent;
     border-radius: 16px;
     -webkit-box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
@@ -56,7 +56,7 @@ background: #141414;
 }
 .aboutMetaLabel {
   display: block;
-    color: #ffffffcc;
+    color: var(--palette-text-secondary);
     font-weight: 500;
     font-size: 14px;
     line-height: 150%;
@@ -75,9 +75,9 @@ background: #141414;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #0a84ff;
+  border: 1.5px solid var(--palette-accent);
   border-radius: 10px;
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -87,8 +87,8 @@ background: #141414;
   cursor: pointer
 }
 .btnHero:hover {
-  background: rgba(255,255,255,.05);
-  color: #0a84ff
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent)
 }
 .aboutHeroVisual {
   display: flex;
@@ -107,7 +107,7 @@ background: #141414;
   margin-top: 40px
 }
 .aboutStat {
-background: #141414 !important;
+background: var(--palette-bg-800) !important;
     border: 1px solid transparent;
     border-radius: 16px !important;
     -webkit-box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
@@ -115,7 +115,7 @@ background: #141414 !important;
 }
 .aboutStatLabel {
   display: block;
-    color: #ffffffcc;
+    color: var(--palette-text-secondary);
     font-weight: 500;
     font-size: 14px;
     line-height: 150%;
@@ -131,7 +131,7 @@ background: #141414 !important;
 }
 .aboutStatCaption {
   display: block;
-    color: #ffffffcc;
+    color: var(--palette-text-secondary);
     font-weight: 500;
     font-size: 14px;
     line-height: 150%;

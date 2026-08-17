@@ -1,6 +1,6 @@
 .faqWrapper {
-  background-color: #030303;
-  color: #fff;
+  background-color: var(--palette-bg-950);
+  color: var(--palette-text-primary);
   padding: 50px 0
 }
 .faqWrapper h3 {
@@ -30,24 +30,24 @@
   justify-content: space-between;
   position: relative;
   cursor: pointer;
-  background: #141414;
+  background: var(--palette-bg-800);
   border: 0;
   text-align: left;
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
-  color: #fff;
+  color: var(--palette-text-primary);
   outline: 0
 }
 .accordionItemHeader span {
   font-family: Barlow
 }
 .accordionItemHeader:hover {
-  color: #0a84ff
+  color: var(--palette-accent)
 }
 .accordionItem.open .accordionItemHeader {
-  color: #0a84ff;
-  background: #1e1e1e
+  color: var(--palette-accent);
+  background: var(--palette-bg-700)
 }
 .accordionItemIcon {
   position: relative;
@@ -66,7 +66,7 @@
 .accordionItemIcon:before {
   content: "";
   display: block;
-  background-color: #fff;
+  background-color: var(--palette-text-primary);
   position: absolute;
   top: 50%;
   left: 0;
@@ -76,11 +76,11 @@
 }
 .accordionItem.open .accordionItemIcon:after,
 .accordionItem.open .accordionItemIcon:before {
-  background-color: #0a84ff
+  background-color: var(--palette-accent)
 }
 .accordionItemHeader:hover .accordionItemIcon:after,
 .accordionItemHeader:hover .accordionItemIcon:before {
-  background-color: #0a84ff
+  background-color: var(--palette-accent)
 }
 .accordionItemIcon:before {
   transform: translateY(-50%)
@@ -92,15 +92,15 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height .2s ease-out;
-  background: #1e1e1e;
-  color: #fff
+  background: var(--palette-bg-700);
+  color: var(--palette-text-primary)
 }
 .accordionItemBodyContent {
   padding: 0 35px 30px;
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 @media (max-width:767.98px) {
   .faqWrapper {

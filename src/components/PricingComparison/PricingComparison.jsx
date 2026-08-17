@@ -19,7 +19,7 @@ const PricingComparison = () => {
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
-  // PricingPlans se event sunna
+  // Listens for a plan-select event from PricingPlans and slides to that plan
   useEffect(() => {
     const handler = (e) => {
       const index = e.detail?.index ?? 0;
@@ -61,8 +61,6 @@ const PricingComparison = () => {
 
         {/* ======= DESKTOP TABLE ======= */}
         <div className="tableWrap">
-
-          {/* Header Row */}
           <div
             className="row headerRow"
             style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
@@ -92,7 +90,6 @@ const PricingComparison = () => {
             ))}
           </div>
 
-          {/* Table Body */}
           {sections.map((sec, sIdx) => (
             <div key={sIdx} className="sectionBlock">
               {sec.title && (
@@ -121,7 +118,6 @@ const PricingComparison = () => {
             </div>
           ))}
 
-          {/* Footer CTAs */}
           <div
             className="row footerRow"
             style={{ gridTemplateColumns: `280px repeat(${colCount}, 1fr)` }}
@@ -141,8 +137,6 @@ const PricingComparison = () => {
 
         {/* ======= MOBILE SWIPER ======= */}
         <div className="mobileCompare">
-
-          {/* Labels Column */}
           <div className="labelsCol">
             <div className="labelsHeadSpacer" />
             {sections.map((sec, sIdx) => (
@@ -159,7 +153,6 @@ const PricingComparison = () => {
             ))}
           </div>
 
-          {/* Plans Swiper Column */}
           <div className="plansCol">
             <button
               className="navBtn prev"
@@ -196,8 +189,6 @@ const PricingComparison = () => {
             >
               {pricing.plans.map((p, pIdx) => (
                 <SwiperSlide key={`m-plan-${pIdx}`} className="slide">
-
-                  {/* Slide Header */}
                   <div className="mHead">
                     {p.badge && <span className="badge">{p.badge}</span>}
                     <div className={`planName ${p.name === "Premium" ? "premiumName" : ""}`}>
@@ -219,7 +210,6 @@ const PricingComparison = () => {
                     )}
                   </div>
 
-                  {/* Slide Values */}
                   {sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
                       {sec.title && (
@@ -235,7 +225,6 @@ const PricingComparison = () => {
                     </div>
                   ))}
 
-                  {/* Slide Footer CTA */}
                   <div className="mobileCtaBar">
                     {shouldShowCTA(p) ? (
                       <Link className="btn" to={planContactHref(p)}>
@@ -243,7 +232,6 @@ const PricingComparison = () => {
                       </Link>
                     ) : null}
                   </div>
-
                 </SwiperSlide>
               ))}
             </Swiper>

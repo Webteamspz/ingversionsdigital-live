@@ -9,14 +9,14 @@
 .aboutValues .card h3 {
   font-family: Barlow,sans-serif!important;
   margin: 0 0 12px;
-  color: #fff!important;
+  color: var(--palette-text-primary)!important;
   font-weight: 600!important;
   font-size: 24px!important;
   line-height: 100%
 }
 .aboutValues .card p {
   margin: 0;
-  color: #fffc!important;
+  color: var(--palette-text-secondary)!important;
   font-weight: 400!important;
   font-size: 16px!important;
   line-height: 24px
@@ -38,7 +38,8 @@
 }
 @media (max-width:1023.98px) {
   .aboutValuesGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
   }
 }
 @media (max-width:767.98px) {
@@ -56,7 +57,7 @@
     text-align: center
   }
   .aboutValues .sectionSubtitle {
-    color: #fffc;
+    color: var(--palette-text-secondary);
     margin: 0 0 45px;
     text-align: center;
     font-weight: 400;

@@ -4,8 +4,8 @@
 .pricingHeroInner {
   width: 100%;
   padding: 56px 48px;
-  background: linear-gradient(135deg,#111 0,#161616 100%);
-  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(135deg,var(--palette-bg-800) 0,var(--palette-bg-700) 100%);
+  border: 1px solid var(--palette-border-soft);
   border-radius: 28px;
   overflow: hidden
 }
@@ -17,11 +17,15 @@
   border-radius: 999px;
   background-color: #173b5e;
   border: none;
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase
+}
+html[data-theme="day"] .pricingTag {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
 }
 .pricingHeroTitle {
   margin: 20px 0 18px;
@@ -35,7 +39,7 @@
 .pricingHeroSubtitle {
   margin: 0;
   max-width: 760px;
-  color: #fffc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px
@@ -62,7 +66,7 @@
   justify-content: center;
   padding: 14px 22px;
   border-radius: 10px;
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
   font-weight: 800;
   text-decoration: none;
@@ -75,27 +79,27 @@
   line-height: 14px;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid #0a84ff;
+  border: 1px solid var(--palette-accent);
   cursor: pointer
 }
 .pricingPrimaryBtn {
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid var(--palette-accent)
 }
 .pricingPrimaryBtn:hover {
-  background: #ffffff1a;
-  color: #0a84ff
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent)
 }
 .cBtn {
-  background: #ffffff1a;
-  color: #0a84ff;
-  border: 1px solid #0a84ff;
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent);
+  border: 1px solid var(--palette-accent);
 }
 .cBtn:hover {
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid var(--palette-accent)
 }
 @media (max-width:1024px) {
   .pricingHero {

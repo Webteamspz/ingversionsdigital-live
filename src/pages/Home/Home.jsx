@@ -1,19 +1,18 @@
 import { Suspense, lazy, useState, useEffect } from "react";
 
 import Hero from "../../components/Hero/Hero";
-import TrackRecord from "../../components/TrackRecord/TrackRecord";
-import Services from "../../components/Services/Services";
-import WorkProcess from "../../components/WorkProcess/WorkProcess";
-import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
-import Contact from "../../components/Contact/Contact";
 import Layout from "../../Layouts/Layouts";
 import Preloader from "../../components/preloader/preloader";
-import BlogSlider from "../../components/BlogSlider/BlogSlider";
 import Seo from "../../components/Seo/Seo";
 import "./Home.css";
 
+const TrackRecord = lazy(() => import("../../components/TrackRecord/TrackRecord"));
+const Services = lazy(() => import("../../components/Services/Services"));
+const WorkProcess = lazy(() => import("../../components/WorkProcess/WorkProcess"));
+const WhyChooseUs = lazy(() => import("../../components/WhyChooseUs/WhyChooseUs"));
+const Contact = lazy(() => import("../../components/Contact/Contact"));
+const BlogSlider = lazy(() => import("../../components/BlogSlider/BlogSlider"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
-const Team = lazy(() => import("../../components/Team/Team"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
 const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
 
@@ -63,28 +62,20 @@ const Home = () => {
 
       <Layout header={1} footer={1}>
         <Hero />
-        <TrackRecord />
-        <Services />
-        <WorkProcess />
-        <WhyChooseUs />
 
         <Suspense fallback={null}>
+          <TrackRecord />
+          <Services />
+          <WorkProcess />
+          <WhyChooseUs />
           <Reviews />
-        </Suspense>
-
-        <Contact />
-        <BlogSlider />
-
-        <Suspense fallback={null}>
+          <Contact />
+          <BlogSlider />
           <EngagementModels />
-        </Suspense>
-
-        <Suspense fallback={null}>
           <FAQ />
         </Suspense>
       </Layout>
 
-      {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
         className={`tsNav scrollTopBtn ${showScrollTop ? "scrollTopVisible" : "scrollTopHidden"}`}

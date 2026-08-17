@@ -41,7 +41,7 @@ const Team = () => {
           {members.list.map((m, i) => (
             <SwiperSlide key={i} className={styles.cardSlide}>
               <div className={styles.card}>
-                <img className={styles.memberImg} src={m.photo} alt={m.name} />
+                <img className={styles.memberImg} src={m.photo} alt={m.name} loading="lazy" />
                 <h4 className={styles.infoName}>{m.name}</h4>
                 <h5 className={styles.infoRole}>{m.role}</h5>
               </div>

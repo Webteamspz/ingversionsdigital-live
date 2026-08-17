@@ -11,10 +11,10 @@
   margin: 0 auto 32px auto
 }
 .pricingPlanCard {
-  background: #141414;
+  background: var(--palette-bg-800);
   border-radius: 16px;
   padding: 32px 24px;
-  border: 1px solid rgba(255,255,255,.04);
+  border: 1px solid var(--palette-border-soft);
   display: flex;
   flex-direction: column;
   transition: transform .3s ease,border-color .3s ease,box-shadow .3s ease;
@@ -40,18 +40,22 @@
   border-radius: 999px;
   background-color: #173b5e;
   border: none;
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase
+}
+html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
 }
 .emptyBadge {
   background: 0 0
 }
 .pricingPlanName {
   margin: 0 0 8px;
-  color: #fff;
+  color: var(--palette-text-primary);
   font-size: 24px;
   font-weight: 700
 }
@@ -62,19 +66,19 @@
   margin-bottom: 16px
 }
 .pricingPlanPrice {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-size: 36px;
   font-weight: 700;
   line-height: 1
 }
 .pricingPlanPeriod {
-  color: rgba(255,255,255,.5);
+  color: var(--palette-text-muted);
   font-size: 14px;
   font-weight: 500
 }
 .pricingPlanDesc {
   margin: 0 0 24px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 14px;
   line-height: 1.5;
   min-height: 42px
@@ -92,14 +96,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-size: 14px
 }
 .checkDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0a84ff;
+  background: var(--palette-accent);
   flex-shrink: 0
 }
 .cardButtons {
@@ -118,7 +122,7 @@
   border-radius: 8px;
   font-family: Barlow,sans-serif;
   font-weight: 700;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   text-decoration: none;
   transition: all .3s ease;
   text-align: center
@@ -138,25 +142,25 @@
   padding: 14px 10px;
   font-size: 14px;
   white-space: nowrap;
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid var(--palette-accent)
 }
 .pricingPlanBtn:hover {
   background: rgba(10,132,255,.1);
-  color: #0a84ff
+  color: var(--palette-accent)
 }
 .btnOutline {
-  background: #ffffff1a;
-  color: #0a84ff;
-  border: 1px solid #0a84ff;
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent);
+  border: 1px solid var(--palette-accent);
   cursor: pointer;
   font-family: Barlow,sans-serif
 }
 .btnOutline:hover {
-  background: #0a84ff;
+  background: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff
+  border: 1px solid var(--palette-accent)
 }
 .wideCard {
   width: 100%;
@@ -169,7 +173,7 @@
   gap: 40px
 }
 .wideCard:hover {
-  border-color: rgba(255,255,255,.1)
+  border-color: var(--palette-border-soft)
 }
 .wideCardLeft {
   flex: 1;
@@ -196,22 +200,26 @@
   border-radius: 999px;
   background-color: #173b5e;
   border: none;
-  color: #0a84ff;
+  color: var(--palette-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   margin-bottom: 10px;
   text-transform: uppercase
 }
+html[data-theme="day"] .wideBadge {
+  background-color: #e0edff;
+  color: var(--palette-accent-strong);
+}
 .wideTitle {
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: var(--palette-text-primary);
   margin: 0 0 14px
 }
 .wideDesc {
   font-size: 16px;
-  color: rgba(255,255,255,.7);
+  color: var(--palette-text-secondary);
   margin: 0 0 28px;
   line-height: 1.6
 }

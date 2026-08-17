@@ -11,7 +11,7 @@
   font-family: Barlow,sans-serif!important;
   font-weight: 700!important;
   font-size: 36px!important;
-  color: var(--text-100,#fff)!important;
+  color: var(--palette-text-primary)!important;
   text-align: center;
   margin: 0 0 14px
 }
@@ -19,13 +19,13 @@
   font-family: Barlow,sans-serif!important;
   font-size: 16px!important;
   font-weight: 400!important;
-  color: var(--text-300,#ffffffcc)!important;
+  color: var(--palette-text-secondary)!important;
   text-align: center!important;
   width: 100%!important;
   margin: 0 auto 32px auto!important
 }
 .aboutTrack .aboutTrackCard {
-  background: #141414!important
+  background: var(--palette-bg-800)!important
 }
 .aboutTrack .aboutTrackLabel {
   display: block;
@@ -33,7 +33,7 @@
   font-size: 14px!important;
   text-transform: uppercase!important;
   letter-spacing: .08em!important;
-  color: rgba(255,255,255,.6)!important;
+  color: var(--palette-text-secondary)!important;
   margin-bottom: 12px
 }
 .aboutTrack .aboutTrackValue {
@@ -41,29 +41,30 @@
   font-family: Barlow,sans-serif;
   font-size: 24px!important;
   font-weight: 700!important;
-  color: var(--text-100,#fff)!important;
+  color: var(--palette-text-primary)!important;
   margin-bottom: 12px
 }
 .aboutTrack .aboutTrackCaption {
   display: block;
   font-family: Barlow,sans-serif;
   font-size: 14px!important;
-  color: rgba(255,255,255,.7)!important
+  color: var(--palette-text-secondary)!important
 }
 .aboutImpactGrid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 18px
+  gap: 18px;
+  padding: 10px 0px;
 }
 .aboutTrack .aboutImpactCard {
-  background: #1a1a1a!important
+  background: var(--palette-bg-700)!important
 }
 .aboutTrack .aboutImpactValue {
   display: block;
   font-family: Barlow,sans-serif;
   font-size: 24px!important;
   font-weight: 700!important;
-  color: #fff;
+  color: var(--palette-text-primary);
   margin-bottom: 12px
 }
 .aboutTrack .aboutImpactLabel {
@@ -71,21 +72,23 @@
   font-family: Barlow,sans-serif;
   font-size: 14px!important;
   font-weight: 600!important;
-  color: var(--text-100,#fff)!important;
+  color: var(--palette-text-primary)!important;
   margin-bottom: 6px
 }
 .aboutTrack .aboutImpactCard p {
   margin: 0;
   font-family: Barlow,sans-serif;
   font-size: 14px!important;
-  color: var(--text-300,#ffffffcc)!important
+  color: var(--palette-text-secondary)!important
 }
 @media (max-width:1023.98px) {
   .aboutTrackGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
   }
   .aboutImpactGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
   }
   .aboutTrack .sectionTitle {
     font-size: 28px!important

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import data from "../../data/sitedata";
@@ -15,18 +15,14 @@ const BlogSlider = () => {
   return (
     <section className="blog-section">
       <div className="container blog-container">
-        
-        {/* === Updated Header Section === */}
         <div className="blog-section-header">
           <h2 className="startedTitle">{data.blog.heading}</h2>
-          
+
           <a href={data.blog.seeMoreUrl} className="see-more-link">
             {data.blog.seeMoreText}
           </a>
         </div>
-        {/* ============================== */}
 
-        {/* Custom Prev Button */}
         <button
           className="tsNav tsPrev"
           ref={prevRef}
@@ -37,7 +33,6 @@ const BlogSlider = () => {
           </svg>
         </button>
 
-        {/* Custom Next Button */}
         <button
           className="tsNav tsNext"
           ref={nextRef}
@@ -74,7 +69,7 @@ const BlogSlider = () => {
               <a href={article.url} target="_blank" rel="noopener noreferrer" className="blog-card-link">
                 <div className="blog-card">
                   <div className="img-wrapper">
-                    <img src={article.image} alt={article.title} className="blog-image" />
+                    <img src={article.image} alt={article.title} className="blog-image" loading="lazy" />
                     <span className="blog-category">{article.category}</span>
                   </div>
                   <div className="blog-content">

@@ -757,6 +757,13 @@ footer: {
           { name: "Blog", href: "https://blog.ingversionsdigital.com/" },
         ],
       },
+      {
+        title: "Legal",
+        links: [
+          { name: "Privacy Policy", href: "/privacy-policy" },
+          { name: "Terms of Service", href: "/terms-of-service" },
+        ],
+      },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
     email: "ingversionsdigital@gmail.com",

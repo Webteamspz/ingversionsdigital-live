@@ -1,5 +1,5 @@
 .projectsSection {
-  background: #000;
+  background: var(--palette-bg-950);
   padding: 90px 0;
 }
 

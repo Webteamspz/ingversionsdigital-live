@@ -1,7 +1,7 @@
 .engagement-section {
   padding: 30px 24px;
-  background-color: #000;
-  color: #fff
+  background-color: var(--palette-bg-950);
+  color: var(--palette-text-primary)
 }
 .engagement-container {
   max-width: 1260px;
@@ -16,11 +16,11 @@
   line-height: 56px;
   text-align: center;
   margin-bottom: 16px;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 .engagement-subheading {
   font-size: 16px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   max-width: 750px;
   margin: 0 auto 60px auto;
   line-height: 1.6
@@ -32,7 +32,7 @@
   text-align: left
 }
 .engagement-card {
-  background-color: #141414;
+  background-color: var(--palette-bg-800);
   border-radius: 12px;
   padding: 32px;
   display: flex;
@@ -47,7 +47,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  color: #0a84ff;
+  color: var(--palette-accent);
   overflow: hidden;
   flex-shrink: 0
 }
@@ -63,12 +63,12 @@
 .engagement-card-title {
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: var(--palette-text-primary);
   margin-bottom: 12px
 }
 .engagement-card-description {
   font-size: 16px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   line-height: 1.6;
   min-height: 96px;
   margin-bottom: 24px
@@ -87,19 +87,19 @@
   align-items: center;
   gap: 10px;
   font-size: .9rem;
-  color: #d0d0d0
+  color: var(--palette-text-subtle)
 }
 .engagement-check-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0a84ff;
+  color: var(--palette-accent);
   flex-shrink: 0
 }
 .engagement-learn-more-btn {
-  background-color: #0a84ff;
+  background-color: var(--palette-accent);
   color: #fff;
-  border: 1px solid #0a84ff;
+  border: 1px solid var(--palette-accent);
   border-radius: 10px;
   padding: 12px 20px;
   font-size: 14px;
@@ -111,8 +111,8 @@
   transition: background-color .3s ease
 }
 .engagement-learn-more-btn:hover {
-  background: rgba(255,255,255,.05);
-  color: #0a84ff;
+  background: var(--palette-hover-ghost);
+  color: var(--palette-accent);
   -webkit-transform: translateY(-2px);
   -ms-transform: translateY(-2px);
   transform: translateY(-2px)

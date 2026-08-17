@@ -23,10 +23,10 @@
   width: 100%;
   min-height: 240px;
   border-radius: 50%;
-  background: #141414;
-  border: 10px solid #000;
-  -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
-  box-shadow: 2px 4px 8px 0 #ffffff40;
+  background: var(--palette-bg-800);
+  border: 10px solid var(--palette-bg-950);
+  -webkit-box-shadow: 2px 4px 8px 0 var(--palette-glow);
+  box-shadow: 2px 4px 8px 0 var(--palette-glow);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,10 +67,10 @@
   font-size: 20px;
   line-height: 100%;
   text-align: center;
-  color: #fff
+  color: var(--palette-text-primary)
 }
 .whyChooseUsDesc {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -113,8 +113,8 @@
     min-height: 230px;
     border-radius: 50%;
     border-width: 8px;
-    -webkit-box-shadow: 2px 4px 8px 0 #ffffff40;
-    box-shadow: 2px 4px 8px 0 #ffffff40;
+    -webkit-box-shadow: 2px 4px 8px 0 var(--palette-glow);
+    box-shadow: 2px 4px 8px 0 var(--palette-glow);
     z-index: 1
   }
   .whyChooseUsCard + .whyChooseUsCard {

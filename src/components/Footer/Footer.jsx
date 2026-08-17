@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
 import parse from "html-react-parser";
+import logoDay from "/assets/logos/main-logo-day.png";
+
+const getInitialThemeMode = () => {
+  if (typeof document === "undefined") return "night";
+  const attr = document.documentElement.getAttribute("data-theme");
+  return attr === "day" || attr === "night" ? attr : "night";
+};
 
 const Footer = () => {
   const f = data?.footer;
+  const [themeMode, setThemeMode] = useState(getInitialThemeMode);
+
+  // Header owns the toggle; watch <html data-theme> so the footer logo
+  // stays in sync without needing shared React state.
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setThemeMode(getInitialThemeMode());
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   // Agar galti se footer ka data nahi hai, toh crash se bachne ke liye fallback
   if (!f) return null;
@@ -22,7 +43,7 @@ const Footer = () => {
             <Link to="/" className={styles.footerLeft}>
               {f?.logo && (
                 <img
-                  src={f.logo}
+                  src={themeMode === "day" ? logoDay : f.logo}
                   alt={`${f.company} logo`}
                   className={styles.footerLogo}
                 />
