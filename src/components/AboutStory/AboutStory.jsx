@@ -1,4 +1,3 @@
-import React from 'react';
 import './AboutStory.css';
 import { storyData, missionCards } from '../../data/aboutusdata';
 

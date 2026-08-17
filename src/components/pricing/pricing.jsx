@@ -21,7 +21,7 @@ const PricingCompare = () => {
   const plansColRef = useRef(null);
   const swiperRef = useRef(null);
 
-  // PricingPlans se event sunkar specific plan par slide karne ka logic
+  // Listens for a plan-select event from PricingPlans and slides to that plan
   useEffect(() => {
     const handler = (e) => {
       const index = e.detail?.index ?? 0;
@@ -56,16 +56,6 @@ const PricingCompare = () => {
     }
     return <>{t}</>;
   };
-
-  const isPaidPlan = (p) => typeof p?.price === "number" && p.price > 0;
-
-  const shouldShowCTA = (p) => isPaidPlan(p) || p?.name === "Elite";
-
-  const footerCtaLabel = (p) => p?.ctaLabel || "Get Started";
-
-  // internal link: go to home + contact + prefilled plan param
-  const planContactHref = (p) =>
-    `/?plan=${encodeURIComponent(p.name)}#contact`;
 
   const sections = (pricing?.sections || []).filter(
     (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0

@@ -6,7 +6,6 @@ import PricingFaq from "../../components/PricingFaq/PricingFaq";
 import Layout from "../../Layouts/Layouts";
 import PricingCompare from "../../components/pricing/pricing";
 import Seo from "../../components/Seo/Seo";
-// import PricingCompare from "../../components/PricingComparison/PricingComparison";
 
 const Pricing = () => {
   return (
@@ -22,7 +21,6 @@ const Pricing = () => {
           <PricingPlans />
           <PricingCompare />
           <PricingFaq />
-          {/* <PricingCta /> */}
         </main>
       </Layout>
     </>

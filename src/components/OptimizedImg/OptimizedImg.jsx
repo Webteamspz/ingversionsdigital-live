@@ -1,8 +1,8 @@
 const OptimizedImg = ({
   src,
   alt,
-  width = 400,
-  height = 500,
+  width,
+  height,
   className = "",
   priority = false,
   ...rest

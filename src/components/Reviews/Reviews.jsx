@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,12 +6,12 @@ import "swiper/css";
 import data from "../../data/sitedata";
 import quoteImg from "/assets/reviews/icon.png";
 import styles from "./Reviews.module.css";
+import { ctaClick } from "../../gtm";
 
 export default function Reviews() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const sectionRef = useRef(null);
-  const viewedRef = useRef(false);
   const swiperRef = useRef(null);
 
 

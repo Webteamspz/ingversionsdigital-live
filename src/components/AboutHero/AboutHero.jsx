@@ -1,4 +1,3 @@
-import React from "react";
 import "./AboutHero.css";
 import { heroData, heroStats } from "../../data/aboutusdata";
 
