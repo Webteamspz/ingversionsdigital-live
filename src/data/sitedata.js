@@ -24,60 +24,60 @@ export default {
       href: "#contact",
     },
     avatars: [
-      "/assets/hero/hero-client-1.png",
-      "/assets/hero/hero-client-2.png",
-      "/assets/hero/hero-client-3.png",
+      "/assets/hero/hero-client-1.webp",
+      "/assets/hero/hero-client-2.webp",
+      "/assets/hero/hero-client-3.webp",
     ],
     proof: "Trusted by <strong>6+ agencies</strong> and <strong> 10+ brands in Ecommerce</strong>",
-    visual: "/assets/hero/hero-main-1.png",
+    visual: "/assets/hero/hero-main-1.webp",
   },
   logos: [
     {
-      img: "/assets/hero/logo-1.png",
+      img: "/assets/hero/logo-1.webp",
       name: "Plastic Place",
     },
     {
-      img: "/assets/hero/logo-2.png",
+      img: "/assets/hero/logo-2.webp",
       name: "Dan Henry",
     },
     {
-      img: "/assets/hero/logo-3.png",
+      img: "/assets/hero/logo-3.webp",
       name: "Northline Express",
     },
     {
-      img: "/assets/hero/logo-4.png",
+      img: "/assets/hero/logo-4.webp",
       name: "Dive Right in Scuba",
     },
     {
-      img: "/assets/hero/logo-5.png",
+      img: "/assets/hero/logo-5.webp",
       name: "Patriot Crew",
     },
     {
-      img: "/assets/hero/logo-6.png",
+      img: "/assets/hero/logo-6.webp",
       name: "Scgolistico",
     },
     {
-      img: "/assets/hero/logo-7.png",
+      img: "/assets/hero/logo-7.webp",
       name: "Ripley Radar",
     },
     {
-      img: "/assets/hero/logo-8.png",
+      img: "/assets/hero/logo-8.webp",
       name: "Hedon",
     },
     {
-      img: "/assets/hero/logo-9.png",
+      img: "/assets/hero/logo-9.webp",
       name: "Robust",
     },
     {
-      img: "/assets/hero/logo-10.png",
+      img: "/assets/hero/logo-10.webp",
       name: "Ruff Greens",
     },
     {
-      img: "/assets/hero/logo-11.png",
+      img: "/assets/hero/logo-11.webp",
       name: "Ridge & River",
     },
     {
-      img: "/assets/hero/logo-12.png",
+      img: "/assets/hero/logo-12.webp",
       name: "Pavoi",
     },
   ],
@@ -97,32 +97,32 @@ export default {
       {
         title: "A/B Testing",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
-        icon: "/assets/services/ab-testing.png",
+        icon: "/assets/services/ab-testing.webp",
       },
       {
         title: "Shopify Development",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
-        icon: "/assets/services/shopify.png",
+        icon: "/assets/services/shopify.webp",
       },
       {
         title: "Quality Assurance",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
-        icon: "/assets/services/qa.png",
+        icon: "/assets/services/qa.webp",
       },
       {
         title: "WordPress Development",
         desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-        icon: "/assets/services/wordpress.png",
+        icon: "/assets/services/wordpress.webp",
       },
       {
         title: "Landing Page Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
-        icon: "/assets/services/landing-page.png",
+        icon: "/assets/services/landing-page.webp",
       },
       {
         title: "Lead Generation",
         desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
-        icon: "/assets/services/lead.png",
+        icon: "/assets/services/lead.webp",
       },
     ],
   },
@@ -133,22 +133,22 @@ export default {
       {
         title: "Project Discussion",
         desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
-        icon: "/assets/work-process/project-discussion.png",
+        icon: "/assets/work-process/project-discussion.webp",
       },
       {
         title: "Plan & Approach",
         desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-        icon: "/assets/work-process/plan.png",
+        icon: "/assets/work-process/plan.webp",
       },
       {
         title: "Development",
         desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-        icon: "/assets/work-process/dev.png",
+        icon: "/assets/work-process/dev.webp",
       },
       {
         title: "Launch",
         desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-        icon: "/assets/work-process/goal.png",
+        icon: "/assets/work-process/goal.webp",
       },
     ],
   },
@@ -159,7 +159,7 @@ export default {
       {
         title: "Retainer-Based Partnerships",
         desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
-        icon: "/assets/engagement/retainer.png",
+        icon: "/assets/engagement/retainer.webp",
         features: [
           "Predictable Costs",
           "Dedicated Resources",
@@ -174,7 +174,7 @@ export default {
       {
         title: "Block of Hours",
         desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
-        icon: "/assets/engagement/hoursblock.png",
+        icon: "/assets/engagement/hoursblock.webp",
         features: [
           "Flexibility",
           "On-Demand Support",
@@ -189,7 +189,7 @@ export default {
       {
         title: "Project-Based Engagements",
         desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
-        icon: "/assets/engagement/projectengagement.png",
+        icon: "/assets/engagement/projectengagement.webp",
         features: [
           "Defined Scope and Timeline",
           "Focused Expertise",
@@ -488,57 +488,57 @@ export default {
       {
         name: "Rahul Patil",
         role: "Founder and CEO",
-        photo: "/assets/team/rahul.png",
+        photo: "/assets/team/rahul.webp",
       },
       {
         name: "Harsh Jariwala",
         role: "Founder and CEO",
-        photo: "/assets/team/harsh.png",
+        photo: "/assets/team/harsh.webp",
       },
       {
         name: "Kranthika Ele",
         role: "QA",
-        photo: "/assets/team/kranthika.png",
+        photo: "/assets/team/kranthika.webp",
       },
       {
         name: "Nafees Hasnat",
         role: "CRO Dev",
-        photo: "/assets/team/nafees.png",
+        photo: "/assets/team/nafees.webp",
       },
       {
         name: "Kundan Mali",
         role: "Shopify Dev",
-        photo: "/assets/team/kundan.png",
+        photo: "/assets/team/kundan.webp",
       },
       {
         name: "Sree Priya",
         role: "QA",
-        photo: "/assets/team/sree.png",
+        photo: "/assets/team/sree.webp",
       },
       {
         name: "Piyush Ranipa",
         role: "Wordpress Dev",
-        photo: "/assets/team/piyush.png",
+        photo: "/assets/team/piyush.webp",
       },
       {
         name: "Bhumika Paladiya",
         role: "CRO Dev",
-        photo: "/assets/team/bhumika.png",
+        photo: "/assets/team/bhumika.webp",
       },
       {
         name: "Writwik Seti",
         role: "React Dev",
-        photo: "/assets/team/writwik.png",
+        photo: "/assets/team/writwik.webp",
       },
       {
         name: "Vishal Kumawat",
         role: "Shopify Dev",
-        photo: "/assets/team/vishal.png",
+        photo: "/assets/team/vishal.webp",
       },
       {
         name: "Ayushi Shah",
         role: "Shopify Dev",
-        photo: "/assets/team/ayushi.png",
+        photo: "/assets/team/ayushi.webp",
       },
     ],
   },
@@ -731,7 +731,7 @@ export default {
       industry: "Business",
       title: "Dan Henry Watches",
       type: "Websites",
-      image: "/assets/project/danhenry.jpg",
+      image: "/assets/project/danhenry.webp",
       link: "https://danhenrywatches.com/",
     }
     ],

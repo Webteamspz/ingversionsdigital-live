@@ -1,5 +1,5 @@
 import data from "../../data/sitedata";
-import icon from "/assets/why-choose-us/checkmark.png";
+import icon from "/assets/why-choose-us/checkmark.webp";
 import styles from "./WhyChooseUs.module.css";
 import Reveal from "../Reveal/Reveal";
 

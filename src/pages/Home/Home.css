@@ -26,7 +26,6 @@
   pointer-events: none;
 }
 
-/* Mobile par bhi dikhaye — BlogSlider.css ka display:none override */
 @media (max-width: 767.98px) {
   .scrollTopBtn {
     display: flex !important;

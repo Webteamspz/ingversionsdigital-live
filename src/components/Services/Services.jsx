@@ -40,7 +40,7 @@ const Services = () => {
             {data.services.list.map((s, i) => (
               <SwiperSlide key={i}>
                 <div className={`${styles.card} ${styles.service}`}>
-                  <img className={styles.icon} src={s.icon} alt={s.title} />
+                  <img className={styles.icon} src={s.icon} alt={s.title} loading="lazy" decoding="async" />
                   <h4 className={styles.serviceTitle}>{s.title}</h4>
                   <p className={styles.serviceDesc}>{s.desc}</p>
                 </div>
@@ -51,7 +51,7 @@ const Services = () => {
           <div className={styles.services}>
             {data.services.list.map((s, i) => (
               <Reveal key={i} delay={i * 80} className={`${styles.card} ${styles.service}`}>
-                <img className={styles.icon} src={s.icon} alt={s.title} />
+                <img className={styles.icon} src={s.icon} alt={s.title} loading="lazy" decoding="async" />
                 <h4 className={styles.serviceTitle}>{s.title}</h4>
                 <p className={styles.serviceDesc}>{s.desc}</p>
               </Reveal>

@@ -11,10 +11,12 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
   return (
     <div className={styles.sliderContainer}>
       {/* Before Image (Dictates the actual size of the container) */}
-      <img 
-        src={beforeImg} 
-        alt={`Before - ${title}`} 
-        className={styles.sliderImage} 
+      <img
+        src={beforeImg}
+        alt={`Before - ${title}`}
+        className={styles.sliderImage}
+        loading="lazy"
+        decoding="async"
       />
 
       {/* After Image (Absolutely positioned perfectly over the Before image) */}
@@ -22,9 +24,11 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         className={styles.clippedLayer}
         style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
       >
-        <img 
-          src={afterImg} 
-          alt={`After - ${title}`} 
+        <img
+          src={afterImg}
+          alt={`After - ${title}`}
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

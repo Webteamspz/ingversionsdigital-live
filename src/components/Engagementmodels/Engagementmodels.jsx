@@ -28,7 +28,7 @@ const EngagementModels = () => {
           {list.map((model, index) => (
             <div className="engagement-card" key={index}>
               <div className="engagement-icon-wrapper">
-                <img src={model.icon} alt={model.title} />
+                <img src={model.icon} alt={model.title} loading="lazy" decoding="async" />
               </div>
 
               <h3 className="engagement-card-title">{model.title}</h3>

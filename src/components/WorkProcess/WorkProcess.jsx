@@ -20,6 +20,8 @@ const WorkProcess = () => {
                   className={styles.stepIcon}
                   width="150"
                   height="150"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className={styles.stepDesc}>{p.desc}</div>

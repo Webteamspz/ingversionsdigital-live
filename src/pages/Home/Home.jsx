@@ -55,7 +55,7 @@ const Home = () => {
       {showPreloader && (
         <Preloader
           minDuration={800}
-          logoSrc={"/assets/preloader/preloader.png"}
+          logoSrc={"/assets/preloader/preloader.webp"}
           onComplete={handlePreloaderComplete}
         />
       )}

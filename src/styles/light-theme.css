@@ -1,0 +1,74 @@
+/* ==============================================================
+   LIGHT THEME (Day Mode) — all colors live here
+   ==============================================================
+   This file is the single place to edit any color used when the
+   site is switched to Light Mode (html[data-theme="day"]).
+
+   To change a color: find the labeled variable below and edit its
+   value. Everything on the site reads these variables, so the
+   change applies everywhere that variable is used.
+
+   Dark/Night mode is NOT affected by this file — its colors live
+   inline in each component's own CSS (this keeps night mode as the
+   default, unthemed state and light mode as the override).
+   ============================================================== */
+
+html[data-theme="day"] {
+
+  /* ---------------- Page & Section Backgrounds ----------------
+     Used for: <body> background, section wrappers, cards, panels */
+  --palette-bg-950: #f5f7fb;   /* page background (body, footer) */
+  --palette-bg-900: #eef3fb;   /* section background, one shade up from page */
+  --palette-bg-800: #ffffff;   /* card / panel background */
+  --palette-bg-700: #e8eef8;   /* elevated surface (hero panels, gradient cards) */
+  --palette-bg-600: #dfe7f4;   /* highest-elevation surface (e.g. table header rows) */
+
+  /* ---------------- Headings, Body Text & Font Colors ----------------
+     Used for: h1–h6 headings, paragraph copy, meta/helper text */
+  --palette-text-primary: #0f172a;    /* headings (h1-h6) */
+  --palette-text-secondary: #334155;  /* body copy / paragraphs */
+  --palette-text-muted: #64748b;      /* meta text, timestamps, helper copy */
+  --palette-text-subtle: #475569;     /* subtle labels, captions */
+
+  /* ---------------- CTA / Buttons / Links (Accent) ----------------
+     Used for: primary buttons, links, icons, "Get Started" CTAs */
+  --palette-accent: #0a84ff;          /* primary CTA/button/link color */
+  --palette-accent-strong: #2563eb;   /* CTA hover/active state, strong emphasis text */
+  --palette-accent-soft: #60a5fa;     /* soft accent, e.g. icons, secondary highlights */
+
+  /* ---------------- Borders & Dividers ---------------- */
+  --palette-border: #dbe4f0;                      /* default border (cards, inputs) */
+  --palette-border-soft: rgba(15, 23, 42, .08);   /* faint border / hairline */
+
+  /* ---------------- Hover States & Overlays ----------------
+     Used for: button/card hover backgrounds, modal backdrops, glow shadows */
+  --palette-hover-surface: rgba(10, 132, 255, .08); /* hover background (buttons, list items) */
+  --palette-hover-ghost: rgba(10, 132, 255, .06);   /* hover background (ghost/outline buttons) */
+  --palette-overlay: rgba(15, 23, 42, .3);          /* modal / menu backdrop */
+  --palette-glow: rgba(15, 23, 42, .15);            /* focus/hover glow shadow color */
+
+  /* ---------------- Legacy tokens (a few older components still read these) ---------------- */
+  --bg-900: #f5f7fb;              /* = --palette-bg-950 */
+  --bg-800: #e8eef8;              /* = --palette-bg-700 */
+  --text-100: #0f172a;            /* = --palette-text-primary, used by About/Team/Pricing hero headings */
+  --text-200: #334155;            /* = --palette-text-secondary */
+  --text-300: #475569e5;          /* = --palette-text-muted, used by Team cards */
+  --card-800: #e8eef8;            /* card background, used by Team grid cards */
+  --accent-500: #0a84ff;          /* = --palette-accent */
+  --pill-500: #3b82f6;            /* pill accent (rarely used directly) */
+  --muted-400: rgba(15, 23, 42, .08); /* muted fill (rarely used directly) */
+
+  /* ---------------- Badges / Pills / Tags ----------------
+     Used by: Pricing "Most Popular" badge, Pricing hero tag pill,
+     Legal page "LEGAL" tag pill (PricingHero.css, PricingPlans.css, Legal.css) */
+  --light-badge-bg: #e0edff;                          /* pill background */
+  --light-badge-text: var(--palette-accent-strong);   /* pill text color */
+
+  /* ---------------- Company Logos Marquee (hover effect) ----------------
+     Used by: CompanyLogos.module.css. The night theme brightens logos so
+     they stand out on a dark background; day theme has to darken them
+     instead so they don't wash out against the light page background. */
+  --light-logo-filter: grayscale(1) brightness(.35) contrast(1.1); /* resting state (darkened for contrast) */
+  --light-logo-filter-hover: grayscale(0) brightness(1);           /* hover state (full color) */
+  --light-logo-opacity: 1;                                         /* resting opacity (night uses .9, day needs full contrast) */
+}

@@ -250,7 +250,7 @@ body.menu-open .overlay {
   .desktopCta {
     display: none!important
   }
-  .headerThemeToggle {
+  .themeToggle.headerThemeToggle {
     display: none
   }
   .hamburger {

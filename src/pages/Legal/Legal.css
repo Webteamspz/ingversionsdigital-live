@@ -27,8 +27,8 @@
   margin-bottom: 18px
 }
 html[data-theme="day"] .legalTag {
-  background-color: #e0edff;
-  color: var(--palette-accent-strong)
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text)
 }
 .legalPage h1 {
   color: var(--palette-text-primary);
