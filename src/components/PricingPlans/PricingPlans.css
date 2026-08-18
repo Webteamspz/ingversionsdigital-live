@@ -47,8 +47,8 @@
   text-transform: uppercase
 }
 html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
-  background-color: #e0edff;
-  color: var(--palette-accent-strong);
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text);
 }
 .emptyBadge {
   background: 0 0
@@ -208,8 +208,8 @@ html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
   text-transform: uppercase
 }
 html[data-theme="day"] .wideBadge {
-  background-color: #e0edff;
-  color: var(--palette-accent-strong);
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text);
 }
 .wideTitle {
   font-size: 32px;

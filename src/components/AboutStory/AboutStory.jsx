@@ -18,6 +18,8 @@ const AboutStory = () => {
               src={storyData.imageSrc}
               alt={storyData.imageAlt}
               className="aboutStoryImg heroVisualImg"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

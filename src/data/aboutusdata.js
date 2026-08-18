@@ -12,7 +12,7 @@ export const heroData = {
   ],
   primaryCta: 'Book a strategy call',
   primaryCtaHref: '/#hero',
-  imageSrc: '/assets/about-hero/hero-img.png',
+  imageSrc: '/assets/about-hero/hero-img.webp',
   imageAlt: 'Data-driven CRO dashboards'
 };
 
@@ -46,7 +46,7 @@ export const storyData = {
     'Teams were shipping redesigns based on gut-feel and HiPPO opinions. We set out to build a studio that sits at the intersection of UX, analytics, and engineering.',
     'Every layout, flow, and variant we ship is grounded in research, behavioral insight, and a repeatable testing framework. Today, we partner with teams as their embedded CRO function – owning everything from opportunity mapping and test roadmaps to in-depth analysis and documentation.'
   ],
-  imageSrc: '/assets/about-story/mission.png',
+  imageSrc: '/assets/about-story/mission.webp',
   imageAlt: 'Global experimentation partners'
 };
 
@@ -63,22 +63,22 @@ export const missionCards = [
 
 export const expertiseCards = [
   {
-    icon: '/assets/about-expertise/ai.png',
+    icon: '/assets/about-expertise/ai.webp',
     title: 'Research & Insights',
     text: 'Quant + qual research, analytics deep dives, heatmaps, and user interviews to find real conversion leaks.'
   },
   {
-    icon: '/assets/about-expertise/blockchain.png',
+    icon: '/assets/about-expertise/blockchain.webp',
     title: 'Experiment Design',
     text: 'Hypothesis crafting, prioritization frameworks, and statistically sound test setups across tools like ABlyft.'
   },
   {
-    icon: '/assets/about-expertise/trading.png',
+    icon: '/assets/about-expertise/trading.webp',
     title: 'Full-funnel Execution',
     text: 'Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.'
   },
   {
-    icon: '/assets/about-expertise/analytics.png',
+    icon: '/assets/about-expertise/analytics.webp',
     title: 'Analysis & Learnings',
     text: 'Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.'
   }

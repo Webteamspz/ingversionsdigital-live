@@ -28,7 +28,6 @@ const Footer = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Agar galti se footer ka data nahi hai, toh crash se bachne ke liye fallback
   if (!f) return null;
 
   return (

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, lazy } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
@@ -285,7 +285,8 @@ const Hero = () => {
                   }}
                   aria-invalid={!!errors.message}
                 />
-                {errors.message && <div className={styles.errorMessage}>{errors.message}</div>}
+                {errors.
+                message && <div className={styles.errorMessage}>{errors.message}</div>}
               </div>
             ))}
 
@@ -295,7 +296,10 @@ const Hero = () => {
           </form>
         </div>
       </div>
-    
+
+      <Suspense fallback={<div style={{ minHeight: "100px", width: "100%" }}></div>}>
+        <CompanyLogos />
+      </Suspense>
     </section>
   );
 };

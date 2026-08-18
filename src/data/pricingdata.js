@@ -54,7 +54,7 @@ export const pricingPlans = [
   {
     name: "Elite",
     price: "Custom",
-    period: "", // Custom price ke aage /month hatane ke liye
+    period: "",
     description: "For enterprise brands requiring high-volume testing programs.",
     highlights: [
       "Custom test volume",
@@ -69,8 +69,7 @@ export const pricingPlans = [
 export const comparisonData = {
   title: "The Right Plan For You",
   subtitle: "We offer powerful plans to showcase your business and help creative entrepreneurs get discovered with everything you need to succeed",
-  
-  // Headers aur Footers yahan se render honge
+
   columns: [
     { 
       name: "Starter", 
@@ -96,7 +95,6 @@ export const comparisonData = {
     }
   ],
 
-  // Table ki body yahan se render hogi
   rows: [
     { section: "A/B TEST SERVICES" },
     { 

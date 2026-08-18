@@ -21,7 +21,7 @@
   font-size: 16px;
 }
 .tableWrap {
-  display: none; /* sabhi screens par hidden — mobile layout use hoga */
+  display: none;
 }
 .row {
   display: grid;

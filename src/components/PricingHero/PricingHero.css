@@ -24,8 +24,8 @@
   text-transform: uppercase
 }
 html[data-theme="day"] .pricingTag {
-  background-color: #e0edff;
-  color: var(--palette-accent-strong);
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text);
 }
 .pricingHeroTitle {
   margin: 20px 0 18px;

@@ -38,6 +38,9 @@ const AboutHero = () => {
               src={heroData.imageSrc}
               alt={heroData.imageAlt}
               className="aboutHeroImg heroVisualImg"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

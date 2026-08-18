@@ -41,7 +41,7 @@ const AboutExpertise = () => {
               <SwiperSlide key={index}>
                 <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                   <div className={styles.aboutIconWrap}>
-                    <img src={card.icon} alt={card.title} />
+                    <img src={card.icon} alt={card.title} loading="lazy" decoding="async" />
                   </div>
                   <h3>{card.title}</h3>
                   <p>{card.text}</p>
@@ -54,7 +54,7 @@ const AboutExpertise = () => {
             {expertiseCards.map((card) => (
               <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                 <div className={styles.aboutIconWrap}>
-                  <img src={card.icon} alt={card.title} />
+                  <img src={card.icon} alt={card.title} loading="lazy" decoding="async" />
                 </div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>

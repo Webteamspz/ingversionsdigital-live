@@ -29,36 +29,8 @@
   --palette-glow: rgba(255, 255, 255, .25);
 }
 
-html[data-theme="day"] {
-  --bg-900: #f5f7fb;
-  --bg-800: #e8eef8;
-  --text-100: #0f172a;
-  --text-200: #334155;
-  --text-300: #475569e5;
-  --muted-400: rgba(15, 23, 42, .08);
-  --accent-500: #0a84ff;
-  --pill-500: #3b82f6;
-  --card-800: #e8eef8;
-
-  --palette-bg-950: #f5f7fb;
-  --palette-bg-900: #eef3fb;
-  --palette-bg-800: #ffffff;
-  --palette-bg-700: #e8eef8;
-  --palette-bg-600: #dfe7f4;
-  --palette-text-primary: #0f172a;
-  --palette-text-secondary: #334155;
-  --palette-text-muted: #64748b;
-  --palette-text-subtle: #475569;
-  --palette-accent: #0a84ff;
-  --palette-accent-strong: #2563eb;
-  --palette-accent-soft: #60a5fa;
-  --palette-border: #dbe4f0;
-  --palette-border-soft: rgba(15, 23, 42, .08);
-  --palette-overlay: rgba(15, 23, 42, .3);
-  --palette-hover-surface: rgba(10, 132, 255, .08);
-  --palette-hover-ghost: rgba(10, 132, 255, .06);
-  --palette-glow: rgba(15, 23, 42, .15);
-}
+/* Light Mode (day theme) colors live in ./light-theme.css — edit that
+   file to change any light-mode color, not this block. */
 
 html[data-theme="night"] {
   --palette-bg-950: #030303;

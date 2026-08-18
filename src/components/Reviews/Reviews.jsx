@@ -4,7 +4,7 @@ import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/sitedata";
-import quoteImg from "/assets/reviews/icon.png";
+import quoteImg from "/assets/reviews/icon.webp";
 import styles from "./Reviews.module.css";
 import { ctaClick } from "../../gtm";
 
