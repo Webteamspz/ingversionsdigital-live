@@ -89,7 +89,7 @@
 .socialBtn {
   width: 44px;
   height: 44px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   border: none;
   display: grid;
   place-items: center;
@@ -105,7 +105,7 @@
 .socialBtn svg {
   width: 24px;
   height: 24px;
-  fill: currentColor
+  fill: none
 }
 .footAddress,
 .footContact {
@@ -226,7 +226,7 @@
   .socialBtn {
     width: 44px;
     height: 44px;
-    border-radius: 8px
+    border-radius: var(--radius-sm)
   }
   .footAddress,
   .footContact {
