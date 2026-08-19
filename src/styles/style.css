@@ -1,56 +1,68 @@
 :root {
-  --bg-900: #030303;
-  --bg-800: #0f1628;
-  --text-100: #ffffff;
-  --text-200: rgba(255, 255, 255, 0.9);
-  --text-300: #FFFFFFE5;
-  --muted-400: rgba(255, 255, 255, 0.08);
-  --accent-500: #1ea7ff;
-  --pill-500: #3b82f6;
-  --card-800: #121a2f;
+  /* Backgrounds */
+  --palette-bg-950: #FFFDF5;   /* page bg */
+  --palette-bg-900: #FDF9EC;   /* section bg, one shade down from page */
+  --palette-bg-800: #FFFFFF;   /* card/panel bg */
+  --palette-bg-700: #F1F5F9;   /* elevated surface */
+  --palette-bg-600: #E2E8F0;   /* highest-elevation surface (table header rows) */
 
-  --palette-bg-950: #030303;
-  --palette-bg-900: #0b0b0b;
-  --palette-bg-800: #141414;
-  --palette-bg-700: #242424;
-  --palette-bg-600: #262626;
-  --palette-text-primary: #ffffff;
-  --palette-text-secondary: #ffffffcc;
-  --palette-text-muted: #ffffff99;
-  --palette-text-subtle: #d1d5db;
-  --palette-accent: #0a84ff;
-  --palette-accent-strong: #1d4ed8;
-  --palette-accent-soft: #3b82f6;
-  --palette-border: #141414;
-  --palette-border-soft: rgba(255, 255, 255, .06);
-  --palette-overlay: rgba(0, 0, 0, .6);
-  --palette-hover-surface: rgba(255, 255, 255, .1);
-  --palette-hover-ghost: rgba(255, 255, 255, .05);
-  --palette-glow: rgba(255, 255, 255, .25);
-}
+  /* Text */
+  --palette-text-primary: #1E293B;
+  --palette-text-secondary: #334155;
+  --palette-text-muted: #64748B;
+  --palette-text-subtle: #475569;
 
-/* Light Mode (day theme) colors live in ./light-theme.css — edit that
-   file to change any light-mode color, not this block. */
+  /* Accent (primary brand = violet) */
+  --palette-accent: #8B5CF6;
+  --palette-accent-strong: #7C3AED;
+  --palette-accent-soft: #A78BFA;
 
-html[data-theme="night"] {
-  --palette-bg-950: #030303;
-  --palette-bg-900: #0b0b0b;
-  --palette-bg-800: #141414;
-  --palette-bg-700: #242424;
-  --palette-bg-600: #262626;
-  --palette-text-primary: #ffffff;
-  --palette-text-secondary: #ffffffcc;
-  --palette-text-muted: #ffffff99;
-  --palette-text-subtle: #d1d5db;
-  --palette-accent: #0a84ff;
-  --palette-accent-strong: #1d4ed8;
-  --palette-accent-soft: #3b82f6;
-  --palette-border: #141414;
-  --palette-border-soft: rgba(255, 255, 255, .06);
-  --palette-overlay: rgba(0, 0, 0, .6);
-  --palette-hover-surface: rgba(255, 255, 255, .1);
-  --palette-hover-ghost: rgba(255, 255, 255, .05);
-  --palette-glow: rgba(255, 255, 255, .25);
+  /* Confetti palette */
+  --secondary: #F472B6;   /* hot pink */
+  --tertiary: #FBBF24;    /* amber */
+  --quaternary: #34D399;  /* mint */
+
+  /* Borders */
+  --palette-border: #1E293B;
+  --palette-border-soft: rgba(30, 41, 59, .12);
+  --border-width: 2px;
+
+  /* Hover / overlay */
+  --palette-hover-surface: rgba(139, 92, 246, .08);
+  --palette-hover-ghost: rgba(139, 92, 246, .06);
+  --palette-overlay: rgba(30, 41, 59, .4);
+  --palette-glow: rgba(30, 41, 59, .15);
+
+  /* Radius scale */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Hard "pop" shadow */
+  --shadow-pop: 4px 4px 0 0 #1E293B;
+  --shadow-pop-hover: 6px 6px 0 0 #1E293B;
+  --shadow-pop-active: 2px 2px 0 0 #1E293B;
+  --shadow-pop-soft: 8px 8px 0 0 var(--palette-border-soft);   /* non-featured card shadow */
+  --shadow-pop-featured: 8px 8px 0 0 var(--secondary);          /* featured card shadow */
+
+  /* Legacy aliases (older components still read these — keep pointed at the same new values) */
+  --bg-900: var(--palette-bg-950);
+  --bg-800: var(--palette-bg-700);
+  --text-100: var(--palette-text-primary);
+  --text-200: var(--palette-text-secondary);
+  --text-300: var(--palette-text-muted);
+  --card-800: var(--palette-bg-700);
+  --accent-500: var(--palette-accent);
+  --pill-500: var(--secondary);
+  --muted-400: var(--palette-border-soft);
+
+  --light-badge-bg: #F3E8FF;
+  --light-badge-text: var(--palette-accent-strong);
+
+  --light-logo-filter: none;
+  --light-logo-filter-hover: none;
+  --light-logo-opacity: 1;
 }
 
 /* Smooth cross-fade when switching between day/night mode */
@@ -74,7 +86,7 @@ body {
   margin: 0;
   background: var(--palette-bg-950);
   color: var(--palette-text-secondary);
-  font-family: Barlow,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 }
 .container {
   max-width: 1260px;
@@ -124,7 +136,7 @@ body {
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
-  font-family: Barlow,sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -147,8 +159,8 @@ body {
 .section-title {
   color: var(--palette-text-primary);
   margin: 0 0 14px;
-  font-family: Barlow,sans-serif;
-  font-weight: 600;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 800;
   font-size: 36px;
   line-height: 56px;
   text-align: center;
@@ -226,7 +238,7 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s!important
 }
 ::-webkit-input-placeholder {
-  font-family: Barlow;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 100%;
@@ -245,7 +257,7 @@ input:-webkit-autofill {
 }
 .react-international-phone-input {
   width: 100%;
-  font-family: Barlow!important;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
   background: var(--palette-bg-700)!important;
   border: none!important;
   border-radius: 5px;
@@ -350,16 +362,16 @@ body.menu-open .overlay {
     font-family: inherit!important
   }
   .section-title {
-    font-family: Barlow;
-    font-weight: 700;
+    font-family: "Outfit", system-ui, sans-serif;
+    font-weight: 800;
     font-style: Bold;
     font-size: 24px;
     line-height: 120%;
     text-align: center
   }
     .sectionTitle {
-    font-family: Barlow;
-    font-weight: 700;
+    font-family: "Outfit", system-ui, sans-serif;
+    font-weight: 800;
     font-style: Bold;
     font-size: 24px;
     line-height: 120%;
