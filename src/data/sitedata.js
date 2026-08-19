@@ -97,32 +97,32 @@ export default {
       {
         title: "A/B Testing",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
-        icon: "/assets/services/ab-testing.webp",
+        icon: "ab-testing",
       },
       {
         title: "Shopify Development",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
-        icon: "/assets/services/shopify.webp",
+        icon: "shopify",
       },
       {
         title: "Quality Assurance",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
-        icon: "/assets/services/qa.webp",
+        icon: "qa",
       },
       {
         title: "WordPress Development",
         desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-        icon: "/assets/services/wordpress.webp",
+        icon: "wordpress",
       },
       {
         title: "Landing Page Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
-        icon: "/assets/services/landing-page.webp",
+        icon: "landing-page",
       },
       {
         title: "Lead Generation",
         desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
-        icon: "/assets/services/lead.webp",
+        icon: "lead",
       },
     ],
   },
