@@ -73,6 +73,16 @@ body,
 *::after {
   transition: background-color .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease;
 }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .btn:hover, .card:hover, .btn-hero:hover, .c-btn:hover, .social-btn:hover {
+    transform: none !important;
+  }
+}
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box
@@ -116,45 +126,47 @@ body {
   gap: 24px
 }
 .btn {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
   max-width: 162px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
-  font-weight: 800;
-  text-decoration: none;
-  -webkit-transition: .3s all ease-in-out;
-  -o-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
   text-align: center;
-  vertical-align: middle;
-  border: 1px solid var(--palette-accent);
-  cursor: pointer
+  text-decoration: none;
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: var(--shadow-pop);
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1), background-color .3s ease;
 }
 .btn:hover {
-  background: var(--palette-hover-ghost);
-  color: var(--palette-accent)
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop-hover);
+  background: var(--palette-accent-strong);
+  color: #fff;
+}
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pop-active);
 }
 .card {
-  background: var(--palette-bg-700);
-  border-radius: 18px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
   padding: 22px;
-  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.35);
-  box-shadow: 0 10px 24px rgba(0,0,0,.35)
+  box-shadow: var(--shadow-pop-soft);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+}
+.card:hover {
+  transform: rotate(-1deg) scale(1.02);
+  box-shadow: var(--shadow-pop-hover);
 }
 .section-title {
   color: var(--palette-text-primary);
@@ -184,35 +196,24 @@ section[id] {
 .c-btn,
 .social-btn {
   position: relative;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  border: 1.5px solid var(--palette-accent);
-  border-radius: 10px;
-  background: 0 0;
-  color: var(--palette-accent);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--palette-text-primary);
   font-weight: 600;
   text-decoration: none;
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
 }
 .btn-hero:hover,
 .c-btn:hover,
 .social-btn:hover {
-  background: var(--palette-hover-ghost);
-  -webkit-box-shadow: 0 0 14px rgba(10,132,255,.4);
-  box-shadow: 0 0 14px rgba(10,132,255,.4);
-  color: var(--palette-accent);
-  -webkit-transform: translateY(-2px);
-  -ms-transform: translateY(-2px);
-  transform: translateY(-2px)
+  background: var(--tertiary);
+  color: var(--palette-text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pop);
 }
 .footer-logo,
 .hero-visual-img,
@@ -247,7 +248,7 @@ input:-webkit-autofill {
 .react-international-phone-input-container {
   position: relative;
   border: 1px solid rgba(255,255,255,0);
-  border-radius: 5px
+  border-radius: var(--radius-sm)
 }
 .react-international-phone-country-selector {
   position: static
@@ -260,7 +261,7 @@ input:-webkit-autofill {
   font-family: "Plus Jakarta Sans", sans-serif !important;
   background: var(--palette-bg-700)!important;
   border: none!important;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   color: var(--palette-text-muted)!important;
   padding: 12px 14px!important;
   outline: 0;
@@ -275,7 +276,7 @@ input:-webkit-autofill {
   outline: 0!important;
   background: var(--palette-bg-700)!important;
   border: none!important;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   min-height: 40.67px
@@ -284,7 +285,7 @@ input:-webkit-autofill {
   width: 100%;
   background: var(--palette-bg-700)!important;
   border: 1px solid rgba(255,255,255,0)!important;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   color: var(--palette-text-muted)!important;
   outline: 0
 }
