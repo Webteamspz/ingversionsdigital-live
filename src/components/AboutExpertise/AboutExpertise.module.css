@@ -24,8 +24,8 @@
   min-height: 425px;
   background: var(--palette-bg-800);
   border: 1px solid transparent;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
   padding: 28px 26px;
   text-align: center;
   display: flex;
@@ -36,9 +36,9 @@
   box-sizing: border-box
 }
 /* .card.aboutExpertiseCard:hover {
-  transform: translateY(-5px);
+  transform: translate(-2px,-2px) rotate(-1deg);
   border-color: rgba(255,255,255,.1);
-  box-shadow: 0 15px 30px rgba(0,0,0,.4)
+  box-shadow: var(--shadow-pop-hover)
 } */
 .aboutIconWrap {
   width: 100%;
@@ -49,13 +49,14 @@
   margin-top: 26px;
   margin-bottom: 35px
 }
-.aboutIconWrap img {
-  width: 100%;
-  max-width: 150px;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto
+.iconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
 }
 .aboutExpertiseCard h3 {
   margin: 0 0 34px;
@@ -94,15 +95,11 @@
     max-width: 100%;
     min-height: 360px;
     background: var(--palette-bg-800);
-    border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-pop-soft);
     text-align: center;
     padding: 22px 16px;
     margin: 0
-  }
-  .aboutIconWrap img {
-    max-width: 150px;
-    margin: 16px auto 18px
   }
   .aboutExpertiseCard h3 {
     font-weight: 600;

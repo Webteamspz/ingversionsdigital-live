@@ -3,9 +3,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { Sparkles, Blocks, TrendingUp, BarChart3 } from "lucide-react";
 
 import styles from "./AboutExpertise.module.css";
 import { expertiseCards } from "../../data/aboutusdata";
+
+const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
+const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
+
+const ExpertiseIcon = ({ iconKey, title }) => {
+  const Icon = EXPERTISE_ICONS[iconKey];
+  return (
+    <span className={styles.iconCircle} style={{ background: EXPERTISE_COLORS[iconKey] }}>
+      <Icon size={22} strokeWidth={2.5} color="#1E293B" aria-label={title} />
+    </span>
+  );
+};
 
 const AboutExpertise = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -41,7 +54,7 @@ const AboutExpertise = () => {
               <SwiperSlide key={index}>
                 <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                   <div className={styles.aboutIconWrap}>
-                    <img src={card.icon} alt={card.title} loading="lazy" decoding="async" />
+                    <ExpertiseIcon iconKey={card.icon} title={card.title} />
                   </div>
                   <h3>{card.title}</h3>
                   <p>{card.text}</p>
@@ -54,7 +67,7 @@ const AboutExpertise = () => {
             {expertiseCards.map((card) => (
               <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                 <div className={styles.aboutIconWrap}>
-                  <img src={card.icon} alt={card.title} loading="lazy" decoding="async" />
+                  <ExpertiseIcon iconKey={card.icon} title={card.title} />
                 </div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>

@@ -63,22 +63,22 @@ export const missionCards = [
 
 export const expertiseCards = [
   {
-    icon: '/assets/about-expertise/ai.webp',
+    icon: 'ai',
     title: 'Research & Insights',
     text: 'Quant + qual research, analytics deep dives, heatmaps, and user interviews to find real conversion leaks.'
   },
   {
-    icon: '/assets/about-expertise/blockchain.webp',
+    icon: 'blockchain',
     title: 'Experiment Design',
     text: 'Hypothesis crafting, prioritization frameworks, and statistically sound test setups across tools like ABlyft.'
   },
   {
-    icon: '/assets/about-expertise/trading.webp',
+    icon: 'trading',
     title: 'Full-funnel Execution',
     text: 'Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.'
   },
   {
-    icon: '/assets/about-expertise/analytics.webp',
+    icon: 'analytics',
     title: 'Analysis & Learnings',
     text: 'Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.'
   }
