@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
-import logo from "/assets/logos/main-logo.png";
 import logoDay from "/assets/logos/main-logo-day.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
@@ -50,53 +49,6 @@ const isExternalHref = (href = "") =>
   href.startsWith("mailto:") ||
   href.startsWith("tel:");
 
-const SunIcon = (props) => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    {...props}
-  >
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2" />
-    <path d="M12 20v2" />
-    <path d="m4.93 4.93 1.41 1.41" />
-    <path d="m17.66 17.66 1.41 1.41" />
-    <path d="M2 12h2" />
-    <path d="M20 12h2" />
-    <path d="m6.34 17.66-1.41 1.41" />
-    <path d="m19.07 4.93-1.41 1.41" />
-  </svg>
-);
-
-const MoonIcon = (props) => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    stroke="none"
-    aria-hidden="true"
-    {...props}
-  >
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-  </svg>
-);
-
-// Read whatever the inline head script already stamped onto <html> so the
-// toggle's initial render matches the page — no flash on mount.
-const getInitialThemeMode = () => {
-  if (typeof document === "undefined") return "night";
-  const attr = document.documentElement.getAttribute("data-theme");
-  return attr === "day" || attr === "night" ? attr : "night";
-};
-
 const Header = () => {
   const { links, cta } = data.header;
   const location = useLocation();
@@ -112,7 +64,6 @@ const Header = () => {
   const [hideCtaOnHero, setHideCtaOnHero] = useState(
     () => location.pathname === "/"
   );
-  const [themeMode, setThemeMode] = useState(getInitialThemeMode);
 
   const isBlogPage = location.pathname.startsWith("/blog");
   const ctaHref = isBlogPage ? cta.href : "/#hero";
@@ -131,12 +82,6 @@ const Header = () => {
       setCtaScrollMode(true);
     }
   }, []);
-
-  // Keep <html data-theme> and localStorage in sync whenever the user toggles.
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", themeMode);
-    window.localStorage.setItem("magic-theme-mode", themeMode);
-  }, [themeMode]);
 
   // Lock body scroll when mobile menu open
   useEffect(() => {
@@ -256,50 +201,6 @@ const Header = () => {
     );
   };
 
-  const renderThemeToggle = (extraClassName) => (
-    <div
-      className={`${styles.themeToggle} ${extraClassName} ${
-        themeMode === "night" ? styles.themeToggleNight : ""
-      }`}
-      role="group"
-      aria-label="Color theme"
-    >
-      <span
-        className={styles.themeToggleThumb}
-        style={{
-          transform: themeMode === "day" ? "translateX(0%)" : "translateX(100%)",
-        }}
-        aria-hidden="true"
-      />
-      <button
-        type="button"
-        className={`${styles.themeToggleBtn} ${
-          themeMode === "day" ? styles.themeToggleBtnActive : ""
-        }`}
-        onClick={() => setThemeMode("day")}
-        aria-pressed={themeMode === "day"}
-      >
-        <SunIcon
-          className={`${styles.themeToggleIcon} ${styles.themeToggleIconSun}`}
-        />
-        <span>Light</span>
-      </button>
-      <button
-        type="button"
-        className={`${styles.themeToggleBtn} ${
-          themeMode === "night" ? styles.themeToggleBtnActive : ""
-        }`}
-        onClick={() => setThemeMode("night")}
-        aria-pressed={themeMode === "night"}
-      >
-        <MoonIcon
-          className={`${styles.themeToggleIcon} ${styles.themeToggleIconMoon}`}
-        />
-        <span>Dark</span>
-      </button>
-    </div>
-  );
-
   const renderMobileNavLink = (linkItem, index) => {
     const { href, label } = linkItem;
 
@@ -353,7 +254,6 @@ const Header = () => {
       aria-label="Mobile menu"
     >
       <div className={styles.mobileHeader}>
-        {renderThemeToggle(styles.mobileThemeToggle)}
         <button
           className={styles.closeBtn}
           aria-label="Close menu"
@@ -403,7 +303,7 @@ const Header = () => {
             onClick={() => handleNavClick("Logo", "Header Brand", "/")}
           >
             <img
-              src={themeMode === "day" ? logoDay : logo}
+              src={logoDay}
               alt="Ingversions Logo"
               className={`${styles.brandLogo} ${styles.desktopLogo}`}
             />
@@ -432,8 +332,6 @@ const Header = () => {
               {cta.label}
             </Link>
           )}
-
-          {renderThemeToggle(styles.headerThemeToggle)}
 
           {/* Mobile hamburger */}
           <button
