@@ -20,7 +20,7 @@ const AboutExpertise = () => {
   return (
     <section className={styles.aboutExpertise} id="coreExpertise">
       <div className="container">
-        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCenter}`}>
+        <h2 className={`section-title ${styles.sectionTitleCenter}`}>
           Core Expertise
         </h2>
         <p className={styles.sectionSubtitle}>

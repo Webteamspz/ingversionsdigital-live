@@ -5,7 +5,7 @@
   align-items: center;
   margin-bottom: 32px
 }
-.aboutStory .sectionTitle {
+.aboutStory .section-title {
   color: var(--text-100);
   margin: 0 0 14px;
   font-family: Barlow,sans-serif!important;
@@ -61,7 +61,7 @@
   .aboutStoryVisual {
     order: -1
   }
-  .aboutStory .sectionTitle {
+  .aboutStory .section-title {
     font-size: 28px!important;
     text-align: center;
     line-height: 1.3

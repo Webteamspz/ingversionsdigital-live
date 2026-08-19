@@ -3,7 +3,7 @@ import styles from "./TeamHero.module.css";
 const TeamHero = ({ eyebrow, heading, pill, subtext }) => {
   return (
     <div className={styles.heroWrap}>
-      <h2 className={styles.heroTitle}>
+      <h2>
         {heading}
         <span className={styles.pill}>{pill}</span>
       </h2>

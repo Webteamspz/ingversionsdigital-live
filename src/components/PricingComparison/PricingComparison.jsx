@@ -56,7 +56,7 @@ const PricingComparison = () => {
   return (
     <section className="pricingComparison" id="pricingComparison">
       <div className="container">
-        <h2 className="sectionTitle">{pricing.heading}</h2>
+        <h2 className="section-title">{pricing.heading}</h2>
         {pricing.sub && <p className="sectionSubtitle">{pricing.sub}</p>}
 
         {/* ======= DESKTOP TABLE ======= */}

@@ -7,11 +7,7 @@
   position: relative
 }
 .startedTitle {
-  font-weight: 700;
-  font-size: 36px;
   line-height: 100%;
-  color: var(--palette-text-primary);
-  text-align: center;
   margin: 0 0 28px
 }
 .testimonialSlider {
@@ -224,13 +220,6 @@
   }
   .testimonialSlider {
     padding: 8px 0 36px!important
-  }
-  .startedTitle {
-    font-family: Barlow;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 120%;
-    text-align: center
   }
   .quoteLine::after,
   .quoteLine::before {

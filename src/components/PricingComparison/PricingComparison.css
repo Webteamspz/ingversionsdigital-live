@@ -3,14 +3,6 @@
   color: var(--palette-text-primary);
   padding: 50px 0 60px;
 }
-.sectionTitle {
-  color: var(--palette-text-primary);
-  margin: 0 0 10px;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-size: 36px;
-  text-align: center;
-}
 .sectionSubtitle {
   max-width: 600px;
   margin: 0 auto 85px;
@@ -322,9 +314,6 @@
   }
   .next {
     right: 0;
-  }
-  .sectionTitle {
-    font-size: 28px;
   }
   .sectionSubtitle {
     margin-bottom: 40px;

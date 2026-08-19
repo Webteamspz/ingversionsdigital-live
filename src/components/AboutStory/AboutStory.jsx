@@ -7,7 +7,7 @@ const AboutStory = () => {
       <div className="container">
         <div className="aboutStoryGrid">
           <div className="aboutStoryText">
-            <h2 className="sectionTitle">{storyData.title}</h2>
+            <h2 className="section-title">{storyData.title}</h2>
             {storyData.paragraphs.map((para, index) => (
               <p key={index}>{para}</p>
             ))}

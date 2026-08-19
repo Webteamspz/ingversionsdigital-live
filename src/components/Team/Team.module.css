@@ -28,11 +28,6 @@
 }
 .title {
   margin: 0 0 60px!important;
-  text-align: center;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 56px;
-  color: var(--palette-text-primary)
 }
 .pill {
   display: inline-block;

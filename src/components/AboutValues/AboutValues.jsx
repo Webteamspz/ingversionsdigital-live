@@ -5,7 +5,7 @@ const AboutValues = () => {
   return (
     <section className="aboutValues" id="aboutValues">
       <div className="container">
-        <h2 className="sectionTitle sectionTitleCenter">Our Value System</h2>
+        <h2 className="section-title">Our Value System</h2>
         <p className="sectionSubtitle">
           The principles that guide every experiment, call, and recommendation.
         </p>

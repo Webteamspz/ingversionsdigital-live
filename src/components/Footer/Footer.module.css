@@ -1,7 +1,7 @@
 .siteFooter {
   background: var(--palette-bg-950);
   position: relative;
-  border-top: 1px solid var(--palette-border);
+  border-top: 1px solid var(--palette-divider-strong);
   padding: 60px 0 30px
 }
 .footerMain {

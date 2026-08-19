@@ -5,7 +5,7 @@ const AboutTrack = () => {
   return (
     <section className="aboutTrack" id="aboutTrack">
       <div className="container">
-        <h2 className="sectionTitle sectionTitleCenter">Our Track Record</h2>
+        <h2 className="section-title">Our Track Record</h2>
         <p className="sectionSubtitle">
           Proof that a disciplined experimentation culture moves the needle.
         </p>
