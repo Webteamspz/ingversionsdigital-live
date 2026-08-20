@@ -130,10 +130,10 @@
   position: relative;
   width: 65%;
   background: var(--palette-bg-700);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.1);
-  box-shadow: 0 20px 40px rgba(0,0,0,.6)
+  box-shadow: var(--shadow-pop-soft)
 }
 .closeBtn {
   position: absolute;
@@ -315,7 +315,7 @@
     color: var(--palette-accent);
     font-weight: 600;
     font-size: 15px;
-    border-radius: 10px;
+    border-radius: var(--radius-full);
     cursor: pointer;
     transition: background .2s ease,color .2s ease
   }

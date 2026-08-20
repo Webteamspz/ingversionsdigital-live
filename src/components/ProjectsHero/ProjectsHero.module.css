@@ -57,7 +57,7 @@
     background-color: var(--palette-bg-800);
     border: 1px solid #0000;
     color: var(--palette-text-primary);
-    border-radius: 12px;
+    border-radius: var(--radius-full);
     padding: 8px 16px;
     font-size: 14px;
     font-weight: 700;
@@ -92,7 +92,7 @@ color: var(--palette-text-subtle);
   background-color: var(--palette-bg-800);
   border: 1px solid var(--palette-border-soft);
   color: var(--palette-text-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 14px 16px;
   font-size: 14px;
   font-weight: 700;
@@ -123,13 +123,13 @@ color: var(--palette-text-subtle);
   right: 0;
   background-color: var(--palette-bg-800);
   border: 1px solid var(--palette-border-soft);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   list-style: none;
   margin: 0;
   padding: 6px;
   z-index: 30;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-pop-soft);
 }
 
 .dropdownItem {
@@ -139,7 +139,7 @@ color: var(--palette-text-subtle);
   background: transparent;
   border: none;
   color: var(--palette-text-subtle);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 10px 12px;
   font-size: 14px;
   font-weight: 600;

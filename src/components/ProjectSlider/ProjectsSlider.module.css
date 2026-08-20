@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
@@ -121,7 +121,7 @@
   display: block;
   background: var(--palette-bg-800);
   border: 1px solid var(--palette-border-soft);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   text-decoration: none;
   transition: border-color 0.2s ease, transform 0.2s ease;
