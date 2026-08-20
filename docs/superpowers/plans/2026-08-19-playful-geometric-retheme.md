@@ -1114,3 +1114,23 @@ git commit -m "fix: address visual QA issues from Playful Geometric retheme pass
 ```
 
 If no fixes were needed, skip this step — nothing to commit.
+
+---
+
+## Amendments (added after Task 17's verification pass surfaced real gaps)
+
+Task 17's repo-wide leftover scan (build + grep, no browser available in this environment) found two genuine regressions that no prior task's file scope covered:
+
+1. `Footer.jsx` hardcodes its own non-data-driven contact-icon SVGs (`fill="#0A84FF"`) separate from the social icons Task 4 fixed and separate from Contact.jsx's identical icons Task 9 fixed — neither task's grep ever saw this literal JSX block.
+2. Task 1 only migrated fonts on the global `body`/`.section-title` rules; ~50 per-component `font-family: Barlow` declarations across 20 files were never touched, since no task's Files list or verification step ever grepped component CSS specifically for `Barlow`.
+
+Two follow-up tasks close these gaps:
+
+### Task 18: Fix remaining old-accent leftovers found by Task 17
+Full brief: `.superpowers/sdd/2026-08-19-playful-geometric-retheme/task-18-brief.md`. Swaps Footer.jsx's hardcoded contact-icon SVGs to `lucide-react` (`Mail`/`Phone`/`MapPin`), retones `.skip-link`'s hardcoded accent hex in `style.css`.
+
+### Task 19: Sweep remaining hardcoded `Barlow` font-family declarations sitewide
+Full brief: `.superpowers/sdd/2026-08-19-playful-geometric-retheme/task-19-brief.md`. Applies the same heading→Outfit / body→Plus Jakarta Sans rule Task 1 used globally, to all ~50 per-component declarations across 20 files.
+
+### Task 20: Re-run Task 17's verification
+Same build + repo-wide grep scans as Task 17, to confirm both gaps are closed and no new ones were introduced.
