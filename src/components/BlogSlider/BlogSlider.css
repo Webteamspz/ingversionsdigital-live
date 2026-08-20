@@ -36,7 +36,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
@@ -135,7 +135,7 @@
 .blog-card {
   background-color: var(--palette-bg-800);
   border: 1px solid transparent;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: transform .3s ease,box-shadow .3s ease;
   height: 100%;
@@ -161,7 +161,7 @@
   background-color: var(--palette-accent);
   color: #fff;
   padding: 4px 12px 6px;
-  border-radius: 12px;
+  border-radius: var(--radius-full);
   text-align: center;
   font-size: 12px;
   font-weight: 700;

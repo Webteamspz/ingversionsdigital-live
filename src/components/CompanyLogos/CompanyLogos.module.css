@@ -25,25 +25,16 @@
 .marqueeGroup img {
   width: 100%;
   max-width: 249px;
-  -webkit-filter: grayscale(1) brightness(1.4);
-  filter: grayscale(1) brightness(1.4);
-  opacity: .9;
+  -webkit-filter: var(--light-logo-filter);
+  filter: var(--light-logo-filter);
+  opacity: var(--light-logo-opacity);
   display: block;
   margin: 0 auto
 }
 .marqueeGroup img:hover {
-  -webkit-filter: grayscale(0) brightness(1);
-  filter: grayscale(0) brightness(1);
-  opacity: 1
-}
-html[data-theme="day"] .marqueeGroup img {
-  -webkit-filter: var(--light-logo-filter);
-  filter: var(--light-logo-filter);
-  opacity: var(--light-logo-opacity)
-}
-html[data-theme="day"] .marqueeGroup img:hover {
   -webkit-filter: var(--light-logo-filter-hover);
-  filter: var(--light-logo-filter-hover)
+  filter: var(--light-logo-filter-hover);
+  opacity: 1
 }
 @-webkit-keyframes scroll-left {
   0% {

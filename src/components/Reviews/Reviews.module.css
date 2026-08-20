@@ -117,7 +117,7 @@
   display: block
 }
 .tsNav:hover svg path {
-  stroke: #0A84FF
+  stroke: var(--palette-accent)
 }
 .tsNav.tsPrev svg {
   -webkit-transform: rotate(180deg);
