@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { Repeat, Clock, Briefcase } from "lucide-react";
 import "./Engagement.css";
 import siteData from "../../data/sitedata";
 import ContactModal from "../ContactModal/ContactModal";
+
+const ENGAGEMENT_ICONS = { retainer: Repeat, hoursblock: Clock, projectengagement: Briefcase };
+const ENGAGEMENT_COLORS = { retainer: "var(--palette-accent)", hoursblock: "var(--secondary)", projectengagement: "var(--tertiary)" };
 
 const EngagementModels = () => {
   const { heading, sub, list } = siteData.engagement;
@@ -27,8 +31,11 @@ const EngagementModels = () => {
         <div className="engagement-cards-grid">
           {list.map((model, index) => (
             <div className="engagement-card" key={index}>
-              <div className="engagement-icon-wrapper">
-                <img src={model.icon} alt={model.title} loading="lazy" decoding="async" />
+              <div className="engagement-icon-wrapper" style={{ background: ENGAGEMENT_COLORS[model.icon] }}>
+                {(() => {
+                  const Icon = ENGAGEMENT_ICONS[model.icon];
+                  return Icon ? <Icon size={26} strokeWidth={2.5} color="#1E293B" aria-hidden="true" /> : null;
+                })()}
               </div>
 
               <h3 className="engagement-card-title">{model.title}</h3>

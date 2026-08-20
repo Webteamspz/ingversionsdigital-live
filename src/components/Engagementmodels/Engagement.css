@@ -33,7 +33,7 @@
 }
 .engagement-card {
   background-color: var(--palette-bg-800);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -43,11 +43,11 @@
   width: 56px;
   height: 56px;
   display: flex;
-  border-radius: 35px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  color: var(--palette-accent);
   overflow: hidden;
   flex-shrink: 0
 }
@@ -100,7 +100,7 @@
   background-color: var(--palette-accent);
   color: #fff;
   border: 1px solid var(--palette-accent);
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   padding: 12px 20px;
   font-size: 14px;
   font-weight: 700;

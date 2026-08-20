@@ -159,7 +159,7 @@ export default {
       {
         title: "Retainer-Based Partnerships",
         desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
-        icon: "/assets/engagement/retainer.webp",
+        icon: "retainer",
         features: [
           "Predictable Costs",
           "Dedicated Resources",
@@ -174,7 +174,7 @@ export default {
       {
         title: "Block of Hours",
         desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
-        icon: "/assets/engagement/hoursblock.webp",
+        icon: "hoursblock",
         features: [
           "Flexibility",
           "On-Demand Support",
@@ -189,7 +189,7 @@ export default {
       {
         title: "Project-Based Engagements",
         desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
-        icon: "/assets/engagement/projectengagement.webp",
+        icon: "projectengagement",
         features: [
           "Defined Scope and Timeline",
           "Focused Expertise",
