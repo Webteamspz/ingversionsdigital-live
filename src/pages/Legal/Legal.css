@@ -28,7 +28,7 @@
 }
 .legalPage h1 {
   color: var(--palette-text-primary);
-  font-family: Barlow,sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2;
@@ -76,7 +76,7 @@
 }
 .legalPage h2 {
   color: var(--palette-text-primary);
-  font-family: Barlow,sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 10px

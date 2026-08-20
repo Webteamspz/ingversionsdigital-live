@@ -19,7 +19,7 @@
 .phoneLibWrap :global(.react-international-phone-input) {
   width: 100%;
   flex: 1;
-  font-family: Barlow;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 .phoneLibWrap :global(.react-international-phone-country-selector-button__button-content) {
   padding: 0 8px;

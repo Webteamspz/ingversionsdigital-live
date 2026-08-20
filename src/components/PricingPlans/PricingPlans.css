@@ -1,6 +1,6 @@
 .pricingPlans {
   padding: 50px 0 10px;
-  font-family: Barlow,sans-serif
+  font-family: "Plus Jakarta Sans", sans-serif
 }
 .pricingPlansGrid {
   display: flex;
@@ -134,7 +134,7 @@
   justify-content: center;
   align-items: center;
   border-radius: var(--radius-full);
-  font-family: Barlow,sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   color: var(--palette-text-secondary);
   text-decoration: none;
@@ -169,7 +169,7 @@
   color: var(--palette-accent);
   border: 1px solid var(--palette-accent);
   cursor: pointer;
-  font-family: Barlow,sans-serif
+  font-family: "Plus Jakarta Sans", sans-serif
 }
 .btnOutline:hover {
   background: var(--palette-accent);

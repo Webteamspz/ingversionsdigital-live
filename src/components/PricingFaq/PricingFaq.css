@@ -40,7 +40,7 @@
   outline: 0
 }
 .accordionItemHeader span {
-  font-family: Barlow
+  font-family: "Outfit", system-ui, sans-serif
 }
 .accordionItemHeader:hover {
   color: var(--palette-accent)

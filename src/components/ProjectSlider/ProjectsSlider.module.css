@@ -15,7 +15,7 @@
   margin-bottom: 40px;
 }
 .startedTitle {
-  font-family: Barlow, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 100%;
@@ -35,7 +35,7 @@
   color: #fff;
   text-decoration: none;
   transition: 0.3s all ease-in-out;
-  font-family: Barlow, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -208,7 +208,7 @@
     margin-bottom: 30px;
   }
   .startedTitle {
-    font-family: Barlow;
+    font-family: "Outfit", system-ui, sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 120%;

@@ -6,7 +6,7 @@
 .sectionTitle {
   color: var(--palette-text-primary);
   margin: 0 0 10px;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 700;
   font-size: 36px;
   text-align: center;
@@ -17,7 +17,7 @@
   text-align: center;
   color: var(--palette-text-secondary);
   line-height: 1.5;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 16px;
 }
 .tableWrap {
@@ -50,7 +50,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .cell:first-child {
   justify-content: flex-start;
@@ -147,7 +147,7 @@
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;

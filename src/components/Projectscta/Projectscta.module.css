@@ -13,7 +13,7 @@
   align-items: center
 }
 .projectsCtaHeading {
-  font-family: Barlow,sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 36px;
   font-weight: 600;
   line-height: 1.2;
@@ -22,7 +22,7 @@
   margin-bottom: 8px
 }
 .projectsCtaText {
-  font-family: Barlow,sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -45,7 +45,7 @@
   line-height: 14px;
   text-decoration: none;
   transition: .3s all ease-in-out;
-  font-family: Barlow,sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   border: 1px solid var(--palette-accent);
   cursor: pointer
 }
