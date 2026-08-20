@@ -1,7 +1,10 @@
 import data from "../../data/sitedata";
 import styles from "./Contact.module.css";
-import parse from "html-react-parser";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+const CONTACT_ICONS = { email: Mail, phone: Phone, location: MapPin };
+const CONTACT_COLORS = { email: "var(--palette-accent)", phone: "var(--secondary)", location: "var(--tertiary)" };
 
 const Contact = () => {
   const { heading, infoCards } = data.contact;
@@ -79,7 +82,12 @@ const Contact = () => {
                     <ul className={styles.cList}>
                       {infoCards[0].items.map((item, i) => (
                         <li key={i}>
-                          <span className={styles.cIco}>{parse(item.icon)}</span>
+                          <span className={styles.cIco} style={{ background: CONTACT_COLORS[item.icon] }}>
+                            {(() => {
+                              const Icon = CONTACT_ICONS[item.icon];
+                              return Icon ? <Icon size={16} strokeWidth={2.5} color="#1E293B" aria-hidden="true" /> : null;
+                            })()}
+                          </span>
                           {String(item.text).split("\n").map((line, li) => (
                             <span key={li}>
                               {line}

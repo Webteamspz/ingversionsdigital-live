@@ -2,16 +2,16 @@
   padding: 36px 0 46px
 }
 .phoneLibWrap {
-  --react-international-phone-background-color: #1a1a1a;
-  --react-international-phone-text-color: #ffffff99;
+  --react-international-phone-background-color: var(--palette-bg-800);
+  --react-international-phone-text-color: var(--palette-text-secondary);
   --react-international-phone-border-color: rgba(255,255,255,0);
   --react-international-phone-height: 42px;
-  --react-international-phone-border-radius: 5px;
+  --react-international-phone-border-radius: var(--radius-sm);
   --react-international-phone-font-size: 15px;
-  --react-international-phone-country-selector-background-color: #1a1a1a;
-  --react-international-phone-country-selector-background-color-hover: #242424;
-  --react-international-phone-selected-dropdown-item-background-color: #242424;
-  --react-international-phone-dropdown-item-background-color: #1a1a1a;
+  --react-international-phone-country-selector-background-color: var(--palette-bg-700);
+  --react-international-phone-country-selector-background-color-hover: var(--palette-bg-600);
+  --react-international-phone-selected-dropdown-item-background-color: var(--palette-bg-600);
+  --react-international-phone-dropdown-item-background-color: var(--palette-bg-700);
 }
 .phoneLibWrap :global(.react-international-phone-input-container) {
   width: 100%;
@@ -39,9 +39,9 @@
 }
 .contactCard {
   background: var(--palette-bg-800);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 32px 40px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+  box-shadow: var(--shadow-pop-soft)
 }
 .rightCol {
   display: grid;
@@ -62,17 +62,14 @@
   gap: 24px
 }
 .cIco {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  border: var(--border-width) solid var(--palette-border);
   display: inline-grid;
   place-items: center;
-  margin-right: 10px
-}
-.cIco svg {
-  width: 24px;
-  height: 24px;
-  object-fit: contain
+  margin-right: 10px;
+  flex-shrink: 0
 }
 .cList li {
   display: flex;
@@ -154,7 +151,7 @@
 }
 .snapshotStars {
   letter-spacing: 1px;
-  color: #fbbf24
+  color: var(--tertiary)
 }
 .snapshotTitleInline {
   font-weight: 600
