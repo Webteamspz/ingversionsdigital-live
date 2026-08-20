@@ -318,6 +318,12 @@
     text-align: center;
     align-items: center
   }
+  .popularCard {
+    transform: scale(1.05)
+  }
+  .pricingPlanCard.popularCard:hover {
+    transform: scale(1.05) rotate(-1deg)
+  }
   .pricingPlanPriceRow {
     justify-content: center
   }
