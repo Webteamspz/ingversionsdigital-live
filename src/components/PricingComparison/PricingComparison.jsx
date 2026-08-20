@@ -32,14 +32,14 @@ const PricingComparison = () => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
       return (
-        <span className="valueIconCircle" style={{ background: "var(--quaternary)" }}>
+        <span className="valueIconCircle" style={{ background: "var(--quaternary)" }} role="img" aria-label="Included">
           <Check size={16} strokeWidth={3} color="#1E293B" />
         </span>
       );
     }
     if (t === "cross") {
       return (
-        <span className="valueIconCircle" style={{ background: "#FCA5A5" }}>
+        <span className="valueIconCircle" style={{ background: "#FCA5A5" }} role="img" aria-label="Not included">
           <X size={16} strokeWidth={3} color="#1E293B" />
         </span>
       );

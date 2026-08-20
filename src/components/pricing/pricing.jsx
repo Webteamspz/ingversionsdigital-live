@@ -30,27 +30,18 @@ const PricingCompare = () => {
     return () => window.removeEventListener("gotoComparisonPlan", handler);
   }, []);
 
-  const valueClass = (v) => {
-    const t = typeof v === "object" && v?.icon ? v.icon : v;
-    return t === "check"
-      ? styles.tickCell
-      : t === "cross"
-      ? styles.crossCell
-      : "";
-  };
-
   const renderValue = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
       return (
-        <span className={styles.valueIconCircle} style={{ background: "var(--quaternary)" }}>
+        <span className={styles.valueIconCircle} style={{ background: "var(--quaternary)" }} role="img" aria-label="Included">
           <Check size={16} strokeWidth={3} color="#1E293B" />
         </span>
       );
     }
     if (t === "cross") {
       return (
-        <span className={styles.valueIconCircle} style={{ background: "#FCA5A5" }}>
+        <span className={styles.valueIconCircle} style={{ background: "#FCA5A5" }} role="img" aria-label="Not included">
           <X size={16} strokeWidth={3} color="#1E293B" />
         </span>
       );
@@ -139,7 +130,7 @@ const PricingCompare = () => {
                   {r.values.map((v, i) => (
                     <div
                       key={i}
-                      className={`${styles.cell} ${valueClass(v)}`}
+                      className={styles.cell}
                     >
                       {renderValue(v)}
                     </div>
@@ -257,9 +248,7 @@ const PricingCompare = () => {
                       {sec.rows.map((r, rIdx) => (
                         <div
                           key={`m-val-${pIdx}-${sIdx}-${rIdx}`}
-                          className={`${styles.valRow} ${valueClass(
-                            r.values[pIdx]
-                          )}`}
+                          className={styles.valRow}
                         >
                           <span className={styles.mValue}>
                             {renderValue(r.values[pIdx])}
