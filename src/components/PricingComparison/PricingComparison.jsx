@@ -7,10 +7,7 @@ import "./PricingComparison.css";
 
 import data from "../../data/sitedata";
 
-import checkIcon from "/assets/pricing/tickmark.svg";
-import crossIcon from "/assets/pricing/cross.svg";
-import prevSvg from "/assets/pricing/left.svg";
-import nextSvg from "/assets/pricing/right.svg";
+import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const PricingComparison = () => {
   const { pricing } = data;
@@ -34,10 +31,18 @@ const PricingComparison = () => {
   const renderValue = (v) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
-      return <img className="valueIcon" src={checkIcon} alt="Included" />;
+      return (
+        <span className="valueIconCircle" style={{ background: "var(--quaternary)" }}>
+          <Check size={16} strokeWidth={3} color="#1E293B" />
+        </span>
+      );
     }
     if (t === "cross") {
-      return <img className="valueIcon" src={crossIcon} alt="Not included" />;
+      return (
+        <span className="valueIconCircle" style={{ background: "#FCA5A5" }}>
+          <X size={16} strokeWidth={3} color="#1E293B" />
+        </span>
+      );
     }
     return <span className="textValue">{t}</span>;
   };
@@ -68,7 +73,12 @@ const PricingComparison = () => {
             <div className="cell stub" />
             {pricing.plans.map((p, i) => (
               <div key={i} className="cell planHead">
-                {p.badge && <span className="badge">{p.badge}</span>}
+                {p.badge && (
+                  <>
+                    <span className="badge">{p.badge}</span>
+                    <span className="popularStar" aria-hidden="true">★</span>
+                  </>
+                )}
                 <div className={`planName ${p.name === "Premium" ? "premiumName" : ""}`}>
                   {p.name}
                 </div>
@@ -160,7 +170,7 @@ const PricingComparison = () => {
               aria-label="Previous plan"
               type="button"
             >
-              <img src={prevSvg} alt="" className="navIcon" />
+              <ChevronLeft className="navIcon" size={20} strokeWidth={2.5} />
             </button>
             <button
               className="navBtn next"
@@ -168,7 +178,7 @@ const PricingComparison = () => {
               aria-label="Next plan"
               type="button"
             >
-              <img src={nextSvg} alt="" className="navIcon" />
+              <ChevronRight className="navIcon" size={20} strokeWidth={2.5} />
             </button>
 
             <Swiper
@@ -190,7 +200,12 @@ const PricingComparison = () => {
               {pricing.plans.map((p, pIdx) => (
                 <SwiperSlide key={`m-plan-${pIdx}`} className="slide">
                   <div className="mHead">
-                    {p.badge && <span className="badge">{p.badge}</span>}
+                    {p.badge && (
+                      <>
+                        <span className="badge">{p.badge}</span>
+                        <span className="popularStar" aria-hidden="true">★</span>
+                      </>
+                    )}
                     <div className={`planName ${p.name === "Premium" ? "premiumName" : ""}`}>
                       {p.name}
                     </div>

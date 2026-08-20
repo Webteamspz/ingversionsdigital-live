@@ -17,7 +17,7 @@
 }
 .accordionItem {
   margin: 22px 0;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 1px;
   overflow: hidden
 }

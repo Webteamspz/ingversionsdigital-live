@@ -14,7 +14,7 @@
   line-height: 1.5
 }
 .tableWrap {
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   overflow: hidden
 }
 .row {
@@ -172,15 +172,21 @@
   border-bottom: 1px solid var(--palette-border-soft);
   height: 50px
 }
-.valueIcon {
-  width: 16px;
-  height: 16px;
-  display: inline-block
+.valueIconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
 }
-.crossCell .valueIcon,
-.tickCell .valueIcon {
-  -webkit-filter: none;
-  filter: none
+.popularStar {
+  color: var(--tertiary);
+  font-size: 20px;
+  margin-left: 4px;
+  display: inline-block;
+  transform: rotate(15deg);
 }
 .btn {
   display: -webkit-inline-box;
@@ -195,7 +201,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
@@ -239,13 +245,6 @@
   -ms-flex-pack: center;
   justify-content: center
 }
-.crossCell .mValue img,
-.crossCell .valueIcon,
-.tickCell .mValue img,
-.tickCell .valueIcon {
-  -webkit-filter: none;
-  filter: none
-}
 @media (max-width:1023.98px) {
   .sub {
     margin: 0 auto 45px;
@@ -265,7 +264,7 @@
   }
   .labelsCol {
     border-right: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
     overflow: hidden
   }
   .labelsHeadSpacer {
@@ -307,7 +306,7 @@
   .plansCol {
     position: relative;
     border-left: none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     overflow: hidden
   }
   .planSwiper {

@@ -143,7 +143,7 @@
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
@@ -163,10 +163,21 @@
   color: var(--palette-text-secondary);
   font-weight: 400;
 }
-.valueIcon {
-  width: 16px;
-  height: 16px;
-  display: block;
+.valueIconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
+}
+.popularStar {
+  color: var(--tertiary);
+  font-size: 20px;
+  margin-left: 4px;
+  display: inline-block;
+  transform: rotate(15deg);
 }
 
 /* ======= MOBILE COMPARE — ALL SCREENS ======= */
@@ -179,7 +190,7 @@
 }
 .labelsCol {
   border-right: none;
-  border-radius: 10px 0 0 10px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
   overflow: hidden;
 }
 .labelsHeadSpacer {
@@ -217,7 +228,7 @@
 .plansCol {
   position: relative;
   border-left: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   overflow: hidden;
 }
 .planSwiper {

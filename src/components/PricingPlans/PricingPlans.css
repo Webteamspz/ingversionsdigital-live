@@ -12,7 +12,7 @@
 }
 .pricingPlanCard {
   background: var(--palette-bg-800);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 32px 24px;
   border: 1px solid var(--palette-border-soft);
   display: flex;
@@ -25,7 +25,25 @@
   max-width: calc(33.333% - 16px);
   width: 100%
 }
+.popularCard {
+  position: relative;
+  transform: scale(1.1);
+  z-index: 1;
+  box-shadow: var(--shadow-pop-featured);
+}
+.pricingPlanCard.popularCard:hover {
+  transform: scale(1.1) rotate(-1deg);
+}
+.popularStar {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  color: var(--tertiary);
+  font-size: 28px;
+  transform: rotate(15deg);
+}
 .pricingPlanBadgeWrap {
+  position: relative;
   margin-bottom: 2px
 }
 .pricingPlanBadge {
@@ -38,17 +56,13 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: #173b5e;
+  background-color: var(--light-badge-bg);
   border: none;
-  color: var(--palette-accent);
+  color: var(--light-badge-text);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase
-}
-html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
-  background-color: var(--light-badge-bg);
-  color: var(--light-badge-text);
 }
 .emptyBadge {
   background: 0 0
@@ -119,7 +133,7 @@ html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: var(--radius-full);
   font-family: Barlow,sans-serif;
   font-weight: 700;
   color: var(--palette-text-secondary);
@@ -147,7 +161,7 @@ html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
   border: 1px solid var(--palette-accent)
 }
 .pricingPlanBtn:hover {
-  background: rgba(10,132,255,.1);
+  background: rgba(139,92,246,.1);
   color: var(--palette-accent)
 }
 .btnOutline {
@@ -185,7 +199,7 @@ html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
 .wideCardRight {
   flex: 0 0 320px;
   padding: 24px;
-  border-radius: 12px
+  border-radius: var(--radius-md)
 }
 .wideCardRight .pricingPlanHighlights {
   margin: 0;
@@ -198,18 +212,14 @@ html[data-theme="day"] .pricingPlanBadge:not(.emptyBadge) {
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: #173b5e;
+  background-color: var(--light-badge-bg);
   border: none;
-  color: var(--palette-accent);
+  color: var(--light-badge-text);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   margin-bottom: 10px;
   text-transform: uppercase
-}
-html[data-theme="day"] .wideBadge {
-  background-color: var(--light-badge-bg);
-  color: var(--light-badge-text);
 }
 .wideTitle {
   font-size: 32px;

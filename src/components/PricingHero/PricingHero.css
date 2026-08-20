@@ -6,7 +6,7 @@
   padding: 56px 48px;
   background: linear-gradient(135deg,var(--palette-bg-800) 0,var(--palette-bg-700) 100%);
   border: 1px solid var(--palette-border-soft);
-  border-radius: 28px;
+  border-radius: var(--radius-lg);
   overflow: hidden
 }
 .pricingTag {
@@ -15,17 +15,13 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: #173b5e;
+  background-color: var(--light-badge-bg);
   border: none;
-  color: var(--palette-accent);
+  color: var(--light-badge-text);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
   text-transform: uppercase
-}
-html[data-theme="day"] .pricingTag {
-  background-color: var(--light-badge-bg);
-  color: var(--light-badge-text);
 }
 .pricingHeroTitle {
   margin: 20px 0 18px;
@@ -65,7 +61,7 @@ html[data-theme="day"] .pricingTag {
   -ms-flex-pack: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   font-weight: 800;
@@ -135,7 +131,7 @@ html[data-theme="day"] .pricingTag {
   }
   .pricingHeroInner {
     padding: 32px 22px;
-    border-radius: 22px
+    border-radius: var(--radius-lg)
   }
   .pricingTag {
     font-size: 11px;

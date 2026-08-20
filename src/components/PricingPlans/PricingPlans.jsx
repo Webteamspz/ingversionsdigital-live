@@ -21,11 +21,14 @@ const PricingPlans = () => {
 
         <div className="pricingPlansGrid">
           {standardPlans.map((plan, idx) => (
-            <article key={plan.name} className="pricingPlanCard card">
+            <article key={plan.name} className={`pricingPlanCard card${plan.badge ? " popularCard" : ""}`}>
 
               <div className="pricingPlanBadgeWrap">
                 {plan.badge ? (
-                  <span className="pricingPlanBadge">{plan.badge}</span>
+                  <>
+                    <span className="pricingPlanBadge">{plan.badge}</span>
+                    <span className="popularStar" aria-hidden="true">★</span>
+                  </>
                 ) : (
                   <span className="pricingPlanBadge emptyBadge"></span>
                 )}
