@@ -16,7 +16,7 @@
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   color: var(--text-200);
   font-size: 12px;
   letter-spacing: .08em;
@@ -50,9 +50,9 @@ font-weight: 400;
   padding: 10px 14px;
 background: var(--palette-bg-800);
     border: 1px solid transparent;
-    border-radius: 16px;
-    -webkit-box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
-    box-shadow: 0 10px 24px #00000040;
+    border-radius: var(--radius-lg);
+    -webkit-box-shadow: var(--shadow-pop-soft);
+    box-shadow: var(--shadow-pop-soft);
 }
 .aboutMetaLabel {
   display: block;
@@ -76,7 +76,7 @@ background: var(--palette-bg-800);
   align-items: center;
   justify-content: center;
   border: 1.5px solid var(--palette-accent);
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   font-weight: 600;
@@ -109,9 +109,9 @@ background: var(--palette-bg-800);
 .aboutStat {
 background: var(--palette-bg-800) !important;
     border: 1px solid transparent;
-    border-radius: 16px !important;
-    -webkit-box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
-    box-shadow: 0 10px 24px #00000040 !important;
+    border-radius: var(--radius-lg) !important;
+    -webkit-box-shadow: var(--shadow-pop-soft);
+    box-shadow: var(--shadow-pop-soft) !important;
 }
 .aboutStatLabel {
   display: block;
