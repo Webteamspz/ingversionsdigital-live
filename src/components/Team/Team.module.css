@@ -48,7 +48,7 @@
   background: var(--palette-accent);
   width: 98px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   z-index: -1
 }
 .slider {
@@ -63,8 +63,8 @@
   border: 1px solid var(--palette-border-soft);
   border-radius: 14px;
   overflow: hidden;
-  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.28);
-  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  -webkit-box-shadow: var(--shadow-pop-soft);
+  box-shadow: var(--shadow-pop-soft);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +119,7 @@
     background: var(--palette-accent);
     width: 70px;
     height: 30px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     z-index: -1
   }
 }

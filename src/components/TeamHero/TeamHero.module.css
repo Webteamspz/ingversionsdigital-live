@@ -1,7 +1,7 @@
 .heroWrap {
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 0 24px 28px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  box-shadow: var(--shadow-pop-soft);
   text-align: center
 }
 h1 {
@@ -17,7 +17,7 @@ h1 {
   text-transform: uppercase;
   color: var(--text-300);
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   margin-bottom: 12px
 }
 .pill {
@@ -34,7 +34,7 @@ h1 {
   background: var(--palette-accent);
   width: 98px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   z-index: -1
 }
 .subtext {

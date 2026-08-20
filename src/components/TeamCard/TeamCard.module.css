@@ -28,7 +28,7 @@
   color: var(--palette-text-primary);
   border-radius: 0px 20px 0px 18px;
   padding: 14px 16px 12px;
-  box-shadow: 0 10px 22px rgba(0,0,0,.2);
+  box-shadow: var(--shadow-pop-soft);
   transition: padding .25s ease,bottom .25s ease,transform .25s ease
 }
 .cardHover:hover .floatContent {
@@ -53,12 +53,12 @@
   border-radius: 999px;
   padding: 6px 10px;
   font-size: 12px;
-  background: #eef2ff;
+  background: var(--palette-bg-700);
   color: #334155;
   white-space: nowrap
 }
 .role {
-  color: #6b7280;
+  color: var(--palette-text-muted);
   margin: 0;
   font-size: 13px
 }
@@ -90,7 +90,7 @@
   width: 34px;
   height: 34px;
   font-size: 13px;
-  background: #a6a9c6;
+  background: var(--palette-text-muted);
   border-radius: 50%;
   color: #fff;
   text-decoration: none;
