@@ -1,5 +1,20 @@
+import { MessageSquare, ClipboardList, Code2, Target } from "lucide-react";
+
 import data from "../../data/sitedata";
 import styles from "./WorkProcess.module.css";
+
+const PROCESS_ICONS = { "project-discussion": MessageSquare, plan: ClipboardList, dev: Code2, goal: Target };
+const PROCESS_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+
+function ProcessIcon({ iconKey, index, title }) {
+  const Icon = PROCESS_ICONS[iconKey];
+  const background = PROCESS_COLORS[index % 4];
+  return (
+    <span className={styles.iconCircle} style={{ background }} aria-hidden="true">
+      {Icon && <Icon size={22} strokeWidth={2.5} color="#1E293B" />}
+    </span>
+  );
+}
 
 const WorkProcess = () => {
   return (
@@ -14,15 +29,7 @@ const WorkProcess = () => {
             <div key={i} className={styles.step}>
               <div className={styles.stepHead}>{p.title}</div>
               <div className={styles.stepBody}>
-                <img
-                  src={p.icon}
-                  alt={p.title}
-                  className={styles.stepIcon}
-                  width="150"
-                  height="150"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <ProcessIcon iconKey={p.icon} index={i} title={p.title} />
               </div>
               <div className={styles.stepDesc}>{p.desc}</div>
             </div>

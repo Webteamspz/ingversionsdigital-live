@@ -133,22 +133,22 @@ export default {
       {
         title: "Project Discussion",
         desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
-        icon: "/assets/work-process/project-discussion.webp",
+        icon: "project-discussion",
       },
       {
         title: "Plan & Approach",
         desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-        icon: "/assets/work-process/plan.webp",
+        icon: "plan",
       },
       {
         title: "Development",
         desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-        icon: "/assets/work-process/dev.webp",
+        icon: "dev",
       },
       {
         title: "Launch",
         desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-        icon: "/assets/work-process/goal.webp",
+        icon: "goal",
       },
     ],
   },

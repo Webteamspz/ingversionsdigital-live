@@ -29,7 +29,7 @@
 .step {
   background: var(--palette-bg-800);
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,8 +40,8 @@
   flex-direction: column;
   max-width: calc(100% / 4 - 17px);
   width: 100%;
-  -webkit-box-shadow: 0 8px 20px rgba(0,0,0,.25);
-  box-shadow: 0 8px 20px rgba(0,0,0,.25)
+  -webkit-box-shadow: var(--shadow-pop-soft);
+  box-shadow: var(--shadow-pop-soft)
 }
 .stepHead {
   background: var(--palette-bg-800);
@@ -54,17 +54,18 @@
   text-transform: uppercase
 }
 .stepBody {
-  background: var(--palette-bg-700)
+  background: var(--palette-bg-700);
+  text-align: center
 }
-.stepIcon {
-  display: block;
-  max-width: 150px;
-  width: 100%;
+.iconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   margin: 28px auto;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -webkit-filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35))
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
 }
 .stepDesc {
   color: var(--palette-text-secondary);
@@ -95,7 +96,7 @@
   .step {
     max-width: 100%;
     width: 100%;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     overflow: hidden
   }
   .stepHead {
@@ -107,8 +108,7 @@
   .stepBody {
     background: var(--palette-bg-700)
   }
-  .stepIcon {
-    max-width: 150px;
+  .iconCircle {
     margin: 20px auto
   }
   .stepDesc {
