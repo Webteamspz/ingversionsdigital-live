@@ -82,6 +82,14 @@ body,
   .btn:hover, .card:hover, .btn-hero:hover, .c-btn:hover, .social-btn:hover {
     transform: none !important;
   }
+  .pricingPlanCard.popularCard:hover {
+    transform: scale(1.1) rotate(-1deg) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width:767.98px) {
+  .pricingPlanCard.popularCard:hover {
+    transform: scale(1.05) rotate(-1deg) !important;
+  }
 }
 * {
   -webkit-box-sizing: border-box;
