@@ -19,17 +19,27 @@ section#hero {
   isolation: isolate
 }
 .bannerBg:before {
-  position: absolute;
-  left: -41px;
-  top: -23px;
   content: '';
-  background-image: url('/assets/frame.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 1039px;
-  height: 735.05px;
-  z-index: -1
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--tertiary);
+  opacity: .35;
+  z-index: -1;
+  pointer-events: none;
+}
+.bannerBg:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: .5;
+  z-index: -1;
+  pointer-events: none;
 }
 .heroRow {
   display: flex;
@@ -63,7 +73,7 @@ section#hero {
   background: var(--palette-accent);
   width: 225.09px;
   height: 77px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   z-index: -1
 }
 .heroSubtitle {
@@ -87,7 +97,7 @@ section#hero {
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: #fff;
   text-decoration: none;
@@ -134,9 +144,9 @@ section#hero {
 .contactCard {
   flex: 0 0 530px;
   background: var(--palette-bg-800);
-  border-radius: 16px;
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
   padding: 32px 40px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+  box-shadow: var(--shadow-pop-soft)
 }
 .formCard {
   padding: 32px 40px
@@ -155,7 +165,7 @@ textarea.cInput {
   width: 100%;
   background: var(--palette-bg-700);
   border: 1px solid rgba(255,255,255,0);
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   color: var(--palette-text-muted);
   padding: 12px 14px;
   outline: 0
@@ -181,7 +191,7 @@ textarea.cInput {
   margin-top: 20px;
   padding: 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: #fff;
   font-weight: 700;
   cursor: pointer
@@ -247,12 +257,6 @@ textarea.cInput {
   .grid.two {
     grid-template-columns: 1fr 1fr
   }
-  .bannerBg:before {
-    top: inherit;
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%)
-  }
 }
 @media (max-width:767.98px) {
   .heroRow {
@@ -300,12 +304,5 @@ textarea.cInput {
   }
   .bannerBg {
     padding: 120px 0 40px
-  }
-  .bannerBg:before {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 750px;
-    height: 420px;
-    bottom: 39%
   }
 }
