@@ -667,7 +667,7 @@ export default {
       industry: "Household Supplies",
       title: "Match With Nature",
       type: "Websites",
-      image: "/assets/project/Fragrance.webp",
+      image: "/assets/project/fragrance.webp",
       link: "https://matchwithnature.com/",
     },
     {
@@ -675,7 +675,7 @@ export default {
       industry: "Wireless Communication",
       title: "Rapid Radios",
       type: "Websites",
-      image: "/assets/project/Rapidradios.webp",
+      image: "/assets/project/rapid-radios.webp",
       link: "https://rapidradios.com/",
     },
     {

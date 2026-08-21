@@ -55,6 +55,11 @@ const Services = () => {
             {data.services.list.map((s, i) => (
               <SwiperSlide key={i}>
                 <div className={`${styles.card} ${styles.service}`}>
+                  <span
+                    className={styles.cornerFold}
+                    style={{ background: SERVICE_COLORS[(i + 1) % 4] }}
+                    aria-hidden="true"
+                  />
                   <ServiceIcon iconKey={s.icon} index={i} title={s.title} />
                   <h4 className={styles.serviceTitle}>{s.title}</h4>
                   <p className={styles.serviceDesc}>{s.desc}</p>
@@ -66,6 +71,11 @@ const Services = () => {
           <div className={styles.services}>
             {data.services.list.map((s, i) => (
               <Reveal key={i} delay={i * 80} className={`${styles.card} ${styles.service}`}>
+                <span
+                  className={styles.cornerFold}
+                  style={{ background: SERVICE_COLORS[(i + 1) % 4] }}
+                  aria-hidden="true"
+                />
                 <ServiceIcon iconKey={s.icon} index={i} title={s.title} />
                 <h4 className={styles.serviceTitle}>{s.title}</h4>
                 <p className={styles.serviceDesc}>{s.desc}</p>

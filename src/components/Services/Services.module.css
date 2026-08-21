@@ -1,5 +1,8 @@
 .servicesSection {
-  padding: 50px 0 34px
+  padding: 50px 0 34px;
+  background-color: var(--palette-bg-950);
+  background-image: radial-gradient(circle, var(--palette-border-soft) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 .servicesSub {
   color: var(--palette-text-secondary);
@@ -21,16 +24,17 @@
   gap: 22px
 }
 .card.service {
+  position: relative;
   width: 100%;
   max-width: calc(100% / 3 - 15px);
-  min-height: 425px;
   background: var(--palette-bg-800);
-  border: 1px solid transparent;
+  border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   -webkit-box-shadow: var(--shadow-pop-soft);
   box-shadow: var(--shadow-pop-soft);
   padding: 28px 26px;
-  text-align: center;
+  text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,44 +42,57 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
-  transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
-  -o-transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
-  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
-  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease
+  -webkit-transition: transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s cubic-bezier(.34,1.56,.64,1)
+}
+.card.service:hover {
+  -webkit-transform: translateY(-10px) rotate(1deg);
+  transform: translateY(-10px) rotate(1deg);
+  -webkit-box-shadow: 8px 8px 0 0 var(--palette-accent);
+  box-shadow: 8px 8px 0 0 var(--palette-accent)
+}
+.cornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 var(--radius-lg) 0 16px;
+  z-index: 1
 }
 .iconCircle {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin: 26px auto 35px;
+  width: 56px;
+  height: 56px;
+  margin: 0 0 28px;
   border-radius: var(--radius-full);
-  border: var(--border-width) solid var(--palette-border);
 }
 .serviceTitle {
-  margin: 0 0 34px;
+  margin: 0 0 14px;
   color: var(--palette-text-primary);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 100%;
-  text-align: center
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
+  text-align: left
 }
 .serviceDesc {
   color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 315px;
+  text-align: left;
+  margin: 0;
   width: 100%
 }
 @media (max-width:1023.98px) {
@@ -101,13 +118,13 @@
   .card.service {
     width: 100%;
     max-width: 100%;
-    min-height: 360px;
     background: var(--palette-bg-800);
+    border: var(--border-width) solid var(--palette-border);
     border-radius: var(--radius-lg);
     -webkit-box-shadow: var(--shadow-pop-soft);
     box-shadow: var(--shadow-pop-soft);
-    text-align: center;
-    padding: 22px 16px;
+    text-align: left;
+    padding: 22px 20px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0
@@ -117,18 +134,20 @@
     font-size: 14px
   }
   .iconCircle {
-    margin: 16px auto 18px
+    width: 48px;
+    height: 48px;
+    margin: 0 0 18px
   }
   .serviceTitle {
-    font-weight: 600;
+    font-size: 20px;
     margin-bottom: 12px
   }
   .serviceDesc {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    max-width: 260px;
-    margin: 0 auto
+    max-width: 100%;
+    margin: 0
   }
   .servicesSwiper {
     padding-bottom: 56px;

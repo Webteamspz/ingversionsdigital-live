@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { pricingFaq } from "../../data/pricingdata";
-import "./PricingFaq.css";
+import "./PricingFAQ.css";
 
-const PricingFaq = () => {
+const PricingFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const itemRefs = useRef([]);
 
@@ -58,4 +58,4 @@ const PricingFaq = () => {
   );
 };
 
-export default PricingFaq;
+export default PricingFAQ;

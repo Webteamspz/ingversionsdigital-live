@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const SITE_URL = "https://ingversionsdigital.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/seo/og-image.jpg`;
 
-const Seo = ({ title, description, path = "", image = DEFAULT_OG_IMAGE }) => {
+const SEO = ({ title, description, path = "", image = DEFAULT_OG_IMAGE }) => {
   const url = `${SITE_URL}${path}`;
 
   return (
@@ -24,4 +24,4 @@ const Seo = ({ title, description, path = "", image = DEFAULT_OG_IMAGE }) => {
   );
 };
 
-export default Seo;
+export default SEO;

@@ -6,7 +6,7 @@ import styles from "./WorkProcess.module.css";
 const PROCESS_ICONS = { "project-discussion": MessageSquare, plan: ClipboardList, dev: Code2, goal: Target };
 const PROCESS_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
-function ProcessIcon({ iconKey, index, title }) {
+function ProcessIcon({ iconKey, index }) {
   const Icon = PROCESS_ICONS[iconKey];
   const background = PROCESS_COLORS[index % 4];
   return (
@@ -29,7 +29,7 @@ const WorkProcess = () => {
             <div key={i} className={styles.step}>
               <div className={styles.stepHead}>{p.title}</div>
               <div className={styles.stepBody}>
-                <ProcessIcon iconKey={p.icon} index={i} title={p.title} />
+                <ProcessIcon iconKey={p.icon} index={i} />
               </div>
               <div className={styles.stepDesc}>{p.desc}</div>
             </div>

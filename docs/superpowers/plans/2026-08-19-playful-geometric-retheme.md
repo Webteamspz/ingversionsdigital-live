@@ -115,7 +115,7 @@ Apply these deterministic remaps to every hardcoded value found via the task's g
 | `#ff6b6b`, `#ff4d4f` (form error/danger states) | leave unchanged — semantic error red, out of palette scope |
 | `#38bdf8` | `var(--palette-accent)` |
 | `#173b5e` | `var(--palette-accent-strong)` |
-| `#8592`-style values in `Projectsgrid.jsx` (these are truncated `rgba(...)`/hex in JS template strings, not CSS — read the actual line, they hold overlay alpha colors) | replace the color component with the new accent/text tokens, keep the same alpha; if inline in JS as a string, hardcode the resolved hex (JS can't read CSS vars) |
+| `#8592`-style values in `ProjectsGrid.jsx` (these are truncated `rgba(...)`/hex in JS template strings, not CSS — read the actual line, they hold overlay alpha colors) | replace the color component with the new accent/text tokens, keep the same alpha; if inline in JS as a string, hardcode the resolved hex (JS can't read CSS vars) |
 | `--react-international-phone-*` custom properties (Contact.module.css) | background vars → `var(--palette-bg-800)`; text-color var → `var(--palette-text-secondary)`; border-radius var → `var(--radius-sm)`; selector background/hover vars → `var(--palette-bg-700)` |
 | any `html[data-theme="day"]` or `html[data-theme="night"]` selector block | delete the block; if it held the only definition of a rule, fold its declarations into the base (unqualified) selector instead |
 | `font-family: Barlow, ...` on headings (`h1`-`h6`, `.section-title`, `.sectionTitle`, elements with `font-weight: 700/800` used as titles) | `"Outfit", system-ui, sans-serif` |
@@ -644,8 +644,8 @@ git commit -m "feat: swap work-process icons to lucide-react, retheme cards"
 
 **Files:**
 - Modify: `src/data/sitedata.js:160-195` (engagement icon entries)
-- Modify: `src/components/Engagementmodels/Engagement.jsx`
-- Modify: `src/components/Engagementmodels/Engagement.css`
+- Modify: `src/components/EngagementModels/EngagementModels.jsx`
+- Modify: `src/components/EngagementModels/Engagement.css`
 
 **Interfaces:**
 - Consumes: `.iconCircle` pattern, tokens from Task 1.
@@ -675,7 +675,7 @@ Expected: build succeeds.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add src/data/sitedata.js src/components/Engagementmodels/Engagement.jsx src/components/Engagementmodels/Engagement.css
+git add src/data/sitedata.js src/components/EngagementModels/EngagementModels.jsx src/components/EngagementModels/Engagement.css
 git commit -m "feat: swap engagement icons to lucide-react, retheme cards"
 ```
 
@@ -738,13 +738,13 @@ git commit -m "feat: retheme contact form and modal, swap info-card icons to luc
 ### Task 10: Pricing retheme + icon/badge swap
 
 **Files:**
-- Modify: `src/components/pricing/pricing.jsx`
-- Modify: `src/components/pricing/pricing.module.css`
+- Modify: `src/components/Pricing/Pricing.jsx`
+- Modify: `src/components/Pricing/Pricing.module.css`
 - Modify: `src/components/PricingComparison/PricingComparison.jsx`
 - Modify: `src/components/PricingComparison/PricingComparison.css`
 - Modify: `src/components/PricingHero/PricingHero.css`
 - Modify: `src/components/PricingPlans/PricingPlans.css`
-- Modify: `src/components/PricingFaq/PricingFaq.css`
+- Modify: `src/components/PricingFAQ/PricingFAQ.css`
 
 **Interfaces:**
 - Consumes: `.iconCircle` pattern, tokens from Task 1.
@@ -808,11 +808,11 @@ Add `transform: scale(1.1); z-index: 1;` to the featured plan's card rule (find 
 
 - [ ] **Step 6: Retheme remaining CSS in all 7 files**
 
-Apply the Global Substitution Rules table to every remaining hardcoded value in `pricing.module.css`, `PricingComparison.css`, `PricingHero.css`, `PricingPlans.css`, `PricingFaq.css`. Delete every `html[data-theme="day"]` block found in `PricingHero.css` and `PricingPlans.css` (fold their declarations into the base selector where they were the only definition, per the rules table).
+Apply the Global Substitution Rules table to every remaining hardcoded value in `Pricing.module.css`, `PricingComparison.css`, `PricingHero.css`, `PricingPlans.css`, `PricingFAQ.css`. Delete every `html[data-theme="day"]` block found in `PricingHero.css` and `PricingPlans.css` (fold their declarations into the base selector where they were the only definition, per the rules table).
 
 - [ ] **Step 7: Verify**
 
-Run: `grep -n "tickmark.svg\|cross.svg\|left.svg\|right.svg\|data-theme" src/components/pricing/pricing.jsx src/components/PricingComparison/PricingComparison.jsx src/components/PricingHero/PricingHero.css src/components/PricingPlans/PricingPlans.css`
+Run: `grep -n "tickmark.svg\|cross.svg\|left.svg\|right.svg\|data-theme" src/components/Pricing/Pricing.jsx src/components/PricingComparison/PricingComparison.jsx src/components/PricingHero/PricingHero.css src/components/PricingPlans/PricingPlans.css`
 Expected: no matches.
 
 Run: `npm run build`
@@ -821,7 +821,7 @@ Expected: build succeeds.
 - [ ] **Step 8: Commit**
 
 ```bash
-git add src/components/pricing src/components/PricingComparison src/components/PricingHero src/components/PricingPlans src/components/PricingFaq
+git add src/components/Pricing src/components/PricingComparison src/components/PricingHero src/components/PricingPlans src/components/PricingFAQ
 git commit -m "feat: retheme pricing pages, swap check/cross/nav icons to lucide-react, add popular-plan badge"
 ```
 
@@ -1006,31 +1006,31 @@ git commit -m "style: retheme team pages to Playful Geometric"
 
 **Files:**
 - Modify: `src/components/ProjectsHero/ProjectsHero.module.css`
-- Modify: `src/components/Projectsgrid/Projectsgrid.module.css`
-- Modify: `src/components/Projectsgrid/Projectsgrid.jsx`
-- Modify: `src/components/ProjectSlider/ProjectsSlider.module.css`
-- Modify: `src/components/Projectscta/Projectscta.module.css`
+- Modify: `src/components/ProjectsGrid/ProjectsGrid.module.css`
+- Modify: `src/components/ProjectsGrid/ProjectsGrid.jsx`
+- Modify: `src/components/ProjectsSlider/ProjectsSlider.module.css`
+- Modify: `src/components/ProjectsCTA/ProjectsCTA.module.css`
 
 **Interfaces:**
 - Consumes: tokens from Task 1, `.card` primitive from Task 2.
 
 Note: `src/components/ProjectsPage/ProjectsPage.module.css` was confirmed to contain zero hardcoded hex/shadow/radius values (grep-verified during planning) — skip it.
 
-- [ ] **Step 1: Retheme `Projectsgrid.module.css`**
+- [ ] **Step 1: Retheme `ProjectsGrid.module.css`**
 
 This file has the most hits (from the earlier audit: lines 56, 132, 143, 157, 165, 170, 178, 183, 192, 241, 251-252, 259, 268, 365, 370). Apply the Global Substitution Rules table to each — most are `#141414`/`#090909` (dark surfaces → `var(--palette-bg-700)`), `#fff` (→ `var(--palette-bg-800)` if background, unchanged if text-on-accent), and `#0a84ff` (→ `var(--palette-accent)`).
 
-- [ ] **Step 2: Retheme `Projectsgrid.jsx` inline color strings**
+- [ ] **Step 2: Retheme `ProjectsGrid.jsx` inline color strings**
 
 Read the four lines flagged in planning (67, 68, 152, 176 — inline JS strings holding rgba/hex overlay colors, not CSS custom properties since JS can't read `var()`). Replace the color component of each with the resolved hex for the token it represents (e.g. an old `rgba(10,132,255,X)` overlay becomes `rgba(139,92,246,X)` — same alpha, new accent RGB), keeping the alpha value unchanged.
 
 - [ ] **Step 3: Retheme remaining files**
 
-Apply the Global Substitution Rules table to `ProjectsHero.module.css:58,70`; `ProjectsSlider.module.css:33,35,84,87,124,134,169,179` (the `color: #fff`/`background: #fff` occurrences sit on accent-colored nav buttons/dots — per the rules table, leave `#fff` text-on-accent as-is, but `background: #fff` at line 134 is a card/panel surface → `var(--palette-bg-800)`); `Projectscta.module.css:42`.
+Apply the Global Substitution Rules table to `ProjectsHero.module.css:58,70`; `ProjectsSlider.module.css:33,35,84,87,124,134,169,179` (the `color: #fff`/`background: #fff` occurrences sit on accent-colored nav buttons/dots — per the rules table, leave `#fff` text-on-accent as-is, but `background: #fff` at line 134 is a card/panel surface → `var(--palette-bg-800)`); `ProjectsCTA.module.css:42`.
 
 - [ ] **Step 4: Verify**
 
-Run: `grep -rn "0a84ff\|#141414\|#090909" src/components/ProjectsHero src/components/Projectsgrid src/components/ProjectSlider src/components/Projectscta`
+Run: `grep -rn "0a84ff\|#141414\|#090909" src/components/ProjectsHero src/components/ProjectsGrid src/components/ProjectsSlider src/components/ProjectsCTA`
 Expected: no matches.
 
 Run: `npm run build`
@@ -1039,7 +1039,7 @@ Expected: build succeeds.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add src/components/ProjectsHero src/components/Projectsgrid src/components/ProjectSlider src/components/Projectscta
+git add src/components/ProjectsHero src/components/ProjectsGrid src/components/ProjectsSlider src/components/ProjectsCTA
 git commit -m "style: retheme projects pages to Playful Geometric"
 ```
 

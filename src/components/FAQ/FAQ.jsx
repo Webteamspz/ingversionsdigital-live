@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import data from "../../data/sitedata";
 import styles from "./FAQ.module.css";
 
@@ -23,10 +24,7 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
   }, [isOpen]);
 
   return (
-    <div
-      className={`${styles.accordionItem} ${isOpen ? styles.open : ""}`}
-      id="FAQ"
-    >
+    <div className={`${styles.accordionItem} ${isOpen ? styles.open : ""}`}>
       <button
         className={styles.accordionItemHeader}
         onClick={() => onToggle(index)}
@@ -35,7 +33,9 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
         id={`faq-button-${index}`}
       >
         <span>{q}</span>
-        <div className={styles.accordionItemIcon}></div>
+        <span className={styles.accordionItemIcon} aria-hidden="true">
+          {isOpen ? <Minus size={16} strokeWidth={3} /> : <Plus size={16} strokeWidth={3} />}
+        </span>
       </button>
       <div
         id={`faq-panel-${index}`}

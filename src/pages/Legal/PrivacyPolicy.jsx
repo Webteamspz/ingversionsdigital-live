@@ -1,5 +1,5 @@
-import Layout from "../../Layouts/Layouts";
-import Seo from "../../components/Seo/Seo";
+import Layout from "../../layouts/Layouts";
+import SEO from "../../components/SEO/SEO";
 import {
   IconShield,
   IconList,
@@ -12,7 +12,7 @@ import "./Legal.css";
 
 const PrivacyPolicy = () => (
   <>
-    <Seo
+    <SEO
       title="Privacy Policy | Ingversions Digital"
       description="How Ingversions Digital collects, uses, shares, and protects your information across ingversionsdigital.com."
       path="/privacy-policy"

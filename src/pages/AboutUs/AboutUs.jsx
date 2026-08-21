@@ -5,13 +5,13 @@ import AboutTrack from '../../components/AboutTrack/AboutTrack';
 import AboutValues from '../../components/AboutValues/AboutValues';
 import AboutCta from '../../components/AboutCta/AboutCta';
 import './AboutUs.css';
-import Layout from '../../Layouts/Layouts';
-import Seo from '../../components/Seo/Seo';
+import Layout from '../../layouts/Layouts';
+import SEO from '../../components/SEO/SEO';
 
 const AboutUs = () => {
   return (
     <>
-      <Seo
+      <SEO
         title="About Us | Ingversions Digital"
         description="Ingversions Digital is a Shopify CRO agency serving ecommerce brands worldwide, based in Surat, India."
         path="/about-us"

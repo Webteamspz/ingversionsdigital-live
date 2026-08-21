@@ -1,9 +1,9 @@
 import { Suspense, lazy, useState, useEffect } from "react";
 
-import Hero from "../../components/Hero/Hero";
-import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/preloader/preloader";
-import Seo from "../../components/Seo/Seo";
+import HeroV2 from "../../components/Hero/HeroV2";
+import Layout from "../../layouts/Layouts";
+import Preloader from "../../components/Preloader/Preloader";
+import SEO from "../../components/SEO/SEO";
 import "./Home.css";
 
 const TrackRecord = lazy(() => import("../../components/TrackRecord/TrackRecord"));
@@ -14,7 +14,7 @@ const Contact = lazy(() => import("../../components/Contact/Contact"));
 const BlogSlider = lazy(() => import("../../components/BlogSlider/BlogSlider"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
-const EngagementModels = lazy(() => import("../../components/Engagementmodels/Engagementmodels"));
+const EngagementModels = lazy(() => import("../../components/EngagementModels/EngagementModels"));
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);
@@ -46,7 +46,7 @@ const Home = () => {
 
   return (
     <>
-      <Seo
+      <SEO
         title="Ingversions Digital | Shopify, CRO and A/B Testing Agency"
         description="Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands."
         path="/"
@@ -61,7 +61,8 @@ const Home = () => {
       )}
 
       <Layout header={1} footer={1}>
-        <Hero />
+        {/* The original form-based Hero is retained in components/Hero/Hero.jsx. */}
+        <HeroV2 />
 
         <Suspense fallback={null}>
           <TrackRecord />

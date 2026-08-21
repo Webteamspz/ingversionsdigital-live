@@ -1,5 +1,5 @@
-import Layout from "../../Layouts/Layouts";
-import Seo from "../../components/Seo/Seo";
+import Layout from "../../layouts/Layouts";
+import SEO from "../../components/SEO/SEO";
 import {
   IconDocument,
   IconList,
@@ -13,7 +13,7 @@ import "./Legal.css";
 
 const TermsOfService = () => (
   <>
-    <Seo
+    <SEO
       title="Terms of Service | Ingversions Digital"
       description="Terms and conditions for using ingversionsdigital.com and engaging Ingversions Digital's CRO, Shopify, and web development services."
       path="/terms-of-service"

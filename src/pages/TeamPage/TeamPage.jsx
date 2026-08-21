@@ -2,15 +2,15 @@ import { Suspense, lazy } from "react";
 import styles from "./TeamPage.module.css";
 import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
 import TeamHero from "../../components/TeamHero/TeamHero";
-import Layout from "../../Layouts/Layouts";
-import Seo from "../../components/Seo/Seo";
+import Layout from "../../layouts/Layouts";
+import SEO from "../../components/SEO/SEO";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 
 const TeamPage = () => {
   return (
     <>
-      <Seo
+      <SEO
         title="Our Team | Ingversions Digital"
         description="Meet the team behind Ingversions Digital's Shopify CRO and conversion optimization work."
         path="/teampage"

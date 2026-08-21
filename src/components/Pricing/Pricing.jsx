@@ -5,7 +5,7 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import data from "../../data/sitedata";
-import styles from "./pricing.module.css";
+import styles from "./Pricing.module.css";
 
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
