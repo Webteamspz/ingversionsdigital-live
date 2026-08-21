@@ -2,23 +2,19 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: min(740px, 100vh);
+  min-height: min(740px,100vh);
   padding: 168px 0 0;
   background: var(--palette-bg-950);
-  color: #101a36;
+  color: var(--palette-text-primary)
 }
-
 .grid {
   position: absolute;
   z-index: -2;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(52, 69, 117, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 69, 117, 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
   background-size: 46px 46px;
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 68%, transparent 100%);
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
 }
-
 .content {
   display: flex;
   max-width: 950px;
@@ -27,76 +23,60 @@
   text-align: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
-
 .logoArea {
-  margin-top: 28px;
+  margin-top: 28px
 }
-
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin: 0 0 28px;
-  padding: 7px 13px;
-  border: 1px solid rgba(91, 82, 173, 0.22);
+  padding: 8px 18px;
+  margin: 0 0 45px;
+  border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.64);
-  color: #6558d9;
-  font-size: 11px;
+  background-color: var(--secondary);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--palette-bg-800);
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: uppercase
 }
-
-.eyebrow::before {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #34d399;
-  content: "";
-}
-
 .title {
   max-width: 900px;
   margin: 0;
-  color: #111a35;
-  font-family: "Outfit", "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(3.1rem, 6.4vw, 5.8rem);
-  font-weight: 850;
-  letter-spacing: -0.045em;
-  line-height: 1.12;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1
 }
-
 .title > span:first-child {
   display: block;
-  margin-bottom: 0.08em;
+  margin-bottom: .08em
 }
-
 .emphasis {
   display: inline-block;
-  color: #7857f6;
+  color: var(--palette-accent)
 }
-
 .subtitle {
   max-width: 620px;
   margin: 32px auto 0;
-  color: #58627d;
+  color: var(--palette-text-muted);
   font-size: clamp(1rem, 1.7vw, 1.22rem);
   font-weight: 500;
-  line-height: 1.62;
+  line-height: 1.62
 }
-
 .actions {
   display: flex;
   gap: 14px;
   margin-top: 40px;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
-
 .primaryAction,
 .secondaryAction {
   min-height: 48px;
@@ -106,141 +86,121 @@
   font-weight: 800;
   line-height: 48px;
   text-decoration: none;
-  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+  transition: transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease
 }
-
 .primaryAction {
   display: inline-flex;
   gap: 10px;
   align-items: center;
-  background: #7857f6;
+  background: var(--palette-accent);
   border: 2px solid var(--palette-text-primary);
   box-shadow: 4px 4px 0 var(--palette-text-primary);
-  color: #fff;
+  color: var(--palette-bg-800)
 }
-
 .primaryAction:hover {
-  background: #6540ef;
+  background: var(--palette-accent-strong);
   box-shadow: 6px 6px 0 var(--palette-text-primary);
-  transform: translate(-2px, -2px);
+  transform: translate(-2px,-2px)
 }
-
 .primaryAction:active {
   box-shadow: 2px 2px 0 var(--palette-text-primary);
-  transform: translate(2px, 2px);
+  transform: translate(2px,2px)
 }
-
 .secondaryAction {
   border: 2px solid var(--palette-text-primary);
-  background: rgba(255, 255, 255, 0.72);
-  color: #27314b;
+  background: rgba(255,255,255,.72);
+  color: var(--palette-text-primary)
 }
-
 .secondaryAction:hover {
-  background: var(--tertiary);
+  background: var(--tertiary)
 }
-
 .primaryAction:focus-visible,
 .secondaryAction:focus-visible {
-  outline: 3px solid #111a35;
-  outline-offset: 4px;
+  outline: 3px solid var(--palette-text-primary);
+  outline-offset: 4px
 }
-
 .proof {
   display: flex;
   gap: 14px;
   margin-top: 38px;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
-
 .avatars {
   display: flex;
-  padding-left: 8px;
+  padding-left: 8px
 }
-
 .avatars img {
   width: 42px;
   height: 42px;
   margin-left: -8px;
-  border: 2px solid var(--palette-bg-950);
+  border: 2px solid var(--palette-text-primary);
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: cover
 }
-
 .proof p {
   margin: 0;
-  color: #59627a;
+  color: var(--palette-text-muted);
   font-size: 14px;
   line-height: 1.45;
-  text-align: left;
+  text-align: left
 }
-
 .proof p strong {
-  color: #111a35;
+  color: var(--palette-text-primary)
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:1023.98px) {
+  .title {
+    font-size: 36px
+  }
+}
+@media (max-width:767.98px) {
   .hero {
     min-height: auto;
-    padding: 132px 0 72px;
+    padding: 132px 0 72px
   }
-
   .grid {
-    background-size: 30px 30px;
+    background-size: 30px 30px
   }
-
   .content {
-    min-height: 0;
+    min-height: 0
   }
-
   .eyebrow {
     margin-bottom: 18px;
-    font-size: 9px;
+    font-size: 11px;
+    padding: 6px 14px
   }
-
   .title {
-    font-size: clamp(2.8rem, 13.5vw, 4.2rem);
-    line-height: 1.1;
+    font-size: 30px
   }
-
   .subtitle {
     margin-top: 24px;
-    font-size: 1rem;
+    font-size: 1rem
   }
-
   .actions {
     width: 100%;
     margin-top: 32px;
-    flex-direction: column;
+    flex-direction: column
   }
-
   .primaryAction,
   .secondaryAction {
-    width: min(100%, 320px);
-    text-align: center;
+    width: min(100%,320px);
+    text-align: center
   }
-
   .primaryAction {
-    justify-content: center;
+    justify-content: center
   }
-
   .proof {
     max-width: 310px;
-    margin-top: 31px;
+    margin-top: 31px
   }
-
   .avatars img {
     width: 35px;
-    height: 35px;
+    height: 35px
   }
-
   .proof p {
-    font-size: 12px;
+    font-size: 12px
   }
-
   .logoArea {
-    margin-top: 20px;
+    margin-top: 20px
   }
-
 }

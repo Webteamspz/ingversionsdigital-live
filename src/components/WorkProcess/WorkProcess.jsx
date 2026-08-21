@@ -5,7 +5,7 @@ const WorkProcess = () => {
   return (
     <section className={styles.processSection} id="work-process">
       <div className="container">
-        <h3 className={`section-title ${styles.processTitle}`}>
+        <h3 className="section-title">
           {data.process.heading}
         </h3>
         <p className={styles.processSub}>{data.process.sub}</p>

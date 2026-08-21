@@ -19,7 +19,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
-  // Prevent background scrolling when the modal is open
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -27,7 +27,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup function in case the component unmounts while open
+    
     return () => {
       document.body.style.overflow = "unset";
     };

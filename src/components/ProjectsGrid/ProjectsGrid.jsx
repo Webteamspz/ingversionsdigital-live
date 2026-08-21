@@ -5,13 +5,13 @@ import styles from "./ProjectsGrid.module.css";
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
-// Sub-component for the interactive 2-image comparison slider
+
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
-  const [sliderPos, setSliderPos] = useState(50); // 0 = only before, 100 = only after
+  const [sliderPos, setSliderPos] = useState(50); 
 
   return (
     <div className={styles.sliderContainer}>
-      {/* Before Image (Dictates the actual size of the container) */}
+      
       <img
         src={beforeImg}
         alt={`Before - ${title}`}
@@ -20,7 +20,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         decoding="async"
       />
 
-      {/* After Image (Absolutely positioned perfectly over the Before image) */}
+      
       <div
         className={styles.clippedLayer}
         style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
@@ -33,7 +33,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         />
       </div>
 
-      {/* Labels fade in/out based on how much of that image is currently revealed */}
+      
       <span
         className={`${styles.sliderLabel} ${styles.labelBefore}`}
         style={{ opacity: (100 - sliderPos) / 100 }}
@@ -47,7 +47,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         After
       </span>
 
-      {/* Invisible range input overlaying the entire container to capture drags/touches */}
+      
       <input
         type="range"
         min="0"
@@ -58,7 +58,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         aria-label="Before and after comparison slider"
       />
 
-      {/* Custom visual dividing line and handle button */}
+      
       <div 
         className={styles.sliderHandleWrap} 
         style={{ left: `${sliderPos}%` }}
@@ -92,7 +92,7 @@ const ProjectsGrid = ({ projects }) => {
     setVisibleCount(isMobile ? INITIAL_MOBILE_COUNT : projects.length);
   }, [projects, isMobile]);
 
-  // Prevent background scrolling when the modal is open
+  
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
@@ -178,7 +178,7 @@ const ProjectsGrid = ({ projects }) => {
         </button>
       )}
 
-      {/* --- LIGHTBOX MODAL --- */}
+      
       {selectedProject && (
         <div
           className={styles.modalOverlay}

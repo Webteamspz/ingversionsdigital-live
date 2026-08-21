@@ -24,10 +24,9 @@ const HeroV2 = () => {
           <div className={styles.actions}>
             <a className={styles.primaryAction} href={cta.href}>
               {cta.label}
-              <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
             </a>
             <a className={styles.secondaryAction} href="/projects">
-              View projects
+              View Projects
             </a>
           </div>
 

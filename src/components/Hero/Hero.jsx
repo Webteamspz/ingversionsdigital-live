@@ -152,7 +152,7 @@ const Hero = () => {
   return (
     <section ref={sectionRef} className={styles.bannerBg} id="hero" aria-labelledby="hero-heading">
       <div className={`container ${styles.heroRow}`}>
-        {/* LEFT TEXT */}
+        
         <div className={styles.textHeroArea}>
           <h1 id="hero-heading" className={styles.heroTitle}>
             {h.heading} <span className={styles.heroTitlePill}>{h.pill}</span>
@@ -177,7 +177,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT VISUAL: CONTACT FORM */}
+        
         <div className={`${styles.contactCard} ${styles.formCard}`}>
           <h4 className={styles.contactPanelTitle}>{form.title}</h4>
           <form data-gtm-form="contact" onSubmit={handleSubmit} noValidate>

@@ -7,7 +7,7 @@ const StagingLogin = ({ children }) => {
   const [password, setPassword] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  // Component load hone par check karo ki kya user pehle se logged in hai
+  
   useEffect(() => {
     const savedUser = sessionStorage.getItem('staging_user');
     if (savedUser) {
@@ -15,12 +15,12 @@ const StagingLogin = ({ children }) => {
     }
   }, []);
 
-  // Agar production hai, toh seedha website dikhao
+  
   if (!isStaging) {
     return children;
   }
 
-  // Agar user logged in hai, toh website dikhao
+  
   if (loggedInUser) {
     return (
       <>
@@ -50,7 +50,7 @@ const StagingLogin = ({ children }) => {
     );
   }
 
-  // Login Handle karne ka function
+  
   const handleLogin = (e) => {
     e.preventDefault();
     
@@ -77,11 +77,11 @@ const StagingLogin = ({ children }) => {
       height: '100vh', 
       justifyContent: 'center', 
       alignItems: 'center', 
-      backgroundColor: '#e2e8f0', // Thoda darker gray background taaki card highlight ho
+      backgroundColor: '#e2e8f0', 
       fontFamily: 'system-ui, -apple-system, sans-serif'
     }}>
       
-      {/* YEH STYLE BLOCK ADD KIYA HAI AUTOFILL FIX KARNE KE LIYE */}
+      
       <style>
         {`
           input:-webkit-autofill,
@@ -89,7 +89,7 @@ const StagingLogin = ({ children }) => {
           input:-webkit-autofill:focus, 
           input:-webkit-autofill:active {
               -webkit-box-shadow: 0 0 0 30px #f8fafc inset !important;
-              -webkit-text-fill-color: #000 !important; /* Yahan #000 force kar diya hai */
+              -webkit-text-fill-color: #000 !important;
               transition: background-color 5000s ease-in-out 0s;
           }
         `}
@@ -99,13 +99,13 @@ const StagingLogin = ({ children }) => {
         padding: '40px', 
         background: '#ffffff', 
         borderRadius: '12px', 
-        boxShadow: '0 10px 25px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05)', // Premium shadow
+        boxShadow: '0 10px 25px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05)', 
         textAlign: 'center', 
         width: '100%',
         maxWidth: '360px',
         boxSizing: 'border-box'
       }}>
-        {/* Explicit Dark Colors diye hain taaki gayab na ho */}
+        
         <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', color: '#0f172a', fontWeight: '700' }}>
           Staging Access
         </h2>
@@ -129,7 +129,7 @@ const StagingLogin = ({ children }) => {
               borderRadius: '8px', 
               boxSizing: 'border-box',
               fontSize: '14px',
-              color: '#0f172a', // Input text color explicitly dark
+              color: '#0f172a', 
               backgroundColor: '#f8fafc',
               outline: 'none'
             }}
@@ -153,7 +153,7 @@ const StagingLogin = ({ children }) => {
               borderRadius: '8px', 
               boxSizing: 'border-box',
               fontSize: '14px',
-              color: '#0f172a', // Input text color explicitly dark
+              color: '#0f172a', 
               backgroundColor: '#f8fafc',
               outline: 'none'
             }}
@@ -166,7 +166,7 @@ const StagingLogin = ({ children }) => {
           style={{ 
             padding: '12px', 
             width: '100%', 
-            backgroundColor: '#2563eb', // Bright Blue
+            backgroundColor: '#2563eb', 
             color: '#ffffff', 
             border: 'none', 
             borderRadius: '8px', 

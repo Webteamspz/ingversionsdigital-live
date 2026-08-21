@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import StagingLogin from "../src/components/StagingLogin/StagingLogin.jsx";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
 
 const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
@@ -43,8 +44,8 @@ const ScrollManager = () => {
       return;
     }
 
-    // Element not mounted yet (likely a lazy-loaded section) —
-    // watch the DOM and scroll as soon as it appears.
+    
+    
     const observer = new MutationObserver(() => {
       const el =
         document.getElementById(targetId) || document.querySelector(hash);
@@ -59,8 +60,8 @@ const ScrollManager = () => {
       subtree: true,
     });
 
-    // Safety net: stop watching after 5s so we don't observe forever
-    // if the target never mounts (e.g. typo'd hash).
+    
+    
     const timeout = setTimeout(() => observer.disconnect(), 5000);
 
     return () => {
@@ -73,9 +74,9 @@ const ScrollManager = () => {
 };
 
 const App = () => (
-  // Poore app ko StagingLogin se wrap kar diya
   <StagingLogin>
     <ScrollManager />
+    <ScrollToTopButton />
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />

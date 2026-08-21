@@ -21,7 +21,7 @@
 .contact-modal {
   position: relative;
   background: var(--palette-bg-800);
-  border: 1px solid #8B5CF659;
+  border: 1px solid #8b5cf659;
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 480px;
@@ -74,7 +74,7 @@
   color: var(--palette-text-secondary)
 }
 .required-star {
-  color: #ff4d4f
+  color: var(--palette-error)
 }
 .contact-modal-form {
   display: flex;
@@ -140,8 +140,8 @@
   padding: 4px 0
 }
 .chip {
-  background: #8B5CF622;
-  border: 1px solid #8B5CF655;
+  background: #8b5cf622;
+  border: 1px solid #8b5cf655;
   color: var(--palette-accent);
   font-size: 12px;
   font-weight: 600;
@@ -198,14 +198,14 @@
   cursor: pointer
 }
 .multiselect-option:hover {
-  background: #8B5CF61A
+  background: #8b5cf61a
 }
 .multiselect-option input {
   accent-color: var(--palette-accent)
 }
 .contact-modal-submit {
   background-color: var(--palette-accent);
-  color: #fff;
+  color: var(--palette-bg-800);
   border: 1px solid var(--palette-accent);
   border-radius: var(--radius-full);
   padding: 14px 20px;
@@ -231,8 +231,8 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #8B5CF61A;
-  border: 1px solid #8B5CF655;
+  background: #8b5cf61a;
+  border: 1px solid #8b5cf655;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +253,7 @@
   width: 100%
 }
 .contact-modal-error {
-  color: #ff4d4f;
+  color: var(--palette-error);
   font-size: 13px;
   text-align: center;
   margin: 0

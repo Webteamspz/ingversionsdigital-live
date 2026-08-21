@@ -14,7 +14,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
   overflow: hidden;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
   position: relative;
   isolation: isolate
 }
@@ -89,7 +89,7 @@
 }
 .title {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 17px;
   font-weight: 700;
   margin: 0;
@@ -186,7 +186,7 @@
 }
 .modalCaption h4 {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   margin: 0;
   font-size: 18px
 }
@@ -249,7 +249,7 @@
 .sliderLine {
   width: 2px;
   height: 100%;
-  background: var(--palette-border);
+  background: var(--palette-border)
 }
 .sliderButton {
   position: absolute;
@@ -330,7 +330,7 @@
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-pop-soft);
     cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease
+    transition: transform .2s ease,box-shadow .2s ease
   }
   .viewMoreBtn:hover {
     transform: translateY(-2px);
@@ -383,7 +383,7 @@
     font-size: 16px
   }
   .imageWrap {
-    aspect-ratio: 6/4;
+    aspect-ratio: 6/4
   }
 }
 @media (max-width:499.98px) {

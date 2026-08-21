@@ -86,7 +86,7 @@
 }
 .planPrice {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 800;
   font-size: 20px;
   line-height: 22px;
@@ -134,9 +134,9 @@
 .mHead .badge,
 .planHead .badge {
   position: absolute;
-  left: 50% !important;
-  top: 0 !important;
-  bottom: auto !important;
+  left: 50%!important;
+  top: 0!important;
+  bottom: auto!important;
   transform: translateX(-50%) rotate(-3deg);
   z-index: 2
 }
@@ -160,14 +160,14 @@
   text-decoration: none;
   font-weight: 700;
   width: max-content;
-  top: -15px !important
+  top: -15px!important
 }
 .rowLine {
   border-bottom: 1px solid var(--palette-border-soft);
   height: 50px
 }
 .sectionBlock:last-child .rowLine {
-  border-bottom: none;
+  border-bottom: none
 }
 .valueIconCircle {
   display: inline-flex;
@@ -176,14 +176,8 @@
   width: 28px;
   height: 28px;
   border-radius: var(--radius-full);
-  border: var(--border-width) solid var(--palette-border)
-}
-.popularStar {
-  color: var(--tertiary);
-  font-size: 20px;
-  margin-left: 4px;
-  display: inline-block;
-  transform: rotate(15deg)
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 2px 2px 0 var(--palette-text-primary)
 }
 @media (max-width:1023.98px) {
   .sub {
@@ -308,7 +302,7 @@
   }
   .badge.cta,
   .planHead .cta {
-    top: 4px !important
+    top: 4px!important
   }
 }
 @media (max-width:767.98px) {

@@ -1,17 +1,6 @@
 section#hero {
   overflow: hidden
 }
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0
-}
 .bannerBg {
   padding: 161px 0 20px;
   position: relative;
@@ -19,27 +8,27 @@ section#hero {
   isolation: isolate
 }
 .bannerBg:before {
-  content: '';
+  content: "";
   position: absolute;
-  top: -80px;
-  left: -80px;
-  width: 320px;
-  height: 320px;
+  top: -70px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  background: var(--tertiary);
-  opacity: .35;
+  background: var(--quaternary);
+  opacity: .3;
   z-index: -1;
-  pointer-events: none;
+  pointer-events: none
 }
 .bannerBg:after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
   background-size: 22px 22px;
   opacity: .5;
   z-index: -1;
-  pointer-events: none;
+  pointer-events: none
 }
 .heroRow {
   display: flex;
@@ -62,12 +51,12 @@ section#hero {
 }
 .heroTitlePill {
   display: inline-block;
-  color: #fff;
+  color: var(--palette-bg-800);
   position: relative
 }
 .heroTitlePill:after {
   position: absolute;
-  content: '';
+  content: "";
   left: -8px;
   bottom: -1px;
   background: var(--palette-accent);
@@ -89,28 +78,6 @@ section#hero {
   gap: 30px;
   flex-direction: column;
   flex-wrap: wrap
-}
-.btnHero {
-  display: inline-flex;
-  width: 100%;
-  max-width: 165px;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 22px;
-  border-radius: var(--radius-full);
-  background: var(--palette-accent);
-  color: #fff;
-  text-decoration: none;
-  transition: .3s all ease-in-out;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 14px;
-  text-align: center;
-  border: 1px solid var(--palette-accent)
-}
-.btnHero:hover {
-  background: var(--palette-hover-ghost);
-  color: var(--palette-accent)
 }
 .heroSocialProof {
   display: inline-flex;
@@ -161,7 +128,7 @@ section#hero {
 }
 .cInput,
 textarea.cInput {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans",sans-serif;
   width: 100%;
   background: var(--palette-bg-700);
   border: 1px solid rgba(255,255,255,0);
@@ -192,17 +159,17 @@ textarea.cInput {
   padding: 14px;
   border: none;
   border-radius: var(--radius-sm);
-  color: #fff;
+  color: var(--palette-bg-800);
   font-weight: 700;
   cursor: pointer
 }
 .errorMessage {
   margin-top: 6px;
   font-size: 12px;
-  color: #ff6b6b
+  color: var(--palette-error)
 }
 .invalid {
-  border-color: #ff6b6b!important
+  border-color: var(--palette-error)!important
 }
 @media (max-width:1199.98px) {
   .heroTitle {
@@ -250,10 +217,6 @@ textarea.cInput {
   .heroCtaWrap {
     align-items: center
   }
-  .btnHero {
-    max-width: 220px;
-    font-size: 15px
-  }
   .grid.two {
     grid-template-columns: 1fr 1fr
   }
@@ -291,12 +254,6 @@ textarea.cInput {
   .heroSocialProof {
     justify-content: center;
     gap: 10px
-  }
-  .btnHero {
-    max-width: 318px;
-    width: 100%;
-    font-size: 14px;
-    padding: 12px 18px
   }
   .avatarStack img {
     width: 30px;

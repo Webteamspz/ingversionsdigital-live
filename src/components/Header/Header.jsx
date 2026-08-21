@@ -55,27 +55,27 @@ const Header = () => {
 
   const [open, setOpen] = useState(false);
 
-  // CTA hide/show behaviour
+  
   const [ctaScrollMode, setCtaScrollMode] = useState(false);
   const [hideHeaderCta, setHideHeaderCta] = useState(false);
-  // Default to hidden on the homepage so the CTA never flashes visible for
-  // a frame before the IntersectionObserver below confirms the Hero is in
-  // view (which is true almost every time the page first loads).
+  
+  
+  
   const [hideCtaOnHero, setHideCtaOnHero] = useState(
     () => location.pathname === "/"
   );
 
   const isBlogPage = location.pathname.startsWith("/blog");
   const ctaHref = isBlogPage ? cta.href : "/#hero";
-  const isHomePage = location.pathname === "/"; // Check if we are on Homepage
+  const isHomePage = location.pathname === "/"; 
 
-  // Whether the CTA should be visually hidden right now. We still always
-  // render the CTA element itself (see below) — only its visibility is
-  // toggled — so its box keeps reserving the exact same layout space and
-  // nothing else in the header ever has to shift or resize.
+  
+  
+  
+  
   const shouldHideCta = hideHeaderCta || hideCtaOnHero;
 
-  // Restore scroll mode from sessionStorage (for cross-page navigation)
+  
   useEffect(() => {
     const flag = sessionStorage.getItem("ctaScrollMode");
     if (flag === "1") {
@@ -83,7 +83,7 @@ const Header = () => {
     }
   }, []);
 
-  // Lock body scroll when mobile menu open
+  
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
@@ -97,7 +97,7 @@ const Header = () => {
     };
   }, [open]);
 
-  // Scroll-based hide/show for CTA when CTA has been clicked
+  
   useEffect(() => {
     if (!ctaScrollMode) {
       setHideHeaderCta(false);
@@ -114,24 +114,24 @@ const Header = () => {
       const rect = contactEl.getBoundingClientRect();
       const contactTopRelativeToViewport = rect.top - headerHeight;
 
-      // At or below contact => hide CTA and clear scroll mode flag
+      
       if (contactTopRelativeToViewport <= 0) {
         setHideHeaderCta(true);
         sessionStorage.removeItem("ctaScrollMode");
       } else {
-        // Above contact => show CTA again
+        
         setHideHeaderCta(false);
       }
     };
 
-    // Run once initially (in case scroll already happened)
+    
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ctaScrollMode]);
 
-  // Hide CTA when Hero section is visible (Only on Homepage)
+  
   useEffect(() => {
     if (!isHomePage) {
       setHideCtaOnHero(false);
@@ -160,11 +160,11 @@ const Header = () => {
     ctaClick({ label, location: loc, href });
   };
 
-  // Shared "Book a call" CTA click handler (desktop + mobile)
+  
   const handleBookCallClick = (loc) => {
     handleNavClick(cta.label, loc, ctaHref);
 
-    // Only trigger special scroll behaviour when CTA targets contact
+    
     if (ctaHref.includes("#contact")) {
       sessionStorage.setItem("ctaScrollMode", "1");
       setCtaScrollMode(true);
@@ -277,9 +277,9 @@ const Header = () => {
     </aside>
   );
 
-  // The CTA is always rendered — never conditionally removed from the DOM —
-  // so its box always reserves the exact same space in the flex row.
-  // We only toggle `styles.desktopCtaHidden` (visibility: hidden) to show/hide it.
+  
+  
+  
   const ctaClassName = `btn ${styles.desktopCta} ${
     shouldHideCta ? styles.desktopCtaHidden : ""
   }`;
@@ -297,7 +297,7 @@ const Header = () => {
     <>
       <header className={styles.siteHeader} id="header">
         <div className={`container ${styles.headerRow}`}>
-          {/* Brand logo -> SPA navigation */}
+          
           <Link
             to="/"
             className={styles.brand}
@@ -317,15 +317,14 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop nav */}
+          
           <nav className={styles.nav}>
             {links.map((linkItem, index) =>
               renderDesktopNavLink(linkItem, index)
             )}
           </nav>
 
-          {/* Desktop CTA — always rendered, visually hidden via CSS when
-              needed so its space is always reserved (see ctaClassName). */}
+          
           {isExternalHref(ctaHref) || ctaHref.startsWith("#") ? (
             <a href={ctaHref} {...ctaCommonProps}>
               {cta.label}
@@ -336,7 +335,7 @@ const Header = () => {
             </Link>
           )}
 
-          {/* Mobile hamburger */}
+          
           <button
             className={styles.hamburger}
             aria-label="Toggle menu"

@@ -1,6 +1,8 @@
 import styles from "./PricingPlans.module.css";
 import { pricingPlans } from "../../data/pricingdata";
 
+const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)"];
+
 const PricingPlans = () => {
   const standardPlans = pricingPlans.slice(0, 3);
   const elitePlan = pricingPlans[3];
@@ -25,6 +27,11 @@ const PricingPlans = () => {
               key={plan.name}
               className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
             >
+              <span
+                className={styles.cornerFold}
+                style={{ background: PLAN_COLORS[idx % PLAN_COLORS.length] }}
+                aria-hidden="true"
+              />
 
               <div className={styles.pricingPlanBadgeWrap}>
                 {plan.badge ? (
@@ -74,6 +81,11 @@ const PricingPlans = () => {
 
         {elitePlan && (
           <article className={`${styles.pricingPlanCard} ${styles.wideCard}`}>
+            <span
+              className={styles.cornerFold}
+              style={{ background: "var(--tertiary)" }}
+              aria-hidden="true"
+            />
 
             <div className={styles.wideCardLeft}>
 

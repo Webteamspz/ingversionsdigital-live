@@ -52,10 +52,12 @@ const AboutExpertise = () => {
           >
             {expertiseCards.map((card, index) => (
               <SwiperSlide key={index}>
-                <article
-                  className={`${styles.card} ${styles.aboutExpertiseCard}`}
-                  style={{ borderTopColor: EXPERTISE_COLORS[card.icon] }}
-                >
+                <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+                  <span
+                    className={styles.cornerFold}
+                    style={{ background: EXPERTISE_COLORS[card.icon] }}
+                    aria-hidden="true"
+                  />
                   <div className={styles.aboutIconWrap}>
                     <ExpertiseIcon iconKey={card.icon} title={card.title} />
                   </div>
@@ -68,11 +70,12 @@ const AboutExpertise = () => {
         ) : (
           <div className={styles.aboutExpertiseGrid}>
             {expertiseCards.map((card) => (
-              <article
-                key={card.title}
-                className={`${styles.card} ${styles.aboutExpertiseCard}`}
-                style={{ borderTopColor: EXPERTISE_COLORS[card.icon] }}
-              >
+              <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+                <span
+                  className={styles.cornerFold}
+                  style={{ background: EXPERTISE_COLORS[card.icon] }}
+                  aria-hidden="true"
+                />
                 <div className={styles.aboutIconWrap}>
                   <ExpertiseIcon iconKey={card.icon} title={card.title} />
                 </div>

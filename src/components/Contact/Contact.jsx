@@ -21,7 +21,6 @@ const Contact = () => {
               Start the conversation
               <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
             </a>
-            {email && <a className={styles.emailLink} href={`mailto:${email}`}>{email}</a>}
           </div>
         </div>
       </div>

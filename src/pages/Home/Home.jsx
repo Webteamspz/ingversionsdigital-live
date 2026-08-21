@@ -4,7 +4,6 @@ import HeroV2 from "../../components/Hero/HeroV2";
 import Layout from "../../layouts/Layouts";
 import Preloader from "../../components/Preloader/Preloader";
 import SEO from "../../components/SEO/SEO";
-import "./Home.css";
 
 const TrackRecord = lazy(() => import("../../components/TrackRecord/TrackRecord"));
 const Services = lazy(() => import("../../components/Services/Services"));
@@ -18,7 +17,6 @@ const EngagementModels = lazy(() => import("../../components/EngagementModels/En
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const hasSeenPreloader = localStorage.getItem("hasSeenPreloader");
@@ -30,18 +28,6 @@ const Home = () => {
   const handlePreloaderComplete = () => {
     setShowPreloader(false);
     localStorage.setItem("hasSeenPreloader", "true");
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -61,7 +47,7 @@ const Home = () => {
       )}
 
       <Layout header={1} footer={1}>
-        {/* The original form-based Hero is retained in components/Hero/Hero.jsx. */}
+        
         <HeroV2 />
 
         <Suspense fallback={null}>
@@ -76,28 +62,6 @@ const Home = () => {
           <FAQ />
         </Suspense>
       </Layout>
-
-      <button
-        onClick={scrollToTop}
-        className={`tsNav scrollTopBtn ${showScrollTop ? "scrollTopVisible" : "scrollTopHidden"}`}
-        aria-label="Scroll to top"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="17"
-          height="17"
-          viewBox="0 0 17 17"
-          fill="none"
-          className="scrollTopArrow"
-        >
-          <path
-            d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
     </>
   );
 };

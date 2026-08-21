@@ -5,7 +5,7 @@ import AboutTrack from '../../components/AboutTrack/AboutTrack';
 import AboutValues from '../../components/AboutValues/AboutValues';
 import AboutCta from '../../components/AboutCta/AboutCta';
 import styles from './AboutUs.module.css';
-import Layout from '../../Layouts/Layouts';
+import Layout from '../../layouts/Layouts';
 import SEO from '../../components/SEO/SEO';
 
 const AboutUs = () => {

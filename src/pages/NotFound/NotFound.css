@@ -10,10 +10,10 @@
   background: var(--palette-bg-950)
 }
 .nfWrapper:before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
   background-size: 22px 22px;
   opacity: .5;
   z-index: -1;
@@ -51,7 +51,8 @@
   animation-delay: 3s
 }
 @keyframes nfFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0)
   }
   50% {
@@ -67,7 +68,7 @@
   border: var(--border-width) solid var(--palette-border);
   color: var(--palette-text-primary);
   box-shadow: var(--shadow-pop);
-  animation: nfPop .5s cubic-bezier(.34,1.56,.64,1)
+  animation: nfPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)
 }
 @keyframes nfPop {
   0% {
@@ -83,7 +84,7 @@
   font-size: 80px;
   font-weight: 800;
   margin-bottom: 10px;
-  background-image: linear-gradient(90deg, var(--palette-accent), var(--secondary));
+  background-image: linear-gradient(90deg,var(--palette-accent),var(--secondary));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -105,20 +106,20 @@
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1), background-color .3s ease
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .3s ease
 }
 .nfBtn:hover {
   background: var(--palette-accent-strong);
-  transform: translate(-2px, -2px);
+  transform: translate(-2px,-2px);
   box-shadow: var(--shadow-pop-hover)
 }
 .nfBtn:active {
-  transform: translate(2px, 2px);
+  transform: translate(2px,2px);
   box-shadow: var(--shadow-pop-active)
 }
 @media (max-width:767.98px) {
   .nfWrapper {
-    padding: 40px 15px;
+    padding: 40px 15px
   }
   .nfCard {
     padding: 36px 24px

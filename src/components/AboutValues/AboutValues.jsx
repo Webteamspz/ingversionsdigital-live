@@ -26,6 +26,11 @@ const AboutValues = () => {
         <div className={styles.aboutValuesGrid}>
           {valueCards.map((card) => (
             <div key={card.title} className={`card ${styles.aboutValuePill}`}>
+              <span
+                className={styles.cornerFold}
+                style={{ background: VALUE_COLORS[card.icon] }}
+                aria-hidden="true"
+              />
               <ValueIcon iconKey={card.icon} title={card.title} />
               <h3>{card.title}</h3>
               <p>{card.text}</p>

@@ -3,7 +3,7 @@
   padding: 50px 0
 }
 .sectionTitle {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: var(--palette-text-primary);
@@ -14,25 +14,26 @@
 }
 .sectionSubtitle {
   color: var(--palette-text-secondary);
-  margin: 0 auto 45px;
+  margin: 0 auto 44px;
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   max-width: 650px
 }
 .aboutExpertiseGrid {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
   gap: 22px;
-  padding: 10px 0px;
+  padding: 10px 0
 }
 .card.aboutExpertiseCard {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   min-height: 300px;
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
-  border-top-width: 6px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
   padding: 24px 26px 28px;
@@ -41,14 +42,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: border-color .2s ease,transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
   box-sizing: border-box;
-  animation: expertisePop .5s cubic-bezier(.34,1.56,.64,1) backwards
+  animation: expertisePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards
 }
-.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(1) { animation-delay: 0s }
-.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(2) { animation-delay: .08s }
-.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(3) { animation-delay: .16s }
-.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(4) { animation-delay: .24s }
+.cornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-bottom: var(--border-width) solid var(--palette-border);
+  border-left: var(--border-width) solid var(--palette-border);
+  border-radius: 0 0 0 32px
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(1) {
+  animation-delay: 0s
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(2) {
+  animation-delay: 80ms
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(3) {
+  animation-delay: 0.16s
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(4) {
+  animation-delay: 0.24s
+}
 @keyframes expertisePop {
   0% {
     opacity: 0;
@@ -60,8 +80,8 @@
   }
 }
 .card.aboutExpertiseCard:hover {
-  transform: translate(-3px,-3px) rotate(-1deg);
-  box-shadow: var(--shadow-pop-hover)
+  transform: translateY(-8px) rotate(-.7deg);
+  box-shadow: 8px 8px 0 var(--palette-accent)
 }
 .aboutIconWrap {
   width: 100%;
@@ -75,14 +95,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-full);
   border: var(--border-width) solid var(--palette-border);
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1)
+  box-shadow: 4px 4px 0 var(--palette-text-primary)
 }
-.card.aboutExpertiseCard:hover .iconCircle {
-  transform: scale(1.12) rotate(-8deg)
+.iconCircle svg {
+  width: 30px;
+  height: 30px
 }
 .aboutExpertiseCard h3 {
   margin: 0 0 12px;
@@ -113,8 +134,8 @@
 }
 @media (max-width:767.98px) {
   .aboutExpertise {
-  padding: 40px 0;
-}
+    padding: 40px 0
+  }
   .sectionSubtitle {
     font-weight: 400;
     font-size: 14px
@@ -132,6 +153,15 @@
     text-align: center;
     padding: 20px 16px 24px;
     margin: 0
+  }
+  .iconCircle {
+    width: 56px;
+    height: 56px;
+    box-shadow: 3px 3px 0 var(--palette-text-primary)
+  }
+  .iconCircle svg {
+    width: 27px;
+    height: 27px
   }
   .aboutExpertiseCard h3 {
     font-weight: 700;

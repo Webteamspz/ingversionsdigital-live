@@ -4,7 +4,7 @@
 }
 .heroTop {
   text-align: center;
-  padding: 20px 0 0;
+  padding: 160px 0 60px;
   margin: 0 auto
 }
 .heroDecor {
@@ -15,7 +15,7 @@
   pointer-events: none
 }
 .heroDecor:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -70px;
   right: -70px;
@@ -26,10 +26,10 @@
   opacity: .3
 }
 .heroDecor:after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
   background-size: 22px 22px;
   opacity: .5
 }
@@ -52,31 +52,15 @@
 }
 .heading {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1.2;
   margin: 0 0 16px
 }
 .highlight {
   display: inline-block;
-  color: var(--palette-bg-800);
-  position: relative;
-  isolation: isolate
-}
-.highlight:after {
-  position: absolute;
-  content: "";
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  top: -2px;
-  background: var(--palette-accent);
-  border: var(--border-width) solid var(--palette-border);
-  box-shadow: var(--shadow-pop);
-  border-radius: var(--radius-md);
-  transform: rotate(-2deg);
-  z-index: -1
+  color: var(--palette-accent)
 }
 .description {
   color: var(--palette-text-secondary);
@@ -105,7 +89,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 150%;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1), background-color .2s ease;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease;
   white-space: nowrap
 }
 .filterBtn:hover {
@@ -128,9 +112,8 @@
   position: relative;
   max-width: 320px;
   margin: 0 auto 56px;
-  text-align: left;
+  text-align: left
 }
-
 .dropdownTrigger {
   width: 100%;
   display: flex;
@@ -147,25 +130,21 @@
   font-weight: 700;
   line-height: 150%;
   box-shadow: var(--shadow-pop-soft);
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow .2s ease
 }
-
 .dropdownTrigger:hover {
-  box-shadow: var(--shadow-pop-hover);
+  box-shadow: var(--shadow-pop-hover)
 }
-
 .dropdownArrow {
   flex-shrink: 0;
   color: var(--palette-accent);
   font-size: 11px;
-  transition: transform 0.2s ease;
-  transform: rotate(180deg);
+  transition: transform .2s ease;
+  transform: rotate(180deg)
 }
-
 .dropdownArrow.arrowOpen {
-  transform: rotate(0deg);
+  transform: rotate(0)
 }
-
 .dropdownList {
   position: absolute;
   top: calc(100% + 10px);
@@ -179,14 +158,13 @@
   margin: 0;
   padding: 6px;
   z-index: 30;
-  box-shadow: var(--shadow-pop-soft);
+  box-shadow: var(--shadow-pop-soft)
 }
-
 .dropdownItem {
   width: 100%;
   text-align: left;
   cursor: pointer;
-  background: transparent;
+  background: 0 0;
   border: none;
   color: var(--palette-text-subtle);
   border-radius: var(--radius-sm);
@@ -194,44 +172,41 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 150%;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color .15s ease,color .15s ease
 }
-
 .dropdownItem:hover {
   background-color: var(--palette-hover-ghost);
-  color: var(--palette-text-primary);
+  color: var(--palette-text-primary)
 }
-
 .dropdownItemActive {
   background-color: var(--palette-accent);
-  color: var(--palette-bg-800);
+  color: var(--palette-bg-800)
 }
-
 .dropdownItemActive:hover {
-  background-color: var(--palette-accent);
-}
-
-@media (max-width:1199.98px) {
-  .heading {
-    font-size: 44px
-  }
+  background-color: var(--palette-accent)
 }
 @media (max-width:1023.98px) {
+  .heroTop {
+    padding: 130px 0 50px
+  }
   .heading {
-    font-size: 38px
+    font-size: 32px
   }
 }
 @media (max-width:767.98px) {
+  .heroTop {
+    padding: 120px 0 40px
+  }
   .heading {
-    font-size: 30px
+    font-size: 26px
   }
   .description {
     font-size: 14px
   }
   .filters {
-    display: none;
+    display: none
   }
   .mobileFilterWrap {
-    display: block;
+    display: block
   }
 }

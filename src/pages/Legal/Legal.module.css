@@ -15,7 +15,7 @@
   pointer-events: none
 }
 .legalHeroDecor:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -70px;
   right: -70px;
@@ -26,10 +26,10 @@
   opacity: .3
 }
 .legalHeroDecor:after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
   background-size: 22px 22px;
   opacity: .5
 }
@@ -42,7 +42,7 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background-color: var(--palette-accent);
+  background-color: var(--secondary);
   border: var(--border-width) solid var(--palette-border);
   box-shadow: 4px 4px 0 0 var(--palette-border);
   color: var(--palette-bg-800);
@@ -55,7 +55,7 @@
 }
 .legalPage h1 {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 800;
   font-size: 40px;
   line-height: 1.2;
@@ -91,23 +91,53 @@
   margin: 0
 }
 .legalSections .legalSection {
+  position: relative;
+  overflow: hidden;
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
   box-shadow: 8px 8px 0 0 var(--palette-accent);
   padding: 26px
 }
+.legalCornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-bottom: var(--border-width) solid var(--palette-border);
+  border-left: var(--border-width) solid var(--palette-border);
+  border-radius: 0 0 0 32px
+}
+.legalSections .legalSection:nth-child(4n+1) .legalCornerFold {
+  background: var(--palette-accent)
+}
+.legalSections .legalSection:nth-child(4n+2) .legalCornerFold {
+  background: var(--secondary)
+}
+.legalSections .legalSection:nth-child(4n+3) .legalCornerFold {
+  background: var(--tertiary)
+}
+.legalSections .legalSection:nth-child(4n) .legalCornerFold {
+  background: var(--quaternary)
+}
 .legalIconWrap {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-full);
   border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 var(--palette-text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--palette-bg-800);
   color: var(--palette-border)
+}
+.legalIconWrap svg {
+  width: 30px;
+  height: 30px
 }
 .legalSections .legalSection:nth-child(4n+1) .legalIconWrap {
   background: var(--palette-accent)
@@ -127,7 +157,7 @@
 }
 .legalPage h2 {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 20px;
   font-weight: 700;
   margin: 0
@@ -151,13 +181,7 @@
   max-width: 100%
 }
 .legalPage a {
-  color: var(--palette-accent);
-  text-decoration: underline;
-  text-underline-offset: 2px
-}
-.legalPage a:hover,
-.legalPage a:focus-visible {
-  color: var(--palette-accent-strong)
+  color: var(--palette-border)
 }
 .legalPage a:focus-visible {
   outline: 2px solid var(--palette-accent);
@@ -170,46 +194,60 @@
   margin: 4px 0
 }
 .legalContactCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--palette-accent);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
   border-bottom-right-radius: 0;
   box-shadow: 10px 10px 0 0 var(--palette-border);
-  padding: 44px 28px;
+  padding: 48px 32px;
   margin-top: 78px;
-  text-align: center
-}
-.legalContactCard .legalSection {
-  align-items: center
-}
-.legalContactCard .legalSectionHead {
-  flex-direction: column;
-  gap: 12px
-}
-.legalContactCard .legalSectionBody {
   text-align: center
 }
 .legalContactCard h2 {
   color: var(--palette-bg-800);
-  font-size: 50px;
-  font-weight: 900
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 8px
 }
 .legalContactCard p {
   color: var(--palette-bg-800);
-  font-size: 20px
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 24px
 }
-.legalContactCard a {
+.legalContactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  min-height: 54px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-800);
+  box-shadow: 4px 4px 0 var(--palette-border);
+  color: var(--palette-border);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--palette-bg-800);
-  text-decoration-color: var(--palette-bg-800)
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
 }
-.legalContactCard a:hover,
-.legalContactCard a:focus-visible {
-  color: var(--palette-bg-800);
-  text-decoration-color: var(--palette-bg-800)
+.legalContactBtn:hover {
+  background: var(--tertiary);
+  box-shadow: 6px 6px 0 var(--palette-border);
+  transform: translate(-2px,-2px)
 }
-.legalContactCard a:focus-visible {
-  outline-color: var(--palette-bg-800)
+.legalContactBtn:active {
+  box-shadow: 2px 2px 0 var(--palette-border);
+  transform: translate(2px,2px)
+}
+.legalContactBtn:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px
 }
 @media (max-width:1023.98px) {
   .legalPage {
@@ -223,13 +261,10 @@
   }
   .legalContactCard {
     margin-top: 56px;
-    padding: 36px 24px
+    padding: 40px 28px
   }
   .legalContactCard h2 {
-    font-size: 38px
-  }
-  .legalContactCard p {
-    font-size: 18px
+    font-size: 28px
   }
 }
 @media (max-width:767.98px) {
@@ -254,21 +289,26 @@
     box-shadow: 6px 6px 0 0 var(--palette-accent)
   }
   .legalIconWrap {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full)
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    box-shadow: 3px 3px 0 var(--palette-text-primary)
+  }
+  .legalIconWrap svg {
+    width: 27px;
+    height: 27px
   }
   .legalSections {
     gap: 20px
   }
   .legalContactCard {
     margin-top: 32px;
-    padding: 28px 20px
+    padding: 32px 24px
   }
   .legalContactCard h2 {
-    font-size: 26px
+    font-size: 24px
   }
   .legalContactCard p {
-    font-size: 15px
+    font-size: 14px
   }
 }

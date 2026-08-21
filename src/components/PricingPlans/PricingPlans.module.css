@@ -10,20 +10,28 @@
   margin: 0 auto 40px auto
 }
 .pricingPlanCard {
+  position: relative;
+  overflow: hidden;
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
-  border-top-width: 6px;
-  border-top-color: var(--palette-accent);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
   will-change: transform
 }
-.pricingPlansGrid .pricingPlanCard:nth-child(2) {
-  border-top-color: var(--quaternary)
+.cornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-bottom: var(--border-width) solid var(--palette-border);
+  border-left: var(--border-width) solid var(--palette-border);
+  border-radius: 0 0 0 32px
 }
 .pricingPlansGrid .pricingPlanCard {
   flex: 0 0 calc(33.333% - 16px);
@@ -31,17 +39,15 @@
   width: 100%
 }
 .pricingPlanCard:hover {
-  transform: translate(-3px, -3px) rotate(-1deg);
+  transform: translate(-3px,-3px) rotate(-1deg);
   box-shadow: var(--shadow-pop-hover)
 }
 .popularCard {
-  position: relative;
   z-index: 1;
-  border-top-color: var(--secondary);
   box-shadow: var(--shadow-pop-featured)
 }
 .pricingPlanCard.popularCard:hover {
-  transform: translate(-3px, -3px) rotate(-1deg);
+  transform: translate(-3px,-3px) rotate(-1deg);
   box-shadow: var(--shadow-pop-featured)
 }
 .pricingPlanBadgeWrap {
@@ -69,7 +75,7 @@
 .pricingPlanName {
   margin: 0 0 8px;
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 24px;
   font-weight: 700
 }
@@ -81,7 +87,7 @@
 }
 .pricingPlanPrice {
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 1
@@ -129,11 +135,11 @@
   width: 100%;
   margin-top: auto
 }
-.pricingPlanBtn,
-.compareBtn {
+.compareBtn,
+.pricingPlanBtn {
   flex: 1;
   width: 100%;
-  max-width: 100% !important;
+  max-width: 100%!important;
   padding: 14px 10px;
   font-size: 14px;
   white-space: nowrap
@@ -142,7 +148,6 @@
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  border-top-color: var(--tertiary);
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -186,7 +191,7 @@
   text-transform: uppercase
 }
 .wideTitle {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 32px;
   font-weight: 800;
   color: var(--palette-text-primary);

@@ -2,34 +2,23 @@
   position: relative;
   overflow: hidden;
   padding: 76px 0 72px;
-  background-color: var(--palette-bg-950);
+  background: var(--palette-tint-blue)
 }
-
-.processTitle {
-  margin-bottom: 10px;
-  font-size: clamp(36px, 3.4vw, 52px);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  text-align: center;
-}
-
 .processSub {
   max-width: 720px;
-  margin: 0 auto 52px;
-  color: var(--palette-text-muted);
-  font-size: 17px;
-  font-weight: 500;
+  margin: 0 auto 44px;
+  color: var(--palette-text-secondary);
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
-  text-align: center;
+  text-align: center
 }
-
 .processGrid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 28px
 }
-
 .processGrid::before {
   position: absolute;
   z-index: 0;
@@ -38,14 +27,9 @@
   left: 12.5%;
   height: 4px;
   content: "";
-  background: repeating-linear-gradient(
-    to right,
-    var(--palette-border) 0 18px,
-    transparent 18px 30px
-  );
-  opacity: .35;
+  background: repeating-linear-gradient(to right,var(--palette-border) 0 18px,transparent 18px 30px);
+  opacity: .35
 }
-
 .step {
   position: relative;
   z-index: 1;
@@ -53,9 +37,8 @@
   min-width: 0;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+  text-align: center
 }
-
 .stepNumber {
   display: inline-flex;
   width: 92px;
@@ -67,76 +50,62 @@
   border-radius: 50%;
   background: var(--palette-bg-800);
   color: var(--palette-accent);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   box-shadow: 7px 7px 0 var(--palette-text-primary);
   font-size: 38px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1
 }
-
 .stepHead {
   margin: 0 0 10px;
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 22px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.2
 }
-
 .stepDesc {
   max-width: 270px;
   margin: 0;
   color: var(--palette-text-muted);
   font-size: 15px;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.65
 }
-
-@media (max-width: 1023.98px) {
+@media (max-width:1023.98px) {
   .processGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 46px;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    row-gap: 46px
   }
-
   .processGrid::before {
-    display: none;
+    display: none
   }
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
   .processSection {
-    padding: 62px 0 58px;
+    padding: 62px 0 58px
   }
-
-  .processTitle {
-    font-size: 34px;
-  }
-
   .processSub {
-    margin-bottom: 38px;
-    font-size: 16px;
+    margin-bottom: 44px;
+    font-size: 14px
   }
-
   .processGrid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 40px
   }
-
   .stepNumber {
     width: 80px;
     height: 80px;
     margin-bottom: 17px;
     border-width: 4px;
     box-shadow: 5px 5px 0 var(--palette-text-primary);
-    font-size: 32px;
+    font-size: 32px
   }
-
   .stepHead {
-    font-size: 22px;
+    font-size: 22px
   }
-
   .stepDesc {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.6
   }
 }

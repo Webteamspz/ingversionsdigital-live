@@ -29,7 +29,7 @@ const PricingFAQ = () => {
   return (
     <section className={styles.faqWrapper} id="pricingFaq">
       <div className="container">
-        <h3>{pricingFaq.title}</h3>
+        <h3 className="section-title">{pricingFaq.title}</h3>
 
         <div className={styles.accordion}>
           {pricingFaq.items.map((item, idx) => (

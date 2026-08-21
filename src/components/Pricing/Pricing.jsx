@@ -18,7 +18,7 @@ const PricingCompare = () => {
   const plansColRef = useRef(null);
   const swiperRef = useRef(null);
 
-  // Listens for a plan-select event from PricingPlans and slides to that plan
+  
   useEffect(() => {
     const handler = (e) => {
       const index = e.detail?.index ?? 0;
@@ -35,14 +35,14 @@ const PricingCompare = () => {
     if (t === "check") {
       return (
         <span className={styles.valueIconCircle} style={{ background: "var(--quaternary)" }} role="img" aria-label="Included">
-          <Check size={16} strokeWidth={3} color="#1E293B" />
+          <Check size={16} strokeWidth={3} color="var(--palette-border)" />
         </span>
       );
     }
     if (t === "cross") {
       return (
         <span className={styles.valueIconCircle} style={{ background: "#FCA5A5" }} role="img" aria-label="Not included">
-          <X size={16} strokeWidth={3} color="#1E293B" />
+          <X size={16} strokeWidth={3} color="var(--palette-border)" />
         </span>
       );
     }
@@ -62,7 +62,7 @@ const PricingCompare = () => {
         </h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
 
-        {/* ======= DESKTOP/TABLE ======= */}
+        
         <div className={styles.tableWrap}>
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
@@ -140,7 +140,7 @@ const PricingCompare = () => {
           ))}
         </div>
 
-        {/* ======= MOBILE / SWIPER ======= */}
+        
         <div className={styles.mobileCompare}>
           <div className={styles.labelsCol} ref={labelsColRef}>
             <div className={styles.labelsHeadSpacer} />

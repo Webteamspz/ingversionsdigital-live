@@ -10,7 +10,7 @@
   pointer-events: none
 }
 .heroDecor:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -70px;
   right: -70px;
@@ -21,10 +21,10 @@
   opacity: .3
 }
 .heroDecor:after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
   background-size: 22px 22px;
   opacity: .5
 }
@@ -50,32 +50,16 @@
   margin-bottom: 24px
 }
 .heroTitle {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1.2;
   color: var(--palette-text-primary);
   margin: 0 0 16px
 }
 .pill {
   display: inline-block;
-  color: var(--palette-bg-800);
-  position: relative;
-  isolation: isolate
-}
-.pill:after {
-  content: '';
-  position: absolute;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  top: -2px;
-  background: var(--palette-accent);
-  border: var(--border-width) solid var(--palette-border);
-  box-shadow: var(--shadow-pop);
-  border-radius: var(--radius-md);
-  transform: rotate(-2deg);
-  z-index: -1
+  color: var(--palette-accent)
 }
 .subtext {
   margin: 0 auto;
@@ -85,17 +69,12 @@
   font-size: 16px;
   line-height: 150%
 }
-@media (max-width:1199.98px) {
-  .heroTitle {
-    font-size: 44px
-  }
-}
 @media (max-width:1023.98px) {
   .heroInner {
     padding: 130px 0 50px
   }
   .heroTitle {
-    font-size: 38px
+    font-size: 32px
   }
 }
 @media (max-width:767.98px) {
@@ -107,7 +86,7 @@
     padding: 6px 14px
   }
   .heroTitle {
-    font-size: 30px
+    font-size: 26px
   }
   .subtext {
     font-size: 14px

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Repeat, Clock, Briefcase } from "lucide-react";
-import "./Engagement.css";
+import styles from "./EngagementModels.module.css";
 import siteData from "../../data/sitedata";
 import ContactModal from "../ContactModal/ContactModal";
 
@@ -9,47 +9,46 @@ const ENGAGEMENT_COLORS = { retainer: "var(--palette-accent)", hoursblock: "var(
 
 const EngagementModels = () => {
   const { heading, sub, list } = siteData.engagement;
-  
-  // State to handle modal visibility and track which card was clicked
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalSource, setModalSource] = useState(""); 
+  const [modalSource, setModalSource] = useState("");
 
   const handleCtaClick = (e, cta, title) => {
     if (cta.href === "#contact") {
       e.preventDefault();
-      setModalSource(title); // Save the specific card title (e.g., "Block of Hours")
+      setModalSource(title);
       setIsModalOpen(true);
     }
   };
 
   return (
-    <section className="engagement-section" id="engagement">
-      <div className="engagement-container">
-        <h2 className="engagement-heading">{heading}</h2>
-        <p className="engagement-subheading">{sub}</p>
+    <section className={styles.engagementSection} id="engagement">
+      <div className="container">
+        <h2 className="section-title">{heading}</h2>
+        <p className={styles.engagementSub}>{sub}</p>
 
-        <div className="engagement-cards-grid">
+        <div className={styles.engagementGrid}>
           {list.map((model, index) => (
-            <div className="engagement-card" key={index}>
+            <div className={`${styles.card} ${styles.engagementCard}`} key={index}>
               <span
-                className="engagement-corner-fold"
+                className={styles.cornerFold}
                 style={{ background: ENGAGEMENT_COLORS[model.icon] }}
                 aria-hidden="true"
               />
-              <div className="engagement-icon-wrapper" style={{ background: ENGAGEMENT_COLORS[model.icon] }}>
+              <div className={styles.iconCircle} style={{ background: ENGAGEMENT_COLORS[model.icon] }}>
                 {(() => {
                   const Icon = ENGAGEMENT_ICONS[model.icon];
                   return Icon ? <Icon size={26} strokeWidth={2.5} color="#1E293B" aria-hidden="true" /> : null;
                 })()}
               </div>
 
-              <h3 className="engagement-card-title">{model.title}</h3>
-              <p className="engagement-card-description">{model.desc}</p>
+              <h3 className={styles.cardTitle}>{model.title}</h3>
+              <p className={styles.cardDesc}>{model.desc}</p>
 
-              <ul className="engagement-feature-list">
+              <ul className={styles.featureList}>
                 {model.features.map((feature, i) => (
-                  <li className="engagement-feature-item" key={i}>
-                    <span className="engagement-check-icon">
+                  <li className={styles.featureItem} key={i}>
+                    <span className={styles.checkIcon}>
                       <svg
                         width="16"
                         height="16"
@@ -73,7 +72,7 @@ const EngagementModels = () => {
 
               <a
                 href={model.cta.href}
-                className="engagement-learn-more-btn"
+                className={styles.learnMoreBtn}
                 onClick={(e) => handleCtaClick(e, model.cta, model.title)}
               >
                 {model.cta.label}
@@ -83,11 +82,10 @@ const EngagementModels = () => {
         </div>
       </div>
 
-      {/* Pass the captured title to the ContactModal via the source prop */}
-      <ContactModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        source={modalSource} 
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        source={modalSource}
       />
     </section>
   );

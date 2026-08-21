@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Layout from "../../layouts/Layouts";
 import SEO from "../../components/SEO/SEO";
 import {
@@ -38,6 +39,7 @@ const TermsOfService = () => (
         <div className="container">
         <div className={styles.legalSections}>
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconDocument />
@@ -57,6 +59,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconList />
@@ -73,6 +76,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconScale />
@@ -91,6 +95,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconCopyright />
@@ -109,6 +114,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconList />
@@ -126,6 +132,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconAlert />
@@ -145,6 +152,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconScale />
@@ -162,6 +170,7 @@ const TermsOfService = () => (
           </div>
 
           <div className={styles.legalSection}>
+            <span className={styles.legalCornerFold} aria-hidden="true" />
             <div className={styles.legalSectionHead}>
               <div className={styles.legalIconWrap}>
                 <IconRefresh />
@@ -182,19 +191,14 @@ const TermsOfService = () => (
         <hr className={styles.legalDivider} />
 
         <div className={styles.legalContactCard}>
-          <div className={styles.legalSection}>
-            <div className={styles.legalSectionHead}>
-              <h2 id="contact">Contact</h2>
-            </div>
-            <div className={styles.legalSectionBody}>
-              <p>
-                Questions about these terms? Email{" "}
-                <a href="mailto:ingversionsdigital@gmail.com">
-                  ingversionsdigital@gmail.com
-                </a>
-              </p>
-            </div>
-          </div>
+          <h2 id="contact">Contact</h2>
+          <p>
+            Questions about these terms? We're happy to help.
+          </p>
+          <a href="/#contact" className={styles.legalContactBtn}>
+            Start the conversation
+            <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+          </a>
         </div>
         </div>
       </div>

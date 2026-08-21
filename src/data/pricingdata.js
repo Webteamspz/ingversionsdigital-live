@@ -66,99 +66,6 @@ export const pricingPlans = [
   }
 ];
 
-export const comparisonData = {
-  title: "The Right Plan For You",
-  subtitle: "We offer powerful plans to showcase your business and help creative entrepreneurs get discovered with everything you need to succeed",
-
-  columns: [
-    { 
-      name: "Starter", 
-      price: "$999", 
-      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
-    },
-    { 
-      name: "Growth", 
-      price: "$1899", 
-      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
-    },
-    { 
-      name: "Premium", 
-      price: "$2999", 
-      badge: "MOST POPULAR", 
-      isPremium: true, 
-      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
-    },
-    { 
-      name: "Elite", 
-      price: "Custom", 
-      link: "https://calendly.com/ingversionsdigital/30min?month=2025-10" 
-    }
-  ],
-
-  rows: [
-    { section: "A/B TEST SERVICES" },
-    { 
-      label: "Number of Tests", 
-      values: ["2 to 3", "4 to 5", "Upto 10", "High Volume Test"] 
-    },
-    { 
-      label: "Test Type", 
-      values: [
-        "Simple (UI changes only)", 
-        "Average (UI + Functional)", 
-        "Complex", 
-        "Complex (Price, Template/Theme)"
-      ] 
-    },
-
-    { section: "SHOPIFY SERVICES" },
-    { 
-      label: "Shopify Test", 
-      values: ["cross", "1", "2", "3 to 4"] 
-    },
-    { 
-      label: "Winning Test Implantation", 
-      values: ["cross", "Upto 2", "Upto 4", "6"] 
-    },
-
-    { section: "DEDICATED SUPPORT" },
-    { 
-      label: "Technical Support", 
-      values: [
-        "Limited Support", 
-        "Email or Scheduled Calls", 
-        "Priority Support", 
-        "Super Priority Support"
-      ] 
-    },
-
-    { section: "QA SERVICES" },
-    { 
-      label: "Visual QA", 
-      values: ["cross", "check", "check", "check"] 
-    },
-    { 
-      label: "Technical QA (Browser + Devices)", 
-      values: ["cross", "cross", "check", "check"] 
-    },
-    { 
-      label: "Full QA (Edge Case)", 
-      values: ["cross", "cross", "cross", "check"] 
-    },
-
-    { section: "REPORTING" },
-    { 
-      label: "Reporting Duration", 
-      values: [
-        "One Time Report", 
-        "Bi-weekly Detailed Report", 
-        "Weekly Detailed Report", 
-        "Each Task Detailed Report"
-      ] 
-    }
-  ]
-};
-
 export const pricingFaq = {
   title: "Frequently Asked Questions",
   items: [
@@ -183,13 +90,4 @@ export const pricingFaq = {
       a: "Yes. Most clients stay because we build a compounding experimentation system, but you’re not locked in.",
     },
   ],
-};
-
-export const pricingCtaData = {
-  title: "Ready to start improving conversions?",
-  text: "Tell us your goal (CR, AOV, subscriptions, retention). We’ll recommend the best plan and share a 90-day experiment roadmap.",
-  primaryLabel: "Book a call",
-  primaryHref: "/#contact",
-  secondaryLabel: "Email us",
-  secondaryHref: "mailto:hello@ingversionsdigital.com",
 };

@@ -26,7 +26,7 @@ const AboutHero = () => {
             <div className={styles.aboutHeroActions}>
               <a
                 href={heroData.primaryCtaHref}
-                className={styles.btnHero}
+                className="btn"
               >
                 {heroData.primaryCta}
               </a>

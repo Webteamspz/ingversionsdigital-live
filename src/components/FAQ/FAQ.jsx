@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Plus, Minus } from "lucide-react";
 import data from "../../data/sitedata";
 import styles from "./FAQ.module.css";
 
@@ -33,9 +32,7 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
         id={`faq-button-${index}`}
       >
         <span>{q}</span>
-        <span className={styles.accordionItemIcon} aria-hidden="true">
-          {isOpen ? <Minus size={16} strokeWidth={3} /> : <Plus size={16} strokeWidth={3} />}
-        </span>
+        <span className={styles.accordionItemIcon} aria-hidden="true" />
       </button>
       <div
         id={`faq-panel-${index}`}

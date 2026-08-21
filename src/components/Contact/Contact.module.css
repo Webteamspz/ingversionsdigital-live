@@ -2,9 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: 92px 0;
-  background-color: var(--palette-bg-950);
+  background-color: var(--palette-bg-950)
 }
-
 .contactPanel {
   position: relative;
   display: flex;
@@ -18,96 +17,59 @@
   border-radius: 56px 56px 0 56px;
   background: var(--palette-accent);
   box-shadow: 22px 22px 0 var(--palette-text-primary);
-  color: #fff;
-  text-align: center;
+  color: var(--palette-bg-800);
+  text-align: center
 }
-
 .contactPanel::before {
   position: absolute;
   inset: 0;
   content: "";
-  background-image: radial-gradient(rgba(255, 255, 255, .2) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(255,255,255,0.2) 1.2px,transparent 1.2px);
   background-size: 20px 20px;
   opacity: .34;
-  pointer-events: none;
+  pointer-events: none
 }
-
-.yellowShape,
-.pinkShape {
-  position: absolute;
-  z-index: 1;
-  display: block;
-  border: var(--border-width) solid var(--palette-border);
-  pointer-events: none;
-}
-
-.yellowShape {
-  top: -36px;
-  left: 7%;
-  width: 124px;
-  height: 124px;
-  border-radius: 50%;
-  background: var(--tertiary);
-  box-shadow: 5px 5px 0 var(--palette-text-primary);
-}
-
-.pinkShape {
-  right: 8%;
-  bottom: -28px;
-  width: 76px;
-  height: 76px;
-  border-radius: 16px 16px 16px 0;
-  background: var(--secondary);
-  box-shadow: 5px 5px 0 var(--palette-text-primary);
-  transform: rotate(16deg);
-}
-
-.eyebrow,
-.contactHeading,
+.contactActions,
 .contactCopy,
-.contactActions {
+.contactHeading,
+.eyebrow {
   position: relative;
-  z-index: 2;
+  z-index: 2
 }
-
 .eyebrow {
   margin: 0 0 15px;
-  color: rgba(255, 255, 255, .88);
-  font-family: "Outfit", system-ui, sans-serif;
+  color: rgba(255,255,255,.88);
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .1em;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: uppercase
 }
-
 .contactHeading {
   max-width: 900px;
   margin: 0;
-  color: #fff;
-  font-family: "Outfit", system-ui, sans-serif;
+  color: var(--palette-bg-800);
+  font-family: Outfit,system-ui,sans-serif;
   font-size: clamp(44px, 5.3vw, 76px);
   font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: .98;
+  letter-spacing: -.05em;
+  line-height: .98
 }
-
 .contactCopy {
   max-width: 650px;
   margin: 24px 0 33px;
-  color: rgba(255, 255, 255, .92);
+  color: rgba(255,255,255,.92);
   font-size: 19px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.5
 }
-
 .contactActions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 18px
 }
-
 .primaryAction {
   display: inline-flex;
   min-height: 54px;
@@ -115,98 +77,72 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: var(--border-width) solid var(--palette-text-primary);
+  border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
-  background: var(--tertiary);
-  box-shadow: 4px 4px 0 #fff;
-  color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  background: var(--palette-bg-800);
+  box-shadow: 4px 4px 0 var(--palette-border);
+  color: var(--palette-border);
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s cubic-bezier(.34, 1.56, .64, 1), background-color .2s ease;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
 }
-
 .primaryAction:hover {
-  box-shadow: 6px 6px 0 #fff;
-  background: #ffd247;
-  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--palette-border);
+  background: var(--tertiary);
+  transform: translate(-2px,-2px)
 }
-
 .primaryAction:active {
-  box-shadow: 2px 2px 0 #fff;
-  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--palette-border);
+  transform: translate(2px,2px)
 }
-
 .emailLink {
-  color: #fff;
+  color: var(--palette-bg-800);
   font-size: 15px;
   font-weight: 600;
-  text-decoration-color: rgba(255, 255, 255, .7);
-  text-underline-offset: 4px;
+  text-decoration-color: rgba(255,255,255,0.7);
+  text-underline-offset: 4px
 }
-
-.primaryAction:focus-visible,
-.emailLink:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
+.emailLink:focus-visible,
+.primaryAction:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px
 }
-
-@media (min-width: 768px) and (max-width: 1023.98px) {
+@media (min-width:768px) and (max-width:1023.98px) {
   .contactPanel {
     padding: 60px 34px 54px;
     border-radius: 44px 44px 0 44px;
-    box-shadow: 12px 12px 0 var(--palette-text-primary);
+    box-shadow: 12px 12px 0 var(--palette-text-primary)
   }
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
   .contactSection {
-    padding: 66px 0 72px;
+    padding: 66px 0 72px
   }
-
   .contactPanel {
     min-height: 0;
     padding: 64px 24px 58px;
     border-radius: 36px 36px 0 36px;
-    box-shadow: 12px 12px 0 var(--palette-text-primary);
+    box-shadow: 12px 12px 0 var(--palette-text-primary)
   }
-
-  .yellowShape {
-    top: -37px;
-    left: -23px;
-    width: 90px;
-    height: 90px;
-  }
-
-  .pinkShape {
-    right: 2%;
-    bottom: -27px;
-    width: 58px;
-    height: 58px;
-  }
-
   .contactHeading {
     font-size: clamp(40px, 12vw, 55px);
-    line-height: 1.02;
+    line-height: 1.02
   }
-
   .contactCopy {
     margin: 20px 0 29px;
-    font-size: 16px;
+    font-size: 16px
   }
-
   .contactActions {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column
   }
-
   .primaryAction {
-    width: min(100%, 290px);
+    width: min(100%,290px)
   }
-
   .emailLink {
     font-size: 14px;
-    overflow-wrap: anywhere;
+    overflow-wrap: anywhere
   }
 }

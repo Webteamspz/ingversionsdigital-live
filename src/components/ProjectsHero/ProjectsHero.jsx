@@ -6,7 +6,7 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close the dropdown when clicking outside of it
+  
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -34,7 +34,7 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
           </h2>
           <p className={styles.description}>{data.hero.description}</p>
 
-          {/* Desktop / tablet button group */}
+          
           <div className={styles.filters}>
             {data.filters.map((filter) => (
               <button
@@ -50,7 +50,7 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
             ))}
           </div>
 
-          {/* Mobile-only dropdown filter */}
+          
           <div className={styles.mobileFilterWrap} ref={dropdownRef}>
             <button
               type="button"

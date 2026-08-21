@@ -2,34 +2,23 @@
   padding: 88px 0;
   overflow: hidden;
   background-color: var(--palette-bg-950);
-  background-image: radial-gradient(var(--palette-border-soft) 1.4px, transparent 1.4px);
-  background-size: 22px 22px;
+  background-image: radial-gradient(var(--palette-border-soft) 1.4px,transparent 1.4px);
+  background-size: 22px 22px
 }
-
-.servicesSection :global(.section-title) {
-  margin-bottom: 14px;
-  font-size: clamp(36px, 3.3vw, 52px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-
 .servicesSub {
   max-width: 760px;
-  margin: 0 auto 52px;
-  color: var(--palette-text-muted);
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.55;
-  text-align: center;
+  margin: 0 auto 44px;
+  color: var(--palette-text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center
 }
-
 .services {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 28px
 }
-
 .card.service {
   position: relative;
   display: flex;
@@ -43,14 +32,12 @@
   background: var(--palette-bg-800);
   box-shadow: var(--shadow-pop-soft);
   text-align: left;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
 }
-
 .card.service:hover {
   box-shadow: 8px 8px 0 var(--palette-accent);
-  transform: translateY(-8px) rotate(-.7deg);
+  transform: translateY(-8px) rotate(-.7deg)
 }
-
 .cornerFold {
   position: absolute;
   top: -2px;
@@ -60,9 +47,8 @@
   height: 42px;
   border-bottom: var(--border-width) solid var(--palette-border);
   border-left: var(--border-width) solid var(--palette-border);
-  border-radius: 0 0 0 32px;
+  border-radius: 0 0 0 32px
 }
-
 .iconCircle {
   position: relative;
   z-index: 2;
@@ -75,25 +61,22 @@
   flex-shrink: 0;
   border: var(--border-width) solid var(--palette-border);
   border-radius: 50%;
-  box-shadow: 4px 4px 0 var(--palette-text-primary);
+  box-shadow: 4px 4px 0 var(--palette-text-primary)
 }
-
 .iconCircle svg {
   width: 30px;
-  height: 30px;
+  height: 30px
 }
-
 .serviceTitle {
   margin: 0 0 14px;
   color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 25px;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -.025em;
   line-height: 1.17;
-  text-align: left;
+  text-align: left
 }
-
 .serviceDesc {
   width: 100%;
   margin: 0;
@@ -101,78 +84,64 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.55;
-  text-align: left;
+  text-align: left
 }
-
-@media (max-width: 1023.98px) {
+@media (max-width:1023.98px) {
   .services {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr))
   }
 }
-
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
+  .servicesSub {
+    margin-bottom: 44px;
+    font-size: 14px
+  }
+}
+@media (max-width:767.98px) {
   .servicesSection {
     padding: 66px 0;
-    background-size: 18px 18px;
+    background-size: 18px 18px
   }
-
-  .servicesSection :global(.section-title) {
-    font-size: 36px;
-  }
-
-  .servicesSub {
-    margin-bottom: 38px;
-    font-size: 16px;
-  }
-
   .servicesSwiper {
-    padding: 0 3px 45px !important;
+    padding: 0 3px 45px!important;
     overflow: visible;
     --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: var(--palette-accent);
+    --swiper-pagination-color: var(--palette-accent)
   }
-
   .servicesSwiper .swiper-slide {
     display: flex;
-    height: auto !important;
+    height: auto!important
   }
-
   .card.service {
     width: 100%;
     min-height: 300px;
-    padding: 27px 24px;
+    padding: 27px 24px
   }
-
   .iconCircle {
     width: 56px;
     height: 56px;
     margin-bottom: 22px;
-    box-shadow: 3px 3px 0 var(--palette-text-primary);
+    box-shadow: 3px 3px 0 var(--palette-text-primary)
   }
-
   .iconCircle svg {
     width: 27px;
-    height: 27px;
+    height: 27px
   }
-
   .serviceTitle {
-    font-size: 23px;
+    font-size: 23px
   }
-
   .servicesSwiper .swiper-pagination {
-    bottom: 0;
+    bottom: 0
   }
-
   .servicesSwiper .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
     border: 1px solid var(--palette-text-primary);
-    background: transparent;
-    opacity: 1;
+    background: 0 0;
+    opacity: 1
   }
-
   .servicesSwiper .swiper-pagination-bullet-active {
-    background: var(--palette-accent);
+    background: var(--palette-accent)
   }
 }

@@ -7,26 +7,27 @@
   position: relative
 }
 .startedTitle {
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
   font-size: 36px;
-  line-height: 100%;
+  line-height: 1.2;
   color: var(--palette-text-primary);
   text-align: center;
   margin: 0 0 44px
 }
 .reviewsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 32px
 }
 .reviewCardWrap {
   min-width: 0
 }
 .reviewTilt {
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1)
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1)
 }
 .reviewTilt:hover {
-  transform: rotate(0deg) translateY(-4px) !important
+  transform: rotate(0) translateY(-4px)!important
 }
 .reviewCard {
   position: relative;
@@ -69,10 +70,10 @@
   border: var(--border-width) solid var(--palette-border);
   box-shadow: 2px 2px 0 0 var(--palette-border);
   object-fit: cover;
-  background: var(--palette-bg-800);
+  background: var(--palette-bg-800)
 }
 .reviewerName {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
   font-size: 16px;
   color: var(--palette-text-primary)
@@ -80,11 +81,14 @@
 .reviewerRole {
   margin-top: 2px;
   font-size: 14px;
-  color: rgba(30, 41, 59, .8)
+  color: rgba(30,41,59,.8)
 }
 @media (max-width:1023.98px) {
+  .startedTitle {
+    font-size: 28px
+  }
   .reviewsGrid {
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(2,1fr)
   }
 }
 @media (max-width:767.98px) {
@@ -96,7 +100,7 @@
     gap: 40px
   }
   .startedTitle {
-    font-family: "Outfit", system-ui, sans-serif;
+    font-family: Outfit,system-ui,sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 120%;

@@ -1,12 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
 import logo from "/assets/logos/main-logo.png";
 
-// lucide-react ships no brand/logo marks (by design), so the social glyphs
-// stay as local brand-accurate SVGs, wired through the same key -> component
-// lookup pattern lucide icons would use elsewhere.
+
+
+
 const Facebook = ({ size = 24, ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
     <path d="M24 12.0728C24 5.44533 18.6274 0.0727539 12 0.0727539C5.37258 0.0727539 0 5.44533 0 12.0728C0 18.0622 4.3882 23.0267 10.125 23.927V15.5415H7.07812V12.0728H10.125V9.429C10.125 6.4215 11.9166 4.76025 14.6576 4.76025C15.9701 4.76025 17.3438 4.99463 17.3438 4.99463V7.94775H15.8306C14.34 7.94775 13.875 8.87283 13.875 9.82275V12.0728H17.2031L16.6711 15.5415H13.875V23.927C19.6118 23.0267 24 18.0622 24 12.0728Z" fill="currentColor"/>
@@ -59,10 +58,10 @@ const Footer = () => {
       </svg>
       <div className="container">
         
-        {/* Main Multi-Column Area */}
+        
         <div className={styles.footerMain}>
           
-          {/* Column 1: Logo, Bio & Socials */}
+          
           <div className={styles.brandCol}>
             <Link to="/" className={styles.footerLeft}>
               {f?.logo && (
@@ -78,10 +77,10 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Columns 2 & 3: Links Grid */}
+          
           <div className={styles.linksWrapper}>
 
-            {/* Columns 2 & onward: Grouped Links */}
+            
             {f.linkGroups.map((group, gi) => (
               <div className={styles.linkGroup} key={gi}>
                 <h4>{group.title}</h4>
@@ -95,7 +94,7 @@ const Footer = () => {
 
                   if (isExternal) {
                     return (
-                      /* FIX: Added missing `<a ` opening tag below */
+                      
                       <a
                         key={i}
                         href={l.href}
@@ -120,7 +119,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Area: Copyright + Socials */}
+        
         <div className={styles.footerBottomRow}>
           <div className={styles.copyright}>
             © {f.year} {f.company}. All rights reserved.

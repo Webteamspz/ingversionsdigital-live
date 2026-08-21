@@ -1,5 +1,4 @@
 const projectsData = {
-  // ---------- Top heading section ----------
   hero: {
     tag: "Our Amazing Work",
     headingPart1: "Explore Our",
@@ -7,23 +6,12 @@ const projectsData = {
     description:
       "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
   },
-
-  // ---------- Filter tabs ----------
-  // First item is always treated as the "show everything" filter.
   filters: [
     "All Projects",
     "Websites",
     "A/B Testing",
     "Shopify",
   ],
-
-  // ---------- Project cards ----------
-  // industry    -> small label shown above the title (e.g. "Fitness")
-  // type        -> must match one of the values in `filters` above (used for filtering)
-  // image       -> path/URL to the project thumbnail shown in the grid
-  // beforeImage -> (OPTIONAL) path to the "Before" image for the modal slider
-  // afterImage  -> (OPTIONAL) path to the "After" image for the modal slider
-  // link        -> where the card should navigate to (live site / case study)
   projects: [
     {
       id: 1,
@@ -58,7 +46,7 @@ const projectsData = {
       title: "Grooved Learning",
       type: "Shopify",
       image: "/assets/project/codebreakers.webp",
-      // No before/after images here -> Clicking this will just open a single large modal image!
+
       link: "https://groovedlearning.com/",
     },
     {
@@ -100,7 +88,7 @@ const projectsData = {
       industry: "Outdoor Play Equipment",
       title: "Bijou Build",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforebijou.webp", 
+      beforeImage: "/assets/project/beforebijou.webp",
       afterImage: "/assets/project/afterbijou.webp",
       image: "/assets/project/bijoubuild.webp",
       link: "https://bijoubuild.com/",
@@ -129,27 +117,27 @@ const projectsData = {
       image: "/assets/project/shaperluv.webp",
       link: "https://shaperluv.com/",
     },
-      {
+    {
       id: 13,
       industry: "Luxury Home Decor",
       title: "Belare Home ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforebelare.webp", 
+      beforeImage: "/assets/project/beforebelare.webp",
       afterImage: "/assets/project/afterbelare.webp",
       image: "/assets/project/belare.webp",
       link: "https://www.belarehome.com/",
     },
-       {
+    {
       id: 14,
       industry: "Wellness",
       title: "UltimaPeak ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforeultimapeak.webp", 
+      beforeImage: "/assets/project/beforeultimapeak.webp",
       afterImage: "/assets/project/afterultimapeak.webp",
       image: "/assets/project/ultimapeak.webp",
       link: "https://www.ultimapeak.com/",
     },
-      {
+    {
       id: 15,
       industry: "Alchoholic Beverages",
       title: "Glass Vodka",
@@ -157,17 +145,17 @@ const projectsData = {
       image: "/assets/project/glassvodka.webp",
       link: "https://glassvodka.com/",
     },
-      {
+    {
       id: 16,
       industry: "Fitness",
       title: "Factory Weights ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforefactoryweights.webp", 
+      beforeImage: "/assets/project/beforefactoryweights.webp",
       afterImage: "/assets/project/afterfactoryweights.webp",
       image: "/assets/project/factoryweights.webp",
       link: "https://www.factoryweights.com/",
     },
-     {
+    {
       id: 17,
       industry: "Intimate Care",
       title: "The Bloomi",
@@ -180,18 +168,16 @@ const projectsData = {
       industry: "Health & Wellness",
       title: "Avantera ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforeavantera.webp", 
+      beforeImage: "/assets/project/beforeavantera.webp",
       afterImage: "/assets/project/afteravantera.webp",
       image: "/assets/project/avantera.webp",
       link: "https://avanterahealth.com/",
     },
   ],
-
-  // ---------- Bottom call-to-action box ----------
   cta: {
     title: "Have a project in mind?",
     subtitle: "Let's build something that drives real impact.",
-    buttonText: "Book a Free Consultation",
+    buttonText: "Schedule a call",
     buttonLink: "/#hero",
   },
 };

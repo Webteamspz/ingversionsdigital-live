@@ -4,8 +4,6 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "react-international-phone/style.css";
 import "./styles/style.css";
-import "./styles/light-theme.css";
-import "./styles/fonts.css";
 import { initGTMTracking } from "./gtm";
 
 const root = createRoot(document.getElementById("root"));

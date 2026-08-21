@@ -1,7 +1,7 @@
 export const GTM_ID = import.meta.env.VITE_GTM_ID;
 export const dl = () => (window.dataLayer = window.dataLayer || []);
 
-/* ---------- helpers ---------- */
+
 const now = () => new Date().toISOString();
 
 export function pageview(
@@ -53,13 +53,13 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
   return () => io.disconnect();
 }
 
-/* ---------- main init ---------- */
+
 export function initGTMTracking() {
   if (typeof window === "undefined") return;
-  if (window.__gtmInit) return; // guard
+  if (window.__gtmInit) return; 
   window.__gtmInit = true;
 
-  // SPA pageviews (pushState/replaceState/popstate + hashchange)
+  
   const firePV = () => pageview();
   ["pushState", "replaceState"].forEach((m) => {
     const orig = history[m];
@@ -71,9 +71,9 @@ export function initGTMTracking() {
   });
   window.addEventListener("popstate", firePV);
   window.addEventListener("hashchange", firePV);
-  pageview(); // initial
+  pageview(); 
 
-  // CTA clicks: any element with [data-cta]; try to resolve an anchor href if present
+  
   document.addEventListener("click", (e) => {
     const el = e.target.closest?.("[data-cta]");
     if (!el) return;
@@ -85,7 +85,7 @@ export function initGTMTracking() {
     });
   });
 
-  // Form submit (data-gtm-form="Contact" etc.)
+  
   document.addEventListener("submit", (e) => {
     const form = e.target.closest?.("form[data-gtm-form]");
     if (!form) return;
@@ -94,7 +94,7 @@ export function initGTMTracking() {
     formSubmit({ form_id, form_name });
   });
 
-  // Call this after your async form success, e.g., window.__gtmFormSuccess(form)
+  
   window.__gtmFormSuccess = (form) => {
     if (!form) return;
     const form_name = form.getAttribute("data-gtm-form") || form.name || "form";
@@ -102,7 +102,7 @@ export function initGTMTracking() {
     formSuccess({ form_id, form_name });
   };
 
-  // Scroll depth (25/50/75/100) with rAF
+  
   const marks = new Set();
   const thresholds = [25, 50, 75, 100];
   let ticking = false;

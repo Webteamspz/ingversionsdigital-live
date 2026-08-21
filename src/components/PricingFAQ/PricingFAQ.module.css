@@ -4,12 +4,7 @@
   padding: 50px 0
 }
 .faqWrapper h3 {
-  text-align: center;
-  margin: 0 0 50px;
-  font-family: "Outfit", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 1.3
+  margin: 0 0 44px
 }
 .accordion {
   width: 100%;
@@ -23,7 +18,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
   overflow: hidden;
-  transition: box-shadow .3s cubic-bezier(.34,1.56,.64,1), transform .3s cubic-bezier(.34,1.56,.64,1)
+  transition: box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),transform .3s cubic-bezier(.34, 1.56, .64, 1)
 }
 .accordionItem.open {
   box-shadow: var(--shadow-pop-hover)
@@ -37,10 +32,10 @@
   justify-content: space-between;
   gap: 16px;
   cursor: pointer;
-  background: transparent;
+  background: 0 0;
   border: 0;
   text-align: left;
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
   font-size: 19px;
   line-height: 130%;
@@ -53,6 +48,10 @@
 .accordionItem.open .accordionItemHeader {
   color: var(--palette-accent)
 }
+.accordionItemHeader:focus-visible {
+  outline: 2px solid var(--palette-accent);
+  outline-offset: -2px
+}
 .accordionItemIcon {
   position: relative;
   flex-shrink: 0;
@@ -62,7 +61,7 @@
   border: var(--border-width) solid var(--palette-border);
   background: var(--tertiary);
   cursor: pointer;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), background-color .2s ease
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
 }
 .accordionItem.open .accordionItemIcon {
   background: var(--secondary);
@@ -79,13 +78,13 @@
   transition: .35s;
   width: 14px;
   height: 2px;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%,-50%)
 }
 .accordionItem.open .accordionItemIcon:before {
   opacity: 0
 }
 .accordionItemIcon:after {
-  transform: translate(-50%, -50%) rotate(90deg)
+  transform: translate(-50%,-50%) rotate(90deg)
 }
 .accordionItemBody {
   max-height: 0;
@@ -102,10 +101,6 @@
 @media (max-width:767.98px) {
   .faqWrapper {
     padding: 40px 0
-  }
-  .faqWrapper h3 {
-    font-size: 24px;
-    margin-bottom: 32px
   }
   .accordionItem {
     margin: 14px 0

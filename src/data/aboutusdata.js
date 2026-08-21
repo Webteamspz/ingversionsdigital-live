@@ -1,5 +1,3 @@
-// /src/pages/aboutusdata.js
-
 export const heroData = {
   tag: 'About Ingversions Digital',
   highlight: 'Intelligent Change',

@@ -1,126 +1,128 @@
 .faqWrapper {
   background-color: var(--palette-bg-950);
-  background-image: radial-gradient(circle, var(--palette-border-soft) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--palette-text-primary);
   padding: 60px 0
 }
 .faqWrapper h3 {
-  text-align: center;
-  margin: 0 0 44px;
-  color: var(--palette-text-primary);
-  font-family: "Outfit", system-ui, sans-serif;
-  font-size: clamp(36px, 3.3vw, 52px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  margin: 0 0 44px
 }
 .accordion {
   width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px
+  max-width: 900px;
+  margin: 0 auto
 }
 .accordionItem {
-  border-radius: var(--radius-md);
-  border: var(--border-width) solid var(--palette-border);
+  margin: 20px 0;
   background: var(--palette-bg-800);
-  box-shadow: 4px 4px 0 0 var(--palette-bg-700);
-  overflow: hidden
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  overflow: hidden;
+  transition: box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),transform .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.accordionItem.open {
+  box-shadow: var(--shadow-pop-hover)
 }
 .accordionItemHeader {
   width: 100%;
-  padding: 16px 24px;
+  min-height: 80px;
+  padding: 22px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   cursor: pointer;
-  background: transparent;
+  background: 0 0;
   border: 0;
   text-align: left;
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 130%;
   color: var(--palette-text-primary);
-  outline: 0;
-  transition: background-color .2s ease
+  outline: 0
 }
 .accordionItemHeader:hover {
-  background: var(--palette-bg-700)
+  color: var(--palette-accent)
 }
 .accordionItem.open .accordionItemHeader {
-  background: var(--palette-bg-700)
+  color: var(--palette-accent)
 }
 .accordionItemHeader:focus-visible {
   outline: 2px solid var(--palette-accent);
   outline-offset: -2px
 }
 .accordionItemIcon {
+  position: relative;
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: var(--radius-full);
   border: var(--border-width) solid var(--palette-border);
-  background: var(--palette-bg-800);
-  color: var(--palette-text-primary);
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease
+  background: var(--tertiary);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
 }
-.accordionItemHeader:hover .accordionItemIcon,
 .accordionItem.open .accordionItemIcon {
   background: var(--secondary);
-  border-color: var(--secondary);
-  color: #fff
+  transform: rotate(90deg)
+}
+.accordionItemIcon:after,
+.accordionItemIcon:before {
+  content: "";
+  display: block;
+  background-color: var(--palette-border);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: .35s;
+  width: 14px;
+  height: 2px;
+  transform: translate(-50%,-50%)
+}
+.accordionItem.open .accordionItemIcon:before {
+  opacity: 0
+}
+.accordionItemIcon:after {
+  transform: translate(-50%,-50%) rotate(90deg)
 }
 .accordionItemBody {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .2s ease-out;
-  background: rgba(241, 245, 249, .3);
-  color: var(--palette-text-muted)
+  transition: max-height .2s ease-out
 }
 .accordionItemBodyContent {
-  padding: 8px 24px 24px;
+  padding: 0 28px 26px;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
-  color: var(--palette-text-muted)
+  line-height: 160%;
+  color: var(--palette-text-secondary)
 }
 @media (max-width:767.98px) {
   .faqWrapper {
-    padding: 44px 0;
-    background-size: 18px 18px
-  }
-  .faqWrapper h3 {
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.1;
-    text-align: center;
-    margin-bottom: 32px
-  }
-  .accordion {
-    gap: 14px
+    padding: 44px 0
   }
   .accordionItem {
-    box-shadow: 3px 3px 0 0 var(--palette-bg-700)
+    margin: 14px 0
   }
   .accordionItemHeader {
+    font-weight: 700;
     font-size: 16px;
-    padding: 14px 16px;
+    line-height: 120%;
+    min-height: 68px;
+    padding: 18px 16px;
     gap: 12px
   }
   .accordionItemIcon {
     width: 28px;
     height: 28px
   }
+  .accordionItemIcon:after,
+  .accordionItemIcon:before {
+    width: 11px
+  }
   .accordionItemBodyContent {
+    font-weight: 400;
     font-size: 14px;
-    padding: 6px 16px 18px
+    padding: 0 16px 18px
   }
 }

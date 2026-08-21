@@ -5,8 +5,6 @@ export default {
       { label: "Services", href: "/#services" },
       { label: "Projects", href: "/projects" },
       { label: "Pricing", href: "/pricing" },
-      // { label: "Contact Us", href: "/#contact" },
-      // { label: "Team Page", href: "/teampage" },
       { label: "About Us", href: "/about-us" },
       { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
     ],
@@ -24,9 +22,9 @@ export default {
       href: "#contact",
     },
     avatars: [
-      "/assets/hero/hero-client-1.webp",
-      "/assets/hero/hero-client-2.webp",
-      "/assets/hero/hero-client-3.webp",
+      "/assets/reviews/reviewer-1.jpg",
+      "/assets/reviews/reviewer-2.jpg",
+      "/assets/reviews/reviewer-3.jpg",
     ],
     proof: "Trusted by <strong>6+ agencies</strong> and <strong> 10+ brands in Ecommerce</strong>",
     visual: "/assets/hero/hero-main-1.webp",
@@ -481,70 +479,9 @@ export default {
       },
     ],
   },
-  team: {
-    heading: "Meet Our ",
-    pill: "Team",
-    list: [
-      {
-        name: "Rahul Patil",
-        role: "Founder and CEO",
-        photo: "/assets/team/rahul.webp",
-      },
-      {
-        name: "Harsh Jariwala",
-        role: "Founder and CEO",
-        photo: "/assets/team/harsh.webp",
-      },
-      {
-        name: "Kranthika Ele",
-        role: "QA",
-        photo: "/assets/team/kranthika.webp",
-      },
-      {
-        name: "Nafees Hasnat",
-        role: "CRO Dev",
-        photo: "/assets/team/nafees.webp",
-      },
-      {
-        name: "Kundan Mali",
-        role: "Shopify Dev",
-        photo: "/assets/team/kundan.webp",
-      },
-      {
-        name: "Sree Priya",
-        role: "QA",
-        photo: "/assets/team/sree.webp",
-      },
-      {
-        name: "Piyush Ranipa",
-        role: "Wordpress Dev",
-        photo: "/assets/team/piyush.webp",
-      },
-      {
-        name: "Bhumika Paladiya",
-        role: "CRO Dev",
-        photo: "/assets/team/bhumika.webp",
-      },
-      {
-        name: "Writwik Seti",
-        role: "React Dev",
-        photo: "/assets/team/writwik.webp",
-      },
-      {
-        name: "Vishal Kumawat",
-        role: "Shopify Dev",
-        photo: "/assets/team/vishal.webp",
-      },
-      {
-        name: "Ayushi Shah",
-        role: "Shopify Dev",
-        photo: "/assets/team/ayushi.webp",
-      },
-    ],
-  },
   blog: {
     heading: "Latest Articles",
-    seeMoreText: "See More",          // Naya text
+    seeMoreText: "See More",          
     seeMoreUrl: "https://blog.ingversionsdigital.com/",
     list: [
       {

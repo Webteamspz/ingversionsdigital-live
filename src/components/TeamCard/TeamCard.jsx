@@ -32,17 +32,17 @@ const TeamCard = ({ member, index = 0 }) => {
     <article className={styles.cardWrap}>
       <div className={styles.cardHover}>
 
-        {/* Image Container */}
+        
         <div className={styles.media}>
           <OptimizedImg
             src={avatar}
             alt={name}
-            width={400} // placeholder but CLS-safe
+            width={400} 
             height={500}
           />
         </div>
 
-        {/* Floating bottom content */}
+        
         <div className={styles.floatContent}>
           <h3 className={styles.name}>{name}</h3>
 
