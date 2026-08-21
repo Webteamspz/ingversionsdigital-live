@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowUpRight, ArrowLeftRight } from "lucide-react";
 import styles from "./ProjectsGrid.module.css";
 
 const INITIAL_MOBILE_COUNT = 6;
@@ -64,8 +65,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
       >
         <div className={styles.sliderLine} />
         <div className={styles.sliderButton}>
-          <span>&#8594;</span>
-          <span>&#8592;</span>
+          <ArrowLeftRight size={18} strokeWidth={2.5} color="var(--palette-border)" />
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@ const ProjectsGrid = ({ projects }) => {
                   <h4 className={styles.title}>{project.title}</h4>
                 </div>
                 <span className={styles.arrow} aria-hidden="true">
-                  &#8594;
+                  <ArrowUpRight size={16} strokeWidth={2.5} color="var(--palette-border)" />
                 </span>
               </a>
             </div>

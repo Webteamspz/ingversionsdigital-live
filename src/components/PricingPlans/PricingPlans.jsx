@@ -1,4 +1,4 @@
-import "./PricingPlans.css";
+import styles from "./PricingPlans.module.css";
 import { pricingPlans } from "../../data/pricingdata";
 
 const PricingPlans = () => {
@@ -16,52 +16,52 @@ const PricingPlans = () => {
   }
 
   return (
-    <section className="pricingPlans" id="pricingPlans">
+    <section className={styles.pricingPlans} id="pricingPlans">
       <div className="container">
 
-        <div className="pricingPlansGrid">
+        <div className={styles.pricingPlansGrid}>
           {standardPlans.map((plan, idx) => (
-            <article key={plan.name} className={`pricingPlanCard card${plan.badge ? " popularCard" : ""}`}>
+            <article
+              key={plan.name}
+              className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
+            >
 
-              <div className="pricingPlanBadgeWrap">
+              <div className={styles.pricingPlanBadgeWrap}>
                 {plan.badge ? (
-                  <>
-                    <span className="pricingPlanBadge">{plan.badge}</span>
-                    <span className="popularStar" aria-hidden="true">★</span>
-                  </>
+                  <span className={styles.pricingPlanBadge}>{plan.badge}</span>
                 ) : (
-                  <span className="pricingPlanBadge emptyBadge"></span>
+                  <span className={`${styles.pricingPlanBadge} ${styles.emptyBadge}`}></span>
                 )}
               </div>
 
-              <h3 className="pricingPlanName">{plan.name}</h3>
+              <h3 className={styles.pricingPlanName}>{plan.name}</h3>
 
-              <div className="pricingPlanPriceRow">
-                <span className="pricingPlanPrice">
+              <div className={styles.pricingPlanPriceRow}>
+                <span className={styles.pricingPlanPrice}>
                   {typeof plan.price === "number" ? `$${plan.price}` : plan.price}
                 </span>
                 {plan.period && (
-                  <span className="pricingPlanPeriod">{plan.period}</span>
+                  <span className={styles.pricingPlanPeriod}>{plan.period}</span>
                 )}
               </div>
 
-              <p className="pricingPlanDesc">{plan.description}</p>
+              <p className={styles.pricingPlanDesc}>{plan.description}</p>
 
-              <ul className="pricingPlanHighlights">
+              <ul className={styles.pricingPlanHighlights}>
                 {plan.highlights?.map((h, i) => (
-                  <li key={i} className="pricingPlanHighlight">
-                    <span className="checkDot" />
+                  <li key={i} className={styles.pricingPlanHighlight}>
+                    <span className={styles.checkDot} />
                     {h}
                   </li>
                 ))}
               </ul>
 
-              <div className="cardButtons">
-                <a className="btn pricingPlanBtn" href={plan.ctaHref || "#"}>
+              <div className={styles.cardButtons}>
+                <a className={`btn ${styles.pricingPlanBtn}`} href={plan.ctaHref || "#"}>
                   {plan.ctaLabel || "Get Started"}
                 </a>
                 <button
-                  className="btnOutline"
+                  className={`c-btn ${styles.compareBtn}`}
                   onClick={function() { handleSeeComparison(idx); }}
                 >
                   Compare Plans
@@ -73,33 +73,33 @@ const PricingPlans = () => {
         </div>
 
         {elitePlan && (
-          <article className="pricingPlanCard wideCard">
+          <article className={`${styles.pricingPlanCard} ${styles.wideCard}`}>
 
-            <div className="wideCardLeft">
+            <div className={styles.wideCardLeft}>
 
-              <span className="wideBadge">ENTERPRISE</span>
+              <span className={styles.wideBadge}>ENTERPRISE</span>
 
-              <h3 className="wideTitle">{elitePlan.name} Plan</h3>
+              <h3 className={styles.wideTitle}>{elitePlan.name} Plan</h3>
 
-              <p className="wideDesc">{elitePlan.description}</p>
+              <p className={styles.wideDesc}>{elitePlan.description}</p>
 
-              <div className="wideCardRight mobileOnlyHighlights">
-                <ul className="pricingPlanHighlights">
+              <div className={`${styles.wideCardRight} ${styles.mobileOnlyHighlights}`}>
+                <ul className={styles.pricingPlanHighlights}>
                   {elitePlan.highlights?.map((h, i) => (
-                    <li key={i} className="pricingPlanHighlight">
-                      <span className="checkDot" />
+                    <li key={i} className={styles.pricingPlanHighlight}>
+                      <span className={styles.checkDot} />
                       {h}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="wideButtons">
-                <a className="btn pricingPlanBtn" href={elitePlan.ctaHref || "#"}>
+              <div className={styles.wideButtons}>
+                <a className={`btn ${styles.wideBtn}`} href={elitePlan.ctaHref || "#"}>
                   {elitePlan.ctaLabel || "Book a strategy call"}
                 </a>
                 <button
-                  className="btnOutline"
+                  className={`c-btn ${styles.wideOutlineBtn}`}
                   onClick={function() { handleSeeComparison(3); }}
                 >
                   Compare Plans
@@ -108,11 +108,11 @@ const PricingPlans = () => {
 
             </div>
 
-            <div className="wideCardRight desktopOnlyHighlights">
-              <ul className="pricingPlanHighlights">
+            <div className={`${styles.wideCardRight} ${styles.desktopOnlyHighlights}`}>
+              <ul className={styles.pricingPlanHighlights}>
                 {elitePlan.highlights?.map((h, i) => (
-                  <li key={i} className="pricingPlanHighlight">
-                    <span className="checkDot" />
+                  <li key={i} className={styles.pricingPlanHighlight}>
+                    <span className={styles.checkDot} />
                     {h}
                   </li>
                 ))}

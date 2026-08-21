@@ -2,14 +2,6 @@
   position: relative;
   margin-top: 40px
 }
-.emptyState {
-  background: var(--card-800);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin-bottom: 16px;
-  color: var(--text-300);
-  text-align: center
-}
 .grid {
   display: grid;
   gap: 28px;

@@ -73,7 +73,6 @@ const PricingCompare = () => {
                     <span className={`${styles.badge} ${styles.cta}`}>
                       {p.badge}
                     </span>
-                    <span className={styles.popularStar} aria-hidden="true">★</span>
                   </>
                 )}
                 <div
@@ -182,6 +181,7 @@ const PricingCompare = () => {
 
             <Swiper
               modules={[Navigation, A11y]}
+              navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
               speed={500}
               slidesPerView={1}
               spaceBetween={0}
@@ -207,7 +207,6 @@ const PricingCompare = () => {
                         <span className={`${styles.badge} ${styles.cta}`}>
                           {p.badge}
                         </span>
-                        <span className={styles.popularStar} aria-hidden="true">★</span>
                       </>
                     )}
                     <div className={styles.planName}>{p.name}</div>

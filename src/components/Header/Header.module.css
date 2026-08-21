@@ -5,6 +5,7 @@
   right: 0;
   z-index: 1000;
   background: var(--palette-bg-950);
+  border-bottom: var(--border-width) solid var(--palette-border);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px)
 }
@@ -54,7 +55,7 @@
   color: var(--palette-text-primary);
   text-decoration: none;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   padding: 10px;
@@ -64,15 +65,40 @@
   transition: .3s all ease-in-out
 }
 .nav a:hover {
-  color: var(--palette-accent)
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px
+}
+.navLinkActive,
+.navLinkActive:hover {
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px
 }
 .hamburger {
   display: none;
-  background: 0 0;
-  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--palette-accent);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
   padding: 0;
   cursor: pointer;
-  color: var(--palette-text-primary)
+  color: var(--palette-border);
+  transition: transform .2s ease, box-shadow .2s ease
+}
+.hamburger:hover {
+  background: var(--tertiary);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop)
 }
 .hamburger span {
   display: none
@@ -117,8 +143,9 @@ body.menu-open .overlay {
   height: 100vh;
   width: 60%;
   max-width: 100%;
-  background: var(--palette-bg-900);
-  border-left: 1px solid var(--palette-border);
+  background: var(--palette-bg-950);
+  border-left: var(--border-width) solid var(--palette-border);
+  box-shadow: -8px 0 0 0 var(--palette-border);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -152,8 +179,8 @@ body.menu-open .overlay {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--palette-border)
+  padding-bottom: 24px;
+  border-bottom: var(--border-width) solid var(--palette-border)
 }
 .mobileLogo {
   width: 160px;
@@ -163,20 +190,29 @@ body.menu-open .overlay {
   display: -ms-grid;
   display: grid;
   gap: 0;
-  padding: 0;
-  border-top: 1px solid var(--palette-border);
-  border-bottom: 1px solid var(--palette-border)
+  padding: 0
 }
 .mobileNav a {
   color: var(--palette-text-primary);
   text-decoration: none;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 16px;
-  padding: 14px 2px;
-  border-bottom: 1px solid var(--palette-border-soft)
+  font-weight: 700;
+  font-size: 17px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--palette-border-soft);
+  transition: color .2s ease
 }
 .mobileNav a:last-child {
   border-bottom: none
+}
+.mobileNav a:hover,
+.mobileNav a:focus-visible {
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px
 }
 .mobileCta {
   margin-top: 0;
@@ -245,7 +281,7 @@ body.menu-open .overlay {
     display: none!important
   }
   .hamburger {
-    display: inline-block
+    display: flex
   }
   .brandLogo {
     max-width: 200px
@@ -255,20 +291,32 @@ body.menu-open .overlay {
   }
 }
 .menuIcon {
-  width: 44px;
-  height: 44px;
+  width: 24px;
+  height: 24px;
   display: block
 }
 .closeBtn {
-  background: 0 0;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
   padding: 0;
   cursor: pointer;
-  color: var(--palette-text-primary)
+  color: var(--palette-border);
+  transition: transform .2s ease, box-shadow .2s ease
+}
+.closeBtn:hover {
+  background: var(--quaternary);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop)
 }
 .closeIcon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   display: block
 }
 .mobileLogo {

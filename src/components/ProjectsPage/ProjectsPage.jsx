@@ -15,11 +15,11 @@ const ProjectsPage = () => {
 
   return (
     <section className={styles.projectsSection} id="projects">
+      <ProjectsHero
+        activeFilter={activeFilter}
+        onFilterChange={setActiveFilter}
+      />
       <div className="container">
-        <ProjectsHero
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-        />
         <ProjectsGrid projects={filteredProjects} />
         <ProjectsCTA />
       </div>

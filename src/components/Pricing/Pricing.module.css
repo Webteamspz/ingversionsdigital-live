@@ -1,49 +1,46 @@
 .pricingSection {
   background: var(--palette-bg-950);
   color: var(--palette-text-primary);
-  padding: 50px 0 40px
+  padding: 50px 0 60px
 }
 .heading {
   margin-bottom: 10px
 }
 .sub {
   max-width: 536px;
-  margin: 0 auto 75px;
+  margin: 0 auto 60px;
   text-align: center;
   color: var(--palette-text-secondary);
   line-height: 1.5
 }
 .tableWrap {
-  border-radius: var(--radius-md);
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  padding: 24px 24px;
   overflow: hidden
 }
 .row {
-  display: -ms-grid;
   display: grid;
   grid-template-columns: 280px repeat(4,1fr);
   height: 70px
 }
 .headerRow {
   background: 0 0;
-  margin-bottom: 20px
+  margin-bottom: 12px
 }
 .sectionTitle {
-  background: var(--palette-bg-800);
-  height: 40px
+  background: var(--palette-bg-700);
+  height: 44px
 }
 .cell {
   padding: 11px 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
-  min-height: 48px;
+  min-height: 53px;
   color: var(--palette-text-primary);
   font-weight: 400;
   font-size: 16px;
@@ -51,8 +48,6 @@
 }
 .cell:first-child {
   border-left: none;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
   padding: 6px 12px;
@@ -69,15 +64,11 @@
 }
 .planHead {
   position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   gap: 6px;
   min-height: 70px;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end
+  justify-content: flex-end;
+  padding: 0
 }
 .planName {
   font-weight: 400;
@@ -88,23 +79,28 @@
 }
 .premiumName {
   color: var(--palette-accent);
-  font-weight: 700;
-  font-style: Bold;
+  font-weight: 800;
   font-size: 18px;
   line-height: 26px;
   text-align: center
 }
 .planPrice {
   color: var(--palette-text-primary);
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 22px;
   text-align: center;
   vertical-align: middle
 }
 .planSpacer {
   min-height: 18px;
   line-height: 18px
+}
+.period {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--palette-text-secondary)
 }
 .cta {
   color: var(--palette-accent);
@@ -116,33 +112,32 @@
   vertical-align: middle
 }
 .cta:hover {
-  color: var(--palette-text-primary)
+  color: var(--palette-accent-strong)
 }
 .badge {
-  background: var(--palette-accent);
-  color: #fff;
-  border-radius: 2px;
-  padding: 2px 8px;
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: 999px;
+  padding: 5px 12px;
   font-weight: 800;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 14px;
   text-align: center;
+  letter-spacing: .06em;
   text-transform: uppercase
 }
 .mHead,
 .planHead {
-  position: relative;
-  padding: 0
+  position: relative
 }
 .mHead .badge,
 .planHead .badge {
   position: absolute;
-  left: 50%!important;
-  top: 0!important;
-  bottom: auto!important;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  left: 50% !important;
+  top: 0 !important;
+  bottom: auto !important;
+  transform: translateX(-50%) rotate(-3deg);
   z-index: 2
 }
 .spanner {
@@ -155,7 +150,7 @@
 }
 .labelCell {
   color: var(--palette-text-primary);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   text-align: left
@@ -164,13 +159,15 @@
 .planHead .cta {
   text-decoration: none;
   font-weight: 700;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content
+  width: max-content;
+  top: -15px !important
 }
 .rowLine {
   border-bottom: 1px solid var(--palette-border-soft);
   height: 50px
+}
+.sectionBlock:last-child .rowLine {
+  border-bottom: none;
 }
 .valueIconCircle {
   display: inline-flex;
@@ -179,96 +176,40 @@
   width: 28px;
   height: 28px;
   border-radius: var(--radius-full);
-  border: var(--border-width) solid var(--palette-border);
+  border: var(--border-width) solid var(--palette-border)
 }
 .popularStar {
   color: var(--tertiary);
   font-size: 20px;
   margin-left: 4px;
   display: inline-block;
-  transform: rotate(15deg);
-}
-.btn {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  width: 100%;
-  max-width: 162px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 14px 22px;
-  border-radius: var(--radius-full);
-  background: var(--palette-accent);
-  color: #fff;
-  text-decoration: none;
-  -webkit-transition: .3s all ease-in-out;
-  -o-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 14px;
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid var(--palette-accent);
-  cursor: pointer
-}
-.btn:hover {
-  background: var(--palette-hover-ghost);
-  color: var(--palette-accent)
-}
-.planCtaPlaceholder {
-  display: inline-block;
-  height: 42px
-}
-.footerCtas {
-  background: 0 0;
-  height: auto;
-  padding-top: 18px;
-  padding-bottom: 26px
-}
-.footerCtas .cell {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  min-height: 0
-}
-.mobileCtaBar {
-  padding: 16px 12px 22px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center
+  transform: rotate(15deg)
 }
 @media (max-width:1023.98px) {
   .sub {
-    margin: 0 auto 45px;
-
+    margin: 0 auto 40px
   }
   .tableWrap {
     display: none
   }
   .mobileCompare {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: minmax(150px,46%) 0 1fr;
     grid-template-columns: minmax(150px,46%) 1fr;
     gap: 0;
     position: relative;
-    margin-top: 8px
+    margin-top: 8px;
+    background: var(--palette-bg-800);
+    border: var(--border-width) solid var(--palette-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-pop-soft);
+    overflow: hidden
   }
   .labelsCol {
     border-right: none;
-    border-radius: var(--radius-md) 0 0 var(--radius-md);
-    overflow: hidden
+    min-width: 0
   }
   .labelsHeadSpacer {
-    height: 78px;
+    height: 98px;
     border-bottom: 1px solid var(--palette-border-soft)
   }
   .mSection {
@@ -277,26 +218,18 @@
   .mSectionTitle {
     color: var(--palette-accent);
     padding: 10px 20px;
-    font-weight: 600;
+    font-weight: 700;
     border-top: 1px solid var(--palette-border-soft);
-    background: var(--palette-bg-800);
-    min-height: 48px;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    background: var(--palette-bg-700);
+    min-height: 53px;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center
   }
   .mRow {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     padding: 12px 20px;
-    min-height: 48px;
+    min-height: 53px;
     border-top: 1px solid var(--palette-border-soft)
   }
   .mLabel {
@@ -305,12 +238,13 @@
   }
   .plansCol {
     position: relative;
-    border-left: none;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    border-left: 1px solid var(--palette-border-soft);
+    min-width: 0;
     overflow: hidden
   }
   .planSwiper {
-    padding-top: 0
+    padding-top: 0;
+    width: 100%
   }
   .slide {
     background: 0 0;
@@ -321,29 +255,26 @@
     padding: 16px 10px 14px;
     position: relative;
     border-bottom: 1px solid var(--palette-border-soft);
-    min-height: 78px
+    min-height: 98px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end
   }
   .valRow {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    min-height: 48px;
+    min-height: 53px;
     padding: 12px;
-    border-top: 1px solid var(--palette-border-soft);
-    border-left: 1px solid var(--palette-border-soft)
+    border-top: 1px solid var(--palette-border-soft)
   }
   .mValue {
     font-weight: 600
   }
   .navBtn {
     position: absolute;
-    top: 27px;
+    top: 38px;
     z-index: 5;
     padding: 0;
     margin: 0;
@@ -352,7 +283,8 @@
     width: auto;
     height: auto;
     line-height: 0;
-    cursor: pointer
+    cursor: pointer;
+    color: var(--palette-accent)
   }
   .prev {
     left: 12px
@@ -366,31 +298,27 @@
     height: 25px
   }
   .navBtn:hover .navIcon {
-    -webkit-filter: brightness(1.08);
-    filter: brightness(1.08)
+    filter: brightness(1.15)
   }
   .plansCol .mSectionTitle {
     color: transparent;
     padding: 12px;
-    min-height: 48px;
-    border-top: 1px solid var(--palette-border-soft);
-    border-left: 1px solid var(--palette-border-soft)
+    min-height: 53px;
+    border-top: 1px solid var(--palette-border-soft)
   }
-  .mobileCtaBar .btn {
-    width: 100%;
-    max-width: 320px;
-    text-align: center
+  .badge.cta,
+  .planHead .cta {
+    top: 4px !important
   }
 }
 @media (max-width:767.98px) {
   .pricingSection {
-  padding: 40px 0 
-}
-.sub {
-  font-size: 16px;
-}
+    padding: 40px 0
+  }
+  .sub {
+    font-size: 15px
+  }
   .mobileCompare {
-    -ms-grid-columns: minmax(150px,49%) 1fr;
     grid-template-columns: minmax(150px,49%) 1fr
   }
   .valRow {
@@ -400,7 +328,7 @@
   .mSectionTitle,
   .plansCol .mSectionTitle,
   .valRow {
-    min-height: 60px
+    min-height: 54px
   }
   .prev {
     left: 0
@@ -408,30 +336,26 @@
   .next {
     right: 0
   }
-  .mobileCtaBar {
-    padding: 18px 12px 26px
-  }
 }
 @media (max-width:580px) {
   .mobileCompare {
-    -ms-grid-columns: 55% 45%;
     grid-template-columns: 47% 53%
   }
   .mRow,
   .valRow {
-    padding: 8px 18px
+    padding: 8px 13px
   }
   .mSectionTitle,
   .plansCol .mSectionTitle {
     padding: 8px 18px;
-    font-size: 14px;
+    font-size: 13px
   }
   .mLabel {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.3
   }
   .mValue,
   .valRow {
-    font-size: 14px
+    font-size: 13px
   }
 }

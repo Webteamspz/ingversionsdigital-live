@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
-import logoDay from "/assets/logos/main-logo-day.png";
+import logoDay from "/assets/logos/main-logo-violet.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 import { ctaClick, dl } from "../../gtm";
@@ -188,10 +188,13 @@ const Header = () => {
       );
     }
 
+    const isActive = href === location.pathname;
+
     return (
       <Link
         key={index}
         to={href}
+        className={isActive ? styles.navLinkActive : undefined}
         data-cta={label}
         data-cta-loc="Header Nav"
         onClick={() => handleNavClick(label, "Header Nav", href)}

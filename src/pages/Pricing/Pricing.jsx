@@ -1,6 +1,5 @@
 import PricingHero from "../../components/PricingHero/PricingHero";
 import PricingPlans from "../../components/PricingPlans/PricingPlans";
-import PricingComparison from "../../components/PricingComparison/PricingComparison";
 import PricingFAQ from "../../components/PricingFAQ/PricingFAQ";
 
 import Layout from "../../layouts/Layouts";

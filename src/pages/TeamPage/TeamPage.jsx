@@ -18,14 +18,14 @@ const TeamPage = () => {
 
       <Layout header={1} footer={1}>
         <main className={styles.teamPage}>
-          <section className="container">
-            <TeamHero
-              eyebrow={teamCopy.hero.eyebrow}
-              heading={teamCopy.hero.heading}
-              pill={teamCopy.hero.pill}
-              subtext={teamCopy.hero.subtext}
-            />
+          <TeamHero
+            eyebrow={teamCopy.hero.eyebrow}
+            heading={teamCopy.hero.heading}
+            pill={teamCopy.hero.pill}
+            subtext={teamCopy.hero.subtext}
+          />
 
+          <section className="container">
             <Suspense fallback={null}>
               <TeamGrid members={teamMembers} />
             </Suspense>

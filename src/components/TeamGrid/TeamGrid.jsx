@@ -5,8 +5,8 @@ const TeamGrid = ({ members = [] }) => {
   return (
     <div className={styles.gridWrap}>
       <div className={styles.grid}>
-        {members.map((m) => (
-          <TeamCard key={m.id} member={m} />
+        {members.map((m, i) => (
+          <TeamCard key={m.id} member={m} index={i} />
         ))}
       </div>
     </div>

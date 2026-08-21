@@ -1,0 +1,368 @@
+.pricingPlans {
+  padding: 50px 0 10px
+}
+.pricingPlansGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto 40px auto
+}
+.pricingPlanCard {
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-top-width: 6px;
+  border-top-color: var(--palette-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  will-change: transform
+}
+.pricingPlansGrid .pricingPlanCard:nth-child(2) {
+  border-top-color: var(--quaternary)
+}
+.pricingPlansGrid .pricingPlanCard {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
+  width: 100%
+}
+.pricingPlanCard:hover {
+  transform: translate(-3px, -3px) rotate(-1deg);
+  box-shadow: var(--shadow-pop-hover)
+}
+.popularCard {
+  position: relative;
+  z-index: 1;
+  border-top-color: var(--secondary);
+  box-shadow: var(--shadow-pop-featured)
+}
+.pricingPlanCard.popularCard:hover {
+  transform: translate(-3px, -3px) rotate(-1deg);
+  box-shadow: var(--shadow-pop-featured)
+}
+.pricingPlanBadgeWrap {
+  margin-bottom: 14px
+}
+.pricingPlanBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: var(--light-badge-bg);
+  border: var(--border-width) solid var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--light-badge-text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase
+}
+.emptyBadge {
+  background: 0 0;
+  border: none
+}
+.pricingPlanName {
+  margin: 0 0 8px;
+  color: var(--palette-text-primary);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700
+}
+.pricingPlanPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px
+}
+.pricingPlanPrice {
+  color: var(--palette-text-primary);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1
+}
+.pricingPlanPeriod {
+  color: var(--palette-text-muted);
+  font-size: 14px;
+  font-weight: 500
+}
+.pricingPlanDesc {
+  margin: 0 0 24px;
+  color: var(--palette-text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 42px
+}
+.pricingPlanHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1
+}
+.pricingPlanHighlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--palette-text-secondary);
+  font-size: 14px
+}
+.checkDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--palette-border);
+  background: var(--palette-accent);
+  flex-shrink: 0
+}
+.cardButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto
+}
+.pricingPlanBtn,
+.compareBtn {
+  flex: 1;
+  width: 100%;
+  max-width: 100% !important;
+  padding: 14px 10px;
+  font-size: 14px;
+  white-space: nowrap
+}
+.wideCard {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  border-top-color: var(--tertiary);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 40px
+}
+.wideCardLeft {
+  flex: 1;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+.wideCardRight {
+  flex: 0 0 320px;
+  padding: 24px;
+  border-radius: var(--radius-md)
+}
+.wideCardRight .pricingPlanHighlights {
+  margin: 0;
+  flex-grow: 0
+}
+.wideCardRight .pricingPlanHighlight {
+  color: var(--palette-text-secondary)
+}
+.wideBadge {
+  max-width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: var(--light-badge-bg);
+  border: var(--border-width) solid var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--light-badge-text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+  text-transform: uppercase
+}
+.wideTitle {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--palette-text-primary);
+  margin: 0 0 14px
+}
+.wideDesc {
+  font-size: 16px;
+  color: var(--palette-text-secondary);
+  margin: 0 0 28px;
+  line-height: 1.6
+}
+.wideButtons {
+  display: flex;
+  gap: 16px
+}
+.wideBtn,
+.wideOutlineBtn {
+  width: auto;
+  min-width: 220px;
+  padding: 14px 24px;
+  font-size: 15px
+}
+.mobileOnlyHighlights {
+  display: none
+}
+.desktopOnlyHighlights {
+  display: block
+}
+@media (max-width:1023.98px) {
+  .pricingPlansGrid {
+    gap: 16px
+  }
+  .pricingPlanBadge {
+    padding: 8px 10px
+  }
+  .pricingPlansGrid .pricingPlanCard {
+    flex: 0 0 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+    padding: 24px 16px
+  }
+  .cardButtons {
+    flex-direction: column
+  }
+  .wideCard {
+    padding: 30px;
+    gap: 20px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start
+  }
+  .wideCardLeft {
+    max-width: 100%;
+    width: 100%
+  }
+  .mobileOnlyHighlights {
+    display: block;
+    width: 100%;
+    padding: 0;
+    flex: none;
+    margin: 0 0 20px 0
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    margin: 0
+  }
+  .desktopOnlyHighlights {
+    display: none
+  }
+  .wideButtons {
+    width: 100%
+  }
+  .wideBtn,
+  .wideOutlineBtn {
+    min-width: unset;
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14px
+  }
+  .wideDesc {
+    margin: 0 0 10px
+  }
+}
+@media (max-width:767.98px) {
+  .pricingPlans {
+    padding: 40px 0
+  }
+  .pricingPlansGrid {
+    padding: 0;
+    gap: 36px
+  }
+  .pricingPlansGrid .pricingPlanCard {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 20px 24px 32px 24px;
+    text-align: center;
+    align-items: center
+  }
+  .pricingPlanPriceRow {
+    justify-content: center
+  }
+  .pricingPlanDesc {
+    text-align: center;
+    margin: 0 0 16px;
+    min-height: auto
+  }
+  .pricingPlanHighlights {
+    width: fit-content;
+    margin: 0 auto 32px auto;
+    align-items: flex-start
+  }
+  .pricingPlanHighlight {
+    justify-content: flex-start;
+    text-align: left
+  }
+  .cardButtons {
+    width: 100%;
+    flex-direction: column
+  }
+  .pricingPlanCard:hover {
+    transform: none
+  }
+  .wideCard {
+    width: 100%;
+    margin: 0;
+    padding: 30px 24px;
+    align-items: center;
+    text-align: center;
+    gap: 20px
+  }
+  .wideCardLeft {
+    align-items: center
+  }
+  .wideTitle {
+    font-size: 26px
+  }
+  .wideDesc {
+    text-align: center
+  }
+  .mobileOnlyHighlights {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    width: fit-content;
+    margin: 0 auto 32px auto;
+    padding: 0;
+    align-items: flex-start
+  }
+  .mobileOnlyHighlights .pricingPlanHighlight {
+    justify-content: flex-start;
+    text-align: left
+  }
+  .wideButtons {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px
+  }
+  .wideBtn,
+  .wideOutlineBtn {
+    width: 100%;
+    max-width: 100%
+  }
+  .wideCardRight {
+    width: 100%;
+    padding: 20px;
+    flex: none;
+    margin: 0
+  }
+}
+@media (max-width:499.98px) {
+  .pricingPlanHighlights {
+    align-items: flex-start;
+    width: 100%
+  }
+  .mobileOnlyHighlights .pricingPlanHighlights {
+    align-items: flex-start;
+    width: 100%
+  }
+}

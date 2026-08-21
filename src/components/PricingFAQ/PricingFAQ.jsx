@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { pricingFaq } from "../../data/pricingdata";
-import "./PricingFAQ.css";
+import styles from "./PricingFAQ.module.css";
 
 const PricingFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -10,8 +10,8 @@ const PricingFAQ = () => {
     itemRefs.current.forEach((itemEl, idx) => {
       if (!itemEl) return;
 
-      const body = itemEl.querySelector(".accordionItemBody");
-      const content = itemEl.querySelector(".accordionItemBodyContent");
+      const body = itemEl.querySelector(`.${styles.accordionItemBody}`);
+      const content = itemEl.querySelector(`.${styles.accordionItemBodyContent}`);
       if (!body || !content) return;
 
       if (idx === openIndex) {
@@ -27,28 +27,28 @@ const PricingFAQ = () => {
   };
 
   return (
-    <section className="faqWrapper" id="pricingFaq">
+    <section className={styles.faqWrapper} id="pricingFaq">
       <div className="container">
         <h3>{pricingFaq.title}</h3>
 
-        <div className="accordion">
+        <div className={styles.accordion}>
           {pricingFaq.items.map((item, idx) => (
             <div
               key={item.q}
-              className={`accordionItem ${openIndex === idx ? "open" : ""}`}
+              className={`${styles.accordionItem} ${openIndex === idx ? styles.open : ""}`}
               ref={(el) => (itemRefs.current[idx] = el)}
             >
               <button
                 type="button"
-                className="accordionItemHeader"
+                className={styles.accordionItemHeader}
                 onClick={() => handleToggle(idx)}
               >
                 <span>{item.q}</span>
-                <div className="accordionItemIcon" aria-hidden="true" />
+                <div className={styles.accordionItemIcon} aria-hidden="true" />
               </button>
 
-              <div className="accordionItemBody">
-                <div className="accordionItemBodyContent">{item.a}</div>
+              <div className={styles.accordionItemBody}>
+                <div className={styles.accordionItemBodyContent}>{item.a}</div>
               </div>
             </div>
           ))}

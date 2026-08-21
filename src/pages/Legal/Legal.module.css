@@ -1,14 +1,40 @@
 .legalPage {
-  padding-top: 100px;
   padding-bottom: 80px
 }
-.legalHero {
-  width: 100%;
-  padding: 28px 0 0;
-  overflow: hidden;
-  margin-bottom: 40px;
+.legalHeroWrap {
+  padding: 160px 0 60px;
   position: relative;
-  isolation: isolate
+  isolation: isolate;
+  text-align: center
+}
+.legalHeroDecor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none
+}
+.legalHeroDecor:before {
+  content: '';
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: var(--quaternary);
+  opacity: .3
+}
+.legalHeroDecor:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: .5
+}
+.legalHero {
+  width: 100%
 }
 .legalTag {
   display: inline-flex;
@@ -39,8 +65,9 @@
   color: var(--palette-text-secondary);
   font-size: 17px;
   line-height: 1.7;
-  width: 100%;
-  margin: 0
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center
 }
 .legalSections {
   display: grid;
@@ -119,7 +146,9 @@
   gap: 6px
 }
 .legalPage p {
-  margin: 0
+  margin: 0;
+  width: 100%;
+  max-width: 100%
 }
 .legalPage a {
   color: var(--palette-accent);
@@ -184,11 +213,10 @@
 }
 @media (max-width:1023.98px) {
   .legalPage {
-    padding-top: 90px;
     padding-bottom: 60px
   }
-  .legalHero {
-    padding: 36px 0 0
+  .legalHeroWrap {
+    padding: 130px 0 50px
   }
   .legalPage h1 {
     font-size: 32px
@@ -206,12 +234,10 @@
 }
 @media (max-width:767.98px) {
   .legalPage {
-    padding-top: 80px;
     padding-bottom: 48px
   }
-  .legalHero {
-    padding: 28px 0 0;
-    margin-bottom: 28px
+  .legalHeroWrap {
+    padding: 120px 0 40px
   }
   .legalPage h1 {
     font-size: 26px

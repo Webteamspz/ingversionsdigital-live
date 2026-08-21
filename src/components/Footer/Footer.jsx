@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
-import logoDay from "/assets/logos/main-logo-day.png";
-import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "/assets/logos/main-logo.png";
 
 // lucide-react ships no brand/logo marks (by design), so the social glyphs
 // stay as local brand-accurate SVGs, wired through the same key -> component
@@ -47,6 +46,17 @@ const Footer = () => {
 
   return (
     <footer className={styles.siteFooter} id="footer">
+      <svg
+        className={styles.footerWave}
+        viewBox="0 0 1920 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,0 L1920,0 L1920,30 C1400,110 700,-10 0,70 Z"
+          style={{ fill: "var(--palette-bg-950)" }}
+        />
+      </svg>
       <div className="container">
         
         {/* Main Multi-Column Area */}
@@ -57,7 +67,7 @@ const Footer = () => {
             <Link to="/" className={styles.footerLeft}>
               {f?.logo && (
                 <img
-                  src={logoDay}
+                  src={logo}
                   alt={`${f.company} logo`}
                   className={styles.footerLogo}
                 />
@@ -66,27 +76,6 @@ const Footer = () => {
             <p className={styles.companyBio}>
               {f.bio || "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development."}
             </p>
-            
-            {/* Follow Us Section */}
-            <div className={`${styles.linkGroup} ${styles.brandSocials}`}>
-              <div className={styles.footSocials}>
-                {f.socials.map((s, i) => {
-                  const Icon = SOCIAL_ICONS[s.icon];
-                  return (
-                    <a
-                      key={i}
-                      href={s.href}
-                      aria-label={s.name}
-                      className={styles.socialBtn}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {Icon && <Icon size={20} strokeWidth={2.5} />}
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
           </div>
 
           {/* Columns 2 & 3: Links Grid */}
@@ -128,32 +117,30 @@ const Footer = () => {
               </div>
             ))}
 
-            {/* Column: Contact Info */}
-            <div className={styles.linkGroup}>
-              
-              <a href={`mailto:${f.email}`} className={styles.footContact}>
-                <Mail size={20} strokeWidth={2.5} />
-                <span>{f.email}</span>
-              </a>
-
-              <a href={`tel:${f.phone}`} className={styles.footContact}>
-                <Phone size={20} strokeWidth={2.5} />
-                <span>{f.phone}</span>
-              </a>
-
-              <div className={styles.footAddress}>
-                <MapPin size={20} strokeWidth={2.5} />
-                <span className={styles.addressText}>{f.address}</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
-        {/* Bottom Area: Copyright */}
+        {/* Bottom Area: Copyright + Socials */}
         <div className={styles.footerBottomRow}>
           <div className={styles.copyright}>
             © {f.year} {f.company}. All rights reserved.
+          </div>
+          <div className={styles.footSocials}>
+            {f.socials.map((s, i) => {
+              const Icon = SOCIAL_ICONS[s.icon];
+              return (
+                <a
+                  key={i}
+                  href={s.href}
+                  aria-label={s.name}
+                  className={styles.socialBtn}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {Icon && <Icon size={18} strokeWidth={2.5} />}
+                </a>
+              );
+            })}
           </div>
         </div>
 

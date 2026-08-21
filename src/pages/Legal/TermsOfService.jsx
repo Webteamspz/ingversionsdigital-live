@@ -18,18 +18,24 @@ const TermsOfService = () => (
       path="/terms-of-service"
     />
     <Layout header={1} footer={1}>
-      <div className={`container ${styles.legalPage}`}>
-        <div className={styles.legalHero}>
-          <span className={styles.legalTag}>Legal</span>
-          <h1>Terms of Service</h1>
-          <p className={styles.legalIntro}>
-            These terms govern your use of ingversionsdigital.com and any
-            services described on it. By browsing this site or engaging
-            Ingversions Digital ("we", "us", "our"), you agree to the terms
-            below.
-          </p>
+      <div className={styles.legalPage}>
+        <div className={styles.legalHeroWrap}>
+          <div className={styles.legalHeroDecor} aria-hidden="true" />
+          <div className="container">
+            <div className={styles.legalHero}>
+              <span className={styles.legalTag}>Legal</span>
+              <h1>Terms of Service</h1>
+              <p className={styles.legalIntro}>
+                These terms govern your use of ingversionsdigital.com and any
+                services described on it. By browsing this site or engaging
+                Ingversions Digital ("we", "us", "our"), you agree to the terms
+                below.
+              </p>
+            </div>
+          </div>
         </div>
 
+        <div className="container">
         <div className={styles.legalSections}>
           <div className={styles.legalSection}>
             <div className={styles.legalSectionHead}>
@@ -189,6 +195,7 @@ const TermsOfService = () => (
               </p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </Layout>

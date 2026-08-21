@@ -10,31 +10,24 @@
   display: flex;
   flex-direction: column;
   background: var(--palette-bg-800);
-  border-radius: 14px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
   overflow: hidden;
-  border: 1px solid var(--palette-border-soft);
-  transition: transform .25s ease,border-color .25s ease;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1);
   position: relative;
   isolation: isolate
 }
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.45);
-  opacity: 0;
-  transition: opacity .25s ease;
-  pointer-events: none;
-  z-index: 2
-}
-.card:hover::after {
-  opacity: 1
+.card:hover {
+  transform: translate(-3px,-3px) rotate(-1deg);
+  box-shadow: var(--shadow-pop-hover)
 }
 .imageWrap {
   width: 100%;
   aspect-ratio: 1/1.05;
   overflow: hidden;
   background: var(--palette-bg-700);
+  border-bottom: var(--border-width) solid var(--palette-border);
   position: relative;
   cursor: pointer
 }
@@ -52,15 +45,16 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(0,0,0,.7);
-  color: #fff;
+  background: var(--palette-bg-800);
+  color: var(--palette-border);
   font-size: 11px;
-  padding: 4px 10px;
+  font-weight: 700;
+  padding: 5px 12px;
   border-radius: 20px;
+  border: var(--border-width) solid var(--palette-border);
   opacity: 0;
   transition: opacity .3s ease;
   pointer-events: none;
-  border: 1px solid rgba(255,255,255,.1);
   z-index: 3
 }
 .imageWrap:hover .zoomHint {
@@ -80,17 +74,24 @@
   min-width: 0
 }
 .category {
-  display: block;
-  color: var(--palette-accent);
-  font-size: 12px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--light-badge-bg);
+  color: var(--light-badge-text);
+  border: 1px solid var(--palette-border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .02em;
   text-transform: capitalize;
-  margin-bottom: 4px
+  margin-bottom: 8px
 }
 .title {
   color: var(--palette-text-primary);
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -98,9 +99,18 @@
 }
 .arrow {
   flex-shrink: 0;
-  color: var(--palette-accent);
-  font-size: 20px;
-  line-height: 1
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
+  background: var(--tertiary);
+  transition: transform .2s ease
+}
+.cardFooter:hover .arrow {
+  transform: scale(1.1) rotate(-8deg)
 }
 .empty {
   grid-column: 1/-1;
@@ -117,7 +127,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,.7);
+  background: var(--palette-overlay);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -129,19 +139,19 @@
 .modalContent {
   position: relative;
   width: 65%;
-  background: var(--palette-bg-700);
+  background: var(--palette-bg-800);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
+  border: var(--border-width) solid var(--palette-border);
   box-shadow: var(--shadow-pop-soft)
 }
 .closeBtn {
   position: absolute;
   top: 12px;
   right: 15px;
-  background: rgba(0,0,0,.6);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.2);
+  background: var(--secondary);
+  color: var(--palette-border);
+  border: var(--border-width) solid var(--palette-border);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -154,7 +164,7 @@
   transition: background .2s ease,transform .2s ease
 }
 .closeBtn:hover {
-  background: var(--palette-accent);
+  background: var(--quaternary);
   transform: scale(1.1)
 }
 .modalSingleImage {
@@ -162,13 +172,13 @@
   max-height: 75vh;
   object-fit: contain;
   display: block;
-  background: var(--palette-bg-700);
+  background: var(--palette-bg-800);
   margin: 0 auto
 }
 .modalCaption {
   padding: 16px 24px;
-  background: var(--palette-bg-700);
-  border-top: 1px solid rgba(255,255,255,.05);
+  background: var(--palette-bg-800);
+  border-top: var(--border-width) solid var(--palette-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,20 +186,21 @@
 }
 .modalCaption h4 {
   color: var(--palette-text-primary);
+  font-family: "Outfit", system-ui, sans-serif;
   margin: 0;
   font-size: 18px
 }
 .modalCaption span {
   color: var(--palette-accent);
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 500;
   text-align: right
 }
 .sliderContainer {
   position: relative;
   max-width: max-content;
   margin: 0 auto;
-  background: var(--palette-bg-700);
+  background: var(--palette-bg-800);
   user-select: none;
   display: flex
 }
@@ -238,8 +249,7 @@
 .sliderLine {
   width: 2px;
   height: 100%;
-  background: var(--palette-bg-800);
-  box-shadow: 0 0 5px rgba(0,0,0,.5)
+  background: var(--palette-border);
 }
 .sliderButton {
   position: absolute;
@@ -248,29 +258,28 @@
   transform: translate(-50%,-50%);
   width: 48px;
   height: 48px;
-  background: var(--palette-bg-700);
-  border: 3px solid var(--palette-border);
+  background: var(--palette-accent);
+  border: var(--border-width) solid var(--palette-border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: grab;
   gap: 4px;
-  color: var(--palette-text-primary);
+  color: var(--palette-border);
   font-size: 12px;
   font-weight: 700;
-  box-shadow: 0 4px 10px rgba(0,0,0,.4)
+  box-shadow: var(--shadow-pop)
 }
 .sliderLabel {
   position: absolute;
   top: 16px;
-  background: rgba(0,0,0,.7);
-  color: #fff;
+  background: var(--palette-border);
+  color: var(--palette-bg-800);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 4px 12px;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,.15);
   z-index: 3;
   pointer-events: none;
   transition: opacity 80ms linear
@@ -302,6 +311,9 @@
     grid-template-columns: repeat(1,1fr);
     gap: 20px
   }
+  .card:hover {
+    transform: none
+  }
   .viewMoreBtn {
     display: flex;
     align-items: center;
@@ -310,14 +322,19 @@
     width: 100%;
     margin-top: 32px;
     padding: 15px 20px;
-    background: 0 0;
-    border: 1px solid var(--palette-accent);
-    color: var(--palette-accent);
-    font-weight: 600;
+    background: var(--palette-bg-800);
+    border: var(--border-width) solid var(--palette-border);
+    color: var(--palette-text-primary);
+    font-weight: 700;
     font-size: 15px;
     border-radius: var(--radius-full);
+    box-shadow: var(--shadow-pop-soft);
     cursor: pointer;
-    transition: background .2s ease,color .2s ease
+    transition: transform .2s ease, box-shadow .2s ease
+  }
+  .viewMoreBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-pop-hover)
   }
   .chevron {
     font-size: 12px
@@ -355,6 +372,7 @@
   }
   .modalCaption {
     align-items: flex-start;
+    flex-direction: column;
     gap: 6px;
     padding: 16px
   }
@@ -362,36 +380,11 @@
     text-align: left
   }
   .modalCaption h4 {
-    color: var(--palette-text-primary);
-    margin: 0;
     font-size: 16px
   }
-  .modalCaption span {
-    color: var(--palette-accent);
-    font-size: 12px;
-    font-weight: 500;
-    text-align: right
-  }
-  .category {
-    display: block;
-    color: var(--palette-accent);
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: capitalize;
-    margin-bottom: 4px
-  }
-  .title {
-    color: var(--palette-text-primary);
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
-  }
   .imageWrap {
-  aspect-ratio: 6/4;
-}
+    aspect-ratio: 6/4;
+  }
 }
 @media (max-width:499.98px) {
   .modalCaption {

@@ -17,18 +17,24 @@ const PrivacyPolicy = () => (
       path="/privacy-policy"
     />
     <Layout header={1} footer={1}>
-      <div className={`container ${styles.legalPage}`}>
-        <div className={styles.legalHero}>
-          <span className={styles.legalTag}>Legal</span>
-          <h1>Privacy Policy</h1>
-          <p className={styles.legalIntro}>
-            Ingversions Digital ("we", "us", "our") is a Shopify CRO agency
-            based in Surat, India. This policy explains what information we
-            collect through ingversionsdigital.com, why we collect it, and
-            the choices you have — written in plain language, not legalese.
-          </p>
+      <div className={styles.legalPage}>
+        <div className={styles.legalHeroWrap}>
+          <div className={styles.legalHeroDecor} aria-hidden="true" />
+          <div className="container">
+            <div className={styles.legalHero}>
+              <span className={styles.legalTag}>Legal</span>
+              <h1>Privacy Policy</h1>
+              <p className={styles.legalIntro}>
+                Ingversions Digital ("we", "us", "our") is a Shopify CRO agency
+                based in Surat, India. This policy explains what information we
+                collect through ingversionsdigital.com, why we collect it, and
+                the choices you have — written in plain language, not legalese.
+              </p>
+            </div>
+          </div>
         </div>
 
+        <div className="container">
         <div className={styles.legalSections}>
           <div className={styles.legalSection}>
             <div className={styles.legalSectionHead}>
@@ -224,6 +230,7 @@ const PrivacyPolicy = () => (
               </p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </Layout>
