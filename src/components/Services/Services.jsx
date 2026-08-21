@@ -14,6 +14,7 @@ const SERVICE_ICONS = {
   wordpress: Globe, "landing-page": LayoutTemplate, lead: Users,
 };
 const SERVICE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const VISIBLE_SERVICES = data.services.list.filter((service) => service.icon !== "lead");
 
 const ServiceIcon = ({ iconKey, index, title }) => {
   const Icon = SERVICE_ICONS[iconKey];
@@ -52,7 +53,7 @@ const Services = () => {
             className={styles.servicesSwiper}
             autoplay={true}
           >
-            {data.services.list.map((s, i) => (
+            {VISIBLE_SERVICES.map((s, i) => (
               <SwiperSlide key={i}>
                 <div className={`${styles.card} ${styles.service}`}>
                   <span
@@ -69,7 +70,7 @@ const Services = () => {
           </Swiper>
         ) : (
           <div className={styles.services}>
-            {data.services.list.map((s, i) => (
+            {VISIBLE_SERVICES.map((s, i) => (
               <Reveal key={i} delay={i * 80} className={`${styles.card} ${styles.service}`}>
                 <span
                   className={styles.cornerFold}

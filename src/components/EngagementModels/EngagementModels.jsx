@@ -31,6 +31,11 @@ const EngagementModels = () => {
         <div className="engagement-cards-grid">
           {list.map((model, index) => (
             <div className="engagement-card" key={index}>
+              <span
+                className="engagement-corner-fold"
+                style={{ background: ENGAGEMENT_COLORS[model.icon] }}
+                aria-hidden="true"
+              />
               <div className="engagement-icon-wrapper" style={{ background: ENGAGEMENT_COLORS[model.icon] }}>
                 {(() => {
                   const Icon = ENGAGEMENT_ICONS[model.icon];

@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import data from "../../data/sitedata";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
@@ -9,12 +10,9 @@ const HeroV2 = () => {
   return (
     <section className={styles.hero} id="hero" aria-labelledby="hero-heading">
       <div className={styles.grid} aria-hidden="true" />
-      <span className={`${styles.shape} ${styles.yellowShape}`} aria-hidden="true" />
-      <span className={`${styles.shape} ${styles.pinkShape}`} aria-hidden="true" />
-      <span className={`${styles.shape} ${styles.mintShape}`} aria-hidden="true" />
       <div className="container">
         <div className={styles.content}>
-          <p className={styles.eyebrow}>Conversion-focused digital experiences</p>
+          <p className={styles.eyebrow}>Shopify CRO &amp; A/B testing agency</p>
 
           <h1 id="hero-heading" className={styles.title}>
             <span>{heading}</span>{" "}
@@ -26,7 +24,7 @@ const HeroV2 = () => {
           <div className={styles.actions}>
             <a className={styles.primaryAction} href={cta.href}>
               {cta.label}
-              <span aria-hidden="true">&#8594;</span>
+              <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
             </a>
             <a className={styles.secondaryAction} href="/projects">
               View projects

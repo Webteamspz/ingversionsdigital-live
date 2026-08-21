@@ -1,5 +1,5 @@
 .logosSection {
-  padding: 65px 0 40px;
+  padding: 65px 0 48px;
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg,rgb(246 246 246 / 0) 0,var(--palette-bg-950) 100%)
@@ -24,17 +24,12 @@
 }
 .marqueeGroup img {
   width: 100%;
-  max-width: 249px;
+  max-width: 300px;
   -webkit-filter: brightness(0) saturate(100%);
   filter: brightness(0) saturate(100%);
-  opacity: .82;
+  opacity: 1;
   display: block;
   margin: 0 auto
-}
-.marqueeGroup img:hover {
-  -webkit-filter: brightness(0) saturate(100%);
-  filter: brightness(0) saturate(100%);
-  opacity: 1
 }
 @-webkit-keyframes scroll-left {
   0% {

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { ArrowRight } from 'lucide-react';
 import data from "../../data/sitedata";
 
 import 'swiper/css';
@@ -16,10 +17,14 @@ const BlogSlider = () => {
     <section className="blog-section">
       <div className="container blog-container">
         <div className="blog-section-header">
-          <h2 className="startedTitle">{data.blog.heading}</h2>
+          <div className="blog-heading-group">
+            <span className="blog-eyebrow">From the blog</span>
+            <h2 className="startedTitle">{data.blog.heading}</h2>
+          </div>
 
           <a href={data.blog.seeMoreUrl} className="see-more-link">
             {data.blog.seeMoreText}
+            <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
           </a>
         </div>
 
@@ -70,15 +75,17 @@ const BlogSlider = () => {
                 <div className="blog-card">
                   <div className="img-wrapper">
                     <img src={article.image} alt={article.title} className="blog-image" loading="lazy" />
-                    <span className="blog-category">{article.category}</span>
+                    <span className="blog-date-badge">{article.date}</span>
                   </div>
                   <div className="blog-content">
                     <h3 className="blog-title">{article.title}</h3>
                     <p className="blog-desc">{article.desc}</p>
-                    <div className="blog-meta">
-                      <span className="blog-date">{article.date}</span>
-                      <span className="blog-read-time">{article.readTime}</span>
-                    </div>
+                    <span className="blog-read-link">
+                      Read article
+                      <span className="blog-read-icon" aria-hidden="true">
+                        <ArrowRight size={16} strokeWidth={2.5} />
+                      </span>
+                    </span>
                   </div>
                 </div>
               </a>

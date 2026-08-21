@@ -4,18 +4,15 @@ import data from "../../data/sitedata";
 import styles from "./Reviews.module.css";
 import Reveal from "../Reveal/Reveal";
 
-const AVATAR_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 const CARD_TILTS = [-2, 2, -1.5, 1.5, -2.5, 2.5];
-
-const getInitials = (name) =>
-  name
-    .replace(/\./g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
+const REVIEWER_AVATARS = [
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=85",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=85",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=85",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&h=160&q=85",
+  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=160&h=160&q=85",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&h=160&q=85",
+];
 
 export default function Reviews() {
   const sectionRef = useRef(null);
@@ -39,13 +36,12 @@ export default function Reviews() {
                   <span className={styles.reviewTail} aria-hidden="true" />
                 </div>
                 <div className={styles.reviewerRow}>
-                  <span
+                  <img
                     className={styles.reviewAvatar}
-                    style={{ background: AVATAR_COLORS[i % AVATAR_COLORS.length] }}
-                    aria-hidden="true"
-                  >
-                    {getInitials(t.reviewer)}
-                  </span>
+                    src={REVIEWER_AVATARS[i % REVIEWER_AVATARS.length]}
+                    alt={`${t.reviewer}, ${t.reviewerRole}`}
+                    loading="lazy"
+                  />
                   <div>
                     <div className={styles.reviewerName}>{t.reviewer}</div>
                     <div className={styles.reviewerRole}>{t.reviewerRole}</div>

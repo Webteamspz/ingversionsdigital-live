@@ -192,13 +192,13 @@ html {
 }
 section > div[id],
 section[id] {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 98px;
   overflow: hidden
 }
 @media (max-width:991px) {
   section > div[id],
   section[id] {
-    scroll-margin-top: 72px
+    scroll-margin-top: 90px
   }
 }
 .btn-hero,

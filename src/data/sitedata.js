@@ -16,9 +16,9 @@ export default {
     },
   },
   hero: {
-    heading: "From idea to",
-    pill: "Impact",
-    sub: "CRO-Driven Websites That Work for You",
+    heading: "Find What Works.",
+    pill: "Scale What Converts.",
+    sub: "We run structured A/B tests to uncover what truly drives conversions, then scale those wins across your Shopify store for lasting revenue growth.",
     cta: {
       label: "Book A Call",
       href: "#contact",
@@ -241,7 +241,7 @@ export default {
       },
       {
         reviewer: "Oliver K",
-        reviewerRole: "Vice Prescient",
+        reviewerRole: "Vice President",
         quote:
           "They rebuilt our homepage and PDPs with clean design and better UX. Our bounce rate dropped noticeably",
       },
