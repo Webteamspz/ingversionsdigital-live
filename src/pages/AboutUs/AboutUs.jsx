@@ -4,8 +4,8 @@ import AboutExpertise from '../../components/AboutExpertise/AboutExpertise';
 import AboutTrack from '../../components/AboutTrack/AboutTrack';
 import AboutValues from '../../components/AboutValues/AboutValues';
 import AboutCta from '../../components/AboutCta/AboutCta';
-import './AboutUs.css';
-import Layout from '../../layouts/Layouts';
+import styles from './AboutUs.module.css';
+import Layout from '../../Layouts/Layouts';
 import SEO from '../../components/SEO/SEO';
 
 const AboutUs = () => {
@@ -17,7 +17,7 @@ const AboutUs = () => {
         path="/about-us"
       />
       <Layout header={1} footer={1}>
-        <main className="aboutPage">
+        <main className={styles.aboutPage}>
           <AboutHero />
           <AboutStory />
           <AboutExpertise />

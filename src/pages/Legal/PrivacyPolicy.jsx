@@ -5,10 +5,9 @@ import {
   IconList,
   IconCookie,
   IconUsers,
-  IconMail,
   IconRefresh,
 } from "./LegalIcons";
-import "./Legal.css";
+import styles from "./Legal.module.css";
 
 const PrivacyPolicy = () => (
   <>
@@ -18,12 +17,11 @@ const PrivacyPolicy = () => (
       path="/privacy-policy"
     />
     <Layout header={1} footer={1}>
-      <div className="container legalPage">
-        <div className="legalHero">
-          <span className="legalTag">Legal</span>
+      <div className={`container ${styles.legalPage}`}>
+        <div className={styles.legalHero}>
+          <span className={styles.legalTag}>Legal</span>
           <h1>Privacy Policy</h1>
-          <p className="legalUpdated">Last updated: August 14, 2026</p>
-          <p className="legalIntro">
+          <p className={styles.legalIntro}>
             Ingversions Digital ("we", "us", "our") is a Shopify CRO agency
             based in Surat, India. This policy explains what information we
             collect through ingversionsdigital.com, why we collect it, and
@@ -31,13 +29,15 @@ const PrivacyPolicy = () => (
           </p>
         </div>
 
-        <div className="legalSections">
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconList />
-            </div>
-            <div className="legalSectionBody">
+        <div className={styles.legalSections}>
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconList />
+              </div>
               <h2 id="information-we-collect">Information We Collect</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <ul>
                 <li>
                   <strong>Information you give us:</strong> name, email,
@@ -60,12 +60,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconCookie />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconCookie />
+              </div>
               <h2 id="cookies-tracking">Cookies &amp; Tracking Technologies</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 We use cookies and similar technologies to understand how
                 visitors use this site and to keep it running smoothly. The
@@ -89,12 +91,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconShield />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconShield />
+              </div>
               <h2 id="how-we-use-it">How We Use It</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <ul>
                 <li>To respond to inquiries and schedule strategy calls.</li>
                 <li>To scope, propose, and deliver services you request.</li>
@@ -104,12 +108,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconUsers />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconUsers />
+              </div>
               <h2 id="sharing">Sharing</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 We do not sell your personal information. We share it only
                 with trusted third-party tools that help us operate this
@@ -128,12 +134,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconShield />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconShield />
+              </div>
               <h2 id="data-retention">Data Retention</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 We keep inquiry and project information for as long as
                 needed to respond to you, deliver services, and meet
@@ -144,12 +152,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconUsers />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconUsers />
+              </div>
               <h2 id="your-rights">Your Rights</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Wherever you're located, you can request access to,
                 correction of, or deletion of your personal data at any
@@ -163,12 +173,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconShield />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconShield />
+              </div>
               <h2 id="childrens-privacy">Children's Privacy</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 This site and our services are intended for businesses and
                 professionals. We don't knowingly collect personal
@@ -179,12 +191,14 @@ const PrivacyPolicy = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconRefresh />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconRefresh />
+              </div>
               <h2 id="changes">Changes to This Policy</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 We may update this policy as our tools or practices change.
                 The "Last updated" date above always reflects the current
@@ -194,24 +208,19 @@ const PrivacyPolicy = () => (
           </div>
         </div>
 
-        <hr className="legalDivider" />
+        <hr className={styles.legalDivider} />
 
-        <div className="legalContactCard">
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconMail />
-            </div>
-            <div className="legalSectionBody">
+        <div className={styles.legalContactCard}>
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
               <h2 id="contact">Contact</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Questions about this policy or your data? Reach us at{" "}
                 <a href="mailto:ingversionsdigital@gmail.com">
                   ingversionsdigital@gmail.com
-                </a>{" "}
-                or{" "}
-                <a href="tel:+918866167750">+91 88661 67750</a>. We're based
-                at 2599, Shiv Krupa Association, Kansad, Sachin, Surat
-                394230, India.
+                </a>
               </p>
             </div>
           </div>

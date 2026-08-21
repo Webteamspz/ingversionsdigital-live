@@ -5,6 +5,7 @@
   --palette-bg-800: #FFFFFF;   /* card/panel bg */
   --palette-bg-700: #F1F5F9;   /* elevated surface */
   --palette-bg-600: #E2E8F0;   /* highest-elevation surface (table header rows) */
+  --palette-tint-blue: #EEF2FA;   /* pale section-band tint */
 
   /* Text */
   --palette-text-primary: #1E293B;

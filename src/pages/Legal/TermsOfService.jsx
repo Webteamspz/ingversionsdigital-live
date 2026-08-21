@@ -6,10 +6,9 @@ import {
   IconCopyright,
   IconAlert,
   IconScale,
-  IconMail,
   IconRefresh,
 } from "./LegalIcons";
-import "./Legal.css";
+import styles from "./Legal.module.css";
 
 const TermsOfService = () => (
   <>
@@ -19,12 +18,11 @@ const TermsOfService = () => (
       path="/terms-of-service"
     />
     <Layout header={1} footer={1}>
-      <div className="container legalPage">
-        <div className="legalHero">
-          <span className="legalTag">Legal</span>
+      <div className={`container ${styles.legalPage}`}>
+        <div className={styles.legalHero}>
+          <span className={styles.legalTag}>Legal</span>
           <h1>Terms of Service</h1>
-          <p className="legalUpdated">Last updated: August 14, 2026</p>
-          <p className="legalIntro">
+          <p className={styles.legalIntro}>
             These terms govern your use of ingversionsdigital.com and any
             services described on it. By browsing this site or engaging
             Ingversions Digital ("we", "us", "our"), you agree to the terms
@@ -32,13 +30,15 @@ const TermsOfService = () => (
           </p>
         </div>
 
-        <div className="legalSections">
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconDocument />
-            </div>
-            <div className="legalSectionBody">
+        <div className={styles.legalSections}>
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconDocument />
+              </div>
               <h2 id="services">Services &amp; Engagement</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Content on this site — including pricing plans, case
                 studies, and service descriptions — is informational and
@@ -50,12 +50,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconList />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconList />
+              </div>
               <h2 id="use-of-site">Use of This Site</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <ul>
                 <li>Don't misuse this site or attempt to disrupt, overload, or gain unauthorized access to it.</li>
                 <li>Don't scrape, copy, or reuse site content for unlawful or unauthorized commercial purposes.</li>
@@ -64,12 +66,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconScale />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconScale />
+              </div>
               <h2 id="payments">Payments &amp; Refunds</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Payment terms, invoicing schedules, and any refund or
                 cancellation conditions for paid engagements are set out in
@@ -80,12 +84,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconCopyright />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconCopyright />
+              </div>
               <h2 id="intellectual-property">Intellectual Property</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Site content, branding, and case-study materials belong to
                 Ingversions Digital or the respective client, unless stated
@@ -96,12 +102,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconList />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconList />
+              </div>
               <h2 id="third-party-links">Third-Party Links &amp; Tools</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 This site links to or embeds third-party services (for
                 example, Calendly for scheduling and our blog subdomain).
@@ -111,12 +119,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconAlert />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconAlert />
+              </div>
               <h2 id="liability">Limitation of Liability</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 This site is provided "as is," without warranties of any
                 kind. To the fullest extent permitted by law, Ingversions
@@ -128,12 +138,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconScale />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconScale />
+              </div>
               <h2 id="governing-law">Governing Law</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 These terms are governed by the laws of India. Any disputes
                 arising from your use of this site will be subject to the
@@ -143,12 +155,14 @@ const TermsOfService = () => (
             </div>
           </div>
 
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconRefresh />
-            </div>
-            <div className="legalSectionBody">
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
+              <div className={styles.legalIconWrap}>
+                <IconRefresh />
+              </div>
               <h2 id="changes">Changes</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 We may update these terms from time to time; the version
                 published here, dated above, always applies. Terms for an
@@ -159,24 +173,19 @@ const TermsOfService = () => (
           </div>
         </div>
 
-        <hr className="legalDivider" />
+        <hr className={styles.legalDivider} />
 
-        <div className="legalContactCard">
-          <div className="legalSection">
-            <div className="legalIconWrap">
-              <IconMail />
-            </div>
-            <div className="legalSectionBody">
+        <div className={styles.legalContactCard}>
+          <div className={styles.legalSection}>
+            <div className={styles.legalSectionHead}>
               <h2 id="contact">Contact</h2>
+            </div>
+            <div className={styles.legalSectionBody}>
               <p>
                 Questions about these terms? Email{" "}
                 <a href="mailto:ingversionsdigital@gmail.com">
                   ingversionsdigital@gmail.com
-                </a>{" "}
-                or call{" "}
-                <a href="tel:+918866167750">+91 88661 67750</a>. We're based
-                at 2599, Shiv Krupa Association, Kansad, Sachin, Surat
-                394230, India.
+                </a>
               </p>
             </div>
           </div>

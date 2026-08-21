@@ -1,5 +1,13 @@
 .aboutExpertise {
-  padding-top: 50px;
+  background: var(--palette-tint-blue);
+  padding: 50px 0
+}
+.sectionTitle {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--palette-text-primary);
+  margin: 0 0 14px
 }
 .sectionTitleCenter {
   text-align: center
@@ -21,49 +29,67 @@
 }
 .card.aboutExpertiseCard {
   width: 100%;
-  min-height: 425px;
+  min-height: 300px;
   background: var(--palette-bg-800);
-  border: 1px solid transparent;
+  border: var(--border-width) solid var(--palette-border);
+  border-top-width: 6px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
-  padding: 28px 26px;
+  padding: 24px 26px 28px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: border-color .15s ease,transform .15s ease,box-shadow .15s ease;
-  box-sizing: border-box
+  transition: border-color .2s ease,transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s cubic-bezier(.34,1.56,.64,1);
+  box-sizing: border-box;
+  animation: expertisePop .5s cubic-bezier(.34,1.56,.64,1) backwards
 }
-/* .card.aboutExpertiseCard:hover {
-  transform: translate(-2px,-2px) rotate(-1deg);
-  border-color: rgba(255,255,255,.1);
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(1) { animation-delay: 0s }
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(2) { animation-delay: .08s }
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(3) { animation-delay: .16s }
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(4) { animation-delay: .24s }
+@keyframes expertisePop {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(.96)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+  }
+}
+.card.aboutExpertiseCard:hover {
+  transform: translate(-3px,-3px) rotate(-1deg);
   box-shadow: var(--shadow-pop-hover)
-} */
+}
 .aboutIconWrap {
   width: 100%;
-  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 26px;
-  margin-bottom: 35px
+  margin-top: 4px;
+  margin-bottom: 20px
 }
 .iconCircle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: var(--radius-full);
   border: var(--border-width) solid var(--palette-border);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1)
+}
+.card.aboutExpertiseCard:hover .iconCircle {
+  transform: scale(1.12) rotate(-8deg)
 }
 .aboutExpertiseCard h3 {
-  margin: 0 0 34px;
+  margin: 0 0 12px;
   color: var(--palette-text-primary);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 100%;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
   text-align: center
 }
 .aboutExpertiseCard p {
@@ -81,6 +107,9 @@
     grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 23px
   }
+  .sectionTitle {
+    font-size: 28px
+  }
 }
 @media (max-width:767.98px) {
   .aboutExpertise {
@@ -90,20 +119,24 @@
     font-weight: 400;
     font-size: 14px
   }
+  .sectionTitle {
+    font-size: 24px
+  }
   .card.aboutExpertiseCard {
     width: 100%;
     max-width: 100%;
-    min-height: 360px;
+    min-height: 260px;
     background: var(--palette-bg-800);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-pop-soft);
     text-align: center;
-    padding: 22px 16px;
+    padding: 20px 16px 24px;
     margin: 0
   }
   .aboutExpertiseCard h3 {
-    font-weight: 600;
-    margin-bottom: 12px
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px
   }
   .aboutExpertiseCard p {
     font-size: 16px;

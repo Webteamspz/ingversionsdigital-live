@@ -15,7 +15,7 @@ const ExpertiseIcon = ({ iconKey, title }) => {
   const Icon = EXPERTISE_ICONS[iconKey];
   return (
     <span className={styles.iconCircle} style={{ background: EXPERTISE_COLORS[iconKey] }}>
-      <Icon size={22} strokeWidth={2.5} color="#1E293B" aria-label={title} />
+      <Icon size={22} strokeWidth={2.5} color="var(--palette-border)" aria-label={title} />
     </span>
   );
 };
@@ -52,7 +52,10 @@ const AboutExpertise = () => {
           >
             {expertiseCards.map((card, index) => (
               <SwiperSlide key={index}>
-                <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+                <article
+                  className={`${styles.card} ${styles.aboutExpertiseCard}`}
+                  style={{ borderTopColor: EXPERTISE_COLORS[card.icon] }}
+                >
                   <div className={styles.aboutIconWrap}>
                     <ExpertiseIcon iconKey={card.icon} title={card.title} />
                   </div>
@@ -63,9 +66,13 @@ const AboutExpertise = () => {
             ))}
           </Swiper>
         ) : (
-          <div className={`${styles.grid} ${styles.aboutExpertiseGrid}`}>
+          <div className={styles.aboutExpertiseGrid}>
             {expertiseCards.map((card) => (
-              <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+              <article
+                key={card.title}
+                className={`${styles.card} ${styles.aboutExpertiseCard}`}
+                style={{ borderTopColor: EXPERTISE_COLORS[card.icon] }}
+              >
                 <div className={styles.aboutIconWrap}>
                   <ExpertiseIcon iconKey={card.icon} title={card.title} />
                 </div>

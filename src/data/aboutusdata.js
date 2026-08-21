@@ -2,7 +2,6 @@
 
 export const heroData = {
   tag: 'About Ingversions Digital',
-  title: "We’re Engineers of Intelligent Change",
   highlight: 'Intelligent Change',
   subtitle:
     'We are a CRO-first team helping brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.',
@@ -10,33 +9,17 @@ export const heroData = {
     { label: 'Founded', value: '2024' },
     { label: 'HQ', value: 'Remote-first' }
   ],
-  primaryCta: 'Book a strategy call',
+  primaryCta: 'Book A Call',
   primaryCtaHref: '/#hero',
   imageSrc: '/assets/about-hero/hero-img.webp',
   imageAlt: 'Data-driven CRO dashboards'
 };
 
 export const heroStats = [
-  {
-    label: 'Brands Tested',
-    value: '20+',
-    caption: 'D2C & SaaS growth teams'
-  },
-  {
-    label: 'Experiments Shipped',
-    value: '250+',
-    caption: 'End-to-end A/B tests'
-  },
-  {
-    label: 'Win Rate',
-    value: '60%',
-    caption: 'Beating industry averages'
-  },
-  {
-    label: 'Managed Revenue',
-    value: '$20M+',
-    caption: 'Annualized GMV under tests'
-  }
+  { label: 'Brands Tested', value: '20+' },
+  { label: 'Experiments Shipped', value: '250+' },
+  { label: 'Win Rate', value: '60%' },
+  { label: 'Managed Revenue', value: '$20M+' }
 ];
 
 export const storyData = {
@@ -128,19 +111,23 @@ export const impactCards = [
 export const valueCards = [
   {
     title: 'Experiment First',
-    text: 'We favor proving over assuming. Ideas are cheap, validated learnings are compounding assets.'
+    text: 'We favor proving over assuming. Ideas are cheap, validated learnings are compounding assets.',
+    icon: 'flask'
   },
   {
     title: 'Collaborative by Design',
-    text: 'We work as an extension of your in-house team, not a siloed external agency.'
+    text: 'We work as an extension of your in-house team, not a siloed external agency.',
+    icon: 'users'
   },
   {
     title: 'Clarity over Jargon',
-    text: 'We keep your stakeholders aligned with simple language and sharp documentation.'
+    text: 'We keep your stakeholders aligned with simple language and sharp documentation.',
+    icon: 'lightbulb'
   },
   {
     title: 'Integrity in Numbers',
-    text: 'No cherry-picked screenshots. If a test loses, we document it and use it to inform the next move.'
+    text: 'No cherry-picked screenshots. If a test loses, we document it and use it to inform the next move.',
+    icon: 'shield'
   }
 ];
 
@@ -148,7 +135,5 @@ export const ctaData = {
   title: 'Ready to discuss your next experiment?',
   text: 'Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.',
   primaryLabel: 'Schedule a call',
-  primaryHref: '/#hero',
-  secondaryLabel: 'Download sample test roadmap',
-  secondaryHref: '/#hero'
+  primaryHref: '/#hero'
 };

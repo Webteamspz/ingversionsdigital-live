@@ -1,21 +1,87 @@
 .nfWrapper {
-  min-height: 80vh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px
+  padding: 40px;
+  background: var(--palette-bg-950)
+}
+.nfWrapper:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: .5;
+  z-index: -1;
+  pointer-events: none
+}
+.nfBlob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: .35;
+  z-index: -1;
+  pointer-events: none;
+  animation: nfFloat 6s ease-in-out infinite
+}
+.nfBlobOne {
+  top: 8%;
+  left: 10%;
+  width: 160px;
+  height: 160px;
+  background: var(--tertiary)
+}
+.nfBlobTwo {
+  bottom: 10%;
+  right: 12%;
+  width: 220px;
+  height: 220px;
+  background: var(--quaternary);
+  animation-delay: 1.5s
+}
+.nfBlobThree {
+  top: 15%;
+  right: 18%;
+  width: 100px;
+  height: 100px;
+  background: var(--secondary);
+  animation-delay: 3s
+}
+@keyframes nfFloat {
+  0%, 100% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-18px)
+  }
 }
 .nfCard {
+  position: relative;
   text-align: center;
   background: var(--palette-bg-800);
   padding: 50px 60px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  border: var(--border-width) solid var(--palette-border);
   color: var(--palette-text-primary);
-  box-shadow: var(--shadow-pop-soft)
+  box-shadow: var(--shadow-pop);
+  animation: nfPop .5s cubic-bezier(.34,1.56,.64,1)
+}
+@keyframes nfPop {
+  0% {
+    transform: scale(.9);
+    opacity: 0
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1
+  }
 }
 .nfTitle {
   font-size: 80px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 10px;
   background-image: linear-gradient(90deg, var(--palette-accent), var(--secondary));
   background-clip: text;
@@ -27,18 +93,51 @@
 .nfSubtitle {
   font-size: 18px;
   margin-bottom: 24px;
-  opacity: .85
+  color: var(--palette-text-secondary)
 }
 .nfBtn {
   background: var(--palette-accent);
-  padding: 12px 26px;
+  padding: 14px 28px;
   border-radius: var(--radius-full);
-  color: #fff;
-  font-weight: 600;
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: var(--shadow-pop);
+  color: var(--palette-bg-800);
+  font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  transition: .2s ease-in-out
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s cubic-bezier(.34,1.56,.64,1), background-color .3s ease
 }
 .nfBtn:hover {
-  background: var(--palette-accent-strong)
+  background: var(--palette-accent-strong);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop-hover)
+}
+.nfBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pop-active)
+}
+@media (max-width:767.98px) {
+  .nfWrapper {
+    padding: 40px 15px;
+  }
+  .nfCard {
+    padding: 36px 24px
+  }
+  .nfTitle {
+    font-size: 56px
+  }
+  .nfSubtitle {
+    font-size: 16px
+  }
+  .nfBlobOne {
+    width: 100px;
+    height: 100px
+  }
+  .nfBlobTwo {
+    width: 140px;
+    height: 140px
+  }
+  .nfBlobThree {
+    display: none
+  }
 }

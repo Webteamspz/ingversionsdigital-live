@@ -1,0 +1,149 @@
+.aboutTrack {
+  padding: 50px 0;
+  position: relative;
+  isolation: isolate
+}
+.aboutTrack:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: .4;
+  z-index: -1;
+  pointer-events: none
+}
+.aboutTrackCard {
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  margin-bottom: 24px;
+  overflow: hidden
+}
+.aboutTrackStrip {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr))
+}
+.aboutTrackStat {
+  padding: 22px 16px;
+  text-align: center;
+  border-right: 1px solid var(--palette-border-soft)
+}
+.aboutTrackStat:last-child {
+  border-right: none
+}
+.aboutTrack .sectionTitle {
+  font-family: "Outfit", system-ui, sans-serif!important;
+  font-weight: 700!important;
+  font-size: 36px!important;
+  color: var(--palette-text-primary)!important;
+  text-align: center;
+  margin: 0 0 14px
+}
+.aboutTrack .sectionSubtitle {
+  font-family: "Plus Jakarta Sans", sans-serif!important;
+  font-size: 16px!important;
+  font-weight: 400!important;
+  color: var(--palette-text-secondary)!important;
+  text-align: center!important;
+  width: 100%!important;
+  margin: 0 auto 32px auto!important
+}
+.aboutTrack .aboutTrackLabel {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px!important;
+  text-transform: uppercase!important;
+  letter-spacing: .06em!important;
+  color: var(--palette-text-secondary)!important;
+  margin-bottom: 8px
+}
+.aboutTrack .aboutTrackValue {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px!important;
+  font-weight: 700!important;
+  color: var(--palette-text-primary)!important;
+  margin-bottom: 6px
+}
+.aboutTrack .aboutTrackCaption {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px!important;
+  color: var(--palette-text-secondary)!important
+}
+.aboutImpactGrid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+  padding: 10px 0px;
+}
+.aboutTrack .aboutImpactCard {
+  background: var(--palette-bg-800)!important
+}
+.aboutTrack .aboutImpactValue {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px!important;
+  font-weight: 700!important;
+  color: var(--palette-text-primary);
+  margin-bottom: 12px
+}
+.aboutTrack .aboutImpactLabel {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px!important;
+  font-weight: 600!important;
+  color: var(--palette-text-primary)!important;
+  margin-bottom: 6px
+}
+.aboutTrack .aboutImpactCard p {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px!important;
+  color: var(--palette-text-secondary)!important
+}
+@media (max-width:1023.98px) {
+  .aboutTrackStrip {
+    grid-template-columns: repeat(2,minmax(0,1fr))
+  }
+  .aboutTrackStat {
+    border-right: 1px solid var(--palette-border-soft);
+    border-bottom: 1px solid var(--palette-border-soft)
+  }
+  .aboutTrackStat:nth-child(2n) {
+    border-right: none
+  }
+  .aboutTrackStat:nth-last-child(-n+2) {
+    border-bottom: none
+  }
+  .aboutImpactGrid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 0 8px
+  }
+  .aboutTrack .sectionTitle {
+    font-size: 28px!important
+  }
+}
+@media (max-width:767.98px) {
+  .aboutTrack {
+  padding: 40px 0
+}
+  .aboutImpactGrid {
+    grid-template-columns: minmax(0,1fr)
+  }
+  .aboutTrackStrip {
+    grid-template-columns: minmax(0,1fr)
+  }
+  .aboutTrackStat {
+    border-right: none;
+    border-bottom: 1px solid var(--palette-border-soft)
+  }
+  .aboutTrackStat:last-child {
+    border-bottom: none
+  }
+  .aboutTrack .sectionTitle {
+    font-size: 24px!important
+  }
+}
