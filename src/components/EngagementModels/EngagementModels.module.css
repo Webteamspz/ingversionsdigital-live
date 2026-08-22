@@ -242,4 +242,27 @@
     min-height: 0;
     margin-bottom: 20px
   }
+  .engagementSwiper {
+    padding: 0 3px 45px!important;
+    overflow: visible;
+    --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: var(--palette-accent)
+  }
+  .engagementSwiper :global(.swiper-slide) {
+    height: auto
+  }
+  .engagementSwiper :global(.swiper-pagination) {
+    bottom: 0
+  }
+  .engagementSwiper :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--palette-text-primary);
+    background: 0 0;
+    opacity: 1
+  }
+  .engagementSwiper :global(.swiper-pagination-bullet-active) {
+    background: var(--palette-accent)
+  }
 }
