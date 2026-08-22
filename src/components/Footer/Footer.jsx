@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
-import logo from "/assets/logos/main-logo.png";
-
-
-
+import logo from "/assets/logos/main-logo-white.png";
 
 const Facebook = ({ size = 24, ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
