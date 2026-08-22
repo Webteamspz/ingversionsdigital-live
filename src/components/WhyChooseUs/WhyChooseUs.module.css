@@ -224,4 +224,36 @@
   .timelineCard {
     padding: 20px 22px
   }
+  .timelineSwiper {
+    padding: 0 3px 45px!important;
+    overflow: visible;
+    --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: var(--palette-accent)
+  }
+  .timelineSwiper :global(.swiper-slide) {
+    height: auto
+  }
+  .timelineSwiper :global(.swiper-pagination) {
+    bottom: 0
+  }
+  .timelineSwiper :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--palette-text-primary);
+    background: 0 0;
+    opacity: 1
+  }
+  .timelineSwiper :global(.swiper-pagination-bullet-active) {
+    background: var(--palette-accent)
+  }
+  .timelineSlideCard {
+    background: var(--palette-bg-800);
+    border: var(--border-width) solid var(--palette-border);
+    border-radius: var(--radius-lg);
+    padding: 24px 22px;
+    text-align: left;
+    box-shadow: var(--shadow-pop-soft);
+    height: 100%
+  }
 }
