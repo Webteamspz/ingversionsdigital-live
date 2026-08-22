@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, A11y } from "swiper/modules";
 import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users } from "lucide-react";
 
 import data from "../../data/sitedata";
 import styles from "./Services.module.css";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const SERVICE_ICONS = {
   "ab-testing": SplitSquareHorizontal, shopify: ShoppingBag, qa: CheckCircle2,
@@ -26,17 +27,8 @@ const ServiceIcon = ({ iconKey, index, title }) => {
 };
 
 const Services = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
-
-
 
   return (
     <section ref={sectionRef} className={styles.servicesSection} id="services">
@@ -52,7 +44,7 @@ const Services = () => {
 
         {isMobile ? (
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, A11y]}
             pagination={{ clickable: true }}
             spaceBetween={24}
             slidesPerView={1}

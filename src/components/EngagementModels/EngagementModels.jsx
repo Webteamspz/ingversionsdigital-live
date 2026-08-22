@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, A11y } from "swiper/modules";
 import { Repeat, Clock, Briefcase } from "lucide-react";
 import styles from "./EngagementModels.module.css";
 import siteData from "../../data/sitedata";
 import ContactModal from "../ContactModal/ContactModal";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const ENGAGEMENT_ICONS = { retainer: Repeat, hoursblock: Clock, projectengagement: Briefcase };
 const ENGAGEMENT_COLORS = { retainer: "var(--palette-accent)", hoursblock: "var(--secondary)", projectengagement: "var(--tertiary)" };
@@ -17,14 +18,7 @@ const EngagementModels = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSource, setModalSource] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
 
   const handleCtaClick = (e, cta, title) => {
     if (cta.href === "#contact") {
@@ -100,7 +94,7 @@ const EngagementModels = () => {
 
         {isMobile ? (
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, A11y]}
             pagination={{ clickable: true }}
             spaceBetween={20}
             slidesPerView={1}

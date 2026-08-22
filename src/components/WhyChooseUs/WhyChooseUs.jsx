@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, A11y } from "swiper/modules";
 import data from "../../data/sitedata";
 import styles from "./WhyChooseUs.module.css";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const NODE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
 const WhyChooseUs = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <section className={styles.whyChooseUsSection} id="why-choose-us">
@@ -33,7 +26,7 @@ const WhyChooseUs = () => {
 
         {isMobile ? (
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, A11y]}
             pagination={{ clickable: true }}
             spaceBetween={20}
             slidesPerView={1}

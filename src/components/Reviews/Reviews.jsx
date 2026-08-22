@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, A11y } from "swiper/modules";
 
 import data from "../../data/sitedata";
 import styles from "./Reviews.module.css";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const CARD_TILTS = [-2, 2, -1.5, 1.5, -2.5, 2.5];
 const REVIEWER_AVATARS = [
@@ -20,14 +21,7 @@ const REVIEWER_AVATARS = [
 
 export default function Reviews() {
   const sectionRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
 
   const renderCard = (t, i) => (
     <div
@@ -62,7 +56,7 @@ export default function Reviews() {
 
         {isMobile ? (
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, A11y]}
             pagination={{ clickable: true }}
             spaceBetween={16}
             slidesPerView={1.1}
