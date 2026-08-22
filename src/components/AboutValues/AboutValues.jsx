@@ -1,6 +1,7 @@
 import styles from './AboutValues.module.css';
 import { valueCards } from '../../data/aboutusdata';
 import { FlaskConical, Users, Lightbulb, ShieldCheck } from 'lucide-react';
+import Reveal from '../Reveal/Reveal';
 
 const VALUE_ICONS = { flask: FlaskConical, users: Users, lightbulb: Lightbulb, shield: ShieldCheck };
 const VALUE_COLORS = { flask: 'var(--palette-accent)', users: 'var(--secondary)', lightbulb: 'var(--tertiary)', shield: 'var(--quaternary)' };
@@ -24,8 +25,8 @@ const AboutValues = () => {
         </p>
 
         <div className={styles.aboutValuesGrid}>
-          {valueCards.map((card) => (
-            <div key={card.title} className={`card ${styles.aboutValuePill}`}>
+          {valueCards.map((card, i) => (
+            <Reveal key={card.title} delay={i * 80} className={`card ${styles.aboutValuePill}`}>
               <span
                 className={styles.cornerFold}
                 style={{ background: VALUE_COLORS[card.icon] }}
@@ -34,7 +35,7 @@ const AboutValues = () => {
               <ValueIcon iconKey={card.icon} title={card.title} />
               <h3>{card.title}</h3>
               <p>{card.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Repeat, Clock, Briefcase } from "lucide-react";
 import styles from "./EngagementModels.module.css";
 import siteData from "../../data/sitedata";
 import ContactModal from "../ContactModal/ContactModal";
+import Reveal from "../Reveal/Reveal";
 
 const ENGAGEMENT_ICONS = { retainer: Repeat, hoursblock: Clock, projectengagement: Briefcase };
 const ENGAGEMENT_COLORS = { retainer: "var(--palette-accent)", hoursblock: "var(--secondary)", projectengagement: "var(--tertiary)" };
@@ -23,13 +24,19 @@ const EngagementModels = () => {
 
   return (
     <section className={styles.engagementSection} id="engagement">
+      <div className={styles.decor} aria-hidden="true">
+        <span className={styles.shapeCircleTl} />
+        <span className={styles.shapeSquareTr} />
+        <span className={styles.shapeCircleBr} />
+        <span className={styles.shapeSquareBl} />
+      </div>
       <div className="container">
         <h2 className="section-title">{heading}</h2>
         <p className={styles.engagementSub}>{sub}</p>
 
         <div className={styles.engagementGrid}>
           {list.map((model, index) => (
-            <div className={`${styles.card} ${styles.engagementCard}`} key={index}>
+            <Reveal key={index} delay={index * 80} className={`${styles.card} ${styles.engagementCard}`}>
               <span
                 className={styles.cornerFold}
                 style={{ background: ENGAGEMENT_COLORS[model.icon] }}
@@ -77,7 +84,7 @@ const EngagementModels = () => {
               >
                 {model.cta.label}
               </a>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

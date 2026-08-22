@@ -7,6 +7,12 @@ const NODE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiar
 const WhyChooseUs = () => {
   return (
     <section className={styles.whyChooseUsSection} id="why-choose-us">
+      <div className={styles.decor} aria-hidden="true">
+        <span className={styles.shapeCircleTl} />
+        <span className={styles.shapeSquareTr} />
+        <span className={styles.shapeCircleBr} />
+        <span className={styles.shapeSquareBl} />
+      </div>
       <div className="container">
         <h3 className="section-title">{data.why.heading}</h3>
         <p className={styles.whySub}>Here's what sets our approach apart.</p>

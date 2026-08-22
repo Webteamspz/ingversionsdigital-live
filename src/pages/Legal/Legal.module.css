@@ -14,24 +14,13 @@
   z-index: -1;
   pointer-events: none
 }
-.legalHeroDecor:before {
-  content: "";
-  position: absolute;
-  top: -70px;
-  right: -70px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: var(--quaternary);
-  opacity: .3
-}
 .legalHeroDecor:after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
-  background-size: 22px 22px;
-  opacity: .5
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
 }
 .legalHero {
   width: 100%
@@ -96,7 +85,7 @@
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
-  box-shadow: 8px 8px 0 0 var(--palette-accent);
+  box-shadow: var(--shadow-pop-soft);
   padding: 26px
 }
 .legalCornerFold {
@@ -285,8 +274,7 @@
   }
   .legalSections .legalSection {
     flex-direction: column;
-    padding: 20px;
-    box-shadow: 6px 6px 0 0 var(--palette-accent)
+    padding: 20px
   }
   .legalIconWrap {
     width: 56px;

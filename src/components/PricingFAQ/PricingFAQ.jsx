@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { pricingFaq } from "../../data/pricingdata";
 import styles from "./PricingFAQ.module.css";
+import Reveal from "../Reveal/Reveal";
 
 const PricingFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -33,24 +34,25 @@ const PricingFAQ = () => {
 
         <div className={styles.accordion}>
           {pricingFaq.items.map((item, idx) => (
-            <div
-              key={item.q}
-              className={`${styles.accordionItem} ${openIndex === idx ? styles.open : ""}`}
-              ref={(el) => (itemRefs.current[idx] = el)}
-            >
-              <button
-                type="button"
-                className={styles.accordionItemHeader}
-                onClick={() => handleToggle(idx)}
+            <Reveal key={item.q} delay={idx * 60}>
+              <div
+                className={`${styles.accordionItem} ${openIndex === idx ? styles.open : ""}`}
+                ref={(el) => (itemRefs.current[idx] = el)}
               >
-                <span>{item.q}</span>
-                <div className={styles.accordionItemIcon} aria-hidden="true" />
-              </button>
+                <button
+                  type="button"
+                  className={styles.accordionItemHeader}
+                  onClick={() => handleToggle(idx)}
+                >
+                  <span>{item.q}</span>
+                  <div className={styles.accordionItemIcon} aria-hidden="true" />
+                </button>
 
-              <div className={styles.accordionItemBody}>
-                <div className={styles.accordionItemBodyContent}>{item.a}</div>
+                <div className={styles.accordionItemBody}>
+                  <div className={styles.accordionItemBodyContent}>{item.a}</div>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

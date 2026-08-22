@@ -1,5 +1,6 @@
 import styles from "./PricingPlans.module.css";
 import { pricingPlans } from "../../data/pricingdata";
+import Reveal from "../Reveal/Reveal";
 
 const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)"];
 
@@ -23,8 +24,9 @@ const PricingPlans = () => {
 
         <div className={styles.pricingPlansGrid}>
           {standardPlans.map((plan, idx) => (
-            <article
+            <Reveal
               key={plan.name}
+              delay={idx * 80}
               className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
             >
               <span
@@ -75,12 +77,12 @@ const PricingPlans = () => {
                 </button>
               </div>
 
-            </article>
+            </Reveal>
           ))}
         </div>
 
         {elitePlan && (
-          <article className={`${styles.pricingPlanCard} ${styles.wideCard}`}>
+          <Reveal className={`${styles.pricingPlanCard} ${styles.wideCard}`}>
             <span
               className={styles.cornerFold}
               style={{ background: "var(--tertiary)" }}
@@ -131,7 +133,7 @@ const PricingPlans = () => {
               </ul>
             </div>
 
-          </article>
+          </Reveal>
         )}
 
       </div>

@@ -7,29 +7,29 @@ import data from "../../data/sitedata";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './BlogSlider.css'; 
+import styles from './BlogSlider.module.css';
 
 const BlogSlider = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
-    <section className="blog-section">
-      <div className="container blog-container">
-        <div className="blog-section-header">
-          <div className="blog-heading-group">
-            <span className="blog-eyebrow">From the blog</span>
-            <h2 className="startedTitle">{data.blog.heading}</h2>
+    <section className={styles.blogSection}>
+      <div className={`container ${styles.blogContainer}`}>
+        <div className={styles.blogSectionHeader}>
+          <div className={styles.blogHeadingGroup}>
+            <span className={styles.blogEyebrow}>From the blog</span>
+            <h2 className={styles.startedTitle}>{data.blog.heading}</h2>
           </div>
 
-          <a href={data.blog.seeMoreUrl} className="see-more-link">
+          <a href={data.blog.seeMoreUrl} className={styles.seeMoreLink}>
             {data.blog.seeMoreText}
             <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
           </a>
         </div>
 
         <button
-          className="tsNav tsPrev"
+          className={`${styles.tsNav} ${styles.tsPrev}`}
           ref={prevRef}
           aria-label="Previous blog"
         >
@@ -39,7 +39,7 @@ const BlogSlider = () => {
         </button>
 
         <button
-          className="tsNav tsNext"
+          className={`${styles.tsNav} ${styles.tsNext}`}
           ref={nextRef}
           aria-label="Next blog"
         >
@@ -67,22 +67,22 @@ const BlogSlider = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="blog-swiper"
+          className={styles.blogSwiper}
         >
           {data.blog.list.map((article) => (
             <SwiperSlide key={article.id}>
-              <a href={article.url} target="_blank" rel="noopener noreferrer" className="blog-card-link">
-                <div className="blog-card">
-                  <div className="img-wrapper">
-                    <img src={article.image} alt={article.title} className="blog-image" loading="lazy" />
-                    <span className="blog-date-badge">{article.date}</span>
+              <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.blogCardLink}>
+                <div className={styles.blogCard}>
+                  <div className={styles.imgWrapper}>
+                    <img src={article.image} alt={article.title} className={styles.blogImage} loading="lazy" />
+                    <span className={styles.blogDateBadge}>{article.date}</span>
                   </div>
-                  <div className="blog-content">
-                    <h3 className="blog-title">{article.title}</h3>
-                    <p className="blog-desc">{article.desc}</p>
-                    <span className="blog-read-link">
+                  <div className={styles.blogContent}>
+                    <h3 className={styles.blogTitle}>{article.title}</h3>
+                    <p className={styles.blogDesc}>{article.desc}</p>
+                    <span className={styles.blogReadLink}>
                       Read article
-                      <span className="blog-read-icon" aria-hidden="true">
+                      <span className={styles.blogReadIcon} aria-hidden="true">
                         <ArrowRight size={16} strokeWidth={2.5} />
                       </span>
                     </span>

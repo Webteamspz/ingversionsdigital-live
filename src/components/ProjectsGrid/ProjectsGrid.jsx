@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowLeftRight } from "lucide-react";
 import styles from "./ProjectsGrid.module.css";
+import Reveal from "../Reveal/Reveal";
 
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
@@ -110,11 +111,11 @@ const ProjectsGrid = ({ projects }) => {
   return (
     <div className={styles.gridWrap}>
       <div className={styles.grid}>
-        {visibleProjects.map((project) => {
+        {visibleProjects.map((project, i) => {
           const hasSlider = Boolean(project.beforeImage && project.afterImage);
 
           return (
-            <div key={project.id} className={styles.card}>
+            <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>
               {hasSlider ? (
                 <div
                   className={styles.imageWrap}
@@ -152,7 +153,7 @@ const ProjectsGrid = ({ projects }) => {
                   <ArrowUpRight size={16} strokeWidth={2.5} color="var(--palette-border)" />
                 </span>
               </a>
-            </div>
+            </Reveal>
           );
         })}
 

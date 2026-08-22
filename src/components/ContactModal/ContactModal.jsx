@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import "./ContactModal.css";
+import { createPortal } from "react-dom";
+import styles from "./ContactModal.module.css";
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
@@ -84,16 +85,16 @@ const ContactModal = ({ isOpen, onClose, source }) => {
     if (e.target === e.currentTarget) handleClose();
   };
 
-  return (
-    <div className="contact-modal-overlay" onClick={handleOverlayClick}>
-      <div className="contact-modal">
-        <button className="contact-modal-close" onClick={handleClose} aria-label="Close">
+  return createPortal(
+    <div className={styles.contactModalOverlay} onClick={handleOverlayClick}>
+      <div className={styles.contactModal}>
+        <button className={styles.contactModalClose} onClick={handleClose} aria-label="Close">
           &times;
         </button>
 
         {isSubmitted ? (
-          <div className="contact-modal-thankyou">
-            <div className="thankyou-icon">
+          <div className={styles.contactModalThankyou}>
+            <div className={styles.thankyouIcon}>
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M20 6L9 17L4 12"
@@ -106,23 +107,23 @@ const ContactModal = ({ isOpen, onClose, source }) => {
             </div>
             <h3>Thank you for sharing your details!</h3>
             <p>We'll get in touch with you shortly.</p>
-            <button className="contact-modal-submit" onClick={handleClose}>
+            <button className={styles.contactModalSubmit} onClick={handleClose}>
               Close
             </button>
           </div>
         ) : (
           <>
-            <div className="contact-modal-header">
+            <div className={styles.contactModalHeader}>
               <h3>Tell us a bit about yourself</h3>
-              <span className="contact-modal-required">
-                <span className="required-star">*</span> Required Information
+              <span className={styles.contactModalRequired}>
+                <span className={styles.requiredStar}>*</span> Required Information
               </span>
             </div>
 
-            <form className="contact-modal-form" onSubmit={handleSubmit}>
-              <div className="form-group">
+            <form className={styles.contactModalForm} onSubmit={handleSubmit}>
+              <div className={styles.formGroup}>
                 <label htmlFor="email">
-                  Email<span className="required-star">*</span>
+                  Email<span className={styles.requiredStar}>*</span>
                 </label>
                 <input
                   id="email"
@@ -134,9 +135,9 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 />
               </div>
 
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="inquiry">
-                  Nature of Inquiry<span className="required-star">*</span>
+                  Nature of Inquiry<span className={styles.requiredStar}>*</span>
                 </label>
                 <select
                   id="inquiry"
@@ -151,9 +152,9 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 </select>
               </div>
 
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="country">
-                  Country<span className="required-star">*</span>
+                  Country<span className={styles.requiredStar}>*</span>
                 </label>
                 <select
                   id="country"
@@ -168,9 +169,9 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 </select>
               </div>
 
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label htmlFor="employeeCount">
-                  Employee Count<span className="required-star">*</span>
+                  Employee Count<span className={styles.requiredStar}>*</span>
                 </label>
                 <select
                   id="employeeCount"
@@ -185,16 +186,17 @@ const ContactModal = ({ isOpen, onClose, source }) => {
                 </select>
               </div>
 
-              {submitError && <div className="errorMessage contact-modal-error">{submitError}</div>}
+              {submitError && <div className={`errorMessage ${styles.contactModalError}`}>{submitError}</div>}
 
-              <button type="submit" className="contact-modal-submit" disabled={isSubmitting}>
+              <button type="submit" className={styles.contactModalSubmit} disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Continue"}
               </button>
             </form>
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

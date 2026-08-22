@@ -1,10 +1,64 @@
 .whyChooseUsSection {
+  position: relative;
+  isolation: isolate;
   padding: 60px 0;
   text-align: center;
   background-color: var(--palette-bg-950);
-  background-image: radial-gradient(var(--palette-border-soft) 1.4px,transparent 1.4px);
   background-size: 22px 22px;
   overflow: hidden
+}
+.decor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none
+}
+.shapeCircleTl {
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  border: 4px solid var(--tertiary);
+  border-radius: 50%;
+  opacity: .2
+}
+.shapeSquareTr {
+  position: absolute;
+  top: 140px;
+  right: -30px;
+  width: 90px;
+  height: 90px;
+  border: 4px solid var(--secondary);
+  border-radius: 12px;
+  transform: rotate(30deg);
+  opacity: .2
+}
+.shapeCircleBr {
+  position: absolute;
+  bottom: 60px;
+  right: 6%;
+  width: 70px;
+  height: 70px;
+  border: 4px solid var(--palette-accent);
+  border-radius: 50%;
+  opacity: .18
+}
+.shapeSquareBl {
+  position: absolute;
+  bottom: -40px;
+  left: 8%;
+  width: 150px;
+  height: 150px;
+  border: 4px solid var(--quaternary);
+  border-radius: 16px;
+  transform: rotate(-10deg);
+  opacity: .15
+}
+@media (max-width:767.98px) {
+  .decor {
+    display: none
+  }
 }
 .whySub {
   color: var(--palette-text-secondary);
@@ -81,7 +135,7 @@
   left: -32px;
   width: 32px;
   height: 2px;
-  background: var(--palette-border-soft);
+  background: var(--palette-border);
   transform: translateY(-50%)
 }
 .timelineRow:nth-child(even) .timelineCard {
@@ -96,7 +150,7 @@
   right: -32px;
   width: 32px;
   height: 2px;
-  background: var(--palette-border-soft);
+  background: var(--palette-border);
   transform: translateY(-50%)
 }
 .timelineNumber {

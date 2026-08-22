@@ -16,7 +16,7 @@
   border: var(--border-width) solid var(--palette-border);
   border-radius: 56px 56px 0 56px;
   background: var(--palette-accent);
-  box-shadow: 22px 22px 0 var(--palette-text-primary);
+  box-shadow: 10px 10px 0 0 var(--palette-border);
   color: var(--palette-bg-800);
   text-align: center
 }

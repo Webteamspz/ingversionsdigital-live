@@ -1,11 +1,12 @@
 import styles from './AboutStory.module.css';
 import { storyData, missionCards } from '../../data/aboutusdata';
+import Reveal from '../Reveal/Reveal';
 
 const AboutStory = () => {
   return (
     <section className={styles.aboutStory} id="aboutStory">
       <div className="container">
-        <div className={styles.aboutStoryGrid}>
+        <Reveal className={styles.aboutStoryGrid}>
           <div className={styles.aboutStoryText}>
             <h2 className={styles.sectionTitle}>{storyData.title}</h2>
             {storyData.paragraphs.map((para, index) => (
@@ -22,14 +23,14 @@ const AboutStory = () => {
               decoding="async"
             />
           </div>
-        </div>
+        </Reveal>
 
         <div className={styles.aboutMissionGrid}>
-          {missionCards.map((item) => (
-            <div key={item.title} className={`card ${styles.aboutMissionCard}`}>
+          {missionCards.map((item, i) => (
+            <Reveal key={item.title} delay={i * 80} className={`card ${styles.aboutMissionCard}`}>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

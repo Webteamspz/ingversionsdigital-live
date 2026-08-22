@@ -7,6 +7,7 @@ import { Sparkles, Blocks, TrendingUp, BarChart3 } from "lucide-react";
 
 import styles from "./AboutExpertise.module.css";
 import { expertiseCards } from "../../data/aboutusdata";
+import Reveal from "../Reveal/Reveal";
 
 const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
 const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
@@ -69,8 +70,8 @@ const AboutExpertise = () => {
           </Swiper>
         ) : (
           <div className={styles.aboutExpertiseGrid}>
-            {expertiseCards.map((card) => (
-              <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+            {expertiseCards.map((card, i) => (
+              <Reveal key={card.title} delay={i * 80} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                 <span
                   className={styles.cornerFold}
                   style={{ background: EXPERTISE_COLORS[card.icon] }}
@@ -81,7 +82,7 @@ const AboutExpertise = () => {
                 </div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         )}

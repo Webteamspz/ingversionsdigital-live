@@ -1,23 +1,23 @@
-.blog-section {
+.blogSection {
   position: relative;
   overflow: hidden;
   padding: 88px 0 78px;
   background: var(--palette-tint-blue)
 }
-.blog-container {
+.blogContainer {
   position: relative
 }
-.blog-section-header {
+.blogSectionHeader {
   display: flex;
   margin-bottom: 48px;
   align-items: flex-end;
   justify-content: space-between;
   gap: 28px
 }
-.blog-heading-group {
+.blogHeadingGroup {
   min-width: 0
 }
-.blog-eyebrow {
+.blogEyebrow {
   display: inline-block;
   margin-bottom: 16px;
   padding: 7px 16px;
@@ -43,7 +43,7 @@
   letter-spacing: -.035em;
   line-height: 1.02
 }
-.see-more-link {
+.seeMoreLink {
   display: inline-flex;
   min-width: 174px;
   min-height: 58px;
@@ -62,13 +62,13 @@
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease;
   white-space: nowrap
 }
-.see-more-link:hover {
+.seeMoreLink:hover {
   background: var(--tertiary);
   box-shadow: 4px 4px 0 var(--palette-text-primary);
   transform: translate(-2px,-2px)
 }
-.blog-card-link:focus-visible,
-.see-more-link:focus-visible {
+.blogCardLink:focus-visible,
+.seeMoreLink:focus-visible {
   outline: 3px solid var(--palette-accent);
   outline-offset: 4px
 }
@@ -112,31 +112,31 @@
 .tsNav:hover svg path {
   stroke: var(--palette-bg-800)
 }
-.tsNav.swiper-button-disabled {
+.tsNav:global(.swiper-button-disabled) {
   display: none!important
 }
-.blog-swiper {
+.blogSwiper {
   padding: 0 2px 44px!important
 }
-.blog-swiper .swiper-slide {
+.blogSwiper :global(.swiper-slide) {
   display: flex;
   height: auto
 }
-.blog-card-link {
+.blogCardLink {
   display: flex;
   width: 100%;
   height: 100%;
   color: inherit;
   text-decoration: none
 }
-.blog-card {
+.blogCard {
   display: flex;
   width: 100%;
   min-width: 0;
   flex-direction: column;
   transition: transform .35s cubic-bezier(.34, 1.56, .64, 1)
 }
-.img-wrapper {
+.imgWrapper {
   position: relative;
   height: 338px;
   overflow: hidden;
@@ -146,14 +146,14 @@
   box-shadow: 6px 6px 0 var(--palette-text-primary);
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
 }
-.blog-image {
+.blogImage {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .45s ease
 }
-.blog-date-badge {
+.blogDateBadge {
   position: absolute;
   right: 18px;
   bottom: 17px;
@@ -169,13 +169,13 @@
   line-height: 1;
   transform: rotate(3deg)
 }
-.blog-content {
+.blogContent {
   display: flex;
   padding: 34px 0 0;
   flex: 1;
   flex-direction: column
 }
-.blog-title {
+.blogTitle {
   display: -webkit-box;
   min-height: 68px;
   margin: 0 0 13px;
@@ -189,7 +189,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2
 }
-.blog-desc {
+.blogDesc {
   display: -webkit-box;
   margin: 0 0 22px;
   overflow: hidden;
@@ -200,7 +200,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2
 }
-.blog-read-link {
+.blogReadLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -212,37 +212,40 @@
   letter-spacing: .02em;
   text-transform: uppercase
 }
-.blog-read-icon {
+.blogReadIcon {
   display: inline-flex;
   transition: transform .25s ease
 }
-.blog-card-link:hover .blog-card {
+.blogCardLink:hover .blogCard {
   transform: translateY(-10px)
 }
-.blog-card-link:hover .img-wrapper {
+.blogCardLink:hover .imgWrapper {
   box-shadow: 9px 9px 0 var(--tertiary)
 }
-.blog-card-link:hover .blog-image {
+.blogCardLink:hover .blogImage {
   transform: scale(1.06)
 }
-.blog-card-link:hover .blog-read-link {
+.blogCardLink:hover .blogReadLink {
   color: var(--palette-accent-strong)
 }
-.blog-card-link:hover .blog-read-icon {
+.blogCardLink:hover .blogReadIcon {
   transform: translateX(7px)
 }
-.blog-swiper .swiper-pagination {
+.blogSwiper :global(.swiper-pagination) {
   bottom: 0
 }
-.blog-swiper .swiper-pagination-bullet {
+.blogSwiper :global(.swiper-pagination-bullet) {
   width: 10px;
   height: 10px;
   margin: 0 5px!important;
-  border: 1px solid var(--palette-text-primary);
+  border: 2px solid var(--palette-text-primary);
   background: 0 0;
   opacity: 1
 }
-.blog-swiper .swiper-pagination-bullet-active {
+.blogSwiper :global(.swiper-pagination-bullet:hover) {
+  background: var(--tertiary)
+}
+.blogSwiper :global(.swiper-pagination-bullet-active) {
   background: var(--palette-accent)
 }
 @media (max-width:1270px) {
@@ -254,25 +257,25 @@
   }
 }
 @media (max-width:1023.98px) {
-  .blog-section {
+  .blogSection {
     padding: 72px 0 66px
   }
-  .blog-section-header {
+  .blogSectionHeader {
     align-items: flex-start
   }
-  .img-wrapper {
+  .imgWrapper {
     height: 310px
   }
-  .blog-title {
+  .blogTitle {
     min-height: 0;
     font-size: 26px
   }
 }
 @media (max-width:767.98px) {
-  .blog-section {
+  .blogSection {
     padding: 58px 0 52px
   }
-  .blog-section-header {
+  .blogSectionHeader {
     margin-bottom: 34px;
     align-items: flex-start;
     flex-direction: column
@@ -280,26 +283,26 @@
   .startedTitle {
     font-size: 40px
   }
-  .see-more-link {
+  .seeMoreLink {
     display: none
   }
   .tsNav {
     display: none
   }
-  .blog-swiper {
+  .blogSwiper {
     padding: 0 4px 38px!important
   }
-  .img-wrapper {
+  .imgWrapper {
     height: 280px
   }
-  .blog-content {
+  .blogContent {
     padding-top: 27px
   }
-  .blog-title {
+  .blogTitle {
     min-height: 0;
     font-size: 25px
   }
-  .blog-desc {
+  .blogDesc {
     font-size: 16px
   }
 }

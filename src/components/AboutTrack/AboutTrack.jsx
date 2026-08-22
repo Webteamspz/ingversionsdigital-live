@@ -1,5 +1,6 @@
 import styles from './AboutTrack.module.css';
 import { trackRecordCards, impactCards } from '../../data/aboutusdata';
+import Reveal from '../Reveal/Reveal';
 
 const AboutTrack = () => {
   return (
@@ -12,23 +13,23 @@ const AboutTrack = () => {
 
         <div className={styles.aboutTrackCard}>
           <div className={styles.aboutTrackStrip}>
-            {trackRecordCards.map((card) => (
-              <div key={card.label} className={styles.aboutTrackStat}>
+            {trackRecordCards.map((card, i) => (
+              <Reveal key={card.label} delay={i * 80} className={styles.aboutTrackStat}>
                 <span className={styles.aboutTrackLabel}>{card.label}</span>
                 <span className={styles.aboutTrackValue}>{card.value}</span>
                 <span className={styles.aboutTrackCaption}>{card.caption}</span>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         <div className={styles.aboutImpactGrid}>
-          {impactCards.map((card) => (
-            <div key={card.label} className={`card ${styles.aboutImpactCard}`}>
+          {impactCards.map((card, i) => (
+            <Reveal key={card.label} delay={i * 80} className={`card ${styles.aboutImpactCard}`}>
               <span className={styles.aboutImpactValue}>{card.value}</span>
               <span className={styles.aboutImpactLabel}>{card.label}</span>
               <p>{card.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

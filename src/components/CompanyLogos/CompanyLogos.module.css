@@ -22,6 +22,30 @@
   right: 0;
   background: linear-gradient(to right,transparent,var(--palette-bg-950))
 }
+.marquee {
+  overflow: hidden
+}
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 50s linear infinite
+}
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused
+}
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0
+}
+.cardSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 0 22px;
+  flex-shrink: 0
+}
 .marqueeGroup img {
   width: 100%;
   max-width: 300px;
@@ -30,4 +54,26 @@
   opacity: 1;
   display: block;
   margin: 0 auto
+}
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(-50%)
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .marqueeTrack {
+    animation: none
+  }
+}
+@media (max-width:767.98px) {
+  .cardSlide {
+    width: 170px;
+    padding: 0 14px
+  }
+  .marqueeTrack {
+    animation-duration: 32s
+  }
 }

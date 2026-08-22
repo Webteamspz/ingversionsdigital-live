@@ -54,12 +54,12 @@ const Home = () => {
           <TrackRecord />
           <Services />
           <WorkProcess />
-          <WhyChooseUs />
-          <Reviews />
-          <Contact />
-          <BlogSlider />
           <EngagementModels />
+          <Reviews />
+          <WhyChooseUs />
+          <BlogSlider />
           <FAQ />
+          <Contact />
         </Suspense>
       </Layout>
     </>

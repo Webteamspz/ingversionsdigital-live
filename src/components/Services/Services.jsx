@@ -40,6 +40,12 @@ const Services = () => {
 
   return (
     <section ref={sectionRef} className={styles.servicesSection} id="services">
+      <div className={styles.decor} aria-hidden="true">
+        <span className={styles.shapeCircleTl} />
+        <span className={styles.shapeSquareTr} />
+        <span className={styles.shapeCircleBr} />
+        <span className={styles.shapeSquareBl} />
+      </div>
       <div className="container">
         <h3 className="section-title">{data.services.heading}</h3>
         <p className={styles.servicesSub}>{data.services.sub}</p>
