@@ -163,7 +163,7 @@
     --swiper-pagination-bullet-inactive-opacity: 1;
     --swiper-pagination-color: var(--palette-accent)
   }
-  .servicesSwiper .swiper-slide {
+  .servicesSwiper :global(.swiper-slide) {
     display: flex;
     height: auto!important
   }
@@ -185,17 +185,17 @@
   .serviceTitle {
     font-size: 23px
   }
-  .servicesSwiper .swiper-pagination {
+  .servicesSwiper :global(.swiper-pagination) {
     bottom: 0
   }
-  .servicesSwiper .swiper-pagination-bullet {
+  .servicesSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
     border: 1px solid var(--palette-text-primary);
     background: 0 0;
     opacity: 1
   }
-  .servicesSwiper .swiper-pagination-bullet-active {
+  .servicesSwiper :global(.swiper-pagination-bullet-active) {
     background: var(--palette-accent)
   }
 }
