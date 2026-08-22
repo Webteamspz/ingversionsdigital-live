@@ -1,4 +1,8 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 import data from "../../data/sitedata";
 import styles from "./Reviews.module.css";
@@ -16,6 +20,38 @@ const REVIEWER_AVATARS = [
 
 export default function Reviews() {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth < 768);
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
+
+  const renderCard = (t, i) => (
+    <div
+      className={styles.reviewTilt}
+      style={{ transform: `rotate(${CARD_TILTS[i % CARD_TILTS.length]}deg)` }}
+    >
+      <div className={styles.reviewCard}>
+        <p className={styles.reviewQuote}>&ldquo;{t.quote}&rdquo;</p>
+        <span className={styles.reviewTail} aria-hidden="true" />
+      </div>
+      <div className={styles.reviewerRow}>
+        <img
+          className={styles.reviewAvatar}
+          src={REVIEWER_AVATARS[i % REVIEWER_AVATARS.length]}
+          alt={`${t.reviewer}, ${t.reviewerRole}`}
+          loading="lazy"
+        />
+        <div>
+          <div className={styles.reviewerName}>{t.reviewer}</div>
+          <div className={styles.reviewerRole}>{t.reviewerRole}</div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section ref={sectionRef} className={styles.startedSection} id="reviews">
@@ -24,33 +60,29 @@ export default function Reviews() {
           {data.review.heading}
         </h3>
 
-        <div className={styles.reviewsGrid}>
-          {data.review.testimonials.map((t, i) => (
-            <Reveal key={i} delay={i * 80} className={styles.reviewCardWrap}>
-              <div
-                className={styles.reviewTilt}
-                style={{ transform: `rotate(${CARD_TILTS[i % CARD_TILTS.length]}deg)` }}
-              >
-                <div className={styles.reviewCard}>
-                  <p className={styles.reviewQuote}>&ldquo;{t.quote}&rdquo;</p>
-                  <span className={styles.reviewTail} aria-hidden="true" />
-                </div>
-                <div className={styles.reviewerRow}>
-                  <img
-                    className={styles.reviewAvatar}
-                    src={REVIEWER_AVATARS[i % REVIEWER_AVATARS.length]}
-                    alt={`${t.reviewer}, ${t.reviewerRole}`}
-                    loading="lazy"
-                  />
-                  <div>
-                    <div className={styles.reviewerName}>{t.reviewer}</div>
-                    <div className={styles.reviewerRole}>{t.reviewerRole}</div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {isMobile ? (
+          <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={16}
+            slidesPerView={1.1}
+            className={styles.reviewsSwiper}
+          >
+            {data.review.testimonials.map((t, i) => (
+              <SwiperSlide key={i}>
+                {renderCard(t, i)}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <div className={styles.reviewsGrid}>
+            {data.review.testimonials.map((t, i) => (
+              <Reveal key={i} delay={i * 80} className={styles.reviewCardWrap}>
+                {renderCard(t, i)}
+              </Reveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
