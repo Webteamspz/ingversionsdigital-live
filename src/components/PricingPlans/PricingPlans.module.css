@@ -356,7 +356,7 @@
   }
   .wideCardRight {
     width: 100%;
-    padding: 20px;
+    padding: 0;
     flex: none;
     margin: 0
   }

@@ -46,6 +46,7 @@ const AboutHero = () => {
         </div>
 
         <div className={styles.aboutHeroStatsWrap}>
+          <h2 className={styles.aboutHeroStatsTitle}>Our Track Record</h2>
           <div className={styles.aboutHeroStats}>
             {heroStats.map((stat) => (
               <div key={stat.label} className={styles.aboutStat}>

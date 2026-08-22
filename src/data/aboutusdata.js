@@ -65,47 +65,6 @@ export const expertiseCards = [
   }
 ];
 
-export const trackRecordCards = [
-  {
-    label: 'Average Uplift per Win',
-    value: '+18%',
-    caption: 'Conversion rate increase'
-  },
-  {
-    label: 'Experiment Velocity',
-    value: '4–8 / month',
-    caption: 'Per retained client'
-  },
-  {
-    label: 'Subscription Impact',
-    value: '3x',
-    caption: 'Lift in recurring revenue on select tests'
-  },
-  {
-    label: 'Retention Focus',
-    value: '60%+',
-    caption: 'Tests beyond “just the hero”'
-  }
-];
-
-export const impactCards = [
-  {
-    value: '99.99%',
-    label: 'Uptime of live tests',
-    text: 'Robust QA, rollback plans & monitoring.'
-  },
-  {
-    value: '60%',
-    label: 'Wins vs. industry 30–40%',
-    text: 'Because experiments are rooted in real insights.'
-  },
-  {
-    value: '85%',
-    label: 'Tests shipped within 2 weeks',
-    text: 'Lean pods with design, dev, and analytics aligned.'
-  }
-];
-
 export const valueCards = [
   {
     title: 'Experiment First',

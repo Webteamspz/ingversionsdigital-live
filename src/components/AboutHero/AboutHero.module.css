@@ -112,6 +112,15 @@
   padding: 40px 28px;
   margin-top: 70px
 }
+.aboutHeroStatsTitle {
+  margin: 0 0 32px;
+  color: var(--palette-bg-800);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center
+}
 .aboutHeroStats {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -201,6 +210,9 @@
   .aboutHeroStatsWrap {
     padding: 28px 20px
   }
+  .aboutHeroStatsTitle {
+    font-size: 28px
+  }
   .aboutHeroStats {
     grid-template-columns: repeat(2,1fr);
     gap: 28px
@@ -208,14 +220,19 @@
 }
 @media (max-width:767.98px) {
   .aboutHero {
-    padding: 68px 0 40px
+    padding: 70px 0 0
   }
   .aboutTag {
     font-size: 11px;
     padding: 6px 14px
   }
   .aboutHeroStatsWrap {
+    margin-top: 20px;
     padding: 20px 16px
+  }
+  .aboutHeroStatsTitle {
+    font-size: 24px;
+    margin-bottom: 24px
   }
   .aboutHeroStats {
     grid-template-columns: 1fr;
@@ -260,9 +277,6 @@
   }
   .aboutMetaItem {
     padding: 8px 12px
-  }
-  .aboutMetaLabel {
-    text-align: center
   }
   .aboutMetaValue {
     text-align: center

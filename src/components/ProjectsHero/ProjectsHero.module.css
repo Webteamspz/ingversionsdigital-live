@@ -1,6 +1,7 @@
 .heroWrap {
   position: relative;
-  isolation: isolate
+  isolation: isolate;
+  z-index: 5
 }
 .heroTop {
   text-align: center;
@@ -126,13 +127,15 @@
 }
 .dropdownArrow {
   flex-shrink: 0;
-  color: var(--palette-accent);
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--palette-border);
   transition: transform .2s ease;
-  transform: rotate(180deg)
+  transform: rotate(0)
 }
 .dropdownArrow.arrowOpen {
-  transform: rotate(0)
+  transform: rotate(180deg)
 }
 .dropdownList {
   position: absolute;
@@ -196,6 +199,7 @@
     display: none
   }
   .mobileFilterWrap {
-    display: block
+    display: block;
+    margin-bottom: 0;
   }
 }

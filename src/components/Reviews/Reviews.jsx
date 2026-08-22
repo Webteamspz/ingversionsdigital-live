@@ -1,8 +1,4 @@
 import { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, A11y } from "swiper/modules";
 
 import data from "../../data/sitedata";
 import styles from "./Reviews.module.css";
@@ -55,19 +51,23 @@ export default function Reviews() {
         </h3>
 
         {isMobile ? (
-          <Swiper
-            modules={[Pagination, A11y]}
-            pagination={{ clickable: true }}
-            spaceBetween={16}
-            slidesPerView={1.1}
-            className={styles.reviewsSwiper}
-          >
-            {data.review.testimonials.map((t, i) => (
-              <SwiperSlide key={i}>
-                {renderCard(t, i)}
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className={styles.reviewsMarquee}>
+            <div className={styles.reviewsMarqueeTrack}>
+              {[0, 1].map((groupIndex) => (
+                <div
+                  className={styles.reviewsMarqueeGroup}
+                  aria-hidden={groupIndex === 1 ? "true" : undefined}
+                  key={groupIndex}
+                >
+                  {data.review.testimonials.map((t, i) => (
+                    <div key={`${groupIndex}-${i}`} className={styles.marqueeCard}>
+                      {renderCard(t, i)}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <div className={styles.reviewsGrid}>
             {data.review.testimonials.map((t, i) => (

@@ -337,7 +337,8 @@
     box-shadow: var(--shadow-pop-hover)
   }
   .chevron {
-    font-size: 12px
+    display: flex;
+    align-items: center
   }
   .sliderImage {
     max-height: 65vh

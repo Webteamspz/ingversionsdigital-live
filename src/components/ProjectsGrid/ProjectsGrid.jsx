@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, ArrowLeftRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ArrowLeftRight, X } from "lucide-react";
 import styles from "./ProjectsGrid.module.css";
 import Reveal from "../Reveal/Reveal";
 
@@ -174,7 +174,7 @@ const ProjectsGrid = ({ projects }) => {
         >
           View More Projects
           <span className={styles.chevron} aria-hidden="true">
-            &#9662;
+            <ArrowRight size={16} strokeWidth={2.5} color="var(--palette-border)" />
           </span>
         </button>
       )}
@@ -195,7 +195,7 @@ const ProjectsGrid = ({ projects }) => {
               onClick={() => setSelectedProject(null)}
               aria-label="Close modal"
             >
-              &times;
+              <X size={18} strokeWidth={2.5} color="var(--palette-border)" />
             </button>
 
             {selectedProject.beforeImage && selectedProject.afterImage ? (

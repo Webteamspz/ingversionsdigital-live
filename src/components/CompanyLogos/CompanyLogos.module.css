@@ -69,8 +69,12 @@
   }
 }
 @media (max-width:767.98px) {
+  .logosSection {
+    padding-top: 30px;
+    padding-bottom: 0;
+  }
   .cardSlide {
-    width: 170px;
+    width: 240px;
     padding: 0 14px
   }
   .marqueeTrack {

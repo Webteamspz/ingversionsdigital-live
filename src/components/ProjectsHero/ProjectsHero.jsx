@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import styles from "./ProjectsHero.module.css";
 import data from "../../data/projectsdata";
 
@@ -66,7 +67,7 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
                 }`}
                 aria-hidden="true"
               >
-                &#9650;
+                <ChevronDown size={16} strokeWidth={2.5} />
               </span>
             </button>
 

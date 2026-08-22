@@ -182,10 +182,10 @@
     --swiper-pagination-bullet-inactive-opacity: 1;
     --swiper-pagination-color: var(--palette-accent)
   }
-  .aboutExpertiseSwiper .swiper-slide {
+  .aboutExpertiseSwiper :global(.swiper-slide) {
     height: auto!important
   }
-  .aboutExpertiseSwiper .swiper-pagination {
+  .aboutExpertiseSwiper :global(.swiper-pagination) {
     position: absolute;
     left: 0;
     right: 0;
@@ -196,15 +196,20 @@
     gap: 8px;
     z-index: 2
   }
-  .aboutExpertiseSwiper .swiper-pagination-bullet {
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
     opacity: 1;
-    background: var(--swiper-pagination-bullet-inactive-color);
+    background: 0 0;
+    border: 2px solid var(--palette-text-primary);
+    margin: 0 5px !important;
     border-radius: 50%;
     cursor: pointer
   }
-  .aboutExpertiseSwiper .swiper-pagination-bullet-active {
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet:hover) {
+    background: var(--tertiary)
+  }
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet-active) {
     background: var(--swiper-pagination-color)
   }
 }

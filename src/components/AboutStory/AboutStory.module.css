@@ -72,12 +72,12 @@
   }
   .aboutMissionGrid {
     grid-template-columns: minmax(0,1fr);
-    padding: 10px 8px
+    padding: 10px 0
   }
 }
 @media (max-width:767.98px) {
   .aboutStory {
-    padding: 24px 0 36px
+    padding: 40px 0
   }
   .aboutStory .aboutMissionCard h3 {
     font-size: 24px!important

@@ -236,9 +236,11 @@
     height: 27px
   }
   .cardTitle {
+    text-align: left;
     font-size: 23px
   }
   .cardDesc {
+    text-align: left;
     min-height: 0;
     margin-bottom: 20px
   }
@@ -249,8 +251,9 @@
     --swiper-pagination-bullet-inactive-opacity: 1;
     --swiper-pagination-color: var(--palette-accent)
   }
-  .engagementSwiper :global(.swiper-slide) {
-    height: auto
+  .engagementSwiper :global(.swiper-slide) .card.engagementCard {
+    width: 100%;
+    min-height: 520px
   }
   .engagementSwiper :global(.swiper-pagination) {
     bottom: 0
@@ -258,9 +261,13 @@
   .engagementSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
-    border: 1px solid var(--palette-text-primary);
+    border: 2px solid var(--palette-text-primary);
+    margin: 0 5px !important;
     background: 0 0;
     opacity: 1
+  }
+  .engagementSwiper :global(.swiper-pagination-bullet:hover) {
+    background: var(--tertiary);
   }
   .engagementSwiper :global(.swiper-pagination-bullet-active) {
     background: var(--palette-accent)
