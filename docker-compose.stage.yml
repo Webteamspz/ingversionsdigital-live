@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
       args:
         BUILD_MODE: staging
+        VITE_APP_ENV: ${VITE_APP_ENV}
+        VITE_STAGING_USERS: ${VITE_STAGING_USERS}
     image: ingversionsdigital-live:stage
     restart: unless-stopped
     labels:

@@ -79,6 +79,8 @@ jobs:
             TRAEFIK_SERVICE_NAME=ingversionsdigital-live-stage
             WEBSITE_PUBLIC_PORT=8091
             WEBSITE_DOMAIN=staging.ingversionsdigital.com
+            VITE_APP_ENV=staging
+            VITE_STAGING_USERS=${{ secrets.STAGING_USERS_JSON }}
         run: |
           BODY=$(jq -n \
             --arg content "$PROJECT_URL" \
