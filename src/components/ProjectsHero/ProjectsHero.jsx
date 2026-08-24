@@ -29,10 +29,10 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
       <div className="container">
         <div className={styles.heroTop}>
           <span className={styles.tag}>{data.hero.tag}</span>
-          <h2 className={styles.heading}>
+          <h1 className={styles.heading}>
             {data.hero.headingPart1}{" "}
             <span className={styles.highlight}>{data.hero.headingHighlight}</span>
-          </h2>
+          </h1>
           <p className={styles.description}>{data.hero.description}</p>
 
           

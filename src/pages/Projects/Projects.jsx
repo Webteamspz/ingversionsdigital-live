@@ -9,6 +9,10 @@ const Projects = () => (
       title="Our Projects | Ingversions Digital"
       description="See how we've helped ecommerce brands grow through Shopify development, A/B testing, and conversion rate optimization."
       path="/projects"
+      breadcrumb={[
+        { name: "Home", path: "/" },
+        { name: "Projects", path: "/projects" },
+      ]}
     />
     <Header />
     <ProjectsPage />

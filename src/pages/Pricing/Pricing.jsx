@@ -13,6 +13,10 @@ const Pricing = () => {
         title="Shopify CRO Pricing | Ingversions Digital"
         description="Transparent pricing for Shopify CRO, A/B testing, UX research, and conversion optimization services for ecommerce brands."
         path="/pricing"
+        breadcrumb={[
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ]}
       />
       <Layout header={1} footer={1}>
         <main className="pricingPage">

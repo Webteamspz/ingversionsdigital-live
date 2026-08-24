@@ -4,7 +4,7 @@ export const pricingHeroData = {
   subtitle:
     "Choose a plan that fits your growth stage. Every plan includes CRO strategy, experiment execution, and transparent reporting.",
   primaryCta: "Book a strategy call",
-  primaryHref: "/#contact",
+  primaryHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
   secondaryCta: "Compare Plans",
   secondaryHref: "#pricingComparison",
 };
@@ -21,7 +21,7 @@ export const pricingPlans = [
       "Monthly reporting"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "/#hero"
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
   {
     name: "Growth",
@@ -34,7 +34,7 @@ export const pricingPlans = [
       "Weekly reporting"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "/#hero"
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
   {
     name: "Premium",
@@ -49,7 +49,7 @@ export const pricingPlans = [
       "Priority support"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "/#hero"
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   },
   {
     name: "Elite",
@@ -62,7 +62,7 @@ export const pricingPlans = [
       "Super Priority support"
     ],
     ctaLabel: "Get Started",
-    ctaHref: "/#hero"
+    ctaHref: "https://calendly.com/ingversionsdigital/30min?month=2025-10"
   }
 ];
 

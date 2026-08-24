@@ -10,7 +10,7 @@ export default {
     ],
     cta: {
       label: "Book A Call",
-      href: "#hero",
+      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
     },
   },
   hero: {
@@ -19,7 +19,7 @@ export default {
     sub: "We run structured A/B tests to uncover what truly drives conversions, then scale those wins across your Shopify store for lasting revenue growth.",
     cta: {
       label: "Book A Call",
-      href: "#contact",
+      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
     },
     avatars: [
       "/assets/reviews/reviewer-1.jpg",

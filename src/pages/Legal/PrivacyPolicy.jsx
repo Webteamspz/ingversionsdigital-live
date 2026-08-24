@@ -16,6 +16,10 @@ const PrivacyPolicy = () => (
       title="Privacy Policy | Ingversions Digital"
       description="How Ingversions Digital collects, uses, shares, and protects your information across ingversionsdigital.com."
       path="/privacy-policy"
+      breadcrumb={[
+        { name: "Home", path: "/" },
+        { name: "Privacy Policy", path: "/privacy-policy" },
+      ]}
     />
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>

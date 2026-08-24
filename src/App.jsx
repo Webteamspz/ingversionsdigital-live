@@ -24,16 +24,7 @@ const ScrollManager = () => {
     const targetId = hash.slice(1);
 
     const scrollToEl = (el) => {
-      const header = document.getElementById("header");
-      const headerHeight = header ? header.offsetHeight : 0;
-
-      const rect = el.getBoundingClientRect();
-      const targetY = rect.top + window.scrollY - headerHeight + 100;
-
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth",
-      });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     const existing =

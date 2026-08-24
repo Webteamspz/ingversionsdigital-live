@@ -178,7 +178,7 @@ const projectsData = {
     title: "Have a project in mind?",
     subtitle: "Let's build something that drives real impact.",
     buttonText: "Schedule a call",
-    buttonLink: "/#hero",
+    buttonLink: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
   },
 };
 

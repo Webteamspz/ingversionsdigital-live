@@ -17,6 +17,10 @@ const TermsOfService = () => (
       title="Terms of Service | Ingversions Digital"
       description="Terms and conditions for using ingversionsdigital.com and engaging Ingversions Digital's CRO, Shopify, and web development services."
       path="/terms-of-service"
+      breadcrumb={[
+        { name: "Home", path: "/" },
+        { name: "Terms of Service", path: "/terms-of-service" },
+      ]}
     />
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>

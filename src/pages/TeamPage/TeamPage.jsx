@@ -14,6 +14,10 @@ const TeamPage = () => {
         title="Our Team | Ingversions Digital"
         description="Meet the team behind Ingversions Digital's Shopify CRO and conversion optimization work."
         path="/teampage"
+        breadcrumb={[
+          { name: "Home", path: "/" },
+          { name: "Team", path: "/teampage" },
+        ]}
       />
 
       <Layout header={1} footer={1}>

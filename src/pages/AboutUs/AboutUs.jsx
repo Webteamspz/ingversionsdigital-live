@@ -14,6 +14,10 @@ const AboutUs = () => {
         title="About Us | Ingversions Digital"
         description="Ingversions Digital is a Shopify CRO agency serving ecommerce brands worldwide, based in Surat, India."
         path="/about-us"
+        breadcrumb={[
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about-us" },
+        ]}
       />
       <Layout header={1} footer={1}>
         <main className={styles.aboutPage}>

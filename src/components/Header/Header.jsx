@@ -65,9 +65,8 @@ const Header = () => {
     () => location.pathname === "/"
   );
 
-  const isBlogPage = location.pathname.startsWith("/blog");
-  const ctaHref = isBlogPage ? cta.href : "/#hero";
-  const isHomePage = location.pathname === "/"; 
+  const ctaHref = cta.href;
+  const isHomePage = location.pathname === "/";
 
   
   

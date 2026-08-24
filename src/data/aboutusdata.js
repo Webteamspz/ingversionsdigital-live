@@ -8,7 +8,7 @@ export const heroData = {
     { label: 'HQ', value: 'Remote-first' }
   ],
   primaryCta: 'Book A Call',
-  primaryCtaHref: '/#hero',
+  primaryCtaHref: 'https://calendly.com/ingversionsdigital/30min?month=2025-10',
   imageSrc: '/assets/about-hero/hero-img.webp',
   imageAlt: 'Data-driven CRO dashboards'
 };
@@ -92,5 +92,5 @@ export const ctaData = {
   title: 'Ready to discuss your next experiment?',
   text: 'Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.',
   primaryLabel: 'Schedule a call',
-  primaryHref: '/#hero'
+  primaryHref: 'https://calendly.com/ingversionsdigital/30min?month=2025-10'
 };
