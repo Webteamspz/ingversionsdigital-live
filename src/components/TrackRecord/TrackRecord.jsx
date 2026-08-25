@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import data from "../../data/sitedata";
 import styles from "./TrackRecord.module.css";
+import Reveal from "../Reveal/Reveal";
 
 const Counter = ({ value, duration = 3000 }) => {
   const ref = useRef(null);
@@ -39,13 +40,13 @@ const TrackRecord = () => {
   return (
     <section className={styles.kpiSection} id="track-record">
       <div className="container">
-        <h3 className="section-title">{data.records.heading}</h3>
+        <h3 className={styles.sectionTitle}>{data.records.heading}</h3>
         <div className={styles.kpis}>
           {data.records.list.map((k, i) => (
-            <div key={i} className={styles.kpi}>
-              <div className={styles.label}>{k.label}</div>
+            <Reveal key={i} delay={i * 80} className={styles.kpi}>
               <Counter value={k.value} duration={3000} />
-            </div>
+              <div className={styles.label}>{k.label}</div>
+            </Reveal>
           ))}
         </div>
       </div>

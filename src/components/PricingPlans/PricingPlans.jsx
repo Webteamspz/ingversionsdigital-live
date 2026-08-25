@@ -1,6 +1,8 @@
-import React from "react";
-import "./PricingPlans.css";
+import styles from "./PricingPlans.module.css";
 import { pricingPlans } from "../../data/pricingdata";
+import Reveal from "../Reveal/Reveal";
+
+const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)"];
 
 const PricingPlans = () => {
   const standardPlans = pricingPlans.slice(0, 3);
@@ -17,87 +19,101 @@ const PricingPlans = () => {
   }
 
   return (
-    <section className="pricingPlans" id="pricingPlans">
+    <section className={styles.pricingPlans} id="pricingPlans">
       <div className="container">
 
-        <div className="pricingPlansGrid">
+        <div className={styles.pricingPlansGrid}>
           {standardPlans.map((plan, idx) => (
-            <article key={plan.name} className="pricingPlanCard card">
+            <Reveal
+              key={plan.name}
+              delay={idx * 80}
+              className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
+            >
+              <span
+                className={styles.cornerFold}
+                style={{ background: PLAN_COLORS[idx % PLAN_COLORS.length] }}
+                aria-hidden="true"
+              />
 
-              <div className="pricingPlanBadgeWrap">
+              <div className={styles.pricingPlanBadgeWrap}>
                 {plan.badge ? (
-                  <span className="pricingPlanBadge">{plan.badge}</span>
+                  <span className={styles.pricingPlanBadge}>{plan.badge}</span>
                 ) : (
-                  <span className="pricingPlanBadge emptyBadge"></span>
+                  <span className={`${styles.pricingPlanBadge} ${styles.emptyBadge}`}></span>
                 )}
               </div>
 
-              <h3 className="pricingPlanName">{plan.name}</h3>
+              <h3 className={styles.pricingPlanName}>{plan.name}</h3>
 
-              <div className="pricingPlanPriceRow">
-                <span className="pricingPlanPrice">
+              <div className={styles.pricingPlanPriceRow}>
+                <span className={styles.pricingPlanPrice}>
                   {typeof plan.price === "number" ? `$${plan.price}` : plan.price}
                 </span>
                 {plan.period && (
-                  <span className="pricingPlanPeriod">{plan.period}</span>
+                  <span className={styles.pricingPlanPeriod}>{plan.period}</span>
                 )}
               </div>
 
-              <p className="pricingPlanDesc">{plan.description}</p>
+              <p className={styles.pricingPlanDesc}>{plan.description}</p>
 
-              <ul className="pricingPlanHighlights">
+              <ul className={styles.pricingPlanHighlights}>
                 {plan.highlights?.map((h, i) => (
-                  <li key={i} className="pricingPlanHighlight">
-                    <span className="checkDot" />
+                  <li key={i} className={styles.pricingPlanHighlight}>
+                    <span className={styles.checkDot} />
                     {h}
                   </li>
                 ))}
               </ul>
 
-              <div className="cardButtons">
-                <a className="btn pricingPlanBtn" href={plan.ctaHref || "#"}>
+              <div className={styles.cardButtons}>
+                <a className={`btn ${styles.pricingPlanBtn}`} href={plan.ctaHref || "#"}>
                   {plan.ctaLabel || "Get Started"}
                 </a>
                 <button
-                  className="btnOutline"
+                  className={`c-btn ${styles.compareBtn}`}
                   onClick={function() { handleSeeComparison(idx); }}
                 >
                   Compare Plans
                 </button>
               </div>
 
-            </article>
+            </Reveal>
           ))}
         </div>
 
         {elitePlan && (
-          <article className="pricingPlanCard wideCard">
+          <Reveal className={`${styles.pricingPlanCard} ${styles.wideCard}`}>
+            <span
+              className={styles.cornerFold}
+              style={{ background: "var(--tertiary)" }}
+              aria-hidden="true"
+            />
 
-            <div className="wideCardLeft">
+            <div className={styles.wideCardLeft}>
 
-              <span className="wideBadge">ENTERPRISE</span>
+              <span className={styles.wideBadge}>ENTERPRISE</span>
 
-              <h3 className="wideTitle">{elitePlan.name} Plan</h3>
+              <h3 className={styles.wideTitle}>{elitePlan.name} Plan</h3>
 
-              <p className="wideDesc">{elitePlan.description}</p>
+              <p className={styles.wideDesc}>{elitePlan.description}</p>
 
-              <div className="wideCardRight mobileOnlyHighlights">
-                <ul className="pricingPlanHighlights">
+              <div className={`${styles.wideCardRight} ${styles.mobileOnlyHighlights}`}>
+                <ul className={styles.pricingPlanHighlights}>
                   {elitePlan.highlights?.map((h, i) => (
-                    <li key={i} className="pricingPlanHighlight">
-                      <span className="checkDot" />
+                    <li key={i} className={styles.pricingPlanHighlight}>
+                      <span className={styles.checkDot} />
                       {h}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="wideButtons">
-                <a className="btn pricingPlanBtn" href={elitePlan.ctaHref || "#"}>
+              <div className={styles.wideButtons}>
+                <a className={`btn ${styles.wideBtn}`} href={elitePlan.ctaHref || "#"}>
                   {elitePlan.ctaLabel || "Book a strategy call"}
                 </a>
                 <button
-                  className="btnOutline"
+                  className={`c-btn ${styles.wideOutlineBtn}`}
                   onClick={function() { handleSeeComparison(3); }}
                 >
                   Compare Plans
@@ -106,18 +122,18 @@ const PricingPlans = () => {
 
             </div>
 
-            <div className="wideCardRight desktopOnlyHighlights">
-              <ul className="pricingPlanHighlights">
+            <div className={`${styles.wideCardRight} ${styles.desktopOnlyHighlights}`}>
+              <ul className={styles.pricingPlanHighlights}>
                 {elitePlan.highlights?.map((h, i) => (
-                  <li key={i} className="pricingPlanHighlight">
-                    <span className="checkDot" />
+                  <li key={i} className={styles.pricingPlanHighlight}>
+                    <span className={styles.checkDot} />
                     {h}
                   </li>
                 ))}
               </ul>
             </div>
 
-          </article>
+          </Reveal>
         )}
 
       </div>

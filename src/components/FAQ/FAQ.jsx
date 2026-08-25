@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import data from "../../data/sitedata";
 import styles from "./FAQ.module.css";
+import Reveal from "../Reveal/Reveal";
 
 const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
   const bodyRef = useRef(null);
@@ -23,10 +24,7 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
   }, [isOpen]);
 
   return (
-    <div
-      className={`${styles.accordionItem} ${isOpen ? styles.open : ""}`}
-      id="FAQ"
-    >
+    <div className={`${styles.accordionItem} ${isOpen ? styles.open : ""}`}>
       <button
         className={styles.accordionItemHeader}
         onClick={() => onToggle(index)}
@@ -35,7 +33,7 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
         id={`faq-button-${index}`}
       >
         <span>{q}</span>
-        <div className={styles.accordionItemIcon}></div>
+        <span className={styles.accordionItemIcon} aria-hidden="true" />
       </button>
       <div
         id={`faq-panel-${index}`}
@@ -63,14 +61,15 @@ const FAQ = () => {
         <h3 className="section-title">{heading}</h3>
         <div className={styles.accordion}>
           {list.map((it, i) => (
-            <FAQItem
-              key={i}
-              index={i}
-              q={it.q}
-              a={it.a}
-              isOpen={openIndex === i}
-              onToggle={handleToggle}
-            />
+            <Reveal key={i} delay={i * 60}>
+              <FAQItem
+                index={i}
+                q={it.q}
+                a={it.a}
+                isOpen={openIndex === i}
+                onToggle={handleToggle}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

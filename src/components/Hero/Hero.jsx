@@ -1,39 +1,15 @@
-import { useEffect, useRef, useState, lazy } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
-import { ctaClick, dl } from "../../gtm";
+import { dl } from "../../gtm";
+import OptimizedImg from "../OptimizedImg/OptimizedImg";
 
-// CompanyLogos ko lazy load kar rahe hain taaki main thread block na ho
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/manppeoz";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
 
-const OptimizedImg = ({
-  src,
-  alt,
-  width,
-  height,
-  priority = false,
-  className,
-  ...rest
-}) => (
-  <img
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={priority ? "eager" : "lazy"}
-    fetchPriority={priority ? "high" : "auto"}
-    decoding="async"
-    className={className}
-    {...rest}
-  />
-);
-
-// Maps each form field's `name` to the correct HTML autocomplete token.
-// Keeps working even if new fields are added later in sitedata.js.
 const getAutocomplete = (name = "") => {
   const n = name.toLowerCase();
   if (n.includes("first") || n.includes("full") || n === "name") return "name";
@@ -48,19 +24,16 @@ const getAutocomplete = (name = "") => {
 
 const Hero = () => {
   const h = data.hero;
-  const { form } = data.contact; // Contact data se form fetch kar rahe hain
+  const { form } = data.contact; 
   const sectionRef = useRef(null);
   const viewedRef = useRef(false);
 
-  // --- FORM STATE & LOGIC START ---
   const [formData, setFormData] = useState({ phone: "", message: "" });
   const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
   const [phoneInteracted, setPhoneInteracted] = useState(false);
   const location = useLocation();
 
   const setField = (name, value) => setFormData((p) => ({ ...p, [name]: value }));
-  const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
   const setError = (name, msg) => setErrors((p) => msg ? { ...p, [name]: msg } : (delete p[name], { ...p }));
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,13 +72,10 @@ const Hero = () => {
     form.fields.forEach((f) => {
       if (f.type === "textarea") return;
       const v = formData[f.name] ?? "";
-      touch(f.name);
       ok = validateField(f.name, v) && ok;
     });
-    touch("message");
     ok = validateField("message", formData.message || "") && ok;
     setPhoneInteracted(true);
-    touch("phone");
     ok = validateField("phone", formData.phone || "") && ok;
     return ok;
   };
@@ -113,12 +83,10 @@ const Hero = () => {
   const handleInput = (f) => (e) => {
     const val = e.currentTarget.value;
     setField(f.name, val);
-    touch(f.name);
     validateField(f.name, val);
   };
 
   const handleBlur = (f) => (e) => {
-    touch(f.name);
     validateField(f.name, e.currentTarget.value);
   };
 
@@ -145,7 +113,7 @@ const Hero = () => {
         const err = await res.json().catch(() => ({}));
         alert(err?.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       alert("Found some error please try again.");
     }
   };
@@ -153,14 +121,16 @@ const Hero = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const plan = params.get("plan");
-    if (!plan) return;
-    const defaultMessage = `Hi, could you tell me more about the ${plan} plan?`;
+    const service = params.get("service");
+    if (!plan && !service) return;
+    const defaultMessage = plan
+      ? `Hi, could you tell me more about the ${plan} plan?`
+      : `Hi, I'd like to learn more about your ${service} service.`;
     setFormData((prev) => ({
       ...prev,
       message: defaultMessage,
-      selected_plan: plan,
+      ...(plan ? { selected_plan: plan } : {}),
     }));
-    setTouched((prev) => ({ ...prev, message: true }));
     setError("message", "");
   }, [location.search]);
 
@@ -179,14 +149,10 @@ const Hero = () => {
     return () => io.disconnect();
   }, []);
 
-  const handleCta = () => {
-    ctaClick({ label: h.cta.label, location: "Hero", href: h.cta.href });
-  };
-
   return (
     <section ref={sectionRef} className={styles.bannerBg} id="hero" aria-labelledby="hero-heading">
       <div className={`container ${styles.heroRow}`}>
-        {/* LEFT TEXT */}
+        
         <div className={styles.textHeroArea}>
           <h1 id="hero-heading" className={styles.heroTitle}>
             {h.heading} <span className={styles.heroTitlePill}>{h.pill}</span>
@@ -194,10 +160,6 @@ const Hero = () => {
           <p className={styles.heroSubtitle}>{h.sub}</p>
 
           <div className={styles.heroCtaWrap}>
-            {/* <a className={styles.btnHero} href={h.cta.href} onClick={handleCta} data-cta={h.cta.label} data-cta-loc="Hero">
-              {h.cta.label}
-            </a> */}
-
             <div className={styles.heroSocialProof}>
               <div className={styles.avatarStack}>
                 {h.avatars.map((src, i) => (
@@ -215,7 +177,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT VISUAL: CONTACT FORM */}
+        
         <div className={`${styles.contactCard} ${styles.formCard}`}>
           <h4 className={styles.contactPanelTitle}>{form.title}</h4>
           <form data-gtm-form="contact" onSubmit={handleSubmit} noValidate>
@@ -223,7 +185,11 @@ const Hero = () => {
               {form.fields.filter((f) => f.col === "half").map((f) =>
                 f.type === "textarea" ? null : (
                   <div key={f.name}>
+                    <label htmlFor={`hero-${f.name}`} className="sr-only">
+                      {f.placeholder}
+                    </label>
                     <input
+                      id={`hero-${f.name}`}
                       className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                       type={f.type}
                       name={f.name}
@@ -243,7 +209,11 @@ const Hero = () => {
             {form.fields.filter((f) => f.col === "full" && !["phone", "message"].includes(f.name)).map((f) =>
               f.type === "textarea" ? null : (
                 <div key={f.name} className={styles.mt}>
+                  <label htmlFor={`hero-${f.name}`} className="sr-only">
+                    {f.placeholder}
+                  </label>
                   <input
+                    id={`hero-${f.name}`}
                     className={`${styles.cInput} ${errors[f.name] ? styles.invalid : ""}`}
                     type={f.type}
                     name={f.name}
@@ -261,7 +231,11 @@ const Hero = () => {
 
             {form.fields.some((f) => f.name === "phone") && (
               <div className={styles.mt}>
+                <label htmlFor="hero-phone" className="sr-only">
+                  Phone Number
+                </label>
                 <input
+                  id="hero-phone"
                   className={`${styles.cInput} ${errors.phone ? styles.invalid : ""}`}
                   type="tel"
                   name="phone"
@@ -271,14 +245,12 @@ const Hero = () => {
                   inputMode="tel"
                   onFocus={() => {
                     setPhoneInteracted(true);
-                    touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
                   onInput={(event) => {
                     const val = event.currentTarget.value;
                     setField("phone", val);
                     if (phoneInteracted) {
-                      touch("phone");
                       validateField("phone", val);
                     }
                   }}
@@ -289,7 +261,11 @@ const Hero = () => {
 
             {form.fields.filter((f) => f.name === "message").map((f) => (
               <div key={f.name} className={styles.mt}>
+                <label htmlFor="hero-message" className="sr-only">
+                  {f.placeholder}
+                </label>
                 <textarea
+                  id="hero-message"
                   className={`${styles.cInput} ${styles.mt} ${errors.message ? styles.invalid : ""}`}
                   name={f.name}
                   placeholder={f.placeholder}
@@ -297,22 +273,20 @@ const Hero = () => {
                   autoComplete="off"
                   onFocus={() => {
                     setPhoneInteracted(true);
-                    touch("phone");
                     validateField("phone", formData.phone || "");
                   }}
                   onInput={(e) => {
                     const v = e.currentTarget.value;
                     setField("message", v);
-                    touch("message");
                     validateField("message", v);
                   }}
                   onBlur={(e) => {
-                    touch("message");
                     validateField("message", e.currentTarget.value);
                   }}
                   aria-invalid={!!errors.message}
                 />
-                {errors.message && <div className={styles.errorMessage}>{errors.message}</div>}
+                {errors.
+                message && <div className={styles.errorMessage}>{errors.message}</div>}
               </div>
             ))}
 
@@ -322,7 +296,10 @@ const Hero = () => {
           </form>
         </div>
       </div>
-    
+
+      <Suspense fallback={<div style={{ minHeight: "100px", width: "100%" }}></div>}>
+        <CompanyLogos />
+      </Suspense>
     </section>
   );
 };

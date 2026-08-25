@@ -1,0 +1,284 @@
+.aboutHero {
+  padding: 160px 0 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden
+}
+.aboutHero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%);
+  z-index: -1;
+  pointer-events: none
+}
+.aboutHeroGrid {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center
+}
+.aboutHeroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+.aboutTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: var(--secondary);
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--palette-bg-800);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  width: max-content
+}
+.aboutHeroTitle {
+  margin: 0;
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--text-100)
+}
+.accentText {
+  color: var(--palette-accent)
+}
+.aboutHeroSubtitle {
+  margin: 0;
+  max-width: 560px;
+  color: var(--palette-text-secondary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%
+}
+.aboutHeroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px
+}
+.aboutMetaItem {
+  padding: 10px 14px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  -webkit-box-shadow: var(--shadow-pop-soft);
+  box-shadow: var(--shadow-pop-soft)
+}
+.aboutMetaLabel {
+  display: block;
+  color: var(--palette-text-secondary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  margin-bottom: 4px
+}
+.aboutMetaValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-100)
+}
+.aboutHeroActions {
+  margin-top: 6px
+}
+.aboutHeroVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box
+}
+.aboutHeroImg {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md)
+}
+.aboutHeroStatsWrap {
+  background: var(--palette-border);
+  box-shadow: 0 0 0 100vmax var(--palette-border);
+  clip-path: inset(0 -100vmax);
+  padding: 40px 28px;
+  margin-top: 70px
+}
+.aboutHeroStatsTitle {
+  margin: 0 0 32px;
+  color: var(--palette-bg-800);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center
+}
+.aboutHeroStats {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 40px;
+  align-items: center
+}
+.aboutStat {
+  display: flex;
+  min-height: 154px;
+  padding: 26px 22px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.aboutHeroStats .aboutStat:nth-child(4n+1) {
+  border-radius: var(--radius-full);
+  background: var(--palette-accent);
+  color: var(--palette-bg-800)
+}
+.aboutHeroStats .aboutStat:nth-child(4n+2) {
+  border-radius: 0;
+  background: var(--tertiary);
+  color: var(--palette-border)
+}
+.aboutHeroStats .aboutStat:nth-child(4n+3) {
+  border-radius: var(--radius-md);
+  background: var(--secondary);
+  color: var(--palette-bg-800)
+}
+.aboutHeroStats .aboutStat:nth-child(4n) {
+  border-radius: 32px 0 32px 0;
+  background: var(--quaternary);
+  color: var(--palette-border)
+}
+.aboutHeroStats .aboutStat:hover {
+  box-shadow: 7px 7px 0 rgba(255,255,255,.85);
+  transform: translate(-4px,-5px) rotate(-1deg)
+}
+.aboutStatLabel {
+  display: block;
+  color: currentColor;
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .01em;
+  line-height: 1.2;
+  text-transform: uppercase
+}
+.aboutStatValue {
+  display: block;
+  color: currentColor;
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 700;
+  font-size: clamp(45px, 4.2vw, 64px);
+  letter-spacing: -.05em;
+  line-height: .95;
+  margin: 0 0 5px
+}
+@media (max-width:1023.98px) {
+  .aboutHero {
+    padding: 130px 0 48px
+  }
+  .aboutHeroContent {
+    align-items: center
+  }
+  .aboutHeroGrid {
+    flex-direction: column-reverse;
+    gap: 28px
+  }
+  .aboutHeroVisual {
+    order: -1;
+    margin-bottom: 20px
+  }
+  .aboutHeroTitle {
+    font-size: 32px;
+    text-align: center
+  }
+  .aboutHeroSubtitle {
+    font-size: 15px;
+    text-align: center
+  }
+  .aboutHeroMeta {
+    justify-content: center
+  }
+  .aboutHeroStatsWrap {
+    padding: 28px 20px
+  }
+  .aboutHeroStatsTitle {
+    font-size: 28px
+  }
+  .aboutHeroStats {
+    grid-template-columns: repeat(2,1fr);
+    gap: 28px
+  }
+}
+@media (max-width:767.98px) {
+  .aboutHero {
+    padding: 70px 0 0
+  }
+  .aboutTag {
+    font-size: 11px;
+    padding: 6px 14px
+  }
+  .aboutHeroStatsWrap {
+    margin-top: 20px;
+    padding: 20px 16px
+  }
+  .aboutHeroStatsTitle {
+    font-size: 24px;
+    margin-bottom: 24px
+  }
+  .aboutHeroStats {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 18px;
+    justify-items: stretch;
+    align-items: stretch
+  }
+  .aboutStat {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 18px 16px;
+    text-align: center;
+    display: block
+  }
+  .aboutHeroStats .aboutStat:nth-child(4n),
+  .aboutHeroStats .aboutStat:nth-child(4n+1) {
+    border-radius: var(--radius-lg)
+  }
+  .aboutStatValue {
+    font-size: 48px
+  }
+  .aboutStatLabel {
+    font-size: 14px
+  }
+  .aboutHeroTitle {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.25;
+    text-align: center
+  }
+  .aboutHeroSubtitle {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center
+  }
+  .aboutHeroMeta {
+    justify-content: center;
+    gap: 12px
+  }
+  .aboutMetaItem {
+    padding: 8px 12px
+  }
+  .aboutMetaValue {
+    text-align: center
+  }
+}

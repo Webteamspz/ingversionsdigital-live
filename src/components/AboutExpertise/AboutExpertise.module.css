@@ -1,71 +1,120 @@
 .aboutExpertise {
-  padding-top: 50px;
+  background: var(--palette-tint-blue);
+  padding: 50px 0
+}
+.sectionTitle {
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--palette-text-primary);
+  margin: 0 0 14px
 }
 .sectionTitleCenter {
   text-align: center
 }
 .sectionSubtitle {
-  color: #ffffffcc;
-  margin: 0 auto 45px;
+  color: var(--palette-text-secondary);
+  margin: 0 auto 44px;
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   max-width: 650px
 }
 .aboutExpertiseGrid {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 22px
+  gap: 22px;
+  padding: 10px 0
 }
 .card.aboutExpertiseCard {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  min-height: 425px;
-  background: #141414;
-  border: 1px solid transparent;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-  padding: 28px 26px;
+  min-height: 300px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  padding: 24px 26px 28px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: border-color .15s ease,transform .15s ease,box-shadow .15s ease;
-  box-sizing: border-box
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
+  box-sizing: border-box;
+  animation: expertisePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards
 }
-/* .card.aboutExpertiseCard:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255,255,255,.1);
-  box-shadow: 0 15px 30px rgba(0,0,0,.4)
-} */
+.cornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-bottom: var(--border-width) solid var(--palette-border);
+  border-left: var(--border-width) solid var(--palette-border);
+  border-radius: 0 0 0 32px
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(1) {
+  animation-delay: 0s
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(2) {
+  animation-delay: 80ms
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(3) {
+  animation-delay: 0.16s
+}
+.aboutExpertiseGrid .card.aboutExpertiseCard:nth-child(4) {
+  animation-delay: 0.24s
+}
+@keyframes expertisePop {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(.96)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+  }
+}
+.card.aboutExpertiseCard:hover {
+  transform: translateY(-8px) rotate(-.7deg);
+  box-shadow: 8px 8px 0 var(--palette-accent)
+}
 .aboutIconWrap {
   width: 100%;
-  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 26px;
-  margin-bottom: 35px
+  margin-top: 4px;
+  margin-bottom: 20px
 }
-.aboutIconWrap img {
-  width: 100%;
-  max-width: 150px;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto
+.iconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 var(--palette-text-primary)
+}
+.iconCircle svg {
+  width: 30px;
+  height: 30px
 }
 .aboutExpertiseCard h3 {
-  margin: 0 0 34px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 100%;
+  margin: 0 0 12px;
+  color: var(--palette-text-primary);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
   text-align: center
 }
 .aboutExpertiseCard p {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -79,33 +128,45 @@
     grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 23px
   }
+  .sectionTitle {
+    font-size: 28px
+  }
 }
 @media (max-width:767.98px) {
   .aboutExpertise {
-  padding: 40px 0;
-}
+    padding: 40px 0
+  }
   .sectionSubtitle {
     font-weight: 400;
     font-size: 14px
   }
+  .sectionTitle {
+    font-size: 24px
+  }
   .card.aboutExpertiseCard {
     width: 100%;
     max-width: 100%;
-    min-height: 360px;
-    background: #141414;
-    border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    min-height: 260px;
+    background: var(--palette-bg-800);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-pop-soft);
     text-align: center;
-    padding: 22px 16px;
+    padding: 20px 16px 24px;
     margin: 0
   }
-  .aboutIconWrap img {
-    max-width: 150px;
-    margin: 16px auto 18px
+  .iconCircle {
+    width: 56px;
+    height: 56px;
+    box-shadow: 3px 3px 0 var(--palette-text-primary)
+  }
+  .iconCircle svg {
+    width: 27px;
+    height: 27px
   }
   .aboutExpertiseCard h3 {
-    font-weight: 600;
-    margin-bottom: 12px
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px
   }
   .aboutExpertiseCard p {
     font-size: 16px;
@@ -117,14 +178,14 @@
   .aboutExpertiseSwiper {
     padding-bottom: 56px;
     overflow: visible;
-    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: #0a84ff
+    --swiper-pagination-color: var(--palette-accent)
   }
-  .aboutExpertiseSwiper .swiper-slide {
+  .aboutExpertiseSwiper :global(.swiper-slide) {
     height: auto!important
   }
-  .aboutExpertiseSwiper .swiper-pagination {
+  .aboutExpertiseSwiper :global(.swiper-pagination) {
     position: absolute;
     left: 0;
     right: 0;
@@ -135,15 +196,20 @@
     gap: 8px;
     z-index: 2
   }
-  .aboutExpertiseSwiper .swiper-pagination-bullet {
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
     opacity: 1;
-    background: var(--swiper-pagination-bullet-inactive-color);
+    background: 0 0;
+    border: 2px solid var(--palette-text-primary);
+    margin: 0 5px !important;
     border-radius: 50%;
     cursor: pointer
   }
-  .aboutExpertiseSwiper .swiper-pagination-bullet-active {
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet:hover) {
+    background: var(--tertiary)
+  }
+  .aboutExpertiseSwiper :global(.swiper-pagination-bullet-active) {
     background: var(--swiper-pagination-color)
   }
 }

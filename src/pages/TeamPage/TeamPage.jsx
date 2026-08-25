@@ -1,51 +1,45 @@
-import { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import styles from "./TeamPage.module.css";
 import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
 import TeamHero from "../../components/TeamHero/TeamHero";
-import Layout from "../../Layouts/Layouts";
-import Preloader from "../../components/preloader/preloader";
-import Seo from "../../components/Seo/Seo";
+import Layout from "../../layouts/Layouts";
+import SEO from "../../components/SEO/SEO";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 
 const TeamPage = () => {
-  const [showPreloader, setShowPreloader] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPreloader(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      <Seo
+      <SEO
         title="Our Team | Ingversions Digital"
         description="Meet the team behind Ingversions Digital's Shopify CRO and conversion optimization work."
         path="/teampage"
+        breadcrumb={[
+          { name: "Home", path: "/" },
+          { name: "Team", path: "/teampage" },
+        ]}
       />
-
-      {/* {showPreloader && (
-        <Preloader
-          minDuration={1500}
-          logoSrc={"/assets/preloader/preloader.png"}
-        />
-      )} */}
 
       <Layout header={1} footer={1}>
         <main className={styles.teamPage}>
-          <section className="container">
-            <TeamHero
-              eyebrow={teamCopy.hero.eyebrow}
-              heading={teamCopy.hero.heading}
-              pill={teamCopy.hero.pill}
-              subtext={teamCopy.hero.subtext}
-            />
+          <TeamHero
+            eyebrow={teamCopy.hero.eyebrow}
+            heading={teamCopy.hero.heading}
+            pill={teamCopy.hero.pill}
+            subtext={teamCopy.hero.subtext}
+          />
 
+          <section className="container">
             <Suspense fallback={null}>
               <TeamGrid members={teamMembers} />
             </Suspense>
+
+            <div className={styles.culture}>
+              <h2>{teamCopy.culture.heading}</h2>
+              {teamCopy.culture.paragraphs.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </section>
         </main>
       </Layout>

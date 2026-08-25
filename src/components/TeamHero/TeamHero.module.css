@@ -1,47 +1,83 @@
 .heroWrap {
-  border-radius: 10px;
-  padding: 0 24px 28px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  position: relative;
+  isolation: isolate
+}
+.heroDecor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none
+}
+.heroDecor:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
+}
+.heroInner {
+  padding: 160px 0 60px;
   text-align: center
 }
-h2 {
-  text-align: center;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 56px;
-  color: #fff
-}
 .eyebrow {
-  display: inline-block;
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: var(--secondary);
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--palette-bg-800);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--text-300);
-  padding: 8px 12px;
-  border-radius: 10px;
-  margin-bottom: 12px
+  margin-bottom: 24px
+}
+.heroTitle {
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--palette-text-primary);
+  margin: 0 0 16px
 }
 .pill {
   display: inline-block;
-  color: #fff;
-  position: relative;
-  z-index: 1
-}
-.pill:after {
-  position: absolute;
-  content: '';
-  left: -4px;
-  bottom: 5px;
-  background: #0a84ff;
-  width: 98px;
-  height: 42px;
-  border-radius: 8px;
-  z-index: -1
+  color: var(--palette-accent)
 }
 .subtext {
-  margin: 8px auto 0;
-  max-width: 760px;
-  color: var(--text-300);
+  margin: 0 auto;
+  max-width: 640px;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%
+}
+@media (max-width:1023.98px) {
+  .heroInner {
+    padding: 130px 0 50px
+  }
+  .heroTitle {
+    font-size: 32px
+  }
+}
+@media (max-width:767.98px) {
+  .heroInner {
+    padding: 120px 0 0
+  }
+  .eyebrow {
+    font-size: 11px;
+    padding: 6px 14px
+  }
+  .heroTitle {
+    font-size: 26px
+  }
+  .subtext {
+    font-size: 14px
+  }
 }

@@ -8,17 +8,27 @@ section#hero {
   isolation: isolate
 }
 .bannerBg:before {
+  content: "";
   position: absolute;
-  left: -41px;
-  top: -23px;
-  content: '';
-  background-image: url('/assets/frame.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 1039px;
-  height: 735.05px;
-  z-index: -1
+  top: -70px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: var(--quaternary);
+  opacity: .3;
+  z-index: -1;
+  pointer-events: none
+}
+.bannerBg:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: .5;
+  z-index: -1;
+  pointer-events: none
 }
 .heroRow {
   display: flex;
@@ -36,28 +46,28 @@ section#hero {
   font-weight: 900;
   font-size: 64px;
   line-height: 88px;
-  color: #fff;
+  color: var(--palette-text-primary);
   text-transform: capitalize
 }
 .heroTitlePill {
   display: inline-block;
-  color: #fff;
+  color: var(--palette-bg-800);
   position: relative
 }
 .heroTitlePill:after {
   position: absolute;
-  content: '';
+  content: "";
   left: -8px;
   bottom: -1px;
-  background: #0a84ff;
+  background: var(--palette-accent);
   width: 225.09px;
   height: 77px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   z-index: -1
 }
 .heroSubtitle {
   margin: 0 0 33px;
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 26px;
   line-height: 32px
@@ -68,28 +78,6 @@ section#hero {
   gap: 30px;
   flex-direction: column;
   flex-wrap: wrap
-}
-.btnHero {
-  display: inline-flex;
-  width: 100%;
-  max-width: 165px;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 22px;
-  border-radius: 10px;
-  background: #0a84ff;
-  color: #fff;
-  text-decoration: none;
-  transition: .3s all ease-in-out;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 14px;
-  text-align: center;
-  border: 1px solid #0a84ff
-}
-.btnHero:hover {
-  background: #fffFFF1A;
-  color: #0a84ff
 }
 .heroSocialProof {
   display: inline-flex;
@@ -110,29 +98,29 @@ section#hero {
   margin-left: 0
 }
 .proofText {
-  color: #ffffffcc;
+  color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
   line-height: 100%
 }
 .proofText strong {
-  color: #fff;
+  color: var(--palette-text-primary);
   font-weight: 600;
   font-size: 16px
 }
 .contactCard {
   flex: 0 0 530px;
-  background: #141414;
-  border-radius: 16px;
+  background: var(--palette-bg-800);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
   padding: 32px 40px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25)
+  box-shadow: var(--shadow-pop-soft)
 }
 .formCard {
   padding: 32px 40px
 }
 .contactPanelTitle {
   margin: 0 0 24px;
-  color: #fff;
+  color: var(--palette-text-primary);
   font-weight: 600;
   font-size: 20px;
   text-align: center;
@@ -140,12 +128,12 @@ section#hero {
 }
 .cInput,
 textarea.cInput {
-  font-family: Barlow;
+  font-family: "Plus Jakarta Sans",sans-serif;
   width: 100%;
-  background: #1a1a1a;
+  background: var(--palette-bg-700);
   border: 1px solid rgba(255,255,255,0);
-  border-radius: 5px;
-  color: #ffffff99;
+  border-radius: var(--radius-sm);
+  color: var(--palette-text-muted);
   padding: 12px 14px;
   outline: 0
 }
@@ -166,22 +154,22 @@ textarea.cInput {
   width: 100%!important;
   max-width: none!important;
   justify-content: center;
-  background: #0a84ff;
+  background: var(--palette-accent);
   margin-top: 20px;
   padding: 14px;
   border: none;
-  border-radius: 8px;
-  color: #fff;
+  border-radius: var(--radius-sm);
+  color: var(--palette-bg-800);
   font-weight: 700;
   cursor: pointer
 }
 .errorMessage {
   margin-top: 6px;
   font-size: 12px;
-  color: #ff6b6b
+  color: var(--palette-error)
 }
 .invalid {
-  border-color: #ff6b6b!important
+  border-color: var(--palette-error)!important
 }
 @media (max-width:1199.98px) {
   .heroTitle {
@@ -229,18 +217,8 @@ textarea.cInput {
   .heroCtaWrap {
     align-items: center
   }
-  .btnHero {
-    max-width: 220px;
-    font-size: 15px
-  }
   .grid.two {
     grid-template-columns: 1fr 1fr
-  }
-  .bannerBg:before {
-    top: inherit;
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%)
   }
 }
 @media (max-width:767.98px) {
@@ -254,6 +232,7 @@ textarea.cInput {
   }
   .heroTitlePill:after {
     width: 138px;
+    bottom: -4px;
     height: 46px;
     left: 50%;
     transform: translateX(-50%)
@@ -276,24 +255,11 @@ textarea.cInput {
     justify-content: center;
     gap: 10px
   }
-  .btnHero {
-    max-width: 318px;
-    width: 100%;
-    font-size: 14px;
-    padding: 12px 18px
-  }
   .avatarStack img {
     width: 30px;
     height: 30px
   }
   .bannerBg {
     padding: 120px 0 40px
-  }
-  .bannerBg:before {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 750px;
-    height: 420px;
-    bottom: 39%
   }
 }

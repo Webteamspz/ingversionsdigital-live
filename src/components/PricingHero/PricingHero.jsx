@@ -1,39 +1,36 @@
-import React from "react";
-import "./PricingHero.css";
+import styles from "./PricingHero.module.css";
 import { pricingHeroData } from "../../data/pricingdata";
 
 const PricingHero = () => {
   return (
-    <section className="pricingHero" id="pricingHero">
+    <section className={styles.pricingHero} id="pricingHero">
       <div className="container">
-        <div className="pricingHeroInner card">
-          <span className="pricingTag">
-            {pricingHeroData.tag}
-          </span>
+        <span className={styles.pricingTag}>
+          {pricingHeroData.tag}
+        </span>
 
-          <h1 className="pricingHeroTitle">
-            {pricingHeroData.title}
-          </h1>
+        <h1 className={styles.pricingHeroTitle}>
+          {pricingHeroData.title}
+        </h1>
 
-          <p className="pricingHeroSubtitle">
-            {pricingHeroData.subtitle}
-          </p>
+        <p className={styles.pricingHeroSubtitle}>
+          {pricingHeroData.subtitle}
+        </p>
 
-          <div className="pricingHeroActions">
-            <a
-              className="pricingPrimaryBtn"
-              href={pricingHeroData.primaryHref}
-            >
-              {pricingHeroData.primaryCta}
-            </a>
+        <div className={styles.pricingHeroActions}>
+          <a
+            className={`btn ${styles.pricingPrimaryBtn}`}
+            href={pricingHeroData.primaryHref}
+          >
+            {pricingHeroData.primaryCta}
+          </a>
 
-            <a
-              className="cBtn"
-              href={pricingHeroData.secondaryHref}
-            >
-              {pricingHeroData.secondaryCta}
-            </a>
-          </div>
+          <a
+            className={`c-btn ${styles.pricingSecondaryBtn}`}
+            href={pricingHeroData.secondaryHref}
+          >
+            {pricingHeroData.secondaryCta}
+          </a>
         </div>
       </div>
     </section>

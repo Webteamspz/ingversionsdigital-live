@@ -1,167 +1,210 @@
 .servicesSection {
-  padding: 50px 0 34px
+  position: relative;
+  isolation: isolate;
+  padding: 88px 0;
+  overflow: hidden;
+  background-color: var(--palette-bg-950);
+  background-size: 22px 22px
+}
+.decor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none
+}
+.shapeCircleTl {
+  position: absolute;
+  top: 40px;
+  left: -60px;
+  width: 160px;
+  height: 160px;
+  border: 4px solid var(--secondary);
+  border-radius: 50%;
+  opacity: .2
+}
+.shapeSquareTr {
+  position: absolute;
+  top: 100px;
+  right: 7%;
+  width: 64px;
+  height: 64px;
+  border: 4px solid var(--tertiary);
+  border-radius: 12px;
+  transform: rotate(20deg);
+  opacity: .22
+}
+.shapeCircleBr {
+  position: absolute;
+  bottom: 30px;
+  right: -50px;
+  width: 130px;
+  height: 130px;
+  border: 4px solid var(--palette-accent);
+  border-radius: 50%;
+  opacity: .18
+}
+.shapeSquareBl {
+  position: absolute;
+  bottom: 12%;
+  left: 4%;
+  width: 56px;
+  height: 56px;
+  border: 4px solid var(--quaternary);
+  border-radius: 10px;
+  transform: rotate(-15deg);
+  opacity: .2
+}
+@media (max-width:767.98px) {
+  .decor {
+    display: none
+  }
 }
 .servicesSub {
-  color: #ffffffcc;
-  margin: 0 0 45px;
-  text-align: center;
-  font-weight: 400;
+  max-width: 760px;
+  margin: 0 auto 44px;
+  color: var(--palette-text-secondary);
   font-size: 16px;
-  line-height: 150%
-}
-.services {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  gap: 22px
-}
-.card.service {
-  width: 100%;
-  max-width: calc(100% / 3 - 15px);
-  min-height: 425px;
-  background: #141414;
-  border: 1px solid transparent;
-  border-radius: 16px;
-  -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-  padding: 28px 26px;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
-  transition: border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease;
-  -o-transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
-  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease;
-  transition: transform .15s ease,box-shadow .15s ease,border-color .15s ease,-webkit-transform .15s ease,-webkit-box-shadow .15s ease
-}
-.icon {
-  width: 100%;
-  max-width: 150px;
-  margin: 26px auto 35px;
-  display: block
-}
-.serviceTitle {
-  margin: 0 0 34px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 100%;
+  font-weight: 400;
+  line-height: 1.5;
   text-align: center
 }
+.services {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 28px
+}
+@media (min-width:1024px) and (max-width:1199.98px) {
+  .services {
+    padding: 0 12px
+  }
+}
+.card.service {
+  position: relative;
+  display: flex;
+  min-height: 322px;
+  padding: 38px;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: 20px;
+  background: var(--palette-bg-800);
+  box-shadow: var(--shadow-pop-soft);
+  text-align: left;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.card.service:hover {
+  box-shadow: 8px 8px 0 var(--palette-accent);
+  transform: translateY(-8px) rotate(-.7deg)
+}
+.cornerFold {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-bottom: var(--border-width) solid var(--palette-border);
+  border-left: var(--border-width) solid var(--palette-border);
+  border-radius: 0 0 0 32px
+}
+.iconCircle {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  margin: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: 50%;
+  box-shadow: 4px 4px 0 var(--palette-text-primary)
+}
+.iconCircle svg {
+  width: 30px;
+  height: 30px
+}
+.serviceTitle {
+  margin: 0 0 14px;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.17;
+  text-align: left
+}
 .serviceDesc {
-  color: #ffffffcc;
-  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  color: var(--palette-text-secondary);
   font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 315px;
-  width: 100%
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left
 }
 @media (max-width:1023.98px) {
   .services {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    gap: 23px
-  }
-  .card.service {
-    max-width: calc(100% / 2 - 15px)
+    grid-template-columns: repeat(2,minmax(0,1fr))
   }
 }
 @media (max-width:767.98px) {
-  .servicesSwiper .swiper-slide {
+  .servicesSub {
+    margin-bottom: 44px;
+    font-size: 14px
+  }
+}
+@media (max-width:767.98px) {
+  .servicesSection {
+    padding: 48px 0;
+    background-size: 18px 18px
+  }
+  .servicesSwiper {
+    padding: 0 3px 45px!important;
+    overflow: visible;
+    --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: var(--palette-accent)
+  }
+  .servicesSwiper :global(.swiper-slide) {
+    display: flex;
     height: auto!important
   }
   .card.service {
     width: 100%;
-    max-width: 100%;
-    min-height: 360px;
-    background: #141414;
-    border-radius: 16px;
-    -webkit-box-shadow: 0 10px 24px rgba(0,0,0,.25);
-    box-shadow: 0 10px 24px rgba(0,0,0,.25);
-    text-align: center;
-    padding: 22px 16px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0
+    min-height: 300px;
+    padding: 27px 24px
   }
-  .servicesSub {
-    font-weight: 400;
-    font-size: 14px
+  .iconCircle {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 22px;
+    box-shadow: 3px 3px 0 var(--palette-text-primary)
   }
-  .icon {
-    max-width: 150px;
-    margin: 16px auto 18px
+  .iconCircle svg {
+    width: 27px;
+    height: 27px
   }
   .serviceTitle {
-    font-weight: 600;
-    margin-bottom: 12px
+    font-size: 23px
   }
-  .serviceDesc {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    max-width: 260px;
-    margin: 0 auto
+  .servicesSwiper :global(.swiper-pagination) {
+    bottom: 0
   }
-  .servicesSwiper {
-    padding-bottom: 56px;
-    overflow: visible;
-    --swiper-pagination-bullet-inactive-color: #fff;
-    --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: #0a84ff
-  }
-  .servicesSwiper .swiper-pagination {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 12px;
-    margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    gap: 8px;
-    z-index: 2
-  }
-  .servicesSwiper .swiper-slide {
-    height: auto!important
-  }
-  .card.service {
-    margin-bottom: 0
-  }
-  .servicesSwiper .swiper-pagination-bullet {
+  .servicesSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
     height: 10px;
-    opacity: 1;
-    background: var(--swiper-pagination-bullet-inactive-color)
+    border: 2px solid var(--palette-text-primary);
+    margin: 0 5px !important;
+    background: 0 0;
+    opacity: 1
   }
-}
-.servicesSwiper .swiper-pagination-bullet-active {
-  background: var(--swiper-pagination-color)
+  .servicesSwiper :global(.swiper-pagination-bullet:hover) {
+    background: var(--tertiary);
+  }
+  .servicesSwiper :global(.swiper-pagination-bullet-active) {
+    background: var(--palette-accent)
+  }
 }

@@ -1,5 +1,4 @@
 const projectsData = {
-  // ---------- Top heading section ----------
   hero: {
     tag: "Our Amazing Work",
     headingPart1: "Explore Our",
@@ -7,23 +6,12 @@ const projectsData = {
     description:
       "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
   },
-
-  // ---------- Filter tabs ----------
-  // First item is always treated as the "show everything" filter.
   filters: [
     "All Projects",
     "Websites",
     "A/B Testing",
     "Shopify",
   ],
-
-  // ---------- Project cards ----------
-  // industry    -> small label shown above the title (e.g. "Fitness")
-  // type        -> must match one of the values in `filters` above (used for filtering)
-  // image       -> path/URL to the project thumbnail shown in the grid
-  // beforeImage -> (OPTIONAL) path to the "Before" image for the modal slider
-  // afterImage  -> (OPTIONAL) path to the "After" image for the modal slider
-  // link        -> where the card should navigate to (live site / case study)
   projects: [
     {
       id: 1,
@@ -38,7 +26,7 @@ const projectsData = {
       industry: "Household Supplies",
       title: "Match With Nature",
       type: "Websites",
-      image: "/assets/project/Fragrance.webp",
+      image: "/assets/project/fragrance.webp",
       link: "https://matchwithnature.com/",
     },
     {
@@ -46,10 +34,10 @@ const projectsData = {
       industry: "Wireless Communication",
       title: "Rapid Radios",
       type: "A/B Testing",
-      image: "/assets/project/Rapidradios.webp",
-      mainImage: "/assets/project/Rapidradios.webp",
-      beforeImage: "/assets/project/beforerapidradio.png",
-      afterImage: "/assets/project/afterrapidradio.png",
+      image: "/assets/project/rapid-radios.webp",
+      mainImage: "/assets/project/rapid-radios.webp",
+      beforeImage: "/assets/project/beforerapidradio.webp",
+      afterImage: "/assets/project/afterrapidradio.webp",
       link: "https://rapidradios.com/",
     },
     {
@@ -58,7 +46,7 @@ const projectsData = {
       title: "Grooved Learning",
       type: "Shopify",
       image: "/assets/project/codebreakers.webp",
-      // No before/after images here -> Clicking this will just open a single large modal image!
+
       link: "https://groovedlearning.com/",
     },
     {
@@ -75,8 +63,8 @@ const projectsData = {
       title: "Olivia & Pearl",
       type: "A/B Testing",
       image: "/assets/project/oliviapearl.webp",
-      beforeImage: "/assets/project/Beforenecklace.png", 
-      afterImage: "/assets/project/afternecklace.png",
+      beforeImage: "/assets/project/before-necklace.webp",
+      afterImage: "/assets/project/afternecklace.webp",
       link: "https://oliviaandpearl.com/",
     },
     {
@@ -100,8 +88,8 @@ const projectsData = {
       industry: "Outdoor Play Equipment",
       title: "Bijou Build",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforebijou.png", 
-      afterImage: "/assets/project/afterbijou.png",
+      beforeImage: "/assets/project/beforebijou.webp",
+      afterImage: "/assets/project/afterbijou.webp",
       image: "/assets/project/bijoubuild.webp",
       link: "https://bijoubuild.com/",
     },
@@ -110,7 +98,7 @@ const projectsData = {
       industry: "Business",
       title: "Dan Henry Watches",
       type: "Websites",
-      image: "/assets/project/danhenry.jpg",
+      image: "/assets/project/danhenry.webp",
       link: "https://danhenrywatches.com/",
     },
     {
@@ -129,27 +117,27 @@ const projectsData = {
       image: "/assets/project/shaperluv.webp",
       link: "https://shaperluv.com/",
     },
-      {
+    {
       id: 13,
       industry: "Luxury Home Decor",
       title: "Belare Home ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforebelare.png", 
-      afterImage: "/assets/project/afterbelare.png",
-      image: "/assets/project/belare.jpg",
+      beforeImage: "/assets/project/beforebelare.webp",
+      afterImage: "/assets/project/afterbelare.webp",
+      image: "/assets/project/belare.webp",
       link: "https://www.belarehome.com/",
     },
-       {
+    {
       id: 14,
       industry: "Wellness",
       title: "UltimaPeak ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforeultimapeak.png", 
-      afterImage: "/assets/project/afterultimapeak.png",
+      beforeImage: "/assets/project/beforeultimapeak.webp",
+      afterImage: "/assets/project/afterultimapeak.webp",
       image: "/assets/project/ultimapeak.webp",
       link: "https://www.ultimapeak.com/",
     },
-      {
+    {
       id: 15,
       industry: "Alchoholic Beverages",
       title: "Glass Vodka",
@@ -157,17 +145,17 @@ const projectsData = {
       image: "/assets/project/glassvodka.webp",
       link: "https://glassvodka.com/",
     },
-      {
+    {
       id: 16,
       industry: "Fitness",
       title: "Factory Weights ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforefactoryweights.png", 
-      afterImage: "/assets/project/afterfactoryweights.png",
+      beforeImage: "/assets/project/beforefactoryweights.webp",
+      afterImage: "/assets/project/afterfactoryweights.webp",
       image: "/assets/project/factoryweights.webp",
       link: "https://www.factoryweights.com/",
     },
-     {
+    {
       id: 17,
       industry: "Intimate Care",
       title: "The Bloomi",
@@ -180,19 +168,17 @@ const projectsData = {
       industry: "Health & Wellness",
       title: "Avantera ",
       type: "A/B Testing",
-      beforeImage: "/assets/project/beforeavantera.png", 
-      afterImage: "/assets/project/afteravantera.png",
+      beforeImage: "/assets/project/beforeavantera.webp",
+      afterImage: "/assets/project/afteravantera.webp",
       image: "/assets/project/avantera.webp",
       link: "https://avanterahealth.com/",
     },
   ],
-
-  // ---------- Bottom call-to-action box ----------
   cta: {
     title: "Have a project in mind?",
     subtitle: "Let's build something that drives real impact.",
-    buttonText: "Book a Free Consultation",
-    buttonLink: "/#hero",
+    buttonText: "Schedule a call",
+    buttonLink: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
   },
 };
 

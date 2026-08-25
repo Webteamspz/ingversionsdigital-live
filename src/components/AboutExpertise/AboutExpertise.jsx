@@ -1,33 +1,39 @@
-// /src/pages/components/AboutExpertise.jsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { Sparkles, Blocks, TrendingUp, BarChart3 } from "lucide-react";
 
-// 1. Import ko CSS Module format mein change kiya
-import styles from "./AboutExpertise.module.css"; 
+import styles from "./AboutExpertise.module.css";
 import { expertiseCards } from "../../data/aboutusdata";
+import Reveal from "../Reveal/Reveal";
+
+const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
+const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
+
+const ExpertiseIcon = ({ iconKey, title }) => {
+  const Icon = EXPERTISE_ICONS[iconKey];
+  return (
+    <span className={styles.iconCircle} style={{ background: EXPERTISE_COLORS[iconKey] }}>
+      <Icon size={22} strokeWidth={2.5} color="var(--palette-border)" aria-label={title} />
+    </span>
+  );
+};
 
 const AboutExpertise = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Screen size check karne ke liye useEffect
   useEffect(() => {
     const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    
-    // Initial check
     checkWidth();
-    
-    // Resize event listener
     window.addEventListener("resize", checkWidth);
     return () => window.removeEventListener("resize", checkWidth);
   }, []);
 
   return (
-    // 2. Classes ko styles object ke through pass kiya
     <section className={styles.aboutExpertise} id="coreExpertise">
-      <div className="container"> 
+      <div className="container">
         <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCenter}`}>
           Core Expertise
         </h2>
@@ -37,7 +43,6 @@ const AboutExpertise = () => {
         </p>
 
         {isMobile ? (
-          /* Mobile View: Swiper Slider */
           <Swiper
             modules={[Pagination]}
             pagination={{ clickable: true }}
@@ -49,8 +54,13 @@ const AboutExpertise = () => {
             {expertiseCards.map((card, index) => (
               <SwiperSlide key={index}>
                 <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+                  <span
+                    className={styles.cornerFold}
+                    style={{ background: EXPERTISE_COLORS[card.icon] }}
+                    aria-hidden="true"
+                  />
                   <div className={styles.aboutIconWrap}>
-                    <img src={card.icon} alt={card.title} />
+                    <ExpertiseIcon iconKey={card.icon} title={card.title} />
                   </div>
                   <h3>{card.title}</h3>
                   <p>{card.text}</p>
@@ -59,16 +69,20 @@ const AboutExpertise = () => {
             ))}
           </Swiper>
         ) : (
-          /* Desktop/Tablet View: Standard Grid */
-          <div className={`${styles.grid} ${styles.aboutExpertiseGrid}`}>
-            {expertiseCards.map((card) => (
-              <article key={card.title} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+          <div className={styles.aboutExpertiseGrid}>
+            {expertiseCards.map((card, i) => (
+              <Reveal key={card.title} delay={i * 80} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+                <span
+                  className={styles.cornerFold}
+                  style={{ background: EXPERTISE_COLORS[card.icon] }}
+                  aria-hidden="true"
+                />
                 <div className={styles.aboutIconWrap}>
-                  <img src={card.icon} alt={card.title} />
+                  <ExpertiseIcon iconKey={card.icon} title={card.title} />
                 </div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         )}

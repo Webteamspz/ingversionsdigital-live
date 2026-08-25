@@ -1,191 +1,148 @@
 .contactSection {
-  padding: 36px 0 46px
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0;
+  background-color: var(--palette-bg-950)
+}
+.contactPanel {
+  position: relative;
+  display: flex;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 42px 40px;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: 56px 56px 0 56px;
+  background: var(--palette-accent);
+  box-shadow: 10px 10px 0 0 var(--palette-border);
+  color: var(--palette-bg-800);
+  text-align: center
+}
+.contactPanel::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: radial-gradient(rgba(255,255,255,0.2) 1.2px,transparent 1.2px);
+  background-size: 20px 20px;
+  opacity: .34;
+  pointer-events: none
+}
+.contactActions,
+.contactCopy,
+.contactHeading,
+.eyebrow {
+  position: relative;
+  z-index: 2
+}
+.eyebrow {
+  margin: 0 0 15px;
+  color: rgba(255,255,255,.88);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1;
+  text-transform: uppercase
 }
 .contactHeading {
-  margin-bottom: 40px!important
-}
-.contactGrid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-  align-items: center
-}
-.contactCard {
-  background: #141414;
-  border-radius: 16px;
-  padding: 32px 40px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25)
-}
-.rightCol {
-  display: grid;
-  gap: 22px
-}
-.contactPanelTitle {
-  margin: 0 0 24px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 100%
-}
-.cList {
-  list-style: none;
-  padding: 0;
+  max-width: 900px;
   margin: 0;
-  display: grid;
-  gap: 24px
+  color: var(--palette-bg-800);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: clamp(44px, 5.3vw, 76px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: .98
 }
-.cIco {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: inline-grid;
-  place-items: center;
-  margin-right: 10px
-}
-.cIco svg {
-  width: 24px;
-  height: 24px;
-  object-fit: contain
-}
-.cList li {
-  display: flex;
-  color: #ffffffcc;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
-  align-items: flex-start
-}
-.contactNote {
-  color: #ffffffcc;
-  margin: 16px 0;
-  font-weight: 400;
-  font-size: 16px
-}
-.heroVisualWrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%
-}
-.heroVisual {
-  position: relative;
-  max-width: 479px;
-  width: 100%
-}
-.heroVisualImg {
-  max-width: 100%;
-  width: 100%;
-  object-fit: cover;
-  display: block;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
-  animation: floatY 6s ease-in-out infinite
-}
-@keyframes floatY {
-  0%,
-  100% {
-    transform: translateY(0)
-  }
-  50% {
-    transform: translateY(-8px)
-  }
-}
-.heroShadow {
-  position: absolute;
-  bottom: 0;
-  left: 22%;
-  width: 55%;
-  height: 26px;
-  border-radius: 50%;
-  filter: blur(10px);
-  background: radial-gradient(closest-side,rgba(0,0,0,.55),transparent 70%);
-  transform: translateY(14px)
-}
-.snapshotEmoji {
-  font-size: 20px;
-  margin-right: 4px
-}
-.snapshotText {
-  margin: 10px 0 16px;
-  color: #e5e7eb;
-  font-size: 16px;
+.contactCopy {
+  max-width: 650px;
+  margin: 24px 0 33px;
+  color: rgba(255,255,255,.92);
+  font-size: 19px;
+  font-weight: 600;
   line-height: 1.5
 }
-.snapshotEmphasis {
-  color: #38bdf8;
-  font-weight: 700
-}
-.snapshotBlock {
-  margin-bottom: 16px
-}
-.snapshotRatingsLineTop {
+.contactActions {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: #f9fafb;
-  font-size: 14px;
-  margin: 0 0 8px
+  justify-content: center;
+  gap: 18px
 }
-.snapshotStars {
-  letter-spacing: 1px;
-  color: #fbbf24
-}
-.snapshotTitleInline {
-  font-weight: 600
-}
-.snapshotRatingsDetail {
-  margin: 2px;
-  font-size: 15px;
-  color: #cbd5f5
-}
-.snapshotTrust {
-  margin: 12px 0 14px;
-  font-size: 15px;
-  color: #a5b4fc
-}
-.snapshotSubheading {
-  margin: 10px 0 8px;
+.primaryAction {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-800);
+  box-shadow: 4px 4px 0 var(--palette-border);
+  color: var(--palette-border);
+  font-family: Outfit,system-ui,sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #fff
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
 }
-.snapshotList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 6px;
-  font-size: 14px;
-  color: #ffffffcc
+.primaryAction:hover {
+  box-shadow: 6px 6px 0 var(--palette-border);
+  background: var(--tertiary);
+  transform: translate(-2px,-2px)
 }
-.snapshotList li::before {
-  content: "•";
-  margin-right: 6px;
-  color: #38bdf8
+.primaryAction:active {
+  box-shadow: 2px 2px 0 var(--palette-border);
+  transform: translate(2px,2px)
 }
-.contactDivider {
-  margin: 26px 0 18px;
-  border-top: 1px solid rgba(148,163,184,.45)
+.emailLink {
+  color: var(--palette-bg-800);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration-color: rgba(255,255,255,0.7);
+  text-underline-offset: 4px
 }
-.contactInfoBlock {
-  margin-top: 4px
+.emailLink:focus-visible,
+.primaryAction:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px
 }
-@media (max-width:1023.98px) {
-  .contactGrid {
-    grid-template-columns: 1fr;
-    gap: 30px
-  }
-  .contactCard {
-    padding: 28px
+@media (min-width:768px) and (max-width:1023.98px) {
+  .contactPanel {
+    padding: 60px 34px 54px;
+    border-radius: 44px 44px 0 44px
   }
 }
 @media (max-width:767.98px) {
-  .contactCard {
-    padding: 20px 18px
+  .contactSection {
+    padding: 0 0 56px
   }
-  .cList {
-    gap: 16px
+  .contactPanel {
+    min-height: 0;
+    padding: 44px 24px;
+    border-radius: 36px 36px 0 36px
   }
-  .heroVisual {
-    max-width: 320px
+  .contactHeading {
+    font-size: 32px;
+    line-height: 1.02
+  }
+  .contactCopy {
+    margin: 20px 0 29px;
+    font-size: 16px
+  }
+  .contactActions {
+    width: 100%;
+    flex-direction: column
+  }
+  .primaryAction {
+    width: min(100%,290px)
+  }
+  .emailLink {
+    font-size: 14px;
+    overflow-wrap: anywhere
   }
 }

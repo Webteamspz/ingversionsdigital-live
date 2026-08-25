@@ -1,0 +1,206 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(740px,100vh);
+  padding: 168px 0 0;
+  background: var(--palette-bg-950);
+  color: var(--palette-text-primary)
+}
+.grid {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
+}
+.content {
+  display: flex;
+  max-width: 950px;
+  min-height: 460px;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.logoArea {
+  margin-top: 28px
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  margin: 0 0 45px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--palette-bg-800);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase
+}
+.title {
+  max-width: 900px;
+  margin: 0;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1
+}
+.title > span:first-child {
+  display: block;
+  margin-bottom: .08em
+}
+.emphasis {
+  display: inline-block;
+  color: var(--palette-accent)
+}
+.subtitle {
+  max-width: 620px;
+  margin: 32px auto 0;
+  color: var(--palette-text-muted);
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  font-weight: 500;
+  line-height: 1.62
+}
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center
+}
+.primaryAction,
+.secondaryAction {
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 48px;
+  text-decoration: none;
+  transition: transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease
+}
+.primaryAction {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--palette-accent);
+  border: 2px solid var(--palette-text-primary);
+  box-shadow: 4px 4px 0 var(--palette-text-primary);
+  color: var(--palette-bg-800)
+}
+.primaryAction:hover {
+  background: var(--palette-accent-strong);
+  box-shadow: 6px 6px 0 var(--palette-text-primary);
+  transform: translate(-2px,-2px)
+}
+.primaryAction:active {
+  box-shadow: 2px 2px 0 var(--palette-text-primary);
+  transform: translate(2px,2px)
+}
+.secondaryAction {
+  border: 2px solid var(--palette-text-primary);
+  background: rgba(255,255,255,.72);
+  color: var(--palette-text-primary)
+}
+.secondaryAction:hover {
+  background: var(--tertiary)
+}
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  outline: 3px solid var(--palette-text-primary);
+  outline-offset: 4px
+}
+.proof {
+  display: flex;
+  gap: 14px;
+  margin-top: 38px;
+  align-items: center;
+  justify-content: center
+}
+.avatars {
+  display: flex;
+  padding-left: 8px
+}
+.avatars img {
+  width: 42px;
+  height: 42px;
+  margin-left: -8px;
+  border: 2px solid var(--palette-text-primary);
+  border-radius: 50%;
+  object-fit: cover
+}
+.proof p {
+  margin: 0;
+  color: var(--palette-text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left
+}
+.proof p strong {
+  color: var(--palette-text-primary)
+}
+@media (max-width:1023.98px) {
+  .title {
+    font-size: 36px
+  }
+}
+@media (max-width:767.98px) {
+  .hero {
+    min-height: auto;
+    padding: 132px 0 35px
+  }
+  .grid {
+    background-size: 30px 30px
+  }
+  .content {
+    min-height: 0
+  }
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 11px;
+    padding: 6px 14px
+  }
+  .title {
+    font-size: 30px
+  }
+  .subtitle {
+    margin-top: 24px;
+    font-size: 1rem
+  }
+  .actions {
+    width: 100%;
+    margin-top: 32px;
+    flex-direction: column
+  }
+  .primaryAction,
+  .secondaryAction {
+    width: min(100%,320px);
+    text-align: center
+  }
+  .primaryAction {
+    justify-content: center
+  }
+  .proof {
+    max-width: 310px;
+    margin-top: 31px
+  }
+  .avatars img {
+    width: 35px;
+    height: 35px
+  }
+  .proof p {
+    font-size: 12px
+  }
+  .logoArea {
+    margin-top: 20px
+  }
+}

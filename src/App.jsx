@@ -1,11 +1,16 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
+import StagingLogin from "../src/components/StagingLogin/StagingLogin.jsx";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
-import TeamPage from "./pages/TeamPage/TeamPage.jsx";
-import NotFound from "./pages/NotFound/NotFound.jsx";
-import AboutUs from "./pages/AboutUs/AboutUs.jsx";
-import Pricing from "./pages/Pricing/Pricing.jsx";
-import Projects from "./pages/Projects/Projects.jsx";
+
+const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
+const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
+const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
+const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
+const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
+const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
 
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
@@ -19,16 +24,7 @@ const ScrollManager = () => {
     const targetId = hash.slice(1);
 
     const scrollToEl = (el) => {
-      const header = document.getElementById("header");
-      const headerHeight = header ? header.offsetHeight : 0;
-
-      const rect = el.getBoundingClientRect();
-      const targetY = rect.top + window.scrollY - headerHeight + 100;
-
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth",
-      });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     const existing =
@@ -39,8 +35,8 @@ const ScrollManager = () => {
       return;
     }
 
-    // Element not mounted yet (likely a lazy-loaded section) —
-    // watch the DOM and scroll as soon as it appears.
+    
+    
     const observer = new MutationObserver(() => {
       const el =
         document.getElementById(targetId) || document.querySelector(hash);
@@ -55,8 +51,8 @@ const ScrollManager = () => {
       subtree: true,
     });
 
-    // Safety net: stop watching after 5s so we don't observe forever
-    // if the target never mounts (e.g. typo'd hash).
+    
+    
     const timeout = setTimeout(() => observer.disconnect(), 5000);
 
     return () => {
@@ -69,17 +65,22 @@ const ScrollManager = () => {
 };
 
 const App = () => (
-  <>
+  <StagingLogin>
     <ScrollManager />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/teampage" element={<TeamPage />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/pricing" element={<Pricing />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </>
+    <ScrollToTopButton />
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/teampage" element={<TeamPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  </StagingLogin>
 );
 
 export default App;

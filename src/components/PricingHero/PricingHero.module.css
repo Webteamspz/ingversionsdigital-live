@@ -1,0 +1,103 @@
+.pricingHero {
+  padding: 160px 0 60px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: center
+}
+.pricingHero > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.pricingHero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%);
+  z-index: -1;
+  pointer-events: none
+}
+.pricingTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: var(--secondary);
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
+  color: var(--palette-bg-800);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 10px
+}
+.pricingHeroTitle {
+  margin: 20px 0 18px;
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--palette-text-primary)
+}
+.pricingHeroSubtitle {
+  margin: 0;
+  max-width: 100%;
+  color: var(--palette-text-secondary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  margin: 0 auto
+}
+.pricingHeroActions {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap
+}
+.pricingPrimaryBtn,
+.pricingSecondaryBtn {
+  width: 100%;
+  max-width: 210px;
+  padding: 14px 22px;
+  font-size: 14px
+}
+@media (max-width:1023.98px) {
+  .pricingHero {
+    padding: 130px 0 50px
+  }
+}
+@media (max-width:767.98px) {
+  .pricingHero {
+    padding: 120px 0 40px
+  }
+  .pricingTag {
+    font-size: 11px;
+    padding: 6px 14px
+  }
+  .pricingHeroTitle {
+    margin: 18px 0 14px;
+    font-size: 26px
+  }
+  .pricingHeroSubtitle {
+    font-size: 14px
+  }
+  .pricingHeroActions {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px
+  }
+  .pricingPrimaryBtn,
+  .pricingSecondaryBtn {
+    max-width: 100%
+  }
+}

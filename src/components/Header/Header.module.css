@@ -4,7 +4,8 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #030303;
+  background: var(--palette-bg-950);
+  border-bottom: var(--border-width) solid var(--palette-border);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px)
 }
@@ -36,14 +37,6 @@
   -o-object-fit: cover;
   object-fit: cover
 }
-.brandText {
-  color: #fff;
-  font-weight: 800
-}
-.brandText span {
-  opacity: .6;
-  margin-left: 6px
-}
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,26 +44,53 @@
   gap: 22px
 }
 .nav a {
-  color: #fff;
+  color: var(--palette-text-primary);
   text-decoration: none;
-  font-family: Barlow,sans-serif;
-  font-weight: 400;
+  font-family: "Plus Jakarta Sans",sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   padding: 10px;
+  white-space: nowrap;
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out
 }
 .nav a:hover {
-  color: #0a84ff
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px
+}
+.navLinkActive,
+.navLinkActive:hover {
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px
 }
 .hamburger {
   display: none;
-  background: 0 0;
-  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--palette-accent);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
   padding: 0;
-  cursor: pointer
+  cursor: pointer;
+  color: var(--palette-border);
+  transition: transform .2s ease,box-shadow .2s ease
+}
+.hamburger:hover {
+  background: var(--tertiary);
+  transform: translate(-2px,-2px);
+  box-shadow: var(--shadow-pop)
 }
 .hamburger span {
   display: none
@@ -87,7 +107,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.6);
+  background: var(--palette-overlay);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   opacity: 0;
@@ -115,8 +135,9 @@ body.menu-open .overlay {
   height: 100vh;
   width: 60%;
   max-width: 100%;
-  background: #0b0b0b;
-  border-left: 1px solid #141414;
+  background: var(--palette-bg-950);
+  border-left: var(--border-width) solid var(--palette-border);
+  box-shadow: -8px 0 0 0 var(--palette-border);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -147,42 +168,37 @@ body.menu-open .overlay {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #141414
-}
-.mobileLogo {
-  width: 160px;
-  height: auto
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
 }
 .mobileNav {
   display: -ms-grid;
   display: grid;
   gap: 0;
-  padding: 0;
-  border-top: 1px solid #141414;
-  border-bottom: 1px solid #141414
+  padding: 0
 }
 .mobileNav a {
-  color: #fff;
+  color: var(--palette-text-primary);
   text-decoration: none;
-  font-family: Barlow,sans-serif;
-  font-size: 16px;
-  padding: 14px 2px;
-  border-bottom: 1px solid rgba(255,255,255,.06)
+  font-family: "Plus Jakarta Sans",sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--palette-border-soft);
+  transition: color .2s ease
 }
 .mobileNav a:last-child {
   border-bottom: none
 }
-.mobileCta {
-  margin-top: 0;
-  width: 100%!important;
-  max-width: 100%!important;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center
+.mobileNav a:focus-visible,
+.mobileNav a:hover {
+  color: var(--palette-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--palette-accent);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px
 }
 .mobileMenu {
   height: 100vh;
@@ -195,37 +211,24 @@ body.menu-open .overlay {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch
 }
-.menuCtaBar {
-  position: fixed;
-  bottom: 4%;
-  left: 20px;
-  right: 0;
-  background: rgba(11,11,11,.98);
-  backdrop-filter: blur(4px);
-  border-top: 1px solid #141414;
-  width: 90%;
-  max-width: 100%;
-  padding: 16px 0 calc(16px + env(safe-area-inset-bottom))
-}
-.menuCtaBar .mobileCta {
-  width: 100%!important;
-  max-width: none!important;
-  justify-content: center;
-  margin: 0
-}
 .desktopCta {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex
 }
-
-/* CTA is always rendered/laid out — this just visually hides it while
-   keeping its box (and therefore the header's spacing) exactly the same. */
 .desktopCtaHidden {
   visibility: hidden;
-  pointer-events: none;
+  pointer-events: none
 }
-
+@media (min-width:1024px) and (max-width:1199.98px) {
+  .nav {
+    gap: 12px
+  }
+  .nav a {
+    padding: 10px 6px;
+    font-size: 15px
+  }
+}
 @media (max-width:1023.98px) {
   .nav {
     display: none
@@ -234,36 +237,43 @@ body.menu-open .overlay {
     display: none!important
   }
   .hamburger {
-    display: inline-block
+    display: flex
   }
   .brandLogo {
     max-width: 200px
   }
   .headerRow {
-    min-height: 80px
+    min-height: 68px
   }
 }
 .menuIcon {
-  width: 44px;
-  height: 44px;
-  display: block
-}
-.closeBtn {
-  background: 0 0;
-  border: none;
-  padding: 0;
-  cursor: pointer
-}
-.closeIcon {
   width: 24px;
   height: 24px;
   display: block
 }
-.mobileLogo {
-  width: 45px;
-  height: 50px;
-  -o-object-fit: contain;
-  object-fit: contain
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  padding: 0;
+  cursor: pointer;
+  color: var(--palette-border);
+  transition: transform .2s ease,box-shadow .2s ease
+}
+.closeBtn:hover {
+  background: var(--quaternary);
+  transform: translate(-2px,-2px);
+  box-shadow: var(--shadow-pop)
+}
+.closeIcon {
+  width: 16px;
+  height: 16px;
+  display: block
 }
 .mobileLogoOnly {
   display: none
@@ -282,12 +292,12 @@ body.menu-open .overlay {
     -o-object-fit: contain;
     object-fit: contain
   }
+  .mobileMenu {
+    padding: 15px 20px
+  }
 }
 @media (max-width:599.98px) {
   .mobileMenu {
     width: 100%
-  }
-  .menuCtaBar{
-    bottom: 30%;
   }
 }

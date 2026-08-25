@@ -1,0 +1,91 @@
+.projectsCta {
+  padding: 60px 0 15px;
+  overflow: visible!important
+}
+.projectsCtaBox {
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  width: 100%;
+  padding: 3rem 2rem;
+  background-color: var(--palette-accent);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  border-bottom-right-radius: 0;
+  box-shadow: 10px 10px 0 0 var(--palette-border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.projectsCtaHeading {
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--palette-bg-800);
+  margin-top: 0;
+  margin-bottom: 8px
+}
+.projectsCtaText {
+  font-family: "Plus Jakarta Sans",sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--palette-bg-800);
+  margin-top: 0;
+  margin-bottom: 24px
+}
+.projectsCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 240px;
+  padding: 14px 22px;
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-800);
+  color: var(--palette-border);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
+  font-family: "Plus Jakarta Sans",sans-serif;
+  border: var(--border-width) solid var(--palette-border);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  cursor: pointer
+}
+.projectsCtaButton:hover {
+  background: var(--tertiary);
+  transform: translate(-2px,-2px);
+  box-shadow: 6px 6px 0 0 var(--palette-border)
+}
+.projectsCtaButton:active {
+  transform: translate(2px,2px);
+  box-shadow: 2px 2px 0 0 var(--palette-border)
+}
+@media (max-width:1023.98px) {
+  .projectsCtaBox {
+    padding: 2.5rem 1.75rem
+  }
+  .projectsCtaHeading {
+    font-size: 28px
+  }
+}
+@media (max-width:767.98px) {
+  .projectsCta {
+    padding: 40px 0 0
+  }
+  .projectsCtaBox {
+    padding: 2rem 1.5rem
+  }
+  .projectsCtaHeading {
+    font-size: 24px
+  }
+  .projectsCtaText {
+    font-size: 14px
+  }
+  .projectsCtaButton {
+    max-width: 100%
+  }
+}

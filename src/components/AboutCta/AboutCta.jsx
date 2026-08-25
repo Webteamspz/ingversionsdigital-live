@@ -1,22 +1,19 @@
-import React from 'react';
-import './AboutCta.css';
+import styles from './AboutCta.module.css';
 import { ctaData } from '../../data/aboutusdata';
+import Reveal from '../Reveal/Reveal';
 
 const AboutCta = () => {
   return (
-    <section className="aboutCta" id="aboutContact">
+    <section className={styles.aboutCta} id="aboutContact">
       <div className="container">
-        
-        {/* Main box jismein sab center align hoga */}
-        <div className="aboutCta-box">
-          <h2 className="aboutCta-heading">{ctaData.title}</h2>
-          <p className="aboutCta-text">{ctaData.text}</p>
-          
-          <a href={ctaData.primaryHref} className="aboutCta-button">
+        <Reveal className={styles.aboutCtaBox}>
+          <h2 className={styles.aboutCtaHeading}>{ctaData.title}</h2>
+          <p className={styles.aboutCtaText}>{ctaData.text}</p>
+
+          <a href={ctaData.primaryHref} className={styles.aboutCtaButton}>
             {ctaData.primaryLabel}
           </a>
-        </div>
-        
+        </Reveal>
       </div>
     </section>
   );
