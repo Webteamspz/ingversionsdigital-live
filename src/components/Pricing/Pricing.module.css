@@ -54,7 +54,7 @@
   min-height: 40px
 }
 .sectionBlock:not(:last-child) {
-  box-shadow: 0 1px 0 0 var(--palette-border-soft)
+  border-bottom: 1px solid var(--palette-border-soft)
 }
 .stub {
   color: var(--palette-accent);
@@ -163,11 +163,11 @@
   top: -15px!important
 }
 .rowLine {
-  box-shadow: 0 1px 0 0 var(--palette-border-soft);
+  border-bottom: 1px solid var(--palette-border-soft);
   height: 50px
 }
 .sectionBlock:last-child .rowLine {
-  box-shadow: none
+  border-bottom: none
 }
 .valueIconCircle {
   display: inline-flex;
