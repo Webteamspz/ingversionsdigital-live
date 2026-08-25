@@ -73,6 +73,11 @@
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 28px
 }
+@media (min-width:1024px) and (max-width:1199.98px) {
+  .services {
+    padding: 0 12px
+  }
+}
 .card.service {
   position: relative;
   display: flex;

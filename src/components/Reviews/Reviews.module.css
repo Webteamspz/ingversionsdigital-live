@@ -20,6 +20,11 @@
   grid-template-columns: repeat(3,1fr);
   gap: 32px
 }
+@media (min-width:1024px) and (max-width:1199.98px) {
+  .reviewsGrid {
+    padding: 0 12px
+  }
+}
 .reviewCardWrap {
   min-width: 0
 }
