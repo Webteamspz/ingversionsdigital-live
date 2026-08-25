@@ -1,8 +1,19 @@
 .siteFooter {
   background: var(--palette-border);
   position: relative;
-  overflow: hidden;
-  padding: 115px 0 30px
+  overflow-x: hidden;
+  padding: 115px 0 30px;
+  margin-top: -1px
+}
+.siteFooter:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--palette-bg-950);
+  pointer-events: none
 }
 .footerWave {
   position: absolute;

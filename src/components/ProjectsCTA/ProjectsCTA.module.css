@@ -3,7 +3,9 @@
   overflow: visible!important
 }
 .projectsCtaBox {
+  max-width: calc(100% - 40px);
   margin: 0 auto;
+  width: 100%;
   padding: 3rem 2rem;
   background-color: var(--palette-accent);
   border: var(--border-width) solid var(--palette-border);
