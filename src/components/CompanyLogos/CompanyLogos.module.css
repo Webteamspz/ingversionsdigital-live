@@ -30,9 +30,6 @@
   width: max-content;
   animation: marqueeScroll 50s linear infinite
 }
-.marquee:hover .marqueeTrack {
-  animation-play-state: paused
-}
 .marqueeGroup {
   display: flex;
   align-items: center;
