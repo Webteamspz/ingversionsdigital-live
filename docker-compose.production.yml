@@ -8,6 +8,9 @@ services:
       dockerfile: Dockerfile
       args:
         BUILD_MODE: production
+        VITE_FORMSPREE_ENDPOINT: ${VITE_FORMSPREE_ENDPOINT}
+        VITE_GTM_ID: ${VITE_GTM_ID}
+        VITE_CLARITY_ID: ${VITE_CLARITY_ID}
     image: ingversionsdigital-live:production
     restart: unless-stopped
     labels:

@@ -250,10 +250,10 @@
 }
 @media (max-width:1270px) {
   .tsPrev {
-    left: 0
+    left: 8px
   }
   .tsNext {
-    right: 0
+    right: 8px
   }
 }
 @media (max-width:1023.98px) {
