@@ -10,6 +10,9 @@ services:
         BUILD_MODE: staging
         VITE_APP_ENV: ${VITE_APP_ENV}
         VITE_STAGING_USERS: ${VITE_STAGING_USERS}
+        VITE_FORMSPREE_ENDPOINT: ${VITE_FORMSPREE_ENDPOINT}
+        VITE_GTM_ID: ${VITE_GTM_ID}
+        VITE_CLARITY_ID: ${VITE_CLARITY_ID}
     image: ingversionsdigital-live:stage
     restart: unless-stopped
     labels:
