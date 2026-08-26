@@ -20,7 +20,7 @@ const HamburgerIcon = (props) => (
     <path
       d="M9 13.1221H27.75M9 24.6221H39M20.25 36.1221H39"
       stroke="currentColor"
-      strokeWidth="2.5"
+      strokeWidth="4.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

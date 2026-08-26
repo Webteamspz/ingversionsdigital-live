@@ -146,3 +146,20 @@
     overflow-wrap: anywhere
   }
 }
+@media (max-width:389px) {
+  .contactHeading {
+    font-size: 28px;
+    line-height: 1.15
+  }
+  .contactCopy {
+    margin: 14px 0 22px;
+    font-size: 16px;
+    line-height: 1.35
+  }
+  .primaryAction {
+    padding: 0 14px;
+    gap: 6px;
+    font-size: 15px;
+    white-space: nowrap
+  }
+}

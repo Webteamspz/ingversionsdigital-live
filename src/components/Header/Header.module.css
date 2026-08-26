@@ -79,7 +79,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--palette-accent);
+  background: var(--secondary);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
   padding: 0;
