@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-full);
-  background: var(--palette-accent);
+  background: var(--secondary);
   border: var(--border-width) solid var(--palette-border);
   box-shadow: var(--shadow-pop);
   cursor: pointer;
