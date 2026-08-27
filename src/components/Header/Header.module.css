@@ -79,7 +79,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--palette-accent);
+  background: var(--secondary);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
   padding: 0;
@@ -137,7 +137,6 @@ body.menu-open .overlay {
   max-width: 100%;
   background: var(--palette-bg-950);
   border-left: var(--border-width) solid var(--palette-border);
-  box-shadow: -8px 0 0 0 var(--palette-border);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -157,6 +156,7 @@ body.menu-open .overlay {
   padding: 30px 20px
 }
 .mobileMenu.open {
+  box-shadow: -8px 0 0 0 var(--palette-border);
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0)
@@ -202,6 +202,8 @@ body.menu-open .overlay {
 }
 .mobileMenu {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   overflow: hidden
