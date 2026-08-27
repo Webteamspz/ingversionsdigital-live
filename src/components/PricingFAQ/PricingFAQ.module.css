@@ -113,7 +113,7 @@
     padding: 18px 18px;
     gap: 12px
   }
-  .accordionItemHeader span {
+  .accordionItemHeader span:first-child {
     max-width: calc(100% - 30px);
     width: 100%
   }
