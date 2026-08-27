@@ -3,55 +3,72 @@ import { pricingFaq } from "../../data/pricingdata";
 import styles from "./PricingFAQ.module.css";
 import Reveal from "../Reveal/Reveal";
 
-const PricingFAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-  const itemRefs = useRef([]);
+const PricingFAQItem = ({ index, q, a, isOpen, onToggle }) => {
+  const bodyRef = useRef(null);
+  const [maxHeight, setMaxHeight] = useState("0px");
 
   useEffect(() => {
-    itemRefs.current.forEach((itemEl, idx) => {
-      if (!itemEl) return;
+    if (bodyRef.current) {
+      setMaxHeight(isOpen ? `${bodyRef.current.scrollHeight}px` : "0px");
+    }
+  }, [isOpen]);
 
-      const body = itemEl.querySelector(`.${styles.accordionItemBody}`);
-      const content = itemEl.querySelector(`.${styles.accordionItemBodyContent}`);
-      if (!body || !content) return;
-
-      if (idx === openIndex) {
-        body.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        body.style.maxHeight = "0px";
+  useEffect(() => {
+    const handleResize = () => {
+      if (bodyRef.current && isOpen) {
+        setMaxHeight(`${bodyRef.current.scrollHeight}px`);
       }
-    });
-  }, [openIndex]);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isOpen]);
 
-  const handleToggle = (idx) => {
-    setOpenIndex((prev) => (prev === idx ? -1 : idx));
-  };
+  return (
+    <div className={`${styles.accordionItem} ${isOpen ? styles.open : ""}`}>
+      <button
+        className={styles.accordionItemHeader}
+        onClick={() => onToggle(index)}
+        aria-expanded={isOpen}
+        aria-controls={`pricing-faq-panel-${index}`}
+        id={`pricing-faq-button-${index}`}
+      >
+        <span>{q}</span>
+        <span className={styles.accordionItemIcon} aria-hidden="true" />
+      </button>
+      <div
+        id={`pricing-faq-panel-${index}`}
+        role="region"
+        aria-labelledby={`pricing-faq-button-${index}`}
+        className={styles.accordionItemBody}
+        ref={bodyRef}
+        style={{ maxHeight }}
+      >
+        <div className={styles.accordionItemBodyContent}>{a}</div>
+      </div>
+    </div>
+  );
+};
+
+const PricingFAQ = () => {
+  const { title, items } = pricingFaq;
+  const [openIndex, setOpenIndex] = useState(-1);
+
+  const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));
 
   return (
     <section className={styles.faqWrapper} id="pricingFaq">
       <div className="container">
-        <h3 className="section-title">{pricingFaq.title}</h3>
-
+        <h3 className="section-title">{title}</h3>
         <div className={styles.accordion}>
-          {pricingFaq.items.map((item, idx) => (
-            <Reveal key={item.q} delay={idx * 60}>
-              <div
-                className={`${styles.accordionItem} ${openIndex === idx ? styles.open : ""}`}
-                ref={(el) => (itemRefs.current[idx] = el)}
-              >
-                <button
-                  type="button"
-                  className={styles.accordionItemHeader}
-                  onClick={() => handleToggle(idx)}
-                >
-                  <span>{item.q}</span>
-                  <div className={styles.accordionItemIcon} aria-hidden="true" />
-                </button>
-
-                <div className={styles.accordionItemBody}>
-                  <div className={styles.accordionItemBodyContent}>{item.a}</div>
-                </div>
-              </div>
+          {items.map((it, i) => (
+            <Reveal key={i} delay={i * 60}>
+              <PricingFAQItem
+                index={i}
+                q={it.q}
+                a={it.a}
+                isOpen={openIndex === i}
+                onToggle={handleToggle}
+              />
             </Reveal>
           ))}
         </div>
