@@ -31,6 +31,7 @@
 }
 @media (max-width:1023.98px) {
   .culture {
+    max-width: 100%;
     padding: 2.5rem 1.75rem
   }
   .culture h2 {
@@ -42,6 +43,7 @@
     padding-bottom: 50px
   }
   .culture {
+    max-width: calc(100% - 13px);
     margin-top: 50px;
     padding: 2rem 1.5rem
   }
