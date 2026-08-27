@@ -66,6 +66,7 @@
 }
 @media (max-width:1023.98px) {
   .projectsCtaBox {
+    max-width: 100%;
     padding: 2.5rem 1.75rem
   }
   .projectsCtaHeading {
@@ -77,6 +78,7 @@
     padding: 40px 0 0
   }
   .projectsCtaBox {
+    max-width: calc(100% - 13px);
     padding: 2rem 1.5rem
   }
   .projectsCtaHeading {
