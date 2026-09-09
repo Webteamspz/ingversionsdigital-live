@@ -10,7 +10,7 @@ export default {
     ],
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+      href: "https://calendly.com/ingversionsdigital/30min",
     },
   },
   hero: {
@@ -19,7 +19,7 @@ export default {
     sub: "We run structured A/B tests to uncover what truly drives conversions, then scale those wins across your Shopify store for lasting revenue growth.",
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+      href: "https://calendly.com/ingversionsdigital/30min",
     },
     avatars: [
       "/assets/reviews/reviewer-1.jpg",
@@ -458,22 +458,22 @@ export default {
           {
             plan: "Starter",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+            href: "https://calendly.com/ingversionsdigital/30min",
           },
           {
             plan: "Growth",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+            href: "https://calendly.com/ingversionsdigital/30min",
           },
           {
             plan: "Premium",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+            href: "https://calendly.com/ingversionsdigital/30min",
           },
           {
             plan: "Elite",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min?month=2025-10",
+            href: "https://calendly.com/ingversionsdigital/30min",
           },
         ],
       },

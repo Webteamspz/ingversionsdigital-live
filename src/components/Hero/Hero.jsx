@@ -8,7 +8,7 @@ import OptimizedImg from "../OptimizedImg/OptimizedImg";
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
-const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min?month=2025-10";
+const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const getAutocomplete = (name = "") => {
   const n = name.toLowerCase();
