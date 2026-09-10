@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ingversions Digital Website - Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="assets/css/custom.css" rel="stylesheet" />
+</head>
+<body>
+
+  <aside class="sidebar">
+    <span class="brand">Ingversions Digital<br />Docs</span>
+    <ul class="nav sidenav">
+      <li><a href="#getting_started">Setup Development Environment</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#folderstructures">Folder Structure</a></li>
+      <li><a href="#documenter_cover">Pages and Components Info</a></li>
+      <li><a href="#dependencies">Dependencies</a></li>
+      <li><a href="#fonts_used">Fonts</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#deploy">Deploy</a></li>
+      <li><a href="#credits">Credits</a></li>
+      <li><a href="#supports">Support</a></li>
+    </ul>
+  </aside>
+
+  <header class="site-header">
+    <div class="banner">
+      <h1><strong>Ingversions Digital Website - Documentation</strong></h1>
+      <ul>
+        <li>Project: Ingversions Digital marketing site</li>
+        <li>Stack: React 19 + Vite 7</li>
+        <li>Version: 0.0.0 (internal)</li>
+        <li>Maintainer: <a target="_blank" href="https://github.com/Writwik-work">Writwik-work</a></li>
+        <li>Repo: <a target="_blank" href="https://github.com/Webteamspz/ingversionsdigital-live">Webteamspz/ingversionsdigital-live</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <article class="main-content" role="main">
+
+      <section id="getting_started">
+        <div class="page-header"><h3>Setup Development Environment</h3></div>
+        <p>Install these before touching the repo:</p>
+        <ul>
+          <li>
+            <strong>Node.js 20+</strong> — the JS runtime Vite, npm, and every build script run on.
+            Get it from <a href="https://nodejs.org/" target="_blank">nodejs.org</a> (LTS build).
+          </li>
+          <li>
+            <strong>Git</strong> — for cloning the repo and working with the
+            <code>new-theme → stage → production</code> branch flow. Get it from
+            <a href="https://git-scm.com/" target="_blank">git-scm.com</a>.
+          </li>
+          <li>
+            <strong>VS Code</strong> (or any editor) — the codebase uses plain
+            JS/JSX + CSS Modules, no editor-specific tooling required. Get it from
+            <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.
+          </li>
+          <li>
+            <strong>npm</strong> — ships with Node, used for all scripts in this project
+            (<code class="language-markup">install</code>, <code class="language-markup">dev</code>,
+            <code class="language-markup">build</code>, <code class="language-markup">lint</code>).
+          </li>
+        </ul>
+      </section>
+
+      <section id="introduction">
+        <div class="page-header"><h3>Introduction</h3></div>
+        <p>Clone the repo, install dependencies, run the dev server:</p>
+        <p><strong>For npm:</strong></p>
+        <pre class="line-numbers"><code class="language-markup">git clone https://github.com/Webteamspz/ingversionsdigital-live.git
+cd ingversionsdigital-live
+npm install
+npm run dev</code></pre>
+        <p>Open <code>http://localhost:5173</code> (Vite's default dev port).</p>
+        <p>Building for a target environment (mirrors what CI runs on push):</p>
+        <pre class="line-numbers"><code class="language-markup">npm run build:staging      # mode=staging, gates the site behind StagingLogin
+npm run build:production   # mode=production, the real public build</code></pre>
+        <p>
+          Copy <code>.env.example</code> to <code>.env</code> (or <code>.env.staging</code> /
+          <code>.env.production</code>) before running a mode-specific build — see the
+          <a href="#getting_started">env var list</a> in the developer guide for what each key does.
+        </p>
+      </section>
+
+      <section id="folderstructures">
+        <div class="page-header"><h3>Folder Structure</h3></div>
+        <div class="folder-tree">
+          <ul>
+            <li>public/ — static assets served as-is (favicons, manifest, sitemap, robots.txt)
+              <ul>
+                <li>assets/ — images referenced by src/data/*.js (team photos, logos, icons)</li>
+              </ul>
+            </li>
+            <li>src/
+              <ul>
+                <li>pages/ — one folder per route (Home, AboutUs, Pricing, Projects, TeamPage, Legal, NotFound)</li>
+                <li>components/ — presentational pieces, each folder holds a .jsx + a .module.css (Header, Footer, Hero, Pricing, Contact, CompanyLogos, ...)</li>
+                <li>data/ — all site copy as plain JS objects (sitedata.js, pricingdata.js, teamdata.js, projectsdata.js, aboutusdata.js, ...) — edit these, not the JSX, to change content</li>
+                <li>styles/style.css — global design tokens (colors, radii, shadows) as CSS custom properties</li>
+                <li>config/deploy.js — environment/deploy-related config</li>
+                <li>gtm.js — hand-rolled GTM/dataLayer analytics wrapper</li>
+                <li>App.jsx — route table (React Router v7)</li>
+                <li>main.jsx — app entry point</li>
+              </ul>
+            </li>
+            <li>docs/ — DEVELOPER_GUIDE.md (full onboarding doc) and this documentation page</li>
+            <li>scripts/convert-images.mjs — resizes/converts images to .webp via sharp</li>
+            <li>Dockerfile, nginx.conf, docker-compose.*.yml — production/staging container build</li>
+            <li>DEPLOYMENT.md — Hostinger + GitHub Actions deploy setup</li>
+            <li>package.json — scripts and dependencies</li>
+            <li>node_modules/ — installed packages (gitignored)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="documenter_cover">
+        <div class="page-header"><h3>Pages and Components Info</h3></div>
+        <p>Routes, defined in <code>src/App.jsx</code>:</p>
+        <ul>
+          <li>Home — <code>/</code> → <code>src/pages/Home/Home.jsx</code></li>
+          <li>Team — <code>/teampage</code> → <code>src/pages/TeamPage/TeamPage.jsx</code></li>
+          <li>About Us — <code>/about-us</code> → <code>src/pages/AboutUs/AboutUs.jsx</code></li>
+          <li>Pricing — <code>/pricing</code> → <code>src/pages/Pricing/Pricing.jsx</code></li>
+          <li>Projects — <code>/projects</code> → <code>src/pages/Projects/Projects.jsx</code></li>
+          <li>Privacy Policy — <code>/privacy-policy</code> → <code>src/pages/Legal/PrivacyPolicy.jsx</code></li>
+          <li>Terms of Service — <code>/terms-of-service</code> → <code>src/pages/Legal/TermsOfService.jsx</code></li>
+          <li>404 — any unmatched path → <code>src/pages/NotFound/NotFound.jsx</code></li>
+        </ul>
+        <p>Home is assembled from section components, each eager-imported (not lazy — see the developer guide for why): Hero, TrackRecord, Services, WorkProcess, EngagementModels, Reviews, WhyChooseUs, CompanyLogos, BlogSlider, FAQ, Contact.</p>
+        <p><strong>Template Features</strong></p>
+        <ul>
+          <li>React 19 + Vite 7, plain JS/JSX (no TypeScript)</li>
+          <li>React Router v7 (BrowserRouter)</li>
+          <li>CSS Modules for styling — no Tailwind, no CSS-in-JS</li>
+          <li>Data-driven content — all copy lives in <code>src/data/*.js</code></li>
+          <li>react-helmet-async for per-page SEO tags</li>
+          <li>lucide-react icon set</li>
+          <li>Swiper.js for carousels (team, blog, reviews)</li>
+          <li>Formspree-backed contact form</li>
+          <li>Client-side staging login gate (review speed-bump, not a security boundary)</li>
+        </ul>
+      </section>
+
+      <section id="dependencies">
+        <div class="page-header"><h3>Dependencies</h3></div>
+        <p>From <code>package.json</code>:</p>
+        <pre class="line-numbers"><code class="language-markup">"dependencies": {
+  "gh-pages": "^6.3.0",
+  "html-react-parser": "^5.2.6",
+  "lucide-react": "^1.33.0",
+  "react": "^19.1.1",
+  "react-dom": "^19.1.1",
+  "react-helmet-async": "^3.0.0",
+  "react-international-phone": "^4.6.0",
+  "react-router-dom": "^7.9.4",
+  "swiper": "^12.0.2"
+}</code></pre>
+        <p>Key devDependencies: <code>vite</code>, <code>eslint</code>, <code>sharp</code> (image conversion), <code>autoprefixer</code> + <code>postcss</code>, <code>prettier</code>.</p>
+      </section>
+
+      <section id="fonts_used">
+        <div class="page-header"><h3>Fonts</h3></div>
+        <p>
+          Two Google Fonts load by default — <strong>Outfit</strong> (headings, weights 600/700/800)
+          and <strong>Plus Jakarta Sans</strong> (body/UI, weights 400-700). Both are pulled in
+          <code>index.html</code>, not per-component:
+        </p>
+        <pre class="line-numbers"><code class="language-css">&lt;link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" /&gt;</code></pre>
+        <p>
+          To change the font: edit that one <code>&lt;link&gt;</code> in <code>index.html</code>,
+          then update the <code>font-family</code> declarations in <code>src/styles/style.css</code>
+          and each component's <code>.module.css</code> (search for <code>"Plus Jakarta Sans"</code>).
+        </p>
+      </section>
+
+      <section id="icons">
+        <div class="page-header"><h3>Icons</h3></div>
+        <p>
+          Icons come from <a href="https://lucide.dev/" target="_blank">lucide-react</a>. Browse the
+          set on the Lucide site, then import the matching component:
+        </p>
+        <pre class="line-numbers"><code class="language-markup">import { ArrowUp } from "lucide-react";
+
+&lt;ArrowUp size={20} color="var(--palette-border)" /&gt;</code></pre>
+      </section>
+
+      <section id="deploy">
+        <div class="page-header"><h3>Deploy</h3></div>
+        <p>
+          This project does not deploy via FTP upload — it ships as a Docker image behind nginx,
+          deployed to Hostinger through GitHub Actions. The flow:
+        </p>
+        <ol>
+          <li>Work happens on <code>new-theme</code>.</li>
+          <li>Merge/cherry-pick into <code>stage</code> → pushing it triggers <code>.github/workflows/deploy.yml</code>, which builds the Docker image and deploys the staging container.</li>
+          <li>Once verified on staging, merge <code>stage</code> into <code>production</code> (PR, since this repo doesn't use the <code>gh</code> CLI) → pushing triggers the production deploy the same way.</li>
+        </ol>
+        <p>To produce a static build locally (for inspection, not for manual upload):</p>
+        <pre class="line-numbers"><code class="language-markup">npm run build:production</code></pre>
+        <p>Outputs to <code>dist/</code>. Full infra details (Docker, Hostinger API, GitHub Actions secrets, nginx CSP) live in <code>DEPLOYMENT.md</code> at the repo root.</p>
+      </section>
+
+      <section id="credits">
+        <div class="page-header"><h3>Credits</h3></div>
+        <ul>
+          <li><a href="https://www.npmjs.com/package/react" target="_blank">react</a> / <a href="https://www.npmjs.com/package/react-dom" target="_blank">react-dom</a></li>
+          <li><a href="https://www.npmjs.com/package/react-router-dom" target="_blank">react-router-dom</a></li>
+          <li><a href="https://www.npmjs.com/package/react-helmet-async" target="_blank">react-helmet-async</a></li>
+          <li><a href="https://www.npmjs.com/package/lucide-react" target="_blank">lucide-react</a></li>
+          <li><a href="https://www.npmjs.com/package/swiper" target="_blank">swiper</a></li>
+          <li><a href="https://www.npmjs.com/package/react-international-phone" target="_blank">react-international-phone</a></li>
+          <li><a href="https://www.npmjs.com/package/html-react-parser" target="_blank">html-react-parser</a></li>
+          <li><a href="https://www.npmjs.com/package/sharp" target="_blank">sharp</a> (dev, image optimization)</li>
+          <li><a href="https://www.npmjs.com/package/gh-pages" target="_blank">gh-pages</a> (dev)</li>
+          <li><a href="https://vitejs.dev/" target="_blank">Vite</a></li>
+        </ul>
+      </section>
+
+      <section id="supports">
+        <div class="page-header"><h3>Support</h3></div>
+        <p>For questions about this codebase, open an issue on the
+          <a href="https://github.com/Webteamspz/ingversionsdigital-live" target="_blank">GitHub repo</a>,
+          or contact the maintainer directly:
+        </p>
+        <ul>
+          <li>Email: <a href="mailto:harshjariwala34.hj@gmail.com">harshjariwala34.hj@gmail.com</a></li>
+          <li>GitHub: <a href="https://github.com/Writwik-work" target="_blank">Writwik-work</a></li>
+        </ul>
+        <p>See also <code>docs/DEVELOPER_GUIDE.md</code> for the full written guide — architecture, content editing, styling system, env vars, and the branch/deploy workflow in prose.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <a id="scroll-up" href="#getting_started"><i class="fa fa-angle-up"></i></a>
+    <div class="row">
+      <p style="margin:0">Copyright &copy; All right reserved by
+        <a href="https://github.com/Writwik-work" target="_new">Ingversions Digital</a></p>
+      <ul class="footer-menu">
+        <li><a href="mailto:harshjariwala34.hj@gmail.com">Contact us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script>
+    // Minimal scroll-spy: highlight the sidebar link whose section is in view.
+    const links = document.querySelectorAll('.sidenav a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+    const setActive = () => {
+      let current = sections[0];
+      for (const s of sections) {
+        if (s && window.scrollY >= s.offsetTop - 220) current = s;
+      }
+      links.forEach(a => {
+        a.parentElement.classList.toggle('active', a.getAttribute('href') === '#' + (current && current.id));
+      });
+    };
+    document.addEventListener('scroll', setActive);
+    setActive();
+  </script>
+</body>
+</html>
