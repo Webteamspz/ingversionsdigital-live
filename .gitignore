@@ -30,3 +30,6 @@ dist-ssr
 
 # Subagent-driven-development scratch workspace (ledgers, briefs, review packages)
 .superpowers/
+
+# graphify knowledge-graph output (local-only, never committed)
+graphify-out/
