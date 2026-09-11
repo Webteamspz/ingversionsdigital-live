@@ -10,12 +10,11 @@ import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
-const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
 
-const ExpertiseIcon = ({ iconKey, title }) => {
+const ExpertiseIcon = ({ iconKey, title, color }) => {
   const Icon = EXPERTISE_ICONS[iconKey];
   return (
-    <span className={styles.iconCircle} style={{ background: EXPERTISE_COLORS[iconKey] }}>
+    <span className={styles.iconCircle} style={{ background: color }}>
       <Icon size={22} strokeWidth={2.5} color="var(--palette-border)" aria-label={title} />
     </span>
   );
@@ -49,11 +48,11 @@ const AboutExpertise = () => {
                 <article className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                   <span
                     className={styles.cornerFold}
-                    style={{ background: EXPERTISE_COLORS[card.icon] }}
+                    style={{ background: card.color }}
                     aria-hidden="true"
                   />
                   <div className={styles.aboutIconWrap}>
-                    <ExpertiseIcon iconKey={card.icon} title={card.title} />
+                    <ExpertiseIcon iconKey={card.icon} title={card.title} color={card.color} />
                   </div>
                   <h3>{card.title}</h3>
                   <p>{card.text}</p>
@@ -67,11 +66,11 @@ const AboutExpertise = () => {
               <Reveal key={card.title} delay={i * 80} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
                 <span
                   className={styles.cornerFold}
-                  style={{ background: EXPERTISE_COLORS[card.icon] }}
+                  style={{ background: card.color }}
                   aria-hidden="true"
                 />
                 <div className={styles.aboutIconWrap}>
-                  <ExpertiseIcon iconKey={card.icon} title={card.title} />
+                  <ExpertiseIcon iconKey={card.icon} title={card.title} color={card.color} />
                 </div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
