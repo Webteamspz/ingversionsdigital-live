@@ -42,19 +42,70 @@ React-hooks rules.
 - **Naming conventions:** components as a `PascalCase` folder+file pair
   (`Services/Services.jsx` + `Services.module.css`); data modules as
   `<domain>data.js`, lowercase (`sitedata.js`, `pricingdata.js`); hooks as
-  `useX.js`; CSS Module classes `camelCase` (`styles.cardFooter`); exported
-  data as `camelCase` (`expertiseCards`), with `UPPER_SNAKE_CASE` reserved
-  for true constants (`CALENDLY_URL`).
-- **Code style:** 2-space indent throughout; double quotes are the
-  dominant convention (196 of 216 sampled import statements) — the
-  minority of files using single quotes (`aboutusdata.js`,
-  `pricingdata.js`, `projectsdata.js`) are a pre-existing inconsistency,
-  not a second valid style; don't mass-rewrite them, but match double
-  quotes in new code. Semicolons are used.
-- **Project structure / component convention:** restates and slightly
-  expands the existing repo-map + component/page convention already in
-  this doc (one clear paragraph, not a duplicate of the repo map — points
-  at it).
+  `useX.js`; utility modules as short lowercase nouns (`utils/url.js`,
+  `config/deploy.js`); CSS Module classes `camelCase` (`styles.cardFooter`);
+  exported data as `camelCase` (`expertiseCards`), with `UPPER_SNAKE_CASE`
+  reserved for true constants (`CALENDLY_URL`).
+
+- **Project structure — where new files go:** restates and cross-links the
+  existing `## Project Structure` tree earlier in this doc (not duplicated
+  here) plus the one thing it doesn't say: which existing folder a *new*
+  file belongs in, so nothing spawns a new top-level `src/` folder for a
+  one-off.
+  - A new page → `pages/<Name>/<Name>.jsx`, routed in `App.jsx`, its markup
+    built from new or existing `components/`.
+  - A new reusable UI piece → `components/<Name>/<Name>.jsx` +
+    `<Name>.module.css`, even if only one page uses it today.
+  - A new piece of site copy/content → add to the relevant existing
+    `data/*.js` module; only add a new `data/<domain>data.js` file for a
+    genuinely new content domain (mirroring `pricingdata.js`,
+    `teamdata.js`, etc.), never inline copy into JSX.
+  - A new cross-component stateful behavior (e.g. another breakpoint or
+    intersection check) → `hooks/useX.js`.
+  - A new stateless helper with no React dependency → `utils/<name>.js`.
+  - A new build/environment/deploy-mode check → `config/deploy.js` (see
+    `isProduction`/`isStaging` — already present, use it; don't re-derive
+    `import.meta.env.MODE` locally, that's exactly the kind of duplicate
+    environment-check this repo just had two of, see Part B below).
+  - Never a new top-level `src/` folder for a single file — it goes in one
+    of the above.
+
+- **Code structure — order within a component file:** every component
+  file observed in this repo follows the same shape top to bottom, and new
+  files should match it:
+  1. External library imports (`react`, `react-router-dom`, `lucide-react`,
+     etc.)
+  2. Local imports: the file's own `.module.css`, then `data/`, `hooks/`,
+     `components/`, `utils/` imports.
+  3. Module-level constants and small helper sub-components (e.g.
+     `Header.jsx`'s `HamburgerIcon`/`CloseIcon`, `AboutExpertise.jsx`'s
+     `ExpertiseIcon`) — never exported, private to the file.
+  4. The main component, as `const Name = (props) => { ... }` with
+     destructured props in the signature — this repo uses arrow-function
+     components throughout, not `function Name()`.
+  5. `export default Name;` as the last line. Helper sub-components from
+     step 3 are not separately exported.
+
+- **Style guide:** double quotes are the dominant convention (196 of 216
+  sampled import statements) — the minority of files using single quotes
+  (`aboutusdata.js`, `pricingdata.js`, `projectsdata.js`) are a
+  pre-existing inconsistency, not a second valid style; don't mass-rewrite
+  them, but match double quotes in new code. Semicolons are used. Props
+  are destructured in the function signature (`{ label, href }`) rather
+  than accessed via a `props` object. CSS Modules: one class per visual
+  concern, composed with template-literal string concatenation
+  (`` `${styles.card} ${styles.aboutExpertiseCard}` ``) rather than a
+  classnames library — this repo has no such dependency and shouldn't gain
+  one for this.
+
+- **Indentation:** 2 spaces, no tabs — verified with a repo-wide scan,
+  zero tab-indented or 4-space-indented lines found in `src/`. Not
+  enforced by any tool (confirmed: no Prettier config, no `.editorconfig`,
+  and the ESLint flat config in `eslint.config.js` only registers
+  `no-unused-vars` plus the React-hooks recommended rules — nothing
+  stylistic). This is a documented-but-unenforced convention: match the
+  surrounding file exactly rather than relying on a formatter to fix it.
+
 - **GTM conventions (expanded):** `data-cta="Verb + Noun"` label style
   (e.g. `"Book A Call"`, not `"cta1"`); `data-cta-loc="<SectionName>"`
   matching the component name; `data-gtm-form="<name>"` matching the
@@ -64,6 +115,18 @@ React-hooks rules.
   `scroll_depth`) still runs in every environment, so adding
   `data-cta`/`data-gtm-form` markup is always safe to test in staging —
   there's just no real script listening there.
+
+**Discovered while writing the project-structure rules above:**
+`src/config/deploy.js` already exports `isProduction`/`isStaging` (from
+`import.meta.env.VITE_DEPLOY_ENV || import.meta.env.MODE`), and is already
+listed in this doc's `## Project Structure` tree — but nothing imports it.
+`VITE_DEPLOY_ENV` is never set anywhere in `Dockerfile`/
+`docker-compose.*.yml`/`deploy.yml`, so it always falls through to
+`import.meta.env.MODE`, meaning `isProduction` is exactly equivalent to
+`MODE === "production"`. Part B below uses this existing helper instead of
+a fresh inline `MODE` check, so this refactor doesn't create a *second*
+duplicate environment check in the same session it's trying to prevent
+duplication.
 
 ### B. Production-only GTM/Clarity loading
 
@@ -82,14 +145,19 @@ React-hooks rules.
 **`src/gtm.js`:**
 - Add `const CLARITY_ID = import.meta.env.VITE_CLARITY_ID;` alongside the
   existing `GTM_ID` export.
+- Import `isProduction` from `../config/deploy` (existing, currently
+  unused module — see callout above).
 - Add a `loadAnalytics()` function: on `window`'s `load` event, if
-  `import.meta.env.MODE === "production" && GTM_ID && CLARITY_ID`, inject
+  `isProduction && GTM_ID && CLARITY_ID`, inject
   the GTM script tag and the Clarity script tag (same snippets currently
   in `index.html`, moved here verbatim).
-- Because `import.meta.env.MODE` is a compile-time constant, Vite/esbuild
-  dead-code-eliminates this entire branch (including the real ID
-  reference) out of any non-production build — it's not merely hidden at
-  runtime, it's absent from the staging/dev bundle.
+- `isProduction` resolves from `import.meta.env.MODE`, which Vite inlines
+  as a literal string at build time; the production build's minifier
+  (esbuild/Terser) constant-folds the resulting `if (false && ...)` in
+  non-production builds and dead-code-eliminates the branch — including
+  the real ID reference — out of the staging/dev bundle. Not merely
+  hidden at runtime; absent from the shipped file. (Verified in the
+  Verification section below by grepping the built output.)
 - `initGTMTracking()` (the existing `dataLayer` wiring: pageview,
   `cta_click`, `form_submit`/`form_success`, `scroll_depth`) is unchanged
   and keeps running in every environment.
