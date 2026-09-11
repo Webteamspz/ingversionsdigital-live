@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowRight, ArrowLeftRight, X } from "lucide-react";
 import styles from "./ProjectsGrid.module.css";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const INITIAL_MOBILE_COUNT = 6;
-const MOBILE_BREAKPOINT = 767.98;
 
 
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
@@ -74,20 +74,9 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
 };
 
 const ProjectsGrid = ({ projects }) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(projects.length);
   const [selectedProject, setSelectedProject] = useState(null);
-
-  useEffect(() => {
-    const checkScreen = () => {
-      const mobile = window.innerWidth <= MOBILE_BREAKPOINT;
-      setIsMobile(mobile);
-      setVisibleCount(mobile ? INITIAL_MOBILE_COUNT : projects.length);
-    };
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, [projects.length]);
 
   useEffect(() => {
     setVisibleCount(isMobile ? INITIAL_MOBILE_COUNT : projects.length);

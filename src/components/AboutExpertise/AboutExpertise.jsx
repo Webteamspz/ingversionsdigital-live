@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,6 +7,7 @@ import { Sparkles, Blocks, TrendingUp, BarChart3 } from "lucide-react";
 import styles from "./AboutExpertise.module.css";
 import { expertiseCards } from "../../data/aboutusdata";
 import Reveal from "../Reveal/Reveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
 const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
@@ -22,14 +22,7 @@ const ExpertiseIcon = ({ iconKey, title }) => {
 };
 
 const AboutExpertise = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <section className={styles.aboutExpertise} id="coreExpertise">
