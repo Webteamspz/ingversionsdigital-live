@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { isExternalHref } from "../../utils/url";
 import data from "../../data/sitedata";
 import styles from "./Footer.module.css";
 import logo from "/assets/logos/main-logo-white.png";
@@ -82,10 +83,7 @@ const Footer = () => {
               <div className={styles.linkGroup} key={gi}>
                 <h4>{group.title}</h4>
                 {group.links.map((l, i) => {
-                  const isExternal =
-                    l.href.startsWith("http") ||
-                    l.href.startsWith("mailto:") ||
-                    l.href.startsWith("tel:");
+                  const isExternal = isExternalHref(l.href);
 
                   const displayText = l.name || l.label || "Link";
 
