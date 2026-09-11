@@ -20,6 +20,7 @@ why a few things are done the way they are.
 - [The Design System (CSS Modules + tokens)](#the-design-system-css-modules--tokens)
 - [Environment Variables & the Staging Gate](#environment-variables--the-staging-gate)
 - [Analytics (GTM / Clarity)](#analytics-gtm--clarity)
+- [Conventions](#conventions)
 - [SEO](#seo)
 - [Images: format and optimization](#images-format-and-optimization)
 - [Branches & Deployment](#branches--deployment)
@@ -249,6 +250,73 @@ up:
 
 To track a new button or link, just add `data-cta="Something"` and (optionally)
 `data-cta-loc="Header"` — no extra JS needed, the global click listener picks it up.
+
+GTM and Microsoft Clarity only load in production builds (`npm run build:production`);
+staging and local dev never load the real scripts. The `dataLayer` event wiring above
+(`pageview`, `cta_click`, `form_submit`/`form_success`, `scroll_depth`) still runs in
+every environment, so adding `data-cta`/`data-gtm-form` markup is always safe to test in
+staging — there's just no real script listening there. See
+[Environment Variables & the Staging Gate](#environment-variables--the-staging-gate) for
+how the two build modes differ.
+
+Attribute naming conventions: `data-cta="Verb + Noun"` (e.g. `"Book A Call"`, not
+`"cta1"`); `data-cta-loc="<SectionName>"` matching the component name it's inside; `data-gtm-form="<name>"` matching the form's purpose (e.g. `"contact"`).
+
+---
+
+## Conventions
+
+Written for AI-agent consistency (this repo's stated audience — see `AGENTS.md`), not
+enforced by tooling: there's no Prettier config and no `.editorconfig` in this repo, and
+the ESLint flat config in `eslint.config.js` only registers `no-unused-vars` plus the
+React-hooks recommended rules — nothing stylistic. Match the conventions below by eye.
+
+**Naming:** components as a `PascalCase` folder+file pair (`Services/Services.jsx` +
+`Services.module.css`); data modules as `<domain>data.js`, lowercase (`sitedata.js`,
+`pricingdata.js`); hooks as `useX.js`; utility modules as short lowercase nouns
+(`utils/url.js`, `config/deploy.js`); CSS Module classes `camelCase`
+(`styles.cardFooter`); exported data as `camelCase` (`expertiseCards`), with
+`UPPER_SNAKE_CASE` reserved for true constants (`CALENDLY_URL`).
+
+**Where a new file goes:** see [Project Structure](#project-structure) above for the
+existing tree. For a *new* file:
+- A new page → `pages/<Name>/<Name>.jsx`, routed in `App.jsx`, built from new or
+  existing `components/`.
+- A new reusable UI piece → `components/<Name>/<Name>.jsx` + `<Name>.module.css`, even
+  if only one page uses it today.
+- A new piece of site copy/content → add to the relevant existing `data/*.js` module;
+  only add a new `data/<domain>data.js` file for a genuinely new content domain
+  (mirroring `pricingdata.js`, `teamdata.js`); never inline copy into JSX.
+- A new cross-component stateful behavior (another breakpoint or intersection check) →
+  `hooks/useX.js`.
+- A new stateless helper with no React dependency → `utils/<name>.js`.
+- A new build/environment/deploy-mode check → `config/deploy.js` — it already exports
+  `isProduction`/`isStaging`, use them instead of re-deriving `import.meta.env.MODE`
+  locally.
+- Never a new top-level `src/` folder for a single file — it goes in one of the above.
+
+**Code structure inside a component file**, top to bottom:
+1. External library imports (`react`, `react-router-dom`, `lucide-react`, etc.)
+2. Local imports: the file's own `.module.css`, then `data/`, `hooks/`, `components/`,
+   `utils/` imports.
+3. Module-level constants and small helper sub-components (e.g. `Header.jsx`'s
+   `HamburgerIcon`/`CloseIcon`) — never exported, private to the file.
+4. The main component, as `const Name = (props) => { ... }` with destructured props in
+   the signature — this repo uses arrow-function components throughout, not
+   `function Name()`.
+5. `export default Name;` as the last line. Helper sub-components from step 3 are not
+   separately exported.
+
+**Style guide:** double quotes are the dominant convention across this repo — match
+them in new code (a handful of existing files use single quotes; that's a pre-existing
+inconsistency, not a second valid style, and isn't worth mass-rewriting). Semicolons are
+used. Props are destructured in the function signature (`{ label, href }`) rather than
+accessed via a `props` object. CSS Modules: compose classes with template-literal string
+concatenation (`` `${styles.card} ${styles.aboutExpertiseCard}` ``) rather than a
+classnames library — this repo has no such dependency.
+
+**Indentation:** 2 spaces, no tabs, throughout the whole repo. Documented, not enforced
+(no formatter is configured) — match the surrounding file exactly.
 
 ---
 
