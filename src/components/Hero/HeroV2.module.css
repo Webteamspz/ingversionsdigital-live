@@ -36,7 +36,7 @@
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
   background-color: var(--secondary);
-  box-shadow: 4px 4px 0 0 var(--palette-border);
+  box-shadow: var(--shadow-pop);
   transform: rotate(-3deg);
   color: var(--palette-bg-800);
   font-size: 12px;

@@ -52,17 +52,17 @@
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
   font-family: "Plus Jakarta Sans",sans-serif;
   border: var(--border-width) solid var(--palette-border);
-  box-shadow: 4px 4px 0 0 var(--palette-border);
+  box-shadow: var(--shadow-pop);
   cursor: pointer
 }
 .projectsCtaButton:hover {
   background: var(--tertiary);
   transform: translate(-2px,-2px);
-  box-shadow: 6px 6px 0 0 var(--palette-border)
+  box-shadow: var(--shadow-pop-hover)
 }
 .projectsCtaButton:active {
   transform: translate(2px,2px);
-  box-shadow: 2px 2px 0 0 var(--palette-border)
+  box-shadow: var(--shadow-pop-active)
 }
 @media (max-width:1023.98px) {
   .projectsCtaBox {

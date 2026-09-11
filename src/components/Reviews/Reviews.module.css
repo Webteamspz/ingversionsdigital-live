@@ -40,7 +40,7 @@
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-md);
   padding: 32px;
-  box-shadow: 6px 6px 0 0 var(--palette-border)
+  box-shadow: var(--shadow-pop-hover)
 }
 .reviewQuote {
   margin: 0 0 24px;
@@ -73,7 +73,7 @@
   height: 56px;
   border-radius: var(--radius-full);
   border: var(--border-width) solid var(--palette-border);
-  box-shadow: 2px 2px 0 0 var(--palette-border);
+  box-shadow: var(--shadow-pop-active);
   object-fit: cover;
   background: var(--palette-bg-800)
 }
@@ -114,10 +114,10 @@
   }
   .reviewCard {
     padding: 24px;
-    box-shadow: 4px 4px 0 0 var(--palette-border)
+    box-shadow: var(--shadow-pop)
   }
   .reviewAvatar {
-    box-shadow: 2px 2px 0 0 var(--palette-border)
+    box-shadow: var(--shadow-pop-active)
   }
   .reviewsMarquee {
     overflow: hidden;
