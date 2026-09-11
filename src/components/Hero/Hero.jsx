@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
-import data from "../../data/sitedata";
+import data, { CALENDLY_URL } from "../../data/sitedata";
 import styles from "./Hero.module.css";
 import { dl } from "../../gtm";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
@@ -8,7 +8,6 @@ import OptimizedImg from "../OptimizedImg/OptimizedImg";
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
-const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const getAutocomplete = (name = "") => {
   const n = name.toLowerCase();
@@ -108,7 +107,7 @@ const Hero = () => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
-      if (res.ok) window.location.href = REDIRECT_URL;
+      if (res.ok) window.location.href = CALENDLY_URL;
       else {
         const err = await res.json().catch(() => ({}));
         alert(err?.error || "Something went wrong. Please try again.");

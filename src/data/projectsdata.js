@@ -1,3 +1,5 @@
+import { CALENDLY_URL } from "./sitedata";
+
 const projectsData = {
   hero: {
     tag: "Our Amazing Work",
@@ -178,7 +180,7 @@ const projectsData = {
     title: "Have a project in mind?",
     subtitle: "Let's build something that drives real impact.",
     buttonText: "Schedule a call",
-    buttonLink: "https://calendly.com/ingversionsdigital/30min",
+    buttonLink: CALENDLY_URL,
   },
 };
 

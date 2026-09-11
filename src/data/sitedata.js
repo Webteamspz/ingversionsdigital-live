@@ -1,3 +1,11 @@
+export const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
+
+export const company = {
+  email: "ingversionsdigital@gmail.com",
+  phone: "+91-8866167750",
+  address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
+};
+
 export default {
   header: {
     links: [
@@ -10,7 +18,7 @@ export default {
     ],
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min",
+      href: CALENDLY_URL,
     },
   },
   hero: {
@@ -19,7 +27,7 @@ export default {
     sub: "We run structured A/B tests to uncover what truly drives conversions, then scale those wins across your Shopify store for lasting revenue growth.",
     cta: {
       label: "Book A Call",
-      href: "https://calendly.com/ingversionsdigital/30min",
+      href: CALENDLY_URL,
     },
     avatars: [
       "/assets/reviews/reviewer-1.jpg",
@@ -304,15 +312,15 @@ export default {
         items: [
           {
             icon: "email",
-            text: "ingversionsdigital@gmail.com",
+            text: company.email,
           },
           {
             icon: "phone",
-            text: "+91-8866167750",
+            text: company.phone,
           },
           {
             icon: "location",
-            text: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India.",
+            text: company.address,
           },
         ],
       },
@@ -458,22 +466,22 @@ export default {
           {
             plan: "Starter",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min",
+            href: CALENDLY_URL,
           },
           {
             plan: "Growth",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min",
+            href: CALENDLY_URL,
           },
           {
             plan: "Premium",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min",
+            href: CALENDLY_URL,
           },
           {
             plan: "Elite",
             label: "Get Started",
-            href: "https://calendly.com/ingversionsdigital/30min",
+            href: CALENDLY_URL,
           },
         ],
       },
@@ -703,9 +711,9 @@ footer: {
         ],
       },
     ],
-    address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
-    email: "ingversionsdigital@gmail.com",
-    phone: "+91-8866167750",
+    address: company.address,
+    email: company.email,
+    phone: company.phone,
     socials: [
       {
         name: "facebook",

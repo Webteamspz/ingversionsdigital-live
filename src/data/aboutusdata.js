@@ -1,3 +1,5 @@
+import { CALENDLY_URL } from "./sitedata";
+
 export const heroData = {
   tag: 'About Ingversions Digital',
   highlight: 'Intelligent Change',
@@ -8,7 +10,7 @@ export const heroData = {
     { label: 'HQ', value: 'Remote-first' }
   ],
   primaryCta: 'Book A Call',
-  primaryCtaHref: 'https://calendly.com/ingversionsdigital/30min',
+  primaryCtaHref: CALENDLY_URL,
   imageSrc: '/assets/about-hero/hero-img.webp',
   imageAlt: 'Data-driven CRO dashboards'
 };
@@ -45,21 +47,25 @@ export const missionCards = [
 export const expertiseCards = [
   {
     icon: 'ai',
+    color: 'var(--palette-accent)',
     title: 'Research & Insights',
     text: 'Quant + qual research, analytics deep dives, heatmaps, and user interviews to find real conversion leaks.'
   },
   {
     icon: 'blockchain',
+    color: 'var(--secondary)',
     title: 'Experiment Design',
     text: 'Hypothesis crafting, prioritization frameworks, and statistically sound test setups across tools like ABlyft.'
   },
   {
     icon: 'trading',
+    color: 'var(--tertiary)',
     title: 'Full-funnel Execution',
     text: 'Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.'
   },
   {
     icon: 'analytics',
+    color: 'var(--quaternary)',
     title: 'Analysis & Learnings',
     text: 'Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.'
   }
@@ -92,5 +98,5 @@ export const ctaData = {
   title: 'Ready to discuss your next experiment?',
   text: 'Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.',
   primaryLabel: 'Schedule a call',
-  primaryHref: 'https://calendly.com/ingversionsdigital/30min'
+  primaryHref: CALENDLY_URL
 };

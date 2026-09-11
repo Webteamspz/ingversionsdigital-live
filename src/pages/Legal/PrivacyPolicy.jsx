@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Layout from "../../layouts/Layouts";
+import { company } from "../../data/sitedata";
 import SEO from "../../components/SEO/SEO";
 import {
   IconShield,
@@ -182,8 +183,8 @@ const PrivacyPolicy = () => (
                 correction of, or deletion of your personal data at any
                 time, or ask us to stop using it for a specific purpose, by
                 emailing{" "}
-                <a href="mailto:ingversionsdigital@gmail.com">
-                  ingversionsdigital@gmail.com
+                <a href={`mailto:${company.email}`}>
+                  {company.email}
                 </a>
                 . We'll respond within a reasonable timeframe.
               </p>
