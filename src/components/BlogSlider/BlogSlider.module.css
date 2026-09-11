@@ -59,7 +59,7 @@
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease;
+  transition: var(--transition-pop-card),background-color .2s ease;
   white-space: nowrap
 }
 .seeMoreLink:hover {
@@ -144,7 +144,7 @@
   border-radius: 0;
   background: var(--palette-bg-700);
   box-shadow: 6px 6px 0 var(--palette-text-primary);
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition: var(--transition-pop-card)
 }
 .blogImage {
   display: block;

@@ -14,7 +14,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop-soft);
   overflow: hidden;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
+  transition: var(--transition-pop-card);
   position: relative;
   isolation: isolate
 }

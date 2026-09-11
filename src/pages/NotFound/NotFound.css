@@ -109,7 +109,7 @@
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .3s ease
+  transition: var(--transition-pop-card),background-color .3s ease
 }
 .nfBtn:hover {
   background: var(--palette-accent-strong);

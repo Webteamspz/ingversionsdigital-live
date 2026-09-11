@@ -48,7 +48,7 @@
   font-size: 14px;
   line-height: 14px;
   text-decoration: none;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
+  transition: var(--transition-pop-card);
   font-family: "Plus Jakarta Sans",sans-serif;
   border: var(--border-width) solid var(--palette-border);
   box-shadow: var(--shadow-pop);

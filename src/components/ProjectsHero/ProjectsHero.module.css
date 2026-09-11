@@ -79,7 +79,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 150%;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease;
+  transition: var(--transition-pop-card),background-color .2s ease;
   white-space: nowrap
 }
 .filterBtn:hover {

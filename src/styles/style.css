@@ -32,6 +32,7 @@
   --shadow-pop-active: 2px 2px 0 0 var(--palette-border);
   --shadow-pop-soft: 8px 8px 0 0 var(--palette-border-soft);
   --shadow-pop-featured: 8px 8px 0 0 var(--secondary);
+  --transition-pop-card: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s cubic-bezier(.34, 1.56, .64, 1);
   --bg-900: var(--palette-bg-950);
   --bg-800: var(--palette-bg-700);
   --text-100: var(--palette-text-primary);
@@ -132,7 +133,7 @@ body {
   border: var(--border-width) solid var(--palette-border);
   box-shadow: var(--shadow-pop);
   cursor: pointer;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .3s ease
+  transition: var(--transition-pop-card), background-color .3s ease
 }
 .btn:hover {
   transform: translate(-2px,-2px);
@@ -150,7 +151,7 @@ body {
   border-radius: var(--radius-lg);
   padding: 22px;
   box-shadow: var(--shadow-pop-soft);
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition: var(--transition-pop-card)
 }
 .card:hover {
   transform: rotate(-1deg) scale(1.02);

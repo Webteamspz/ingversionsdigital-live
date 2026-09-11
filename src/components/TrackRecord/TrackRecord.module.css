@@ -31,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition: var(--transition-pop-card)
 }
 .kpi:nth-child(1) {
   border-radius: var(--radius-full);
