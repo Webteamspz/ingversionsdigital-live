@@ -62,7 +62,8 @@ A lower-priority document must not silently override an explicit higher-priority
 ## Analytics And SEO
 
 - Analytics is GTM plus Clarity, initialised in `src/gtm.js`, driven by `data-cta` and `data-gtm-form` attributes in markup. Do not add analytics libraries.
-- Every page sets its head tags through the `<SEO>` component. A new page must include one.
+- GTM/Clarity only load in production builds: `loadAnalytics()` in `src/gtm.js` is gated on `isProduction` (`src/config/deploy.js`, resolved from `import.meta.env.MODE`) and on both `VITE_GTM_ID`/`VITE_CLARITY_ID` being set. Never hardcode the real container IDs in `index.html` again — that was a real incident (see `docs/DEVELOPER_GUIDE.md`). As defense in depth, the staging deploy step in `.github/workflows/deploy.yml` does not pass the production `VITE_GTM_ID`/`VITE_CLARITY_ID` values either.
+- Every page sets its head tags through the `<SEO>` component. A new page must include one. Do not add a static `<title>`, meta description, canonical, or OG/Twitter title+description+image back into `index.html` — `<SEO>` (react-helmet-async) sets those per-route on every page, and a static copy just duplicates them in the live DOM. `index.html` keeps only genuinely static tags: favicons, manifest, sitemap, `og:type`/`site_name`/`locale`, `twitter:card`/`site`/`creator`, and the Organization JSON-LD.
 - `nginx.conf` has a CSP `connect-src` allowlist. A new outbound domain (analytics, form host, embed) must be added there or the browser will block it.
 
 ## Environments And The Staging Gate
@@ -76,8 +77,9 @@ A lower-priority document must not silently override an explicit higher-priority
 
 - Flow: `new-theme` (work) then `stage` (deploys `staging.ingversionsdigital.com`) then `production` (deploys the live domain).
 - Deploys are triggered by pushes to `stage` and `production` via `.github/workflows/deploy.yml`, which calls the Hostinger Docker API.
-- When merging `stage` into `production`, keep production's version of these eight files: `.dockerignore`, `Dockerfile`, `README.md`, `docker-compose.production.yml`, `docker-compose.stage.yml`, `eslint.config.js`, `index.html`, `nginx.conf`.
+- When merging `stage` into `production`, keep production's version of these files: `.dockerignore`, `Dockerfile`, `docker-compose.production.yml`, `docker-compose.stage.yml`, `eslint.config.js`, `index.html`, `nginx.conf`. Also do not carry `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/`, or the `.gitignore` `graphify-out/` rule to `production` — those stay on `new-theme` and `stage`.
 - `graphify-out/` is local-only and gitignored. Never commit it.
+- The Blog-link click-intercept behavior (Header nav, Footer, `BlogSlider` — clicking shows an `alert()` instead of navigating straight to `blog.ingversionsdigital.com`) is a `new-theme`/`stage`-only experiment and must never reach `production`. These files are not globally excluded from the merge like the ones above — only that specific behavior should be kept out; unrelated changes to `Header.jsx`, `Footer.jsx`, and `BlogSlider.jsx` should still flow through normally.
 - Home page sections are eager-imported, not `React.lazy`. Lazy-loading them caused a header/footer-then-content flash. Do not convert them back.
 
 ## Validation

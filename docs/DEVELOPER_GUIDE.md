@@ -250,6 +250,23 @@ up:
 To track a new button or link, just add `data-cta="Something"` and (optionally)
 `data-cta-loc="Header"` — no extra JS needed, the global click listener picks it up.
 
+**The GTM/Clarity `<script>` loaders themselves are separate from the dataLayer
+wiring above and only run in production.** `gtm.js` also exports `loadAnalytics()`
+(called from `main.jsx` alongside `initGTMTracking()`), which injects the real
+Clarity and GTM `<script>` tags — but only when `isProduction` (from
+`src/config/deploy.js`, resolved from `import.meta.env.MODE`) is true and both
+`VITE_GTM_ID`/`VITE_CLARITY_ID` are set. `index.html` no longer hardcodes the
+container IDs; the noscript GTM iframe uses the `%VITE_GTM_ID%` build-time
+placeholder instead. This exists because the container IDs were hardcoded and
+unconditional in `index.html` for about three months (2026-05-14 to 2026-08-12),
+during which local `npm run dev` sessions fired real pageviews into the
+production GTM/Clarity property (visible in GA as `localhost:5173`/`localhost:3000`
+referral sessions). As defense in depth on top of the code-level gate, the
+staging deploy step in `.github/workflows/deploy.yml` does not pass the
+production `VITE_GTM_ID`/`VITE_CLARITY_ID` values either — staging builds with
+both unset. Never reintroduce a hardcoded container ID or an ungated script tag
+in `index.html`.
+
 ---
 
 ## SEO
@@ -271,6 +288,17 @@ Every page renders a `<SEO>` component (`src/components/SEO/SEO.jsx`, wraps
 It sets `<title>`, meta description, canonical URL, robots, and Open Graph/Twitter tags
 consistently. When adding a new page, always add one of these with a real title and
 description — don't leave it to the page's default.
+
+**Do not also add a static `<title>`, meta description, canonical, or OG/Twitter
+title+description+image to `index.html`.** Every route in `App.jsx` already
+renders `<SEO>`, so a static copy in `index.html` doesn't act as a fallback —
+it just sits in the DOM alongside the one Helmet injects, since Helmet only
+manages tags it created itself and has no awareness of pre-existing static
+ones. This was a real bug: title, description, canonical, and OG/Twitter tags
+were each duplicated in the live DOM on every page until it was fixed.
+`index.html` should only carry tags that are genuinely static and not
+route-specific: favicons, manifest, sitemap link, `og:type`/`site_name`/`locale`,
+`twitter:card`/`site`/`creator`, and the Organization JSON-LD.
 
 ---
 
@@ -320,10 +348,20 @@ Three long-lived branches, each mapped to a real deployed environment:
    and merge it — this auto-deploys production.
 
 **Files that intentionally differ between `stage` and `production` and must not be
-silently overwritten by a merge:** `.dockerignore`, `Dockerfile`, `README.md`,
+silently overwritten by a merge:** `.dockerignore`, `Dockerfile`,
 `docker-compose.production.yml`, `docker-compose.stage.yml`, `eslint.config.js`,
-`index.html`, `nginx.conf`. When merging `stage` → `production`, keep production's
-existing versions of these 8 files and take everything else from `stage`.
+`index.html`, `nginx.conf`, plus `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/`, and the
+`.gitignore` `graphify-out/` rule (those three live on `new-theme`/`stage` only and
+never go to `production`). When merging `stage` → `production`, keep production's
+existing versions of these and take everything else from `stage`. (`README.md` used to
+be on this list — it isn't anymore; it syncs to `production` normally.)
+
+**One behavior, not a file, that must also never reach `production`:** the Blog-link
+click-intercept-and-`alert()` in `Header.jsx`, `Footer.jsx`, and `BlogSlider.jsx` (shows
+an alert instead of navigating to `blog.ingversionsdigital.com`) is a
+`new-theme`/`stage`-only experiment. Those three files aren't excluded wholesale —
+other changes to them should still flow to `production` normally — just keep
+production's direct-navigation Blog links when merging.
 
 For the actual infrastructure — Docker images, Hostinger's no-SSH deploy API, GitHub
 Actions secrets, Cloudflare DNS records, and where to find build logs on the VPS — see
@@ -419,11 +457,11 @@ not meant to be found by Google or random visitors before a feature ships. The
 client-side gate (`StagingLogin`) is intentionally simple — it's a review speed-bump, not
 a security boundary. Don't put anything sensitive behind it expecting real protection.
 
-**Why do 8 specific files never get overwritten by a `stage` → `production` merge?**
+**Why do specific files never get overwritten by a `stage` → `production` merge?**
 Those files hold environment-specific infrastructure config (which Docker Compose file
-targets which VPS project, which nginx config, README, etc.) that's deliberately
-*different* per branch, not a lagging copy waiting to be synced. Merging them normally
-would silently break the other environment's deploy.
+targets which VPS project, which nginx config, etc.) that's deliberately *different* per
+branch, not a lagging copy waiting to be synced. Merging them normally would silently
+break the other environment's deploy.
 
 **Safari/WebKit hairline borders:** thin `border-bottom: 1px` dividers can render broken
 or anti-aliased oddly on Safari/macOS at certain zoom levels. The established fix used
