@@ -128,18 +128,28 @@ new-theme  ->  stage  ->  production
 - Pushing `production` deploys `ingversionsdigital.com` and `www.ingversionsdigital.com`.
 - Both deploys are triggered by `.github/workflows/deploy.yml`, which calls the Hostinger Docker API. Hostinger builds the Compose project from the repo.
 
-When merging `stage` into `production`, keep production's version of these eight files:
+When merging `stage` into `production`, keep production's version of these files, and
+do not carry the developer documentation across:
 
 ```txt
 .dockerignore
 Dockerfile
-README.md
 docker-compose.production.yml
 docker-compose.stage.yml
 eslint.config.js
 index.html
 nginx.conf
+docs/DEVELOPER_GUIDE.md
+docs/site-docs/
 ```
+
+The `.gitignore` `graphify-out/` rule also stays off `production`. The developer
+docs and that ignore rule live on `new-theme` and `stage` only.
+
+The Blog-link click-intercept behavior (Header, Footer, `BlogSlider` — clicking shows
+an alert instead of navigating to `blog.ingversionsdigital.com`) is also a
+`new-theme`/`stage`-only experiment and must not reach `production`, even though those
+component files aren't on the list above and should otherwise merge normally.
 
 Full infrastructure detail is in `DEPLOYMENT.md`.
 

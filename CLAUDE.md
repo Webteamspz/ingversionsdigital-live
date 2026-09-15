@@ -13,23 +13,43 @@ the exact commit message to use; when they do, use it verbatim.
 This applies to every branch, including `new-theme`. Branch pushes, staging
 deploys, and production deploys are all user-initiated, one at a time.
 
-## The eight files excluded from stage to production
+## Files excluded from stage to production
 
 When merging `stage` into `production`, production keeps its own version of:
 
 ```txt
 .dockerignore
 Dockerfile
-README.md
 docker-compose.production.yml
 docker-compose.stage.yml
 eslint.config.js
 index.html
 nginx.conf
+docs/DEVELOPER_GUIDE.md
+docs/site-docs/
 ```
+
+Also do not carry the `.gitignore` `graphify-out/` rule to `production`. The
+developer documentation and that ignore rule live on `new-theme` and `stage`
+only; `production` never gets them.
 
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
+
+## Blog link alert stays on new-theme and stage only
+
+The Blog-link click-intercept behavior (Header nav, Footer, and BlogSlider —
+clicking shows an `alert()` pointing at `blog.ingversionsdigital.com` instead
+of navigating there directly) is a `new-theme`/`stage`-only experiment. It
+must never reach `production`.
+
+Unlike the file exclusions above, `src/components/Header/Header.jsx`,
+`src/components/Footer/Footer.jsx`, and `src/components/BlogSlider/BlogSlider.jsx`
+are not globally excluded from the `stage` → `production` merge — other,
+unrelated changes to those files should still flow through normally. When
+merging `stage` into `production`, specifically keep production's
+direct-navigation Blog links (no click-intercept, no `alert(...)`) while still
+taking any other legitimate changes those files carry.
 
 ## graphify output stays local
 
