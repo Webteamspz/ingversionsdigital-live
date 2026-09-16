@@ -55,7 +55,7 @@
 }
 .aboutHeroSubtitle {
   margin: 0 auto;
-  max-width: 560px;
+  max-width: 700px;
   color: var(--palette-text-muted);
   font-weight: 500;
   font-size: 19px;
@@ -239,7 +239,7 @@
   }
   .aboutMetaItem {
     min-width: 0;
-    padding: 10px 16px
+    padding: 4px 12px
   }
   .aboutMetaValue {
     text-align: center
