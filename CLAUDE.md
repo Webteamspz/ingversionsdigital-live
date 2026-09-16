@@ -68,7 +68,9 @@ Component styles are CSS Modules; shared values are the `:root` tokens in
 `src/styles/style.css`. Do not add a CSS framework or hardcode values that a
 token already covers. For hairline separators use
 `box-shadow: 0 1px 0 0 <color>`, not `border-bottom: 1px solid <color>`
-(Safari renders the latter inconsistently).
+(Safari renders the latter inconsistently). Never use `clamp()` (or other
+fluid `vw`/`vh`-based sizing) anywhere in CSS, including font sizes - use
+fixed `px` values with explicit breakpoint overrides instead.
 
 ## Home page loading
 
