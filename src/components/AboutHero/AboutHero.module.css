@@ -14,15 +14,13 @@
   z-index: -1;
   pointer-events: none
 }
-.aboutHeroGrid {
-  display: flex;
-  gap: 40px;
-  justify-content: space-between;
-  align-items: center
-}
 .aboutHeroContent {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
   gap: 20px
 }
 .aboutTag {
@@ -38,72 +36,57 @@
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
+  line-height: 1;
   text-transform: uppercase;
   margin-bottom: 6px;
   width: max-content
 }
 .aboutHeroTitle {
   margin: 0;
+  text-align: center;
   font-family: Outfit,system-ui,sans-serif;
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 1.2;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 1;
   color: var(--text-100)
 }
 .accentText {
   color: var(--palette-accent)
 }
 .aboutHeroSubtitle {
-  margin: 0;
-  max-width: 560px;
-  color: var(--palette-text-secondary);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%
+  margin: 0 auto;
+  max-width: 700px;
+  color: var(--palette-text-muted);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.62
 }
 .aboutHeroMeta {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 18px
 }
 .aboutMetaItem {
-  padding: 10px 14px;
+  min-width: 140px;
+  padding: 14px 20px;
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
-  -webkit-box-shadow: var(--shadow-pop-soft);
-  box-shadow: var(--shadow-pop-soft)
+  box-shadow: var(--shadow-pop)
 }
 .aboutMetaLabel {
   display: block;
   color: var(--palette-text-secondary);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 150%;
   margin-bottom: 4px
 }
 .aboutMetaValue {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--text-100)
-}
-.aboutHeroActions {
-  margin-top: 6px
-}
-.aboutHeroVisual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  isolation: isolate;
-  box-sizing: border-box
-}
-.aboutHeroImg {
-  max-width: 100%;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-md)
 }
 .aboutHeroStatsWrap {
   background: var(--palette-border);
@@ -176,7 +159,7 @@
   color: currentColor;
   font-family: Outfit,system-ui,sans-serif;
   font-weight: 700;
-  font-size: clamp(45px, 4.2vw, 64px);
+  font-size: 64px;
   letter-spacing: -.05em;
   line-height: .95;
   margin: 0 0 5px
@@ -185,27 +168,11 @@
   .aboutHero {
     padding: 130px 0 48px
   }
-  .aboutHeroContent {
-    align-items: center
-  }
-  .aboutHeroGrid {
-    flex-direction: column-reverse;
-    gap: 28px
-  }
-  .aboutHeroVisual {
-    order: -1;
-    margin-bottom: 20px
-  }
   .aboutHeroTitle {
-    font-size: 32px;
-    text-align: center
+    font-size: 36px
   }
-  .aboutHeroSubtitle {
-    font-size: 15px;
-    text-align: center
-  }
-  .aboutHeroMeta {
-    justify-content: center
+  .aboutStatValue {
+    font-size: 56px
   }
   .aboutHeroStatsWrap {
     padding: 28px 20px
@@ -220,7 +187,7 @@
 }
 @media (max-width:767.98px) {
   .aboutHero {
-    padding: 70px 0 0
+    padding: 50px 0 0
   }
   .aboutTag {
     font-size: 11px;
@@ -261,24 +228,25 @@
     font-size: 14px
   }
   .aboutHeroTitle {
-    font-weight: 800;
-    font-size: 26px;
-    line-height: 1.25;
-    text-align: center
+    font-size: 30px
   }
   .aboutHeroSubtitle {
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center
+    font-size: 16px
   }
   .aboutHeroMeta {
     justify-content: center;
     gap: 12px
   }
+  .aboutHeroContent {
+    padding-bottom: 10px
+  }
   .aboutMetaItem {
-    padding: 8px 12px
+    min-width: 0;
+    border-radius: var(--radius-md);
+    padding: 4px 16px
   }
   .aboutMetaValue {
-    text-align: center
+    text-align: center;
+    font-size: 15px
   }
 }

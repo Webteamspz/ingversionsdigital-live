@@ -6,11 +6,7 @@ export const heroData = {
   meta: [
     { label: 'Founded', value: '2024' },
     { label: 'HQ', value: 'Remote-first' }
-  ],
-  primaryCta: 'Book A Call',
-  primaryCtaHref: 'https://calendly.com/ingversionsdigital/30min',
-  imageSrc: '/assets/about-hero/hero-img.webp',
-  imageAlt: 'Data-driven CRO dashboards'
+  ]
 };
 
 export const heroStats = [
