@@ -193,6 +193,14 @@ small-desktop) — there's also a `useIsMobile()` hook (`src/hooks/useIsMobile.j
 components that need to render **different JSX** (not just different CSS) on mobile,
 e.g. swapping a grid for a Swiper carousel.
 
+**No `clamp()`, no `vw`/`vh`-based fluid sizing, anywhere in CSS.** A handful of
+components (`Hero/HeroV2`, `AboutHero`, `Contact`, `TrackRecord`) used to size large
+headings with `clamp(min, Nvw, max)`. All of them were converted to fixed `px` values
+with explicit breakpoint overrides instead — the `clamp()` min/max bounds became the
+mobile/desktop pixel values, with a tablet-range override added at `1023.98px` where
+one didn't already exist. Follow the same pattern for any new large/responsive type:
+pick a `px` value per breakpoint rather than a fluid formula.
+
 ---
 
 ## Environment Variables & the Staging Gate

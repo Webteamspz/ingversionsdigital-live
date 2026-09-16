@@ -61,7 +61,7 @@
   margin: 0 0 5px;
   color: currentColor;
   font-family: Outfit,system-ui,sans-serif;
-  font-size: clamp(45px, 4.2vw, 64px);
+  font-size: 64px;
   font-weight: 700;
   letter-spacing: -.05em;
   line-height: .95
@@ -86,6 +86,9 @@
   .sectionTitle {
     font-size: 28px;
     margin-bottom: 44px
+  }
+  .value {
+    font-size: 56px
   }
 }
 @media (max-width:767.98px) {

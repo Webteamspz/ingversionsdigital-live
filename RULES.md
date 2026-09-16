@@ -43,8 +43,9 @@ CSS Modules only, values from the `:root` design tokens in
 `src/styles/style.css`. No Tailwind, no CSS-in-JS, no hardcoded values a token
 already covers. Use `box-shadow: 0 1px 0 0 <color>` instead of
 `border-bottom: 1px solid <color>` for hairline separators (Safari renders the
-latter inconsistently). See **CLAUDE.md § Styling** and **AGENTS.md § Styling
-Rules**.
+latter inconsistently). No `clamp()` or `vw`/`vh`-based fluid sizing anywhere
+in CSS — fixed `px` values with explicit breakpoint overrides only. See
+**CLAUDE.md § Styling** and **AGENTS.md § Styling Rules**.
 
 ## Performance / Loading
 

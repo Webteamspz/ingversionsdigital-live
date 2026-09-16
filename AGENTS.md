@@ -52,6 +52,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - Do not hardcode hex colours or ad-hoc spacing when a token exists. Do not add a CSS framework.
 - Safari renders 1px CSS borders inconsistently. Use `box-shadow: 0 1px 0 0 <color>` instead of `border-bottom: 1px solid <color>` for hairline separators.
 - The visual language is flat with hard offset shadows. Keep new surfaces consistent with it.
+- Never use `clamp()` (or `vw`/`vh`-based fluid sizing) for font sizes or any other CSS value. Use fixed `px` values with explicit breakpoint overrides in the existing `@media (max-width:1023.98px)` / `@media (max-width:767.98px)` pattern instead.
 
 ## Images
 
