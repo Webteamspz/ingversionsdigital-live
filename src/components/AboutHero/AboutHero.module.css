@@ -187,7 +187,7 @@
 }
 @media (max-width:767.98px) {
   .aboutHero {
-    padding: 70px 0 0
+    padding: 50px 0 0
   }
   .aboutTag {
     font-size: 11px;
@@ -237,11 +237,16 @@
     justify-content: center;
     gap: 12px
   }
+  .aboutHeroContent {
+    padding-bottom: 10px
+  }
   .aboutMetaItem {
     min-width: 0;
-    padding: 4px 12px
+    border-radius: var(--radius-md);
+    padding: 4px 16px
   }
   .aboutMetaValue {
-    text-align: center
+    text-align: center;
+    font-size: 15px
   }
 }
