@@ -66,7 +66,7 @@
   max-width: 620px;
   margin: 32px auto 0;
   color: var(--palette-text-muted);
-  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  font-size: 19px;
   font-weight: 500;
   line-height: 1.62
 }
@@ -174,7 +174,7 @@
   }
   .subtitle {
     margin-top: 24px;
-    font-size: 1rem
+    font-size: 16px
   }
   .actions {
     width: 100%;

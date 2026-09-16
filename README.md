@@ -146,6 +146,11 @@ docs/site-docs/
 The `.gitignore` `graphify-out/` rule also stays off `production`. The developer
 docs and that ignore rule live on `new-theme` and `stage` only.
 
+The Blog-link click-intercept behavior (Header, Footer, `BlogSlider` — clicking shows
+an alert instead of navigating to `blog.ingversionsdigital.com`) is also a
+`new-theme`/`stage`-only experiment and must not reach `production`, even though those
+component files aren't on the list above and should otherwise merge normally.
+
 Full infrastructure detail is in `DEPLOYMENT.md`.
 
 ## Verification Commands
