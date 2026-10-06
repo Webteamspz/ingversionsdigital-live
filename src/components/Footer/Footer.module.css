@@ -115,6 +115,12 @@
   background: 0 0;
   transition: transform .2s ease,background-color .2s ease,border-color .2s ease
 }
+@media (max-width: 767.98px) {
+  .socialBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
 .socialBtn:hover {
   color: var(--palette-border);
   background: var(--tertiary);

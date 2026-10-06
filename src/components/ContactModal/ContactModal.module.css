@@ -25,7 +25,7 @@
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 480px;
-  max-height: 90vh;
+  max-height: 720px;
   overflow-y: auto;
   padding: 32px;
   box-shadow: var(--shadow-pop);
@@ -275,4 +275,10 @@
   font-size: 13px;
   text-align: center;
   margin: 0
+}
+
+@media (max-width: 767.98px) {
+  .contactModal {
+    max-height: calc(100% - 32px);
+  }
 }
