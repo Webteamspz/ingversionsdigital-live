@@ -2,7 +2,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: min(740px,100vh);
+  min-height: 740px;
   padding: 168px 0 0;
   background: var(--palette-bg-950);
   color: var(--palette-text-primary)

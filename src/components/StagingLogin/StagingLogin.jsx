@@ -33,7 +33,8 @@ const StagingLogin = ({ children }) => {
           display: 'flex', alignItems: 'center', gap: '10px'
         }}>
           <span>Logged in as: <strong style={{ color: '#38bdf8' }}>{loggedInUser}</strong></span>
-          <button 
+          <button
+            type="button"
             onClick={() => { sessionStorage.removeItem('staging_user'); window.location.reload(); }}
             style={{ 
               background: '#ef4444', color: 'white', border: 'none', 

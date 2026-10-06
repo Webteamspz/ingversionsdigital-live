@@ -120,6 +120,12 @@ const ProjectsGrid = ({ projects }) => {
                 <div
                   className={styles.imageWrap}
                   onClick={() => setSelectedProject(project)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedProject(project);
+                    }
+                  }}
                   role="button"
                   tabIndex={0}
                   aria-label={`View larger image for ${project.title}`}

@@ -64,7 +64,7 @@ const TeamCard = ({ member, index = 0 }) => {
               <ul className={styles.socialList}>
                 {socialEntries.map(([key, url]) => (
                   <li key={key}>
-                    <a href={url} target="_blank" rel="noreferrer">
+                    <a href={url} target="_blank" rel="noopener noreferrer">
                       {key}
                     </a>
                   </li>

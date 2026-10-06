@@ -2,7 +2,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 720px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,5 +132,10 @@
   }
   .nfSubtitle {
     font-size: 16px
+  }
+}
+@media (max-width: 767.98px) {
+  .nfWrapper {
+    min-height: 560px;
   }
 }

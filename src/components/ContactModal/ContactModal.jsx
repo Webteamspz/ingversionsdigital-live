@@ -88,7 +88,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
   return createPortal(
     <div className={styles.contactModalOverlay} onClick={handleOverlayClick}>
       <div className={styles.contactModal}>
-        <button className={styles.contactModalClose} onClick={handleClose} aria-label="Close">
+        <button type="button" className={styles.contactModalClose} onClick={handleClose} aria-label="Close">
           &times;
         </button>
 
@@ -107,7 +107,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
             </div>
             <h3>Thank you for sharing your details!</h3>
             <p>We'll get in touch with you shortly.</p>
-            <button className={styles.contactModalSubmit} onClick={handleClose}>
+            <button type="button" className={styles.contactModalSubmit} onClick={handleClose}>
               Close
             </button>
           </div>
