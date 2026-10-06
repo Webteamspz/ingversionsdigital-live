@@ -4,7 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "react-international-phone/style.css";
 import "./styles/style.css";
-import { initGTMTracking } from "./gtm";
+import { initGTMTracking, loadAnalytics } from "./gtm";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -18,7 +18,13 @@ root.render(
 
 
 if ("requestIdleCallback" in window) {
-  requestIdleCallback(() => initGTMTracking());
+  requestIdleCallback(() => {
+    initGTMTracking();
+    loadAnalytics();
+  });
 } else {
-  setTimeout(() => initGTMTracking(), 200);
+  setTimeout(() => {
+    initGTMTracking();
+    loadAnalytics();
+  }, 200);
 }

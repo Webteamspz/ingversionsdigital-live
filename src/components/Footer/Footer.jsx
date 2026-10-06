@@ -96,7 +96,7 @@ const Footer = () => {
                         key={i}
                         href={l.href}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         style={{ textDecoration: "none" }}
                       >
                         {displayText}
@@ -131,7 +131,7 @@ const Footer = () => {
                   aria-label={s.name}
                   className={styles.socialBtn}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {Icon && <Icon size={18} strokeWidth={2.5} />}
                 </a>
