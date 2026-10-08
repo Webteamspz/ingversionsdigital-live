@@ -6,6 +6,7 @@ import logoDay from "/assets/logos/main-logo-violet.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 import { ctaClick, dl } from "../../gtm";
+import { isExternalHref } from "../../utils/url";
 
 const HamburgerIcon = (props) => (
   <svg
@@ -43,11 +44,6 @@ const CloseIcon = (props) => (
     />
   </svg>
 );
-
-const isExternalHref = (href = "") =>
-  /^https?:\/\//i.test(href) ||
-  href.startsWith("mailto:") ||
-  href.startsWith("tel:");
 
 const Header = () => {
   const { links, cta } = data.header;
