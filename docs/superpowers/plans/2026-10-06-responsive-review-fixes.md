@@ -28,7 +28,7 @@
 - Modify: `src/components/Footer/Footer.jsx:99` and `src/components/Footer/Footer.jsx:134`
 - Modify: `src/components/TeamCard/TeamCard.jsx:67`
 
-- [ ] **Step 1: Add security headers and gzip to `nginx.conf`**
+- [x] **Step 1: Add security headers and gzip to `nginx.conf`**
 
 Insert these lines directly after the line `server {` (line 1) and before `location = /healthz {`:
 
@@ -48,7 +48,7 @@ Insert these lines directly after the line `server {` (line 1) and before `locat
 Note: `always` makes these apply to error responses too. Do not add a
 `Content-Security-Policy` line.
 
-- [ ] **Step 2: Add the Google Fonts stylesheet to `index.html`**
+- [x] **Step 2: Add the Google Fonts stylesheet to `index.html`**
 
 Find this exact line in `index.html`:
 
@@ -62,7 +62,7 @@ Insert directly after it:
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 ```
 
-- [ ] **Step 3: Use explicit `noopener` on external links**
+- [x] **Step 3: Use explicit `noopener` on external links**
 
 In `src/components/Footer/Footer.jsx`, change both occurrences of
 `rel="noreferrer"` (lines 99 and 134) to:
@@ -78,7 +78,7 @@ In `src/components/TeamCard/TeamCard.jsx`, change line 67 from
 rel="noopener noreferrer"
 ```
 
-- [ ] **Step 4: Verify**
+- [x] **Step 4: Verify**
 
 Run: `git diff --stat`
 Expected: changes only in `nginx.conf`, `index.html`, `Footer.jsx`, `TeamCard.jsx`.
@@ -92,7 +92,7 @@ Expected: no errors.
 Run: `npm run build`
 Expected: build succeeds.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add nginx.conf index.html src/components/Footer/Footer.jsx src/components/TeamCard/TeamCard.jsx
@@ -111,7 +111,7 @@ git commit -m "Add security headers, gzip, Google Fonts stylesheet, noopener on 
 - Rename: `src/pages/NotFound/NotFound.css` → `src/pages/NotFound/NotFound.module.css`
 - Modify: the file that imports `NotFound.css` (`src/pages/NotFound/NotFound.jsx`)
 
-- [ ] **Step 1: Keyboard activation for the project image trigger**
+- [x] **Step 1: Keyboard activation for the project image trigger**
 
 In `src/components/ProjectsGrid/ProjectsGrid.jsx`, the `hasSlider` branch renders:
 
@@ -143,7 +143,7 @@ Replace it with:
                 >
 ```
 
-- [ ] **Step 2: Explicit `type="button"` on non-submit buttons**
+- [x] **Step 2: Explicit `type="button"` on non-submit buttons**
 
 In `src/components/ContactModal/ContactModal.jsx`, change line 91 from
 `<button className={styles.contactModalClose} onClick={handleClose} aria-label="Close">`
@@ -166,7 +166,7 @@ In `src/components/StagingLogin/StagingLogin.jsx`, add `type="button"` to the
 other attribute unchanged. If the element on line 164 is the form's submit
 control, use `type="submit"` instead and report that in your status.
 
-- [ ] **Step 3: Use the shared `isExternalHref` helper in `Header.jsx`**
+- [x] **Step 3: Use the shared `isExternalHref` helper in `Header.jsx`**
 
 In `src/components/Header/Header.jsx`, delete this local helper (lines 47-50):
 
@@ -186,7 +186,7 @@ import { isExternalHref } from "../../utils/url";
 Verify `src/utils/url.js` exports the same logic as the deleted helper before
 removing it. If it does not, stop and report instead of deleting.
 
-- [ ] **Step 4: Rename NotFound stylesheet to a CSS Module**
+- [x] **Step 4: Rename NotFound stylesheet to a CSS Module**
 
 Run: `git mv src/pages/NotFound/NotFound.css src/pages/NotFound/NotFound.module.css`
 
@@ -202,7 +202,7 @@ where the CSS class names are used. If the component uses class names that are
 global-only (for example generic `.container`), keep them as `styles.container`
 and confirm each name exists in the module file. Report every class you changed.
 
-- [ ] **Step 5: Verify**
+- [x] **Step 5: Verify**
 
 Run: `grep -c 'onKeyDown' src/components/ProjectsGrid/ProjectsGrid.jsx`
 Expected: at least 1.
@@ -219,7 +219,7 @@ Expected: no errors.
 Run: `npm run build`
 Expected: build succeeds.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/ProjectsGrid/ProjectsGrid.jsx src/components/ContactModal/ContactModal.jsx src/components/StagingLogin/StagingLogin.jsx src/components/Header/Header.jsx src/pages/NotFound/NotFound.module.css src/pages/NotFound/NotFound.jsx
@@ -240,7 +240,7 @@ Scope: viewports from 360px upward. Do not design for widths below 360px.
 
 **Interfaces:** Consumes the `NotFound.module.css` file produced by Task 2.
 
-- [ ] **Step 1: Footer social buttons meet the 44px touch target on mobile**
+- [x] **Step 1: Footer social buttons meet the 44px touch target on mobile**
 
 In `src/components/Footer/Footer.module.css`, the `.socialBtn` rule currently
 sets `width: 40px; height: 40px;` (lines 107-109). Keep those values for
@@ -255,7 +255,7 @@ desktop. Append this block after the `.socialBtn` rule:
 }
 ```
 
-- [ ] **Step 2: Hero minimum height uses fixed px with a mobile override**
+- [x] **Step 2: Hero minimum height uses fixed px with a mobile override**
 
 In `src/components/Hero/HeroV2.module.css`, replace line 5:
 
@@ -283,7 +283,7 @@ Before writing this block, read the file to confirm the selector name on the
 rule that contains line 5. Replace `.heroV2` with the real selector if it
 differs. Report the selector you used.
 
-- [ ] **Step 3: Contact modal max height in px**
+- [x] **Step 3: Contact modal max height in px**
 
 In `src/components/ContactModal/ContactModal.module.css`, replace line 28:
 
@@ -311,7 +311,17 @@ Note: `calc()` with `%` and `px` is not a fluid viewport unit and is allowed.
 Confirm the selector on line 28 is `.contactModal`; if it differs, use the real
 selector in the `@media` block and report it.
 
-- [ ] **Step 4: NotFound minimum height in px**
+**Superseded by the final-review fix wave (commit 845b751):** a fixed
+`720px` base value regressed on short landscape viewports at 768px and
+wider (the modal could be taller than the screen, with no scroll). The
+shipped value is `max-height: calc(100% - 32px);` on the base
+`.contactModal` rule itself (the overlay is `position: fixed; inset: 0`,
+so it has a definite height and `%` resolves), with no separate mobile
+override needed — the `@media` block above was removed. This note
+exists so the step above still shows the original reasoning; the base
+rule's committed value is `calc(100% - 32px)`, not `720px`.
+
+- [x] **Step 4: NotFound minimum height in px**
 
 In `src/pages/NotFound/NotFound.module.css`, replace line 5:
 
@@ -338,7 +348,7 @@ Add at the end of the file:
 Confirm the selector on line 5. Replace `.notFound` with the real selector if
 it differs, and report it.
 
-- [ ] **Step 5: Verify**
+- [x] **Step 5: Verify**
 
 Run: `grep -n "vh\|vw\|vmax\|dvh\|svh\|clamp(" src/components/Footer/Footer.module.css src/components/Hero/HeroV2.module.css src/components/ContactModal/ContactModal.module.css src/pages/NotFound/NotFound.module.css`
 Expected: no output (none of the four files contains a viewport unit or `clamp()`).
@@ -349,7 +359,7 @@ Expected: no errors.
 Run: `npm run build`
 Expected: build succeeds.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/Footer/Footer.module.css src/components/Hero/HeroV2.module.css src/components/ContactModal/ContactModal.module.css src/pages/NotFound/NotFound.module.css
