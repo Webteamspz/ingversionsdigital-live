@@ -28,6 +28,13 @@ const Instagram = ({ size = 24, ...props }) => (
   </svg>
 );
 
+const BLOG_URL = "https://blog.ingversionsdigital.com/";
+
+const handleBlogClick = (e) => {
+  e.preventDefault();
+  alert(`You should visit this link if you want to visit the blogs: ${BLOG_URL}`);
+};
+
 const SOCIAL_ICONS = {
   facebook: Facebook,
   twitter: Twitter,
@@ -89,9 +96,22 @@ const Footer = () => {
 
                   const displayText = l.name || l.label || "Link";
 
+                  if (l.href === BLOG_URL) {
+                    return (
+                      <a
+                        key={i}
+                        href={l.href}
+                        style={{ textDecoration: "none" }}
+                        onClick={handleBlogClick}
+                      >
+                        {displayText}
+                      </a>
+                    );
+                  }
+
                   if (isExternal) {
                     return (
-                      
+
                       <a
                         key={i}
                         href={l.href}

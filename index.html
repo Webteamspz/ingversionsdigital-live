@@ -9,7 +9,7 @@
          set per-route by the SEO component (react-helmet-async) - a static copy
          here would duplicate them in the DOM on every page. -->
     <meta name="author" content="Ingversions Digital" />
-    <meta name="theme-color" content="#030303" />
+    <meta name="theme-color" content="#FFFDF5" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,8 +38,6 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ingversions" />
     <meta name="twitter:creator" content="@ingversions" />
-
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Organization / LocalBusiness schema -->
     <script type="application/ld+json">
@@ -161,6 +159,19 @@
   </head>
 
   <body>
+  </head>
+
+  <body>
+    <!-- GTM noscript fallback (id is blank outside production builds) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_ID%"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+
     <div id="root"></div>
     <noscript>
       <h1>Ingversions Digital — Shopify, CRO and A/B Testing Agency</h1>
@@ -189,6 +200,17 @@
         Email: ingversionsdigital@gmail.com<br />
         Phone: +91-8866167750
       </p>
+
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/teampage">Team</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="https://blog.ingversionsdigital.com/">Blog</a></li>
+        </ul>
+      </nav>
 
       <p>Please enable JavaScript for the full interactive experience.</p>
     </noscript>
