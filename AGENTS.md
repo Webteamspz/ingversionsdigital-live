@@ -73,6 +73,7 @@ A lower-priority document must not silently override an explicit higher-priority
 
 - Build modes: `development` (default), `staging`, `production`. Set via the `npm run build:staging` / `build:production` scripts.
 - `StagingLogin` gates the whole app when `VITE_APP_ENV=staging`, checking `VITE_STAGING_USERS` (a JSON `username: password` map) against `sessionStorage`.
+- The staging Docker build must pass `BUILD_MODE=staging` and the `VITE_*` build args (see `Dockerfile` and `docker-compose.stage.yml`); without them the gate silently disappears and the contact form has no endpoint. Staging pages are also forced `noindex` by `<SEO>` via `isStaging`.
 - This gate is a review speed-bump, not a security boundary. Never rely on it to protect anything.
 - The three real config values are `VITE_FORMSPREE_ENDPOINT`, `VITE_GTM_ID`, `VITE_CLARITY_ID`. All are public browser values.
 

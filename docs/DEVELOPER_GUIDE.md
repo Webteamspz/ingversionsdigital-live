@@ -234,7 +234,10 @@ wraps the entire app in a login screen before rendering anything — credentials
 remembered in `sessionStorage` for that tab. This exists purely to keep the staging site
 private from search engines and random visitors while still being reachable at a public
 URL for review. Production builds don't set `VITE_APP_ENV=staging`, so the gate is a
-no-op there.
+no-op there. The staging image only gets `VITE_APP_ENV`, `VITE_STAGING_USERS` and the other
+`VITE_*` values if `Dockerfile` and `docker-compose.stage.yml` pass them as build args with
+`BUILD_MODE=staging`; if those are stripped, the gate silently vanishes and the contact form
+loses its endpoint. `<SEO>` also forces `noindex` on every page when `isStaging` is true.
 
 **`src/config/deploy.js`** exposes `isProduction` / `isStaging` / `stagingFeaturesEnabled`
 if you ever need environment-specific behavior in a component:
