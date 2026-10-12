@@ -54,7 +54,7 @@
           </li>
           <li>
             <strong>Git</strong> — for cloning the repo and working with the
-            <code>new-theme → stage → production</code> branch flow. Get it from
+            <code>dev → stage → production</code> branch flow. Get it from
             <a href="https://git-scm.com/" target="_blank">git-scm.com</a>.
           </li>
           <li>
@@ -198,7 +198,7 @@ npm run build:production   # mode=production, the real public build</code></pre>
           deployed to Hostinger through GitHub Actions. The flow:
         </p>
         <ol>
-          <li>Work happens on <code>new-theme</code>.</li>
+          <li>Work happens on <code>dev</code>.</li>
           <li>Merge/cherry-pick into <code>stage</code> → pushing it triggers <code>.github/workflows/deploy.yml</code>, which builds the Docker image and deploys the staging container.</li>
           <li>Once verified on staging, merge <code>stage</code> into <code>production</code> (PR, since this repo doesn't use the <code>gh</code> CLI) → pushing triggers the production deploy the same way.</li>
         </ol>

@@ -4,7 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "react-international-phone/style.css";
 import "./styles/style.css";
-import { initGTMTracking, loadAnalytics } from "./gtm";
+import { getConsent, startAnalytics } from "./gtm";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -17,14 +17,7 @@ root.render(
 );
 
 
-if ("requestIdleCallback" in window) {
-  requestIdleCallback(() => {
-    initGTMTracking();
-    loadAnalytics();
-  });
-} else {
-  setTimeout(() => {
-    initGTMTracking();
-    loadAnalytics();
-  }, 200);
+if (getConsent() === "granted") {
+  if ("requestIdleCallback" in window) requestIdleCallback(startAnalytics);
+  else setTimeout(startAnalytics, 200);
 }

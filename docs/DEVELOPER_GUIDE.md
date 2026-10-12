@@ -2,7 +2,7 @@
 
 This is the marketing website for **Ingversions Digital**, a Shopify CRO / A-B-testing
 agency. It's a single-page-app-style Vite + React site: Home, About, Pricing, Projects
-(portfolio), Team, Privacy/Terms, and a 404.
+(portfolio), Team, Privacy/Terms, a thank-you page, and a 404.
 
 This guide gets a new developer from "never seen this repo" to "shipping changes
 confidently" — how it's built, how content and design are edited, how it deploys, and
@@ -42,7 +42,7 @@ any file under `src/` and the browser updates instantly.
 To see the site with production-like data (staging login gate, staging analytics IDs):
 
 ```bash
-npm run dev -- --mode staging
+npm run dev:staging
 ```
 
 That's it — no database, no backend, no build step needed to start developing.
@@ -60,7 +60,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
-| Forms | native `<form>` + Formspree | no form library; `VITE_FORMSPREE_ENDPOINT` posts the contact form |
+| Forms | native `<form>` + Formspree | no form library; `VITE_FORMSPREE_ENDPOINT` posts the contact form (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
 | Image pipeline | `sharp` (dev-only script) | `scripts/convert-images.mjs`, see [Images](#images-format-and-optimization) |
@@ -76,7 +76,7 @@ static site (Vite builds it to plain HTML/CSS/JS, served by nginx in a container
 ```
 src/
   App.jsx              Route table + global scroll-restore logic
-  main.jsx             React root, providers (Helmet, Router), boots GTM
+  main.jsx             React root, providers (Helmet, Router), starts analytics if consent was already given
   components/          One folder per UI component: Foo/Foo.jsx + Foo/Foo.module.css
   pages/               One folder per route: thin — assembles components, adds <SEO>
   data/                Site copy & content, plain JS objects (see next section)
@@ -84,7 +84,7 @@ src/
   hooks/useIsMobile.js Shared breakpoint hook (matches CSS's mobile breakpoint)
   layouts/Layouts.jsx  <Header> + <main> + <Footer> wrapper used by every page
   styles/style.css     Global reset + design tokens (CSS custom properties)
-  gtm.js               Analytics event helpers (pageview, cta_click, scroll_depth...)
+  gtm.js               Analytics event helpers + consent storage (pageview, cta_click, startAnalytics...)
   utils/url.js         Small URL helpers
 
 public/assets/         Static images/fonts, served as-is (webp/jpg, optimized — see below)
@@ -117,6 +117,7 @@ All routes are declared in one place, `src/App.jsx`:
   <Route path="/projects" element={<Projects />} />
   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
   <Route path="/terms-of-service" element={<TermsOfService />} />
+  <Route path="/thank-you" element={<ThankYou />} />
   <Route path="*" element={<NotFound />} />
 </Routes>
 ```
@@ -129,6 +130,11 @@ lazy-loading content that's needed immediately just adds a network waterfall and
 "header/footer show, then content pops in" flash with no actual benefit. If you add a
 new **page**, lazy-load it like the others. If you add a new **homepage section**, import
 it eagerly like the existing ones in `Home.jsx`.
+
+**Adding a route also means editing `nginx.conf`.** nginx serves the app shell with `200`
+only for the routes in its `location ~ ^/(projects|pricing|...)` regex and returns a real
+`404` status for every other URL (the SPA still renders `NotFound`). Forget to add the new
+path there and the page will 404 in production.
 
 `ScrollManager` (also in `App.jsx`) handles two behaviors on every navigation: scroll to
 top on a plain route change, or smooth-scroll to a `#hash` target (including waiting for
@@ -218,7 +224,7 @@ Additional vars used by the staging build only:
 
 ```txt
 VITE_APP_ENV=staging
-VITE_STAGING_USERS={"developer":"dev123"}
+VITE_STAGING_USERS={"username":"password"}
 VITE_DEPLOY_ENV / VITE_ENABLE_STAGING_FEATURES   (read via src/config/deploy.js)
 ```
 
@@ -247,8 +253,11 @@ keep it that way. Secrets for CI/deploy live in GitHub repo secrets instead (see
 ## Analytics (GTM / Clarity)
 
 `src/gtm.js` is a small hand-rolled wrapper around `window.dataLayer` — there's no
-`react-ga` or similar SDK. `initGTMTracking()` (called once from `main.jsx` on idle) wires
-up:
+`react-ga` or similar SDK. `startAnalytics()` (which runs `initGTMTracking()` and
+`loadAnalytics()`) is only called after the visitor accepts analytics in the `CookieConsent`
+banner, either on click or from `main.jsx` on idle when a previous `granted` choice is stored
+in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing.
+`initGTMTracking()` wires up:
 
 - automatic `virtual_pageview` events on route change (patches `history.pushState`)
 - `cta_click` events on any element with a `data-cta="Label"` attribute
@@ -260,12 +269,12 @@ To track a new button or link, just add `data-cta="Something"` and (optionally)
 
 **The GTM/Clarity `<script>` loaders themselves are separate from the dataLayer
 wiring above and only run in production.** `gtm.js` also exports `loadAnalytics()`
-(called from `main.jsx` alongside `initGTMTracking()`), which injects the real
+(called by `startAnalytics()`), which injects the real
 Clarity and GTM `<script>` tags — but only when `isProduction` (from
 `src/config/deploy.js`, resolved from `import.meta.env.MODE`) is true and both
 `VITE_GTM_ID`/`VITE_CLARITY_ID` are set. `index.html` no longer hardcodes the
-container IDs; the noscript GTM iframe uses the `%VITE_GTM_ID%` build-time
-placeholder instead. This exists because the container IDs were hardcoded and
+container IDs, preconnects to the analytics hosts, or carries the GTM noscript iframe
+(without JavaScript there is no way to ask for consent). This exists because the container IDs were hardcoded and
 unconditional in `index.html` for about three months (2026-05-14 to 2026-08-12),
 during which local `npm run dev` sessions fired real pageviews into the
 production GTM/Clarity property (visible in GA as `localhost:5173`/`localhost:3000`
@@ -306,7 +315,14 @@ ones. This was a real bug: title, description, canonical, and OG/Twitter tags
 were each duplicated in the live DOM on every page until it was fixed.
 `index.html` should only carry tags that are genuinely static and not
 route-specific: favicons, manifest, sitemap link, `og:type`/`site_name`/`locale`,
-`twitter:card`/`site`/`creator`, and the Organization JSON-LD.
+`twitter:card`/`site`/`creator`, and the Organization JSON-LD. Do not add static FAQ or
+breadcrumb JSON-LD either: the Home page passes its FAQ via `jsonLd`, and other pages pass
+`breadcrumb`, so static copies would be duplicate structured data.
+
+The default share image is `public/assets/seo/og-image.jpg` (1200x630). The committed file
+is a placeholder built from the logo; replace it with real brand art. Every new indexable
+page must also be added to `public/sitemap.xml` (same-domain URLs only; the thank-you and
+404 pages stay out and are `noindex`).
 
 ---
 
@@ -343,13 +359,13 @@ Three long-lived branches, each mapped to a real deployed environment:
 
 | Branch | Deploys to | Purpose |
 |---|---|---|
-| `new-theme` | *(not auto-deployed)* | Active development branch — all day-to-day work happens here |
+| `dev` | *(not auto-deployed)* | Active development branch — all day-to-day work happens here |
 | `stage` | `staging.ingversionsdigital.com` | Review environment, gated by the staging login |
 | `production` | `ingversionsdigital.com` | The live site |
 
 **The flow:**
 
-1. Do the work on `new-theme`, commit, push.
+1. Do the work on `dev`, commit, push.
 2. Cherry-pick (or merge) the same commit onto `stage`, push — this auto-deploys to
    staging via GitHub Actions (push-triggered, see `.github/workflows/deploy.yml`).
 3. Review on staging. When ready to go live, open a PR from `stage` into `production`
@@ -359,7 +375,7 @@ Three long-lived branches, each mapped to a real deployed environment:
 silently overwritten by a merge:** `.dockerignore`, `Dockerfile`,
 `docker-compose.production.yml`, `docker-compose.stage.yml`, `eslint.config.js`,
 `index.html`, `nginx.conf`, plus `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/`, and the
-`.gitignore` `graphify-out/` rule (those three live on `new-theme`/`stage` only and
+`.gitignore` `graphify-out/` rule (those three live on `dev`/`stage` only and
 never go to `production`). When merging `stage` → `production`, keep production's
 existing versions of these and take everything else from `stage`. (`README.md` used to
 be on this list — it isn't anymore; it syncs to `production` normally.)
@@ -367,7 +383,7 @@ be on this list — it isn't anymore; it syncs to `production` normally.)
 **One behavior, not a file, that must also never reach `production`:** the Blog-link
 click-intercept-and-`alert()` in `Header.jsx`, `Footer.jsx`, and `BlogSlider.jsx` (shows
 an alert instead of navigating to `blog.ingversionsdigital.com`) is a
-`new-theme`/`stage`-only experiment. Those three files aren't excluded wholesale —
+`dev`/`stage`-only experiment. Those three files aren't excluded wholesale —
 other changes to them should still flow to `production` normally — just keep
 production's direct-navigation Blog links when merging.
 
@@ -404,7 +420,7 @@ same shape in `src/data/pricingdata.js`.
 ### Add a brand-new page
 
 1. Create `src/pages/YourPage/YourPage.jsx` — wrap in `<Layout header={1} footer={1}>`, add `<SEO>`.
-2. Add the route in `src/App.jsx`, lazy-loaded like the other non-home pages.
+2. Add the route in `src/App.jsx`, lazy-loaded like the other non-home pages. Also add the path to the route regex in `nginx.conf`, and to `public/sitemap.xml` if it should be indexed.
 3. Build the page from new or existing components under `src/components/`.
 
 ### Add a new homepage section
@@ -425,9 +441,9 @@ Both should be clean before pushing to `stage` or `production`.
 ### Ship a change to staging, then production
 
 ```bash
-git checkout new-theme
+git checkout dev
 # ...make your change, commit...
-git push origin new-theme
+git push origin dev
 
 git checkout stage
 git cherry-pick <commit-sha>
