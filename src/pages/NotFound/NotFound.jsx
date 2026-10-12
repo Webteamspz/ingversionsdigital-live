@@ -20,6 +20,10 @@ const NotFound = () => {
         <h1 className={styles.nfTitle}>404</h1>
         <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
         <Link to="/" className={styles.nfBtn}>Go Back Home</Link>
+        <p className={styles.nfSubtitle}>
+          Or visit <Link to="/projects">Projects</Link>, <Link to="/pricing">Pricing</Link>,{" "}
+          <Link to="/about-us">About Us</Link> or <Link to="/teampage">our Team</Link>.
+        </p>
       </div>
     </section>
   );

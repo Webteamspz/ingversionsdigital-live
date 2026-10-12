@@ -83,8 +83,9 @@ const PrivacyPolicy = () => (
             <div className={styles.legalSectionBody}>
               <p>
                 We use cookies and similar technologies to understand how
-                visitors use this site and to keep it running smoothly. The
-                tools we currently use include:
+                visitors use this site. These analytics tools only load after
+                you click Accept on our cookie banner; if you decline, they
+                are never loaded. The tools we currently use include:
               </p>
               <ul>
                 <li>
@@ -98,7 +99,7 @@ const PrivacyPolicy = () => (
               </ul>
               <p>
                 You can block or delete cookies in your browser settings at
-                any time; doing so may affect how parts of the site behave
+                any time, and clear this site's stored data to be asked again; doing so may affect how parts of the site behave
                 but won't prevent you from reading its content.
               </p>
             </div>

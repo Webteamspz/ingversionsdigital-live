@@ -20,13 +20,13 @@ Docker/Nginx image.
 
 ## What Is Included
 
-- Home, About Us, Pricing, Projects, Team, Privacy Policy, Terms of Service, and a 404 page.
+- Home, About Us, Pricing, Projects, Team, Privacy Policy, Terms of Service, a `noindex` thank-you page (`/thank-you`, where the contact form lands), and a 404 page.
 - Data-driven content: every headline, list, price, team member, and project lives in `src/data/*.js`, not in JSX.
 - A shared `<SEO>` component for per-page title, description, canonical, and Open Graph tags.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
 - Optimised images: raw art is converted to resized `.webp` and rendered through `OptimizedImg` with lazy loading.
-- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK.
+- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`).
 - Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Formspree, Clarity, and Google Analytics.
 
 ## Local Setup
@@ -55,7 +55,7 @@ Staging builds also read:
 
 ```sh
 VITE_APP_ENV=staging
-VITE_STAGING_USERS=staging-password
+VITE_STAGING_USERS={"username":"password"}
 ```
 
 Real `.env` files are ignored by git. Do not commit secrets or IDs.
@@ -120,10 +120,10 @@ The staging gate is a review speed-bump, not a security boundary. Do not put any
 ## Branches And Deployment
 
 ```txt
-new-theme  ->  stage  ->  production
+dev  ->  stage  ->  production
 ```
 
-- `new-theme` is the working branch for features and fixes.
+- `dev` is the working branch for features and fixes.
 - Pushing `stage` deploys `staging.ingversionsdigital.com`.
 - Pushing `production` deploys `ingversionsdigital.com` and `www.ingversionsdigital.com`.
 - Both deploys are triggered by `.github/workflows/deploy.yml`, which calls the Hostinger Docker API. Hostinger builds the Compose project from the repo.
@@ -144,11 +144,11 @@ docs/site-docs/
 ```
 
 The `.gitignore` `graphify-out/` rule also stays off `production`. The developer
-docs and that ignore rule live on `new-theme` and `stage` only.
+docs and that ignore rule live on `dev` and `stage` only.
 
 The Blog-link click-intercept behavior (Header, Footer, `BlogSlider` — clicking shows
 an alert instead of navigating to `blog.ingversionsdigital.com`) is also a
-`new-theme`/`stage`-only experiment and must not reach `production`, even though those
+`dev`/`stage`-only experiment and must not reach `production`, even though those
 component files aren't on the list above and should otherwise merge normally.
 
 Full infrastructure detail is in `DEPLOYMENT.md`.
