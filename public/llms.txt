@@ -1,0 +1,40 @@
+# Ingversions Digital
+
+> Shopify CRO agency building high-converting ecommerce stores through A/B testing,
+> conversion rate optimization, and custom Shopify development. Based in Surat, India,
+> serving ecommerce brands worldwide.
+
+Ingversions Digital runs structured experimentation programs for Shopify and
+WordPress stores: UX research, hypothesis design, A/B and multivariate testing,
+analytics instrumentation, personalization, QA, and site performance work.
+Directional test results typically land in 2-4 weeks; stronger confidence in 6-8 weeks.
+
+## Pages
+
+- [Home](https://ingversionsdigital.com/): Services overview, track record, engagement models, FAQ.
+- [Projects](https://ingversionsdigital.com/projects): Case studies and client work.
+- [Pricing](https://ingversionsdigital.com/pricing): Retainer, block-of-hours, and project engagement models.
+- [About Us](https://ingversionsdigital.com/about-us): Company background, values, and expertise.
+- [Team](https://ingversionsdigital.com/teampage): The people running the experiments.
+- [Blog](https://blog.ingversionsdigital.com/): Articles on Shopify development, CRO, and A/B testing.
+
+## Services
+
+- [A/B testing and experimentation](https://ingversionsdigital.com/#services)
+- [UX research and analytics](https://ingversionsdigital.com/#services)
+- [Shopify and WordPress development](https://ingversionsdigital.com/#services)
+- [Quality assurance](https://ingversionsdigital.com/#services)
+- [Personalization](https://ingversionsdigital.com/#services)
+- [Site performance optimization](https://ingversionsdigital.com/#services)
+
+## Contact
+
+- [Book a call](https://calendly.com/ingversionsdigital/30min): 30-minute intro call.
+- Email: ingversionsdigital@gmail.com
+- Phone: +91-8866167750
+
+## Optional
+
+- [Privacy Policy](https://ingversionsdigital.com/privacy-policy)
+- [Terms of Service](https://ingversionsdigital.com/terms-of-service)
+- [LinkedIn](https://in.linkedin.com/company/ingversions)

@@ -165,7 +165,7 @@ export default {
           "Long-Term Collaboration",
         ],
         cta: {
-          label: "Learn more",
+          label: "Learn more about this model",
           href: "/pricing",
         },
       },
@@ -481,7 +481,7 @@ export default {
   },
 blog: {
   heading: "Latest Articles",
-  seeMoreText: "See More",
+  seeMoreText: "See more articles",
   seeMoreUrl: "https://blog.ingversionsdigital.com/",
   list: [
     {

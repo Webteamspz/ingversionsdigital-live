@@ -10,7 +10,7 @@ Make commits and leave them local. Do not `git push` to any branch until the
 user explicitly says to, and says which branch. The user usually also dictates
 the exact commit message to use; when they do, use it verbatim.
 
-This applies to every branch, including `new-theme`. Branch pushes, staging
+This applies to every branch, including `dev`. Branch pushes, staging
 deploys, and production deploys are all user-initiated, one at a time.
 
 ## Files excluded from stage to production
@@ -30,17 +30,17 @@ docs/site-docs/
 ```
 
 Also do not carry the `.gitignore` `graphify-out/` rule to `production`. The
-developer documentation and that ignore rule live on `new-theme` and `stage`
+developer documentation and that ignore rule live on `dev` and `stage`
 only; `production` never gets them.
 
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
 
-## Blog link alert stays on new-theme and stage only
+## Blog link alert stays on dev and stage only
 
 The Blog-link click-intercept behavior (Header nav, Footer, and BlogSlider —
 clicking shows an `alert()` pointing at `blog.ingversionsdigital.com` instead
-of navigating there directly) is a `new-theme`/`stage`-only experiment. It
+of navigating there directly) is a `dev`/`stage`-only experiment. It
 must never reach `production`.
 
 Unlike the file exclusions above, `src/components/Header/Header.jsx`,

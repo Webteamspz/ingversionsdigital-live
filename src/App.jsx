@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import StagingLogin from "../src/components/StagingLogin/StagingLogin.jsx";
+import CookieConsent from "./components/CookieConsent/CookieConsent.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
 
@@ -10,6 +11,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
 const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
 const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
+const ThankYou = lazy(() => import("./pages/ThankYou/ThankYou.jsx"));
 const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
 
 const ScrollManager = () => {
@@ -68,6 +70,7 @@ const App = () => (
   <StagingLogin>
     <ScrollManager />
     <ScrollToTopButton />
+    <CookieConsent />
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -77,6 +80,7 @@ const App = () => (
         <Route path="/projects" element={<Projects />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/thank-you" element={<ThankYou />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

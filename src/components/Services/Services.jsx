@@ -39,7 +39,7 @@ const Services = () => {
         <span className={styles.shapeSquareBl} />
       </div>
       <div className="container">
-        <h3 className="section-title">{data.services.heading}</h3>
+        <h2 className="section-title">{data.services.heading}</h2>
         <p className={styles.servicesSub}>{data.services.sub}</p>
 
         {isMobile ? (

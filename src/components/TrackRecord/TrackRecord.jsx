@@ -40,7 +40,7 @@ const TrackRecord = () => {
   return (
     <section className={styles.kpiSection} id="track-record">
       <div className="container">
-        <h3 className={styles.sectionTitle}>{data.records.heading}</h3>
+        <h2 className={styles.sectionTitle}>{data.records.heading}</h2>
         <div className={styles.kpis}>
           {data.records.list.map((k, i) => (
             <Reveal key={i} delay={i * 80} className={styles.kpi}>

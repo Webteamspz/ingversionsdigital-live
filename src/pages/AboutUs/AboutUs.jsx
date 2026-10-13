@@ -6,19 +6,12 @@ import AboutCta from '../../components/AboutCta/AboutCta';
 import styles from './AboutUs.module.css';
 import Layout from '../../layouts/Layouts';
 import SEO from '../../components/SEO/SEO';
+import seo from '../../data/seodata';
 
 const AboutUs = () => {
   return (
     <>
-      <SEO
-        title="About Us | Ingversions Digital"
-        description="Ingversions Digital is a Shopify CRO agency serving ecommerce brands worldwide, based in Surat, India."
-        path="/about-us"
-        breadcrumb={[
-          { name: "Home", path: "/" },
-          { name: "About Us", path: "/about-us" },
-        ]}
-      />
+      <SEO {...seo.aboutUs} />
       <Layout header={1} footer={1}>
         <main className={styles.aboutPage}>
           <AboutHero />

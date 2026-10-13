@@ -18,7 +18,7 @@ this is a summary, not a separate source of truth.
 
 ## Git / Branch / Deploy
 
-Work happens on `new-theme` first, then flows to `stage`, then `production`.
+Work happens on `dev` first, then flows to `stage`, then `production`.
 Commits are made and left local — nothing gets pushed without an explicit
 instruction naming the branch (usually with the exact commit message to use).
 No `git push --force`, ever. When merging `stage` into `production`,
@@ -27,7 +27,7 @@ config, `index.html`, dev docs) — see **CLAUDE.md § Files excluded from stage
 to production**. The Blog-link click-to-alert behavior (Header, Footer,
 `BlogSlider`) is a separate, narrower case: those files aren't excluded
 wholesale, but that one behavior must never reach `production` — see
-**CLAUDE.md § Blog link alert stays on new-theme and stage only**. Full flow:
+**CLAUDE.md § Blog link alert stays on dev and stage only**. Full flow:
 **AGENTS.md § Branch And Deployment Rules**.
 
 ## Content & Data Architecture
