@@ -193,7 +193,7 @@
   display: -webkit-box;
   margin: 0 0 22px;
   overflow: hidden;
-  color: #687d9e;
+  color: var(--palette-text-muted);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.55;
