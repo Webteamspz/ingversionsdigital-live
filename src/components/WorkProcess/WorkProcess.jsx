@@ -5,9 +5,9 @@ const WorkProcess = () => {
   return (
     <section className={styles.processSection} id="work-process">
       <div className="container">
-        <h3 className="section-title">
+        <h2 className="section-title">
           {data.process.heading}
-        </h3>
+        </h2>
         <p className={styles.processSub}>{data.process.sub}</p>
         <div className={styles.processGrid}>
           {data.process.list.map((p, i) => (

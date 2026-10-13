@@ -2,18 +2,11 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProjectsPage from "../../components/ProjectsPage/ProjectsPage";
 import SEO from "../../components/SEO/SEO";
+import seo from "../../data/seodata";
 
 const Projects = () => (
   <>
-    <SEO
-      title="Our Projects | Ingversions Digital"
-      description="See how we've helped ecommerce brands grow through Shopify development, A/B testing, and conversion rate optimization."
-      path="/projects"
-      breadcrumb={[
-        { name: "Home", path: "/" },
-        { name: "Projects", path: "/projects" },
-      ]}
-    />
+    <SEO {...seo.projects} />
     <Header />
     <ProjectsPage />
     <Footer />

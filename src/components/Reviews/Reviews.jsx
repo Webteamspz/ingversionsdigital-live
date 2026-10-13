@@ -46,9 +46,9 @@ export default function Reviews() {
   return (
     <section ref={sectionRef} className={styles.startedSection} id="reviews">
       <div className={`container ${styles.startedContainer}`}>
-        <h3 className={`section-title ${styles.startedTitle}`}>
+        <h2 className={`section-title ${styles.startedTitle}`}>
           {data.review.heading}
-        </h3>
+        </h2>
 
         {isMobile ? (
           <div className={styles.reviewsMarquee}>

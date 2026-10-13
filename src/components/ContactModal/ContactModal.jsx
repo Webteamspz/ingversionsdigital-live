@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./ContactModal.module.css";
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
@@ -17,7 +18,7 @@ const employeeOptions = ["1-10", "11-50", "51-200", "201-500", "500+"];
 const ContactModal = ({ isOpen, onClose, source }) => {
   const [formData, setFormData] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
   const [submitError, setSubmitError] = useState("");
 
   
@@ -38,7 +39,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
   const resetForm = () => {
     setFormData(initialState);
-    setIsSubmitted(false);
     setSubmitError("");
   };
 
@@ -49,6 +49,8 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Honeypot: real visitors never see this field, bots fill it.
+    if (e.currentTarget.elements._gotcha?.value) return navigate("/thank-you");
     setSubmitError("");
     setIsSubmitting(true);
 
@@ -68,8 +70,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
       });
 
       if (res.ok) {
-        setIsSubmitted(true);
-        setFormData(initialState);
+        navigate("/thank-you");
       } else {
         const err = await res.json().catch(() => ({}));
         setSubmitError(err?.error || "Something went wrong. Please try again.");
@@ -92,26 +93,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
           &times;
         </button>
 
-        {isSubmitted ? (
-          <div className={styles.contactModalThankyou}>
-            <div className={styles.thankyouIcon}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M20 6L9 17L4 12"
-                  stroke="#1d4ed8"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <h3>Thank you for sharing your details!</h3>
-            <p>We'll get in touch with you shortly.</p>
-            <button type="button" className={styles.contactModalSubmit} onClick={handleClose}>
-              Close
-            </button>
-          </div>
-        ) : (
           <>
             <div className={styles.contactModalHeader}>
               <h3>Tell us a bit about yourself</h3>
@@ -121,6 +102,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
             </div>
 
             <form className={styles.contactModalForm} onSubmit={handleSubmit}>
+              <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px" }} />
               <div className={styles.formGroup}>
                 <label htmlFor="email">
                   Email<span className={styles.requiredStar}>*</span>
@@ -193,7 +175,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
               </button>
             </form>
           </>
-        )}
       </div>
     </div>,
     document.body

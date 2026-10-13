@@ -165,8 +165,34 @@ function loadGTM() {
 export function loadAnalytics() {
   if (typeof window === "undefined") return;
   if (!isProduction || !GTM_ID || !CLARITY_ID) return;
-  window.addEventListener("load", () => {
+  const run = () => {
     loadClarity();
     loadGTM();
-  });
+  };
+  if (document.readyState === "complete") run();
+  else window.addEventListener("load", run);
+}
+
+const CONSENT_KEY = "analytics-consent";
+
+export const getConsent = () => {
+  try {
+    return localStorage.getItem(CONSENT_KEY);
+  } catch {
+    return null;
+  }
+};
+
+export const setConsent = (value) => {
+  try {
+    localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    /* storage blocked: the banner just shows again next visit */
+  }
+};
+
+// Only call after the visitor has accepted analytics cookies.
+export function startAnalytics() {
+  initGTMTracking();
+  loadAnalytics();
 }

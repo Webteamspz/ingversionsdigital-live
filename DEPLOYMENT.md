@@ -70,12 +70,21 @@ if (stagingFeaturesEnabled) {
 
 Adjust the relative import path based on the component file location.
 
-The public Vite flags are:
+The environment is the Vite build mode (`--mode production` / `--mode staging`), chosen by
+`BUILD_MODE` in the compose file. `VITE_DEPLOY_ENV` and `VITE_ENABLE_STAGING_FEATURES` are
+optional overrides read in `src/config/deploy.js`; no tracked `.env.*` file sets them (real
+`.env` files are gitignored). Public values such as `VITE_GTM_ID`, `VITE_CLARITY_ID` and
+`VITE_FORMSPREE_ENDPOINT` must reach the Docker build as compose build args, so check the
+Hostinger project environment if analytics or the contact form stop working.
 
-```txt
-.env.production -> VITE_DEPLOY_ENV=production, VITE_ENABLE_STAGING_FEATURES=false
-.env.staging    -> VITE_DEPLOY_ENV=staging, VITE_ENABLE_STAGING_FEATURES=true
-```
+## nginx routing
+
+`nginx.conf` serves the app shell with `200` only for known routes (the
+`location ~ ^/(projects|pricing|...)` block) and returns a real `404` for everything else,
+so soft-404s are not indexed. Add any new route from `src/App.jsx` to that regex.
+Known routes are served from the `<route>.html` files that `scripts/prerender.mjs` writes
+at build time (falling back to `index.html`), and 404s from `404.html`.
+`www.ingversionsdigital.com` is redirected (301) to the apex domain in the same file.
 
 ## Cloudflare DNS
 
