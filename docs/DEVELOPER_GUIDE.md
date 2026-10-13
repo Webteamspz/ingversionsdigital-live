@@ -292,14 +292,20 @@ Every page renders a `<SEO>` component (`src/components/SEO/SEO.jsx`, wraps
 `react-helmet-async`) near the top of its JSX:
 
 ```jsx
-<SEO
-  title="Ingversions Digital | Shopify, CRO and A/B Testing Agency"
-  description="..."
-  path="/"
-  jsonLd={faqJsonLd}       // optional structured data
-  breadcrumb={[...]}       // optional, renders BreadcrumbList JSON-LD
-  noindex                  // optional, for pages like legal/404 you don't want indexed
-/>
+<SEO {...seo.pricing} />
+```
+
+The props come from `src/data/seodata.js`, one entry per route:
+
+```js
+pricing: {
+  title: "Shopify CRO Pricing | Ingversions Digital",
+  description: "...",
+  path: "/pricing",
+  breadcrumb: [...],       // optional, renders BreadcrumbList JSON-LD
+  jsonLd: {...},           // optional structured data (Home uses it for the FAQ)
+  noindex: true,           // optional, for pages like thank-you/404
+},
 ```
 
 It sets `<title>`, meta description, canonical URL, robots, and Open Graph/Twitter tags
@@ -318,6 +324,14 @@ route-specific: favicons, manifest, sitemap link, `og:type`/`site_name`/`locale`
 `twitter:card`/`site`/`creator`, and the Organization JSON-LD. Do not add static FAQ or
 breadcrumb JSON-LD either: the Home page passes its FAQ via `jsonLd`, and other pages pass
 `breadcrumb`, so static copies would be duplicate structured data.
+
+### Static head tags for crawlers (prerender)
+
+Each route's head tags live in `src/data/seodata.js`; pages spread their entry into `<SEO>` (`<SEO {...seo.pricing} />`). After `vite build`, `scripts/prerender.mjs` renders `<SEO>` for every entry and writes `dist/<route>.html` (plus `index.html` for Home and `404.html` for NotFound) with those tags marked `data-prerender`, so crawlers that do not run JavaScript get a real title, description, canonical, and share image. `src/main.jsx` removes the `data-prerender` copies before mounting, so the live DOM still has one of each. Only the head is prerendered; the body is still the empty app shell.
+
+`seodata.js` is imported by plain Node in that script, so keep it free of JSX and write
+its relative imports with the `.js` extension. `nginx.conf` serves each known route from
+its `<route>.html` and real 404s from `404.html`.
 
 The default share image is `public/assets/seo/og-image.jpg` (1200x630). The committed file
 is a placeholder built from the logo; replace it with real brand art. Every new indexable
@@ -419,7 +433,7 @@ same shape in `src/data/pricingdata.js`.
 
 ### Add a brand-new page
 
-1. Create `src/pages/YourPage/YourPage.jsx` — wrap in `<Layout header={1} footer={1}>`, add `<SEO>`.
+1. Create `src/pages/YourPage/YourPage.jsx` — wrap in `<Layout header={1} footer={1}>`, add an entry to `src/data/seodata.js` and render `<SEO {...seo.yourPage} />`.
 2. Add the route in `src/App.jsx`, lazy-loaded like the other non-home pages. Also add the path to the route regex in `nginx.conf`, and to `public/sitemap.xml` if it should be indexed.
 3. Build the page from new or existing components under `src/components/`.
 

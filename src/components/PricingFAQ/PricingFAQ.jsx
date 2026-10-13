@@ -58,7 +58,7 @@ const PricingFAQ = () => {
   return (
     <section className={styles.faqWrapper} id="pricingFaq">
       <div className="container">
-        <h3 className="section-title">{title}</h3>
+        <h2 className="section-title">{title}</h2>
         <div className={styles.accordion}>
           {items.map((it, i) => (
             <Reveal key={i} delay={i * 60}>

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Layout from "../../layouts/Layouts";
 import SEO from "../../components/SEO/SEO";
+import seo from "../../data/seodata";
 import {
   IconDocument,
   IconList,
@@ -13,15 +14,7 @@ import styles from "./Legal.module.css";
 
 const TermsOfService = () => (
   <>
-    <SEO
-      title="Terms of Service | Ingversions Digital"
-      description="Terms and conditions for using ingversionsdigital.com and engaging Ingversions Digital's CRO, Shopify, and web development services."
-      path="/terms-of-service"
-      breadcrumb={[
-        { name: "Home", path: "/" },
-        { name: "Terms of Service", path: "/terms-of-service" },
-      ]}
-    />
+    <SEO {...seo.termsOfService} />
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>
         <div className={styles.legalHeroWrap}>

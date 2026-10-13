@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
         <span className={styles.shapeSquareBl} />
       </div>
       <div className="container">
-        <h3 className="section-title">{data.why.heading}</h3>
+        <h2 className="section-title">{data.why.heading}</h2>
         <p className={styles.whySub}>Here's what sets our approach apart.</p>
 
         {isMobile ? (

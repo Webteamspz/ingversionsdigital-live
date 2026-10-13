@@ -3,7 +3,7 @@
   color: var(--palette-text-primary);
   padding: 60px 0
 }
-.faqWrapper h3 {
+.faqWrapper h2 {
   margin: 0 0 44px
 }
 .accordion {

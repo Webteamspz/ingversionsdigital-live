@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "vite",
     "dev:staging": "vite --mode staging",
-    "build": "vite build",
-    "build:production": "vite build --mode production",
+    "build": "vite build && node scripts/prerender.mjs",
+    "build:production": "vite build --mode production && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:staging": "vite build --mode staging",
+    "build:staging": "vite build --mode staging && node scripts/prerender.mjs staging",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

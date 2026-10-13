@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "../../components/SEO/SEO";
+import seo from "../../data/seodata";
 // Reuses the 404 page's centered-card layout.
 import styles from "../NotFound/NotFound.module.css";
 
@@ -7,11 +8,7 @@ const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const ThankYou = () => (
   <section className={styles.nfWrapper}>
-    <SEO
-      title="Thank You | Ingversions Digital"
-      description="Thanks for getting in touch with Ingversions Digital."
-      noindex
-    />
+    <SEO {...seo.thankYou} />
     <div className={styles.nfCard}>
       <h1 className={styles.nfTitle}>Thank you!</h1>
       <p className={styles.nfSubtitle}>
