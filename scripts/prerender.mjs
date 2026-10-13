@@ -3,7 +3,7 @@
 // (link-preview bots, most AI crawlers) get a real title, description,
 // canonical, and share image. The body is still the empty app shell.
 // nginx.conf serves these files; keep its route list in sync with seodata.js.
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
@@ -30,7 +30,15 @@ try {
 
     const file =
       key === "home" ? "index.html" : key === "notFound" ? "404.html" : `${props.path.slice(1)}.html`;
-    await writeFile(`dist/${file}`, shell.replace("</head>", `${head}\n  </head>`));
+    const html = shell.replace("</head>", `${head}\n  </head>`);
+    await writeFile(`dist/${file}`, html);
+    // Also write <route>/index.html: an nginx.conf without the per-route
+    // location (production's `try_files $uri $uri/ /index.html`) serves that
+    // copy, instead of falling back to the home page's head tags.
+    if (props.path && props.path !== "/") {
+      await mkdir(`dist${props.path}`, { recursive: true });
+      await writeFile(`dist${props.path}/index.html`, html);
+    }
     console.log(`prerendered dist/${file}`);
   }
 } finally {
