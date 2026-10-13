@@ -283,7 +283,7 @@ const Header = () => {
   );
 
   const Drawer = (
-    <aside
+    <div
       id="mobile-menu"
       className={`${styles.mobileMenu} ${open ? styles.open : ""}`}
       role="dialog"
@@ -308,7 +308,7 @@ const Header = () => {
           )}
         </nav>
       </div>
-    </aside>
+    </div>
   );
 
   

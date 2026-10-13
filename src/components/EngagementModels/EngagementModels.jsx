@@ -73,6 +73,7 @@ const EngagementModels = () => {
       <a
         href={model.cta.href}
         className={styles.learnMoreBtn}
+        aria-label={`Learn more about our ${model.title} engagement model`}
         onClick={(e) => handleCtaClick(e, model.cta, model.title)}
       >
         {model.cta.label}
