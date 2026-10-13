@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="container">
         <Reveal className={styles.contactPanel}>
           <p className={styles.eyebrow}>{heading}</p>
-          <h3 className={styles.contactHeading}>{form.title}</h3>
+          <h2 className={styles.contactHeading}>{form.title}</h2>
           <p className={styles.contactCopy}>
             Tell us where you want to grow. We&apos;ll help you find the clearest path to better conversions.
           </p>

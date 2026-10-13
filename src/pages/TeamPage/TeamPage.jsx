@@ -4,21 +4,14 @@ import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
 import TeamHero from "../../components/TeamHero/TeamHero";
 import Layout from "../../layouts/Layouts";
 import SEO from "../../components/SEO/SEO";
+import seo from "../../data/seodata";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 
 const TeamPage = () => {
   return (
     <>
-      <SEO
-        title="Our Team | Ingversions Digital"
-        description="Meet the team behind Ingversions Digital's Shopify CRO and conversion optimization work."
-        path="/teampage"
-        breadcrumb={[
-          { name: "Home", path: "/" },
-          { name: "Team", path: "/teampage" },
-        ]}
-      />
+      <SEO {...seo.team} />
 
       <Layout header={1} footer={1}>
         <main className={styles.teamPage}>

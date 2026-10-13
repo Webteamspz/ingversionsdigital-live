@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Layout from "../../layouts/Layouts";
 import SEO from "../../components/SEO/SEO";
+import seo from "../../data/seodata";
 import {
   IconShield,
   IconList,
@@ -12,15 +13,7 @@ import styles from "./Legal.module.css";
 
 const PrivacyPolicy = () => (
   <>
-    <SEO
-      title="Privacy Policy | Ingversions Digital"
-      description="How Ingversions Digital collects, uses, shares, and protects your information across ingversionsdigital.com."
-      path="/privacy-policy"
-      breadcrumb={[
-        { name: "Home", path: "/" },
-        { name: "Privacy Policy", path: "/privacy-policy" },
-      ]}
-    />
+    <SEO {...seo.privacyPolicy} />
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>
         <div className={styles.legalHeroWrap}>

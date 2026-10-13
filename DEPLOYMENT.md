@@ -82,6 +82,8 @@ Hostinger project environment if analytics or the contact form stop working.
 `nginx.conf` serves the app shell with `200` only for known routes (the
 `location ~ ^/(projects|pricing|...)` block) and returns a real `404` for everything else,
 so soft-404s are not indexed. Add any new route from `src/App.jsx` to that regex.
+Known routes are served from the `<route>.html` files that `scripts/prerender.mjs` writes
+at build time (falling back to `index.html`), and 404s from `404.html`.
 `www.ingversionsdigital.com` is redirected (301) to the apex domain in the same file.
 
 ## Cloudflare DNS

@@ -58,7 +58,7 @@ const FAQ = () => {
   return (
     <section className={styles.faqWrapper} id="faq">
       <div className="container">
-        <h3 className="section-title">{heading}</h3>
+        <h2 className="section-title">{heading}</h2>
         <div className={styles.accordion}>
           {list.map((it, i) => (
             <Reveal key={i} delay={i * 60}>
