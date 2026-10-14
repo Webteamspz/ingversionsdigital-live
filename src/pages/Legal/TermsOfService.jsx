@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Layout from "../../layouts/Layouts";
 import SEO from "../../components/SEO/SEO";
 import seo from "../../data/seodata";
+import site from "../../data/sitedata";
 import {
   IconDocument,
   IconList,
@@ -192,7 +193,7 @@ const TermsOfService = () => (
           <p>
             Questions about these terms? We're happy to help.
           </p>
-          <a href="/#contact" className={styles.legalContactBtn}>
+          <a href={`mailto:${site.footer.email}`} className={styles.legalContactBtn}>
             Start the conversation
             <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
           </a>
