@@ -201,6 +201,89 @@ export default {
       },
     ],
   },
+  caseStudies: {
+    heading: "Case Studies",
+    sub: "Real numbers from real work, measured in Google Analytics 4.",
+    list: [
+      {
+        id: "seo-3x-daily-traffic",
+        title: "3x More Daily Traffic in 4 Days After SEO Fixes",
+        tags: ["SEO", "Early results"],
+        meta: [
+          { label: "Client", value: "Ingversions Digital (our own website, ingversionsdigital.com)" },
+          { label: "Service", value: "SEO" },
+          { label: "Timeline", value: "Changes went live on Oct 12, 2026. Results measured Oct 12–15, 2026" },
+          { label: "Data source", value: "Google Analytics 4" },
+        ],
+        sections: [
+          {
+            heading: "The Challenge",
+            icon: "challenge",
+            paragraphs: [
+              "Traffic to ingversionsdigital.com was low and getting worse. Between Oct 1 and Oct 11, the site averaged about 4 users a day. By Oct 9–11, daily users had dropped to almost zero. A site that nobody visits can't bring in leads, no matter how good the offer is.",
+            ],
+          },
+          {
+            heading: "What We Did",
+            icon: "action",
+            paragraphs: [
+              "On Oct 12 we rolled out a round of SEO improvements across the site. Then we tracked the impact in GA4, comparing daily averages before and after the changes.",
+            ],
+          },
+        ],
+        results: {
+          heading: "The Results (daily average)",
+          stats: [
+            { label: "Users", before: "~4/day", after: "13/day", lift: "3.2x" },
+            { label: "Events (engagement)", before: "~53/day", after: "189/day", lift: "3.6x" },
+            { label: "Key events (conversions)", before: "~7/day", after: "22/day", lift: "3.4x" },
+          ],
+          totals:
+            "Totals: 45 users, 581 events and 73 key events in the 11 days before, compared with 52 users, 756 events and 90 key events in the 4 days after.",
+          screenshots: [
+            {
+              src: "/assets/case-studies/seo-ga4-before.webp",
+              width: 1032,
+              height: 615,
+              label: "Before",
+              caption: "GA4, Oct 1–11, before SEO",
+              alt: "Google Analytics 4 overview for Oct 1 to Oct 11, 2026: 45 total users, 581 events and 73 key events, with daily key events falling to zero by Oct 9.",
+            },
+            {
+              src: "/assets/case-studies/seo-ga4-after.webp",
+              width: 1023,
+              height: 631,
+              label: "After",
+              caption: "GA4, Oct 12–15, after SEO",
+              alt: "Google Analytics 4 overview for Oct 12 to Oct 15, 2026: 52 total users, 756 events and 90 key events, peaking at about 60 key events on Oct 14.",
+            },
+          ],
+        },
+        notes: [
+          {
+            heading: "Why We Measure Per Day",
+            icon: "method",
+            paragraphs: [
+              "The two periods aren't the same length (11 days vs 4 days). Comparing raw totals, 52 vs 45 users looks like a 15% gain. Per day, it's about 3x. We bring the same habit to every A/B test and CRO report we run for clients: compare like with like, or the numbers will mislead you.",
+            ],
+          },
+          {
+            heading: "Early Days",
+            icon: "timing",
+            paragraphs: [
+              "These are early results from a short 4-day window, and Oct 14 was a strong spike day. We're tracking the full 30 days and will update this case study with the longer-term numbers.",
+            ],
+          },
+        ],
+        cta: {
+          heading: "Want Results Like This?",
+          text: "Ingversions Digital helps Shopify and e-commerce brands grow with CRO, A/B testing and SEO.",
+          buttonText: "Book a free 30-minute call",
+          buttonLink: "https://calendly.com/ingversionsdigital/30min",
+        },
+      },
+    ],
+  },
   why: {
     heading: "Why Choose Us",
     list: [
