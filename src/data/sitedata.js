@@ -209,12 +209,6 @@ export default {
         id: "seo-3x-daily-traffic",
         title: "3x More Daily Traffic in 4 Days After SEO Fixes",
         tags: ["SEO", "Early results"],
-        meta: [
-          { label: "Client", value: "Ingversions Digital (our own website, ingversionsdigital.com)" },
-          { label: "Service", value: "SEO" },
-          { label: "Timeline", value: "Changes went live on Oct 12, 2026. Results measured Oct 12–15, 2026" },
-          { label: "Data source", value: "Google Analytics 4" },
-        ],
         sections: [
           {
             heading: "The Challenge",
