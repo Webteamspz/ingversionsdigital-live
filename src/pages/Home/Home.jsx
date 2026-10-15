@@ -14,6 +14,7 @@ import BlogSlider from "../../components/BlogSlider/BlogSlider";
 import Reviews from "../../components/Reviews/Reviews";
 import FAQ from "../../components/FAQ/FAQ";
 import EngagementModels from "../../components/EngagementModels/EngagementModels";
+import CaseStudies from "../../components/CaseStudies/CaseStudies";
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(false);
@@ -49,6 +50,7 @@ const Home = () => {
         <TrackRecord />
         <Services />
         <WorkProcess />
+        <CaseStudies />
         <EngagementModels />
         <Reviews />
         <WhyChooseUs />
