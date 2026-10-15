@@ -50,14 +50,6 @@ const CaseStudies = () => {
                 ))}
               </div>
               <h3 className={styles.title}>{study.title}</h3>
-              <dl className={styles.meta}>
-                {study.meta.map(({ label, value }) => (
-                  <div key={label} className={styles.metaItem}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
             </header>
 
             <div className={styles.body}>
