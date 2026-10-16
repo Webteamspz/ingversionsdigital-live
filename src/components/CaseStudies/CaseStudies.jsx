@@ -1,4 +1,5 @@
-import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight, X } from "lucide-react";
 import siteData from "../../data/sitedata";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import Reveal from "../Reveal/Reveal";
@@ -30,6 +31,13 @@ const StoryCard = ({ heading, icon, paragraphs }) => {
 
 const CaseStudies = () => {
   const { heading, sub, list } = siteData.caseStudies;
+  const dialogRef = useRef(null);
+  const [zoomed, setZoomed] = useState(null);
+
+  const openShot = (shot) => {
+    setZoomed(shot);
+    dialogRef.current.showModal();
+  };
 
   return (
     <section className={styles.caseStudies} id="case-studies">
@@ -80,11 +88,11 @@ const CaseStudies = () => {
                       <span className={`${styles.shotLabel} ${styles[`shot${shot.label}`]}`}>
                         {shot.label}
                       </span>
-                      <a
-                        href={shot.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        type="button"
                         className={styles.shotFrame}
+                        onClick={() => openShot(shot)}
+                        aria-label={`Enlarge: ${shot.caption}`}
                       >
                         <OptimizedImg
                           src={shot.src}
@@ -92,7 +100,7 @@ const CaseStudies = () => {
                           width={shot.width}
                           height={shot.height}
                         />
-                      </a>
+                      </button>
                       <figcaption>{shot.caption}</figcaption>
                     </figure>
                   ))}
@@ -126,6 +134,29 @@ const CaseStudies = () => {
           </article>
         ))}
       </div>
+
+      {/* Native dialog: Esc closes it; clicking the backdrop closes it too. */}
+      <dialog
+        ref={dialogRef}
+        className={styles.lightbox}
+        aria-label={zoomed?.caption}
+        onClick={(e) => e.target === e.currentTarget && e.currentTarget.close()}
+        onClose={() => setZoomed(null)}
+      >
+        {zoomed && (
+          <>
+            <button
+              type="button"
+              className={styles.lightboxClose}
+              onClick={() => dialogRef.current.close()}
+              aria-label="Close"
+            >
+              <X size={22} aria-hidden="true" />
+            </button>
+            <img src={zoomed.src} alt={zoomed.alt} width={zoomed.width} height={zoomed.height} />
+          </>
+        )}
+      </dialog>
     </section>
   );
 };
