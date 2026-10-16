@@ -25,7 +25,7 @@ const StagingLogin = ({ children }) => {
     return (
       <>
         <div style={{ 
-          position: 'fixed', bottom: '15px', left: '15px', 
+          position: 'fixed', bottom: '10px', left: '15px', 
           background: '#1e293b', color: '#f8fafc', 
           padding: '8px 12px', borderRadius: '6px', 
           fontSize: '13px', zIndex: 9999,
