@@ -272,7 +272,9 @@
 }
 .shotFrame {
   display: block;
+  width: 100%;
   padding: 26px 10px 10px;
+  cursor: zoom-in;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-md);
   background: var(--palette-bg-700);
@@ -287,8 +289,45 @@
   display: block;
   width: 100%;
   height: auto;
+  /* Same box for every screenshot so the pair lines up; the full image opens in the lightbox. */
+  aspect-ratio: 1032 / 615;
+  object-fit: cover;
+  object-position: top;
   border-radius: var(--radius-sm);
   box-shadow: 0 0 0 1px var(--palette-border-soft)
+}
+.lightbox {
+  width: calc(100% - 32px);
+  max-width: 1100px;
+  max-height: calc(100% - 32px);
+  padding: 0;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-md);
+  background: var(--palette-bg-700);
+  overflow: auto
+}
+.lightbox::backdrop {
+  background: rgb(0 0 0 / .75)
+}
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto
+}
+.lightboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-700);
+  color: var(--palette-text-primary);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 0 var(--palette-border)
 }
 .shot figcaption {
   margin-top: 14px;
