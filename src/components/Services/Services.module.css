@@ -106,15 +106,11 @@
   background: var(--icon-bg);
   border: var(--border-width) solid var(--palette-border);
   border-radius: 50%;
-  box-shadow: var(--shadow-pop);
-  transition: transform .8s ease
+  box-shadow: var(--shadow-pop)
 }
 .icon svg {
   width: 44px;
   height: 44px
-}
-.card.service:hover .icon {
-  transform: rotateY(360deg)
 }
 .body {
   min-width: 0

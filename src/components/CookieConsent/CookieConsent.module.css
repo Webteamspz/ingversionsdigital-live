@@ -20,6 +20,7 @@
   box-shadow: var(--shadow-pop);
   color: var(--palette-text-primary);
   text-align: center;
+  outline: none;
 }
 .title {
   margin: 0 0 12px;
@@ -52,12 +53,25 @@
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
+  box-shadow: var(--shadow-pop-active);
   cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.btn:hover {
+  background: var(--palette-hover-surface);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop);
+}
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 0 var(--palette-border);
 }
 .accept {
   background: var(--palette-accent);
   color: #fff;
-  box-shadow: var(--shadow-pop-active);
+}
+.accept:hover {
+  background: var(--palette-accent-strong);
 }
 .btn:focus-visible {
   outline: var(--border-width) solid var(--palette-accent-strong);

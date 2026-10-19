@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
-import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users, Briefcase, ArrowUpRight } from "lucide-react";
+import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users, IdCard, ArrowUpRight } from "lucide-react";
 
 import data from "../../data/sitedata";
 import styles from "./Services.module.css";
@@ -12,7 +12,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 
 const SERVICE_ICONS = {
   "ab-testing": SplitSquareHorizontal, shopify: ShoppingBag, qa: CheckCircle2,
-  wordpress: Globe, "landing-page": LayoutTemplate, lead: Users, hrms: Briefcase,
+  wordpress: Globe, "landing-page": LayoutTemplate, lead: Users, hrms: IdCard,
 };
 const SERVICE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 const VISIBLE_SERVICES = data.services.list.filter((service) => service.icon !== "lead");
