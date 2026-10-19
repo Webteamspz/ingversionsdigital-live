@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import StagingLogin from "../src/components/StagingLogin/StagingLogin.jsx";
 import CookieConsent from "./components/CookieConsent/CookieConsent.jsx";
+import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
 
@@ -71,6 +72,7 @@ const App = () => (
     <ScrollManager />
     <ScrollToTopButton />
     <CookieConsent />
+    <PromoBar />
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />

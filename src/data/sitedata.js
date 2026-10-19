@@ -13,6 +13,20 @@ export default {
       href: "https://calendly.com/ingversionsdigital/30min",
     },
   },
+  promoBar: {
+    enabled: true,
+    eyebrow: "Free Funnel Audit",
+    text: "Get a free audit and see where your store is losing sales.",
+    cta: {
+      label: "Book A Call",
+      href: "https://calendly.com/ingversionsdigital/30min",
+    },
+    whatsapp: {
+      label: "WhatsApp",
+      phone: "+91-8866167750",
+      message: "Hi, I'd like a free funnel audit for my store.",
+    },
+  },
   hero: {
     heading: "Find What Works.",
     pill: "Scale What Converts.",
@@ -94,31 +108,45 @@ export default {
     list: [
       {
         title: "A/B Testing",
+        eyebrow: "Experimentation",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
         icon: "ab-testing",
       },
       {
         title: "Shopify Development",
+        eyebrow: "Shopify & Shopify Plus",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
         icon: "shopify",
       },
       {
         title: "Quality Assurance",
+        eyebrow: "Ship With Confidence",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
         icon: "qa",
       },
       {
         title: "WordPress Development",
+        eyebrow: "Custom Builds",
         desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
         icon: "wordpress",
       },
       {
         title: "Landing Page Personalization",
+        eyebrow: "Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
         icon: "landing-page",
       },
       {
+        title: "HRMS Tool",
+        eyebrow: "Our Product",
+        desc: "Keep employee records, leave, documents and approvals for your whole team in one place.",
+        icon: "hrms",
+        href: "https://hrms.coteamspace.com/",
+        linkLabel: "Visit Site",
+      },
+      {
         title: "Lead Generation",
+        eyebrow: "Growth",
         desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
         icon: "lead",
       },
