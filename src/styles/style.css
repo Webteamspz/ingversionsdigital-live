@@ -82,6 +82,7 @@ html {
 }
 body {
   margin: 0;
+  padding-bottom: var(--promo-bar-h, 0px);
   background: var(--palette-bg-950);
   color: var(--palette-text-secondary);
   font-family: "Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
@@ -91,6 +92,10 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 15px
+}
+.consent-locked,
+.consent-locked body {
+  overflow: hidden!important
 }
 .skip-link {
   position: absolute;
