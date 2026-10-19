@@ -7,6 +7,7 @@ import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 import { ctaClick, dl } from "../../gtm";
 import { isExternalHref } from "../../utils/url";
+import BlackFridayBanner from "../BlackFridayBanner/BlackFridayBanner.jsx";
 
 const HamburgerIcon = (props) => (
   <svg
@@ -314,7 +315,7 @@ const Header = () => {
   
   
   
-  const ctaClassName = `btn ${styles.desktopCta} ${
+  const ctaClassName = `btn btn-book ${styles.desktopCta} ${
     shouldHideCta ? styles.desktopCtaHidden : ""
   }`;
 
@@ -387,6 +388,7 @@ const Header = () => {
           </button>
         </div>
       </header>
+      <BlackFridayBanner />
 
       {createPortal(Overlay, document.body)}
       {createPortal(Drawer, document.body)}

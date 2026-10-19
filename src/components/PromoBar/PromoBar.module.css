@@ -7,14 +7,14 @@
   background: var(--palette-text-primary);
   box-shadow: 0 calc(-1 * var(--border-width)) 0 0 var(--tertiary);
   color: var(--palette-bg-800);
+  /* Vertical padding lives here: .inner also has .container, whose padding shorthand would win. */
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
 }
 .inner {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-height: 84px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  min-height: 60px;
 }
 .copy {
   flex: 1;
@@ -78,15 +78,21 @@
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 0 var(--palette-accent);
 }
-.whatsapp {
-  background: transparent;
-  color: var(--palette-bg-800);
-  border-color: var(--palette-text-muted);
+.ctaBadge {
+  display: none;
 }
-.whatsapp:hover {
+.whatsapp {
   background: var(--quaternary);
   color: var(--palette-text-primary);
-  border-color: var(--palette-border);
+  box-shadow: 4px 4px 0 0 var(--palette-accent);
+}
+.whatsapp:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--palette-accent);
+}
+.whatsapp:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--palette-accent);
 }
 .close {
   display: inline-flex;
@@ -135,23 +141,42 @@
   }
   .copy {
     flex-basis: 100%;
+    padding-right: 36px;
   }
   .text {
     font-size: 14px;
   }
   .actions {
     width: 100%;
-    gap: 8px;
+    gap: 10px;
+    padding-bottom: 4px;
+    justify-content: center;
   }
   .cta,
   .whatsapp {
-    flex: 1;
     justify-content: center;
-    padding: 10px 12px;
-    font-size: 13px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+  }
+  .ctaBadge {
+    display: inline-flex;
+  }
+  .ctaBadge svg,
+  .whatsapp svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ctaLabel,
+  .ctaArrow,
+  .waLabel {
+    display: none;
   }
   .close {
-    width: 36px;
-    height: 36px;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
   }
 }

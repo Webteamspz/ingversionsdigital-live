@@ -5,7 +5,7 @@ import styles from "./CookieConsent.module.css";
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(() => getConsent() === null);
-  const acceptRef = useRef(null);
+  const dialogRef = useRef(null);
   const { pathname } = useLocation();
   // Let visitors read the policy the gate links to.
   const gated = visible && pathname !== "/privacy-policy";
@@ -15,7 +15,8 @@ const CookieConsent = () => {
     if (!gated) return;
     // Class, not inline style: other modals reset body.style.overflow on mount.
     document.documentElement.classList.add("consent-locked");
-    acceptRef.current?.focus();
+    // Focus the dialog, not Accept: focusing a button on load paints its focus ring.
+    dialogRef.current?.focus();
     return () => document.documentElement.classList.remove("consent-locked");
   }, [gated]);
 
@@ -30,6 +31,8 @@ const CookieConsent = () => {
   return (
     <div className={styles.overlay}>
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         className={styles.banner}
         role="dialog"
         aria-modal="true"
@@ -48,7 +51,6 @@ const CookieConsent = () => {
             Decline
           </button>
           <button
-            ref={acceptRef}
             type="button"
             className={`${styles.btn} ${styles.accept}`}
             onClick={() => choose("granted")}
