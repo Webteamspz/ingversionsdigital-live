@@ -141,7 +141,7 @@ export default {
         eyebrow: "Our Product",
         desc: "Keep employee records, leave, documents and approvals for your whole team in one place.",
         icon: "hrms",
-        href: "https://hrms.coteamspace.com/",
+        href: "https://coteamspace.com/",
         linkLabel: "Visit Site",
       },
       {

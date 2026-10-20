@@ -134,49 +134,71 @@
   }
 }
 @media (max-width:767.98px) {
+  .bar {
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+  }
   .inner {
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
     min-height: 0;
+    padding-right: 52px;
   }
   .copy {
-    flex-basis: 100%;
-    padding-right: 36px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+  .eyebrow {
+    flex-shrink: 0;
+  }
+  .eyebrowLabel {
+    display: none;
   }
   .text {
-    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.35;
   }
   .actions {
-    width: 100%;
-    gap: 10px;
-    padding-bottom: 4px;
-    justify-content: center;
+    gap: 8px;
+  }
+  .cta,
+  .whatsapp {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    background: var(--palette-accent);
+    color: var(--palette-bg-800);
+    border-color: var(--palette-border);
+    box-shadow: var(--shadow-pop-active);
   }
   .cta,
   .whatsapp {
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    padding: 0;
+    box-shadow: 2px 2px 0 0 var(--palette-accent);
   }
   .ctaBadge {
     display: inline-flex;
   }
   .ctaBadge svg,
   .whatsapp svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
   .ctaLabel,
   .ctaArrow,
   .waLabel {
     display: none;
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    width: 28px;
-    height: 28px;
   }
 }
