@@ -8,9 +8,9 @@ const BLACK_FRIDAY = {
   live: true,
   endsAt: "2026-11-27T00:00:00+05:30",
   badge: "Black Friday in",
-  eyebrow: "Limited-time offer",
-  title: "Our Black Friday offer is almost here",
-  text: "Something special is coming for Shopify brands. Look over our plans now so you're ready when it goes live.",
+  eyebrow: "Early access",
+  title: "Get your store ready before the BFCM rush",
+  text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
   cta: { label: "See Pricing", to: "/pricing" },
 };
 

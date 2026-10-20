@@ -140,7 +140,7 @@
 }
 @media (max-width:767.98px) {
   .bar {
-    padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+    padding: 12px 0 calc(8px + env(safe-area-inset-bottom, 0px));
   }
   .inner {
     flex-wrap: nowrap;
@@ -151,15 +151,13 @@
   }
   .copy {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-start;
+    gap: 3px;
     min-width: 0;
+    flex-direction: column;
   }
   .eyebrow {
     flex-shrink: 0;
-  }
-  .eyebrowLabel {
-    display: none;
   }
   .text {
     flex: 1;
@@ -178,7 +176,7 @@
     padding: 0;
   }
   .close {
-    top: -21px;
+    top: -26px;
     left: 10px;
     width: 24px;
     height: 24px;
