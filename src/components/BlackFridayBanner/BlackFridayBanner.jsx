@@ -15,12 +15,6 @@ const BLACK_FRIDAY = {
 };
 
 const DISMISS_KEY = "bf-banner-dismissed";
-const UNITS = [
-  ["DAYS", 86400000],
-  ["HRS", 3600000],
-  ["MIN", 60000],
-  ["SEC", 1000],
-];
 
 const isDismissed = () => {
   try {
@@ -30,11 +24,11 @@ const isDismissed = () => {
   }
 };
 
-const split = (ms) =>
-  UNITS.map(([label, size], i) => {
-    const value = i === 0 ? Math.floor(ms / size) : Math.floor((ms % UNITS[i - 1][1]) / size);
-    return [label, String(value).padStart(2, "0")];
-  });
+const split = (ms) => {
+  const s = Math.floor(ms / 1000);
+  return [["DAYS", s / 86400], ["HRS", (s / 3600) % 24], ["MIN", (s / 60) % 60], ["SEC", s % 60]]
+    .map(([label, v]) => [label, String(Math.floor(v)).padStart(2, "0")]);
+};
 
 const BlackFridayBanner = () => {
   const { live, endsAt, badge, eyebrow, title, text, cta } = BLACK_FRIDAY;
@@ -45,11 +39,7 @@ const BlackFridayBanner = () => {
   useEffect(() => {
     if (!live || isDismissed()) return;
     const end = new Date(endsAt).getTime();
-    const tick = () => {
-      const ms = Math.max(0, end - Date.now());
-      setLeft(ms);
-      if (ms === 0) clearInterval(id);
-    };
+    const tick = () => setLeft(Math.max(0, end - Date.now()));
     const id = setInterval(tick, 1000);
     tick();
     return () => clearInterval(id);
