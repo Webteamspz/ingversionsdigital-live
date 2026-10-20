@@ -181,24 +181,32 @@
 }
 .close {
   position: absolute;
-  top: 14px;
+  top: 11px;
   right: 14px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   padding: 0;
-  border: 0;
+  border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
-  background: transparent;
-  color: var(--palette-text-muted);
-  cursor: pointer
+  background: var(--palette-accent);
+  color: var(--palette-bg-800);
+  box-shadow: 2px 2px 0 0 var(--palette-border);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease
 }
 .close:hover {
-  background: var(--palette-hover-surface);
-  color: var(--palette-text-primary)
+  background: var(--palette-accent-strong);
+  color: var(--palette-bg-800);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 0 var(--palette-border)
+}
+.close:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 0 var(--palette-border)
 }
 .card .cta:focus-visible,
 .close:focus-visible {
@@ -327,7 +335,7 @@
     width: 100%
   }
   .close {
-    top: 16px;
+    top: 10px;
     right: 14px
   }
 }
