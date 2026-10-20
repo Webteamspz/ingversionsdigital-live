@@ -15,8 +15,8 @@ export default {
   },
   promoBar: {
     enabled: true,
-    eyebrow: "Free Funnel Audit",
-    text: "Get a free audit and see where your store is losing sales.",
+    eyebrow: "Limited Slots",
+    text: "Get a free test build and explore our skills!",
     cta: {
       label: "Book A Call",
       href: "https://calendly.com/ingversionsdigital/30min",
@@ -141,7 +141,7 @@ export default {
         eyebrow: "Our Product",
         desc: "Keep employee records, leave, documents and approvals for your whole team in one place.",
         icon: "hrms",
-        href: "https://hrms.coteamspace.com/",
+        href: "https://coteamspace.com/",
         linkLabel: "Visit Site",
       },
       {

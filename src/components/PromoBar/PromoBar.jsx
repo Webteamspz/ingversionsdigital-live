@@ -62,7 +62,7 @@ const PromoBar = () => {
           {eyebrow && (
             <span className={styles.eyebrow}>
               <span className={styles.dot} aria-hidden="true" />
-              {eyebrow}
+              <span className={styles.eyebrowLabel}>{eyebrow}</span>
             </span>
           )}
           <p className={styles.text}>{text}</p>

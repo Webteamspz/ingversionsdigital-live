@@ -7,14 +7,15 @@
   background: var(--palette-text-primary);
   box-shadow: 0 calc(-1 * var(--border-width)) 0 0 var(--tertiary);
   color: var(--palette-bg-800);
-  /* Vertical padding lives here: .inner also has .container, whose padding shorthand would win. */
   padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
 }
 .inner {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
   min-height: 60px;
+  padding-left: 72px;
 }
 .copy {
   flex: 1;
@@ -100,13 +101,17 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 0;
-  color: var(--palette-bg-800);
-  background: transparent;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border: var(--border-width) solid var(--palette-text-muted);
+  position: absolute;
+  top: -27px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: var(--palette-accent);
+  color: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
+  box-shadow: var(--shadow-pop-active);
 }
 .close:hover {
   background: var(--secondary);
@@ -134,49 +139,64 @@
   }
 }
 @media (max-width:767.98px) {
+  .bar {
+    padding: 12px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+  }
   .inner {
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
     min-height: 0;
+    padding-left: 40px;
   }
   .copy {
-    flex-basis: 100%;
-    padding-right: 36px;
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+    min-width: 0;
+    flex-direction: column;
+  }
+  .eyebrow {
+    flex-shrink: 0;
   }
   .text {
-    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.35;
   }
   .actions {
-    width: 100%;
-    gap: 10px;
-    padding-bottom: 4px;
-    justify-content: center;
+    gap: 8px;
+  }
+  .cta,
+  .whatsapp {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+  .close {
+    top: -26px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
   }
   .cta,
   .whatsapp {
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    padding: 0;
+    box-shadow: 2px 2px 0 0 var(--palette-accent);
   }
   .ctaBadge {
     display: inline-flex;
   }
   .ctaBadge svg,
   .whatsapp svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
   .ctaLabel,
   .ctaArrow,
   .waLabel {
     display: none;
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    width: 28px;
-    height: 28px;
   }
 }
