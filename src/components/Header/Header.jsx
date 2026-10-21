@@ -46,8 +46,6 @@ const CloseIcon = (props) => (
   </svg>
 );
 
-const BLOG_URL = "https://blog.ingversionsdigital.com/";
-
 const Header = () => {
   const { links, cta } = data.header;
   const location = useLocation();
@@ -158,12 +156,6 @@ const Header = () => {
     ctaClick({ label, location: loc, href });
   };
 
-  const handleBlogClick = (e, loc) => {
-    e.preventDefault();
-    handleNavClick("Blog", loc, BLOG_URL);
-    alert(`You should visit this link if you want to visit the blogs: ${BLOG_URL}`);
-  };
-
   
   const handleBookCallClick = (loc) => {
     handleNavClick(cta.label, loc, ctaHref);
@@ -177,20 +169,6 @@ const Header = () => {
 
   const renderDesktopNavLink = (linkItem, index) => {
     const { href, label } = linkItem;
-
-    if (href === BLOG_URL) {
-      return (
-        <a
-          key={index}
-          href={href}
-          data-cta={label}
-          data-cta-loc="Header Nav"
-          onClick={(e) => handleBlogClick(e, "Header Nav")}
-        >
-          {label}
-        </a>
-      );
-    }
 
     if (href.startsWith("#") || isExternalHref(href)) {
       return (
@@ -224,23 +202,6 @@ const Header = () => {
 
   const renderMobileNavLink = (linkItem, index) => {
     const { href, label } = linkItem;
-
-    if (href === BLOG_URL) {
-      return (
-        <a
-          key={index}
-          href={href}
-          data-cta={label}
-          data-cta-loc="Mobile Nav"
-          onClick={(e) => {
-            handleBlogClick(e, "Mobile Nav");
-            setOpen(false);
-          }}
-        >
-          {label}
-        </a>
-      );
-    }
 
     if (href.startsWith("#") || isExternalHref(href)) {
       return (

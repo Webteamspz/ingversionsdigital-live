@@ -1,0 +1,327 @@
+{
+  "__README": {
+    "purpose": "Authoring template for a single blog post that matches the structured article design (hero icon-grid, sticky Table of Contents, numbered sections, feature grids, flow diagram, step list, PRO TIP note, callouts, FAQ).",
+    "howToUse": [
+      "1. Copy the whole `post` object below into your posts source (one object per blog).",
+      "2. Fill every field. Never delete a key you are not using unless it is marked optional; set it to null or [] instead so the renderer stays predictable.",
+      "3. `body.sections[]` is an ordered list. Each section renders a coloured number chip + heading, then its `blocks[]` in order.",
+      "4. `toc` is generated from `body.sections[]` when `toc.generateFromSections` is true. Only fill `toc.items` to override order/labels/icons.",
+      "5. Add as many posts as you want at once - they all follow this same shape, so nothing about the layout drifts."
+    ],
+    "inlineTextRules": {
+      "bold": "**text**",
+      "highlight": "==text==  (renders the marker/keyword highlight, e.g. the pink 'Model Context Protocol (MCP)' span)",
+      "link": "[label](https://url)",
+      "inlineCode": "`text`"
+    },
+    "icons": "All `icon` fields take a lucide-react icon name in kebab-case (the project already depends on lucide-react). Examples: zap, bar-chart-3, gauge, lightbulb, clock, check-circle, trending-up, layout-grid, database, server, brain, file-text, star, help-circle, share-2, wrench, map-pin, alert-triangle, list.",
+    "accentColors": "yellow | purple | pink | green | blue  - used for section number chips, feature icons, step badges, flow-diagram boxes. Sections cycle yellow -> purple -> pink by convention.",
+    "blockTypes": {
+      "paragraph": { "type": "paragraph", "text": "Rich text. Supports inlineTextRules." },
+      "list": { "type": "list", "ordered": false, "items": ["string", "..."] },
+      "callout": {
+        "type": "callout",
+        "variant": "star | info | warning | success",
+        "icon": "star",
+        "title": "optional short title, or null",
+        "text": "body of the callout",
+        "items": "optional string[] shown as a mini list, or null"
+      },
+      "protip": {
+        "type": "protip",
+        "label": "PRO TIP",
+        "icon": "lightbulb",
+        "text": "lead-in line",
+        "checklist": ["string", "..."]
+      },
+      "featureGrid": {
+        "type": "featureGrid",
+        "columns": 2,
+        "items": [{ "icon": "clock", "color": "purple", "title": "string", "text": "string" }]
+      },
+      "flowDiagram": {
+        "type": "flowDiagram",
+        "steps": [{ "icon": "database", "color": "yellow", "title": "string", "subtitle": "string" }]
+      },
+      "stepList": {
+        "type": "stepList",
+        "color": "purple",
+        "steps": [{ "title": "string", "text": "string" }]
+      },
+      "image": { "type": "image", "src": "/assets/blog/...", "alt": "string", "caption": "optional or null" },
+      "quote": { "type": "quote", "text": "string", "cite": "optional or null" },
+      "code": { "type": "code", "language": "js | bash | json | mermaid | ...", "code": "raw code string" },
+      "table": { "type": "table", "headers": ["string"], "rows": [["cell", "cell"]] },
+      "divider": { "type": "divider" }
+    }
+  },
+
+  "post": {
+    "slug": "ai-powered-shopify-reporting-claude-mcp",
+
+    "seo": {
+      "title": "Building an AI-Powered Reporting Workflow with Claude + MCP | Ingversions Blog",
+      "description": "Automate data collection, analysis, and reporting with Claude AI and the Model Context Protocol (MCP) in a secure, scalable architecture.",
+      "keywords": ["Claude", "MCP", "AI reporting", "Model Context Protocol", "automation", "Anthropic"],
+      "canonical": "https://ingversionsdigital.com/blog/ai-powered-shopify-reporting-claude-mcp"
+    },
+
+    "meta": {
+      "category": "AI & Automation",
+      "categorySlug": "ai-automation",
+      "date": "May 16, 2025",
+      "readTime": "12 min read",
+      "coverImage": "/assets/blog/covers/photo-1653564142033-ab3532091515.webp",
+      "author": {
+        "name": "Ingversions Team",
+        "avatar": "/assets/team/author-1.png"
+      }
+    },
+
+    "hero": {
+      "title": "Building an AI-Powered Reporting Workflow with Claude + MCP",
+      "excerpt": "Automate data collection, analysis, and reporting with Claude AI and the Model Context Protocol (MCP) in a secure, scalable architecture.",
+      "badges": [
+        { "label": "AI & Automation", "color": "pink" },
+        { "label": "Technical Guide", "color": "yellow" }
+      ],
+      "_heroRight": "Fill EITHER `highlights` (any number of cards - they auto-flow into 1-3 columns by count) OR `image` (a banner: { src, alt }). If both are present, `image` wins. Omit both for a text-only hero.",
+      "highlights": [
+        { "icon": "zap", "color": "purple", "label": "Automate Reports" },
+        { "icon": "bar-chart-3", "color": "purple", "label": "Analyze Smarter" },
+        { "icon": "gauge", "color": "pink", "label": "Reduce Manual Work" },
+        { "icon": "lightbulb", "color": "yellow", "label": "Make Better Decisions" }
+      ],
+      "image": { "src": "/assets/blog/covers/example.webp", "alt": "describe the banner" }
+    },
+
+    "toc": {
+      "eyebrow": "ARTICLE NAVIGATION",
+      "title": "Table of Contents",
+      "generateFromSections": true,
+      "items": [
+        { "label": "What is Claude + MCP?", "anchor": "what-is-claude-mcp", "icon": "help-circle" },
+        { "label": "Why Use Claude and MCP?", "anchor": "why-use-claude-mcp", "icon": "star" },
+        { "label": "Architecture Overview", "anchor": "architecture-overview", "icon": "share-2" },
+        { "label": "Step-by-Step: Building", "anchor": "step-by-step-building", "icon": "wrench" },
+        { "label": "Example Use Case", "anchor": "example-use-case", "icon": "map-pin" },
+        { "label": "Best Practices", "anchor": "best-practices", "icon": "check-circle" },
+        { "label": "Tools and Integrations", "anchor": "tools-and-integrations", "icon": "layout-grid" },
+        { "label": "Challenges & Solutions", "anchor": "challenges-and-solutions", "icon": "alert-triangle" },
+        { "label": "Conclusion", "anchor": "conclusion", "icon": "check-circle" },
+        { "label": "FAQ", "anchor": "faq", "icon": "list" }
+      ]
+    },
+
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "Manual reporting is slow, repetitive, and error-prone. By combining Claude AI's advanced reasoning capabilities with the ==Model Context Protocol (MCP)==, you can build a powerful reporting workflow that collects data, analyzes it, and generates actionable insights—automatically."
+      }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "what-is-claude-mcp",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "What is Claude + MCP?",
+          "blocks": [
+            { "type": "paragraph", "text": "**Claude** is an advanced AI assistant from Anthropic that excels at understanding, analyzing, and generating human-like text." },
+            { "type": "paragraph", "text": "**MCP (Model Context Protocol)** is an open protocol that allows AI models like Claude to securely connect with external tools, data sources, and systems in a standardized way." },
+            {
+              "type": "callout",
+              "variant": "star",
+              "icon": "star",
+              "title": null,
+              "text": "Together, Claude + MCP enable AI to access real-world data, perform complex analysis, and deliver business-ready reports in a consistent, repeatable workflow.",
+              "items": null
+            },
+            { "type": "divider" }
+          ]
+        },
+        {
+          "id": "why-use-claude-mcp",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Why Use Claude and MCP for Reporting?",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "clock", "color": "purple", "title": "Save Time", "text": "Automate data gathering and report generation." },
+                { "icon": "check-circle", "color": "pink", "title": "Increase Accuracy", "text": "AI minimizes human error and ensures consistency." },
+                { "icon": "trending-up", "color": "yellow", "title": "Deeper Insights", "text": "Claude analyzes data and explains trends clearly." },
+                { "icon": "layout-grid", "color": "purple", "title": "Scalable", "text": "Easily handle more data sources and complex reporting needs." }
+              ]
+            },
+            { "type": "divider" }
+          ]
+        },
+        {
+          "id": "architecture-overview",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Architecture Overview",
+          "blocks": [
+            { "type": "paragraph", "text": "The workflow connects your data sources to Claude through MCP, processes the data, and outputs a well-structured report." },
+            {
+              "type": "flowDiagram",
+              "steps": [
+                { "icon": "database", "color": "gray", "title": "Data Sources", "subtitle": "Sheets, DB, APIs" },
+                { "icon": "server", "color": "yellow", "title": "MCP Server", "subtitle": "Secure Connection" },
+                { "icon": "brain", "color": "purple", "title": "Claude AI", "subtitle": "Analysis & Reasoning" },
+                { "icon": "file-text", "color": "pink", "title": "Report Gen", "subtitle": "Structured Output" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "step-by-step-building",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Step-by-Step: Building the Workflow",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Define the Reporting Goal", "text": "Identify what metrics and insights your report should include." },
+                { "title": "Connect Data Sources via MCP", "text": "Use MCP connectors to pull data from your databases, APIs, or SaaS tools." },
+                { "title": "Send Data to Claude", "text": "Pass the retrieved data and reporting instructions to Claude for analysis." },
+                { "title": "Analyze and Generate Insights", "text": "Claude processes the data, identifies trends, and writes natural-language insights." }
+              ]
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "lightbulb",
+              "text": "Use Claude prompts that clearly define:",
+              "checklist": [
+                "The goal of the report",
+                "Key metrics to focus on",
+                "The desired output format",
+                "Tone and detail level"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "example-use-case",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Example Use Case",
+          "blocks": [
+            { "type": "paragraph", "text": "A weekly sales report that used to take an analyst three hours now runs in under a minute." },
+            {
+              "type": "code",
+              "language": "text",
+              "code": "Prompt: \"Using the attached orders export, write a weekly sales summary. Include revenue vs last week, top 5 products, and one risk to watch.\""
+            },
+            {
+              "type": "quote",
+              "text": "We went from a Monday-morning scramble to a report waiting in the inbox before anyone logged in.",
+              "cite": "Operations Lead, DTC brand"
+            }
+          ]
+        },
+        {
+          "id": "best-practices",
+          "number": 6,
+          "accent": "pink",
+          "heading": "Best Practices",
+          "blocks": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Give Claude the smallest dataset that answers the question - not the whole database.",
+                "Version your prompts alongside your code.",
+                "Always keep a human review step before a report is shared externally.",
+                "Log every run so you can trace how a number was produced."
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "warning",
+              "icon": "alert-triangle",
+              "title": "Watch your data scope",
+              "text": "Only expose the MCP resources a workflow actually needs. Broad read access is the most common security mistake.",
+              "items": null
+            }
+          ]
+        },
+        {
+          "id": "tools-and-integrations",
+          "number": 7,
+          "accent": "yellow",
+          "heading": "Tools and Integrations",
+          "blocks": [
+            {
+              "type": "table",
+              "headers": ["Layer", "Example tools"],
+              "rows": [
+                ["Data source", "Google Sheets, Postgres, Shopify Admin API"],
+                ["MCP server", "Official reference servers, custom Node/Python server"],
+                ["Model", "Claude (Anthropic API)"],
+                ["Delivery", "Email, Slack, Notion, PDF export"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "challenges-and-solutions",
+          "number": 8,
+          "accent": "purple",
+          "heading": "Challenges & Solutions",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "alert-triangle", "color": "pink", "title": "Hallucinated numbers", "text": "Feed structured data and ask Claude to cite the row it used." },
+                { "icon": "gauge", "color": "yellow", "title": "Large datasets", "text": "Pre-aggregate before sending; pass summaries, not raw rows." },
+                { "icon": "clock", "color": "purple", "title": "Stale data", "text": "Trigger the workflow on a schedule tied to your data refresh." },
+                { "icon": "check-circle", "color": "green", "title": "Inconsistent format", "text": "Provide an output template in the prompt every run." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "conclusion",
+          "number": 9,
+          "accent": "pink",
+          "heading": "Conclusion",
+          "blocks": [
+            { "type": "paragraph", "text": "Claude + MCP turns reporting from a recurring chore into a background process. Start with one report, get the prompt and data scope right, then expand." },
+            {
+              "type": "image",
+              "src": "/assets/blog/covers/photo-1682019652913-b61a48eeba4f.webp",
+              "alt": "Automated report landing in a team inbox",
+              "caption": "The finished workflow: raw data in, plain-English report out."
+            }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "Do I need to write code to use MCP?", "a": "For off-the-shelf connectors, no. For custom data sources you will need a small MCP server, typically a few dozen lines of Node or Python." },
+        { "q": "Is my data sent to Anthropic for training?", "a": "API traffic is not used for training. Still, only expose the data a workflow needs." },
+        { "q": "How much does this cost to run?", "a": "Mostly the Claude API tokens per run. A weekly summary over aggregated data is usually a few cents." }
+      ]
+    },
+
+    "cta": {
+      "heading": "Want a reporting workflow like this?",
+      "text": "We build Claude + MCP automations for e-commerce teams.",
+      "buttonLabel": "Book a Free Consultation",
+      "buttonLink": "https://calendly.com/ingversionsdigital/30min"
+    }
+  }
+}

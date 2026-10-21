@@ -9,6 +9,7 @@ const SEO = ({
   path = "",
   image = DEFAULT_OG_IMAGE,
   noindex = false,
+  keywords,
   breadcrumb,
   jsonLd,
 }) => {
@@ -18,6 +19,7 @@ const SEO = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords.join(", ")} />}
       <meta
         name="robots"
         content={

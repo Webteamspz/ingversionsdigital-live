@@ -1,0 +1,951 @@
+[
+  {
+    "slug": "ai-reporting-workflow-claude-mcp-guide",
+
+    "seo": {
+      "title": "The Complete Guide to AI Reporting Workflows with Claude + MCP | Ingversions Blog",
+      "description": "Automate data collection, analysis, and reporting with Claude AI and the Model Context Protocol (MCP) in a secure, scalable architecture.",
+      "keywords": ["Claude", "MCP", "AI reporting", "Model Context Protocol", "automation", "Anthropic"],
+      "canonical": "https://ingversionsdigital.com/blog/ai-reporting-workflow-claude-mcp-guide"
+    },
+
+    "meta": {
+      "category": "AI & Automation",
+      "categorySlug": "ai-automation",
+      "date": "August 27, 2026",
+      "readTime": "12 min read",
+      "coverImage": "/assets/blog/covers/photo-1653564142033-ab3532091515.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "The Complete Guide to AI Reporting Workflows with Claude + MCP",
+      "excerpt": "Automate data collection, analysis, and reporting with Claude AI and the Model Context Protocol (MCP) in a secure, scalable architecture.",
+      "badges": [
+        { "label": "AI & Automation", "color": "pink" },
+        { "label": "Technical Guide", "color": "yellow" }
+      ],
+      "highlights": [
+        { "icon": "zap", "color": "purple", "label": "Automate Reports" },
+        { "icon": "bar-chart-3", "color": "purple", "label": "Analyze Smarter" }
+      
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "Manual reporting is slow, repetitive, and error-prone. By combining Claude AI's advanced reasoning capabilities with the ==Model Context Protocol (MCP)==, you can build a powerful reporting workflow that collects data, analyzes it, and generates actionable insights—automatically." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "what-is-claude-mcp",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "What is Claude + MCP?",
+          "blocks": [
+            { "type": "paragraph", "text": "**Claude** is an advanced AI assistant from Anthropic that excels at understanding, analyzing, and generating human-like text." },
+            { "type": "paragraph", "text": "**MCP (Model Context Protocol)** is an open protocol that allows AI models like Claude to securely connect with external tools, data sources, and systems in a standardized way." },
+            { "type": "callout", "variant": "star", "icon": "star", "title": null, "text": "Together, Claude + MCP enable AI to access real-world data, perform complex analysis, and deliver business-ready reports in a consistent, repeatable workflow.", "items": null },
+            { "type": "divider" }
+          ]
+        },
+        {
+          "id": "why-use-claude-mcp",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Why Use Claude and MCP for Reporting?",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "clock", "color": "purple", "title": "Save Time", "text": "Automate data gathering and report generation." },
+                { "icon": "check-circle", "color": "pink", "title": "Increase Accuracy", "text": "AI minimizes human error and ensures consistency." },
+                { "icon": "trending-up", "color": "yellow", "title": "Deeper Insights", "text": "Claude analyzes data and explains trends clearly." },
+                { "icon": "layout-grid", "color": "purple", "title": "Scalable", "text": "Easily handle more data sources and complex reporting needs." }
+              ]
+            },
+            { "type": "divider" }
+          ]
+        },
+        {
+          "id": "architecture-overview",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Architecture Overview",
+          "blocks": [
+            { "type": "paragraph", "text": "The workflow connects your data sources to Claude through MCP, processes the data, and outputs a well-structured report." },
+            {
+              "type": "flowDiagram",
+              "steps": [
+                { "icon": "database", "color": "gray", "title": "Data Sources", "subtitle": "Sheets, DB, APIs" },
+                { "icon": "server", "color": "yellow", "title": "MCP Server", "subtitle": "Secure Connection" },
+                { "icon": "brain", "color": "purple", "title": "Claude AI", "subtitle": "Analysis & Reasoning" },
+                { "icon": "file-text", "color": "pink", "title": "Report Gen", "subtitle": "Structured Output" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "step-by-step-building",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Step-by-Step: Building the Workflow",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Define the Reporting Goal", "text": "Identify what metrics and insights your report should include." },
+                { "title": "Connect Data Sources via MCP", "text": "Use MCP connectors to pull data from your databases, APIs, or SaaS tools." },
+                { "title": "Send Data to Claude", "text": "Pass the retrieved data and reporting instructions to Claude for analysis." },
+                { "title": "Analyze and Generate Insights", "text": "Claude processes the data, identifies trends, and writes natural-language insights." }
+              ]
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "lightbulb",
+              "text": "Use Claude prompts that clearly define:",
+              "checklist": ["The goal of the report", "Key metrics to focus on", "The desired output format", "Tone and detail level"]
+            }
+          ]
+        },
+        {
+          "id": "example-use-case",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Example Use Case",
+          "blocks": [
+            { "type": "paragraph", "text": "A weekly sales report that used to take an analyst three hours now runs in under a minute." },
+            { "type": "code", "language": "text", "code": "Prompt: \"Using the attached orders export, write a weekly sales summary. Include revenue vs last week, top 5 products, and one risk to watch.\"" },
+            { "type": "quote", "text": "We went from a Monday-morning scramble to a report waiting in the inbox before anyone logged in.", "cite": "Operations Lead, DTC brand" }
+          ]
+        },
+        {
+          "id": "best-practices",
+          "number": 6,
+          "accent": "pink",
+          "heading": "Best Practices",
+          "blocks": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Give Claude the smallest dataset that answers the question - not the whole database.",
+                "Version your prompts alongside your code.",
+                "Always keep a human review step before a report is shared externally.",
+                "Log every run so you can trace how a number was produced."
+              ]
+            },
+            { "type": "callout", "variant": "warning", "icon": "alert-triangle", "title": "Watch your data scope", "text": "Only expose the MCP resources a workflow actually needs. Broad read access is the most common security mistake.", "items": null }
+          ]
+        },
+        {
+          "id": "tools-and-integrations",
+          "number": 7,
+          "accent": "yellow",
+          "heading": "Tools and Integrations",
+          "blocks": [
+            {
+              "type": "table",
+              "headers": ["Layer", "Example tools"],
+              "rows": [
+                ["Data source", "Google Sheets, Postgres, Shopify Admin API"],
+                ["MCP server", "Official reference servers, custom Node/Python server"],
+                ["Model", "Claude (Anthropic API)"],
+                ["Delivery", "Email, Slack, Notion, PDF export"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "challenges-and-solutions",
+          "number": 8,
+          "accent": "purple",
+          "heading": "Challenges & Solutions",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "alert-triangle", "color": "pink", "title": "Hallucinated numbers", "text": "Feed structured data and ask Claude to cite the row it used." },
+                { "icon": "gauge", "color": "yellow", "title": "Large datasets", "text": "Pre-aggregate before sending; pass summaries, not raw rows." },
+                { "icon": "clock", "color": "purple", "title": "Stale data", "text": "Trigger the workflow on a schedule tied to your data refresh." },
+                { "icon": "check-circle", "color": "green", "title": "Inconsistent format", "text": "Provide an output template in the prompt every run." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "conclusion",
+          "number": 9,
+          "accent": "pink",
+          "heading": "Conclusion",
+          "blocks": [
+            { "type": "paragraph", "text": "Claude + MCP turns reporting from a recurring chore into a background process. Start with one report, get the prompt and data scope right, then expand." },
+            { "type": "image", "src": "/assets/blog/covers/photo-1682019652913-b61a48eeba4f.webp", "alt": "Automated report landing in a team inbox", "caption": "The finished workflow: raw data in, plain-English report out." }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "Do I need to write code to use MCP?", "a": "For off-the-shelf connectors, no. For custom data sources you will need a small MCP server, typically a few dozen lines of Node or Python." },
+        { "q": "Is my data sent to Anthropic for training?", "a": "API traffic is not used for training. Still, only expose the data a workflow needs." },
+        { "q": "How much does this cost to run?", "a": "Mostly the Claude API tokens per run. A weekly summary over aggregated data is usually a few cents." }
+      ]
+    },
+
+    "cta": { "heading": "Want a reporting workflow like this?", "text": "We build Claude + MCP automations for e-commerce teams.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+
+  {
+    "slug": "shopify-store-speed-optimization-checklist",
+
+    "seo": {
+      "title": "Speeding Up Your Shopify Store: A Practical Checklist | Ingversions Blog",
+      "description": "A field-tested checklist for improving Shopify load times, from image handling and app audits to theme code and Core Web Vitals.",
+      "keywords": ["Shopify", "site speed", "Core Web Vitals", "performance", "LCP", "theme optimization"],
+      "canonical": "https://ingversionsdigital.com/blog/shopify-store-speed-optimization-checklist"
+    },
+
+    "meta": {
+      "category": "Shopify Development",
+      "categorySlug": "shopify",
+      "date": "August 28, 2026",
+      "readTime": "9 min read",
+      "coverImage": "/assets/blog/covers/photo-1517245386807-bb43f82c33c4.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "Speeding Up Your Shopify Store: A Practical Checklist",
+      "excerpt": "A field-tested checklist for improving Shopify load times, from image handling and app audits to theme code and Core Web Vitals.",
+      "badges": [
+        { "label": "Shopify Development", "color": "purple" },
+        { "label": "Performance", "color": "yellow" }
+      ],
+      "highlights": [
+        { "icon": "rocket", "color": "purple", "label": "Faster Loads" },
+        { "icon": "image", "color": "pink", "label": "Lighter Images" },
+        { "icon": "layers", "color": "yellow", "label": "Fewer Apps" },
+        { "icon": "gauge", "color": "green", "label": "Better Vitals" }
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "Speed is a conversion feature. A one-second delay on mobile can measurably drop add-to-cart rate. This is the checklist we run on every ==Shopify performance audit==, in the order we run it." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "measure-first",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Measure Before You Touch Anything",
+          "blocks": [
+            { "type": "paragraph", "text": "You cannot improve what you have not measured. Get a baseline on a **real device on 4G**, not just a desktop lab score." },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Run PageSpeed Insights on the home page, a collection, and a product page.",
+                "Record Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS).",
+                "Check the field data section - that is what Google actually ranks on."
+              ]
+            },
+            { "type": "callout", "variant": "info", "icon": "gauge", "title": "Target numbers", "text": "LCP under 2.5s, INP under 200ms, CLS under 0.1 - measured on mobile field data, not lab.", "items": null }
+          ]
+        },
+        {
+          "id": "images",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Fix Images First - It Is Usually the Biggest Win",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "image", "color": "purple", "title": "Serve modern formats", "text": "Shopify auto-serves WebP - make sure your theme uses the image_url filter, not hardcoded src." },
+                { "icon": "ruler", "color": "pink", "title": "Right-size", "text": "Never ship a 3000px hero to a 400px phone. Use responsive srcset with width descriptors." },
+                { "icon": "eye", "color": "yellow", "title": "Lazy-load below the fold", "text": "loading=\"lazy\" on everything except the LCP image." },
+                { "icon": "move", "color": "green", "title": "Reserve space", "text": "Always set width and height so the layout does not jump (CLS)." }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "liquid",
+              "code": "<img\n  src=\"{{ product.featured_image | image_url: width: 800 }}\"\n  srcset=\"{{ product.featured_image | image_url: width: 400 }} 400w,\n          {{ product.featured_image | image_url: width: 800 }} 800w\"\n  sizes=\"(max-width: 749px) 100vw, 50vw\"\n  width=\"800\" height=\"800\"\n  loading=\"lazy\" alt=\"{{ product.featured_image.alt }}\">"
+            }
+          ]
+        },
+        {
+          "id": "app-audit",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Audit Your App Stack",
+          "blocks": [
+            { "type": "paragraph", "text": "Every app can inject JavaScript into every page. The average store carries 3-6 apps it no longer uses." },
+            {
+              "type": "table",
+              "headers": ["App type", "Speed cost", "Action"],
+              "rows": [
+                ["Reviews widget", "High - often 100KB+ JS", "Keep, but defer loading"],
+                ["Abandoned-cart popup", "Medium", "Keep if it earns its keep in revenue"],
+                ["Old theme-editor app", "Varies", "Uninstall and remove leftover snippets"],
+                ["Currency converter", "Medium", "Replace with Shopify Markets native"]
+              ]
+            },
+            { "type": "callout", "variant": "warning", "icon": "alert-triangle", "title": "Uninstalling is not enough", "text": "Many apps leave Liquid snippets and script tags behind. Search your theme for the app name after removing it.", "items": null }
+          ]
+        },
+        {
+          "id": "theme-code",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Theme Code Hygiene",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Defer non-critical JavaScript", "text": "Add defer to script tags that are not needed for first paint." },
+                { "title": "Preload the LCP image and fonts", "text": "One rel=preload for the hero image and your primary web font." },
+                { "title": "Remove unused CSS", "text": "Old sections and settings often leave dead styles in theme.css." },
+                { "title": "Cut render-blocking third parties", "text": "Load chat widgets and analytics after the page is interactive." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verify",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Re-Measure and Lock It In",
+          "blocks": [
+            { "type": "paragraph", "text": "Re-run the same three pages on the same device. Then add a monthly recurring check so regressions from new apps or campaigns get caught early." },
+            { "type": "quote", "text": "We cut LCP from 4.1s to 2.0s on mobile and add-to-cart rate went up 9% the same month.", "cite": "Head of Ecommerce, apparel brand" }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "Does a higher PageSpeed score guarantee more sales?", "a": "No. It removes a barrier. Speed helps most when your store is currently slow on mobile; going from 90 to 95 rarely moves revenue." },
+        { "q": "Should I switch themes for speed?", "a": "Only if your current theme is an old vintage (non-OS 2.0) build. A modern theme plus this checklist usually beats a rushed migration." },
+        { "q": "Are page builders always slow?", "a": "Not always, but they add weight. Use them for landing pages, not your core product template." }
+      ]
+    },
+
+    "cta": { "heading": "Want a full speed audit?", "text": "We benchmark, fix, and monitor Shopify performance for growing stores.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+
+  {
+    "slug": "checkout-friction-audit-cro",
+
+    "seo": {
+      "title": "The Checkout Friction Audit: Find What Is Costing You Sales | Ingversions Blog",
+      "description": "A structured way to walk your own checkout, score every point of friction, and prioritise the fixes that recover the most revenue.",
+      "keywords": ["CRO", "checkout optimization", "cart abandonment", "conversion rate", "friction audit"],
+      "canonical": "https://ingversionsdigital.com/blog/checkout-friction-audit-cro"
+    },
+
+    "meta": {
+      "category": "CRO",
+      "categorySlug": "cro",
+      "date": "August 29, 2026",
+      "readTime": "8 min read",
+      "coverImage": "/assets/blog/covers/photo-1454165804606-c3d57bc86b40.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "The Checkout Friction Audit: Find What Is Costing You Sales",
+      "excerpt": "A structured way to walk your own checkout, score every point of friction, and prioritise the fixes that recover the most revenue.",
+      "badges": [
+        { "label": "CRO", "color": "green" },
+        { "label": "Playbook", "color": "yellow" }
+      ],
+      "highlights": [
+        { "icon": "search", "color": "purple", "label": "Spot Friction" },
+        { "icon": "list-checks", "color": "pink", "label": "Score It" },
+        { "icon": "credit-card", "color": "yellow", "label": "Fix Checkout" },
+        { "icon": "trending-up", "color": "green", "label": "Recover Revenue" }
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "Most stores obsess over traffic and ignore the last 30 seconds of the journey. A ==checkout friction audit== is the cheapest CRO work you can do: no tools, no budget, just one focused hour walking your own funnel like a first-time buyer." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "the-map",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Map the Whole Path",
+          "blocks": [
+            { "type": "paragraph", "text": "Friction compounds. A tiny hesitation at each step adds up to a closed tab. Write down every screen between product and confirmation." },
+            {
+              "type": "flowDiagram",
+              "steps": [
+                { "icon": "mouse-pointer-click", "color": "gray", "title": "Product", "subtitle": "Add to cart" },
+                { "icon": "shopping-cart", "color": "yellow", "title": "Cart", "subtitle": "Review + edit" },
+                { "icon": "credit-card", "color": "purple", "title": "Checkout", "subtitle": "Info + payment" },
+                { "icon": "check-circle", "color": "green", "title": "Confirmation", "subtitle": "Thank you" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "walk-it",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Walk It on a Phone, on Data",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Use a real phone on cellular", "text": "Not desktop, not wifi. Most abandonment happens on mobile data." },
+                { "title": "Buy something for real", "text": "Go all the way to a completed order. Refund it after." },
+                { "title": "Narrate out loud", "text": "Every time you pause, squint, or reach for information you do not have - that is friction. Note it." },
+                { "title": "Repeat as a guest", "text": "No saved address, no autofill. That is your hardest-working new customer." }
+              ]
+            },
+            { "type": "callout", "variant": "star", "icon": "search", "title": null, "text": "If you hesitate for even half a second, a real customer hesitates longer - and some of them leave. Every pause is a line item.", "items": null }
+          ]
+        },
+        {
+          "id": "score",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Score Each Friction Point",
+          "blocks": [
+            { "type": "paragraph", "text": "Rate every issue you found on impact and effort, then sort. Fix high-impact / low-effort first." },
+            {
+              "type": "table",
+              "headers": ["Friction point", "Impact", "Effort", "Priority"],
+              "rows": [
+                ["No express payment (Shop Pay / Apple Pay)", "High", "Low", "Do now"],
+                ["Surprise shipping cost at final step", "High", "Medium", "Do now"],
+                ["Coupon field too prominent", "Medium", "Low", "Next"],
+                ["Forced account creation", "High", "Low", "Do now"],
+                ["Slow payment page load", "Medium", "High", "Plan"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "common-wins",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "The Fixes That Show Up Every Time",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "zap", "color": "purple", "title": "Enable express checkout", "text": "Shop Pay, Apple Pay, Google Pay above the fold in cart and checkout." },
+                { "icon": "eye", "color": "pink", "title": "Show shipping early", "text": "Estimate cost and date in the cart, before the customer commits." },
+                { "icon": "users", "color": "yellow", "title": "Guest checkout default", "text": "Offer an account after purchase, never before." },
+                { "icon": "shield", "color": "green", "title": "Trust near payment", "text": "Return policy, secure-payment note, and support contact by the pay button." }
+              ]
+            },
+            { "type": "callout", "variant": "warning", "icon": "alert-triangle", "title": "Do not fix everything at once", "text": "Ship changes in small batches so you can tell which one moved the number.", "items": null }
+          ]
+        },
+        {
+          "id": "measure-impact",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Measure the Recovery",
+          "blocks": [
+            { "type": "paragraph", "text": "Track cart-to-checkout and checkout-to-purchase rates weekly. A friction audit that does not change those numbers was a list, not a fix." },
+            { "type": "quote", "text": "Removing forced signup and adding Shop Pay took an afternoon and lifted checkout completion by 11%.", "cite": "Founder, home goods store" }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "How often should I run this?", "a": "Once a quarter, and always after a theme update, a new checkout app, or a payment provider change." },
+        { "q": "Shopify checkout is locked down - what can I actually change?", "a": "Plenty: express payments, cart page UX, shipping presentation, trust content, and (on Plus) checkout extensions." },
+        { "q": "Do I need session recording tools?", "a": "They help, but the manual walk-through finds most issues for free. Add tools once you have exhausted the obvious." }
+      ]
+    },
+
+    "cta": { "heading": "Want us to audit your checkout?", "text": "We run friction audits and ship the fixes for Shopify stores.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+
+  {
+    "slug": "reading-ab-test-results-without-fooling-yourself",
+
+    "seo": {
+      "title": "Reading A/B Test Results Without Fooling Yourself | Ingversions Blog",
+      "description": "The statistical traps that make losing tests look like winners, and a simple discipline for calling results you can trust.",
+      "keywords": ["A/B testing", "statistical significance", "p-value", "sample size", "experimentation", "CRO"],
+      "canonical": "https://ingversionsdigital.com/blog/reading-ab-test-results-without-fooling-yourself"
+    },
+
+    "meta": {
+      "category": "A/B Testing",
+      "categorySlug": "ab-testing",
+      "date": "August 30, 2026",
+      "readTime": "7 min read",
+      "coverImage": "/assets/blog/covers/photo-1620712943543-bcc4688e7485.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "Reading A/B Test Results Without Fooling Yourself",
+      "excerpt": "The statistical traps that make losing tests look like winners, and a simple discipline for calling results you can trust.",
+      "badges": [
+        { "label": "A/B Testing", "color": "yellow" },
+        { "label": "Statistics", "color": "pink" }
+      ],
+      "highlights": [
+        { "icon": "flask-conical", "color": "purple", "label": "Run It Right" },
+        { "icon": "scale", "color": "pink", "label": "Check Balance" },
+        { "icon": "timer", "color": "yellow", "label": "Wait Long Enough" },
+        { "icon": "target", "color": "green", "label": "Call It Honestly" }
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "The hardest part of A/B testing is not running the test - it is not lying to yourself about the result. ==Peeking, tiny samples, and ignored guardrail metrics== turn noise into false confidence, and false confidence ships changes that quietly cost money." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "significance-is-not-enough",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "\"95% Significant\" Is Not a Finish Line",
+          "blocks": [
+            { "type": "paragraph", "text": "Statistical significance tells you the result is unlikely to be pure chance *given the data so far*. It says nothing about whether you collected enough data, or whether you looked too early." },
+            { "type": "callout", "variant": "warning", "icon": "alert-triangle", "title": "Peeking inflates false positives", "text": "If you check the dashboard daily and stop the moment it hits 95%, your real false-positive rate is closer to 25-30%, not 5%.", "items": null }
+          ]
+        },
+        {
+          "id": "pre-commit",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Decide the Rules Before You Launch",
+          "blocks": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Pick the primary metric. One. Everything else is a guardrail or secondary.",
+                "Estimate the minimum detectable effect you would care about.",
+                "Use a sample-size calculator to get the required visitors per variant.",
+                "Convert that to a duration in whole business weeks, and commit to it."
+              ]
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "list-checks",
+              "text": "Write these four numbers in the test ticket before it goes live:",
+              "checklist": ["Primary metric", "Minimum effect worth shipping", "Visitors per variant needed", "End date (whole weeks)"]
+            }
+          ]
+        },
+        {
+          "id": "guardrails",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Watch the Guardrail Metrics",
+          "blocks": [
+            { "type": "paragraph", "text": "A variant can lift clicks and wreck revenue. Always read the whole picture." },
+            {
+              "type": "table",
+              "headers": ["If primary goes up but...", "It might mean"],
+              "rows": [
+                ["Revenue per visitor is flat", "You shifted clicks, not sales"],
+                ["Refund rate rises", "The copy over-promised"],
+                ["Add-to-cart up, checkout down", "New friction later in the funnel"],
+                ["Only mobile improved", "Segment before you roll out to everyone"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "srm",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Check the Split Actually Happened",
+          "blocks": [
+            { "type": "paragraph", "text": "A 50/50 test that delivered 54/46 has a **sample ratio mismatch**. Something is broken - a redirect, a bot filter, an analytics gap - and the result is not trustworthy, however pretty the graph." },
+            { "type": "callout", "variant": "info", "icon": "scale", "title": "Quick gut check", "text": "With tens of thousands of visitors, a genuine 50/50 split stays within roughly a percentage point. Bigger gaps need investigation, not interpretation.", "items": null }
+          ]
+        },
+        {
+          "id": "calling-it",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Calling the Result",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "check-circle", "color": "green", "title": "Ship it", "text": "Hit the pre-planned sample, significant on primary, guardrails clean." },
+                { "icon": "repeat", "color": "yellow", "title": "Re-run it", "text": "Promising but under-powered, or a data issue mid-flight." },
+                { "icon": "x", "color": "pink", "title": "Kill it", "text": "Flat or negative at full sample. A clean null is a real, useful result." },
+                { "icon": "search", "color": "purple", "title": "Segment then decide", "text": "Strong on one device or audience, neutral elsewhere." }
+              ]
+            },
+            { "type": "quote", "text": "Half our \"winners\" stopped winning once we forced ourselves to wait for the planned sample size.", "cite": "Growth lead, subscription brand" }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "Can I ever stop a test early?", "a": "Only to stop a clearly harmful variant, or if the tool uses a sequential/Bayesian method designed for continuous monitoring. Not to lock in a win." },
+        { "q": "What if the test never reaches significance?", "a": "That is an answer: the effect is smaller than you hoped. Ship the cheaper variant or move on." },
+        { "q": "How many tests should be winners?", "a": "Industry-wide, roughly 1 in 5 to 1 in 8. If most of your tests win, your analysis is too loose." }
+      ]
+    },
+
+    "cta": { "heading": "Want a testing program you can trust?", "text": "We design, run, and analyse experiments for e-commerce teams.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+
+  {
+    "slug": "prelaunch-qa-process-that-scales",
+
+    "seo": {
+      "title": "Building a Pre-Launch QA Process That Scales | Ingversions Blog",
+      "description": "How to turn ad-hoc launch-day panic into a repeatable QA process: environments, a tiered checklist, automation, and a go/no-go gate.",
+      "keywords": ["QA", "quality assurance", "pre-launch checklist", "regression testing", "test automation", "ecommerce"],
+      "canonical": "https://ingversionsdigital.com/blog/prelaunch-qa-process-that-scales"
+    },
+
+    "meta": {
+      "category": "Quality Assurance",
+      "categorySlug": "qa",
+      "date": "August 31, 2026",
+      "readTime": "10 min read",
+      "coverImage": "/assets/blog/covers/photo-1531746790731-6c087fecd65a.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "Building a Pre-Launch QA Process That Scales",
+      "excerpt": "How to turn ad-hoc launch-day panic into a repeatable QA process: environments, a tiered checklist, automation, and a go/no-go gate.",
+      "badges": [
+        { "label": "Quality Assurance", "color": "green" },
+        { "label": "Process", "color": "purple" }
+      ],
+      "highlights": [
+        { "icon": "list-checks", "color": "purple", "label": "Tiered Checklist" },
+        { "icon": "git-branch", "color": "pink", "label": "Real Environments" },
+        { "icon": "bug", "color": "yellow", "label": "Catch Regressions" },
+        { "icon": "shield", "color": "green", "label": "Go / No-Go Gate" }
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "Every store has a QA process. For most it is called \"the founder clicks around for ten minutes and hopes.\" That works until it does not - usually on the highest-traffic day of the year. A ==repeatable QA process== is boring on purpose, and it scales with your release cadence." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "environments",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Test Somewhere That Looks Like Production",
+          "blocks": [
+            { "type": "paragraph", "text": "Bugs hide in the gap between your test setup and the real store. Close that gap first." },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Use a duplicate theme or a dedicated staging store, not the live theme's edit mode.",
+                "Seed realistic data: real product counts, real collection sizes, a discount code, an out-of-stock variant.",
+                "Test with production-like apps installed - app conflicts are a top launch-day failure."
+              ]
+            },
+            { "type": "callout", "variant": "info", "icon": "git-branch", "title": "Keep a throwaway order path", "text": "A $0.01 hidden product plus a 100%-off code lets you complete real checkouts without touching payouts.", "items": null }
+          ]
+        },
+        {
+          "id": "tiered-checklist",
+          "number": 2,
+          "accent": "purple",
+          "heading": "A Checklist With Tiers, Not 200 Flat Items",
+          "blocks": [
+            { "type": "paragraph", "text": "Nobody runs a 200-line checklist honestly. Split it by risk so the right depth matches the change." },
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "zap", "color": "purple", "title": "Smoke (every deploy)", "text": "Home, collection, product, cart, checkout complete. 5 minutes." },
+                { "icon": "layers", "color": "pink", "title": "Core (weekly release)", "text": "Search, filters, account, discounts, email receipts, key landing pages." },
+                { "icon": "smartphone", "color": "yellow", "title": "Cross-device (theme change)", "text": "iOS Safari, Android Chrome, one small viewport, one desktop." },
+                { "icon": "award", "color": "green", "title": "Full regression (big launch)", "text": "Everything, plus load test and analytics/pixel verification." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "the-run",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Running the Pass",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Pick the tier", "text": "Match it to the size of the change, decided by the person merging." },
+                { "title": "Run it on staging", "text": "Log every failure with a screenshot, URL, device, and steps to reproduce." },
+                { "title": "Triage", "text": "Blocker, major, or minor. Blockers stop the release; minors get tickets." },
+                { "title": "Re-test fixes only", "text": "Verify each fix and one thing around it - not the whole checklist again." }
+              ]
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "bug",
+              "text": "A good bug report has all of these - missing one wastes a round-trip:",
+              "checklist": ["What you did (steps)", "What you expected", "What happened", "Device / browser / URL", "Screenshot or recording"]
+            }
+          ]
+        },
+        {
+          "id": "automate",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Automate the Boring 20%",
+          "blocks": [
+            { "type": "paragraph", "text": "You will never automate everything, and you should not try. Automate the checks that are identical every time and expensive to miss." },
+            {
+              "type": "table",
+              "headers": ["Check", "Automate?", "Why"],
+              "rows": [
+                ["Checkout completes", "Yes", "Highest cost of failure, stable steps"],
+                ["Add to cart from PDP", "Yes", "Runs on every deploy, fast"],
+                ["Visual layout of a campaign page", "No", "Changes constantly, human eye is faster"],
+                ["Broken-link scan", "Yes", "Cheap, catches content mistakes"],
+                ["Analytics events fire", "Yes", "Silent when broken, big blind spot"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gate",
+          "number": 5,
+          "accent": "purple",
+          "heading": "The Go / No-Go Gate",
+          "blocks": [
+            { "type": "paragraph", "text": "One named person makes the call, against written criteria, and records it. That is the whole ritual - it just has to happen every time." },
+            { "type": "callout", "variant": "success", "icon": "shield", "title": "Ship criteria", "text": "Zero open blockers, smoke suite green on staging and production, rollback plan written, owner on call for two hours after launch.", "items": null },
+            { "type": "image", "src": "/assets/blog/covers/photo-1518186285589-2f7649de83e0.webp", "alt": "A team reviewing a launch checklist on a screen", "caption": "The gate is a five-minute conversation, not a committee." }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "We are a team of two. Is this overkill?", "a": "Scale it down: just the smoke tier and a one-line go/no-go. The structure matters more than the size." },
+        { "q": "What should we automate first?", "a": "The checkout-complete path. It has the highest cost of failure and the most stable steps." },
+        { "q": "How do we stop the checklist rotting?", "a": "Review it after every incident. If a bug reached production, add or change one line so it cannot happen silently again." }
+      ]
+    },
+
+    "cta": { "heading": "Want a QA process built around your releases?", "text": "We set up practical QA and test automation for Shopify teams.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+
+  {
+    "slug": "designing-product-pages-that-sell",
+
+    "seo": {
+      "title": "Designing Product Pages That Sell | Ingversions Blog",
+      "description": "A design-led breakdown of the product page: hierarchy, imagery, the buy box, proof, and the details that quietly decide the sale.",
+      "keywords": ["Design", "product page design", "PDP", "ecommerce UX", "visual hierarchy", "conversion design"],
+      "canonical": "https://ingversionsdigital.com/blog/designing-product-pages-that-sell"
+    },
+
+    "meta": {
+      "category": "Design",
+      "categorySlug": "design",
+      "date": "September 1, 2026",
+      "readTime": "9 min read",
+      "coverImage": "/assets/blog/covers/photo-1455390582262-044cdead277a.webp",
+      "author": { "name": "Ingversions Team", "avatar": "/assets/team/author-1.png" }
+    },
+
+    "hero": {
+      "title": "Designing Product Pages That Sell",
+      "excerpt": "A design-led breakdown of the product page: hierarchy, imagery, the buy box, proof, and the details that quietly decide the sale.",
+      "badges": [
+        { "label": "Design", "color": "pink" },
+        { "label": "UX", "color": "purple" }
+      ],
+      "highlights": [
+        { "icon": "layout", "color": "purple", "label": "Clear Hierarchy" },
+        { "icon": "image", "color": "pink", "label": "Honest Imagery" },
+        { "icon": "shopping-cart", "color": "yellow", "label": "Frictionless Buy Box" },
+        { "icon": "sparkles", "color": "green", "label": "Trust in the Details" }
+      ]
+    },
+
+    "toc": { "eyebrow": "ARTICLE NAVIGATION", "title": "Table of Contents", "generateFromSections": true, "items": [] },
+
+    "intro": [
+      { "type": "paragraph", "text": "The product page is where browsing becomes buying. Good PDP design is not decoration - it is ==answering the customer's questions in the order they ask them==, and removing every reason to hesitate before the add-to-cart tap." }
+    ],
+
+    "body": {
+      "sections": [
+        {
+          "id": "hierarchy",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Lead With Hierarchy, Not Style",
+          "blocks": [
+            { "type": "paragraph", "text": "On mobile the customer sees one screen at a time. Decide what each screen has to accomplish before you choose a single colour or font." },
+            {
+              "type": "flowDiagram",
+              "steps": [
+                { "icon": "image", "color": "gray", "title": "Screen 1", "subtitle": "Image + name + price" },
+                { "icon": "shopping-cart", "color": "yellow", "title": "Screen 2", "subtitle": "Options + add to cart" },
+                { "icon": "type", "color": "purple", "title": "Screen 3", "subtitle": "Short value copy" },
+                { "icon": "sparkles", "color": "pink", "title": "Screen 4+", "subtitle": "Proof + details" }
+              ]
+            },
+            { "type": "callout", "variant": "star", "icon": "layout", "title": null, "text": "If a first-time visitor cannot tell what the product is, what it costs, and how to buy it within one thumb-scroll, the design has failed - regardless of how it looks.", "items": null }
+          ]
+        },
+        {
+          "id": "imagery",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Imagery Does the Heavy Lifting",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                { "icon": "eye", "color": "purple", "title": "Show scale", "text": "The product in a hand, on a body, in a room. Absolute size is invisible without context." },
+                { "icon": "layers", "color": "pink", "title": "Show the range", "text": "Every colourway and key angle. Missing an angle reads as hiding something." },
+                { "icon": "ruler", "color": "yellow", "title": "Show detail", "text": "One tight crop of texture, stitching, or finish quality." },
+                { "icon": "smartphone", "color": "green", "title": "Design for the phone", "text": "First image must read at 375px wide. Test it there, not on your monitor." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "buy-box",
+          "number": 3,
+          "accent": "pink",
+          "heading": "The Buy Box Is Sacred Space",
+          "blocks": [
+            { "type": "paragraph", "text": "Price, variant selection, quantity, and the add-to-cart button. Nothing competes with these. Every extra element here is a tax on the conversion." },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Selected variant is always obvious - a state, not a guess.",
+                "Unavailable combinations are visibly disabled, not silently broken.",
+                "The button says what happens next (\"Add to cart\"), never just \"Submit\".",
+                "Shipping estimate and return terms sit one line below, not three taps away."
+              ]
+            },
+            { "type": "callout", "variant": "warning", "icon": "alert-triangle", "title": "Sticky bars help - until they cover content", "text": "A sticky add-to-cart on mobile lifts conversion, but make sure it never hides the variant picker or size guide.", "items": null }
+          ]
+        },
+        {
+          "id": "proof",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Proof, Placed Where Doubt Appears",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                { "title": "Rating near the title", "text": "A star rating by the product name answers \"is this any good?\" instantly." },
+                { "title": "Reviews after the description", "text": "Once they know what it is, they want to know if it delivered." },
+                { "title": "Photos from customers", "text": "Real-world images beat studio shots for believability." },
+                { "title": "Objection-handling FAQ last", "text": "Fit, care, compatibility, delivery - the questions that stall a purchase." }
+              ]
+            },
+            { "type": "quote", "text": "We moved the review stars up next to the title and nothing else. PDP conversion rose about 6%.", "cite": "Design lead, beauty brand" }
+          ]
+        },
+        {
+          "id": "details",
+          "number": 5,
+          "accent": "purple",
+          "heading": "The Details That Quietly Decide It",
+          "blocks": [
+            {
+              "type": "table",
+              "headers": ["Detail", "Why it matters"],
+              "rows": [
+                ["Size guide in a modal, not a new page", "Keeps the customer in the flow"],
+                ["Delivery date, not just \"3-5 days\"", "Concrete beats vague for confidence"],
+                ["Low-stock note only when true", "Fake urgency is detected and punished"],
+                ["Clear returns line", "Removes the biggest first-purchase fear"]
+              ]
+            },
+            { "type": "callout", "variant": "success", "icon": "sparkles", "title": "The test", "text": "Read your PDP as someone about to spend their own money on a brand they have never heard of. Every unanswered question is a lost sale.", "items": null }
+          ]
+        }
+      ]
+    },
+
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        { "q": "How long should the description be?", "a": "Short value copy high up, full detail lower down. Let confident buyers add to cart in seconds and researchers keep scrolling." },
+        { "q": "Video or photos?", "a": "Photos are non-negotiable. Video is a strong addition for products where motion, fit, or use is hard to convey in a still." },
+        { "q": "Should every product page look identical?", "a": "The structure should. The content depth can flex - a $15 accessory needs far less page than a $400 mattress." }
+      ]
+    },
+
+    "cta": { "heading": "Want product pages designed to convert?", "text": "We design and build high-performing PDP templates for Shopify.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  }
+]

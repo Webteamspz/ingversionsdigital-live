@@ -16,7 +16,7 @@ Directional test results typically land in 2-4 weeks; stronger confidence in 6-8
 - [Pricing](https://ingversionsdigital.com/pricing): Retainer, block-of-hours, and project engagement models.
 - [About Us](https://ingversionsdigital.com/about-us): Company background, values, and expertise.
 - [Team](https://ingversionsdigital.com/teampage): The people running the experiments.
-- [Blog](https://blog.ingversionsdigital.com/): Articles on Shopify development, CRO, and A/B testing.
+- [Blog](https://ingversionsdigital.com/blog): Articles on Shopify development, CRO, and A/B testing.
 
 ## Services
 

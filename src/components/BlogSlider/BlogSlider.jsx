@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { ArrowRight } from 'lucide-react';
@@ -8,11 +9,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './BlogSlider.module.css';
-
-const handleBlogLinkClick = (e, url) => {
-  e.preventDefault();
-  alert(`You should visit this link if you want to visit the blogs: ${url}`);
-};
 
 const BlogSlider = () => {
   const prevRef = useRef(null);
@@ -27,14 +23,10 @@ const BlogSlider = () => {
             <h2 className={styles.startedTitle}>{data.blog.heading}</h2>
           </div>
 
-          <a
-            href={data.blog.seeMoreUrl}
-            className={styles.seeMoreLink}
-            onClick={(e) => handleBlogLinkClick(e, data.blog.seeMoreUrl)}
-          >
+          <Link to={data.blog.seeMoreUrl} className={styles.seeMoreLink}>
             {data.blog.seeMoreText}
             <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
-          </a>
+          </Link>
         </div>
 
         <button
@@ -80,13 +72,7 @@ const BlogSlider = () => {
         >
           {data.blog.list.map((article) => (
             <SwiperSlide key={article.id}>
-              <a
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.blogCardLink}
-                onClick={(e) => handleBlogLinkClick(e, article.url)}
-              >
+              <Link to={article.url} className={styles.blogCardLink}>
                 <div className={styles.blogCard}>
                   <div className={styles.imgWrapper}>
                     <img src={article.image} alt={article.title} className={styles.blogImage} loading="lazy" />
@@ -103,7 +89,7 @@ const BlogSlider = () => {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
