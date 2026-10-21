@@ -13,6 +13,8 @@
   --palette-accent: #7c3aed;
   --palette-accent-strong: #6d28d9;
   --palette-accent-soft: #a78bfa;
+  --palette-cta: #dc2626;
+  --palette-cta-strong: #b91c1c;
   --secondary: #f472b6;
   --tertiary: #fbbf24;
   --quaternary: #34d399;
@@ -75,13 +77,16 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
-#root,
-body,
 html {
   height: 100%
 }
+#root,
+body {
+  min-height: 100%
+}
 body {
   margin: 0;
+  padding-bottom: var(--promo-bar-h, 0px);
   background: var(--palette-bg-950);
   color: var(--palette-text-secondary);
   font-family: "Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
@@ -91,6 +96,10 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 15px
+}
+.consent-locked,
+.consent-locked body {
+  overflow: hidden!important
 }
 .skip-link {
   position: absolute;
@@ -139,6 +148,12 @@ body {
   box-shadow: var(--shadow-pop-hover);
   background: var(--palette-accent-strong);
   color: var(--palette-bg-800)
+}
+.btn.btn-book {
+  background: var(--palette-cta)
+}
+.btn.btn-book:hover {
+  background: var(--palette-cta-strong)
 }
 .btn:active {
   transform: translate(2px,2px);

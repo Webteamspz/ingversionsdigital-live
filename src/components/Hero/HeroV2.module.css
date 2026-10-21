@@ -92,13 +92,13 @@
   display: inline-flex;
   gap: 10px;
   align-items: center;
-  background: var(--palette-accent);
+  background: var(--palette-cta);
   border: 2px solid var(--palette-text-primary);
   box-shadow: 4px 4px 0 var(--palette-text-primary);
   color: var(--palette-bg-800)
 }
 .primaryAction:hover {
-  background: var(--palette-accent-strong);
+  background: var(--palette-cta-strong);
   box-shadow: 6px 6px 0 var(--palette-text-primary);
   transform: translate(-2px,-2px)
 }

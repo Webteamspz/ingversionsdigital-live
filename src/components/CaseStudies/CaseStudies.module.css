@@ -369,8 +369,8 @@
   padding: 16px 26px;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
-  background: var(--tertiary);
-  color: var(--palette-text-primary);
+  background: var(--palette-cta);
+  color: var(--palette-bg-800);
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
@@ -379,6 +379,7 @@
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
 }
 .ctaButton:hover {
+  background: var(--palette-cta-strong);
   transform: translate(-2px,-2px);
   box-shadow: 6px 6px 0 0 var(--palette-border)
 }

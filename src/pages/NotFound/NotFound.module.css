@@ -116,6 +116,12 @@
   transform: translate(-2px,-2px);
   box-shadow: var(--shadow-pop-hover)
 }
+.nfBtnBook {
+  background: var(--palette-cta)
+}
+.nfBtnBook:hover {
+  background: var(--palette-cta-strong)
+}
 .nfBtn:active {
   transform: translate(2px,2px);
   box-shadow: var(--shadow-pop-active)
