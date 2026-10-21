@@ -21,6 +21,7 @@ why a few things are done the way they are.
 - [Environment Variables & the Staging Gate](#environment-variables--the-staging-gate)
 - [Analytics (GTM / Clarity)](#analytics-gtm--clarity)
 - [SEO](#seo)
+- [The Blog (`/blog`)](#the-blog-blog)
 - [Images: format and optimization](#images-format-and-optimization)
 - [Branches & Deployment](#branches--deployment)
 - [How-To: Common Tasks](#how-to-common-tasks)
@@ -134,7 +135,9 @@ it eagerly like the existing ones in `Home.jsx`.
 **Adding a route also means editing `nginx.conf`.** nginx serves the app shell with `200`
 only for the routes in its `location ~ ^/(projects|pricing|...)` regex and returns a real
 `404` status for every other URL (the SPA still renders `NotFound`). Forget to add the new
-path there and the page will 404 in production.
+path there and the page will 404 in production. The blog is the exception: `/blog` and
+`/blog/<slug>` have their own two location blocks that serve the prerendered
+`blog.html` / `blog/<slug>.html`, and an unknown slug (no file) returns a real `404`.
 
 `ScrollManager` (also in `App.jsx`) handles two behaviors on every navigation: scroll to
 top on a plain route change, or smooth-scroll to a `#hash` target (including waiting for
@@ -155,6 +158,7 @@ plain JS objects under `src/data/`, not hardcoded in components.**
 | `src/data/projectsdata.js` | `/projects` page: portfolio case studies (before/after images, results) |
 | `src/data/teamdata.js` | `/teampage`: team member cards (name, title, avatar, culture blurb) |
 | `src/data/aboutusdata.js` | `/about-us`: hero, story, values, expertise sections |
+| `src/data/servicepagesdata.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`): hero, included items, which process flow and pricing block to show, FAQ. Each key is a URL slug |
 
 To change what a section **says**, edit the relevant object in one of these files — you
 don't need to touch the component. Components read from `data.<section>.<field>` and
@@ -339,7 +343,52 @@ its `<route>.html` and real 404s from `404.html`.
 The default share image is `public/assets/seo/og-image.jpg` (1200x630). The committed file
 is a placeholder built from the logo; replace it with real brand art. Every new indexable
 page must also be added to `public/sitemap.xml` (same-domain URLs only; the thank-you and
-404 pages stay out and are `noindex`).
+404 pages stay out and are `noindex`). Blog URLs are the exception: `prerender.mjs`
+appends `/blog` and every post to `dist/sitemap.xml` at build time, so never add them by hand.
+
+---
+
+## The Blog (`/blog`)
+
+The blog used to be a separate Next.js app at `blog.ingversionsdigital.com`. It now
+lives here, inside the normal `Layout` (main header and footer).
+
+| Piece | Where |
+|---|---|
+| Routes | `src/pages/Blog/BlogHome.jsx` (`/blog`), `BlogPost.jsx` (`/blog/:slug`, including the blog 404). Both lazy-loaded in `App.jsx` |
+| Scoped base styles + tokens | `src/pages/Blog/blog.css`, every rule under `.ing-blog` |
+| Components | `BlogClient` (home grid, tabs, category cards), `ArticleBlocks` (structured posts), `BlogArticle` (legacy markdown posts, `CodeBlock`, `Mermaid`), `PopularArticles` (slider), `BlogFaq` |
+| Content | `src/data/blog/` |
+| Head tags | `src/data/blog/blogSeo.js`, used by both the pages and `prerender.mjs` |
+
+**Two kinds of post.** Slugs are unique across both. `BlogPost` checks structured posts
+first, then legacy ones, then shows the blog 404 (`noindex`).
+
+- **Structured posts** (preferred): one object per post in `src/data/blog/blogPosts.json`.
+  Copy the `post` object from `blogPostTemplate.json`, which has an example of every block
+  type (`paragraph, list, callout, protip, featureGrid, flowDiagram, stepList, image,
+  quote, code, table, divider`). Text fields support `**bold**`, `==highlight==`,
+  `[label](url)` and `` `code` ``. `icon` values are lucide names in kebab-case. The home card,
+  slider, sitemap entry, canonical and JSON-LD are all generated. Set `seo.canonical` to
+  `https://ingversionsdigital.com/blog/<slug>` (the page computes it from the slug anyway).
+- **Legacy markdown posts:** an entry in `articlesData.js` keyed by slug, plus a card in
+  `postCards.js` and a cover in `articleImages.js`. ` ```mermaid ` fences are supported.
+  Linear `graph`/`flowchart` charts render as a numbered step list. Branching charts render
+  as mermaid SVG, and `mermaid` (~170 KB gzip) is only downloaded on those pages.
+
+**Covers** go in `public/assets/blog/covers/` as `.webp` (quality 82, max 1600px wide, the
+same settings as `convert-images.mjs`). Use a unique image per post.
+
+**Why it's built this way.** The blog's own design tokens (`--accent`, `--border`, ...)
+differ from the main site's, so they're defined on `.ing-blog` rather than `:root`. The
+blog pulls in `react-markdown`, Swiper and the whole `lucide-react` icon set (icons are
+looked up by name from the JSON). The routes are lazy-loaded so none of that enters the
+main bundle. The article chunk is about 217 KB gzip, mostly lucide. If that becomes a
+problem, swap the `import * as Lucide` in `ArticleBlocks.jsx` for an explicit name-to-icon map.
+
+**Share previews.** `prerender.mjs` writes `blog.html` and `blog/<slug>.html` with each
+post's title, description, canonical and cover image, so WhatsApp/LinkedIn previews show
+the real post.
 
 ---
 
@@ -397,12 +446,12 @@ never go to `production`). When merging `stage` → `production`, keep productio
 existing versions of these and take everything else from `stage`. (`README.md` used to
 be on this list — it isn't anymore; it syncs to `production` normally.)
 
-**One behavior, not a file, that must also never reach `production`:** the Blog-link
-click-intercept-and-`alert()` in `Header.jsx`, `Footer.jsx`, and `BlogSlider.jsx` (shows
-an alert instead of navigating to `blog.ingversionsdigital.com`) is a
-`dev`/`stage`-only experiment. Those three files aren't excluded wholesale —
-other changes to them should still flow to `production` normally — just keep
-production's direct-navigation Blog links when merging.
+**The `/blog` nginx rule must be added to production by hand.** Production keeps its
+own `nginx.conf`, so the first time the blog is merged to `production`, copy the two
+`/blog` location blocks from `dev`'s `nginx.conf` into production's. Without them every
+`/blog` URL returns 404 there. After `/blog` is live, the old blog project 301-redirects
+`blog.ingversionsdigital.com/<slug>` to `/blog/<slug>`. That redirect is set up in the old
+blog repo, not here.
 
 For the actual infrastructure — Docker images, Hostinger's no-SSH deploy API, GitHub
 Actions secrets, Cloudflare DNS records, and where to find build logs on the VPS — see
@@ -433,6 +482,20 @@ Add an entry to `src/data/projectsdata.js` following the shape of an existing pr
 Homepage FAQ: add `{ q: "...", a: "..." }` to `data.faq.list` in `src/data/sitedata.js`
 (this also feeds the FAQ JSON-LD schema automatically — no extra step). Pricing FAQ:
 same shape in `src/data/pricingdata.js`.
+
+### Add a new service page
+
+1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards and comparison) or `"engagement"` (the engagement models).
+2. That one entry generates the route in `src/App.jsx` and the head tags in `src/data/seodata.js`. Add the slug to the route regex in `nginx.conf` (on `production` too, which keeps its own copy) and to `public/sitemap.xml`.
+3. To link it from the homepage Services cards, give that service `href: "/<slug>"` and a `linkLabel` in `data.services.list`.
+
+### Add a blog post
+
+1. Add the post object to `src/data/blog/blogPosts.json` (copy from `blogPostTemplate.json`).
+2. Add its cover to `public/assets/blog/covers/` as `.webp`.
+3. `npm run dev`, open `/blog/<slug>`, check it at phone width, then `npm run build`.
+
+No route, sitemap, nginx or `seodata.js` change is needed.
 
 ### Add a brand-new page
 

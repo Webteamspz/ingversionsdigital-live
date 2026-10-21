@@ -49,8 +49,7 @@ const FAQItem = ({ index, q, a, isOpen, onToggle }) => {
   );
 };
 
-const FAQ = () => {
-  const { heading, list } = data.faq;
+const FAQ = ({ heading = data.faq.heading, list = data.faq.list }) => {
   const [openIndex, setOpenIndex] = useState(-1);
 
   const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));

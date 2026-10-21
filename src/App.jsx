@@ -5,6 +5,7 @@ import CookieConsent from "./components/CookieConsent/CookieConsent.jsx";
 import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
+import servicePages from "./data/servicepagesdata.js";
 
 const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
@@ -14,6 +15,9 @@ const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
 const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou/ThankYou.jsx"));
 const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
+const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
+const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
+const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 
 const ScrollManager = () => {
   const { pathname, hash, search } = useLocation();
@@ -83,6 +87,11 @@ const App = () => (
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/blog" element={<BlogHome />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        {Object.keys(servicePages).map((slug) => (
+          <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

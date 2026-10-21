@@ -1,0 +1,91 @@
+/* The blog's own design tokens and base rules, ported from the old Next.js
+   blog's globals.css. Everything is scoped under .ing-blog (the wrapper every
+   /blog page renders inside Layout) so none of it reaches the rest of the
+   site. Fonts are the Outfit / Plus Jakarta Sans families index.html loads. */
+.ing-blog {
+  color-scheme: light;
+  --font-outfit: Outfit;
+  --font-plus-jakarta: "Plus Jakarta Sans";
+  --bg-950: #fffdf5;
+  --bg-900: #fdf9ec;
+  --bg-800: #ffffff;
+  --bg-700: #f1f5f9;
+  --bg-600: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #1b212a;
+  --text-muted: #64748b;
+  --text-subtle: #475569;
+  --accent: #8b5cf6;
+  --accent-strong: #7c3aed;
+  --accent-soft: #a78bfa;
+  --secondary: #f472b6;
+  --tertiary: #fbbf24;
+  --quaternary: #34d399;
+  --border: #1e293b;
+  --border-soft: rgba(30, 41, 59, 0.12);
+  --border-width: 2px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --shadow-pop: 4px 4px 0 0 var(--border);
+  --shadow-pop-hover: 6px 6px 0 0 var(--border);
+  --shadow-pop-active: 2px 2px 0 0 var(--border);
+  --shadow-pop-soft: 8px 8px 0 0 var(--border-soft);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --palette-bg-950: var(--bg-950);
+  --palette-bg-900: var(--bg-900);
+  --palette-bg-800: var(--bg-800);
+  --palette-bg-700: var(--bg-700);
+  --palette-bg-600: var(--bg-600);
+  --palette-text-primary: var(--text-primary);
+  --palette-text-secondary: var(--text-secondary);
+  --palette-text-muted: var(--text-muted);
+  --palette-text-subtle: var(--text-subtle);
+  --palette-accent: var(--accent);
+  --palette-accent-strong: var(--accent-strong);
+  --palette-accent-soft: var(--accent-soft);
+  --palette-border: var(--border);
+  --palette-border-soft: var(--border-soft);
+  --palette-overlay: rgba(30, 41, 59, 0.45);
+  --palette-hover-surface: rgba(139, 92, 246, 0.1);
+  --palette-hover-ghost: rgba(139, 92, 246, 0.08);
+
+  min-height: 600px;
+  background: var(--bg-950);
+  color: var(--text-secondary);
+  font-family: var(--font-plus-jakarta), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.ing-blog *,
+.ing-blog *::before,
+.ing-blog *::after {
+  box-sizing: border-box;
+}
+
+.ing-blog h1,
+.ing-blog h2,
+.ing-blog h3,
+.ing-blog h4 {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.ing-blog [tabindex]:focus-visible,
+.ing-blog a:focus-visible,
+.ing-blog button:focus-visible {
+  outline: 3px solid var(--border);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ing-blog *,
+  .ing-blog ::after,
+  .ing-blog ::before {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

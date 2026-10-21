@@ -1,11 +1,36 @@
 import data from "./sitedata.js";
+import servicePages from "./servicepagesdata.js";
 
 // Head tags per route: the props each page spreads into <SEO>.
 // scripts/prerender.mjs reads this too, to write the same tags into static
 // HTML for crawlers that do not run JavaScript. Plain data only, no JSX.
 const home = { name: "Home", path: "/" };
 
+const faqJsonLd = (list) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: list.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+});
+
+const servicePageSeo = Object.fromEntries(
+  Object.entries(servicePages).map(([slug, page]) => [
+    slug,
+    {
+      title: page.seoTitle,
+      description: page.seoDescription,
+      path: `/${slug}`,
+      breadcrumb: [home, { name: page.title, path: `/${slug}` }],
+      jsonLd: faqJsonLd(page.faq),
+    },
+  ])
+);
+
 export default {
+  ...servicePageSeo,
   home: {
     title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:
