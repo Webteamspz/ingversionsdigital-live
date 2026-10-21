@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
-import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users } from "lucide-react";
+import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users, IdCard, ArrowUpRight } from "lucide-react";
 
 import data from "../../data/sitedata";
 import styles from "./Services.module.css";
@@ -12,17 +12,44 @@ import useIsMobile from "../../hooks/useIsMobile";
 
 const SERVICE_ICONS = {
   "ab-testing": SplitSquareHorizontal, shopify: ShoppingBag, qa: CheckCircle2,
-  wordpress: Globe, "landing-page": LayoutTemplate, lead: Users,
+  wordpress: Globe, "landing-page": LayoutTemplate, lead: Users, hrms: IdCard,
 };
 const SERVICE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 const VISIBLE_SERVICES = data.services.list.filter((service) => service.icon !== "lead");
 
-const ServiceIcon = ({ iconKey, index, title }) => {
-  const Icon = SERVICE_ICONS[iconKey];
+const ServiceCardBody = ({ service, index }) => {
+  const Icon = SERVICE_ICONS[service.icon];
   return (
-    <span className={styles.iconCircle} style={{ background: SERVICE_COLORS[index % 4] }}>
-      <Icon size={22} strokeWidth={2.5} color="#1E293B" aria-label={title} />
-    </span>
+    <>
+      <span className={styles.icon} style={{ "--icon-bg": SERVICE_COLORS[index % 4] }} aria-hidden="true">
+        <Icon size={44} strokeWidth={2.2} />
+      </span>
+      <div className={styles.body}>
+        {service.eyebrow && <span className={styles.eyebrow}>{service.eyebrow}</span>}
+        <h3 className={styles.serviceTitle}>
+          {service.href ? (
+            <a
+              href={service.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.cardLink}
+              data-cta={service.title}
+              data-cta-loc="Services"
+            >
+              {service.title}
+            </a>
+          ) : (
+            service.title
+          )}
+        </h3>
+        <p className={styles.serviceDesc}>{service.desc}</p>
+        {service.href && service.linkLabel && (
+          <span className={styles.visit} aria-hidden="true">
+            {service.linkLabel} <ArrowUpRight size={16} strokeWidth={2.5} />
+          </span>
+        )}
+      </div>
+    </>
   );
 };
 
@@ -54,14 +81,7 @@ const Services = () => {
             {VISIBLE_SERVICES.map((s, i) => (
               <SwiperSlide key={i}>
                 <div className={`${styles.card} ${styles.service}`}>
-                  <span
-                    className={styles.cornerFold}
-                    style={{ background: SERVICE_COLORS[(i + 1) % 4] }}
-                    aria-hidden="true"
-                  />
-                  <ServiceIcon iconKey={s.icon} index={i} title={s.title} />
-                  <h4 className={styles.serviceTitle}>{s.title}</h4>
-                  <p className={styles.serviceDesc}>{s.desc}</p>
+                  <ServiceCardBody service={s} index={i} />
                 </div>
               </SwiperSlide>
             ))}
@@ -70,14 +90,7 @@ const Services = () => {
           <div className={styles.services}>
             {VISIBLE_SERVICES.map((s, i) => (
               <Reveal key={i} delay={i * 80} className={`${styles.card} ${styles.service}`}>
-                <span
-                  className={styles.cornerFold}
-                  style={{ background: SERVICE_COLORS[(i + 1) % 4] }}
-                  aria-hidden="true"
-                />
-                <ServiceIcon iconKey={s.icon} index={i} title={s.title} />
-                <h4 className={styles.serviceTitle}>{s.title}</h4>
-                <p className={styles.serviceDesc}>{s.desc}</p>
+                <ServiceCardBody service={s} index={i} />
               </Reveal>
             ))}
           </div>
