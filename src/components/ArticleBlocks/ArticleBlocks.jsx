@@ -405,7 +405,14 @@ const ArticleBlocks = ({ post }) => {
               <div className={styles.ctaBox}>
                 <h3 className={styles.ctaHeading}>{post.cta.heading}</h3>
                 <p className={styles.ctaText}>{post.cta.text}</p>
-                <a href={post.cta.buttonLink} className={styles.ctaButton}>
+                <a
+                  href={post.cta.buttonLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.ctaButton}
+                  data-cta={post.cta.buttonLabel}
+                  data-cta-loc="Blog Article CTA"
+                >
                   {post.cta.buttonLabel}
                 </a>
               </div>

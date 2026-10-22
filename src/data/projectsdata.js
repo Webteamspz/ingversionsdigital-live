@@ -7,10 +7,9 @@ const projectsData = {
       "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
   },
   filters: [
-    "All Projects",
     "Websites",
-    "A/B Testing",
     "Shopify",
+    "A/B Testing",
   ],
   projects: [
     {
@@ -35,6 +34,9 @@ const projectsData = {
       title: "Rapid Radios",
       type: "A/B Testing",
       image: "/assets/project/rapid-radios.webp",
+      mainImage: "/assets/project/rapid-radios.webp",
+      beforeImage: "/assets/project/beforerapidradio.webp",
+      afterImage: "/assets/project/afterrapidradio.webp",
       link: "https://rapidradios.com/",
     },
     {
@@ -60,6 +62,8 @@ const projectsData = {
       title: "Olivia & Pearl",
       type: "A/B Testing",
       image: "/assets/project/oliviapearl.webp",
+      beforeImage: "/assets/project/before-necklace.webp",
+      afterImage: "/assets/project/afternecklace.webp",
       link: "https://oliviaandpearl.com/",
     },
     {
@@ -84,6 +88,8 @@ const projectsData = {
       title: "Bijou Build",
       type: "A/B Testing",
       image: "/assets/project/bijoubuild.webp",
+      beforeImage: "/assets/project/beforebijou.webp",
+      afterImage: "/assets/project/afterbijou.webp",
       link: "https://bijoubuild.com/",
     },
     {
@@ -116,6 +122,8 @@ const projectsData = {
       title: "Belare Home ",
       type: "A/B Testing",
       image: "/assets/project/belare.webp",
+      beforeImage: "/assets/project/beforebelare.webp",
+      afterImage: "/assets/project/afterbelare.webp",
       link: "https://www.belarehome.com/",
     },
     {
@@ -124,6 +132,8 @@ const projectsData = {
       title: "UltimaPeak ",
       type: "A/B Testing",
       image: "/assets/project/ultimapeak.webp",
+      beforeImage: "/assets/project/beforeultimapeak.webp",
+      afterImage: "/assets/project/afterultimapeak.webp",
       link: "https://www.ultimapeak.com/",
     },
     {
@@ -140,6 +150,8 @@ const projectsData = {
       title: "Factory Weights ",
       type: "A/B Testing",
       image: "/assets/project/factoryweights.webp",
+      beforeImage: "/assets/project/beforefactoryweights.webp",
+      afterImage: "/assets/project/afterfactoryweights.webp",
       link: "https://www.factoryweights.com/",
     },
     {
@@ -156,6 +168,8 @@ const projectsData = {
       title: "Avantera ",
       type: "A/B Testing",
       image: "/assets/project/avantera.webp",
+      beforeImage: "/assets/project/beforeavantera.webp",
+      afterImage: "/assets/project/afteravantera.webp",
       link: "https://avanterahealth.com/",
     },
   ],

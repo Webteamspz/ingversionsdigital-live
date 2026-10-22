@@ -2,7 +2,7 @@ export default {
   header: {
     links: [
       { label: "Home", href: "/" },
-      { label: "Services", href: "/#services" },
+      { label: "Services", href: "/", scrollTo: "services" },
       { label: "Projects", href: "/projects" },
       { label: "Pricing", href: "/pricing" },
       { label: "About Us", href: "/about-us" },
@@ -875,7 +875,7 @@ footer: {
         title: "Quick Links",
         links: [
           { name: "Home", href: "/#hero" },
-          { name: "Services", href: "/#services" },
+          { name: "Services", href: "/", scrollTo: "services" },
           { name: "Pricing", href: "/pricing" },
           { name: "Projects", href: "/projects" },
         ],

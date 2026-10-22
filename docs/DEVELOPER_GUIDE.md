@@ -377,7 +377,11 @@ first, then legacy ones, then shows the blog 404 (`noindex`).
   as mermaid SVG, and `mermaid` (~170 KB gzip) is only downloaded on those pages.
 
 **Covers** go in `public/assets/blog/covers/` as `.webp` (quality 82, max 1600px wide, the
-same settings as `convert-images.mjs`). Use a unique image per post.
+same settings as `convert-images.mjs`). Use a unique image per post. Blog cards show covers
+only ~400px wide, so they load an 800px copy from `covers/thumbs/` (via `coverThumb()` in
+`articleImages.js`); post heroes keep the full cover. `scripts/blog-thumbs.mjs` creates any
+missing thumbnail and runs at the start of every `build*` script; run it by hand after adding a
+cover if you want the card image in `npm run dev`. Commit the thumbnails with the cover.
 
 **Why it's built this way.** The blog's own design tokens (`--accent`, `--border`, ...)
 differ from the main site's, so they're defined on `.ing-blog` rather than `:root`. The
@@ -492,7 +496,7 @@ same shape in `src/data/pricingdata.js`.
 ### Add a blog post
 
 1. Add the post object to `src/data/blog/blogPosts.json` (copy from `blogPostTemplate.json`).
-2. Add its cover to `public/assets/blog/covers/` as `.webp`.
+2. Add its cover to `public/assets/blog/covers/` as `.webp`, then run `node scripts/blog-thumbs.mjs` for its card thumbnail.
 3. `npm run dev`, open `/blog/<slug>`, check it at phone width, then `npm run build`.
 
 No route, sitemap, nginx or `seodata.js` change is needed.

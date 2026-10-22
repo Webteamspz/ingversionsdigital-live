@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import styles from "./BlogClient.module.css";
 import { postCards } from "../../data/blog/postCards.js";
-import { homepageCategoryImages } from "../../data/blog/articleImages.js";
+import { coverThumb, homepageCategoryImages } from "../../data/blog/articleImages.js";
 
 const getCategorySlug = (categoryName) => {
   if (!categoryName) return "all";
@@ -106,7 +106,7 @@ const BlogClient = () => {
                 <article className={styles["article-card"]}>
                   <div className={styles["article-img-wrapper"]}>
                     <img
-                      src={article.coverImage || homepageCategoryImages[article.categorySlug]}
+                      src={coverThumb(article.coverImage || homepageCategoryImages[article.categorySlug])}
                       alt={article.category}
                       loading="lazy"
                       decoding="async"
@@ -142,7 +142,7 @@ const BlogClient = () => {
               >
                 <div className={`${styles["category-img-wrapper"]} ${styles[card.bg]}`}>
                   <img
-                    src={homepageCategoryImages[card.id]}
+                    src={coverThumb(homepageCategoryImages[card.id])}
                     alt={card.alt}
                     loading="lazy"
                     decoding="async"

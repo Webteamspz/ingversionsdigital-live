@@ -67,7 +67,7 @@ Real `.env` files are ignored by git. Do not commit secrets or IDs.
 ```sh
 npm run dev        # Vite dev server at http://localhost:5173
 npm run lint       # ESLint, run before every commit
-npm run build      # production build to dist/, then scripts/prerender.mjs
+npm run build      # blog thumbnails, production build to dist/, then scripts/prerender.mjs
 npm run preview    # serve the built dist/ locally
 ```
 
@@ -91,6 +91,7 @@ npm run build:production    # mode=production, the public build
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
+| `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
 | `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
 | `docs/` | `DEVELOPER_GUIDE.md` and the `site-docs/` HTML documentation page |
 | `Dockerfile`, `nginx.conf`, `docker-compose.*.yml` | container build and serve |

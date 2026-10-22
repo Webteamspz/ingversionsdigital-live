@@ -40,7 +40,6 @@
   transition: transform .3s var(--ease-pop),box-shadow .3s var(--ease-pop),rotate .3s var(--ease-pop)
 }
 @media (min-width:1024px){.popular-card-link:hover .popular-card {
-  transform: translateY(-6px) rotate(-1deg);
   box-shadow: var(--shadow-pop-hover)
 }}
 @media (prefers-reduced-motion:reduce) {

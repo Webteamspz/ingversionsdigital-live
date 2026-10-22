@@ -178,9 +178,6 @@
   display: flex;
   flex-direction: column
 }
-@media (min-width:1024px){.article-card:hover {
-  transform: translateY(-10px)
-}}
 @media (prefers-reduced-motion:reduce) {
   .article-card {
     transition: none!important

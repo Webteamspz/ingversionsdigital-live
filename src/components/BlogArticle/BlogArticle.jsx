@@ -82,7 +82,14 @@ const BlogArticle = ({ slug, article }) => (
         <div className={styles["article-cta-box"]}>
           <h3 className={styles["cta-heading"]}>Want results like these?</h3>
           <p className={styles["cta-text"]}>We help Shopify stores optimize their conversion rates.</p>
-          <a href={CALENDLY_URL} className={styles["cta-button"]}>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles["cta-button"]}
+            data-cta="Get Started"
+            data-cta-loc="Blog Article CTA"
+          >
             Get Started
           </a>
         </div>
