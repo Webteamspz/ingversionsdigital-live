@@ -138,14 +138,6 @@ const projectsData = {
     },
     {
       id: 15,
-      industry: "Alchoholic Beverages",
-      title: "Glass Vodka",
-      type: "Websites",
-      image: "/assets/project/glassvodka.webp",
-      link: "https://glassvodka.com/",
-    },
-    {
-      id: 16,
       industry: "Fitness",
       title: "Factory Weights ",
       type: "A/B Testing",
@@ -155,7 +147,7 @@ const projectsData = {
       link: "https://www.factoryweights.com/",
     },
     {
-      id: 17,
+      id: 16,
       industry: "Intimate Care",
       title: "The Bloomi",
       type: "Shopify",
@@ -163,7 +155,7 @@ const projectsData = {
       link: "https://thebloomi.com/",
     },
     {
-      id: 18,
+      id: 17,
       industry: "Health & Wellness",
       title: "Avantera ",
       type: "A/B Testing",

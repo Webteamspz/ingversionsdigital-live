@@ -1,5 +1,5 @@
 .section {
-  padding: 88px 0 0;
+  padding: var(--section-space) 0 0;
   background: var(--palette-bg-950);
   text-align: center
 }

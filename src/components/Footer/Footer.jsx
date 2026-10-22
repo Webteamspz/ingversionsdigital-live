@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
+import { resetConsent } from "../../gtm";
 import styles from "./Footer.module.css";
 import logo from "/assets/logos/main-logo-white.png";
 
@@ -82,6 +83,14 @@ const Footer = () => {
               <div className={styles.linkGroup} key={gi}>
                 <h4>{group.title}</h4>
                 {group.links.map((l, i) => {
+                  if (l.action === "cookie-settings") {
+                    return (
+                      <button key={i} type="button" className={styles.linkButton} onClick={resetConsent}>
+                        {l.name}
+                      </button>
+                    );
+                  }
+
                   const isExternal =
                     l.href.startsWith("http") ||
                     l.href.startsWith("mailto:") ||

@@ -3,14 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { CONSENT_EVENT, getConsent, setConsent, startAnalytics } from "../../gtm";
 import styles from "./CookieConsent.module.css";
 
-// Only "Accept" is remembered. "Decline" hides the banner for this visit, so it
-// asks again on the next page load.
+// Both choices are remembered; a refusal expires after ~6 months (see gtm.js).
+// "Cookie Settings" in the Footer clears the choice to ask again.
 const CookieConsent = () => {
-  const [visible, setVisible] = useState(() => getConsent() !== "granted");
+  const [visible, setVisible] = useState(() => getConsent() === null);
   const dialogRef = useRef(null);
   const { pathname } = useLocation();
   // Block the site until a choice is made, except on the policy the banner links to.
-  const blocking = visible && pathname !== "/privacy-policy";
+  const blocking = visible && !/^\/privacy-policy\/?$/.test(pathname);
 
   useEffect(() => {
     if (!blocking) return;
@@ -23,10 +23,8 @@ const CookieConsent = () => {
   if (!visible) return null;
 
   const choose = (value) => {
-    if (value === "granted") {
-      setConsent("granted");
-      startAnalytics();
-    }
+    setConsent(value);
+    if (value === "granted") startAnalytics();
     setVisible(false);
     window.dispatchEvent(new Event(CONSENT_EVENT));
   };

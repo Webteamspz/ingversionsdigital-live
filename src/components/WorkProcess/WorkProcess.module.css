@@ -1,7 +1,7 @@
 .processSection {
   position: relative;
   overflow: hidden;
-  padding: 76px 0 72px;
+  padding: var(--section-space) 0;
   background: var(--palette-tint-blue)
 }
 .processSub {
