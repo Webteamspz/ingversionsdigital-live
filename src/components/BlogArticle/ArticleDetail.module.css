@@ -3,7 +3,7 @@
   overflow-x: clip;
   background-color: var(--bg-950);
   color: var(--text-primary);
-  padding-top: 120px
+  padding-top: 152px
 }
 .article-main .article-container {
   position: relative;
@@ -611,7 +611,7 @@
 }
 @media (max-width:767px) {
   .article-main {
-    padding-top: 80px
+    padding-top: 116px
   }
   .article-main .article-container {
     padding-top: 24px

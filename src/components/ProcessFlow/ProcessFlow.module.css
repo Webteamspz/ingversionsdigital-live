@@ -1,5 +1,5 @@
 .section {
-  padding: 88px 0;
+  padding: 88px 0 0;
   background: var(--palette-bg-950);
   text-align: center
 }
@@ -121,6 +121,53 @@
   box-shadow: 4px 4px 0 0 var(--palette-border);
   color: var(--palette-bg-800)
 }
+.icon {
+  transition: opacity .4s ease, filter .4s ease
+}
+.upcoming .icon {
+  opacity: .4;
+  filter: grayscale(.7)
+}
+.current .icon {
+  animation: pulse 1.4s ease-out infinite
+}
+/* Progress line over the dashed connector, in this step's colour. */
+.track {
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  left: calc(50% + 40px);
+  right: calc(-50% + 24px);
+  height: 4px
+}
+.fill {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--icon-bg)
+}
+.filling {
+  animation: grow 1.1s ease-in-out .3s both
+}
+.filling::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--icon-bg);
+  transform: translateY(-50%)
+}
+/* Last step has no connector: a short hold before the loop restarts. */
+.pause {
+  position: absolute;
+  animation: hold 1.6s both
+}
 .text {
   display: flex;
   flex-direction: column;
@@ -170,6 +217,30 @@
   margin-top: 1px;
   color: var(--palette-accent)
 }
+@keyframes pulse {
+  0% {
+    box-shadow: 4px 4px 0 0 var(--palette-border), 0 0 0 0 color-mix(in srgb, var(--icon-bg) 55%, transparent)
+  }
+  70%,
+  100% {
+    box-shadow: 4px 4px 0 0 var(--palette-border), 0 0 0 12px transparent
+  }
+}
+@keyframes grow {
+  from {
+    width: 0
+  }
+}
+@keyframes growDown {
+  from {
+    height: 0
+  }
+}
+@keyframes hold {
+  to {
+    opacity: 0
+  }
+}
 @keyframes rise {
   from {
     opacity: 0;
@@ -183,7 +254,7 @@
 }
 @media (max-width:1023.98px) {
   .section {
-    padding: 64px 0
+    padding: 64px 0 0
   }
   .steps {
     grid-template-columns: minmax(0, 1fr);
@@ -205,6 +276,24 @@
     height: auto;
     background: repeating-linear-gradient(180deg, var(--palette-border) 0 6px, transparent 6px 12px)
   }
+  .track {
+    top: 72px;
+    bottom: -24px;
+    left: 30px;
+    right: auto;
+    width: 4px;
+    height: auto
+  }
+  .filling {
+    animation-name: growDown
+  }
+  .filling::after {
+    top: auto;
+    right: auto;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
   .tag {
     display: inline;
     margin-left: 4px
@@ -215,7 +304,7 @@
 }
 @media (max-width:767.98px) {
   .section {
-    padding: 48px 0
+    padding: 48px 0 0
   }
   .sub {
     font-size: 14px
@@ -234,6 +323,10 @@
   .step:not(:last-child)::after {
     top: 64px;
     left: 27px
+  }
+  .track {
+    top: 64px;
+    left: 26px
   }
   .note {
     margin-top: 36px;

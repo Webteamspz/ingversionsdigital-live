@@ -168,7 +168,7 @@ const Header = () => {
   };
 
   const renderDesktopNavLink = (linkItem, index) => {
-    const { href, label } = linkItem;
+    const { href, label, scrollTo } = linkItem;
 
     if (href.startsWith("#") || isExternalHref(href)) {
       return (
@@ -184,12 +184,14 @@ const Header = () => {
       );
     }
 
-    const isActive = href === location.pathname;
+    // Section links (scrollTo) share "/" with Home, so they never show as active.
+    const isActive = !scrollTo && href === location.pathname;
 
     return (
       <Link
         key={index}
         to={href}
+        state={scrollTo && { scrollTo }}
         className={isActive ? styles.navLinkActive : undefined}
         data-cta={label}
         data-cta-loc="Header Nav"
@@ -201,7 +203,7 @@ const Header = () => {
   };
 
   const renderMobileNavLink = (linkItem, index) => {
-    const { href, label } = linkItem;
+    const { href, label, scrollTo } = linkItem;
 
     if (href.startsWith("#") || isExternalHref(href)) {
       return (
@@ -224,6 +226,7 @@ const Header = () => {
       <Link
         key={index}
         to={href}
+        state={scrollTo && { scrollTo }}
         data-cta={label}
         data-cta-loc="Mobile Nav"
         onClick={() => {

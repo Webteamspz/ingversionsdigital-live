@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import styles from "./PopularArticles.module.css";
 import articleStyles from "../BlogArticle/ArticleDetail.module.css";
 import { postCards } from "../../data/blog/postCards.js";
+import { coverThumb } from "../../data/blog/articleImages.js";
 
 // The newest posts other than the current one.
 const getMostPopularArticles = (currentSlug, limit = 5) =>
@@ -79,7 +80,7 @@ const PopularArticles = ({ currentSlug }) => {
                 <article className={styles["popular-card"]}>
                   <div className={styles["popular-img-wrapper"]}>
                     <img
-                      src={article.coverImage}
+                      src={coverThumb(article.coverImage)}
                       alt={article.title}
                       loading="lazy"
                       decoding="async"

@@ -22,6 +22,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - `src/styles/style.css` holds the global design tokens in `:root`.
 - `src/gtm.js` is the analytics wrapper. No third-party analytics SDK.
 - `scripts/convert-images.mjs` converts raw images to resized `.webp` using `sharp`.
+- `scripts/blog-thumbs.mjs` runs before every `vite build` (part of the `build*` npm scripts) and writes an 800px card thumbnail of each blog cover into `public/assets/blog/covers/thumbs/`. Blog cards load covers through `coverThumb()` (`src/data/blog/articleImages.js`); post heroes use the full cover.
 - `scripts/prerender.mjs` runs after every `vite build` (it is part of the `build*` npm scripts) and writes per-route HTML with static head tags into `dist/`.
 - `Dockerfile`, `nginx.conf`, `docker-compose.stage.yml`, `docker-compose.production.yml`, and `.github/workflows/deploy.yml` support deployment.
 

@@ -105,7 +105,7 @@ const Footer = () => {
                   }
 
                   return (
-                    <Link key={i} to={l.href} style={{ textDecoration: "none" }}>
+                    <Link key={i} to={l.href} state={l.scrollTo && { scrollTo: l.scrollTo }} style={{ textDecoration: "none" }}>
                       {displayText}
                     </Link>
                   );

@@ -40,6 +40,54 @@ const ICONS = {
 };
 const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
+// Loops step 1 -> last like a progress line: the active icon pulses while its
+// connector fills in its colour, and the fill finishing hands over to the next
+// step. Reached steps stay lit, upcoming ones are dimmed.
+// Reduced motion: no loop, every step shown lit.
+const Steps = ({ steps }) => {
+  const [reduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [active, setActive] = useState(reduced ? steps.length : 0);
+  const next = () => setActive((a) => (a + 1) % steps.length);
+  const last = steps.length - 1;
+
+  return (
+    <ol className={styles.steps}>
+      {steps.map((s, i) => {
+        const Icon = ICONS[s.icon];
+        const state = i === active ? styles.current : i > active ? styles.upcoming : "";
+        return (
+          <li
+            key={s.title}
+            className={`${styles.step} ${state}`}
+            style={{ "--i": i, "--icon-bg": COLORS[i % COLORS.length] }}
+          >
+            <span className={styles.icon} aria-hidden="true">
+              <Icon size={26} strokeWidth={2.5} />
+            </span>
+            {i < last && i <= active && (
+              <span className={styles.track} aria-hidden="true">
+                <span
+                  className={`${styles.fill} ${i === active ? styles.filling : ""}`}
+                  onAnimationEnd={i === active ? next : undefined}
+                />
+              </span>
+            )}
+            {i === last && i === active && (
+              <span className={styles.pause} onAnimationEnd={next} aria-hidden="true" />
+            )}
+            <span className={styles.text}>
+              <span className={styles.title}>
+                {s.title} <em className={styles.tag}>{s.tag}</em>
+              </span>
+              <span className={styles.desc}>{s.desc}</span>
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
 // tabIds picks which flows to show; with one flow the tab bar is hidden.
 const ProcessFlow = ({ tabIds }) => {
   const { eyebrow, heading, highlight, sub } = data.processFlow;
@@ -94,24 +142,7 @@ const ProcessFlow = ({ tabIds }) => {
           role={tabs.length > 1 ? "tabpanel" : undefined}
           aria-labelledby={tabs.length > 1 ? `flow-tab-${tab.id}` : undefined}
         >
-          <ol className={styles.steps} key={tab.id}>
-            {tab.steps.map((s, i) => {
-              const Icon = ICONS[s.icon];
-              return (
-                <li key={s.title} className={styles.step} style={{ "--i": i }}>
-                  <span className={styles.icon} style={{ "--icon-bg": COLORS[i % COLORS.length] }} aria-hidden="true">
-                    <Icon size={26} strokeWidth={2.5} />
-                  </span>
-                  <span className={styles.text}>
-                    <span className={styles.title}>
-                      {s.title} <em className={styles.tag}>{s.tag}</em>
-                    </span>
-                    <span className={styles.desc}>{s.desc}</span>
-                  </span>
-                </li>
-              );
-            })}
-          </ol>
+          <Steps steps={tab.steps} key={tab.id} />
 
           <p className={styles.note}>
             <CircleCheck size={22} strokeWidth={2.5} className={styles.noteIcon} aria-hidden="true" />

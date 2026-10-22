@@ -97,10 +97,6 @@ body {
   margin: 0 auto;
   padding: 0 15px
 }
-.consent-locked,
-.consent-locked body {
-  overflow: hidden!important
-}
 .skip-link {
   position: absolute;
   top: -100px;

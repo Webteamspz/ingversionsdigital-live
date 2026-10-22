@@ -216,9 +216,6 @@
   display: inline-flex;
   transition: transform .25s ease
 }
-.blogCardLink:hover .blogCard {
-  transform: translateY(-10px)
-}
 .blogCardLink:hover .imgWrapper {
   box-shadow: 9px 9px 0 var(--tertiary)
 }
