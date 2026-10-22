@@ -1,5 +1,6 @@
 import data from "./sitedata.js";
 import servicePages from "./servicepagesdata.js";
+import abTest from "./abtestdata.js";
 
 // Head tags per route: the props each page spreads into <SEO>.
 // scripts/prerender.mjs reads this too, to write the same tags into static
@@ -59,6 +60,14 @@ export default {
       "Transparent pricing for Shopify CRO, A/B testing, UX research, and conversion optimization services for ecommerce brands.",
     path: "/pricing",
     breadcrumb: [home, { name: "Pricing", path: "/pricing" }],
+  },
+  abTestCalculator: {
+    title: "Free A/B Test Calculator: Sample Size, MDE & Significance | Ingversions Digital",
+    description:
+      "Plan test duration and minimum detectable effect, then check statistical significance and sample ratio mismatch. Free, runs in your browser.",
+    path: "/ab-test-calculator",
+    breadcrumb: [home, { name: "A/B Test Calculator", path: "/ab-test-calculator" }],
+    jsonLd: faqJsonLd(abTest.faq.items),
   },
   aboutUs: {
     title: "About Our Shopify CRO Agency | Ingversions Digital",
