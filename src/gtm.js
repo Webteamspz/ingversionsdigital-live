@@ -175,6 +175,9 @@ export function loadAnalytics() {
 
 const CONSENT_KEY = "analytics-consent";
 
+// Fired on window when the visitor accepts or declines cookies (PromoBar waits for it).
+export const CONSENT_EVENT = "consent-choice";
+
 export const getConsent = () => {
   try {
     return localStorage.getItem(CONSENT_KEY);
