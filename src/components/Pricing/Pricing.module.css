@@ -1,7 +1,7 @@
 .pricingSection {
   background: var(--palette-bg-950);
   color: var(--palette-text-primary);
-  padding: 50px 0 60px
+  padding: 50px 0 24px
 }
 .heading {
   margin-bottom: 10px

@@ -1,6 +1,11 @@
 .gridWrap {
-  position: relative;
-  margin-top: 40px;
+  position: relative
+}
+@media (max-width: 767.98px) {
+  /* TeamHero has no bottom padding on mobile */
+  .gridWrap {
+    margin-top: 40px
+  }
 }
 .grid {
   display: grid;

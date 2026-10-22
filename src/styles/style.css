@@ -25,6 +25,7 @@
   --palette-hover-ghost: rgba(124, 58, 237, 0.06);
   --palette-overlay: rgba(30, 41, 59, 0.4);
   --palette-glow: rgba(30, 41, 59, 0.15);
+  --section-space: 64px;
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;

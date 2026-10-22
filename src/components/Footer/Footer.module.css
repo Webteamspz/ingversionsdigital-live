@@ -2,7 +2,7 @@
   background: var(--palette-border);
   position: relative;
   overflow-x: hidden;
-  padding: 115px 0 30px;
+  padding: 96px 0 30px;
   margin-top: -1px
 }
 .siteFooter:before {

@@ -19,7 +19,7 @@
 .hero-section {
   position: relative;
   padding-top: 128px;
-  padding-bottom: 40px;
+  padding-bottom: 8px;
   color: var(--text-primary);
   overflow: hidden
 }
