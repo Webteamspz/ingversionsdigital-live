@@ -92,9 +92,10 @@ const PrivacyPolicy = () => (
                 </li>
               </ul>
               <p>
-                You can block or delete cookies in your browser settings at
-                any time, and clear this site's stored data to be asked again; doing so may affect how parts of the site behave
-                but won't prevent you from reading its content.
+                We remember your choice. If you decline, we won't ask again
+                for six months. You can change your choice at any time with
+                Cookie Settings in the footer, or block and delete cookies in
+                your browser settings.
               </p>
             </div>
           </div>

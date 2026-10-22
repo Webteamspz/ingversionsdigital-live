@@ -174,13 +174,19 @@ export function loadAnalytics() {
 }
 
 const CONSENT_KEY = "analytics-consent";
+const ASK_AGAIN_MS = 182 * 24 * 60 * 60 * 1000; // a refusal is respected for ~6 months (CNIL guidance)
 
 // Fired on window when the visitor accepts or declines cookies (PromoBar waits for it).
 export const CONSENT_EVENT = "consent-choice";
 
+// "granted", "denied", or null when there is no choice yet (or the refusal expired).
 export const getConsent = () => {
   try {
-    return localStorage.getItem(CONSENT_KEY);
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (raw === "granted") return raw; // stored before choices carried a timestamp
+    const { value, at } = JSON.parse(raw) || {};
+    if (value === "denied" && Date.now() - at > ASK_AGAIN_MS) return null;
+    return value === "granted" || value === "denied" ? value : null;
   } catch {
     return null;
   }
@@ -188,14 +194,27 @@ export const getConsent = () => {
 
 export const setConsent = (value) => {
   try {
-    localStorage.setItem(CONSENT_KEY, value);
+    localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, at: Date.now() }));
   } catch {
     /* storage blocked: the banner just shows again next visit */
   }
 };
 
-// Only call after the visitor has accepted analytics cookies.
+// Withdraw consent: forget the choice and reload, which drops any loaded
+// analytics scripts and brings the banner back.
+export const resetConsent = () => {
+  try {
+    localStorage.removeItem(CONSENT_KEY);
+  } catch {
+    /* storage blocked: nothing was stored */
+  }
+  location.reload();
+};
+
+// Only call after the visitor has accepted analytics cookies. No-op outside
+// production builds, so dev and staging never track anything.
 export function startAnalytics() {
+  if (!isProduction) return;
   initGTMTracking();
   loadAnalytics();
 }
