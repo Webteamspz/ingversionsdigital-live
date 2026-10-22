@@ -17,8 +17,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         src={beforeImg}
         alt={`Before - ${title}`}
         className={styles.sliderImage}
-        loading="lazy"
-        decoding="async"
+        fetchPriority="high"
       />
 
       
@@ -29,8 +28,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         <img
           src={afterImg}
           alt={`After - ${title}`}
-          loading="lazy"
-          decoding="async"
+          fetchPriority="high"
         />
       </div>
 
@@ -76,9 +74,8 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
 // Tall screenshots scroll inside the phone screen, like a real mobile page.
 const SCROLLABLE_RATIO = 1.9;
 
-const PhoneCard = ({ project, onExpand }) => {
+const PhoneCard = ({ project }) => {
   const [scrollable, setScrollable] = useState(false);
-  const hasSlider = Boolean(project.beforeImage && project.afterImage);
   const img = (
     <img
       src={project.image}
@@ -105,32 +102,56 @@ const PhoneCard = ({ project, onExpand }) => {
           <ArrowUpRight size={16} strokeWidth={2.5} aria-hidden="true" />
         </a>
       </div>
-      {hasSlider ? (
-        <div
-          className={styles.phoneView}
-          onClick={() => onExpand(project)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              onExpand(project);
-            }
-          }}
-          role="button"
-          tabIndex={0}
-          aria-label={`View before and after for ${project.title}`}
-        >
-          {img}
-          <span className={styles.phonePill}>Before / After</span>
-        </div>
-      ) : (
-        <div className={styles.phoneView} tabIndex={scrollable ? 0 : undefined}>
-          {img}
-          {scrollable && <span className={styles.phonePill}>Scroll</span>}
-        </div>
-      )}
+      <div className={styles.phoneView} tabIndex={scrollable ? 0 : undefined}>
+        {img}
+        {scrollable && <span className={styles.phonePill}>Scroll</span>}
+      </div>
     </>
   );
 };
+
+// Start fetching the before/after pair as soon as the visitor shows intent.
+const preload = (p) => [p.beforeImage, p.afterImage].forEach((src) => { new Image().src = src; });
+
+const TestCard = ({ project, onExpand }) => (
+  <>
+    <div
+      className={styles.imageWrap}
+      onClick={() => onExpand(project)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onExpand(project);
+        }
+      }}
+      onPointerEnter={() => preload(project)}
+      onTouchStart={() => preload(project)}
+      onFocus={() => preload(project)}
+      role="button"
+      tabIndex={0}
+      aria-label={`View before and after for ${project.title}`}
+    >
+      <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
+      <div className={styles.zoomHint}>Click to Expand</div>
+    </div>
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.cardFooter}
+      data-cta={project.title}
+      data-cta-loc="Projects Grid"
+    >
+      <div className={styles.cardText}>
+        <span className={styles.category}>{project.industry}</span>
+        <h4 className={styles.title}>{project.title}</h4>
+      </div>
+      <span className={styles.arrow} aria-hidden="true">
+        <ArrowUpRight size={16} strokeWidth={2.5} color="var(--palette-border)" />
+      </span>
+    </a>
+  </>
+);
 
 // Leaving a card sends its screen back to the top of the page.
 const resetScroll = (e) => {
@@ -178,20 +199,27 @@ const ProjectsGrid = ({ projects }) => {
 
   const visibleProjects = projects.slice(0, visibleCount);
   const hasMore = isMobile && visibleCount < projects.length;
+  const allTests = projects.length > 0 && projects.every((p) => p.beforeImage && p.afterImage);
 
   return (
     <div className={styles.gridWrap}>
-      <div className={styles.grid}>
-        {visibleProjects.map((project, i) => (
-          <Reveal
-            key={project.id}
-            delay={(i % 4) * 70}
-            className={styles.phone}
-            onMouseLeave={resetScroll}
-          >
-            <PhoneCard project={project} onExpand={setSelectedProject} />
-          </Reveal>
-        ))}
+      <div className={`${styles.grid} ${allTests ? styles.gridCards : ""}`}>
+        {visibleProjects.map((project, i) =>
+          project.beforeImage && project.afterImage ? (
+            <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>
+              <TestCard project={project} onExpand={setSelectedProject} />
+            </Reveal>
+          ) : (
+            <Reveal
+              key={project.id}
+              delay={(i % 4) * 70}
+              className={styles.phone}
+              onMouseLeave={resetScroll}
+            >
+              <PhoneCard project={project} />
+            </Reveal>
+          )
+        )}
 
         {visibleProjects.length === 0 && (
           <p className={styles.empty}>No projects found in this category yet.</p>

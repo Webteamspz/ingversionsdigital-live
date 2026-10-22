@@ -97,6 +97,11 @@ body {
   margin: 0 auto;
   padding: 0 15px
 }
+/* CookieConsent: no page scroll until the visitor accepts or declines. */
+.consent-locked,
+.consent-locked body {
+  overflow: hidden!important
+}
 .skip-link {
   position: absolute;
   top: -100px;

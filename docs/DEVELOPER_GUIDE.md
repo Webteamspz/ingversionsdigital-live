@@ -263,7 +263,12 @@ keep it that way. Secrets for CI/deploy live in GitHub repo secrets instead (see
 `react-ga` or similar SDK. `startAnalytics()` (which runs `initGTMTracking()` and
 `loadAnalytics()`) is only called after the visitor accepts analytics in the `CookieConsent`
 banner, either on click or from `main.jsx` on idle when a previous `granted` choice is stored
-in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing.
+in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing. Only an
+accept is saved: a decline hides the banner for the visit, and it asks again on the next page
+load. Until the visitor chooses, the banner blocks clicks and scrolling on every page except
+`/privacy-policy`. Choosing fires `CONSENT_EVENT` (from `gtm.js`) on window; the bottom
+`PromoBar` waits for it and appears 10 seconds later (or 10 seconds after load for visitors who
+accepted earlier).
 `initGTMTracking()` wires up:
 
 - automatic `virtual_pageview` events on route change (patches `history.pushState`)
