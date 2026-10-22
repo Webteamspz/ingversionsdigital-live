@@ -6,6 +6,11 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+# Public analytics IDs. src/gtm.js only loads them after cookie consent;
+# never hardcode them in index.html.
+ARG VITE_GTM_ID=GTM-P5BGX7H7
+ARG VITE_CLARITY_ID=wqx46kxwy8
+ENV VITE_GTM_ID=$VITE_GTM_ID VITE_CLARITY_ID=$VITE_CLARITY_ID
 RUN npm run build
 
 FROM nginx:1.27-alpine
