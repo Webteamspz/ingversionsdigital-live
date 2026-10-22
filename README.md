@@ -67,6 +67,7 @@ Real `.env` files are ignored by git. Do not commit secrets or IDs.
 ```sh
 npm run dev        # Vite dev server at http://localhost:5173
 npm run lint       # ESLint, run before every commit
+npm test           # node:test unit tests in src/utils/*.test.js
 npm run build      # blog thumbnails, production build to dist/, then scripts/prerender.mjs
 npm run preview    # serve the built dist/ locally
 ```
@@ -90,6 +91,7 @@ npm run build:production    # mode=production, the public build
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
+| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), tested by `abtest.test.js` |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
 | `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
 | `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
@@ -164,11 +166,12 @@ Full infrastructure detail is in `DEPLOYMENT.md`.
 ## Verification Commands
 
 ```sh
+npm test
 npm run lint
 npm run build
 ```
 
-There is no automated test suite. UI-facing changes should be checked in a real browser before shipping.
+`npm test` only covers pure logic (`src/utils/*.test.js`, Node's built-in `node:test`). There are no UI tests, so UI-facing changes should be checked in a real browser before shipping.
 
 ## Documentation
 

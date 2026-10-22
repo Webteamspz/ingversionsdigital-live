@@ -886,6 +886,7 @@ footer: {
           { name: "Team Page", href: "/teampage" },
           { name: "About Us", href: "/about-us" },
           { name: "Blog", href: "/blog" },
+          { name: "A/B Test Calculator", href: "/ab-test-calculator" },
         ],
       },
       {

@@ -64,6 +64,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Forms | native `<form>` + Formspree | no form library; `VITE_FORMSPREE_ENDPOINT` posts the contact form (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
+| Unit tests | Node's built-in `node:test` | `npm test`; runs `src/**/*.test.js`. Pure logic only (e.g. `src/utils/abtest.js` for `/ab-test-calculator`), no UI tests, no framework |
 | Image pipeline | `sharp` (dev-only script) | `scripts/convert-images.mjs`, see [Images](#images-format-and-optimization) |
 | Hosting | Docker + nginx, no SSH | see [Branches & Deployment](#branches--deployment) and `DEPLOYMENT.md` |
 
@@ -87,6 +88,7 @@ src/
   styles/style.css     Global reset + design tokens (CSS custom properties)
   gtm.js               Analytics event helpers + consent storage (pageview, cta_click, startAnalytics...)
   utils/url.js         Small URL helpers
+  utils/abtest.js      A/B test calculator maths (z-test, MDE, SRM); tests in abtest.test.js
 
 public/assets/         Static images/fonts, served as-is (webp/jpg, optimized — see below)
 scripts/convert-images.mjs   One-off script: resize+convert new images to webp
@@ -521,6 +523,7 @@ Build the component under `src/components/YourSection/`, add its content to
 ### Run checks before pushing
 
 ```bash
+npm test
 npm run lint
 npm run build          # or build:staging / build:production to match a real deploy
 ```

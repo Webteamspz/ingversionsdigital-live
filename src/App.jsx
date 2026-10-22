@@ -18,6 +18,7 @@ const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
 const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
 const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
 const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
+const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 
 const ScrollManager = () => {
   const { pathname, hash, search, state, key } = useLocation();
@@ -89,6 +90,7 @@ const App = () => (
         <Route path="/teampage" element={<TeamPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/ab-test-calculator" element={<AbTestCalculator />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
