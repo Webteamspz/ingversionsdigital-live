@@ -8,10 +8,10 @@ import styles from "./ProjectsPage.module.css";
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState(data.filters[0]);
 
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === data.filters[0]) return data.projects;
-    return data.projects.filter((project) => project.type === activeFilter);
-  }, [activeFilter]);
+  const filteredProjects = useMemo(
+    () => data.projects.filter((project) => project.type === activeFilter),
+    [activeFilter]
+  );
 
   return (
     <section className={styles.projectsSection} id="projects">

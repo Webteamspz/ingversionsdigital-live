@@ -2,11 +2,11 @@ export default {
   header: {
     links: [
       { label: "Home", href: "/" },
-      { label: "Services", href: "/#services" },
+      { label: "Services", href: "/", scrollTo: "services" },
       { label: "Projects", href: "/projects" },
       { label: "Pricing", href: "/pricing" },
       { label: "About Us", href: "/about-us" },
-      { label: "Blog", href: "https://blog.ingversionsdigital.com/" },
+      { label: "Blog", href: "/blog" },
     ],
     cta: {
       label: "Book A Call",
@@ -108,30 +108,40 @@ export default {
     list: [
       {
         title: "A/B Testing",
+        href: "/ab-testing",
+        linkLabel: "Learn More",
         eyebrow: "Experimentation",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
         icon: "ab-testing",
       },
       {
         title: "Shopify Development",
+        href: "/shopify-development",
+        linkLabel: "Learn More",
         eyebrow: "Shopify & Shopify Plus",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
         icon: "shopify",
       },
       {
         title: "Quality Assurance",
+        href: "/quality-assurance",
+        linkLabel: "Learn More",
         eyebrow: "Ship With Confidence",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
         icon: "qa",
       },
       {
         title: "WordPress Development",
+        href: "/wordpress-development",
+        linkLabel: "Learn More",
         eyebrow: "Custom Builds",
         desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
         icon: "wordpress",
       },
       {
         title: "Landing Page Personalization",
+        href: "/landing-page-personalization",
+        linkLabel: "Learn More",
         eyebrow: "Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
         icon: "landing-page",
@@ -175,6 +185,84 @@ export default {
         title: "Launch",
         desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
         icon: "goal",
+      },
+    ],
+  },
+  processFlow: {
+    eyebrow: "How every project runs",
+    heading: "Every project runs on a",
+    highlight: "system.",
+    sub: "Nothing gets built on a guess. Each service follows the same tracked flow, from the first brief to the final sign-off, so every stage sets up the next one.",
+    tabs: [
+      {
+        id: "ab-testing",
+        label: "A/B Testing",
+        note: "Every test ships with a Loom walkthrough, a Figma file, the code and a live test link, so you can see exactly what changed and why.",
+        steps: [
+          { icon: "brief", title: "Brief", tag: "the hypothesis", desc: "A task with the test ID, page and goal." },
+          { icon: "loom", title: "Loom", tag: "the walkthrough", desc: "A recorded walkthrough of the idea." },
+          { icon: "figma", title: "Figma", tag: "the design", desc: "Each variant designed for mobile and desktop." },
+          { icon: "variants", title: "Variants", tag: "the options", desc: "V1, V2, V3, each building on the last." },
+          { icon: "code", title: "Build", tag: "the code", desc: "Variants coded and pushed to Git." },
+          { icon: "qa", title: "QA", tag: "the check", desc: "Checked across devices before going live." },
+          { icon: "launch", title: "Launch", tag: "the test", desc: "Live in the testing tool, tracked to a winner." },
+        ],
+      },
+      {
+        id: "shopify",
+        label: "Shopify",
+        note: "Your store is built in your own theme, reviewed with you at each step and handed over with support, so the work keeps paying off after launch.",
+        steps: [
+          { icon: "brief", title: "Scope", tag: "the plan", desc: "Pages, features and timeline agreed up front." },
+          { icon: "figma", title: "Design", tag: "the look", desc: "Layouts designed in Figma for your brand." },
+          { icon: "store", title: "Theme", tag: "the build", desc: "Built natively in Shopify, no page builders." },
+          { icon: "qa", title: "QA", tag: "the check", desc: "Tested on every device and browser." },
+          { icon: "review", title: "Review", tag: "the feedback", desc: "You review, we refine until it's right." },
+          { icon: "launch", title: "Launch", tag: "the go-live", desc: "Published live with a full handover." },
+          { icon: "support", title: "Support", tag: "the follow-up", desc: "We stay on hand for fixes and updates." },
+        ],
+      },
+      {
+        id: "qa",
+        label: "QA",
+        note: "Every bug is logged with steps to reproduce, fixed and retested, so nothing ships until it works for every visitor.",
+        steps: [
+          { icon: "scope", title: "Scope", tag: "the pages", desc: "Which pages, flows and features to test." },
+          { icon: "devices", title: "Devices", tag: "the matrix", desc: "Browsers and devices your visitors use." },
+          { icon: "checklist", title: "Test", tag: "the run", desc: "Each flow tested against a checklist." },
+          { icon: "bug", title: "Log", tag: "the bugs", desc: "Every issue logged with steps to reproduce." },
+          { icon: "code", title: "Fix", tag: "the patch", desc: "Issues fixed and pushed for review." },
+          { icon: "retest", title: "Retest", tag: "the confirm", desc: "Each fix retested before it's closed." },
+          { icon: "signoff", title: "Sign-off", tag: "the release", desc: "Approved and cleared to go live." },
+        ],
+      },
+      {
+        id: "wordpress",
+        label: "WordPress",
+        note: "Your site is built as a custom theme, reviewed with you at each step and handed over ready for your team to edit.",
+        steps: [
+          { icon: "brief", title: "Scope", tag: "the plan", desc: "Pages, features and timeline agreed up front." },
+          { icon: "figma", title: "Design", tag: "the look", desc: "Layouts designed in Figma for your brand." },
+          { icon: "code", title: "Build", tag: "the theme", desc: "A custom theme built for speed and editing." },
+          { icon: "qa", title: "QA", tag: "the check", desc: "Tested on every device and browser." },
+          { icon: "review", title: "Review", tag: "the feedback", desc: "You review, we refine until it's right." },
+          { icon: "launch", title: "Launch", tag: "the go-live", desc: "Published live with a full handover." },
+          { icon: "support", title: "Support", tag: "the follow-up", desc: "We stay on hand for fixes and updates." },
+        ],
+      },
+      {
+        id: "landing-page",
+        label: "Personalization",
+        note: "Every personalized page is tested against your default page, so you can see exactly what each audience responds to.",
+        steps: [
+          { icon: "scope", title: "Audiences", tag: "the who", desc: "Which visitors and traffic sources to target." },
+          { icon: "brief", title: "Message", tag: "the angle", desc: "Copy and offers matched to each audience." },
+          { icon: "figma", title: "Design", tag: "the page", desc: "Each page designed mobile-first in Figma." },
+          { icon: "code", title: "Build", tag: "the logic", desc: "Pages built with the right content for each visitor." },
+          { icon: "qa", title: "QA", tag: "the check", desc: "Every version checked before going live." },
+          { icon: "launch", title: "Launch", tag: "the test", desc: "Live and tested against your default page." },
+          { icon: "retest", title: "Refine", tag: "the lift", desc: "Pages refined as the results come in." },
+        ],
       },
     ],
   },
@@ -587,7 +675,7 @@ export default {
 blog: {
   heading: "Latest Articles",
   seeMoreText: "See more articles",
-  seeMoreUrl: "https://blog.ingversionsdigital.com/",
+  seeMoreUrl: "/blog",
   list: [
     {
       id: 1,
@@ -597,7 +685,7 @@ blog: {
       date: "April 8, 2026",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1742454582165-deab666a8763?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/shopify-theme-customizations-boost-sales"
+      url: "/blog/shopify-theme-customizations-boost-sales"
     },
     {
       id: 2,
@@ -607,7 +695,7 @@ blog: {
       date: "April 5, 2026",
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1643917853964-434e78b21cf7?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/ab-testing-mistakes-cost-money"
+      url: "/blog/ab-testing-mistakes-cost-money"
     },
     {
       id: 3,
@@ -617,7 +705,7 @@ blog: {
       date: "April 3, 2026",
       readTime: "7 min read",
       image: "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/cro-fundamentals-where-to-start"
+      url: "/blog/cro-fundamentals-where-to-start"
     },
     {
       id: 4,
@@ -627,7 +715,7 @@ blog: {
       date: "April 12, 2026",
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1634084462412-b54873c0a56d?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/psychology-high-converting-landing-pages"
+      url: "/blog/psychology-high-converting-landing-pages"
     },
     {
       id: 5,
@@ -637,7 +725,7 @@ blog: {
       date: "April 15, 2026",
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1586282023338-52aa50a846ba?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/qa-checklist-before-launching-store"
+      url: "/blog/qa-checklist-before-launching-store"
     },
     {
       id: 6,
@@ -647,7 +735,7 @@ blog: {
       date: "April 18, 2026",
       readTime: "9 min read",
       image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/headless-shopify-is-it-right-for-your-brand"
+      url: "/blog/headless-shopify-is-it-right-for-your-brand"
     },
     {
       id: 7,
@@ -657,7 +745,7 @@ blog: {
       date: "April 20, 2026",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1667984390533-64bdefe719ea?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/multivariate-vs-ab-testing"
+      url: "/blog/multivariate-vs-ab-testing"
     },
     {
       id: 8,
@@ -667,7 +755,7 @@ blog: {
       date: "April 24, 2026",
       readTime: "7 min read",
       image: "https://images.unsplash.com/photo-1773047747593-b2f10e0579c5?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/micro-commitments-better-funnels"
+      url: "/blog/micro-commitments-better-funnels"
     },
     {
       id: 9,
@@ -677,7 +765,7 @@ blog: {
       date: "April 28, 2026",
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1753998941488-fc3064ab6094?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/automated-ui-testing-ecommerce"
+      url: "/blog/automated-ui-testing-ecommerce"
     },
     {
       id: 10,
@@ -687,7 +775,7 @@ blog: {
       date: "May 2, 2026",
       readTime: "10 min read",
       image: "https://images.unsplash.com/photo-1563131630-79ca2b9b47f5?q=80&w=1200&auto=format&fit=crop",
-      url: "https://blog.ingversionsdigital.com/optimizing-shopify-core-web-vitals"
+      url: "/blog/optimizing-shopify-core-web-vitals"
     }
   ]
 },
@@ -787,7 +875,7 @@ footer: {
         title: "Quick Links",
         links: [
           { name: "Home", href: "/#hero" },
-          { name: "Services", href: "/#services" },
+          { name: "Services", href: "/", scrollTo: "services" },
           { name: "Pricing", href: "/pricing" },
           { name: "Projects", href: "/projects" },
         ],
@@ -797,7 +885,7 @@ footer: {
         links: [
           { name: "Team Page", href: "/teampage" },
           { name: "About Us", href: "/about-us" },
-          { name: "Blog", href: "https://blog.ingversionsdigital.com/" },
+          { name: "Blog", href: "/blog" },
         ],
       },
       {
@@ -805,6 +893,7 @@ footer: {
         links: [
           { name: "Privacy Policy", href: "/privacy-policy" },
           { name: "Terms of Service", href: "/terms-of-service" },
+          { name: "Cookie Settings", action: "cookie-settings" },
         ],
       },
     ],

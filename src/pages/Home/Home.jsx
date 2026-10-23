@@ -8,6 +8,7 @@ import seo from "../../data/seodata";
 import TrackRecord from "../../components/TrackRecord/TrackRecord";
 import Services from "../../components/Services/Services";
 import WorkProcess from "../../components/WorkProcess/WorkProcess";
+import ProcessFlow from "../../components/ProcessFlow/ProcessFlow";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Contact from "../../components/Contact/Contact";
 import BlogSlider from "../../components/BlogSlider/BlogSlider";
@@ -50,6 +51,7 @@ const Home = () => {
         <TrackRecord />
         <Services />
         <WorkProcess />
+        <ProcessFlow tabIds={["ab-testing", "shopify", "qa"]} />
         <CaseStudies />
         <EngagementModels />
         <Reviews />

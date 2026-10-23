@@ -5,6 +5,7 @@ import CookieConsent from "./components/CookieConsent/CookieConsent.jsx";
 import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
+import servicePages from "./data/servicepagesdata.js";
 
 const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
@@ -14,35 +15,43 @@ const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
 const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou/ThankYou.jsx"));
 const TermsOfService = lazy(() => import("./pages/Legal/TermsOfService.jsx"));
+const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
+const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
+const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 
 const ScrollManager = () => {
-  const { pathname, hash, search } = useLocation();
+  const { pathname, hash, search, state, key } = useLocation();
+  // Links can scroll to a section without a #hash in the URL: <Link state={{ scrollTo: id }}>.
+  const target = hash ? hash.slice(1) : state?.scrollTo;
 
   useEffect(() => {
-    if (!hash) {
+    if (!target) {
       window.scrollTo({ top: 0, left: 0 });
       return;
     }
 
-    const targetId = hash.slice(1);
+    const targetId = target;
 
+    // Scroll again once late content above (banners, images) has pushed the section down.
+    let settle;
     const scrollToEl = (el) => {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+      settle = setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 700);
     };
 
     const existing =
-      document.getElementById(targetId) || document.querySelector(hash);
+      document.getElementById(targetId);
 
     if (existing) {
       scrollToEl(existing);
-      return;
+      return () => clearTimeout(settle);
     }
 
     
     
     const observer = new MutationObserver(() => {
       const el =
-        document.getElementById(targetId) || document.querySelector(hash);
+        document.getElementById(targetId);
       if (el) {
         scrollToEl(el);
         observer.disconnect();
@@ -61,8 +70,9 @@ const ScrollManager = () => {
     return () => {
       observer.disconnect();
       clearTimeout(timeout);
+      clearTimeout(settle);
     };
-  }, [pathname, hash, search]);
+  }, [pathname, target, search, key]);
 
   return null;
 };
@@ -83,6 +93,11 @@ const App = () => (
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/blog" element={<BlogHome />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        {Object.keys(servicePages).map((slug) => (
+          <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

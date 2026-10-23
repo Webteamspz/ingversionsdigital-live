@@ -9,10 +9,11 @@
          set per-route by the SEO component (react-helmet-async) - a static copy
          here would duplicate them in the DOM on every page. -->
     <meta name="author" content="Ingversions Digital" />
-    <meta name="theme-color" content="#030303" />
+    <meta name="theme-color" content="#FFFDF5" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/logos/logo-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/logos/logo-96.png" />
@@ -41,8 +42,9 @@
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
+        "@id": "https://ingversionsdigital.com/#organization",
         "name": "Ingversions Digital",
-        "alternateName": ["Ingversions", "Versions Digital", "Shopify CRO Agency", "Conversion Rate Optimization", "A/B Testing Agency", "Ecommerce CRO"],
+        "alternateName": ["Ingversions"],
         "url": "https://ingversionsdigital.com",
         "logo": "https://ingversionsdigital.com/assets/logos/logo-192.png",
         "image": "https://ingversionsdigital.com/assets/seo/og-image.jpg",
@@ -71,6 +73,21 @@
         }
       }
     </script>
+
+    <!-- WebSite schema for sitelinks / brand entity resolution -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ingversions Digital",
+        "alternateName": "Ingversions",
+        "url": "https://ingversionsdigital.com",
+        "publisher": { "@id": "https://ingversionsdigital.com/#organization" },
+        "inLanguage": "en"
+      }
+    </script>
+
+
   </head>
 
   <body>
@@ -102,6 +119,17 @@
         Email: ingversionsdigital@gmail.com<br />
         Phone: +91-8866167750
       </p>
+
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/teampage">Team</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
 
       <p>Please enable JavaScript for the full interactive experience.</p>
     </noscript>

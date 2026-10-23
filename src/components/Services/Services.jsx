@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,6 +10,7 @@ import data from "../../data/sitedata";
 import styles from "./Services.module.css";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
+import { isExternalHref } from "../../utils/url";
 
 const SERVICE_ICONS = {
   "ab-testing": SplitSquareHorizontal, shopify: ShoppingBag, qa: CheckCircle2,
@@ -27,7 +29,7 @@ const ServiceCardBody = ({ service, index }) => {
       <div className={styles.body}>
         {service.eyebrow && <span className={styles.eyebrow}>{service.eyebrow}</span>}
         <h3 className={styles.serviceTitle}>
-          {service.href ? (
+          {service.href && isExternalHref(service.href) ? (
             <a
               href={service.href}
               target="_blank"
@@ -38,6 +40,10 @@ const ServiceCardBody = ({ service, index }) => {
             >
               {service.title}
             </a>
+          ) : service.href ? (
+            <Link to={service.href} className={styles.cardLink} data-cta={service.title} data-cta-loc="Services">
+              {service.title}
+            </Link>
           ) : (
             service.title
           )}

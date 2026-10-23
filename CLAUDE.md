@@ -36,20 +36,20 @@ only; `production` never gets them.
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
 
-## Blog link alert stays on dev and stage only
+## The blog lives at /blog
 
-The Blog-link click-intercept behavior (Header nav, Footer, and BlogSlider —
-clicking shows an `alert()` pointing at `blog.ingversionsdigital.com` instead
-of navigating there directly) is a `dev`/`stage`-only experiment. It
-must never reach `production`.
+The blog moved in from the old `blog.ingversionsdigital.com` Next.js app. Header,
+Footer and BlogSlider link to `/blog` directly (the old `alert()` experiment is
+gone). Because `nginx.conf` is excluded from the `stage` → `production` merge,
+the two `/blog` location blocks must be added to production's own `nginx.conf`
+the first time the blog is merged, or every `/blog` URL 404s there. Once `/blog`
+is live in production, the old blog project 301-redirects
+`blog.ingversionsdigital.com/<slug>` to `/blog/<slug>`; that is done in the old
+blog repo, not here.
 
-Unlike the file exclusions above, `src/components/Header/Header.jsx`,
-`src/components/Footer/Footer.jsx`, and `src/components/BlogSlider/BlogSlider.jsx`
-are not globally excluded from the `stage` → `production` merge — other,
-unrelated changes to those files should still flow through normally. When
-merging `stage` into `production`, specifically keep production's
-direct-navigation Blog links (no click-intercept, no `alert(...)`) while still
-taking any other legitimate changes those files carry.
+Blog styles are scoped under `.ing-blog` (`src/pages/Blog/blog.css`) and the
+blog routes are lazy-loaded. Keep both: nothing from the blog may restyle or
+grow the bundle of the rest of the site.
 
 ## graphify output stays local
 

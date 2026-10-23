@@ -2,7 +2,7 @@
   background: var(--palette-border);
   position: relative;
   overflow-x: hidden;
-  padding: 115px 0 30px;
+  padding: 96px 0 30px;
   margin-top: -1px
 }
 .siteFooter:before {
@@ -72,7 +72,14 @@
   font-weight: 700;
   margin: 0 0 8px 0
 }
-.linkGroup > a {
+.linkButton {
+  border: 0;
+  background: 0 0;
+  text-align: inherit;
+  cursor: pointer
+}
+.linkGroup > a,
+.linkButton {
   color: var(--palette-bg-800);
   text-decoration: none;
   font-family: "Plus Jakarta Sans",sans-serif;
@@ -82,7 +89,8 @@
   transition: color .2s ease;
   padding: 4px 0
 }
-.linkGroup > a:hover {
+.linkGroup > a:hover,
+.linkButton:hover {
   color: var(--tertiary)
 }
 .footerBottomRow {
@@ -228,7 +236,8 @@
     width: 16px;
     height: 16px
   }
-  .linkGroup > a {
+  .linkGroup > a,
+  .linkButton {
     font-size: 15px
   }
   .companyBio {

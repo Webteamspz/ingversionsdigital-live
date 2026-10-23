@@ -3,7 +3,7 @@
   isolation: isolate;
   overflow: hidden;
   /* bottom padding keeps the card's 10px offset shadow from being clipped by overflow:hidden */
-  padding: 88px 0 12px;
+  padding: var(--section-space) 0 12px;
   background: var(--palette-bg-950);
   scroll-margin-top: 100px
 }

@@ -35,6 +35,19 @@ const ContactModal = ({ isOpen, onClose, source }) => {
     };
   }, [isOpen]);
 
+  // Escape closes the modal, like the close button.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setFormData(initialState);
+      setSubmitError("");
+      onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const resetForm = () => {
@@ -101,7 +114,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
               </span>
             </div>
 
-            <form className={styles.contactModalForm} onSubmit={handleSubmit}>
+            <form className={styles.contactModalForm} data-gtm-form="engagement-contact" onSubmit={handleSubmit}>
               <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px" }} />
               <div className={styles.formGroup}>
                 <label htmlFor="email">

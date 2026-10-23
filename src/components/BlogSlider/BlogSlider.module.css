@@ -1,7 +1,7 @@
 .blogSection {
   position: relative;
   overflow: hidden;
-  padding: 88px 0 78px;
+  padding: var(--section-space) 0;
   background: var(--palette-tint-blue)
 }
 .blogContainer {
@@ -216,9 +216,6 @@
   display: inline-flex;
   transition: transform .25s ease
 }
-.blogCardLink:hover .blogCard {
-  transform: translateY(-10px)
-}
 .blogCardLink:hover .imgWrapper {
   box-shadow: 9px 9px 0 var(--tertiary)
 }
@@ -258,7 +255,7 @@
 }
 @media (max-width:1023.98px) {
   .blogSection {
-    padding: 72px 0 66px
+    padding: 56px 0
   }
   .blogSectionHeader {
     align-items: flex-start

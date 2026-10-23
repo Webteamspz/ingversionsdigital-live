@@ -13,6 +13,7 @@ Docker/Nginx image.
 - SEO: `react-helmet-async` via a shared `<SEO>` component
 - Icons: `lucide-react`
 - Carousels: Swiper
+- Blog: `react-markdown` for legacy posts, `mermaid` for diagrams (loaded on demand)
 - Contact form: Formspree
 - Analytics: Google Tag Manager and Microsoft Clarity, wired through `src/gtm.js`
 - Image pipeline: `sharp` (dev dependency) via `scripts/convert-images.mjs`
@@ -21,6 +22,7 @@ Docker/Nginx image.
 ## What Is Included
 
 - Home, About Us, Pricing, Projects, Team, Privacy Policy, Terms of Service, a `noindex` thank-you page (`/thank-you`, where the contact form lands), and a 404 page.
+- The company blog at `/blog` and `/blog/:slug` (moved in from the old `blog.ingversionsdigital.com` Next.js app). Its routes are lazy-loaded and its styles are scoped under `.ing-blog`, so it adds nothing to the other pages.
 - Data-driven content: every headline, list, price, team member, and project lives in `src/data/*.js`, not in JSX.
 - A shared `<SEO>` component for per-page title, description, canonical, and Open Graph tags.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
@@ -65,7 +67,7 @@ Real `.env` files are ignored by git. Do not commit secrets or IDs.
 ```sh
 npm run dev        # Vite dev server at http://localhost:5173
 npm run lint       # ESLint, run before every commit
-npm run build      # production build to dist/, then scripts/prerender.mjs
+npm run build      # blog thumbnails, production build to dist/, then scripts/prerender.mjs
 npm run preview    # serve the built dist/ locally
 ```
 
@@ -84,11 +86,13 @@ npm run build:production    # mode=production, the public build
 | `src/pages/` | one folder per route |
 | `src/components/` | presentational components, each with its own `.module.css` |
 | `src/data/*.js` | all site copy as plain objects |
+| `src/data/blog/` | blog posts (`blogPosts.json`, `articlesData.js`), home cards, cover mapping, and blog head tags (`blogSeo.js`) |
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
-| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` |
+| `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
+| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
 | `docs/` | `DEVELOPER_GUIDE.md` and the `site-docs/` HTML documentation page |
 | `Dockerfile`, `nginx.conf`, `docker-compose.*.yml` | container build and serve |
 
@@ -103,7 +107,10 @@ To change what the site says, edit the matching module in `src/data/`:
 | `teamdata.js` | Team members (name, role, photo, socials) |
 | `projectsdata.js` | Portfolio case studies |
 | `aboutusdata.js` | About page copy |
+| `servicepagesdata.js` | One entry per service page (`/ab-testing`, `/shopify-development`, ...): hero, included items, process flow, pricing type, FAQ |
 | `seodata.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
+| `blog/blogPosts.json` | Structured blog posts (preferred). Template: `blog/blogPostTemplate.json` |
+| `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
 
 Components read these objects and render them. Do not hardcode copy in JSX.
 
@@ -148,10 +155,9 @@ docs/site-docs/
 The `.gitignore` `graphify-out/` rule also stays off `production`. The developer
 docs and that ignore rule live on `dev` and `stage` only.
 
-The Blog-link click-intercept behavior (Header, Footer, `BlogSlider` — clicking shows
-an alert instead of navigating to `blog.ingversionsdigital.com`) is also a
-`dev`/`stage`-only experiment and must not reach `production`, even though those
-component files aren't on the list above and should otherwise merge normally.
+Because production keeps its own `nginx.conf`, the two `/blog` location blocks
+from `dev`'s `nginx.conf` must be added to production's copy when the blog is first
+merged to `production`. Without them every `/blog` URL returns 404 there.
 
 Full infrastructure detail is in `DEPLOYMENT.md`.
 

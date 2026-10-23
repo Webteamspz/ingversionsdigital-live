@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, CalendarCheck, X } from "lucide-react";
 import data from "../../data/sitedata";
+import { CONSENT_EVENT, getConsent } from "../../gtm";
 import styles from "./PromoBar.module.css";
 
 const DISMISS_KEY = "promo-bar-dismissed";
+// The bar shows this long after the visitor accepts or declines cookies
+// (or after load, for visitors who accepted on an earlier visit).
+const SHOW_AFTER_MS = 10000;
 
 // lucide has no brand icons; this is the official WhatsApp glyph.
 const WhatsAppIcon = () => (
@@ -24,12 +28,27 @@ const isDismissed = () => {
 const PromoBar = () => {
   const { enabled, eyebrow, text, cta, whatsapp } = promoBar || {};
   const [visible, setVisible] = useState(() => enabled && Boolean(text) && !isDismissed());
+  const [ready, setReady] = useState(false);
   const barRef = useRef(null);
+
+  // PromoBar lives in App, so this runs once per visit, not on every navigation.
+  useEffect(() => {
+    let id;
+    const start = () => {
+      id = setTimeout(() => setReady(true), SHOW_AFTER_MS);
+    };
+    if (getConsent() === "granted") start();
+    else window.addEventListener(CONSENT_EVENT, start, { once: true });
+    return () => {
+      clearTimeout(id);
+      window.removeEventListener(CONSENT_EVENT, start);
+    };
+  }, []);
 
   // Expose the bar height so fixed bottom UI and page content can clear it.
   useEffect(() => {
     const root = document.documentElement;
-    if (!visible || !barRef.current) return;
+    if (!visible || !ready || !barRef.current) return;
     const ro = new ResizeObserver(([entry]) => {
       root.style.setProperty("--promo-bar-h", `${entry.target.offsetHeight}px`);
     });
@@ -38,9 +57,9 @@ const PromoBar = () => {
       ro.disconnect();
       root.style.removeProperty("--promo-bar-h");
     };
-  }, [visible]);
+  }, [visible, ready]);
 
-  if (!visible) return null;
+  if (!visible || !ready) return null;
 
   const dismiss = () => {
     try {

@@ -1,7 +1,7 @@
 .faqWrapper {
   background-color: var(--palette-bg-950);
   color: var(--palette-text-primary);
-  padding: 60px 0
+  padding: 60px 0 0
 }
 .faqWrapper h2 {
   margin: 0 0 44px

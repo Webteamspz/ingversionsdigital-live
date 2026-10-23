@@ -3,7 +3,12 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  gap: 28px
+}
+/* A/B Testing cards: the original image card that opens the before/after modal. */
+.gridCards {
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px
 }
 .card {
@@ -111,6 +116,101 @@
 }
 .cardFooter:hover .arrow {
   transform: scale(1.1) rotate(-8deg)
+}
+.phone {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 8px 8px;
+  background: var(--palette-text-primary);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop-soft);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.phone:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0 0 var(--palette-accent)
+}
+.phoneBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 4px
+}
+.phoneUrl {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+  color: var(--palette-bg-600);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+.phoneGo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--tertiary);
+  color: var(--palette-text-primary);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-sm);
+  transition: transform .2s ease
+}
+.phoneGo:hover {
+  transform: rotate(-8deg) scale(1.08)
+}
+.phoneView {
+  position: relative;
+  height: 500px;
+  overflow-y: auto;
+  background: var(--palette-bg-800);
+  border-radius: 14px;
+  scrollbar-width: none
+}
+.phoneView::-webkit-scrollbar {
+  display: none
+}
+.phoneView[role=button] {
+  cursor: pointer
+}
+.phoneView img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: top
+}
+.phonePill {
+  position: sticky;
+  bottom: 12px;
+  display: block;
+  width: max-content;
+  margin: -42px auto 12px;
+  padding: 6px 14px;
+  background: var(--palette-text-primary);
+  color: var(--palette-bg-800);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .9;
+  pointer-events: none
+}
+.phoneGo:focus-visible,
+.phoneView:focus-visible {
+  outline: var(--border-width) solid var(--tertiary);
+  outline-offset: 3px
 }
 .empty {
   grid-column: 1/-1;
@@ -301,17 +401,22 @@
   }
 }
 @media (max-width:1023.98px) {
-  .grid {
-    grid-template-columns: repeat(2,1fr);
+  .gridCards {
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px
   }
 }
 @media (max-width:767.98px) {
-  .grid {
-    grid-template-columns: repeat(1,1fr);
-    gap: 20px
+  .gridCards {
+    grid-template-columns: minmax(0, 1fr)
   }
   .card:hover {
+    transform: none
+  }
+  .imageWrap {
+    aspect-ratio: 6/4
+  }
+  .phone:hover {
     transform: none
   }
   .viewMoreBtn {
@@ -383,15 +488,7 @@
   .modalCaption h4 {
     font-size: 16px
   }
-  .imageWrap {
-    aspect-ratio: 6/4
-  }
-}
-@media (max-width:499.98px) {
-  .modalCaption {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 16px
+  .phoneView {
+    height: 460px
   }
 }

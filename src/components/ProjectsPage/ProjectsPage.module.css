@@ -1,9 +1,9 @@
 .projectsSection {
   background: var(--palette-bg-950);
-  padding: 0 0 90px
+  padding: 0 0 40px
 }
 @media (max-width:767.98px) {
   .projectsSection {
-    padding: 0 0 50px
+    padding: 0 0 32px
   }
 }
