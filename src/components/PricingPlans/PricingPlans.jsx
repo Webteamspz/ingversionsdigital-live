@@ -1,12 +1,14 @@
 import styles from "./PricingPlans.module.css";
-import { pricingPlans } from "../../data/pricingdata";
+import { brandPlans, devPlans } from "../../data/pricingdata";
 import Reveal from "../Reveal/Reveal";
 
-const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)"];
+const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)", "var(--tertiary)"];
 
-const PricingPlans = () => {
-  const standardPlans = pricingPlans.slice(0, 3);
-  const elitePlan = pricingPlans[3];
+const PricingPlans = ({ track }) => {
+  const plans = track === "dev" ? devPlans : brandPlans;
+  const hasEliteWide = track === "brands";
+  const standardPlans = hasEliteWide ? plans.slice(0, 3) : plans;
+  const elitePlan = hasEliteWide ? plans[3] : null;
 
   function handleSeeComparison(planIndex) {
     window.dispatchEvent(
@@ -22,7 +24,7 @@ const PricingPlans = () => {
     <section className={styles.pricingPlans} id="pricingPlans">
       <div className="container">
 
-        <div className={styles.pricingPlansGrid}>
+        <div className={`${styles.pricingPlansGrid} ${!hasEliteWide ? styles.fourCol : ""}`}>
           {standardPlans.map((plan, idx) => (
             <Reveal
               key={plan.name}
@@ -47,7 +49,7 @@ const PricingPlans = () => {
 
               <div className={styles.pricingPlanPriceRow}>
                 <span className={styles.pricingPlanPrice}>
-                  {typeof plan.price === "number" ? `$${plan.price}` : plan.price}
+                  {plan.price}
                 </span>
                 {plan.period && (
                   <span className={styles.pricingPlanPeriod}>{plan.period}</span>
@@ -66,7 +68,14 @@ const PricingPlans = () => {
               </ul>
 
               <div className={styles.cardButtons}>
-                <a className={`btn ${styles.pricingPlanBtn}`} href={plan.ctaHref || "#"}>
+                <a
+                  className={`btn ${styles.pricingPlanBtn}`}
+                  href={plan.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={plan.ctaLabel}
+                  data-cta-loc={`Pricing Plan: ${plan.name}`}
+                >
                   {plan.ctaLabel || "Get Started"}
                 </a>
                 <button
@@ -109,8 +118,15 @@ const PricingPlans = () => {
               </div>
 
               <div className={styles.wideButtons}>
-                <a className={`btn ${styles.wideBtn}`} href={elitePlan.ctaHref || "#"}>
-                  {elitePlan.ctaLabel || "Book a strategy call"}
+                <a
+                  className={`btn ${styles.wideBtn}`}
+                  href={elitePlan.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={elitePlan.ctaLabel}
+                  data-cta-loc={`Pricing Plan: ${elitePlan.name}`}
+                >
+                  {elitePlan.ctaLabel || "Talk to us"}
                 </a>
                 <button
                   className={`c-btn ${styles.wideOutlineBtn}`}

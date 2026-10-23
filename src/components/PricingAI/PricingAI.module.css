@@ -1,0 +1,38 @@
+.aiSection {
+  padding: 0 0 20px
+}
+.card {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  background: var(--palette-tint-blue);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  text-align: center
+}
+.title {
+  margin: 0 0 14px;
+  font-family: Outfit,system-ui,sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--palette-text-primary)
+}
+.text {
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--palette-text-secondary);
+  font-size: 16px;
+  line-height: 160%
+}
+@media (max-width:767.98px) {
+  .card {
+    padding: 24px 20px
+  }
+  .title {
+    font-size: 20px
+  }
+  .text {
+    font-size: 14px
+  }
+}

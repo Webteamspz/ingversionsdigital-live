@@ -43,13 +43,18 @@ export const significance = ({ visitorsA, convA, visitorsB, convB, confidence, t
   const se = Math.sqrt(pooled * (1 - pooled) * (1 / visitorsA + 1 / visitorsB));
   const z = (rateB - rateA) / se;
   const pValue = tails === 1 ? normCdf(-z) : 2 * normCdf(-Math.abs(z));
+  const seUnpooled = Math.sqrt(rateA * (1 - rateA) / visitorsA + rateB * (1 - rateB) / visitorsB);
+  // One-sided: the lower bound must match the one-sided test, so use z at `confidence`.
+  const zCI = normInv(tails === 1 ? confidence : 1 - (1 - confidence) / 2);
+  const diff = rateB - rateA;
   return {
     rateA,
     rateB,
-    uplift: rateA ? (rateB - rateA) / rateA : null,
+    uplift: rateA ? diff / rateA : null,
     z,
     pValue,
     significant: pValue < 1 - confidence,
+    ci: [diff - zCI * seUnpooled, diff + zCI * seUnpooled],
   };
 };
 
