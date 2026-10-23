@@ -39,6 +39,8 @@ const abTestData = {
       rateB: "Variant rate",
       uplift: "Relative uplift",
       pValue: "p-value",
+      zScore: "Z-score",
+      ci: "Confidence interval",
     },
     verdicts: {
       winner: "Significant win. Variant B beats control.",
@@ -65,7 +67,7 @@ const abTestData = {
       },
       {
         q: "Which statistical method does this calculator use?",
-        a: "A frequentist two-proportion z-test. Sample sizes use the standard power formula, with a Bonferroni correction when you test more than one variant against control.",
+        a: "A frequentist two-proportion z-test with a pooled standard error for hypothesis testing and an unpooled (Wald) interval for the confidence interval (for one-sided tests, its lower bound matches the one-sided test). Sample sizes use the standard power formula, with a Bonferroni correction when you test more than one variant against control.",
       },
       {
         q: "What is a sample ratio mismatch?",

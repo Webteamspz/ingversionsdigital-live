@@ -9,7 +9,7 @@ import ProjectsCTA from "../../components/ProjectsCTA/ProjectsCTA";
 import Reveal from "../../components/Reveal/Reveal";
 import seo from "../../data/seodata";
 import siteData from "../../data/sitedata";
-import { pricingPlans } from "../../data/pricingdata";
+import { brandPlans } from "../../data/pricingdata";
 import pages from "../../data/servicepagesdata";
 import styles from "./ServicePage.module.css";
 
@@ -18,7 +18,7 @@ const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", 
 // A short pricing summary; the full plans and comparison live on /pricing.
 const pricingItems = (type) =>
   type === "plans"
-    ? pricingPlans.map((p) => ({
+    ? brandPlans.map((p) => ({
         name: p.name,
         price: p.price,
         period: p.period,

@@ -55,9 +55,9 @@ export default {
     breadcrumb: [home, { name: "Projects", path: "/projects" }],
   },
   pricing: {
-    title: "Shopify CRO Pricing | Ingversions Digital",
+    title: "Shopify CRO & A/B Test Development Pricing | Ingversions Digital",
     description:
-      "Transparent pricing for Shopify CRO, A/B testing, UX research, and conversion optimization services for ecommerce brands.",
+      "Clear monthly pricing for Shopify CRO programs and white-label A/B test development. Full QA on every test. Shopify development included. Plans from $999/mo or $99 per test.",
     path: "/pricing",
     breadcrumb: [home, { name: "Pricing", path: "/pricing" }],
   },

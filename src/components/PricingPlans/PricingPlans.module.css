@@ -38,6 +38,13 @@
   max-width: calc(33.333% - 16px);
   width: 100%
 }
+.fourCol .pricingPlanCard {
+  flex: 0 0 calc(25% - 18px);
+  max-width: calc(25% - 18px)
+}
+.fourCol .cardButtons {
+  flex-direction: column
+}
 .pricingPlanCard:hover {
   transform: translate(-3px,-3px) rotate(-1deg);
   box-shadow: var(--shadow-pop-hover)
@@ -231,6 +238,10 @@
     flex: 0 0 calc(33.333% - 11px);
     max-width: calc(33.333% - 11px);
     padding: 24px 16px
+  }
+  .fourCol .pricingPlanCard {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px)
   }
   .cardButtons {
     flex-direction: column

@@ -190,6 +190,14 @@ const ResultsTab = () => {
                 <span className={styles.statLabel}>{results.stats.pValue}</span>
                 <span className={styles.statValue}>{r.pValue < 0.0001 ? "< 0.0001" : r.pValue.toFixed(4)}</span>
               </div>
+              <div className={styles.stat}>
+                <span className={styles.statLabel}>{results.stats.zScore}</span>
+                <span className={styles.statValue}>{r.z.toFixed(4)}</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statLabel}>{results.stats.ci}</span>
+                <span className={styles.statValue}>{`[${pct(r.ci[0])}, ${pct(r.ci[1])}]`}</span>
+              </div>
             </div>
             {ratio?.mismatch && (
               <p className={styles.srm} role="alert">

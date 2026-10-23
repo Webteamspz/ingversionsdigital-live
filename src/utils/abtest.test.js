@@ -22,11 +22,25 @@ test("significance: 5.0% vs 5.8% on 10k each is significant at 95%, two-sided", 
   near(r.uplift, 0.16, 1e-9);
   near(r.pValue, 0.0123, 5e-4);
   assert.equal(r.significant, true);
+  // CI for the rate difference (unpooled Wald)
+  assert.ok(r.ci[0] > 0, "CI lower bound should be positive for a significant win");
+  assert.ok(r.ci[1] > r.ci[0], "CI upper > lower");
+  near(r.ci[0], 0.00175, 5e-4);
+  near(r.ci[1], 0.01425, 5e-4);
 });
 
 test("significance: one-sided halves the p-value", () => {
   const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 580, confidence: 0.95, tails: 1 });
   near(r.pValue, 0.00616, 3e-4);
+});
+
+// Regression: ISSUE-001 — one-sided "significant win" shown with a CI that crosses zero
+// Found by /qa on 2026-10-23
+// Report: .gstack/qa-reports/qa-report-localhost-2026-10-23.md
+test("significance: one-sided CI agrees with the one-sided verdict", () => {
+  const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 558, confidence: 0.95, tails: 1 });
+  assert.equal(r.significant, true);
+  assert.ok(r.ci[0] > 0, `CI lower bound should be positive for a significant win, got ${r.ci[0]}`);
 });
 
 test("significance: tiny difference is not significant", () => {
