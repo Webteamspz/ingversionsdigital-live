@@ -1,5 +1,5 @@
 .pricingPlans {
-  padding: 50px 0 10px
+  padding: 20px 0 50px
 }
 .pricingPlansGrid {
   display: flex;
@@ -286,7 +286,7 @@
 }
 @media (max-width:767.98px) {
   .pricingPlans {
-    padding: 40px 0
+    padding: 20px 0 40px
   }
   .pricingPlansGrid {
     padding: 0;
