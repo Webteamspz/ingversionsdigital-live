@@ -84,6 +84,8 @@ A lower-priority document must not silently override an explicit higher-priority
 
 - Flow: `dev` (work) then `stage` (deploys `staging.ingversionsdigital.com`) then `production` (deploys the live domain).
 - Deploys are triggered by pushes to `stage` and `production` via `.github/workflows/deploy.yml`, which calls the Hostinger Docker API.
+- Before deploying, the `check` job runs `npm test`, `npm run lint`, the repo rules (no committed `graphify-out/`, no `clamp()` in CSS, no analytics in `index.html`, production `Dockerfile` keeps the GTM/Clarity ID defaults) and the build. A failure stops the deploy. It also runs on pull requests into `dev`, `stage` and `production`.
+- Pull requests into `production` also run `guard-production`, which fails if the merge would change production-only files, or add or update `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/` or the `graphify-out/` ignore rule. Add the `allow-protected-files` label to let an intended production-only file change through (e.g. a new route in `nginx.conf`); the docs rule has no override.
 - When merging `stage` into `production`, keep production's version of these files: `.dockerignore`, `Dockerfile`, `docker-compose.production.yml`, `docker-compose.stage.yml`, `eslint.config.js`, `index.html`, `nginx.conf`. Also do not carry `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/`, or the `.gitignore` `graphify-out/` rule to `production` — those stay on `dev` and `stage`.
 - `graphify-out/` is local-only and gitignored. Never commit it.
 - The blog lives at `/blog` (Header, Footer and `BlogSlider` link there directly). Because production keeps its own `nginx.conf`, the two `/blog` location blocks must be added to production's copy when the blog is first merged, or `/blog` 404s there.

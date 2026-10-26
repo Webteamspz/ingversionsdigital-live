@@ -8,6 +8,8 @@ GitHub Actions calls Hostinger's Docker API. Hostinger builds the Docker Compose
 
 - Push to `stage` deploys `staging.ingversionsdigital.com`
 - Push to `production` deploys `ingversionsdigital.com` and `www.ingversionsdigital.com`
+- Before deploying, the `check` job runs `npm test`, `npm run lint`, the repo rules (no committed `graphify-out/`, no `clamp()` in CSS, no analytics in `index.html`, production `Dockerfile` keeps the GTM/Clarity ID defaults) and the build. A failure stops the deploy. It also runs on pull requests into `dev`, `stage` and `production`.
+- Pull requests into `production` also run `guard-production`, which fails if the merge would change production-only files, or add or update `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/` or the `graphify-out/` ignore rule. Add the `allow-protected-files` label to let an intended production-only file change through (e.g. a new route in `nginx.conf`); the docs rule has no override.
 
 ## GitHub Settings
 
