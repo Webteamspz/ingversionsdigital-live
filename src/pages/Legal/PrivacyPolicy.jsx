@@ -133,7 +133,7 @@ const PrivacyPolicy = () => (
                 site and respond to you, including:
               </p>
               <ul>
-                <li><strong>Formspree</strong> — processes contact-form submissions.</li>
+                <li><strong>Google Firebase (Cloud Firestore)</strong> — stores contact-form submissions.</li>
                 <li><strong>Calendly</strong> — handles strategy-call scheduling.</li>
                 <li><strong>Google Analytics, Google Tag Manager &amp; Microsoft Clarity</strong> — as described above.</li>
               </ul>

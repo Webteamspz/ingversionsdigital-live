@@ -61,7 +61,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
-| Forms | native `<form>` + Formspree | no form library; `VITE_FORMSPREE_ENDPOINT` posts the contact form (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
+| Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `leads` collection over REST (rules in `firestore.rules`) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
 | Unit tests | Node's built-in `node:test` | `npm test`; runs `src/**/*.test.js`. Pure logic only (e.g. `src/utils/abtest.js` for `/ab-test-calculator`), no UI tests, no framework |
@@ -221,7 +221,7 @@ Env files (not committed — see `.gitignore`): `.env`, `.env.staging`, `.env.pr
 `.env.example` documents the shape:
 
 ```txt
-VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your-form-id
+VITE_FIREBASE_PROJECT_ID=website-forms-efeba
 VITE_GTM_ID=GTM-XXXXXXX
 VITE_CLARITY_ID=your-clarity-project-id
 ```

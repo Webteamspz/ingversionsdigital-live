@@ -31,7 +31,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - React 19 + Vite 7, plain JSX. No TypeScript.
 - CSS Modules for component styles, plus the global token layer in `src/styles/style.css`. No Tailwind, no CSS-in-JS.
 - `react-helmet-async` for head tags, through the shared `src/components/SEO` component.
-- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Formspree for the contact form.
+- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Forms save to Firebase Cloud Firestore (`leads` collection) through `src/utils/submitLead.js`, a plain `fetch` to the REST API, no Firebase SDK. `firestore.rules` is the matching security rule (create-only, known fields); paste it into the Firebase console when fields change.
 
 ## Read First
 
@@ -77,7 +77,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - Build modes: `development` (default), `staging`, `production`. Set via the `npm run build:staging` / `build:production` scripts.
 - `StagingLogin` gates the whole app when `VITE_APP_ENV=staging`, checking `VITE_STAGING_USERS` (a JSON `username: password` map) against `sessionStorage`.
 - This gate is a review speed-bump, not a security boundary. Never rely on it to protect anything.
-- The three real config values are `VITE_FORMSPREE_ENDPOINT`, `VITE_GTM_ID`, `VITE_CLARITY_ID`. All are public browser values.
+- The real config values are `VITE_GTM_ID`, `VITE_CLARITY_ID` and the optional `VITE_FIREBASE_PROJECT_ID` (defaults to `website-forms-efeba` in code, so forms work without a build arg). All are public browser values.
 
 ## Branch And Deployment Rules
 

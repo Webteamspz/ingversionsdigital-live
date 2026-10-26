@@ -75,9 +75,10 @@ Adjust the relative import path based on the component file location.
 The environment is the Vite build mode (`--mode production` / `--mode staging`), chosen by
 `BUILD_MODE` in the compose file. `VITE_DEPLOY_ENV` and `VITE_ENABLE_STAGING_FEATURES` are
 optional overrides read in `src/config/deploy.js`; no tracked `.env.*` file sets them (real
-`.env` files are gitignored). Public values such as `VITE_GTM_ID`, `VITE_CLARITY_ID` and
-`VITE_FORMSPREE_ENDPOINT` must reach the Docker build as compose build args, so check the
-Hostinger project environment if analytics or the contact form stop working.
+`.env` files are gitignored). Public values such as `VITE_GTM_ID` and `VITE_CLARITY_ID` must reach the Docker build as compose build args, so check the
+Hostinger project environment if analytics stop working. The contact form needs no build arg: it writes to Firestore
+(project `website-forms-efeba`, default in `src/utils/submitLead.js`), so check the Firestore
+rules in the Firebase console if submissions fail.
 
 ## nginx routing
 

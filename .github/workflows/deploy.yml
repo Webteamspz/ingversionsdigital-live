@@ -183,7 +183,6 @@ jobs:
             WEBSITE_DOMAIN=staging.ingversionsdigital.com
             VITE_APP_ENV=staging
             VITE_STAGING_USERS=${{ secrets.STAGING_USERS_JSON }}
-            VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/manppeoz
         run: |
           BODY=$(jq -n \
             --arg content "$PROJECT_URL" \

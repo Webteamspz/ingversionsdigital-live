@@ -4,10 +4,9 @@ import data from "../../data/sitedata";
 import styles from "./Hero.module.css";
 import { dl } from "../../gtm";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
+import { submitLead } from "../../utils/submitLead";
 
 const CompanyLogos = lazy(() => import("../CompanyLogos/CompanyLogos"));
-
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 const REDIRECT_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const getAutocomplete = (name = "") => {
@@ -103,18 +102,10 @@ const Hero = () => {
     };
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (res.ok) window.location.href = REDIRECT_URL;
-      else {
-        const err = await res.json().catch(() => ({}));
-        alert(err?.error || "Something went wrong. Please try again.");
-      }
+      await submitLead("hero", payload);
+      window.location.href = REDIRECT_URL;
     } catch {
-      alert("Found some error please try again.");
+      alert("Something went wrong. Please try again.");
     }
   };
 
