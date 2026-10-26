@@ -5,13 +5,115 @@ on:
     branches:
       - production
       - stage
+  pull_request:
+    branches:
+      - production
+      - stage
+      - dev
+    types: [opened, synchronize, reopened, labeled, unlabeled]
 
 concurrency:
   group: deploy-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
+  # Runs on every push and pull request. deploy waits for it, so a failing
+  # test, lint, rule or build never reaches staging or the live site.
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # The branch this code is going to: the pull request target, or the pushed branch.
+      TARGET: ${{ github.base_ref || github.ref_name }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run lint
+
+      # Rules from CLAUDE.md / AGENTS.md.
+      - name: graphify-out/ is never committed
+        run: |
+          if git ls-files graphify-out | grep -q .; then
+            echo "::error::graphify-out/ is local-only and must not be committed."; exit 1
+          fi
+
+      - name: No clamp() in CSS
+        run: |
+          if grep -rn "clamp(" src --include=*.css; then
+            echo "::error::clamp() is not allowed. Use fixed px values with breakpoint overrides."; exit 1
+          fi
+
+      - name: No analytics scripts in index.html
+        run: |
+          if grep -nE "googletagmanager|clarity\.ms|GTM-[A-Z0-9]+" index.html; then
+            echo "::error::Analytics load from src/gtm.js after consent, never from index.html."; exit 1
+          fi
+
+      # Production builds take the GTM/Clarity IDs from the Dockerfile ARG defaults.
+      # Empty defaults silently turn analytics off (the Oct 2026 incident).
+      - name: Production Dockerfile keeps the analytics IDs
+        if: env.TARGET == 'production'
+        run: |
+          grep -Eq '^ARG VITE_GTM_ID=GTM-[A-Z0-9]+' Dockerfile \
+            && grep -Eq '^ARG VITE_CLARITY_ID=[a-z0-9]+' Dockerfile \
+            || { echo "::error::Dockerfile lost the VITE_GTM_ID / VITE_CLARITY_ID defaults."; exit 1; }
+
+      - name: Build
+        run: |
+          if [ "$TARGET" = stage ]; then npm run build:staging; else npm run build:production; fi
+
+  # Pull requests into production must not overwrite production's own files
+  # (see "Files excluded from stage to production" in CLAUDE.md).
+  guard-production:
+    if: github.event_name == 'pull_request' && github.base_ref == 'production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout merge result
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Check protected files
+        env:
+          ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'allow-protected-files') }}
+        run: |
+          base=origin/production
+          fail=0
+
+          # Production keeps its own copy. The allow-protected-files label lets an
+          # intended change through (e.g. a new route in nginx.conf).
+          own=$(git diff --name-only "$base" HEAD -- .dockerignore Dockerfile \
+            docker-compose.production.yml docker-compose.stage.yml eslint.config.js \
+            index.html nginx.conf)
+          if [ -n "$own" ] && [ "$ALLOW" != true ]; then
+            echo "::error::This would change production-only files. Restore production's copies, or add the allow-protected-files label if the change is intended:"
+            echo "$own"; fail=1
+          fi
+
+          # Never go to production, label or not. Removing them is fine.
+          docs=$(git diff --name-only --diff-filter=AM "$base" HEAD -- docs/DEVELOPER_GUIDE.md docs/site-docs)
+          if [ -n "$docs" ]; then
+            echo "::error::Developer docs stay on dev/stage and must not be added or updated on production:"
+            echo "$docs"; fail=1
+          fi
+          if git diff "$base" HEAD -- .gitignore | grep -qE '^\+.*graphify-out'; then
+            echo "::error::The .gitignore graphify-out/ rule stays on dev/stage."; fail=1
+          fi
+
+          exit $fail
+
   deploy:
+    needs: check
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 15
 

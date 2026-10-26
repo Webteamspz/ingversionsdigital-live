@@ -457,6 +457,12 @@ never go to `production`). When merging `stage` → `production`, keep productio
 existing versions of these and take everything else from `stage`. (`README.md` used to
 be on this list — it isn't anymore; it syncs to `production` normally.)
 
+The `guard-production` job in `.github/workflows/deploy.yml` fails a pull request into
+`production` that would change these files, unless it carries the `allow-protected-files`
+label (the docs and `graphify-out/` rule can't be overridden). Every deploy also waits for
+the `check` job: tests, lint, repo rules (`graphify-out/`, `clamp()`, analytics in
+`index.html`, the production Dockerfile's GTM/Clarity IDs) and the build.
+
 **The `/blog` nginx rule must be added to production by hand.** Production keeps its
 own `nginx.conf`, so the first time the blog is merged to `production`, copy the two
 `/blog` location blocks from `dev`'s `nginx.conf` into production's. Without them every

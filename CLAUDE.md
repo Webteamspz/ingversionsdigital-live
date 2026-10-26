@@ -36,6 +36,11 @@ only; `production` never gets them.
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
 
+`.github/workflows/deploy.yml` enforces this on pull requests into `production`
+(`guard-production` job), and every deploy waits for the `check` job (tests, lint,
+these rules, build). Use the `allow-protected-files` label only for an intended
+production-only change, such as a new route in production's `nginx.conf`.
+
 ## The blog lives at /blog
 
 The blog moved in from the old `blog.ingversionsdigital.com` Next.js app. Header,
