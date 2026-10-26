@@ -1,5 +1,5 @@
 .pricingPlans {
-  padding: 0 0 10px
+  padding: 20px 0 50px
 }
 .pricingPlansGrid {
   display: flex;
@@ -37,6 +37,13 @@
   flex: 0 0 calc(33.333% - 16px);
   max-width: calc(33.333% - 16px);
   width: 100%
+}
+.fourCol .pricingPlanCard {
+  flex: 0 0 calc(25% - 18px);
+  max-width: calc(25% - 18px)
+}
+.fourCol .cardButtons {
+  flex-direction: column
 }
 .pricingPlanCard:hover {
   transform: translate(-3px,-3px) rotate(-1deg);
@@ -232,6 +239,10 @@
     max-width: calc(33.333% - 11px);
     padding: 24px 16px
   }
+  .fourCol .pricingPlanCard {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px)
+  }
   .cardButtons {
     flex-direction: column
   }
@@ -275,7 +286,7 @@
 }
 @media (max-width:767.98px) {
   .pricingPlans {
-    padding: 0 0 40px
+    padding: 20px 0 40px
   }
   .pricingPlansGrid {
     padding: 0;

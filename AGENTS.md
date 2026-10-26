@@ -16,7 +16,7 @@ A lower-priority document must not silently override an explicit higher-priority
 ## Repository Map
 
 - `src/App.jsx` is the route table. React Router v7, `BrowserRouter`.
-- `src/pages/` has one folder per route: `Home`, `AboutUs`, `Pricing`, `Projects`, `TeamPage`, `Legal`, `ThankYou`, `NotFound`, `Blog` (`/blog` and `/blog/:slug`), plus `ServicePage`, which renders every service route (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`) from `src/data/servicepagesdata.js`.
+- `src/pages/` has one folder per route: `Home`, `AboutUs`, `Pricing`, `Projects`, `AbTestCalculator` (`/ab-test-calculator`, a client-side calculator; its maths is `src/utils/abtest.js`), `TeamPage`, `Legal`, `ThankYou`, `NotFound`, `Blog` (`/blog` and `/blog/:slug`), plus `ServicePage`, which renders every service route (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`) from `src/data/servicepagesdata.js`.
 - `src/components/` holds presentational components. Each component folder has a `.jsx` and a matching `.module.css`.
 - `src/data/*.js` holds all site copy as plain JavaScript objects. Blog content is in `src/data/blog/`: structured posts in `blogPosts.json` (template: `blogPostTemplate.json`), legacy markdown posts in `articlesData.js` (each also needs a card in `postCards.js` and a cover in `articleImages.js`), and the blog head tags in `blogSeo.js`.
 - `src/styles/style.css` holds the global design tokens in `:root`.
@@ -95,7 +95,8 @@ A lower-priority document must not silently override an explicit higher-priority
 - Lint: `npm run lint`
 - Build: `npm run build` (or `npm run build:production` for the production config)
 - Mechanical diff check: `git diff --check`
-- There is no unit-test suite. For any change a user can see, verify it in a real browser at the relevant breakpoint before calling it done.
+- Unit tests: `npm test` (Node's built-in `node:test`, files `src/utils/*.test.js`). Keep tested logic in pure functions under `src/utils/`; do not add a test framework.
+- There are no UI tests. For any change a user can see, verify it in a real browser at the relevant breakpoint before calling it done.
 
 ## Do Not Refactor Broadly
 
