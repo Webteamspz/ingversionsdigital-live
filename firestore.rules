@@ -1,32 +1,24 @@
 rules_version = '2';
 
-// Paste into Firebase console -> Firestore Database -> Rules -> Publish.
-// The website can only ADD a lead with known fields. Nobody can read, change
-// or delete leads from the browser; view them in the Firebase console.
+// Copy of the rules live in Firebase console -> Firestore Database -> Rules
+// (project website-forms-efeba). The console is the source of truth; keep this
+// file in sync with it. src/utils/submitLead.js writes to match these rules.
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /leads/{leadId} {
-      allow create: if
-        request.resource.data.keys().hasOnly([
-          'form', 'page', 'submitted_at',
-          // Contact modal (src/components/ContactModal)
-          'email', 'inquiry', 'country', 'employee_count', 'source',
-          // Hero form (fields from src/data/sitedata.js)
-          'firstName', 'organization', 'main website url', 'phone', 'message', 'selected_plan'
-        ])
-        && request.resource.data.form in ['contact', 'hero']
-        && request.resource.data.submitted_at is timestamp
-        && request.resource.data.email is string
-        && request.resource.data.email.size() > 3
-        && request.resource.data.email.size() <= 200
-        && request.resource.data.get('message', '').size() <= 5000
-        && request.resource.data.get('page', '').size() <= 300
-        && request.resource.data.get('source', '').size() <= 200
-        && request.resource.data.get('firstName', '').size() <= 200
-        && request.resource.data.get('organization', '').size() <= 200
-        && request.resource.data.get('main website url', '').size() <= 500
-        && request.resource.data.get('phone', '').size() <= 40
-        && request.resource.data.get('selected_plan', '').size() <= 200;
+    // Website forms can only ADD new submissions. Nobody can read, edit or
+    // delete from the website.
+    match /form_submissions/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['site', 'formName', 'createdAt'])
+                    && request.resource.data.size() <= 30
+                    && request.resource.data.site is string
+                    && request.resource.data.formName is string
+                    && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if false;
+    }
+
+    // Everything else stays locked.
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

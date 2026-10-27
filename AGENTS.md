@@ -31,7 +31,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - React 19 + Vite 7, plain JSX. No TypeScript.
 - CSS Modules for component styles, plus the global token layer in `src/styles/style.css`. No Tailwind, no CSS-in-JS.
 - `react-helmet-async` for head tags, through the shared `src/components/SEO` component.
-- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Forms save to Firebase Cloud Firestore (`leads` collection) through `src/utils/submitLead.js`, a plain `fetch` to the REST API, no Firebase SDK. `firestore.rules` is the matching security rule (create-only, known fields); paste it into the Firebase console when fields change.
+- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Forms save to Firebase Cloud Firestore (`form_submissions` collection, tagged `site: "ingversionsdigital.com"` and `formName`) through `src/utils/submitLead.js`, a plain `fetch` to the REST `:commit` API with a server-set `createdAt`, no Firebase SDK. The live rules are in the Firebase console (they may cover other sites); `firestore.rules` is a copy, so keep the two in sync.
 
 ## Read First
 

@@ -1,16 +1,21 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { toFirestoreDoc } from "./submitLead.js";
+import { toFirestoreWrite } from "./submitLead.js";
 
-test("toFirestoreDoc wraps every value as a Firestore string and stamps the form", () => {
-  const now = new Date("2026-10-26T10:00:00Z");
-  const doc = toFirestoreDoc("hero", { email: "a@b.co", "main website url": "x.com", phone: undefined }, now);
-  assert.deepEqual(doc.fields, {
-    form: { stringValue: "hero" },
+test("toFirestoreWrite builds a create-only write that matches the live rules", () => {
+  const { writes } = toFirestoreWrite("contact", { email: "a@b.co", phone: undefined }, "abc");
+  assert.equal(writes.length, 1);
+  const [w] = writes;
+  assert.match(w.update.name, /\/documents\/form_submissions\/abc$/);
+  assert.deepEqual(w.update.fields, {
+    site: { stringValue: "ingversionsdigital.com" },
+    formName: { stringValue: "contact" },
     page: { stringValue: "" },
-    submitted_at: { timestampValue: "2026-10-26T10:00:00.000Z" },
     email: { stringValue: "a@b.co" },
-    "main website url": { stringValue: "x.com" },
     phone: { stringValue: "" },
   });
+  // Rules: hasAll(['site','formName','createdAt']), size() <= 30, createdAt == request.time.
+  assert.deepEqual(w.currentDocument, { exists: false });
+  assert.deepEqual(w.updateTransforms, [{ fieldPath: "createdAt", setToServerValue: "REQUEST_TIME" }]);
+  assert.ok(Object.keys(w.update.fields).length + 1 <= 30);
 });

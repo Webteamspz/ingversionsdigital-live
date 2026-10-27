@@ -61,7 +61,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
-| Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `leads` collection over REST (rules in `firestore.rules`) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
+| Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `form_submissions` collection over REST, with `site`, `formName` and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
 | Unit tests | Node's built-in `node:test` | `npm test`; runs `src/**/*.test.js`. Pure logic only (e.g. `src/utils/abtest.js` for `/ab-test-calculator`), no UI tests, no framework |
