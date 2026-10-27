@@ -153,12 +153,21 @@ const TestCard = ({ project, onExpand }) => (
   </>
 );
 
-// Leaving a card sends its screen back to the top of the page.
-const resetScroll = (e) => {
+const scrollToTop = (view) => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  e.currentTarget
-    .querySelector(`.${styles.phoneView}`)
-    ?.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+  view?.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+};
+
+// Leaving a card sends its screen back to the top of the page.
+const resetScroll = (e) => scrollToTop(e.currentTarget.querySelector(`.${styles.phoneView}`));
+
+// Touch has no mouseleave: touching one phone (or anywhere else in the grid)
+// sends every other scrolled phone back to the top.
+const resetOthers = (e) => {
+  const current = e.target.closest(`.${styles.phone}`);
+  e.currentTarget.querySelectorAll(`.${styles.phoneView}`).forEach((view) => {
+    if (view.scrollTop > 0 && !current?.contains(view)) scrollToTop(view);
+  });
 };
 
 const ProjectsGrid = ({ projects }) => {
@@ -203,7 +212,7 @@ const ProjectsGrid = ({ projects }) => {
 
   return (
     <div className={styles.gridWrap}>
-      <div className={`${styles.grid} ${allTests ? styles.gridCards : ""}`}>
+      <div className={`${styles.grid} ${allTests ? styles.gridCards : ""}`} onTouchStart={resetOthers}>
         {visibleProjects.map((project, i) =>
           project.beforeImage && project.afterImage ? (
             <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>

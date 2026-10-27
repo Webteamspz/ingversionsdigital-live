@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Sparkles, X } from "lucide-react";
 import styles from "./BlackFridayBanner.module.css";
 
@@ -11,7 +11,10 @@ const BLACK_FRIDAY = {
   eyebrow: "Early access",
   title: "Get your store ready before the BFCM rush",
   text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
-  cta: { label: "See Pricing", to: "/pricing" },
+  // scrollTo: section id on the target page (handled by ScrollManager in App.jsx).
+  cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
+  // The banner points at these pages, so it isn't shown on them.
+  hideOn: ["/pricing"],
 };
 
 const DISMISS_KEY = "bf-banner-dismissed";
@@ -31,7 +34,8 @@ const split = (ms) => {
 };
 
 const BlackFridayBanner = () => {
-  const { live, endsAt, badge, eyebrow, title, text, cta } = BLACK_FRIDAY;
+  const { live, endsAt, badge, eyebrow, title, text, cta, hideOn } = BLACK_FRIDAY;
+  const { pathname } = useLocation();
   // null until the effect runs, so render never reads Date or storage.
   const [left, setLeft] = useState(null);
   const [dismissed, setDismissed] = useState(false);
@@ -45,7 +49,7 @@ const BlackFridayBanner = () => {
     return () => clearInterval(id);
   }, [live, endsAt]);
 
-  if (!live || dismissed || !left) return null;
+  if (!live || dismissed || !left || hideOn.includes(pathname.replace(/\/$/, ""))) return null;
 
   const dismiss = () => {
     try {
@@ -99,6 +103,7 @@ const BlackFridayBanner = () => {
 
             <Link
               to={cta.to}
+              state={{ scrollTo: cta.scrollTo }}
               className={`btn ${styles.cta}`}
               data-cta={cta.label}
               data-cta-loc="Black Friday Banner"

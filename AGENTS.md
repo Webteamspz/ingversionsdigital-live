@@ -31,7 +31,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - React 19 + Vite 7, plain JSX. No TypeScript.
 - CSS Modules for component styles, plus the global token layer in `src/styles/style.css`. No Tailwind, no CSS-in-JS.
 - `react-helmet-async` for head tags, through the shared `src/components/SEO` component.
-- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Formspree for the contact form.
+- `lucide-react` for icons. Swiper for carousels. `react-markdown` and `mermaid` for blog posts only (mermaid is dynamically imported the first time a branching diagram renders). `react-international-phone` for the phone field. Forms save to Firebase Cloud Firestore (`form_submissions` collection, tagged `site: "ingversionsdigital.com"` and `formName`) through `src/utils/submitLead.js`, a plain `fetch` to the REST `:commit` API with a server-set `createdAt`, no Firebase SDK. The live rules are in the Firebase console (they may cover other sites); `firestore.rules` is a copy, so keep the two in sync.
 
 ## Read First
 
@@ -78,7 +78,7 @@ A lower-priority document must not silently override an explicit higher-priority
 - `StagingLogin` gates the whole app when `VITE_APP_ENV=staging`, checking `VITE_STAGING_USERS` (a JSON `username: password` map) against `sessionStorage`.
 - The staging Docker build must pass `BUILD_MODE=staging` and the `VITE_*` build args (see `Dockerfile` and `docker-compose.stage.yml`); without them the gate silently disappears and the contact form has no endpoint. Staging pages are also forced `noindex` by `<SEO>` via `isStaging`.
 - This gate is a review speed-bump, not a security boundary. Never rely on it to protect anything.
-- The three real config values are `VITE_FORMSPREE_ENDPOINT`, `VITE_GTM_ID`, `VITE_CLARITY_ID`. All are public browser values.
+- The real config values are `VITE_GTM_ID`, `VITE_CLARITY_ID` and the optional `VITE_FIREBASE_PROJECT_ID` (defaults to `website-forms-efeba` in code, so forms work without a build arg). All are public browser values.
 
 ## Branch And Deployment Rules
 

@@ -14,7 +14,7 @@ Docker/Nginx image.
 - Icons: `lucide-react`
 - Carousels: Swiper
 - Blog: `react-markdown` for legacy posts, `mermaid` for diagrams (loaded on demand)
-- Contact form: Formspree
+- Contact form: Firebase Cloud Firestore (REST, no SDK)
 - Analytics: Google Tag Manager and Microsoft Clarity, wired through `src/gtm.js`
 - Image pipeline: `sharp` (dev dependency) via `scripts/convert-images.mjs`
 - Deployment: multi-stage Docker build (`node:22-alpine` to `nginx:1.27-alpine`), deployed to a Hostinger VPS by GitHub Actions
@@ -29,7 +29,7 @@ Docker/Nginx image.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
 - Optimised images: raw art is converted to resized `.webp` and rendered through `OptimizedImg` with lazy loading.
 - GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`).
-- Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Formspree, Clarity, and Google Analytics.
+- Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Firestore, Clarity, and Google Analytics.
 
 ## Local Setup
 
@@ -45,10 +45,10 @@ Create the local environment file:
 cp .env.example .env
 ```
 
-Fill `.env` with real values. All three are public `VITE_` values used by the browser bundle; there are no server-side secrets in this project.
+Fill `.env` with real values. All are public `VITE_` values used by the browser bundle; there are no server-side secrets in this project.
 
 ```sh
-VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your-form-id
+VITE_FIREBASE_PROJECT_ID=website-forms-efeba
 VITE_GTM_ID=GTM-XXXXXXX
 VITE_CLARITY_ID=your-clarity-project-id
 ```
@@ -120,7 +120,7 @@ Components read these objects and render them. Do not hardcode copy in JSX.
 
 | Variable | Used by | Notes |
 |----------|---------|-------|
-| `VITE_FORMSPREE_ENDPOINT` | Contact form | Formspree form URL |
+| `VITE_FIREBASE_PROJECT_ID` | `src/utils/submitLead.js` | optional; Firebase project for form submissions, defaults to `website-forms-efeba` |
 | `VITE_GTM_ID` | `src/gtm.js` | Google Tag Manager container ID |
 | `VITE_CLARITY_ID` | analytics init | Microsoft Clarity project ID |
 | `VITE_APP_ENV` | `StagingLogin` | set to `staging` to enable the gate |
