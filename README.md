@@ -28,7 +28,7 @@ Docker/Nginx image.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
 - Optimised images: raw art is converted to resized `.webp` and rendered through `OptimizedImg` with lazy loading.
-- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`).
+- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`, built on the `vanilla-cookieconsent` package; it never blocks the page).
 - Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Firestore, Clarity, and Google Analytics.
 
 ## Local Setup

@@ -1,77 +1,93 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { CONSENT_EVENT, getConsent, setConsent, startAnalytics } from "../../gtm";
-import styles from "./CookieConsent.module.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { CONSENT_EVENT, setConsent, startAnalytics } from "../../gtm";
 
-// Both choices are remembered; a refusal expires after ~6 months (see gtm.js).
-// "Cookie Settings" in the Footer clears the choice to ask again.
+// vanilla-cookieconsent (pinned in package.json). Loaded with a dynamic import
+// so the library and its CSS ship as their own chunk and never run during
+// prerender. The banner is a corner box that never blocks the page.
+const POLICY = "/privacy-policy";
+const NOTICE = "/privacy-policy#cookies-tracking";
+
+const text = {
+  consentModal: {
+    title: "We use cookies",
+    description: `We use analytics cookies to understand how visitors use this site. They only load if you accept. See our <a href="${POLICY}">Privacy Policy</a> and <a href="${NOTICE}">Cookie Notice</a>.`,
+    acceptAllBtn: "Accept",
+    acceptNecessaryBtn: "Decline",
+    showPreferencesBtn: "Manage preferences",
+  },
+  preferencesModal: {
+    title: "Cookie preferences",
+    acceptAllBtn: "Accept",
+    acceptNecessaryBtn: "Decline",
+    savePreferencesBtn: "Save preferences",
+    closeIconLabel: "Close",
+    sections: [
+      {
+        description: `Choose which cookies this site may use. You can change this at any time with Cookie Settings in the footer. Details are in our <a href="${NOTICE}">Cookie Notice</a>.`,
+      },
+      {
+        title: "Strictly necessary",
+        description: "Remembers your cookie choice. Always on.",
+        linkedCategory: "necessary",
+      },
+      {
+        title: "Analytics",
+        description: "Google Analytics (through Google Tag Manager) and Microsoft Clarity show us how visitors use the site so we can improve it. Turning this off deletes their cookies.",
+        linkedCategory: "analytics",
+      },
+    ],
+  },
+};
+
+// Mirror the choice into the analytics-consent key that main.jsx and gtm.js read.
+const apply = (cc) => {
+  const value = cc.acceptedCategory("analytics") ? "granted" : "denied";
+  setConsent(value);
+  window.gtag?.("consent", "update", { analytics_storage: value });
+  if (value === "granted") startAnalytics();
+  // Scripts already running can't be unloaded; a reload starts the page without them.
+  else if (window.__analyticsStarted) return location.reload();
+  window.dispatchEvent(new Event(CONSENT_EVENT));
+};
+
 const CookieConsent = () => {
-  const [visible, setVisible] = useState(() => getConsent() === null);
-  const dialogRef = useRef(null);
-  const { pathname } = useLocation();
-  // Block the site until a choice is made, except on the policy the banner links to.
-  const blocking = visible && !/^\/privacy-policy\/?$/.test(pathname);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!blocking) return;
-    // Class, not inline style: other modals reset body.style.overflow on mount.
-    document.documentElement.classList.add("consent-locked");
-    dialogRef.current?.focus();
-    return () => document.documentElement.classList.remove("consent-locked");
-  }, [blocking]);
+    import("vanilla-cookieconsent/dist/cookieconsent.css");
+    import("vanilla-cookieconsent").then((cc) =>
+      // run() only starts once, so StrictMode's second effect is harmless.
+      cc.run({
+        disablePageInteraction: false,
+        guiOptions: {
+          consentModal: { layout: "box", position: "bottom right", equalWeightButtons: true },
+          preferencesModal: { layout: "box", equalWeightButtons: true },
+        },
+        categories: {
+          necessary: { enabled: true, readOnly: true },
+          // _ga/_ga_<id>: GA4, _gcl_au: Google conversion linker (set by the GTM container), _clck/_clsk: Clarity.
+          analytics: { autoClear: { cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }] } },
+        },
+        onConsent: () => apply(cc),
+        onChange: () => apply(cc),
+        language: { default: "en", translations: { en: text } },
+      })
+    );
 
-  if (!visible) return null;
-
-  const choose = (value) => {
-    setConsent(value);
-    if (value === "granted") startAnalytics();
-    setVisible(false);
-    window.dispatchEvent(new Event(CONSENT_EVENT));
-  };
-
-  // Keep Tab inside the banner while it blocks the page.
-  const trapFocus = (e) => {
-    if (!blocking || e.key !== "Tab") return;
-    const items = [...dialogRef.current.querySelectorAll("a[href], button")];
-    const first = items[0];
-    const last = items[items.length - 1];
-    if (e.shiftKey && (document.activeElement === first || document.activeElement === dialogRef.current)) {
+    // Internal links in the banner go through the router, not a full reload.
+    const onClick = (e) => {
+      const a = e.target.closest?.("#cc-main a[href^='/']");
+      if (!a || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  };
+      import("vanilla-cookieconsent").then((cc) => cc.hidePreferences());
+      navigate(a.getAttribute("href"));
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [navigate]);
 
-  return (
-    <>
-      {blocking && <div className={styles.backdrop} aria-hidden="true" />}
-      <div
-        ref={dialogRef}
-        tabIndex={-1}
-        className={styles.banner}
-        role={blocking ? "dialog" : "region"}
-        aria-modal={blocking || undefined}
-        aria-label="Cookie consent"
-        onKeyDown={trapFocus}
-      >
-        <p className={styles.text}>
-          We use cookies to understand how visitors use our site and to improve
-          your experience. They only load if you accept. See our{" "}
-          <Link to="/privacy-policy">Privacy Policy</Link>.
-        </p>
-        <div className={styles.actions}>
-          <button type="button" className={styles.btn} onClick={() => choose("denied")}>
-            Decline
-          </button>
-          <button type="button" className={`${styles.btn} ${styles.accept}`} onClick={() => choose("granted")}>
-            Accept
-          </button>
-        </div>
-      </div>
-    </>
-  );
+  return null;
 };
 
 export default CookieConsent;

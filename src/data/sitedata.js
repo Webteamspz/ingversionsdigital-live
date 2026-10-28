@@ -104,7 +104,7 @@ export default {
   },
   services: {
     heading: "Our CRO Services",
-    sub: "Delivering innovative solutions across diverse industries with deep domain expertise",
+    sub: "A/B testing, Shopify development and QA for ecommerce brands, all aimed at one number: your conversion rate.",
     list: [
       {
         title: "A/B Testing",
@@ -164,7 +164,7 @@ export default {
   },
   process: {
     heading: "Our Simple Work Process",
-    sub: "Delivering innovative solutions with deep domain expertise, we provide top-notch services tailored to consumer choices, earning the trust of countless happy customers across diverse industries",
+    sub: "Every project follows the same tracked steps, so you always know what is being built, who is building it, and when it goes live.",
     list: [
       {
         title: "Project Discussion",

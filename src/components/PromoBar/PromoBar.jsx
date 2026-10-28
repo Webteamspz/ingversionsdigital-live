@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, CalendarCheck, X } from "lucide-react";
 import data from "../../data/sitedata";
-import { CONSENT_EVENT, getConsent } from "../../gtm";
+import { CONSENT_EVENT } from "../../gtm";
 import styles from "./PromoBar.module.css";
 
 const DISMISS_KEY = "promo-bar-dismissed";
-// The bar shows this long after the visitor accepts or declines cookies
-// (or after load, for visitors who accepted on an earlier visit).
+// The bar shows this long after the cookie choice is known (made now, or on
+// an earlier visit).
 const SHOW_AFTER_MS = 10000;
 
 // lucide has no brand icons; this is the official WhatsApp glyph.
@@ -37,8 +37,9 @@ const PromoBar = () => {
     const start = () => {
       id = setTimeout(() => setReady(true), SHOW_AFTER_MS);
     };
-    if (getConsent() === "granted") start();
-    else window.addEventListener(CONSENT_EVENT, start, { once: true });
+    // The consent banner fires this on every page load once a choice exists,
+    // and when a first-time visitor chooses, so the two never overlap.
+    window.addEventListener(CONSENT_EVENT, start, { once: true });
     return () => {
       clearTimeout(id);
       window.removeEventListener(CONSENT_EVENT, start);

@@ -63,6 +63,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
 | Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `form_submissions` collection over REST, with `site`, `formName` and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
+| Cookie consent | `vanilla-cookieconsent` (pinned, exact version) | MIT, zero dependencies; `src/components/CookieConsent` loads it with a dynamic import so it is its own chunk |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
 | Unit tests | Node's built-in `node:test` | `npm test`; runs `src/**/*.test.js`. Pure logic only (e.g. `src/utils/abtest.js` for `/ab-test-calculator`), no UI tests, no framework |
 | Image pipeline | `sharp` (dev-only script) | `scripts/convert-images.mjs`, see [Images](#images-format-and-optimization) |
@@ -265,15 +266,25 @@ keep it that way. Secrets for CI/deploy live in GitHub repo secrets instead (see
 `react-ga` or similar SDK. `startAnalytics()` (which runs `initGTMTracking()` and
 `loadAnalytics()`) is only called after the visitor accepts analytics in the `CookieConsent`
 banner, either on click or from `main.jsx` on idle when a previous `granted` choice is stored
-in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing. Both
-choices are saved as `{ value, at }` JSON; a decline is respected for ~6 months, then the banner
-asks again (a legacy bare `"granted"` string still counts as accepted). "Cookie Settings" in the
-Footer's Legal group calls `resetConsent()`, which clears the choice and reloads, so visitors can
-withdraw consent. `startAnalytics()` is a no-op outside production builds, so dev and staging
-never load or initialise tracking. Until the visitor chooses, the banner blocks clicks and
-scrolling on every page except `/privacy-policy`. Choosing fires `CONSENT_EVENT` (from `gtm.js`) on window; the bottom
-`PromoBar` waits for it and appears 10 seconds later (or 10 seconds after load for visitors who
-accepted earlier).
+in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing.
+
+The banner is `vanilla-cookieconsent` (pinned exact version), started in a `useEffect` with a
+dynamic import of the library and its CSS, so it never runs during prerender and ships as its own
+chunk. It is a corner "box" with `disablePageInteraction` off: it never blocks scrolling or
+clicks. Categories are `necessary` (read-only) and `analytics`; Decline (and switching Analytics
+off later) deletes `_ga*`, `_gcl_*` and `_clck`/`_clsk` cookies via `autoClear`. The library
+stores the choice in its own `cc_cookie` (182 days). Its `onConsent` (every page load once a
+choice exists) and `onChange` callbacks mirror the choice into `analytics-consent` as
+`{ value, at }` JSON (a legacy bare `"granted"` string still counts as accepted), call
+`gtag('consent', 'update', ...)` if `gtag` exists, start analytics on `granted`, reload the page
+if analytics was already running and is now refused, and fire `CONSENT_EVENT` on window. The
+bottom `PromoBar` waits for that event and appears 10 seconds later. "Cookie Settings" in the
+Footer's Legal group calls the library's `showPreferences()`. Internal links inside the banner
+(`#cc-main`) are routed through React Router. Theme it with the `--cc-*` variables on
+`html #cc-main` in `src/styles/style.css`. The banner text links to the Cookies section of
+`/privacy-policy`, which is the site's Cookie Notice: keep its cookie list and category names in
+step with the banner. `startAnalytics()` is a no-op outside production builds and runs once per
+page load, so dev and staging never load or initialise tracking.
 `initGTMTracking()` wires up:
 
 - automatic `virtual_pageview` events on route change (patches `history.pushState`)
