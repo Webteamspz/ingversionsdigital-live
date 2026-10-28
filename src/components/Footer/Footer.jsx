@@ -70,7 +70,8 @@ const Footer = () => {
                 />
               )}
             </Link>
-            <p className={styles.companyBio}>
+            {/* data-nosnippet: Google was using this bio as the description for every sitelink. */}
+            <p className={styles.companyBio} data-nosnippet>
               {f.bio || "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development."}
             </p>
           </div>
