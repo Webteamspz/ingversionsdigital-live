@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
-import { resetConsent } from "../../gtm";
+
+const showCookiePreferences = () =>
+  import("vanilla-cookieconsent").then((cc) => cc.showPreferences());
 import styles from "./Footer.module.css";
 import logo from "/assets/logos/main-logo-white.png";
 
@@ -86,7 +88,7 @@ const Footer = () => {
                 {group.links.map((l, i) => {
                   if (l.action === "cookie-settings") {
                     return (
-                      <button key={i} type="button" className={styles.linkButton} onClick={resetConsent}>
+                      <button key={i} type="button" className={styles.linkButton} onClick={showCookiePreferences}>
                         {l.name}
                       </button>
                     );
