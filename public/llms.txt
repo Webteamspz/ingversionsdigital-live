@@ -14,13 +14,15 @@
 - **Free first test:** we design, build and QA a brand's first A/B test at no cost.
 
 ## Verified Case Studies & Benchmarks
+- **Rapid Radios CRO Program (52 A/B tests, Feb 2025 – Oct 2026):** 11 winners at 95%+ confidence on Rapid Radios' Shopify product page, all tested in Convert.com. A mobile sticky add-to-cart lifted conversion rate 1.28% → 1.71% (+33.7%, 99.7% confidence); free-gift tiles plus "Most popular"/"Best value" pack tags lifted it +33.4% on mobile and +25.6% on desktop; a combined case + screen protector upsell +24.2%; Warranty/Security buttons with cleaner product details +41.5% on mobile. Case study: https://ingversionsdigital.com/case-studies/rapid-radios-shopify-cro-case-study
+- **Ruff Greens CRO Program (54 A/B tests, Feb 2025 – Oct 2026):** Tests on Ruff Greens' Shopify store (dog and cat supplements sold through a free Jumpstart trial), measured in Convert.com. A desktop key-benefit banner under the header lifted conversion rate 6.21% → 7.45% (+19.9%, 99.3% confidence); a mobile "Tap to unlock $0 trial" button +17.0% (95.1%); feeding and nutrition info on the trial page +8.8% (99.1%, 22,591 visitors). Case study: https://ingversionsdigital.com/case-studies/ruff-greens-shopify-cro-case-study
 - **PDP Trust Signals Experiment (+58.62% Add-to-Cart Lift):** 12-day, 4-variation Convert.com A/B test across 43,933 visitors on a client's product pages (mobile radio & communications equipment). Ingversions designed the variations in Figma; development partner TechnoSpective built them. Combining explicit guarantee copy with trust badges near the Add-to-Cart button increased conversion rate from 1.67% to 2.65% (+58.62% lift, 100% statistical confidence), whereas badges alone reduced conversions by -6.61%. Case study: https://ingversionsdigital.com/case-studies/shopify-pdp-trust-badges-ab-test
 - **Notable E-commerce Clients & Portfolio:** Rapid Radios (Wireless Communication), Olivia & Pearl (Jewelry), Bijou Build (Outdoor Play), Belare Home (Luxury Home Decor), UltimaPeak (Wellness), Factory Weights (Fitness), Avantera (Health & Wellness).
 
 ## Pages
 - [Home](https://ingversionsdigital.com/): Services, process, case studies, engagement models, FAQ.
 - [Services](https://ingversionsdigital.com/services): A/B testing, Shopify development, QA and personalization services.
-- [Pricing](https://ingversionsdigital.com/pricing): CRO plans for brands (from $999/month) and white-label test development for agencies (complex tests $199.50 each, 50% off; test development pod $1,800/month for 100 hours).
+- [Pricing](https://ingversionsdigital.com/pricing): CRO plans for brands (from $999/month) and white-label test development for agencies (complex tests $199.50 each, 50% off; test development pod $1,800/month for 80 hours).
 - [Projects](https://ingversionsdigital.com/projects): Client work.
 - [Case Studies](https://ingversionsdigital.com/case-studies): Shopify A/B test and SEO results measured in GA4, with the challenge, the work and the numbers.
 - [About Us](https://ingversionsdigital.com/about-us) and [Team](https://ingversionsdigital.com/teampage)

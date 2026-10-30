@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowRight, CalendarCheck, X } from "lucide-react";
 import data from "../../data/sitedata";
 import { CONSENT_EVENT } from "../../gtm";
@@ -8,6 +9,9 @@ const DISMISS_KEY = "promo-bar-dismissed";
 // The bar shows this long after the cookie choice is known (made now, or on
 // an earlier visit).
 const SHOW_AFTER_MS = 10000;
+// On a blog post or a case study page the bar also waits until the reader has
+// spent this long on that page.
+const BLOG_READ_MS = 60000;
 
 // lucide has no brand icons; this is the official WhatsApp glyph.
 const WhatsAppIcon = () => (
@@ -30,6 +34,17 @@ const PromoBar = () => {
   const [visible, setVisible] = useState(() => enabled && Boolean(text) && !isDismissed());
   const [ready, setReady] = useState(false);
   const barRef = useRef(null);
+  const { pathname } = useLocation();
+  const onPost = pathname.startsWith("/blog/") || pathname.startsWith("/case-studies");
+  const [readPath, setReadPath] = useState(null); // the page the reader has spent BLOG_READ_MS on
+
+  // Restarts on every page, so each post or case study gets its own minute.
+  useEffect(() => {
+    if (!onPost) return;
+    const id = setTimeout(() => setReadPath(pathname), BLOG_READ_MS);
+    return () => clearTimeout(id);
+  }, [onPost, pathname]);
+  const show = visible && ready && (!onPost || readPath === pathname);
 
   // PromoBar lives in App, so this runs once per visit, not on every navigation.
   useEffect(() => {
@@ -49,7 +64,7 @@ const PromoBar = () => {
   // Expose the bar height so fixed bottom UI and page content can clear it.
   useEffect(() => {
     const root = document.documentElement;
-    if (!visible || !ready || !barRef.current) return;
+    if (!show || !barRef.current) return;
     const ro = new ResizeObserver(([entry]) => {
       root.style.setProperty("--promo-bar-h", `${entry.target.offsetHeight}px`);
     });
@@ -58,9 +73,9 @@ const PromoBar = () => {
       ro.disconnect();
       root.style.removeProperty("--promo-bar-h");
     };
-  }, [visible, ready]);
+  }, [show]);
 
-  if (!visible || !ready) return null;
+  if (!show) return null;
 
   const dismiss = () => {
     try {

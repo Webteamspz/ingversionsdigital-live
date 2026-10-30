@@ -331,7 +331,7 @@ export default {
     faqHeading: "White-Label FAQs",
     faq: [
       { q: "Will my clients know you built the tests?", a: "No. We work under your brand and in your tools." },
-      { q: "How much does a test cost?", a: "Complex tests are $199.50 each right now (50% off $399). A monthly test development pod is $1,800 for 100 hours of work." },
+      { q: "How much does a test cost?", a: "Complex tests are $199.50 each right now (50% off $399). A monthly test development pod is $1,800 for 80 hours of work." },
       { q: "Can we try you first?", a: "Yes, your first test build is free." },
       { q: "Do you design variants too?", a: "We build from your designs, or design variants in Figma when you need us to." },
     ],

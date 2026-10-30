@@ -22,7 +22,8 @@ const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
-const TRUST_BADGES_STUDY = "shopify-pdp-trust-badges-ab-test";
+// Case studies with their own page. Each also needs a seodata entry and an nginx.conf route.
+const STUDY_PAGES = ["rapid-radios-shopify-cro-case-study", "ruff-greens-shopify-cro-case-study", "shopify-pdp-trust-badges-ab-test"];
 
 const ScrollManager = () => {
   const { pathname, hash, search, state, key } = useLocation();
@@ -103,7 +104,9 @@ const App = () => (
         <Route path="/blog" element={<BlogHome />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />
-        <Route path={`/case-studies/${TRUST_BADGES_STUDY}`} element={<CaseStudy slug={TRUST_BADGES_STUDY} />} />
+        {STUDY_PAGES.map((slug) => (
+          <Route key={slug} path={`/case-studies/${slug}`} element={<CaseStudy key={slug} slug={slug} />} />
+        ))}
         {Object.keys(servicePages).map((slug) => (
           <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />
         ))}

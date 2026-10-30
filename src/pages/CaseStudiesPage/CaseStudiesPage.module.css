@@ -582,11 +582,34 @@
 }
 .ctaLink {
   display: inline-flex;
-  gap: 6px;
+  gap: 10px;
   align-items: center;
-  color: var(--palette-bg-800);
-  font-size: 14px;
-  font-weight: 700
+  padding: 16px 28px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-800);
+  box-shadow: var(--shadow-pop);
+  color: var(--palette-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 160ms ease,box-shadow 160ms ease
+}
+.ctaLink:hover {
+  box-shadow: var(--shadow-pop-hover);
+  transform: translate(-2px,-2px)
+}
+.ctaLinkAlt {
+  background: var(--palette-cta);
+  color: var(--palette-bg-800)
+}
+.ctaLinkAlt:hover {
+  background: var(--palette-cta-strong)
+}
+.fullLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px
 }
 
 @media (max-width:1023.98px) {

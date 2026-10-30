@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight, ArrowLeft, ArrowRight, X } from "lucide-react";
+import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight, ArrowRight, X } from "lucide-react";
 import siteData from "../../data/sitedata";
+import seo from "../../data/seodata";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import Reveal from "../Reveal/Reveal";
 import styles from "./CaseStudies.module.css";
@@ -34,22 +31,74 @@ const StoryCard = ({ heading, icon, paragraphs }) => {
   );
 };
 
-// On the homepage the studies are a slider. `only` renders one study as a
-// standalone page instead (its title becomes the h1).
+// A study's own page if it has one, else its spot on /case-studies.
+const studyHref = (id) =>
+  Object.values(seo).some((p) => p.path === `/case-studies/${id}`) ? `/case-studies/${id}` : `/case-studies#${id}`;
+
+const ROW_COLORS = ["var(--tertiary)", "var(--quaternary)", "var(--secondary)", "var(--palette-accent-soft)"];
+
+// Homepage row: the whole row links to the study.
+const StudyRow = ({ study, color }) => {
+  const [top] = study.results.stats;
+  return (
+    <Link
+      to={studyHref(study.id)}
+      className={styles.row}
+      style={{ "--accent": color }}
+      data-cta="Read the case study"
+      data-cta-loc="Home Case Studies"
+    >
+      <span className={styles.rowLift}>
+        <strong>{top.lift}</strong>
+        <span>
+          {top.before} → {top.after}
+        </span>
+      </span>
+      <span className={styles.rowBody}>
+        <span className={styles.rowClient}>{study.client}</span>
+        <h3 className={styles.rowTitle}>{study.title}</h3>
+        <span className={styles.rowMeta}>{study.tags.join(" · ")}</span>
+      </span>
+      <span className={styles.rowArrow} aria-hidden="true">
+        <ArrowUpRight size={22} />
+      </span>
+    </Link>
+  );
+};
+
+// Homepage: a board of clickable rows, one per study. `only` renders one study
+// as its standalone page instead (its title becomes the h1).
 const CaseStudies = ({ only }) => {
-  const { heading, sub } = siteData.caseStudies;
+  const { heading, sub, highlights } = siteData.caseStudies;
   const list = siteData.caseStudies.list.filter((s) => !only || s.id === only);
-  const Title = only ? "h1" : "h3";
   const dialogRef = useRef(null);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const dotsRef = useRef(null);
   const [zoomed, setZoomed] = useState(null);
 
   const openShot = (shot) => {
     setZoomed(shot);
     dialogRef.current.showModal();
   };
+
+  const renderShots = (shots) => (
+    <div className={styles.shots}>
+      {shots.map((shot) => (
+        <figure key={shot.src} className={`${styles.shot} ${shot.wide ? styles.wide : ""}`}>
+          <span className={`${styles.shotLabel} ${styles[`shot${shot.label}`] ?? ""}`}>
+            {shot.label}
+          </span>
+          <button
+            type="button"
+            className={styles.shotFrame}
+            onClick={() => openShot(shot)}
+            aria-label={`Enlarge: ${shot.caption}`}
+          >
+            <OptimizedImg src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
+          </button>
+          <figcaption>{shot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  );
 
   const renderStudy = (study) => (
     <article key={study.id} id={study.id} className={styles.card}>
@@ -59,7 +108,7 @@ const CaseStudies = ({ only }) => {
             <span key={t} className={styles.tag}>{t}</span>
           ))}
         </div>
-        <Title className={styles.title}>{study.title}</Title>
+        <h1 className={styles.title}>{study.title}</h1>
       </header>
 
       <div className={styles.body}>
@@ -87,27 +136,21 @@ const CaseStudies = ({ only }) => {
           </ul>
           <p className={styles.totals}>{study.results.totals}</p>
 
-          {study.results.screenshots.length > 0 && (
-            <div className={styles.shots}>
-              {study.results.screenshots.map((shot) => (
-                <figure key={shot.src} className={styles.shot}>
-                  <span className={`${styles.shotLabel} ${styles[`shot${shot.label}`]}`}>
-                    {shot.label}
-                  </span>
-                  <button
-                    type="button"
-                    className={styles.shotFrame}
-                    onClick={() => openShot(shot)}
-                    aria-label={`Enlarge: ${shot.caption}`}
-                  >
-                    <OptimizedImg src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
-                  </button>
-                  <figcaption>{shot.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
+          {study.results.screenshots.length > 0 && renderShots(study.results.screenshots)}
         </div>
+
+        {only &&
+          study.tests?.map((t) => (
+            <section key={t.heading} className={styles.test}>
+              <h2 className={styles.testHeading}>{t.heading}</h2>
+              {t.points.map(([lead, text]) => (
+                <p key={lead} className={styles.text}>
+                  <strong>{lead}.</strong> {text}
+                </p>
+              ))}
+              {t.screenshots.length > 0 && renderShots(t.screenshots)}
+            </section>
+          ))}
 
         {only && (
           <div className={styles.storyGrid}>
@@ -149,54 +192,30 @@ const CaseStudies = ({ only }) => {
           list.map(renderStudy)
         ) : (
           <>
-            <h2 className="section-title">{heading}</h2>
-            <p className={styles.sub}>{sub}</p>
-
-            {/* Controls come first in the markup so their refs exist when Swiper
-                initialises; CSS `order` shows them below the slides. */}
-            <div className={styles.sliderWrap}>
-            <div className={styles.controls}>
-              <button ref={prevRef} type="button" className={styles.navBtn} aria-label="Previous case study">
-                <ArrowLeft size={20} strokeWidth={2.5} aria-hidden="true" />
-              </button>
-              <div ref={dotsRef} className={styles.dots} />
-              <button ref={nextRef} type="button" className={styles.navBtn} aria-label="Next case study">
-                <ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />
-              </button>
-            </div>
-
-            <Swiper
-              modules={[Navigation, Pagination, A11y]}
-              slidesPerView={1}
-              spaceBetween={32}
-              autoHeight
-              a11y={{ prevSlideMessage: "Previous case study", nextSlideMessage: "Next case study" }}
-              onBeforeInit={(swiper) => {
-                // The controls render below the slider, so hand Swiper the elements here.
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-                swiper.params.pagination.el = dotsRef.current;
-              }}
-              onInit={(swiper) => {
-                swiper.navigation.init();
-                swiper.navigation.update();
-                swiper.pagination.init();
-                swiper.pagination.render();
-                swiper.pagination.update();
-              }}
-              navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-              pagination={{ el: dotsRef.current, clickable: true }}
-              className={styles.slider}
-            >
-              {list.map((study) => (
-                <SwiperSlide key={study.id}>{renderStudy(study)}</SwiperSlide>
-              ))}
-            </Swiper>
-            </div>
-            <div className={styles.allLink}>
-              <Link to="/case-studies" className="btn" data-cta="See all case studies" data-cta-loc="Case Studies">
-                See all case studies <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+            <div className={styles.board}>
+              <div className={styles.intro}>
+                <span className={styles.eyebrow}>Proof, not promises</span>
+                <h2 className={styles.introTitle}>{heading}</h2>
+                <p className={styles.sub}>{sub}</p>
+                <ul className={styles.highlights}>
+                  {highlights.map((h) => (
+                    <li key={h.label}>
+                      <strong>{h.value}</strong>
+                      {h.label}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/case-studies" className="btn" data-cta="See all case studies" data-cta-loc="Case Studies">
+                  See all case studies <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              </div>
+              <ul className={styles.rows}>
+                {list.map((study, i) => (
+                  <li key={study.id}>
+                    <StudyRow study={study} color={ROW_COLORS[i % ROW_COLORS.length]} />
+                  </li>
+                ))}
+              </ul>
             </div>
           </>
         )}
