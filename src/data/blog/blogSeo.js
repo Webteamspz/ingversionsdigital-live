@@ -87,17 +87,23 @@ export const getPostSeo = (slug) => {
   const article = articles[slug];
   if (!article) return null;
 
-  const description = article.content
-    .replace(/## |### |`|\*\*|\*|\[|\]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 160);
+  // A post's own description if it has one; otherwise the start of its text,
+  // with markdown links reduced to their label and cut at a word boundary.
+  const description =
+    article.description ||
+    article.content
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+      .replace(/## |### |`|\*\*|\*/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 160)
+      .replace(/\s+\S*$/, "");
   const image = legacyHeroImage(slug, article);
 
   return {
     title: `${article.title} | Ingversions Blog`,
     description,
-    keywords: [article.category.toLowerCase(), "Shopify", "CRO", "A/B testing"],
+    keywords: article.keywords || [article.category.toLowerCase(), "Shopify", "CRO", "A/B testing"],
     path,
     image: `${SITE_URL}${image}`,
     breadcrumb: [home, blog, { name: article.title, path }],

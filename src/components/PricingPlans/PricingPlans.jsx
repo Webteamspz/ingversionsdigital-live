@@ -6,9 +6,9 @@ const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--second
 
 const PricingPlans = ({ track }) => {
   const plans = track === "dev" ? devPlans : brandPlans;
-  const hasEliteWide = track === "brands";
-  const standardPlans = hasEliteWide ? plans.slice(0, 3) : plans;
-  const elitePlan = hasEliteWide ? plans[3] : null;
+  // First three plans in a row, the fourth as a full-width card below.
+  const standardPlans = plans.slice(0, 3);
+  const elitePlan = plans[3];
 
   function handleSeeComparison(planIndex) {
     window.dispatchEvent(
@@ -24,7 +24,7 @@ const PricingPlans = ({ track }) => {
     <section className={styles.pricingPlans} id="pricingPlans">
       <div className="container">
 
-        <div className={`${styles.pricingPlansGrid} ${!hasEliteWide ? styles.fourCol : ""}`}>
+        <div className={styles.pricingPlansGrid}>
           {standardPlans.map((plan, idx) => (
             <Reveal
               key={plan.name}
@@ -48,6 +48,11 @@ const PricingPlans = ({ track }) => {
               <h3 className={styles.pricingPlanName}>{plan.name}</h3>
 
               <div className={styles.pricingPlanPriceRow}>
+                {plan.originalPrice && (
+                  <s className={styles.pricingPlanOriginal} aria-label={`Was ${plan.originalPrice}`}>
+                    {plan.originalPrice}
+                  </s>
+                )}
                 <span className={styles.pricingPlanPrice}>
                   {plan.price}
                 </span>
@@ -100,9 +105,16 @@ const PricingPlans = ({ track }) => {
 
             <div className={styles.wideCardLeft}>
 
-              <span className={styles.wideBadge}>ENTERPRISE</span>
+              <span className={styles.wideBadge}>{elitePlan.wideBadge}</span>
 
-              <h3 className={styles.wideTitle}>{elitePlan.name} Plan</h3>
+              <h3 className={styles.wideTitle}>{elitePlan.wideTitle || elitePlan.name}</h3>
+
+              {elitePlan.period && (
+                <div className={styles.pricingPlanPriceRow}>
+                  <span className={styles.pricingPlanPrice}>{elitePlan.price}</span>
+                  <span className={styles.pricingPlanPeriod}>{elitePlan.period}</span>
+                </div>
+              )}
 
               <p className={styles.wideDesc}>{elitePlan.description}</p>
 

@@ -11,6 +11,7 @@ const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage/ServicesPage.jsx"));
 const Projects = lazy(() => import("./pages/Projects/Projects.jsx"));
 const PrivacyPolicy = lazy(() => import("./pages/Legal/PrivacyPolicy.jsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou/ThankYou.jsx"));
@@ -19,6 +20,9 @@ const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
 const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
 const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
+const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
+const TRUST_BADGES_STUDY = "shopify-pdp-trust-badges-ab-test";
 
 const ScrollManager = () => {
   const { pathname, hash, search, state, key } = useLocation();
@@ -90,6 +94,7 @@ const App = () => (
         <Route path="/teampage" element={<TeamPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/ab-test-calculator" element={<AbTestCalculator />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -97,6 +102,8 @@ const App = () => (
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/blog" element={<BlogHome />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/case-studies" element={<CaseStudiesPage />} />
+        <Route path={`/case-studies/${TRUST_BADGES_STUDY}`} element={<CaseStudy slug={TRUST_BADGES_STUDY} />} />
         {Object.keys(servicePages).map((slug) => (
           <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />
         ))}

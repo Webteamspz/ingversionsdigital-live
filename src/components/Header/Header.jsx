@@ -9,6 +9,11 @@ import { ctaClick, dl } from "../../gtm";
 import { isExternalHref } from "../../utils/url";
 import BlackFridayBanner from "../BlackFridayBanner/BlackFridayBanner.jsx";
 
+// "Services" opens a menu of every service page (real links, so crawlers follow them).
+const SERVICE_LINKS = data.services.list
+  .filter((s) => s.href?.startsWith("/"))
+  .map((s) => ({ label: s.title, href: s.href }));
+
 const HamburgerIcon = (props) => (
   <svg
     width="48"
@@ -269,7 +274,14 @@ const Header = () => {
       <div className={styles.menuBody}>
         <nav className={styles.mobileNav}>
           {links.map((linkItem, index) =>
-            renderMobileNavLink(linkItem, index)
+            linkItem.href === "/services" ? (
+              <div key={index} className={styles.mobileGroup}>
+                {renderMobileNavLink(linkItem, index)}
+                {SERVICE_LINKS.map(renderMobileNavLink)}
+              </div>
+            ) : (
+              renderMobileNavLink(linkItem, index)
+            )
           )}
         </nav>
       </div>
@@ -319,7 +331,16 @@ const Header = () => {
           
           <nav className={styles.nav}>
             {links.map((linkItem, index) =>
-              renderDesktopNavLink(linkItem, index)
+              linkItem.href === "/services" ? (
+                <div key={index} className={styles.dropdown}>
+                  {renderDesktopNavLink(linkItem, index)}
+                  <div className={styles.submenu}>
+                    {SERVICE_LINKS.map(renderDesktopNavLink)}
+                  </div>
+                </div>
+              ) : (
+                renderDesktopNavLink(linkItem, index)
+              )
             )}
           </nav>
 
@@ -354,8 +375,9 @@ const Header = () => {
       </header>
       <BlackFridayBanner />
 
-      {createPortal(Overlay, document.body)}
-      {createPortal(Drawer, document.body)}
+      {/* No document at build-time prerender; the mobile drawer mounts in the browser. */}
+      {typeof document !== "undefined" && createPortal(Overlay, document.body)}
+      {typeof document !== "undefined" && createPortal(Drawer, document.body)}
     </>
   );
 };

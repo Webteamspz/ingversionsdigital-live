@@ -2,8 +2,9 @@ export default {
   header: {
     links: [
       { label: "Home", href: "/" },
-      { label: "Services", href: "/", scrollTo: "services" },
+      { label: "Services", href: "/services" },
       { label: "Projects", href: "/projects" },
+      { label: "Case Studies", href: "/case-studies" },
       { label: "Pricing", href: "/pricing" },
       { label: "About Us", href: "/about-us" },
       { label: "Blog", href: "/blog" },
@@ -28,13 +29,15 @@ export default {
     },
   },
   hero: {
-    heading: "Find What Works.",
-    pill: "Scale What Converts.",
-    sub: "We run structured A/B tests to uncover what truly drives conversions, then scale those wins across your Shopify store for lasting revenue growth.",
+    eyebrow: "Shopify & Shopify Plus CRO Engineering",
+    heading: "We'll Design, Build & QA",
+    pill: "Shopify A/B Tests That Lift Revenue.",
+    sub: "Data-backed experiments for Shopify and Shopify Plus stores. Every test ships with a Figma prototype, clean Git code, full QA and GA4 revenue tracking, like the product-page test that lifted Add-to-Cart conversions +58.62% in 12 days.",
     cta: {
-      label: "Book A Call",
+      label: "Get my free test build",
       href: "https://calendly.com/ingversionsdigital/30min",
     },
+    secondaryCta: { label: "See plans from $999/mo", href: "/pricing" },
     avatars: [
       "/assets/reviews/reviewer-1.jpg",
       "/assets/reviews/reviewer-2.jpg",
@@ -102,6 +105,34 @@ export default {
       { value: "5+", label: "Years of experience" },
     ],
   },
+  // Hero of the /services page; the cards below it come from `services`.
+  servicesPage: {
+    tag: "Services",
+    title: "Shopify CRO, A/B Testing & Development Services",
+    sub: "Everything your store needs to convert more visitors: research-led A/B tests, Shopify development, and full QA on every build. Your first test is free.",
+    primaryCta: "Book a call",
+    primaryHref: "https://calendly.com/ingversionsdigital/30min",
+    secondaryCta: "See pricing",
+    secondaryHref: "/pricing",
+    // Each service block's details (intro, included, keywords) come from
+    // servicepagesdata.js, for the services listed in `services` below.
+    detailsHeading: "What we do, in detail",
+    audienceHeading: "Who we work with",
+    audiences: [
+      {
+        title: "Shopify brands",
+        desc: "DTC and Shopify Plus stores that want more revenue from the traffic they already pay for.",
+        points: ["Monthly CRO plans from $999", "Shopify development included", "Your first test built free"],
+        link: { label: "See brand plans", href: "/pricing" },
+      },
+      {
+        title: "Agencies & teams",
+        desc: "CRO agencies and in-house teams that need reliable, white-label test development and QA.",
+        points: ["Complex tests from $199.50", "Test dev pods and dedicated developers", "Your name on the work, not ours"],
+        link: { label: "See agency pricing", href: "/pricing" },
+      },
+    ],
+  },
   services: {
     heading: "Our CRO Services",
     sub: "A/B testing, Shopify development and QA for ecommerce brands, all aimed at one number: your conversion rate.",
@@ -131,28 +162,12 @@ export default {
         icon: "qa",
       },
       {
-        title: "WordPress Development",
-        href: "/wordpress-development",
-        linkLabel: "Learn More",
-        eyebrow: "Custom Builds",
-        desc: "Custom WordPress template and theme design, along with development, specifically crafted for performance.",
-        icon: "wordpress",
-      },
-      {
         title: "Landing Page Personalization",
         href: "/landing-page-personalization",
         linkLabel: "Learn More",
         eyebrow: "Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
         icon: "landing-page",
-      },
-      {
-        title: "HRMS Tool",
-        eyebrow: "Our Product",
-        desc: "Keep employee records, leave, documents and approvals for your whole team in one place.",
-        icon: "hrms",
-        href: "https://coteamspace.com/",
-        linkLabel: "Visit Site",
       },
       {
         title: "Lead Generation",
@@ -272,6 +287,8 @@ export default {
     list: [
       {
         title: "Retainer-Based Partnerships",
+        // Shown as the big "price" line on service-page pricing cards.
+        priceLabel: "Fixed monthly fee",
         desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
         icon: "retainer",
         features: [
@@ -287,6 +304,8 @@ export default {
       },
       {
         title: "Block of Hours",
+        // Shown as the big "price" line on service-page pricing cards.
+        priceLabel: "Prepaid hours",
         desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
         icon: "hoursblock",
         features: [
@@ -302,6 +321,8 @@ export default {
       },
       {
         title: "Project-Based Engagements",
+        // Shown as the big "price" line on service-page pricing cards.
+        priceLabel: "Fixed project price",
         desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
         icon: "projectengagement",
         features: [
@@ -317,10 +338,79 @@ export default {
       },
     ],
   },
+  // The /case-studies page (CaseStudiesPage). The studies themselves are caseStudies.list below.
+  caseStudiesPage: {
+    tag: "Case Studies",
+    title: "Real tests. Real lifts. Every number checked in GA4.",
+    sub: "What was holding each store back, what we built to fix it, and what the data said after launch. No mockups, no made-up results.",
+    primaryCta: { label: "Get my free test build", href: "https://calendly.com/ingversionsdigital/30min" },
+    secondaryCta: { label: "See plans from $999/mo", href: "/pricing" },
+    metrics: [
+      { value: "+58.62%", label: "Add-to-cart lift" },
+      { value: "3.2x", label: "Daily users after SEO fixes" },
+      { value: "43,933", label: "Visitors in one test" },
+      { value: "100%", label: "Confidence on the winner" },
+    ],
+  },
   caseStudies: {
     heading: "Case Studies",
     sub: "Real numbers from real work, measured in Google Analytics 4.",
     list: [
+      {
+        // Also the standalone page /case-studies/<id> (see CaseStudyPage).
+        id: "shopify-pdp-trust-badges-ab-test",
+        title: "+58.62% Add-to-Cart: Trust Badges vs Guarantee Copy on a Shopify Product Page",
+        tags: ["A/B Testing", "Convert.com", "12 days"],
+        sections: [
+          {
+            heading: "The Challenge",
+            icon: "challenge",
+            paragraphs: [
+              "Shoppers on our client's product pages, a mobile radio and communications equipment store, hesitated at the last step: adding to cart. They weren't sure about guarantees and purchase security.",
+            ],
+          },
+          {
+            heading: "What We Did",
+            icon: "action",
+            paragraphs: [
+              "We designed three product-page variations in Figma, each with a different mix of trust signals near the Add-to-Cart button. Our development partner TechnoSpective built them in Convert.com, and traffic was split evenly across the original and the three variations for 12 days.",
+            ],
+          },
+        ],
+        results: {
+          heading: "The Results (add-to-cart rate vs the original page)",
+          stats: [
+            { label: "Guarantee copy + trust badges", before: "1.67%", after: "2.65%", lift: "+58.62%" },
+            { label: "Guarantee copy only", before: "1.67%", after: "2.14%", lift: "+28.34%" },
+            { label: "Trust badges only", before: "1.67%", after: "1.56%", lift: "-6.61%" },
+          ],
+          totals:
+            "43,933 visitors across 4 variations, about 10,980 each. Original: 183 add-to-carts from 10,984 visitors. Winner: 291 from 10,983, at 100% statistical confidence. Guarantee copy alone reached 99.99% confidence; the badges-only drop was not statistically significant.",
+          screenshots: [],
+        },
+        notes: [
+          {
+            heading: "Why It Matters",
+            icon: "method",
+            paragraphs: [
+              "Trust badges on their own did not help. They only worked when paired with clear guarantee copy. Copying a 'best practice' without testing it would have missed the real win, which is why we test before we ship.",
+            ],
+          },
+          {
+            heading: "Where the Numbers Come From",
+            icon: "timing",
+            paragraphs: [
+              "The Convert.com test report, published by TechnoSpective at technospective.se/case-studies/pdp-trust-signals (July 2025).",
+            ],
+          },
+        ],
+        cta: {
+          heading: "Want a Test Like This?",
+          text: "We'll design, build and QA your first Shopify A/B test free.",
+          buttonText: "Claim your free test build",
+          buttonLink: "https://calendly.com/ingversionsdigital/30min",
+        },
+      },
       {
         id: "seo-3x-daily-traffic",
         title: "3x More Daily Traffic in 4 Days After SEO Fixes",
@@ -748,9 +838,19 @@ footer: {
         title: "Quick Links",
         links: [
           { name: "Home", href: "/#hero" },
-          { name: "Services", href: "/", scrollTo: "services" },
+          { name: "Services", href: "/services" },
           { name: "Pricing", href: "/pricing" },
           { name: "Projects", href: "/projects" },
+          { name: "Case Studies", href: "/case-studies" },
+        ],
+      },
+      {
+        title: "Services",
+        links: [
+          { name: "A/B Testing", href: "/ab-testing" },
+          { name: "Shopify Development", href: "/shopify-development" },
+          { name: "Quality Assurance", href: "/quality-assurance" },
+          { name: "Landing Page Personalization", href: "/landing-page-personalization" },
         ],
       },
       {

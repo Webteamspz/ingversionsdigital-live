@@ -195,7 +195,7 @@
   line-height: 1.55
 }
 .pricing {
-  padding: var(--section-space) 0 0;
+  padding: var(--section-space) 0;
   text-align: center
 }
 .pricingSub {
@@ -362,7 +362,7 @@
     padding: 64px 0
   }
   .pricing {
-    padding-top: 64px
+    padding: 64px 0
   }
   .includedGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr))
@@ -393,7 +393,7 @@
     padding: 22px
   }
   .pricing {
-    padding-top: 48px
+    padding: 48px 0
   }
   .pricingSub {
     margin-bottom: 28px;
@@ -405,5 +405,39 @@
   }
   .priceCard {
     padding: 22px
+  }
+}
+/* Optional "related reading" links (page.related in servicepagesdata.js). */
+.related {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none
+}
+.related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+  padding: 18px 22px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+  color: var(--palette-text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.related a:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop-hover)
+}
+@media (max-width:767.98px) {
+  .related {
+    grid-template-columns: minmax(0, 1fr)
   }
 }

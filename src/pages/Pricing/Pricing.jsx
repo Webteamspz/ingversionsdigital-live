@@ -7,6 +7,7 @@ import Layout from "../../layouts/Layouts";
 import PricingCompare from "../../components/Pricing/Pricing";
 import PricingAI from "../../components/PricingAI/PricingAI";
 import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta";
+import ToolsMarquee from "../../components/ToolsMarquee/ToolsMarquee";
 import SEO from "../../components/SEO/SEO";
 import seo from "../../data/seodata";
 
@@ -20,6 +21,7 @@ const Pricing = () => {
         <main className="pricingPage">
           <PricingHero track={track} setTrack={setTrack} />
           <PricingPlans track={track} />
+          <ToolsMarquee hideHeading />
           <PricingAI />
           <PricingCompare track={track} />
           <PricingFAQ />

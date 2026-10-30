@@ -1,7 +1,9 @@
 // Runs after `vite build`. Writes one HTML file per route into dist/ with that
 // route's <SEO> head tags already in it, so crawlers that do not run JavaScript
 // (link-preview bots, most AI crawlers) get a real title, description,
-// canonical, and share image. The body is still the empty app shell.
+// canonical, and share image. The page body is rendered too (src/entry-server.jsx),
+// so they also get the text and <a href> links; it is hidden by style.css and
+// main.jsx replaces it with the live app, so visitors see no change.
 // nginx.conf serves these files; keep its route list in sync with seodata.js.
 // It also covers /blog and every post, and appends the blog URLs to the sitemap.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -24,6 +26,7 @@ try {
   const blog = await vite.ssrLoadModule("/src/data/blog/blogSeo.js");
   const shell = await readFile("dist/index.html", "utf8");
 
+  const { render } = await vite.ssrLoadModule("/src/entry-server.jsx");
   const pages = Object.entries(seo).map(([key, props]) => [
     key === "home" ? "index.html" : key === "notFound" ? "404.html" : `${props.path.slice(1)}.html`,
     props,
@@ -33,6 +36,7 @@ try {
   for (const { slug } of blog.allPosts) pages.push([`blog/${slug}.html`, blog.getPostSeo(slug)]);
 
   await mkdir("dist/blog", { recursive: true });
+  await mkdir("dist/case-studies", { recursive: true });
   for (const [file, props] of pages) {
     // React 19 renders <SEO>'s tags inline. Mark each one so main.jsx can
     // drop the static copies before the app mounts and adds its own.
@@ -40,7 +44,21 @@ try {
       .replace(/(^|>)<(title|meta|link|script)/g, "$1\n    <$2 data-prerender");
     if (!head.includes("<title")) throw new Error(`No head tags rendered for ${file}`);
 
-    await writeFile(`dist/${file}`, shell.replace("</head>", `${head}\n  </head>`));
+    // The page body too, so crawlers get its text and <a href> links. The head
+    // tags React renders inline are already above, so drop the body's copies.
+    // It stays hidden (style.css) and main.jsx replaces it with the live app.
+    const body = (await render(props.path || "/404"))
+      .replace(/<title>[\s\S]*?<\/title>/g, "")
+      .replace(/<meta [^>]*\/>/g, "")
+      .replace(/<link rel="(canonical|preload)"[^>]*\/>/g, "")
+      .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
+
+    await writeFile(
+      `dist/${file}`,
+      shell
+        .replace("</head>", `${head}\n  </head>`)
+        .replace('<div id="root"></div>', `<div id="root" data-prerendered>${body}</div>`)
+    );
   }
   console.log(`prerendered ${pages.length} pages into dist/`);
 

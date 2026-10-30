@@ -11,7 +11,7 @@ const NOTICE = "/privacy-policy#cookies-tracking";
 const text = {
   consentModal: {
     title: "We use cookies",
-    description: `We use analytics cookies to understand how visitors use this site. They only load if you accept. See our <a href="${POLICY}">Privacy Policy</a> and <a href="${NOTICE}">Cookie Notice</a>.`,
+    description: `We use analytics cookies to understand how visitors use this site. Click Decline to turn them off. See our <a href="${POLICY}">Privacy Policy</a> and <a href="${NOTICE}">Cookie Notice</a>.`,
     acceptAllBtn: "Accept",
     acceptNecessaryBtn: "Decline",
     showPreferencesBtn: "Manage preferences",
@@ -67,7 +67,7 @@ const CookieConsent = () => {
         categories: {
           necessary: { enabled: true, readOnly: true },
           // _ga/_ga_<id>: GA4, _gcl_au: Google conversion linker (set by the GTM container), _clck/_clsk: Clarity.
-          analytics: { autoClear: { cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }] } },
+          analytics: { enabled: true, autoClear: { cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }] } },
         },
         onConsent: () => apply(cc),
         onChange: () => apply(cc),

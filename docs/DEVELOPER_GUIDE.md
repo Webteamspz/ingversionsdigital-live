@@ -61,7 +61,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
-| Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `form_submissions` collection over REST, with `site`, `formName` and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
+| Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `ingversionsdigital_submissions` collection over REST, with `site`, `formName`, `page` (URL path), `pageName` (readable page name, e.g. "Pricing", for filtering) and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Cookie consent | `vanilla-cookieconsent` (pinned, exact version) | MIT, zero dependencies; `src/components/CookieConsent` loads it with a dynamic import so it is its own chunk |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
@@ -79,7 +79,7 @@ static site (Vite builds it to plain HTML/CSS/JS, served by nginx in a container
 ```
 src/
   App.jsx              Route table + global scroll-restore logic
-  main.jsx             React root, providers (Helmet, Router), starts analytics if consent was already given
+  main.jsx             React root, providers (Helmet, Router), starts analytics unless the visitor declined
   components/          One folder per UI component: Foo/Foo.jsx + Foo/Foo.module.css
   pages/               One folder per route: thin — assembles components, adds <SEO>
   data/                Site copy & content, plain JS objects (see next section)
@@ -118,7 +118,9 @@ All routes are declared in one place, `src/App.jsx`:
   <Route path="/teampage" element={<TeamPage />} />
   <Route path="/about-us" element={<AboutUs />} />
   <Route path="/pricing" element={<Pricing />} />
+  <Route path="/services" element={<ServicesPage />} />
   <Route path="/projects" element={<Projects />} />
+  <Route path="/case-studies" element={<CaseStudiesPage />} />
   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
   <Route path="/terms-of-service" element={<TermsOfService />} />
   <Route path="/thank-you" element={<ThankYou />} />
@@ -161,7 +163,7 @@ plain JS objects under `src/data/`, not hardcoded in components.**
 | `src/data/projectsdata.js` | `/projects` page: portfolio case studies (before/after images, results) |
 | `src/data/teamdata.js` | `/teampage`: team member cards (name, title, avatar, culture blurb) |
 | `src/data/aboutusdata.js` | `/about-us`: hero, story, values, expertise sections |
-| `src/data/servicepagesdata.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`): hero, included items, which process flow and pricing block to show, FAQ. Each key is a URL slug |
+| `src/data/servicepagesdata.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`, and SEO landing pages such as `/shopify-cro-agency`): hero, included items, which process flow and pricing block to show, optional `related` links, optional `posts` (that topic's blog posts as `{ slug, title }`: listed as "Related reading" on the service page, and each post links back via `RelatedService`), FAQ. The header "Services" menu and footer list the service pages from `sitedata.services.list`. Each key is a URL slug |
 
 To change what a section **says**, edit the relevant object in one of these files — you
 don't need to touch the component. Components read from `data.<section>.<field>` and
@@ -222,7 +224,7 @@ Env files (not committed — see `.gitignore`): `.env`, `.env.staging`, `.env.pr
 `.env.example` documents the shape:
 
 ```txt
-VITE_FIREBASE_PROJECT_ID=website-forms-efeba
+VITE_FIREBASE_PROJECT_ID=ingversions-digital
 VITE_GTM_ID=GTM-XXXXXXX
 VITE_CLARITY_ID=your-clarity-project-id
 ```
@@ -261,9 +263,9 @@ keep it that way. Secrets for CI/deploy live in GitHub repo secrets instead (see
 
 `src/gtm.js` is a small hand-rolled wrapper around `window.dataLayer` — there's no
 `react-ga` or similar SDK. `startAnalytics()` (which runs `initGTMTracking()` and
-`loadAnalytics()`) is only called after the visitor accepts analytics in the `CookieConsent`
-banner, either on click or from `main.jsx` on idle when a previous `granted` choice is stored
-in `localStorage` (`analytics-consent`). Decliners and first-time visitors load nothing.
+`loadAnalytics()`) runs by default (opt-out): `main.jsx` calls it on idle unless a `denied`
+choice is stored in `localStorage` (`analytics-consent`), and the `CookieConsent` banner calls it
+on Accept. Only decliners load nothing.
 
 The banner is `vanilla-cookieconsent` (pinned exact version), started in a `useEffect` with a
 dynamic import of the library and its CSS, so it never runs during prerender and ships as its own
@@ -352,7 +354,7 @@ breadcrumb JSON-LD either: the Home page passes its FAQ via `jsonLd`, and other 
 
 ### Static head tags for crawlers (prerender)
 
-Each route's head tags live in `src/data/seodata.js`; pages spread their entry into `<SEO>` (`<SEO {...seo.pricing} />`). After `vite build`, `scripts/prerender.mjs` renders `<SEO>` for every entry and writes `dist/<route>.html` (plus `index.html` for Home and `404.html` for NotFound) with those tags marked `data-prerender`, so crawlers that do not run JavaScript get a real title, description, canonical, and share image. `src/main.jsx` removes the `data-prerender` copies before mounting, so the live DOM still has one of each. Only the head is prerendered; the body is still the empty app shell.
+Each route's head tags live in `src/data/seodata.js`; pages spread their entry into `<SEO>` (`<SEO {...seo.pricing} />`). After `vite build`, `scripts/prerender.mjs` renders `<SEO>` for every entry and writes `dist/<route>.html` (plus `index.html` for Home and `404.html` for NotFound) with those tags marked `data-prerender`, so crawlers that do not run JavaScript get a real title, description, canonical, and share image. `src/main.jsx` removes the `data-prerender` copies before mounting, so the live DOM still has one of each. The page body is prerendered too: `src/entry-server.jsx` renders the whole app for that URL (React's `prerenderToNodeStream`, which waits for lazy routes), so the raw HTML has the text and `<a href>` links. The body copy is wrapped in `<div id="root" data-prerendered>`, hidden by `style.css`; `main.jsx` clears it and renders the app fresh, so visitors see exactly what they did before. Components must therefore not touch `window`/`document` while rendering (read them in effects, or guard with `typeof window !== "undefined"`); the build fails with the route name if one throws.
 
 `seodata.js` is imported by plain Node in that script, so keep it free of JSX and write
 its relative imports with the `.js` extension. `nginx.conf` serves each known route from
@@ -391,6 +393,9 @@ first, then legacy ones, then shows the blog 404 (`noindex`).
   `https://ingversionsdigital.com/blog/<slug>` (the page computes it from the slug anyway).
 - **Legacy markdown posts:** an entry in `articlesData.js` keyed by slug, plus a card in
   `postCards.js` and a cover in `articleImages.js`. ` ```mermaid ` fences are supported.
+  Optional `description` and `keywords` fields set the post's meta description and keywords
+  (otherwise derived from the text). Links starting with `/` render as router links. Markdown
+  tables do not render (no remark-gfm); use lists.
   Linear `graph`/`flowchart` charts render as a numbered step list. Branching charts render
   as mermaid SVG, and `mermaid` (~170 KB gzip) is only downloaded on those pages.
 
@@ -513,7 +518,7 @@ same shape in `src/data/pricingdata.js`.
 
 ### Add a new service page
 
-1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards and comparison) or `"engagement"` (the engagement models).
+1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards), `"dev"` (the agency / white-label plans) or `"engagement"` (the engagement models). An optional `related: { heading, links: [{ label, href }] }` adds a list of internal links above the FAQ. A case study gets its own page by adding a route for its `sitedata.caseStudies` id in `App.jsx` (`<CaseStudy slug="..." />`), a `seodata.js` entry with `path: "/case-studies/<id>"`, the nginx regex entry and a sitemap URL.
 2. That one entry generates the route in `src/App.jsx` and the head tags in `src/data/seodata.js`. Add the slug to the route regex in `nginx.conf` (on `production` too, which keeps its own copy) and to `public/sitemap.xml`.
 3. To link it from the homepage Services cards, give that service `href: "/<slug>"` and a `linkLabel` in `data.services.list`.
 
