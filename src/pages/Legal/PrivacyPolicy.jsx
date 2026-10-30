@@ -29,7 +29,7 @@ const PrivacyPolicy = () => (
                 collect through ingversionsdigital.com, why we collect it, and
                 the choices you have — written in plain language, not legalese.
               </p>
-              <p className={styles.legalIntro}>Last updated: October 28, 2026</p>
+              <p className={styles.legalIntro}>Last updated: October 30, 2026</p>
             </div>
           </div>
         </div>
@@ -77,8 +77,8 @@ const PrivacyPolicy = () => (
             </div>
             <div className={styles.legalSectionBody}>
               <p>
-                This section is our Cookie Notice. Analytics only runs with
-                your consent, which you give or withdraw in our cookie banner.
+                This section is our Cookie Notice. Analytics is on by default
+                and turns off as soon as you click Decline in our cookie banner.
               </p>
               <p>
                 <strong>The banner.</strong> On your first visit a small box
@@ -87,9 +87,9 @@ const PrivacyPolicy = () => (
                 has three buttons:
               </p>
               <ul>
-                <li><strong>Accept</strong> turns on Analytics cookies.</li>
+                <li><strong>Accept</strong> keeps Analytics cookies on.</li>
                 <li>
-                  <strong>Decline</strong> keeps Analytics off and deletes any
+                  <strong>Decline</strong> turns Analytics off and deletes any
                   Analytics cookies already set on this site.
                 </li>
                 <li>
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => (
                   skips the loading animation on repeat visits.
                 </li>
               </ul>
-              <p><strong>Analytics</strong> (only if you accept):</p>
+              <p><strong>Analytics</strong> (on unless you decline):</p>
               <ul>
                 <li>
                   <strong>Google Analytics, loaded through Google Tag
@@ -176,7 +176,7 @@ const PrivacyPolicy = () => (
               <ul>
                 <li><strong>Google Firebase (Cloud Firestore)</strong> — stores contact-form submissions.</li>
                 <li><strong>Calendly</strong> — handles strategy-call scheduling.</li>
-                <li><strong>Google Analytics, Google Tag Manager &amp; Microsoft Clarity</strong> — only with your consent, as described above.</li>
+                <li><strong>Google Analytics, Google Tag Manager &amp; Microsoft Clarity</strong> — on unless you decline, as described above.</li>
                 <li><strong>Cloudflare</strong> — hosting, security and cookieless page-view counts.</li>
               </ul>
               <p>

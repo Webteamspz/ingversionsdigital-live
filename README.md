@@ -28,7 +28,7 @@ Docker/Nginx image.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
 - Optimised images: raw art is converted to resized `.webp` and rendered through `OptimizedImg` with lazy loading.
-- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`, built on the `vanilla-cookieconsent` package; it never blocks the page).
+- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and run unless the visitor clicks Decline in the cookie banner (`CookieConsent`, built on the `vanilla-cookieconsent` package; it never blocks the page).
 - Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Firestore, Clarity, and Google Analytics.
 
 ## Local Setup
@@ -48,7 +48,7 @@ cp .env.example .env
 Fill `.env` with real values. All are public `VITE_` values used by the browser bundle; there are no server-side secrets in this project.
 
 ```sh
-VITE_FIREBASE_PROJECT_ID=website-forms-efeba
+VITE_FIREBASE_PROJECT_ID=ingversions-digital
 VITE_GTM_ID=GTM-XXXXXXX
 VITE_CLARITY_ID=your-clarity-project-id
 ```
@@ -94,7 +94,7 @@ npm run build:production    # mode=production, the public build
 | `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), tested by `abtest.test.js` |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
 | `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
-| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
+| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags and the rendered page body (for crawlers) into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
 | `docs/` | `DEVELOPER_GUIDE.md` and the `site-docs/` HTML documentation page |
 | `Dockerfile`, `nginx.conf`, `docker-compose.*.yml` | container build and serve |
 
@@ -109,7 +109,7 @@ To change what the site says, edit the matching module in `src/data/`:
 | `teamdata.js` | Team members (name, role, photo, socials) |
 | `projectsdata.js` | Portfolio case studies |
 | `aboutusdata.js` | About page copy |
-| `servicepagesdata.js` | One entry per service page (`/ab-testing`, `/shopify-development`, ...): hero, included items, process flow, pricing type, FAQ |
+| `servicepagesdata.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
 | `seodata.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
 | `blog/blogPosts.json` | Structured blog posts (preferred). Template: `blog/blogPostTemplate.json` |
 | `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
@@ -120,7 +120,7 @@ Components read these objects and render them. Do not hardcode copy in JSX.
 
 | Variable | Used by | Notes |
 |----------|---------|-------|
-| `VITE_FIREBASE_PROJECT_ID` | `src/utils/submitLead.js` | optional; Firebase project for form submissions, defaults to `website-forms-efeba` |
+| `VITE_FIREBASE_PROJECT_ID` | `src/utils/submitLead.js` | optional; Firebase project for form submissions, defaults to `ingversions-digital` |
 | `VITE_GTM_ID` | `src/gtm.js` | Google Tag Manager container ID |
 | `VITE_CLARITY_ID` | analytics init | Microsoft Clarity project ID |
 | `VITE_APP_ENV` | `StagingLogin` | set to `staging` to enable the gate |

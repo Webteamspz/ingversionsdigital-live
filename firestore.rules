@@ -1,13 +1,13 @@
 rules_version = '2';
 
 // Copy of the rules live in Firebase console -> Firestore Database -> Rules
-// (project website-forms-efeba). The console is the source of truth; keep this
+// (project ingversions-digital). The console is the source of truth; keep this
 // file in sync with it. src/utils/submitLead.js writes to match these rules.
 service cloud.firestore {
   match /databases/{database}/documents {
     // Website forms can only ADD new submissions. Nobody can read, edit or
     // delete from the website.
-    match /form_submissions/{docId} {
+    match /ingversionsdigital_submissions/{docId} {
       allow create: if request.resource.data.keys().hasAll(['site', 'formName', 'createdAt'])
                     && request.resource.data.size() <= 30
                     && request.resource.data.site is string

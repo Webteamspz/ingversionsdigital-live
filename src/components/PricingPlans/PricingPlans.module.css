@@ -38,13 +38,6 @@
   max-width: calc(33.333% - 16px);
   width: 100%
 }
-.fourCol .pricingPlanCard {
-  flex: 0 0 calc(25% - 18px);
-  max-width: calc(25% - 18px)
-}
-.fourCol .cardButtons {
-  flex-direction: column
-}
 .pricingPlanCard:hover {
   transform: translate(-3px,-3px) rotate(-1deg);
   box-shadow: var(--shadow-pop-hover)
@@ -91,6 +84,14 @@
   align-items: baseline;
   gap: 6px;
   margin-bottom: 16px
+}
+.pricingPlanOriginal {
+  color: var(--palette-text-muted);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration-color: var(--palette-cta);
+  text-decoration-thickness: 2px
 }
 .pricingPlanPrice {
   color: var(--palette-text-primary);
@@ -238,10 +239,6 @@
     flex: 0 0 calc(33.333% - 11px);
     max-width: calc(33.333% - 11px);
     padding: 24px 16px
-  }
-  .fourCol .pricingPlanCard {
-    flex: 0 0 calc(50% - 8px);
-    max-width: calc(50% - 8px)
   }
   .cardButtons {
     flex-direction: column

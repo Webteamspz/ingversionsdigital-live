@@ -1,18 +1,18 @@
-import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import data from "../../data/sitedata";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import styles from "./HeroV2.module.css";
 
 const HeroV2 = () => {
-  const { heading, pill, sub, cta, avatars, proof } = data.hero;
+  const { eyebrow, heading, pill, sub, cta, secondaryCta, avatars, proof } = data.hero;
 
   return (
     <section className={styles.hero} id="hero" aria-labelledby="hero-heading">
       <div className={styles.grid} aria-hidden="true" />
       <div className="container">
         <div className={styles.content}>
-          <p className={styles.eyebrow}>Shopify CRO &amp; A/B testing agency</p>
+          <p className={styles.eyebrow}>{eyebrow}</p>
 
           <h1 id="hero-heading" className={styles.title}>
             <span>{heading}</span>{" "}
@@ -22,12 +22,19 @@ const HeroV2 = () => {
           <p className={styles.subtitle}>{sub}</p>
 
           <div className={styles.actions}>
-            <a className={styles.primaryAction} href={cta.href}>
+            <a
+              className={styles.primaryAction}
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta={cta.label}
+              data-cta-loc="Hero"
+            >
               {cta.label}
             </a>
-            <a className={styles.secondaryAction} href="/projects">
-              View Projects
-            </a>
+            <Link className={styles.secondaryAction} to={secondaryCta.href} data-cta={secondaryCta.label} data-cta-loc="Hero">
+              {secondaryCta.label}
+            </Link>
           </div>
 
           <div className={styles.proof}>

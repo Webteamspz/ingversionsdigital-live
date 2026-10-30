@@ -22,12 +22,16 @@ export const brandPlans = [
     period: "/month",
     description: "For stores starting their first testing program.",
     highlights: [
-      "Up to 4 tests a month",
-      "5 hours of Shopify development",
-      "Research sprint in month 1 (analytics, heatmaps, reviews)",
-      "Full QA on every test",
-      "1 winning test built into your theme",
-      "Bi-weekly report",
+      "4 A/B tests / month",
+      "Up to 15 hours of Shopify development / month",
+      "1 winning test implementation / month",
+      "Basic UI/UX audit",
+      "Analytics review (GA4 + tracking check)",
+      "Basic SEO audit",
+      "Page speed (Core Web Vitals) check",
+      "Bi-weekly reporting",
+      "Priority support",
+      "Full QA – Human + AI QA testing",
     ],
     ctaLabel: "Start with Starter",
     ctaHref: CALENDLY,
@@ -38,11 +42,15 @@ export const brandPlans = [
     period: "/month",
     description: "For brands scaling paid traffic.",
     highlights: [
-      "Up to 8 tests a month",
-      "10 hours of Shopify development",
-      "Theme and template tests, variant design included",
-      "3 winning tests built into your theme",
-      "Weekly report + monthly strategy call",
+      "6 A/B tests / month",
+      "Up to 20 hours of Shopify development / month",
+      "Unlimited winning test implementation",
+      "GTM custom event creation",
+      "Full analytics + on-page SEO audit",
+      "Advanced insights",
+      "Weekly reporting",
+      "Priority support",
+      "Full QA – Human + AI QA testing",
     ],
     ctaLabel: "Start with Growth",
     ctaHref: CALENDLY,
@@ -55,17 +63,22 @@ export const brandPlans = [
     isPremium: true,
     description: "For high-traffic brands that want to move fast.",
     highlights: [
-      "Up to 12 tests a month",
-      "20 hours of Shopify development",
-      "Price, shipping and offer tests",
-      "5 winning tests built into your theme",
-      "Dedicated strategist + developer, shared Slack",
+      "8 A/B tests / month",
+      "Up to 30 hours of Shopify development / month",
+      "Price tests + Offer tests",
+      "Unlimited winning test implementation into your theme",
+      "Full funnel CRO",
+      "GTM custom events + full SEO audit",
+      "Priority support",
+      "Full QA – Human + AI QA testing",
     ],
     ctaLabel: "Start with Premium",
     ctaHref: CALENDLY,
   },
   {
     name: "Elite",
+    wideTitle: "Elite Plan",
+    wideBadge: "ENTERPRISE",
     price: "Custom",
     period: "",
     description: "For multi-store and multi-region programs.",
@@ -82,11 +95,15 @@ export const brandPlans = [
 export const devPlans = [
   {
     name: "Per Test",
-    price: "From $99",
+    // ponytail: placeholder base price ($399, the old "Complex from" price);
+    // Rahul to confirm. Change originalPrice and price together (price = 50%).
+    originalPrice: "$399",
+    price: "$199.50",
     period: "/test",
+    badge: "50% OFF",
     description: "White-label test builds when you need them.",
     highlights: [
-      "Simple $99 · Standard $199 · Complex from $399",
+      "Complex tests (price, offer, checkout, new templates)",
       "Built on VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift and more",
       "Full QA + 1 revision round",
       "3–5 day turnaround",
@@ -102,7 +119,7 @@ export const devPlans = [
     isPremium: true,
     description: "Steady test capacity without hiring.",
     highlights: [
-      "Up to 15 tests a month + 10 h Shopify dev",
+      "100 hours of work / month",
       "Bigger pod: $3,200 for 30 tests + 20 h",
       "Shared Slack channel, new tests started within 48 h",
       "Full QA on every build",
@@ -126,6 +143,7 @@ export const devPlans = [
   },
   {
     name: "Shopify Development",
+    wideBadge: "STORE WORK",
     price: "From $28",
     period: "/hour",
     description: "Store work with a clear budget.",
@@ -138,6 +156,29 @@ export const devPlans = [
     ctaHref: CALENDLY,
   },
 ];
+
+// "Tools we work with" marquees on /pricing (hero and under the plans).
+// Each logo is public/assets/tools/<slug>.webp, trimmed to 96px tall.
+const tool = (name, slug) => ({ name, logo: `/assets/tools/${slug}.webp` });
+export const toolsStrip = {
+  heading: "Tools we work with",
+  tools: [
+    tool("Goals Building", "goals-building"),
+    tool("Goal Verification", "goal-verification"),
+    tool("AB Tasty", "ab-tasty"),
+    tool("Convert", "convert"),
+    tool("SiteSpect", "sitespect"),
+    tool("Varify.io", "varify"),
+    tool("VWO", "vwo"),
+    tool("Microsoft Clarity", "clarity"),
+    tool("Google Analytics", "google-analytics"),
+    tool("Figma", "figma"),
+    tool("Google Lighthouse", "google-lighthouse"),
+    tool("Google Tag Manager", "google-tag-manager"),
+    tool("Shopify", "shopify"),
+    tool("Shopify Plus", "shopify-plus"),
+  ],
+};
 
 export const brandCompare = {
   heading: "Compare CRO Plans",
@@ -152,10 +193,10 @@ export const brandCompare = {
     {
       title: "TESTING",
       rows: [
-        { label: "Tests per month", values: ["Up to 4", "Up to 8", "Up to 12", "Custom"] },
+        { label: "Tests per month", values: ["4", "6", "8", "Custom"] },
         {
           label: "Test types",
-          values: ["Simple + Standard", "+ Theme / template", "+ Price, shipping, offer", "All"],
+          values: ["Simple + Standard", "+ Theme / template", "Complex (Price + Offer tests)", "All"],
         },
         {
           label: "Research",
@@ -171,20 +212,32 @@ export const brandCompare = {
       title: "SHOPIFY DEVELOPMENT",
       rows: [
         {
-          label: "Dev hours included",
-          values: ["5 h/mo", "10 h/mo", "20 h/mo", "Custom"],
+          label: "Shopify development hours",
+          values: ["Up to 15 hrs", "Up to 20 hrs", "Up to 30 hrs", "Custom"],
         },
         {
           label: "Winning test implementation",
-          values: ["1/mo", "3/mo", "5/mo", "Custom"],
+          values: ["1/mo", "Unlimited", "Unlimited – into your theme", "Custom"],
         },
+      ],
+    },
+    {
+      title: "ANALYTICS & SEO",
+      rows: [
+        { label: "UI/UX audit", values: ["Basic", "Full", "Full", "Full"] },
+        { label: "Analytics review (GA4)", values: ["Tracking check", "Full audit", "Full audit", "Full audit"] },
+        {
+          label: "GTM custom events",
+          values: ["—", { icon: "check" }, { icon: "check" }, { icon: "check" }],
+        },
+        { label: "SEO audit", values: ["Basic", "On-page", "Full", "Full"] },
       ],
     },
     {
       title: "QA & REPORTING",
       rows: [
         {
-          label: "QA (browsers, devices, edge cases)",
+          label: "Full QA (Human + AI)",
           values: [{ icon: "check" }, { icon: "check" }, { icon: "check" }, { icon: "check" }],
         },
         {
@@ -197,8 +250,8 @@ export const brandCompare = {
       title: "SUPPORT",
       rows: [
         {
-          label: "Support",
-          values: ["Email, 1 business day", "Email + calls", "Slack, same day", "Slack, priority"],
+          label: "Priority support",
+          values: [{ icon: "check" }, { icon: "check" }, { icon: "check" }, { icon: "check" }],
         },
       ],
     },
@@ -217,7 +270,7 @@ export const devCompare = {
   heading: "Compare Development Options",
   sub: "Full QA on every build. White-label by default.",
   plans: [
-    { name: "Per Test", price: null, priceLabel: "From $99/test" },
+    { name: "Per Test", price: null, priceLabel: "$199.50/test (50% off)" },
     { name: "Test Dev Pod", price: null, priceLabel: "$1,800 or $3,200/mo", badge: "Most Popular" },
     { name: "Dedicated Dev", price: null, priceLabel: "$2,900/mo" },
     { name: "Shopify Dev", price: null, priceLabel: "From $28/h" },
@@ -226,8 +279,8 @@ export const devCompare = {
     {
       title: "CAPACITY",
       rows: [
-        { label: "Tests", values: ["Pay as you go", "15 or 30/mo", "About 25–30/mo", "—"] },
-        { label: "Shopify dev hours", values: ["—", "10 or 20 h/mo", "Any mix within 160 h", "20 or 50 h blocks"] },
+        { label: "Tests", values: ["Pay as you go (complex)", "Within 100 h/mo", "About 25–30/mo", "—"] },
+        { label: "Shopify dev hours", values: ["—", "Within 100 h/mo", "Any mix within 160 h", "20 or 50 h blocks"] },
         { label: "Turnaround", values: ["3–5 days", "Start within 48 h", "Daily", "Agreed per task"] },
       ],
     },

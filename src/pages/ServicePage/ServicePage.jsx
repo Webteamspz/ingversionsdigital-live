@@ -9,16 +9,17 @@ import ProjectsCTA from "../../components/ProjectsCTA/ProjectsCTA";
 import Reveal from "../../components/Reveal/Reveal";
 import seo from "../../data/seodata";
 import siteData from "../../data/sitedata";
-import { brandPlans } from "../../data/pricingdata";
+import { brandPlans, devPlans } from "../../data/pricingdata";
 import pages from "../../data/servicepagesdata";
 import styles from "./ServicePage.module.css";
 
 const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
 // A short pricing summary; the full plans and comparison live on /pricing.
+// "plans" = brand plans, "dev" = agency / white-label plans, else engagement models.
 const pricingItems = (type) =>
-  type === "plans"
-    ? brandPlans.map((p) => ({
+  type === "plans" || type === "dev"
+    ? (type === "dev" ? devPlans : brandPlans).map((p) => ({
         name: p.name,
         price: p.price,
         period: p.period,
@@ -29,7 +30,7 @@ const pricingItems = (type) =>
       }))
     : siteData.engagement.list.map((m) => ({
         name: m.title,
-        price: "Custom quote",
+        price: m.priceLabel,
         desc: m.desc,
         features: m.features,
         // "#contact" lives on the homepage, not on service pages.
@@ -52,7 +53,7 @@ const ServicePage = ({ slug }) => {
   // "What's included" runs card 1 -> last in a loop: the active card gets a
   // border beam and a progress bar, and the bar finishing hands over to the next.
   // Reduced motion: no sequence, every card shown as done.
-  const [reduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [active, setActive] = useState(reduced ? page.included.length : 0);
   const next = () => setActive((a) => (a + 1) % page.included.length);
 
@@ -155,11 +156,45 @@ const ServicePage = ({ slug }) => {
                 </Reveal>
               ))}
             </div>
-            <Link to="/pricing" className={`btn ${styles.seeAll}`} data-cta="See full pricing" data-cta-loc={`${page.title} Pricing`}>
+            <Link to="/pricing" className={`btn btn-book ${styles.seeAll}`} data-cta="See full pricing" data-cta-loc={`${page.title} Pricing`}>
               See full pricing <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </section>
+
+        {page.related && (
+          <section className={styles.included}>
+            <div className="container">
+              <h2 className="section-title">{page.related.heading}</h2>
+              <ul className={styles.related}>
+                {page.related.links.map((l) => (
+                  <li key={l.href}>
+                    <Link to={l.href}>
+                      {l.label} <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {page.posts && (
+          <section className={styles.included}>
+            <div className="container">
+              <h2 className="section-title">Related reading</h2>
+              <ul className={styles.related}>
+                {page.posts.map((p) => (
+                  <li key={p.slug}>
+                    <Link to={`/blog/${p.slug}`}>
+                      {p.title} <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <FAQ heading={page.faqHeading} list={page.faq} />
         <div className="container">

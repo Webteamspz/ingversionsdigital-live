@@ -1,5 +1,6 @@
 import styles from "./PricingHero.module.css";
 import { pricingHeroData } from "../../data/pricingdata";
+import ToolsMarquee from "../ToolsMarquee/ToolsMarquee";
 
 const PricingHero = ({ track, setTrack }) => {
   const { toggle } = pricingHeroData;
@@ -18,7 +19,13 @@ const PricingHero = ({ track, setTrack }) => {
         <p className={styles.pricingHeroSubtitle}>
           {pricingHeroData.subtitle}
         </p>
+      </div>
 
+      {/* Outside .container so it runs edge to edge; scrolls opposite to the
+          strip under the plan cards. */}
+      <ToolsMarquee compact reverse />
+
+      <div className="container">
         <div className={styles.toggle} role="radiogroup" aria-label="Pricing track">
           <button
             type="button"

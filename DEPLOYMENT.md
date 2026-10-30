@@ -77,7 +77,7 @@ The environment is the Vite build mode (`--mode production` / `--mode staging`),
 optional overrides read in `src/config/deploy.js`; no tracked `.env.*` file sets them (real
 `.env` files are gitignored). Public values such as `VITE_GTM_ID` and `VITE_CLARITY_ID` must reach the Docker build as compose build args, so check the
 Hostinger project environment if analytics stop working. The contact form needs no build arg: it writes to Firestore
-(project `website-forms-efeba`, default in `src/utils/submitLead.js`), so check the Firestore
+(project `ingversions-digital`, default in `src/utils/submitLead.js`), so check the Firestore
 rules in the Firebase console if submissions fail.
 
 ## nginx routing

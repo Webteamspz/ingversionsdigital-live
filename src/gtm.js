@@ -200,7 +200,7 @@ export const setConsent = (value) => {
   }
 };
 
-// Only call after the visitor has accepted analytics cookies. No-op outside
+// Runs unless the visitor declined analytics cookies (opt-out). No-op outside
 // production builds, so dev and staging never track anything. Safe to call
 // twice: main.jsx and the consent banner can both call it on one page load.
 export function startAnalytics() {
