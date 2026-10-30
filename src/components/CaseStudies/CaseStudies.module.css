@@ -66,66 +66,217 @@
     padding-top: 120px
   }
 }
-/* Homepage slider. Swiper clips overflow, so pad for the card's 10px shadow. */
-.slider {
-  padding: 0 12px 12px 0
+/* Homepage board: intro on the left, one clickable row per study on the right. */
+.board {
+  display: grid;
+  grid-template-columns: minmax(0,4fr) minmax(0,7fr);
+  gap: 56px;
+  align-items: start
 }
-.allLink {
+.intro {
+  padding-top: 8px
+}
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 5px 14px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  box-shadow: 3px 3px 0 0 var(--palette-border);
+  color: var(--palette-text-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase
+}
+.introTitle {
+  margin: 0 0 16px;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1.05
+}
+.intro .sub {
+  margin: 0 0 28px;
+  text-align: left
+}
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none
+}
+.highlights li {
   display: flex;
-  justify-content: center;
-  margin-top: 28px
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-md);
+  background: var(--palette-bg-800);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  color: var(--palette-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left
 }
-.allLink :global(.btn) {
+.highlights strong {
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1
+}
+.intro :global(.btn) {
   gap: 8px;
   width: auto;
   max-width: none
 }
-.sliderWrap {
+.rows {
   display: flex;
-  flex-direction: column
-}
-.slider {
-  width: 100%
-}
-.controls {
-  order: 1;
-  display: flex;
+  flex-direction: column;
   gap: 20px;
-  margin-top: 28px;
-  align-items: center;
-  justify-content: center
+  margin: 0;
+  padding: 0 8px 8px 0;
+  list-style: none
 }
-.navBtn {
+.row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 22px 18px 18px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  background: var(--palette-bg-800);
+  box-shadow: 6px 6px 0 0 var(--palette-border);
+  color: var(--palette-text-primary);
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+}
+.row:hover,
+.row:focus-visible {
+  box-shadow: 10px 10px 0 0 var(--accent);
+  transform: translate(-4px,-4px)
+}
+.rowLift {
+  display: flex;
+  flex-shrink: 0;
+  width: 172px;
+  min-height: 116px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-md);
+  background: var(--accent)
+}
+.rowLift strong {
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1
+}
+.rowLift span {
+  font-size: 13px;
+  font-weight: 700
+}
+.rowBody {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px
+}
+.rowClient {
+  color: var(--palette-accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase
+}
+.rowTitle {
+  margin: 0;
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1.25
+}
+.rowMeta {
+  color: var(--palette-text-muted);
+  font-size: 13px;
+  font-weight: 600
+}
+.rowArrow {
   display: inline-flex;
-  width: 48px;
-  height: 48px;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
   align-items: center;
   justify-content: center;
   border: var(--border-width) solid var(--palette-border);
-  border-radius: var(--radius-full);
-  background: var(--palette-bg-800);
-  box-shadow: var(--shadow-pop);
-  color: var(--palette-text-primary);
-  cursor: pointer;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s cubic-bezier(.34, 1.56, .64, 1), background-color .3s ease
+  border-radius: 50%;
+  background: var(--palette-bg-700);
+  transition: background-color .3s ease,transform .3s cubic-bezier(.34, 1.56, .64, 1)
 }
-.navBtn:hover {
-  background: var(--tertiary);
-  box-shadow: var(--shadow-pop-hover);
-  transform: translate(-2px, -2px)
+.row:hover .rowArrow {
+  background: var(--accent);
+  transform: rotate(45deg)
 }
-.navBtn:global(.swiper-button-disabled) {
-  opacity: .4;
-  cursor: default;
-  box-shadow: none;
-  transform: none
+@media (max-width:1023.98px) {
+  .board {
+    grid-template-columns: 1fr;
+    gap: 36px
+  }
+  .intro {
+    text-align: center
+  }
+  .intro .sub {
+    margin: 0 auto 24px;
+    text-align: center
+  }
+  .introTitle {
+    font-size: 40px
+  }
+  .highlights {
+    max-width: 480px;
+    margin: 0 auto 24px
+  }
 }
-/* Dots sit between the arrows; the bullets use the site-wide style in style.css. */
-.controls .dots {
-  display: flex;
-  width: auto;
-  gap: 4px;
-  align-items: center
+@media (max-width:767.98px) {
+  .introTitle {
+    font-size: 34px
+  }
+  .row {
+    gap: 16px;
+    padding: 14px;
+    align-items: stretch
+  }
+  .rowLift {
+    width: 104px;
+    min-height: 0
+  }
+  .rowLift strong {
+    font-size: 24px
+  }
+  .rowLift span {
+    font-size: 11px
+  }
+  .rowTitle {
+    font-size: 16px
+  }
+  .rowArrow {
+    display: none
+  }
 }
 
 /* Header */
@@ -346,6 +497,48 @@
 .shotAfter {
   background: var(--quaternary)
 }
+.shotDesign {
+  background: var(--tertiary)
+}
+.shotReport {
+  background: var(--palette-accent-soft)
+}
+
+/* Per-test write-ups (standalone page only) */
+.test {
+  display: flex;
+  flex-direction: column;
+  gap: 14px
+}
+.testHeading {
+  margin: 0 0 4px;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.2
+}
+.test .text strong {
+  color: var(--palette-text-primary)
+}
+.test .shots {
+  margin-top: 14px
+}
+.wide {
+  grid-column: 1 / -1
+}
+/* Show test screenshots whole, not cropped to the GA4 pair's box. */
+.test .shotFrame img {
+  aspect-ratio: auto;
+  object-fit: contain
+}
+.wide .shotFrame img {
+  width: auto;
+  max-width: 100%;
+  max-height: 560px;
+  margin: 0 auto
+}
 .shotFrame {
   display: block;
   width: 100%;
@@ -532,7 +725,8 @@
   .story {
     padding: 24px 20px
   }
-  .resultsHeading {
+  .resultsHeading,
+  .testHeading {
     font-size: 22px
   }
   .kpi {

@@ -98,6 +98,13 @@ const Study = ({ study, index }) => {
                 ))}
               </ul>
               <p className={styles.totals}>{study.results.totals}</p>
+              {hasPage(study.id) && (
+                <div className={styles.fullLink}>
+                  <Link to={`/case-studies/${study.id}`} className={`${styles.ctaLink} ${styles.ctaLinkAlt}`} data-cta="Read the full case study" data-cta-loc="Case Studies Results">
+                    Read the full case study <ArrowRight size={18} aria-hidden="true" />
+                  </Link>
+                </div>
+              )}
 
               {study.results.screenshots.length > 0 && (
                 <div className={styles.shots}>
@@ -129,6 +136,11 @@ const Study = ({ study, index }) => {
               <p className={styles.ctaText}>{study.cta.text}</p>
             </div>
             <div className={styles.ctaActions}>
+              {hasPage(study.id) && (
+                <Link to={`/case-studies/${study.id}`} className={styles.ctaLink} data-cta="Read the full case study" data-cta-loc="Case Studies Page">
+                  Read the full case study <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+              )}
               <a
                 href={study.cta.buttonLink}
                 className={styles.ctaButton}
@@ -139,11 +151,6 @@ const Study = ({ study, index }) => {
               >
                 {study.cta.buttonText} <ArrowUpRight size={18} aria-hidden="true" />
               </a>
-              {hasPage(study.id) && (
-                <Link to={`/case-studies/${study.id}`} className={styles.ctaLink}>
-                  Open on its own page <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              )}
             </div>
           </footer>
         </article>

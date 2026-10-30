@@ -46,26 +46,6 @@ const PricingHero = ({ track, setTrack }) => {
             {toggle.dev}
           </button>
         </div>
-
-        <div className={styles.pricingHeroActions}>
-          <a
-            className={`btn ${styles.pricingPrimaryBtn}`}
-            href={pricingHeroData.primaryHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta={pricingHeroData.primaryCta}
-            data-cta-loc="Pricing Hero"
-          >
-            {pricingHeroData.primaryCta}
-          </a>
-
-          <a
-            className={`c-btn ${styles.pricingSecondaryBtn}`}
-            href={pricingHeroData.secondaryHref}
-          >
-            {pricingHeroData.secondaryCta}
-          </a>
-        </div>
       </div>
     </section>
   );

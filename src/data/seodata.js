@@ -90,6 +90,22 @@ export default {
     path: "/case-studies",
     breadcrumb: [home, { name: "Case Studies", path: "/case-studies" }],
   },
+  rapidRadiosCaseStudy: {
+    title: "Rapid Radios Shopify CRO Case Study: 52 A/B Tests, +41.5% Conversion",
+    description:
+      "52 A/B tests on Rapid Radios' Shopify product page: a sticky add-to-cart, free-gift tiles, an add-on upsell and trust buttons lifted conversion 24% to 41.5%.",
+    keywords: ["Shopify CRO case study", "product page A/B test", "sticky add to cart test", "upsell A/B test", "Convert.com case study"],
+    path: "/case-studies/rapid-radios-shopify-cro-case-study",
+    breadcrumb: [home, { name: "Rapid Radios Case Study", path: "/case-studies/rapid-radios-shopify-cro-case-study" }],
+  },
+  ruffGreensCaseStudy: {
+    title: "Ruff Greens Shopify CRO Case Study: 54 A/B Tests, +19.9% Conversion",
+    description:
+      "54 A/B tests on Ruff Greens' Shopify store: a benefit banner, a one-tap $0 trial unlock and feeding info on the trial page lifted conversion 8.8% to 19.9%.",
+    keywords: ["Shopify CRO case study", "free trial page A/B test", "subscription CRO", "pet supplement ecommerce", "Convert.com case study"],
+    path: "/case-studies/ruff-greens-shopify-cro-case-study",
+    breadcrumb: [home, { name: "Ruff Greens Case Study", path: "/case-studies/ruff-greens-shopify-cro-case-study" }],
+  },
   trustBadgesCaseStudy: {
     title: "Shopify Trust Badges A/B Test: +58.62% Add-to-Cart Case Study",
     description:

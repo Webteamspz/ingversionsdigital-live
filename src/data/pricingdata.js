@@ -5,10 +5,6 @@ export const pricingHeroData = {
   title: "Pricing for CRO programs and test development",
   subtitle:
     "Run a full testing program with Shopify development included, or add our developers to your agency's team. Every test gets full QA before it goes live.",
-  primaryCta: "Book a strategy call",
-  primaryHref: CALENDLY,
-  secondaryCta: "Compare Plans",
-  secondaryHref: "#pricingComparison",
   toggle: {
     brands: "For brands",
     dev: "For agencies & teams",
@@ -119,8 +115,8 @@ export const devPlans = [
     isPremium: true,
     description: "Steady test capacity without hiring.",
     highlights: [
-      "100 hours of work / month",
-      "Bigger pod: $3,200 for 30 tests + 20 h",
+      "80 hours of work / month",
+      "A/B testing and Shopify development",
       "Shared Slack channel, new tests started within 48 h",
       "Full QA on every build",
     ],
@@ -133,7 +129,8 @@ export const devPlans = [
     period: "/month",
     description: "A full-time developer on your team.",
     highlights: [
-      "160 h/month: about 25–30 tests, or any mix of tests and Shopify work",
+      "150 hours of work / month",
+      "A/B testing and Shopify development",
       "Works in your tools: Jira, ClickUp, Slack",
       "Daily standups, your hours overlap",
       "QA support included",
@@ -271,7 +268,7 @@ export const devCompare = {
   sub: "Full QA on every build. White-label by default.",
   plans: [
     { name: "Per Test", price: null, priceLabel: "$199.50/test (50% off)" },
-    { name: "Test Dev Pod", price: null, priceLabel: "$1,800 or $3,200/mo", badge: "Most Popular" },
+    { name: "Test Dev Pod", price: null, priceLabel: "$1,800/mo", badge: "Most Popular" },
     { name: "Dedicated Dev", price: null, priceLabel: "$2,900/mo" },
     { name: "Shopify Dev", price: null, priceLabel: "From $28/h" },
   ],
@@ -279,8 +276,8 @@ export const devCompare = {
     {
       title: "CAPACITY",
       rows: [
-        { label: "Tests", values: ["Pay as you go (complex)", "Within 100 h/mo", "About 25–30/mo", "—"] },
-        { label: "Shopify dev hours", values: ["—", "Within 100 h/mo", "Any mix within 160 h", "20 or 50 h blocks"] },
+        { label: "Tests", values: ["Pay as you go (complex)", "Within 80 h/mo", "Within 150 h/mo", "—"] },
+        { label: "Shopify dev hours", values: ["—", "Within 80 h/mo", "Within 150 h/mo", "20 or 50 h blocks"] },
         { label: "Turnaround", values: ["3–5 days", "Start within 48 h", "Daily", "Agreed per task"] },
       ],
     },

@@ -29,7 +29,7 @@ const PricingPlans = ({ track }) => {
             <Reveal
               key={plan.name}
               delay={idx * 80}
-              className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
+              className={`${styles.pricingPlanCard}${plan.isPremium ? ` ${styles.popularCard}` : ""}`}
             >
               <span
                 className={styles.cornerFold}
@@ -74,7 +74,7 @@ const PricingPlans = ({ track }) => {
 
               <div className={styles.cardButtons}>
                 <a
-                  className={`btn ${styles.pricingPlanBtn}`}
+                  className={`btn btn-book ${styles.pricingPlanBtn}`}
                   href={plan.ctaHref}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -131,7 +131,7 @@ const PricingPlans = ({ track }) => {
 
               <div className={styles.wideButtons}>
                 <a
-                  className={`btn ${styles.wideBtn}`}
+                  className={`btn btn-book ${styles.wideBtn}`}
                   href={elitePlan.ctaHref}
                   target="_blank"
                   rel="noopener noreferrer"

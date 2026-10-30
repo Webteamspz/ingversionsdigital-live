@@ -521,7 +521,7 @@ same shape in `src/data/pricingdata.js`.
 
 ### Add a new service page
 
-1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards), `"dev"` (the agency / white-label plans) or `"engagement"` (the engagement models). An optional `related: { heading, links: [{ label, href }] }` adds a list of internal links above the FAQ. A case study gets its own page by adding a route for its `sitedata.caseStudies` id in `App.jsx` (`<CaseStudy slug="..." />`), a `seodata.js` entry with `path: "/case-studies/<id>"`, the nginx regex entry and a sitemap URL.
+1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards), `"dev"` (the agency / white-label plans) or `"engagement"` (the engagement models). An optional `related: { heading, links: [{ label, href }] }` adds a list of internal links above the FAQ. A case study gets its own page by adding its `sitedata.caseStudies` id to `STUDY_PAGES` in `App.jsx`, a `seodata.js` entry with `path: "/case-studies/<id>"`, the nginx regex entry and a sitemap URL.
 2. That one entry generates the route in `src/App.jsx` and the head tags in `src/data/seodata.js`. Add the slug to the route regex in `nginx.conf` (on `production` too, which keeps its own copy) and to `public/sitemap.xml`.
 3. To link it from the homepage Services cards, give that service `href: "/<slug>"` and a `linkLabel` in `data.services.list`.
 
