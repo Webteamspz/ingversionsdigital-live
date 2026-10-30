@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 import styles from "./ArticleDetail.module.css";
 import CodeBlock from "./CodeBlock";
 import Mermaid from "./Mermaid";
@@ -8,6 +9,10 @@ import { legacyHeroImage } from "../../data/blog/blogSeo.js";
 const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const markdownComponents = {
+  // Links to other pages on this site go through the router (no full reload).
+  a({ href = "", children }) {
+    return href.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>;
+  },
   code({ className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
     if (match?.[1] === "mermaid") {

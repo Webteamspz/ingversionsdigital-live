@@ -8,6 +8,8 @@ GitHub Actions calls Hostinger's Docker API. Hostinger builds the Docker Compose
 
 - Push to `stage` deploys `staging.ingversionsdigital.com`
 - Push to `production` deploys `ingversionsdigital.com` and `www.ingversionsdigital.com`
+- Before deploying, the `check` job runs `npm test`, `npm run lint`, the repo rules (no committed `graphify-out/`, no `clamp()` in CSS, no analytics in `index.html`, production `Dockerfile` keeps the GTM/Clarity ID defaults) and the build. A failure stops the deploy. It also runs on pull requests into `dev`, `stage` and `production`.
+- Pull requests into `production` also run `guard-production`, which fails if the merge would change production-only files, or add or update `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/` or the `graphify-out/` ignore rule. Add the `allow-protected-files` label to let an intended production-only file change through (e.g. a new route in `nginx.conf`); the docs rule has no override.
 
 ## GitHub Settings
 
@@ -73,9 +75,10 @@ Adjust the relative import path based on the component file location.
 The environment is the Vite build mode (`--mode production` / `--mode staging`), chosen by
 `BUILD_MODE` in the compose file. `VITE_DEPLOY_ENV` and `VITE_ENABLE_STAGING_FEATURES` are
 optional overrides read in `src/config/deploy.js`; no tracked `.env.*` file sets them (real
-`.env` files are gitignored). Public values such as `VITE_GTM_ID`, `VITE_CLARITY_ID` and
-`VITE_FORMSPREE_ENDPOINT` must reach the Docker build as compose build args, so check the
-Hostinger project environment if analytics or the contact form stop working.
+`.env` files are gitignored). Public values such as `VITE_GTM_ID` and `VITE_CLARITY_ID` must reach the Docker build as compose build args, so check the
+Hostinger project environment if analytics stop working. The contact form needs no build arg: it writes to Firestore
+(project `ingversions-digital`, default in `src/utils/submitLead.js`), so check the Firestore
+rules in the Firebase console if submissions fail.
 
 ## nginx routing
 

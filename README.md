@@ -14,7 +14,7 @@ Docker/Nginx image.
 - Icons: `lucide-react`
 - Carousels: Swiper
 - Blog: `react-markdown` for legacy posts, `mermaid` for diagrams (loaded on demand)
-- Contact form: Formspree
+- Contact form: Firebase Cloud Firestore (REST, no SDK)
 - Analytics: Google Tag Manager and Microsoft Clarity, wired through `src/gtm.js`
 - Image pipeline: `sharp` (dev dependency) via `scripts/convert-images.mjs`
 - Deployment: multi-stage Docker build (`node:22-alpine` to `nginx:1.27-alpine`), deployed to a Hostinger VPS by GitHub Actions
@@ -28,8 +28,8 @@ Docker/Nginx image.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
 - Optimised images: raw art is converted to resized `.webp` and rendered through `OptimizedImg` with lazy loading.
-- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and only after the visitor accepts the cookie banner (`CookieConsent`).
-- Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Formspree, Clarity, and Google Analytics.
+- GTM/Clarity analytics wired globally from `data-cta` and `data-gtm-form` attributes, with no third-party SDK. Analytics only load in production builds and run unless the visitor clicks Decline in the cookie banner (`CookieConsent`, built on the `vanilla-cookieconsent` package; it never blocks the page).
+- Nginx security headers, including a Content-Security-Policy `connect-src` allowlist for Firestore, Clarity, and Google Analytics.
 
 ## Local Setup
 
@@ -45,10 +45,10 @@ Create the local environment file:
 cp .env.example .env
 ```
 
-Fill `.env` with real values. All three are public `VITE_` values used by the browser bundle; there are no server-side secrets in this project.
+Fill `.env` with real values. All are public `VITE_` values used by the browser bundle; there are no server-side secrets in this project.
 
 ```sh
-VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your-form-id
+VITE_FIREBASE_PROJECT_ID=ingversions-digital
 VITE_GTM_ID=GTM-XXXXXXX
 VITE_CLARITY_ID=your-clarity-project-id
 ```
@@ -67,6 +67,7 @@ Real `.env` files are ignored by git. Do not commit secrets or IDs.
 ```sh
 npm run dev        # Vite dev server at http://localhost:5173
 npm run lint       # ESLint, run before every commit
+npm test           # node:test unit tests in src/utils/*.test.js
 npm run build      # blog thumbnails, production build to dist/, then scripts/prerender.mjs
 npm run preview    # serve the built dist/ locally
 ```
@@ -90,9 +91,10 @@ npm run build:production    # mode=production, the public build
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
+| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), tested by `abtest.test.js` |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
 | `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
-| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
+| `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags and the rendered page body (for crawlers) into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
 | `docs/` | `DEVELOPER_GUIDE.md` and the `site-docs/` HTML documentation page |
 | `Dockerfile`, `nginx.conf`, `docker-compose.*.yml` | container build and serve |
 
@@ -107,7 +109,7 @@ To change what the site says, edit the matching module in `src/data/`:
 | `teamdata.js` | Team members (name, role, photo, socials) |
 | `projectsdata.js` | Portfolio case studies |
 | `aboutusdata.js` | About page copy |
-| `servicepagesdata.js` | One entry per service page (`/ab-testing`, `/shopify-development`, ...): hero, included items, process flow, pricing type, FAQ |
+| `servicepagesdata.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
 | `seodata.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
 | `blog/blogPosts.json` | Structured blog posts (preferred). Template: `blog/blogPostTemplate.json` |
 | `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
@@ -118,7 +120,7 @@ Components read these objects and render them. Do not hardcode copy in JSX.
 
 | Variable | Used by | Notes |
 |----------|---------|-------|
-| `VITE_FORMSPREE_ENDPOINT` | Contact form | Formspree form URL |
+| `VITE_FIREBASE_PROJECT_ID` | `src/utils/submitLead.js` | optional; Firebase project for form submissions, defaults to `ingversions-digital` |
 | `VITE_GTM_ID` | `src/gtm.js` | Google Tag Manager container ID |
 | `VITE_CLARITY_ID` | analytics init | Microsoft Clarity project ID |
 | `VITE_APP_ENV` | `StagingLogin` | set to `staging` to enable the gate |
@@ -136,6 +138,8 @@ dev  ->  stage  ->  production
 - Pushing `stage` deploys `staging.ingversionsdigital.com`.
 - Pushing `production` deploys `ingversionsdigital.com` and `www.ingversionsdigital.com`.
 - Both deploys are triggered by `.github/workflows/deploy.yml`, which calls the Hostinger Docker API. Hostinger builds the Compose project from the repo.
+- Before deploying, the `check` job runs `npm test`, `npm run lint`, the repo rules (no committed `graphify-out/`, no `clamp()` in CSS, no analytics in `index.html`, production `Dockerfile` keeps the GTM/Clarity ID defaults) and the build. A failure stops the deploy. It also runs on pull requests into `dev`, `stage` and `production`.
+- Pull requests into `production` also run `guard-production`, which fails if the merge would change production-only files, or add or update `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/` or the `graphify-out/` ignore rule. Add the `allow-protected-files` label to let an intended production-only file change through (e.g. a new route in `nginx.conf`); the docs rule has no override.
 
 When merging `stage` into `production`, keep production's version of these files, and
 do not carry the developer documentation across:
@@ -164,11 +168,12 @@ Full infrastructure detail is in `DEPLOYMENT.md`.
 ## Verification Commands
 
 ```sh
+npm test
 npm run lint
 npm run build
 ```
 
-There is no automated test suite. UI-facing changes should be checked in a real browser before shipping.
+`npm test` only covers pure logic (`src/utils/*.test.js`, Node's built-in `node:test`). There are no UI tests, so UI-facing changes should be checked in a real browser before shipping.
 
 ## Documentation
 

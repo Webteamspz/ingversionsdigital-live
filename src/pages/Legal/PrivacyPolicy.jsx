@@ -29,6 +29,7 @@ const PrivacyPolicy = () => (
                 collect through ingversionsdigital.com, why we collect it, and
                 the choices you have — written in plain language, not legalese.
               </p>
+              <p className={styles.legalIntro}>Last updated: October 30, 2026</p>
             </div>
           </div>
         </div>
@@ -76,26 +77,66 @@ const PrivacyPolicy = () => (
             </div>
             <div className={styles.legalSectionBody}>
               <p>
-                We use cookies and similar technologies to understand how
-                visitors use this site. These analytics tools only load after
-                you click Accept on our cookie banner; if you decline, they
-                are never loaded. The tools we currently use include:
+                This section is our Cookie Notice. Analytics is on by default
+                and turns off as soon as you click Decline in our cookie banner.
+              </p>
+              <p>
+                <strong>The banner.</strong> On your first visit a small box
+                appears in the corner of the screen. It does not block the
+                page: you can scroll, click and browse while it is open. It
+                has three buttons:
               </p>
               <ul>
+                <li><strong>Accept</strong> keeps Analytics cookies on.</li>
                 <li>
-                  <strong>Google Analytics &amp; Google Tag Manager</strong> —
-                  aggregate usage and traffic-source reporting.
+                  <strong>Decline</strong> turns Analytics off and deletes any
+                  Analytics cookies already set on this site.
                 </li>
                 <li>
-                  <strong>Microsoft Clarity</strong> — session/heatmap
-                  analytics to help us improve page layout and usability.
+                  <strong>Manage preferences</strong> lets you switch each
+                  category on or off.
                 </li>
               </ul>
               <p>
-                We remember your choice. If you decline, we won't ask again
-                for six months. You can change your choice at any time with
-                Cookie Settings in the footer, or block and delete cookies in
-                your browser settings.
+                Your choice is remembered for six months, after which we ask
+                again. You can change it at any time with Cookie Settings in
+                the footer, or block and delete cookies in your browser
+                settings.
+              </p>
+              <p><strong>Strictly necessary</strong> (always on):</p>
+              <ul>
+                <li>
+                  <strong>cc_cookie</strong> (cookie, 182 days) — stores your
+                  cookie choice.
+                </li>
+                <li>
+                  <strong>analytics-consent</strong> (browser local storage) —
+                  a copy of your Analytics choice, read before analytics loads.
+                </li>
+                <li>
+                  <strong>hasSeenPreloader</strong> (browser local storage) —
+                  skips the loading animation on repeat visits.
+                </li>
+              </ul>
+              <p><strong>Analytics</strong> (on unless you decline):</p>
+              <ul>
+                <li>
+                  <strong>Google Analytics, loaded through Google Tag
+                  Manager</strong> — aggregate usage and traffic-source
+                  reporting. Cookies: _ga, _ga_&lt;id&gt; (up to 2 years) and
+                  _gcl_au (90 days).
+                </li>
+                <li>
+                  <strong>Microsoft Clarity</strong> — session and heatmap
+                  analytics to help us improve page layout and usability.
+                  Cookies: _clck (1 year) and _clsk (1 day).
+                </li>
+              </ul>
+              <p>
+                <strong>Cloudflare Web Analytics</strong> — our hosting
+                provider, Cloudflare, counts page views for every visitor. It
+                sets no cookies and does not track you across sites, so it is
+                not covered by the banner.
               </p>
             </div>
           </div>
@@ -133,9 +174,10 @@ const PrivacyPolicy = () => (
                 site and respond to you, including:
               </p>
               <ul>
-                <li><strong>Formspree</strong> — processes contact-form submissions.</li>
+                <li><strong>Google Firebase (Cloud Firestore)</strong> — stores contact-form submissions.</li>
                 <li><strong>Calendly</strong> — handles strategy-call scheduling.</li>
-                <li><strong>Google Analytics, Google Tag Manager &amp; Microsoft Clarity</strong> — as described above.</li>
+                <li><strong>Google Analytics, Google Tag Manager &amp; Microsoft Clarity</strong> — on unless you decline, as described above.</li>
+                <li><strong>Cloudflare</strong> — hosting, security and cookieless page-view counts.</li>
               </ul>
               <p>
                 We may also disclose information if required by law, or to

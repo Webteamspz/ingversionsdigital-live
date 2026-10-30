@@ -200,21 +200,12 @@ export const setConsent = (value) => {
   }
 };
 
-// Withdraw consent: forget the choice and reload, which drops any loaded
-// analytics scripts and brings the banner back.
-export const resetConsent = () => {
-  try {
-    localStorage.removeItem(CONSENT_KEY);
-  } catch {
-    /* storage blocked: nothing was stored */
-  }
-  location.reload();
-};
-
-// Only call after the visitor has accepted analytics cookies. No-op outside
-// production builds, so dev and staging never track anything.
+// Runs unless the visitor declined analytics cookies (opt-out). No-op outside
+// production builds, so dev and staging never track anything. Safe to call
+// twice: main.jsx and the consent banner can both call it on one page load.
 export function startAnalytics() {
-  if (!isProduction) return;
+  if (!isProduction || window.__analyticsStarted) return;
+  window.__analyticsStarted = true;
   initGTMTracking();
   loadAnalytics();
 }

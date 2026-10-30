@@ -52,7 +52,9 @@
   font-family: Outfit,system-ui,sans-serif;
   font-size: 70px;
   font-weight: 700;
-  line-height: 1
+  line-height: 1;
+  /* evens out line lengths so no word is left alone on the last line */
+  text-wrap: balance
 }
 .title > span:first-child {
   display: block;

@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import styles from "./ContactModal.module.css";
-
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+import { submitLead } from "../../utils/submitLead";
 
 const initialState = {
   email: "",
@@ -76,18 +75,8 @@ const ContactModal = ({ isOpen, onClose, source }) => {
     };
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        navigate("/thank-you");
-      } else {
-        const err = await res.json().catch(() => ({}));
-        setSubmitError(err?.error || "Something went wrong. Please try again.");
-      }
+      await submitLead("contact", payload);
+      navigate("/thank-you");
     } catch {
       setSubmitError("Something went wrong. Please try again.");
     } finally {

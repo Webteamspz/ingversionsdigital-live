@@ -1,7 +1,10 @@
 import styles from "./PricingHero.module.css";
 import { pricingHeroData } from "../../data/pricingdata";
+import ToolsMarquee from "../ToolsMarquee/ToolsMarquee";
 
-const PricingHero = () => {
+const PricingHero = ({ track, setTrack }) => {
+  const { toggle } = pricingHeroData;
+
   return (
     <section className={styles.pricingHero} id="pricingHero">
       <div className="container">
@@ -16,21 +19,32 @@ const PricingHero = () => {
         <p className={styles.pricingHeroSubtitle}>
           {pricingHeroData.subtitle}
         </p>
+      </div>
 
-        <div className={styles.pricingHeroActions}>
-          <a
-            className={`btn ${styles.pricingPrimaryBtn}`}
-            href={pricingHeroData.primaryHref}
-          >
-            {pricingHeroData.primaryCta}
-          </a>
+      {/* Outside .container so it runs edge to edge; scrolls opposite to the
+          strip under the plan cards. */}
+      <ToolsMarquee compact reverse />
 
-          <a
-            className={`c-btn ${styles.pricingSecondaryBtn}`}
-            href={pricingHeroData.secondaryHref}
+      <div className="container">
+        <div className={styles.toggle} role="radiogroup" aria-label="Pricing track">
+          <button
+            type="button"
+            role="radio"
+            aria-checked={track === "brands"}
+            className={`${styles.toggleBtn} ${track === "brands" ? styles.toggleActive : ""}`}
+            onClick={() => setTrack("brands")}
           >
-            {pricingHeroData.secondaryCta}
-          </a>
+            {toggle.brands}
+          </button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked={track === "dev"}
+            className={`${styles.toggleBtn} ${track === "dev" ? styles.toggleActive : ""}`}
+            onClick={() => setTrack("dev")}
+          >
+            {toggle.dev}
+          </button>
         </div>
       </div>
     </section>

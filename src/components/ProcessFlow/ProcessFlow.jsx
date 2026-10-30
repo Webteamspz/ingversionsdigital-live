@@ -45,7 +45,7 @@ const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", 
 // step. Reached steps stay lit, upcoming ones are dimmed.
 // Reduced motion: no loop, every step shown lit.
 const Steps = ({ steps }) => {
-  const [reduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [active, setActive] = useState(reduced ? steps.length : 0);
   const next = () => setActive((a) => (a + 1) % steps.length);
   const last = steps.length - 1;

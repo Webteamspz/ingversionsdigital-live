@@ -1,0 +1,11 @@
+# Pull requests that touch these files need @Harshjariwala's approval
+# (enforced once "Require review from Code Owners" is on in the branch ruleset).
+# Production-only files: see "Files excluded from stage to production" in CLAUDE.md.
+/.dockerignore                   @Harshjariwala
+/Dockerfile                      @Harshjariwala
+/docker-compose.production.yml   @Harshjariwala
+/docker-compose.stage.yml        @Harshjariwala
+/eslint.config.js                @Harshjariwala
+/index.html                      @Harshjariwala
+/nginx.conf                      @Harshjariwala
+/.github/                        @Harshjariwala

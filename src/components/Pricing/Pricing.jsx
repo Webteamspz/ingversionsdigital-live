@@ -1,24 +1,20 @@
 import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
-import data from "../../data/sitedata";
+import { brandCompare, devCompare } from "../../data/pricingdata";
 import styles from "./Pricing.module.css";
 
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const PricingCompare = () => {
-  const { pricing } = data;
+const PricingCompare = ({ track }) => {
+  const pricing = track === "dev" ? devCompare : brandCompare;
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const labelsColRef = useRef(null);
-  const plansColRef = useRef(null);
   const swiperRef = useRef(null);
 
-  
   useEffect(() => {
     const handler = (e) => {
       const index = e.detail?.index ?? 0;
@@ -53,8 +49,14 @@ const PricingCompare = () => {
     (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0
   );
 
+  const renderPrice = (p) => {
+    if (p.contact) return <a className={styles.cta} href={p.contact.href} target="_blank" rel="noopener noreferrer" data-cta={p.contact.label} data-cta-loc={`Pricing Compare: ${p.name}`}>{p.contact.label}</a>;
+    if (p.priceLabel) return <div className={styles.planPrice}>{p.priceLabel}</div>;
+    if (p.price != null) return <div className={styles.planPrice}>${p.price}<span className={styles.period}>/month</span></div>;
+    return <div className={styles.planSpacer} aria-hidden="true">&nbsp;</div>;
+  };
+
   return (
-    
     <section className={styles.pricingSection} id="pricingComparison">
       <div className="container">
         <h3 className={`section-title ${styles.heading}`}>
@@ -62,45 +64,24 @@ const PricingCompare = () => {
         </h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
 
-        
         <div className={styles.tableWrap}>
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
             {pricing.plans.map((p, i) => (
               <div key={i} className={`${styles.cell} ${styles.planHead}`}>
                 {p.badge && (
-                  <>
-                    <span className={`${styles.badge} ${styles.cta}`}>
-                      {p.badge}
-                    </span>
-                  </>
+                  <span className={`${styles.badge} ${styles.cta}`}>
+                    {p.badge}
+                  </span>
                 )}
                 <div
                   className={`${styles.planName} ${
-                    p.name === "Premium" ? styles.premiumName : ""
+                    p.badge ? styles.premiumName : ""
                   }`}
                 >
                   {p.name}
                 </div>
-                {p.contact ? (
-                  p.name === "Elite" ? (
-                    <div
-                      className={styles.planSpacer}
-                      aria-hidden="true"
-                    >
-                      &nbsp;
-                    </div>
-                  ) : (
-                    <a className={styles.cta} href={p.contact.href}>
-                      {p.contact.label}
-                    </a>
-                  )
-                ) : (
-                  <div className={styles.planPrice}>
-                    ${p.price}
-                    <span className={styles.period}>/month</span>
-                  </div>
-                )}
+                {renderPrice(p)}
               </div>
             ))}
           </div>
@@ -140,9 +121,8 @@ const PricingCompare = () => {
           ))}
         </div>
 
-        
         <div className={styles.mobileCompare}>
-          <div className={styles.labelsCol} ref={labelsColRef}>
+          <div className={styles.labelsCol}>
             <div className={styles.labelsHeadSpacer} />
             {sections.map((sec, sIdx) => (
               <div key={`m-sec-${sIdx}`} className={styles.mSection}>
@@ -161,7 +141,7 @@ const PricingCompare = () => {
             ))}
           </div>
 
-          <div className={styles.plansCol} ref={plansColRef}>
+          <div className={styles.plansCol}>
             <button
               className={`${styles.navBtn} ${styles.prev}`}
               ref={prevRef}
@@ -203,42 +183,16 @@ const PricingCompare = () => {
                 >
                   <div className={styles.mHead}>
                     {p.badge && (
-                      <>
-                        <span className={`${styles.badge} ${styles.cta}`}>
-                          {p.badge}
-                        </span>
-                      </>
+                      <span className={`${styles.badge} ${styles.cta}`}>
+                        {p.badge}
+                      </span>
                     )}
                     <div className={styles.planName}>{p.name}</div>
-
-                    {p.contact ? (
-                      p.name === "Elite" ? (
-                        <div
-                          className={styles.planSpacer}
-                          aria-hidden="true"
-                        >
-                          &nbsp;
-                        </div>
-                      ) : (
-                        <a
-                          className={styles.cta}
-                          href={p.contact.href}
-                        >
-                          {p.contact.label}
-                        </a>
-                      )
-                    ) : (
-                      <div className={styles.planPrice}>
-                        ${p.price}
-                        <span className={styles.period}>/month</span>
-                      </div>
-                    )}
+                    {renderPrice(p)}
                   </div>
 
                   {sections.map((sec, sIdx) => (
-                    <div
-                      key={`m-secvals-${pIdx}-${sIdx}`}
-                    >
+                    <div key={`m-secvals-${pIdx}-${sIdx}`}>
                       {sec.title && (
                         <div className={styles.mSectionTitle}>
                           &nbsp;
