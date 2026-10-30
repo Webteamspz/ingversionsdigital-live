@@ -554,6 +554,10 @@
 .figure {
   margin: 24px 0
 }
+.figurePortrait {
+  max-width: 440px;
+  margin: 28px auto
+}
 .image {
   display: block;
   width: 100%;

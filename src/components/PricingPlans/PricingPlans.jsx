@@ -1,12 +1,14 @@
 import styles from "./PricingPlans.module.css";
-import { pricingPlans } from "../../data/pricingdata";
+import { brandPlans, devPlans } from "../../data/pricingdata";
 import Reveal from "../Reveal/Reveal";
 
-const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)"];
+const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)", "var(--tertiary)"];
 
-const PricingPlans = () => {
-  const standardPlans = pricingPlans.slice(0, 3);
-  const elitePlan = pricingPlans[3];
+const PricingPlans = ({ track }) => {
+  const plans = track === "dev" ? devPlans : brandPlans;
+  // First three plans in a row, the fourth as a full-width card below.
+  const standardPlans = plans.slice(0, 3);
+  const elitePlan = plans[3];
 
   function handleSeeComparison(planIndex) {
     window.dispatchEvent(
@@ -27,7 +29,7 @@ const PricingPlans = () => {
             <Reveal
               key={plan.name}
               delay={idx * 80}
-              className={`${styles.pricingPlanCard}${plan.badge ? ` ${styles.popularCard}` : ""}`}
+              className={`${styles.pricingPlanCard}${plan.isPremium ? ` ${styles.popularCard}` : ""}`}
             >
               <span
                 className={styles.cornerFold}
@@ -46,8 +48,13 @@ const PricingPlans = () => {
               <h3 className={styles.pricingPlanName}>{plan.name}</h3>
 
               <div className={styles.pricingPlanPriceRow}>
+                {plan.originalPrice && (
+                  <s className={styles.pricingPlanOriginal} aria-label={`Was ${plan.originalPrice}`}>
+                    {plan.originalPrice}
+                  </s>
+                )}
                 <span className={styles.pricingPlanPrice}>
-                  {typeof plan.price === "number" ? `$${plan.price}` : plan.price}
+                  {plan.price}
                 </span>
                 {plan.period && (
                   <span className={styles.pricingPlanPeriod}>{plan.period}</span>
@@ -66,7 +73,14 @@ const PricingPlans = () => {
               </ul>
 
               <div className={styles.cardButtons}>
-                <a className={`btn ${styles.pricingPlanBtn}`} href={plan.ctaHref || "#"}>
+                <a
+                  className={`btn btn-book ${styles.pricingPlanBtn}`}
+                  href={plan.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={plan.ctaLabel}
+                  data-cta-loc={`Pricing Plan: ${plan.name}`}
+                >
                   {plan.ctaLabel || "Get Started"}
                 </a>
                 <button
@@ -91,9 +105,16 @@ const PricingPlans = () => {
 
             <div className={styles.wideCardLeft}>
 
-              <span className={styles.wideBadge}>ENTERPRISE</span>
+              <span className={styles.wideBadge}>{elitePlan.wideBadge}</span>
 
-              <h3 className={styles.wideTitle}>{elitePlan.name} Plan</h3>
+              <h3 className={styles.wideTitle}>{elitePlan.wideTitle || elitePlan.name}</h3>
+
+              {elitePlan.period && (
+                <div className={styles.pricingPlanPriceRow}>
+                  <span className={styles.pricingPlanPrice}>{elitePlan.price}</span>
+                  <span className={styles.pricingPlanPeriod}>{elitePlan.period}</span>
+                </div>
+              )}
 
               <p className={styles.wideDesc}>{elitePlan.description}</p>
 
@@ -109,8 +130,15 @@ const PricingPlans = () => {
               </div>
 
               <div className={styles.wideButtons}>
-                <a className={`btn ${styles.wideBtn}`} href={elitePlan.ctaHref || "#"}>
-                  {elitePlan.ctaLabel || "Book a strategy call"}
+                <a
+                  className={`btn btn-book ${styles.wideBtn}`}
+                  href={elitePlan.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={elitePlan.ctaLabel}
+                  data-cta-loc={`Pricing Plan: ${elitePlan.name}`}
+                >
+                  {elitePlan.ctaLabel || "Talk to us"}
                 </a>
                 <button
                   className={`c-btn ${styles.wideOutlineBtn}`}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 // Icons are resolved by name from blogPosts.json, so every icon is needed.
 // This module only loads with the lazy /blog/:slug route.
@@ -41,7 +42,11 @@ const RichText = ({ text }) => {
           );
         const link = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (link)
-          return (
+          return link[2].startsWith("/") ? (
+            <Link key={i} to={link[2]} className={styles.link}>
+              {link[1]}
+            </Link>
+          ) : (
             <a key={i} href={link[2]} className={styles.link}>
               {link[1]}
             </a>
@@ -175,14 +180,16 @@ const BlockView = ({ block: b }) => {
         </ol>
       );
 
+    // Optional width/height give the real aspect ratio; portrait images
+    // (taller than wide, e.g. carousel slides) show narrower and centred.
     case "image":
       return (
-        <figure className={styles.figure}>
+        <figure className={`${styles.figure} ${b.height > b.width ? styles.figurePortrait : ""}`}>
           <img
             src={b.src}
             alt={b.alt ?? ""}
-            width={1200}
-            height={900}
+            width={b.width ?? 1200}
+            height={b.height ?? 900}
             loading="lazy"
             decoding="async"
             className={styles.image}

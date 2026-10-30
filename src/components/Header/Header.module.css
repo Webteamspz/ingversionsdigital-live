@@ -303,3 +303,63 @@ body.menu-open .overlay {
     width: 100%
   }
 }
+/* Services dropdown (desktop): opens on hover and on keyboard focus. */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center
+}
+.dropdown > a::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-3px) rotate(45deg)
+}
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: -8px;
+  z-index: 20;
+  display: grid;
+  min-width: 270px;
+  padding: 8px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity .2s ease,transform .2s ease,visibility .2s
+}
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: none
+}
+.nav .submenu a {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 15px
+}
+.nav .submenu a:hover {
+  background: var(--palette-hover-surface);
+  text-decoration: none
+}
+/* Mobile drawer: service links indented under "Services". */
+.mobileGroup {
+  display: grid
+}
+.mobileNav .mobileGroup a:not(:first-child) {
+  padding-left: 20px;
+  font-size: 15px;
+  font-weight: 600
+}
+.mobileNav .mobileGroup a:last-child {
+  box-shadow: 0 1px 0 0 var(--palette-border-soft)
+}

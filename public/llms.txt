@@ -1,40 +1,48 @@
-# Ingversions Digital
+# Ingversions Digital — Shopify CRO, A/B Testing & Conversion Engineering Agency
 
-> Shopify CRO agency building high-converting ecommerce stores through A/B testing,
-> conversion rate optimization, and custom Shopify development. Based in Surat, India,
-> serving ecommerce brands worldwide.
+> Ingversions Digital (https://ingversionsdigital.com/) is a specialized Shopify and Shopify Plus Conversion Rate Optimization (CRO), structured A/B testing, and e-commerce QA engineering agency founded by Rahul Patil and Harsh Jariwala. Based in Surat, India, serving ecommerce brands worldwide.
 
-Ingversions Digital runs structured experimentation programs for Shopify and
-WordPress stores: UX research, hypothesis design, A/B and multivariate testing,
-analytics instrumentation, personalization, QA, and site performance work.
-Directional test results typically land in 2-4 weeks; stronger confidence in 6-8 weeks.
+## Core Services & Ideal Customer Profile
+- **Target Clients:** Direct-to-Consumer (DTC) Shopify and Shopify Plus brands seeking measurable conversion rate lifts without increasing ad spend, plus e-commerce agencies needing white-label A/B test development and QA.
+- **7-Step Tracked System:** 1. Brief -> 2. Loom Walkthrough -> 3. Figma Prototype -> 4. Variants -> 5. Clean Git Code Build -> 6. Cross-Browser & Mobile QA -> 7. GA4-Tracked Launch.
+- **Core Capabilities:**
+  - Shopify & Shopify Plus Conversion Rate Optimization (CRO)
+  - Full-Funnel A/B Testing (Convert.com, Intelligems, Shoplift, VWO, Optimizely, AB Tasty, GA4)
+  - Custom Shopify Liquid Theme Development & Core Web Vitals Speed Optimization
+  - Automated & Manual E-commerce Quality Assurance (Pre-launch & BFCM Regression Testing)
+  - Dynamic Landing Page Personalization
+- **Free first test:** we design, build and QA a brand's first A/B test at no cost.
+
+## Verified Case Studies & Benchmarks
+- **Rapid Radios CRO Program (52 A/B tests, Feb 2025 – Oct 2026):** 11 winners at 95%+ confidence on Rapid Radios' Shopify product page, all tested in Convert.com. A mobile sticky add-to-cart lifted conversion rate 1.28% → 1.71% (+33.7%, 99.7% confidence); free-gift tiles plus "Most popular"/"Best value" pack tags lifted it +33.4% on mobile and +25.6% on desktop; a combined case + screen protector upsell +24.2%; Warranty/Security buttons with cleaner product details +41.5% on mobile. Case study: https://ingversionsdigital.com/case-studies/rapid-radios-shopify-cro-case-study
+- **Ruff Greens CRO Program (54 A/B tests, Feb 2025 – Oct 2026):** Tests on Ruff Greens' Shopify store (dog and cat supplements sold through a free Jumpstart trial), measured in Convert.com. A desktop key-benefit banner under the header lifted conversion rate 6.21% → 7.45% (+19.9%, 99.3% confidence); a mobile "Tap to unlock $0 trial" button +17.0% (95.1%); feeding and nutrition info on the trial page +8.8% (99.1%, 22,591 visitors). Case study: https://ingversionsdigital.com/case-studies/ruff-greens-shopify-cro-case-study
+- **PDP Trust Signals Experiment (+58.62% Add-to-Cart Lift):** 12-day, 4-variation Convert.com A/B test across 43,933 visitors on a client's product pages (mobile radio & communications equipment). Ingversions designed the variations in Figma; development partner TechnoSpective built them. Combining explicit guarantee copy with trust badges near the Add-to-Cart button increased conversion rate from 1.67% to 2.65% (+58.62% lift, 100% statistical confidence), whereas badges alone reduced conversions by -6.61%. Case study: https://ingversionsdigital.com/case-studies/shopify-pdp-trust-badges-ab-test
+- **Notable E-commerce Clients & Portfolio:** Rapid Radios (Wireless Communication), Olivia & Pearl (Jewelry), Bijou Build (Outdoor Play), Belare Home (Luxury Home Decor), UltimaPeak (Wellness), Factory Weights (Fitness), Avantera (Health & Wellness).
 
 ## Pages
+- [Home](https://ingversionsdigital.com/): Services, process, case studies, engagement models, FAQ.
+- [Services](https://ingversionsdigital.com/services): A/B testing, Shopify development, QA and personalization services.
+- [Pricing](https://ingversionsdigital.com/pricing): CRO plans for brands (from $999/month) and white-label test development for agencies (complex tests $199.50 each, 50% off; test development pod $1,800/month for 80 hours).
+- [Projects](https://ingversionsdigital.com/projects): Client work.
+- [Case Studies](https://ingversionsdigital.com/case-studies): Shopify A/B test and SEO results measured in GA4, with the challenge, the work and the numbers.
+- [About Us](https://ingversionsdigital.com/about-us) and [Team](https://ingversionsdigital.com/teampage)
+- [Blog](https://ingversionsdigital.com/blog): Shopify development, CRO, A/B testing, and Claude + MCP for ecommerce.
+- [A/B Test Calculator](https://ingversionsdigital.com/ab-test-calculator): Free sample size, MDE and significance calculator.
 
-- [Home](https://ingversionsdigital.com/): Services overview, track record, engagement models, FAQ.
-- [Projects](https://ingversionsdigital.com/projects): Case studies and client work.
-- [Pricing](https://ingversionsdigital.com/pricing): Retainer, block-of-hours, and project engagement models.
-- [About Us](https://ingversionsdigital.com/about-us): Company background, values, and expertise.
-- [Team](https://ingversionsdigital.com/teampage): The people running the experiments.
-- [Blog](https://ingversionsdigital.com/blog): Articles on Shopify development, CRO, and A/B testing.
+## Services & Solutions
+- [Shopify CRO agency](https://ingversionsdigital.com/shopify-cro-agency)
+- [Shopify A/B testing services](https://ingversionsdigital.com/shopify-ab-testing-services)
+- [White-label A/B testing development for agencies](https://ingversionsdigital.com/white-label-ab-testing-development-for-agencies)
+- [Convert.com Shopify A/B testing agency](https://ingversionsdigital.com/convert-com-shopify-ab-testing-agency)
+- [Shopify A/B testing QA checklist](https://ingversionsdigital.com/shopify-ab-testing-qa-checklist)
+- [Shopify Plus development & QA](https://ingversionsdigital.com/shopify-plus-development-qa)
+- [Shopify Black Friday QA testing](https://ingversionsdigital.com/shopify-bfcm-load-and-qa-testing-service)
+- [Claude MCP Shopify CRO reporting](https://ingversionsdigital.com/claude-mcp-shopify-cro-reporting)
+- [A/B testing](https://ingversionsdigital.com/ab-testing), [Shopify development](https://ingversionsdigital.com/shopify-development), [Quality assurance](https://ingversionsdigital.com/quality-assurance), [Landing page personalization](https://ingversionsdigital.com/landing-page-personalization), [WordPress development](https://ingversionsdigital.com/wordpress-development)
 
-## Services
-
-- [A/B testing and experimentation](https://ingversionsdigital.com/#services)
-- [UX research and analytics](https://ingversionsdigital.com/#services)
-- [Shopify and WordPress development](https://ingversionsdigital.com/#services)
-- [Quality assurance](https://ingversionsdigital.com/#services)
-- [Personalization](https://ingversionsdigital.com/#services)
-- [Site performance optimization](https://ingversionsdigital.com/#services)
-
-## Contact
-
-- [Book a call](https://calendly.com/ingversionsdigital/30min): 30-minute intro call.
+## Contact & Booking
+- Website: https://ingversionsdigital.com/
+- Book a Free 30-Minute CRO Audit Call: https://calendly.com/ingversionsdigital/30min
 - Email: ingversionsdigital@gmail.com
 - Phone: +91-8866167750
-
-## Optional
-
-- [Privacy Policy](https://ingversionsdigital.com/privacy-policy)
-- [Terms of Service](https://ingversionsdigital.com/terms-of-service)
-- [LinkedIn](https://in.linkedin.com/company/ingversions)
+- LinkedIn: https://in.linkedin.com/company/ingversions

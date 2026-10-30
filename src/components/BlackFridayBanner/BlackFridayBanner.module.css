@@ -1,9 +1,11 @@
 /* The header is fixed and every page hero pads its own top to clear it.
    Push the banner below the header, then pull the page back up by the same
-   amount so the hero's padding becomes the gap under the banner. */
+   amount so the hero's padding becomes the gap under the banner.
+   z-index sits above every page hero (ProjectsHero uses 5), whose top padding
+   overlaps the banner by that 108px and would otherwise swallow its clicks. */
 .wrap {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   margin: 108px 0 -108px;
   animation: enter .45s ease-out both
 }

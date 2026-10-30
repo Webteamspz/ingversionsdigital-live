@@ -947,5 +947,961 @@
     },
 
     "cta": { "heading": "Want product pages designed to convert?", "text": "We design and build high-performing PDP templates for Shopify.", "buttonLabel": "Book a Free Consultation", "buttonLink": "https://calendly.com/ingversionsdigital/30min" }
+  },
+
+  {
+    "slug": "shopify-canvas-ai-store-builder",
+    "seo": {
+      "title": "Shopify Canvas Explained: Shopify's AI Store Builder | Ingversions Blog",
+      "description": "Shopify Canvas lets you build and redesign a Shopify store by chatting with Sidekick. How it works, what it costs, what it can't do yet, and who should try it.",
+      "keywords": [
+        "Shopify Canvas",
+        "Shopify Sidekick",
+        "Shopify AI store builder",
+        "AI website builder",
+        "Shopify theme design",
+        "Shopify 2026"
+      ],
+      "canonical": "https://ingversionsdigital.com/blog/shopify-canvas-ai-store-builder"
+    },
+    "meta": {
+      "category": "Shopify Development",
+      "categorySlug": "shopify",
+      "date": "October 19, 2026",
+      "readTime": "6 min read",
+      "coverImage": "/assets/blog/covers/photo-1485827404703-89b55fcc595e.webp",
+      "author": {
+        "name": "Ingversions Team",
+        "avatar": "/assets/team/author-1.png"
+      }
+    },
+    "hero": {
+      "title": "Shopify Canvas: Build Your Store by Chatting With AI",
+      "excerpt": "Shopify Canvas lets you build and redesign a Shopify store by chatting with Sidekick. How it works, what it costs, what it can't do yet, and who should try it.",
+      "badges": [
+        {
+          "label": "Shopify Development",
+          "color": "green"
+        },
+        {
+          "label": "New Feature",
+          "color": "yellow"
+        }
+      ],
+      "highlights": [
+        {
+          "icon": "message-square",
+          "color": "purple",
+          "label": "Build by chatting"
+        },
+        {
+          "icon": "layout-grid",
+          "color": "yellow",
+          "label": "Whole store on one board"
+        },
+        {
+          "icon": "code",
+          "color": "pink",
+          "label": "Real theme code"
+        },
+        {
+          "icon": "mouse-pointer-click",
+          "color": "green",
+          "label": "Still edit by hand"
+        }
+      ]
+    },
+    "toc": {
+      "eyebrow": "ARTICLE NAVIGATION",
+      "title": "Table of Contents",
+      "generateFromSections": true,
+      "items": []
+    },
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "Shopify launched ==Shopify Canvas== on October 1, 2026, and it changes how you build a store. Instead of dragging sections around the theme editor, you chat with **Sidekick**, Shopify's AI agent, and watch your store rebuild itself live."
+      },
+      {
+        "type": "paragraph",
+        "text": "We've been testing it on our own store. Here's what Shopify Canvas is, how it works, what it costs, what it can't do yet, and whether you should use it for your store today."
+      }
+    ],
+    "body": {
+      "sections": [
+        {
+          "id": "what-is-shopify-canvas",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "What Is Shopify Canvas?",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Shopify Canvas is a new AI design workspace inside Shopify Admin. It puts every template of your store (home, product, collection and cart) side by side on one big board. You describe what you want to **Sidekick** in plain language, and it builds or redesigns the theme for you."
+            },
+            {
+              "type": "paragraph",
+              "text": "It isn't a separate website builder or a new theme. It's a new way to edit a Shopify theme, built into the admin you already use."
+            },
+            {
+              "type": "callout",
+              "variant": "star",
+              "icon": "star",
+              "title": null,
+              "text": "In short: Shopify Canvas is an AI store builder where a chat prompt is the starting point and the result is real Shopify theme code.",
+              "items": null
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "how-shopify-canvas-works",
+          "number": 2,
+          "accent": "purple",
+          "heading": "How It Works: Three Steps, No Code",
+          "blocks": [
+            {
+              "type": "stepList",
+              "color": "purple",
+              "steps": [
+                {
+                  "title": "Describe it",
+                  "text": "Tell Sidekick what you want in plain language, for example \"Make my homepage feel bold and minimal\"."
+                },
+                {
+                  "title": "Watch it update",
+                  "text": "Changes appear across your whole store as they happen. Zoom and pan the board to inspect each template."
+                },
+                {
+                  "title": "Fine-tune by hand",
+                  "text": "Click any element to edit it manually. You stay in control of the final design."
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "src": "/assets/blog/shopify-canvas/launch-how-it-works.webp",
+              "alt": "Slide showing the three Shopify Canvas steps: describe it, watch it update, fine-tune by hand",
+              "caption": "Three steps, no code: describe, watch, fine-tune.",
+              "width": 800,
+              "height": 1000
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "real-theme-code",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Not a Mockup: Real Theme Code",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Most AI website builders show you a static preview. Shopify Canvas renders the **actual code behind your store**, so animations, interactions and layouts behave like the live site."
+            },
+            {
+              "type": "paragraph",
+              "text": "To make this work, Shopify let Sidekick work directly with theme files and simplified its theme architecture. That matters for anyone who has watched an AI mockup fall apart once a developer tries to build it: what you see in Canvas is the theme."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "shopify-canvas-numbers",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "What Shopify Says: The Numbers",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 3,
+              "items": [
+                {
+                  "icon": "clock",
+                  "color": "green",
+                  "title": "~20 minutes",
+                  "text": "To a fully custom store, according to Shopify's Director of Product, Ben Sehl."
+                },
+                {
+                  "icon": "sparkles",
+                  "color": "purple",
+                  "title": "25M+ theme edits",
+                  "text": "Made by Sidekick in the first half of 2026, before Canvas existed."
+                },
+                {
+                  "icon": "badge-dollar-sign",
+                  "color": "yellow",
+                  "title": "$0 extra",
+                  "text": "Included with your Shopify plan. Usage limits vary by plan."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "There's no separate price for Shopify Canvas. It runs on Sidekick, which is included with your Shopify plan."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "shopify-canvas-limitations",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Reality Check: What Canvas Can't Do Yet",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Canvas is early. Before you move a live store onto it, know what isn't supported at launch:"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "**Third-party themes:** only Shopify-made themes and custom themes open in Canvas.",
+                "**App blocks and extensions:** Sidekick can't add or configure them yet.",
+                "**Markets, translations and rollouts:** promised over time, not available at launch.",
+                "**Theme updates and mobile:** Canvas is desktop-only, and Canvas-edited themes don't get automatic theme updates."
+              ]
+            },
+            {
+              "type": "image",
+              "src": "/assets/blog/shopify-canvas/launch-limitations.webp",
+              "alt": "Slide listing what Shopify Canvas can't do yet: third-party themes, app blocks, markets and translations, theme updates and mobile",
+              "caption": "It's early. Not everything works yet.",
+              "width": 800,
+              "height": 1000
+            },
+            {
+              "type": "callout",
+              "variant": "warning",
+              "icon": "alert-triangle",
+              "title": "Test on a copy first",
+              "text": "Duplicating a theme into Canvas creates a copy you can edit only in Canvas. Experiment on that copy, not your live theme.",
+              "items": null
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "who-should-try-shopify-canvas",
+          "number": 6,
+          "accent": "pink",
+          "heading": "Who Should Try Shopify Canvas?",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                {
+                  "icon": "check-circle",
+                  "color": "green",
+                  "title": "Good fit",
+                  "text": "New stores, simple storefronts, quick redesigns and design experiments on a duplicated theme."
+                },
+                {
+                  "icon": "alert-triangle",
+                  "color": "pink",
+                  "title": "Wait a bit",
+                  "text": "Stores that depend on third-party apps, multiple markets or translations."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Our take: Canvas is great for new stores and quick redesign experiments. If your store leans on apps or sells in several markets, give it a few weeks while Shopify adds support."
+            },
+            {
+              "type": "paragraph",
+              "text": "Shopify now joins Wix, Squarespace, Webflow and Framer in making a chat prompt the starting point for a storefront. The difference is that Canvas works on real Shopify theme code that a developer can keep building on."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "canvas-and-conversion-rate",
+          "number": 7,
+          "accent": "yellow",
+          "heading": "Faster Design Still Needs Testing",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Canvas makes it much faster to produce a new homepage or product page. It doesn't tell you whether that design sells more. A bold new layout can still lower conversion rate if it hides delivery information, reviews or the Add-to-Cart button."
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "lightbulb",
+              "text": "Before you publish a Canvas redesign:",
+              "checklist": [
+                "QA it on real iPhones and Android phones, not just the desktop board",
+                "Check that tracking and pixels still fire",
+                "Run the new design as an A/B test against your current theme",
+                "Measure revenue per visitor, not just how it looks"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Our [A/B testing services](/ab-testing) and [Shopify QA team](/quality-assurance) can test a Canvas design before it replaces your live theme. Read our [hands-on first look at Shopify Canvas](/blog/shopify-canvas-first-look) and our [Canvas vs theme editor comparison](/blog/shopify-canvas-vs-theme-editor) next."
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        {
+          "q": "What is Shopify Canvas?",
+          "a": "Shopify Canvas is an AI design workspace in Shopify Admin, launched on October 1, 2026. You build or redesign your store by chatting with Sidekick, Shopify's AI agent, and see every template on one board."
+        },
+        {
+          "q": "How much does Shopify Canvas cost?",
+          "a": "There's no separate price. Canvas runs on Sidekick, which is included with your Shopify plan. Usage limits vary by plan."
+        },
+        {
+          "q": "Does Shopify Canvas work with my theme?",
+          "a": "Only Shopify-made themes and custom themes open in Canvas at launch. Third-party themes aren't supported yet."
+        },
+        {
+          "q": "Can I use Shopify Canvas on mobile?",
+          "a": "Not yet. Canvas is desktop-only at launch."
+        },
+        {
+          "q": "Will Canvas change my live store?",
+          "a": "Canvas works on a duplicated copy of your theme, so your live theme stays untouched until you publish."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Planning a Canvas redesign?",
+      "text": "We'll QA it and A/B test it against your current theme before it goes live.",
+      "buttonLabel": "Book a Free Consultation",
+      "buttonLink": "https://calendly.com/ingversionsdigital/30min"
+    }
+  },
+
+  {
+    "slug": "shopify-canvas-first-look",
+    "seo": {
+      "title": "Shopify Canvas First Look: Hands-On Walkthrough | Ingversions Blog",
+      "description": "A hands-on first look at Shopify Canvas from our own Shopify admin: the store board, theme settings, Sidekick prompt bar, the duplicate theme, and what's missing.",
+      "keywords": [
+        "Shopify Canvas first look",
+        "Shopify Canvas review",
+        "Shopify Sidekick",
+        "Shopify theme settings",
+        "Shopify AI design",
+        "Horizon theme"
+      ],
+      "canonical": "https://ingversionsdigital.com/blog/shopify-canvas-first-look"
+    },
+    "meta": {
+      "category": "Shopify Development",
+      "categorySlug": "shopify",
+      "date": "October 22, 2026",
+      "readTime": "5 min read",
+      "coverImage": "/assets/blog/covers/photo-1547658719-da2b51169166.webp",
+      "author": {
+        "name": "Ingversions Team",
+        "avatar": "/assets/team/author-1.png"
+      }
+    },
+    "hero": {
+      "title": "Inside Shopify Canvas: A Hands-On First Look",
+      "excerpt": "A hands-on first look at Shopify Canvas from our own Shopify admin: the store board, theme settings, Sidekick prompt bar, the duplicate theme, and what's missing.",
+      "badges": [
+        {
+          "label": "Shopify Development",
+          "color": "green"
+        },
+        {
+          "label": "Hands-On",
+          "color": "purple"
+        }
+      ],
+      "highlights": [
+        {
+          "icon": "layout-grid",
+          "color": "yellow",
+          "label": "Whole store on one board"
+        },
+        {
+          "icon": "palette",
+          "color": "pink",
+          "label": "Theme settings panel"
+        },
+        {
+          "icon": "message-square",
+          "color": "purple",
+          "label": "Work with Sidekick"
+        },
+        {
+          "icon": "copy",
+          "color": "green",
+          "label": "Edits a copy, not live"
+        }
+      ]
+    },
+    "toc": {
+      "eyebrow": "ARTICLE NAVIGATION",
+      "title": "Table of Contents",
+      "generateFromSections": true,
+      "items": []
+    },
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "We opened ==Shopify Canvas== in our own Shopify admin to see what it's really like. Canvas is Shopify's new AI design workspace, launched on October 1, 2026. Instead of opening one template at a time, you see your whole store on a single board and work on it with **Sidekick**, Shopify's AI agent."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is a hands-on walkthrough of what you see when you open it, what we liked, and what's still missing. New to Canvas? Start with our [Shopify Canvas overview](/blog/shopify-canvas-ai-store-builder)."
+      }
+    ],
+    "body": {
+      "sections": [
+        {
+          "id": "whole-store-on-one-board",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Your Whole Store on One Board",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The first thing you notice is the board. Home page, Products, Collections, Cart and All collections sit side by side. You pan around the board instead of opening one template at a time in the theme editor."
+            },
+            {
+              "type": "image",
+              "src": "/assets/blog/shopify-canvas/first-look-whole-store-board.webp",
+              "alt": "Shopify Canvas board in the Shopify admin showing the product, collection and cart templates side by side",
+              "caption": "Canvas in our own Shopify admin: every template on one board.",
+              "width": 800,
+              "height": 1000
+            },
+            {
+              "type": "paragraph",
+              "text": "For design work, this is a big change. You can see how a change to the header or colour palette affects every page at once, instead of clicking through templates to check."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "theme-settings-panel",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Design Controls Stay One Click Away",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Theme settings live in a side panel, so you can adjust the look while the full store stays in view:"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "**Logo and favicon,** including a default and an inverse logo for transparent headers",
+                "**Colour palette** for the whole theme",
+                "**Typography,** including text colours"
+              ]
+            },
+            {
+              "type": "image",
+              "src": "/assets/blog/shopify-canvas/first-look-theme-settings.webp",
+              "alt": "Shopify Canvas theme settings panel with logo, favicon, colour palette and typography controls",
+              "caption": "Theme settings in a side panel next to the board.",
+              "width": 800,
+              "height": 1000
+            },
+            {
+              "type": "callout",
+              "variant": "star",
+              "icon": "star",
+              "title": "Real code, not a mockup",
+              "text": "Canvas renders the actual theme code behind your store, not a static preview, so what you see is how the live store will behave.",
+              "items": null
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "sidekick-prompt-bar",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Navigate Fast and Ask Sidekick Anytime",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Around the board, the controls are simple:"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "**At the top:** a \"Jump to\" search, undo, redo, history and an Update button.",
+                "**At the bottom:** a \"Work with Sidekick\" prompt bar. This is where you describe changes in plain language."
+              ]
+            },
+            {
+              "type": "image",
+              "src": "/assets/blog/shopify-canvas/first-look-sidekick-prompt-bar.webp",
+              "alt": "Shopify Canvas toolbar with Jump to search, undo, redo and Update, plus the Work with Sidekick prompt bar",
+              "caption": "The toolbar at the top and the Sidekick prompt bar at the bottom.",
+              "width": 800,
+              "height": 1000
+            },
+            {
+              "type": "paragraph",
+              "text": "There's no separate price for Canvas. It runs on Sidekick, which is included with your Shopify plan, with usage limits that vary by plan."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "working-on-a-copy",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "Spot the Detail: You're Working on a Copy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Look at the top left of the screen: our theme shows up as **\"Copy of Horizon\"**. Canvas opens a duplicate of your theme rather than your live one."
+            },
+            {
+              "type": "paragraph",
+              "text": "According to Shopify's coverage, that copy can only be edited in Canvas, and Canvas-edited themes don't get automatic theme updates. That's worth knowing before you commit to it for a long-term store design."
+            },
+            {
+              "type": "protip",
+              "label": "MY TIP",
+              "icon": "lightbulb",
+              "text": "Keep your live theme safe while you experiment:",
+              "checklist": [
+                "Experiment on a copy first",
+                "Keep your current live theme as a fallback",
+                "Note which apps and markets your store relies on before switching"
+              ]
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "liked-and-missing",
+          "number": 5,
+          "accent": "purple",
+          "heading": "What We Like and What's Missing",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 3,
+              "items": [
+                {
+                  "icon": "check-circle",
+                  "color": "green",
+                  "title": "Liked",
+                  "text": "Seeing every template at once. A clean layout. Chat and manual editing in the same place."
+                },
+                {
+                  "icon": "alert-triangle",
+                  "color": "pink",
+                  "title": "Not yet",
+                  "text": "Third-party themes, app blocks and extensions, markets and translations aren't supported at launch."
+                },
+                {
+                  "icon": "monitor",
+                  "color": "yellow",
+                  "title": "Heads-up",
+                  "text": "Desktop only, and still early access."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "If Canvas isn't in your admin yet, it's rolling out gradually to existing stores."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "before-you-publish",
+          "number": 6,
+          "accent": "pink",
+          "heading": "Before You Publish a Canvas Design",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Canvas makes design changes fast, which makes testing more important, not less. A new layout built in minutes should still be checked on real devices and compared against your current design with real shoppers."
+            },
+            {
+              "type": "paragraph",
+              "text": "Our [Shopify development team](/shopify-development) can review a Canvas-built theme, and our [A/B testing services](/ab-testing) can test it against your live store before you switch. To decide whether Canvas or the classic editor suits your store, read [Shopify Canvas vs the theme editor](/blog/shopify-canvas-vs-theme-editor)."
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        {
+          "q": "Where do I find Shopify Canvas?",
+          "a": "Canvas opens from the Themes page in Shopify Admin. It's rolling out gradually, so it may not be in every admin yet."
+        },
+        {
+          "q": "Does Canvas edit my live theme?",
+          "a": "No. Canvas works on a duplicate of your theme, shown as \"Copy of\" your theme name, so your live theme stays untouched."
+        },
+        {
+          "q": "What can I change in Canvas theme settings?",
+          "a": "Logo and favicon, the colour palette and typography, in a side panel next to the store board. You can also ask Sidekick for changes in plain language."
+        },
+        {
+          "q": "Is Shopify Canvas free?",
+          "a": "There's no separate price. Canvas runs on Sidekick, which is included with your Shopify plan, with usage limits that vary by plan."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Want a second opinion on a Canvas design?",
+      "text": "We'll review it, QA it on real devices and test it against your current theme.",
+      "buttonLabel": "Book a Free Consultation",
+      "buttonLink": "https://calendly.com/ingversionsdigital/30min"
+    }
+  },
+
+  {
+    "slug": "shopify-canvas-vs-theme-editor",
+    "seo": {
+      "title": "Shopify Canvas vs Theme Editor: Which Should You Use? | Ingversions Blog",
+      "description": "Shopify Canvas vs the theme editor compared: editing, preview, theme support, app blocks, markets and updates, plus how to choose the right one for your store.",
+      "keywords": [
+        "Shopify Canvas vs theme editor",
+        "Shopify theme editor",
+        "Shopify Canvas",
+        "Shopify Sidekick",
+        "Shopify online store editor",
+        "Shopify app blocks"
+      ],
+      "canonical": "https://ingversionsdigital.com/blog/shopify-canvas-vs-theme-editor"
+    },
+    "meta": {
+      "category": "Shopify Development",
+      "categorySlug": "shopify",
+      "date": "October 27, 2026",
+      "readTime": "6 min read",
+      "coverImage": "/assets/blog/covers/photo-1581291518857-4e27b48ff24e.webp",
+      "author": {
+        "name": "Ingversions Team",
+        "avatar": "/assets/team/author-1.png"
+      }
+    },
+    "hero": {
+      "title": "Shopify Canvas vs the Theme Editor: What Actually Changes?",
+      "excerpt": "Shopify Canvas vs the theme editor compared: editing, preview, theme support, app blocks, markets and updates, plus how to choose the right one for your store.",
+      "badges": [
+        {
+          "label": "Shopify Development",
+          "color": "green"
+        },
+        {
+          "label": "Comparison",
+          "color": "pink"
+        }
+      ],
+      "highlights": [
+        {
+          "icon": "mouse-pointer-click",
+          "color": "yellow",
+          "label": "Drag and drop"
+        },
+        {
+          "icon": "message-square",
+          "color": "purple",
+          "label": "Or just ask"
+        },
+        {
+          "icon": "scale",
+          "color": "pink",
+          "label": "Honest comparison"
+        },
+        {
+          "icon": "check-circle",
+          "color": "green",
+          "label": "Which one to pick"
+        }
+      ]
+    },
+    "toc": {
+      "eyebrow": "ARTICLE NAVIGATION",
+      "title": "Table of Contents",
+      "generateFromSections": true,
+      "items": []
+    },
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "Shopify's new ==Shopify Canvas== (launched October 1, 2026) lets you build and edit your store by chatting with **Sidekick**, its AI agent. But it doesn't replace the theme editor you already know."
+      },
+      {
+        "type": "paragraph",
+        "text": "Here's an honest side-by-side of Shopify Canvas vs the theme editor: how you edit, what you see, what each one supports, and which to use for your store. For the basics, see our [Shopify Canvas overview](/blog/shopify-canvas-ai-store-builder)."
+      }
+    ],
+    "body": {
+      "sections": [
+        {
+          "id": "how-you-edit",
+          "number": 1,
+          "accent": "yellow",
+          "heading": "Round 1: Drag and Drop vs Just Ask",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                {
+                  "icon": "layout-template",
+                  "color": "yellow",
+                  "title": "Theme editor",
+                  "text": "Pick a theme, then rearrange modular sections and blocks. You make every change yourself."
+                },
+                {
+                  "icon": "message-square",
+                  "color": "purple",
+                  "title": "Canvas",
+                  "text": "Chat with Sidekick and describe what you want. You can still click any element to edit it by hand."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "success",
+              "icon": "check-circle",
+              "title": "Same store. Different way to build it.",
+              "text": "Canvas changes the editing tool, not your theme.",
+              "items": null
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "what-you-see",
+          "number": 2,
+          "accent": "purple",
+          "heading": "Round 2: One Page at a Time vs the Whole Store",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The theme editor shows one template at a time. Canvas puts your templates side by side on one board (home, product, collection and cart) and renders the real theme code, not a static preview."
+            },
+            {
+              "type": "paragraph",
+              "text": "For store-wide changes, such as a new colour palette or header, seeing every page at once saves a lot of clicking. For detailed work on one template, the theme editor's focused view is still comfortable. See our [hands-on first look at Canvas](/blog/shopify-canvas-first-look) for screenshots of the board."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "side-by-side-comparison",
+          "number": 3,
+          "accent": "pink",
+          "heading": "Round 3: The Honest Comparison",
+          "blocks": [
+            {
+              "type": "table",
+              "headers": [
+                "",
+                "Theme editor",
+                "Shopify Canvas"
+              ],
+              "rows": [
+                [
+                  "Editing",
+                  "Sections and blocks",
+                  "Chat + click"
+                ],
+                [
+                  "Preview",
+                  "One page at a time",
+                  "Whole store, one board"
+                ],
+                [
+                  "Themes",
+                  "All themes",
+                  "Shopify-made and custom only"
+                ],
+                [
+                  "App blocks",
+                  "Supported",
+                  "Not yet"
+                ],
+                [
+                  "Markets, translations",
+                  "Supported",
+                  "Not yet"
+                ],
+                [
+                  "Theme updates",
+                  "Available",
+                  "Not for Canvas-edited themes"
+                ]
+              ]
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "what-canvas-cant-do",
+          "number": 4,
+          "accent": "yellow",
+          "heading": "What Canvas Can't Do Yet",
+          "blocks": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Third-party themes (only Shopify-made and custom themes open in Canvas)",
+                "App blocks and extensions",
+                "Markets and translations",
+                "Automatic theme updates for Canvas-edited themes"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For many established stores, app blocks alone decide it. Reviews, subscriptions, upsells and many testing tools rely on app blocks or extensions, and Sidekick can't add or configure them in Canvas yet."
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "which-one-to-choose",
+          "number": 5,
+          "accent": "purple",
+          "heading": "Round 4: Pick by Your Store, Not the Hype",
+          "blocks": [
+            {
+              "type": "featureGrid",
+              "columns": 2,
+              "items": [
+                {
+                  "icon": "sparkles",
+                  "color": "green",
+                  "title": "Try Canvas if...",
+                  "text": "You're starting fresh, want fast design experiments, or run a simple storefront with a Shopify-made or custom theme."
+                },
+                {
+                  "icon": "layout-template",
+                  "color": "pink",
+                  "title": "Stay on the theme editor if...",
+                  "text": "You rely on third-party themes, app blocks and extensions, multiple markets or translations."
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "icon": "info",
+              "title": "Good news: you don't have to choose",
+              "text": "Canvas opens from the same Themes page as the theme editor. It works on a duplicated copy of your theme, so your live theme stays untouched. And Shopify says Canvas is an early product that won't replace the online store editor for now.",
+              "items": null
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        {
+          "id": "our-recommendation",
+          "number": 6,
+          "accent": "pink",
+          "heading": "Our Recommendation",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use both. Try Canvas on a duplicated theme for fast design exploration, then decide what to keep based on data, not on how quickly it was built. Keep the theme editor for your live store while you depend on apps, markets or translations."
+            },
+            {
+              "type": "protip",
+              "label": "PRO TIP",
+              "icon": "lightbulb",
+              "text": "A practical workflow for established stores:",
+              "checklist": [
+                "Explore new layouts in Canvas on a theme copy",
+                "Rebuild the winning ideas as sections in your live theme",
+                "QA them on real devices",
+                "A/B test them against the current design before rolling out"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Need help? Our [Shopify development team](/shopify-development) builds custom sections for Online Store 2.0 themes, and our [A/B testing services](/ab-testing) prove which design actually sells more."
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "heading": "FAQ",
+      "items": [
+        {
+          "q": "Does Shopify Canvas replace the theme editor?",
+          "a": "No. Shopify says Canvas is an early product that won't replace the online store editor for now. Both open from the same Themes page."
+        },
+        {
+          "q": "What's the main difference between Canvas and the theme editor?",
+          "a": "In the theme editor you rearrange sections and blocks yourself, one page at a time. In Canvas you describe changes to Sidekick and see your whole store on one board, and you can still edit any element by hand."
+        },
+        {
+          "q": "Can I use app blocks in Shopify Canvas?",
+          "a": "Not yet. App blocks and extensions aren't supported in Canvas at launch, so stores that depend on apps should stay on the theme editor for now."
+        },
+        {
+          "q": "Does Canvas work with third-party themes?",
+          "a": "No. Only Shopify-made themes and custom themes open in Canvas at launch."
+        },
+        {
+          "q": "Which should I use for my store?",
+          "a": "Try Canvas for new stores, simple storefronts and quick design experiments. Stay on the theme editor if you rely on third-party themes, app blocks, multiple markets or translations."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Not sure which editor fits your store?",
+      "text": "Book a call and we'll look at your theme, apps and markets with you.",
+      "buttonLabel": "Book a Free Consultation",
+      "buttonLink": "https://calendly.com/ingversionsdigital/30min"
+    }
   }
 ]

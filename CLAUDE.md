@@ -36,6 +36,11 @@ only; `production` never gets them.
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
 
+`.github/workflows/deploy.yml` enforces this on pull requests into `production`
+(`guard-production` job), and every deploy waits for the `check` job (tests, lint,
+these rules, build). Use the `allow-protected-files` label only for an intended
+production-only change, such as a new route in production's `nginx.conf`.
+
 ## The blog lives at /blog
 
 The blog moved in from the old `blog.ingversionsdigital.com` Next.js app. Header,
@@ -79,8 +84,10 @@ visible header/footer-then-content flash. Do not convert them to `React.lazy`.
 
 ## Verification
 
-Run `npm run lint` and `npm run build` before treating a change as done. There
-is no test suite, so anything a user can see must also be checked in a real
+Run `npm test`, `npm run lint` and `npm run build` before treating a change as
+done. `npm test` covers only pure logic in `src/utils/*.test.js` (Node's
+built-in `node:test`, no framework). There are no UI tests, so anything a user
+can see must also be checked in a real
 browser at the affected breakpoint. Do not claim a fix works from static
 checks alone.
 

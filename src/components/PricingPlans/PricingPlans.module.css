@@ -1,5 +1,5 @@
 .pricingPlans {
-  padding: 0 0 10px
+  padding: 20px 0 50px
 }
 .pricingPlansGrid {
   display: flex;
@@ -84,6 +84,14 @@
   align-items: baseline;
   gap: 6px;
   margin-bottom: 16px
+}
+.pricingPlanOriginal {
+  color: var(--palette-text-muted);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration-color: var(--palette-cta);
+  text-decoration-thickness: 2px
 }
 .pricingPlanPrice {
   color: var(--palette-text-primary);
@@ -275,7 +283,7 @@
 }
 @media (max-width:767.98px) {
   .pricingPlans {
-    padding: 0 0 40px
+    padding: 20px 0 40px
   }
   .pricingPlansGrid {
     padding: 0;

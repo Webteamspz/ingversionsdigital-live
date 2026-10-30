@@ -48,7 +48,7 @@
         "color": "purple",
         "steps": [{ "title": "string", "text": "string" }]
       },
-      "image": { "type": "image", "src": "/assets/blog/...", "alt": "string", "caption": "optional or null" },
+      "image": { "type": "image", "src": "/assets/blog/...", "alt": "string", "caption": "optional or null", "width": "optional px", "height": "optional px (taller than width = shown narrower, centred)" },
       "quote": { "type": "quote", "text": "string", "cite": "optional or null" },
       "code": { "type": "code", "language": "js | bash | json | mermaid | ...", "code": "raw code string" },
       "table": { "type": "table", "headers": ["string"], "rows": [["cell", "cell"]] },
