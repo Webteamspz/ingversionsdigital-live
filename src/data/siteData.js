@@ -19,23 +19,83 @@ export default {
           title: "Core services",
           note: "Testing, development and QA",
           items: [
-            { label: "A/B Testing", href: "/ab-testing", short: "A/B Testing", icon: "ab-testing", desc: "Research-led tests that lift conversion" },
-            { label: "Shopify Development", href: "/shopify-development", short: "Shopify Development", icon: "shopify", desc: "Fast, custom themes and sections" },
-            { label: "Quality Assurance", href: "/quality-assurance", short: "Quality Assurance", icon: "qa", desc: "Every test and release checked by hand" },
-            { label: "Landing Page Personalization", href: "/landing-page-personalization", short: "Personalization", icon: "landing-page", desc: "Pages that adapt to each visitor" },
-            { label: "WordPress Development", href: "/wordpress-development", short: "WordPress", icon: "wordpress", desc: "Fast, easy-to-edit WordPress sites" },
+            {
+              label: "A/B Testing",
+              href: "/ab-testing",
+              short: "A/B Testing",
+              icon: "ab-testing",
+              desc: "Research-led tests that lift conversion",
+            },
+            {
+              label: "Shopify Development",
+              href: "/shopify-development",
+              short: "Shopify Development",
+              icon: "shopify",
+              desc: "Fast, custom themes and sections",
+            },
+            {
+              label: "Quality Assurance",
+              href: "/quality-assurance",
+              short: "Quality Assurance",
+              icon: "qa",
+              desc: "Every test and release checked by hand",
+            },
+            {
+              label: "Landing Page Personalization",
+              href: "/landing-page-personalization",
+              short: "Personalization",
+              icon: "landing-page",
+              desc: "Pages that adapt to each visitor",
+            },
+            {
+              label: "WordPress Development",
+              href: "/wordpress-development",
+              short: "WordPress",
+              icon: "wordpress",
+              desc: "Fast, easy-to-edit WordPress sites",
+            },
           ],
         },
         {
           title: "Shopify CRO",
           note: "Specialist services for Shopify stores",
           items: [
-            { label: "Shopify CRO Agency", href: "/shopify-cro-agency", short: "CRO Agency", desc: "Find and fix why traffic doesn't convert" },
-            { label: "Shopify A/B Testing", href: "/shopify-ab-testing-services", short: "Store A/B Testing", desc: "From hypothesis to winning variant" },
-            { label: "Shopify Plus Development & QA", href: "/shopify-plus-development-qa", short: "Plus Dev & QA", desc: "Plus features with QA built in" },
-            { label: "Convert.com Testing Agency", href: "/convert-com-shopify-ab-testing-agency", short: "Convert.com Agency", desc: "Get results from your Convert plan" },
-            { label: "White-Label Testing for Agencies", href: "/white-label-ab-testing-development-for-agencies", short: "White-Label for Agencies", desc: "We build and QA your clients' tests" },
-            { label: "Black Friday QA Testing", href: "/shopify-bfcm-load-and-qa-testing-service", short: "Black Friday QA", desc: "Load and checkout testing before BFCM" },
+            {
+              label: "Shopify CRO Agency",
+              href: "/shopify-cro-agency",
+              short: "CRO Agency",
+              desc: "Find and fix why traffic doesn't convert",
+            },
+            {
+              label: "Shopify A/B Testing",
+              href: "/shopify-ab-testing-services",
+              short: "Store A/B Testing",
+              desc: "From hypothesis to winning variant",
+            },
+            {
+              label: "Shopify Plus Development & QA",
+              href: "/shopify-plus-development-qa",
+              short: "Plus Dev & QA",
+              desc: "Plus features with QA built in",
+            },
+            {
+              label: "Convert.com Testing Agency",
+              href: "/convert-com-shopify-ab-testing-agency",
+              short: "Convert.com Agency",
+              desc: "Get results from your Convert plan",
+            },
+            {
+              label: "White-Label Testing for Agencies",
+              href: "/white-label-ab-testing-development-for-agencies",
+              short: "White-Label for Agencies",
+              desc: "We build and QA your clients' tests",
+            },
+            {
+              label: "Black Friday QA Testing",
+              href: "/shopify-bfcm-load-and-qa-testing-service",
+              short: "Black Friday QA",
+              desc: "Load and checkout testing before BFCM",
+            },
           ],
         },
       ],
@@ -158,13 +218,21 @@ export default {
       {
         title: "Shopify brands",
         desc: "DTC and Shopify Plus stores that want more revenue from the traffic they already pay for.",
-        points: ["Monthly CRO plans from $999", "Shopify development included", "Your first test built free"],
+        points: [
+          "Monthly CRO plans from $999",
+          "Shopify development included",
+          "Your first test built free",
+        ],
         link: { label: "See brand plans", href: "/pricing" },
       },
       {
         title: "Agencies & teams",
         desc: "CRO agencies and in-house teams that need reliable, white-label test development and QA.",
-        points: ["Complex tests from $199.50", "Test dev pods and dedicated developers", "Your name on the work, not ours"],
+        points: [
+          "Complex tests from $199.50",
+          "Test dev pods and dedicated developers",
+          "Your name on the work, not ours",
+        ],
         link: { label: "See agency pricing", href: "/pricing" },
       },
     ],
@@ -250,13 +318,48 @@ export default {
         label: "A/B Testing",
         note: "Every test ships with a Loom walkthrough, a Figma file, the code and a live test link, so you can see exactly what changed and why.",
         steps: [
-          { icon: "brief", title: "Brief", tag: "the hypothesis", desc: "A task with the test ID, page and goal." },
-          { icon: "loom", title: "Loom", tag: "the walkthrough", desc: "A recorded walkthrough of the idea." },
-          { icon: "figma", title: "Figma", tag: "the design", desc: "Each variant designed for mobile and desktop." },
-          { icon: "variants", title: "Variants", tag: "the options", desc: "V1, V2, V3, each building on the last." },
-          { icon: "code", title: "Build", tag: "the code", desc: "Variants coded and pushed to Git." },
-          { icon: "qa", title: "QA", tag: "the check", desc: "Checked across devices before going live." },
-          { icon: "launch", title: "Launch", tag: "the test", desc: "Live in the testing tool, tracked to a winner." },
+          {
+            icon: "brief",
+            title: "Brief",
+            tag: "the hypothesis",
+            desc: "A task with the test ID, page and goal.",
+          },
+          {
+            icon: "loom",
+            title: "Loom",
+            tag: "the walkthrough",
+            desc: "A recorded walkthrough of the idea.",
+          },
+          {
+            icon: "figma",
+            title: "Figma",
+            tag: "the design",
+            desc: "Each variant designed for mobile and desktop.",
+          },
+          {
+            icon: "variants",
+            title: "Variants",
+            tag: "the options",
+            desc: "V1, V2, V3, each building on the last.",
+          },
+          {
+            icon: "code",
+            title: "Build",
+            tag: "the code",
+            desc: "Variants coded and pushed to Git.",
+          },
+          {
+            icon: "qa",
+            title: "QA",
+            tag: "the check",
+            desc: "Checked across devices before going live.",
+          },
+          {
+            icon: "launch",
+            title: "Launch",
+            tag: "the test",
+            desc: "Live in the testing tool, tracked to a winner.",
+          },
         ],
       },
       {
@@ -264,13 +367,48 @@ export default {
         label: "Shopify",
         note: "Your store is built in your own theme, reviewed with you at each step and handed over with support, so the work keeps paying off after launch.",
         steps: [
-          { icon: "brief", title: "Scope", tag: "the plan", desc: "Pages, features and timeline agreed up front." },
-          { icon: "figma", title: "Design", tag: "the look", desc: "Layouts designed in Figma for your brand." },
-          { icon: "store", title: "Theme", tag: "the build", desc: "Built natively in Shopify, no page builders." },
-          { icon: "qa", title: "QA", tag: "the check", desc: "Tested on every device and browser." },
-          { icon: "review", title: "Review", tag: "the feedback", desc: "You review, we refine until it's right." },
-          { icon: "launch", title: "Launch", tag: "the go-live", desc: "Published live with a full handover." },
-          { icon: "support", title: "Support", tag: "the follow-up", desc: "We stay on hand for fixes and updates." },
+          {
+            icon: "brief",
+            title: "Scope",
+            tag: "the plan",
+            desc: "Pages, features and timeline agreed up front.",
+          },
+          {
+            icon: "figma",
+            title: "Design",
+            tag: "the look",
+            desc: "Layouts designed in Figma for your brand.",
+          },
+          {
+            icon: "store",
+            title: "Theme",
+            tag: "the build",
+            desc: "Built natively in Shopify, no page builders.",
+          },
+          {
+            icon: "qa",
+            title: "QA",
+            tag: "the check",
+            desc: "Tested on every device and browser.",
+          },
+          {
+            icon: "review",
+            title: "Review",
+            tag: "the feedback",
+            desc: "You review, we refine until it's right.",
+          },
+          {
+            icon: "launch",
+            title: "Launch",
+            tag: "the go-live",
+            desc: "Published live with a full handover.",
+          },
+          {
+            icon: "support",
+            title: "Support",
+            tag: "the follow-up",
+            desc: "We stay on hand for fixes and updates.",
+          },
         ],
       },
       {
@@ -278,13 +416,48 @@ export default {
         label: "QA",
         note: "Every bug is logged with steps to reproduce, fixed and retested, so nothing ships until it works for every visitor.",
         steps: [
-          { icon: "scope", title: "Scope", tag: "the pages", desc: "Which pages, flows and features to test." },
-          { icon: "devices", title: "Devices", tag: "the matrix", desc: "Browsers and devices your visitors use." },
-          { icon: "checklist", title: "Test", tag: "the run", desc: "Each flow tested against a checklist." },
-          { icon: "bug", title: "Log", tag: "the bugs", desc: "Every issue logged with steps to reproduce." },
-          { icon: "code", title: "Fix", tag: "the patch", desc: "Issues fixed and pushed for review." },
-          { icon: "retest", title: "Retest", tag: "the confirm", desc: "Each fix retested before it's closed." },
-          { icon: "signoff", title: "Sign-off", tag: "the release", desc: "Approved and cleared to go live." },
+          {
+            icon: "scope",
+            title: "Scope",
+            tag: "the pages",
+            desc: "Which pages, flows and features to test.",
+          },
+          {
+            icon: "devices",
+            title: "Devices",
+            tag: "the matrix",
+            desc: "Browsers and devices your visitors use.",
+          },
+          {
+            icon: "checklist",
+            title: "Test",
+            tag: "the run",
+            desc: "Each flow tested against a checklist.",
+          },
+          {
+            icon: "bug",
+            title: "Log",
+            tag: "the bugs",
+            desc: "Every issue logged with steps to reproduce.",
+          },
+          {
+            icon: "code",
+            title: "Fix",
+            tag: "the patch",
+            desc: "Issues fixed and pushed for review.",
+          },
+          {
+            icon: "retest",
+            title: "Retest",
+            tag: "the confirm",
+            desc: "Each fix retested before it's closed.",
+          },
+          {
+            icon: "signoff",
+            title: "Sign-off",
+            tag: "the release",
+            desc: "Approved and cleared to go live.",
+          },
         ],
       },
       {
@@ -292,13 +465,48 @@ export default {
         label: "WordPress",
         note: "Your site is built as a custom theme, reviewed with you at each step and handed over ready for your team to edit.",
         steps: [
-          { icon: "brief", title: "Scope", tag: "the plan", desc: "Pages, features and timeline agreed up front." },
-          { icon: "figma", title: "Design", tag: "the look", desc: "Layouts designed in Figma for your brand." },
-          { icon: "code", title: "Build", tag: "the theme", desc: "A custom theme built for speed and editing." },
-          { icon: "qa", title: "QA", tag: "the check", desc: "Tested on every device and browser." },
-          { icon: "review", title: "Review", tag: "the feedback", desc: "You review, we refine until it's right." },
-          { icon: "launch", title: "Launch", tag: "the go-live", desc: "Published live with a full handover." },
-          { icon: "support", title: "Support", tag: "the follow-up", desc: "We stay on hand for fixes and updates." },
+          {
+            icon: "brief",
+            title: "Scope",
+            tag: "the plan",
+            desc: "Pages, features and timeline agreed up front.",
+          },
+          {
+            icon: "figma",
+            title: "Design",
+            tag: "the look",
+            desc: "Layouts designed in Figma for your brand.",
+          },
+          {
+            icon: "code",
+            title: "Build",
+            tag: "the theme",
+            desc: "A custom theme built for speed and editing.",
+          },
+          {
+            icon: "qa",
+            title: "QA",
+            tag: "the check",
+            desc: "Tested on every device and browser.",
+          },
+          {
+            icon: "review",
+            title: "Review",
+            tag: "the feedback",
+            desc: "You review, we refine until it's right.",
+          },
+          {
+            icon: "launch",
+            title: "Launch",
+            tag: "the go-live",
+            desc: "Published live with a full handover.",
+          },
+          {
+            icon: "support",
+            title: "Support",
+            tag: "the follow-up",
+            desc: "We stay on hand for fixes and updates.",
+          },
         ],
       },
       {
@@ -306,13 +514,48 @@ export default {
         label: "Personalization",
         note: "Every personalized page is tested against your default page, so you can see exactly what each audience responds to.",
         steps: [
-          { icon: "scope", title: "Audiences", tag: "the who", desc: "Which visitors and traffic sources to target." },
-          { icon: "brief", title: "Message", tag: "the angle", desc: "Copy and offers matched to each audience." },
-          { icon: "figma", title: "Design", tag: "the page", desc: "Each page designed mobile-first in Figma." },
-          { icon: "code", title: "Build", tag: "the logic", desc: "Pages built with the right content for each visitor." },
-          { icon: "qa", title: "QA", tag: "the check", desc: "Every version checked before going live." },
-          { icon: "launch", title: "Launch", tag: "the test", desc: "Live and tested against your default page." },
-          { icon: "retest", title: "Refine", tag: "the lift", desc: "Pages refined as the results come in." },
+          {
+            icon: "scope",
+            title: "Audiences",
+            tag: "the who",
+            desc: "Which visitors and traffic sources to target.",
+          },
+          {
+            icon: "brief",
+            title: "Message",
+            tag: "the angle",
+            desc: "Copy and offers matched to each audience.",
+          },
+          {
+            icon: "figma",
+            title: "Design",
+            tag: "the page",
+            desc: "Each page designed mobile-first in Figma.",
+          },
+          {
+            icon: "code",
+            title: "Build",
+            tag: "the logic",
+            desc: "Pages built with the right content for each visitor.",
+          },
+          {
+            icon: "qa",
+            title: "QA",
+            tag: "the check",
+            desc: "Every version checked before going live.",
+          },
+          {
+            icon: "launch",
+            title: "Launch",
+            tag: "the test",
+            desc: "Live and tested against your default page.",
+          },
+          {
+            icon: "retest",
+            title: "Refine",
+            tag: "the lift",
+            desc: "Pages refined as the results come in.",
+          },
         ],
       },
     ],
@@ -342,12 +585,7 @@ export default {
         priceLabel: "Prepaid hours",
         desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
         icon: "hoursblock",
-        features: [
-          "Flexibility",
-          "On-Demand Support",
-          "Budget Control",
-          "Trial Opportunity",
-        ],
+        features: ["Flexibility", "On-Demand Support", "Budget Control", "Trial Opportunity"],
         cta: {
           label: "Contact Us",
           href: "#contact",
@@ -375,7 +613,10 @@ export default {
     tag: "Case Studies",
     title: "Real tests. Real lifts. Every number checked in GA4.",
     sub: "What was holding each store back, what we built to fix it, and what the data said after launch. No mockups, no made-up results.",
-    primaryCta: { label: "Get my free test build", href: "https://calendly.com/ingversionsdigital/30min" },
+    primaryCta: {
+      label: "Get my free test build",
+      href: "https://calendly.com/ingversionsdigital/30min",
+    },
     secondaryCta: { label: "See plans from $999/mo", href: "/pricing" },
     metrics: [
       { value: "+58.62%", label: "Add-to-cart lift" },
@@ -418,11 +659,36 @@ export default {
         results: {
           heading: "The Results (conversion rate vs the original page)",
           stats: [
-            { label: "Sticky add-to-cart with quantity breaks (mobile)", before: "1.28%", after: "1.71%", lift: "+33.7%" },
-            { label: "Free-gift tiles + pack tags (mobile)", before: "1.60%", after: "2.14%", lift: "+33.4%" },
-            { label: "Same idea, rebuilt for desktop", before: "3.52%", after: "4.42%", lift: "+25.6%" },
-            { label: "Case + screen protector upsell (all devices)", before: "2.60%", after: "3.23%", lift: "+24.2%" },
-            { label: "Trust buttons + cleaner product details (mobile)", before: "0.93%", after: "1.31%", lift: "+41.5%" },
+            {
+              label: "Sticky add-to-cart with quantity breaks (mobile)",
+              before: "1.28%",
+              after: "1.71%",
+              lift: "+33.7%",
+            },
+            {
+              label: "Free-gift tiles + pack tags (mobile)",
+              before: "1.60%",
+              after: "2.14%",
+              lift: "+33.4%",
+            },
+            {
+              label: "Same idea, rebuilt for desktop",
+              before: "3.52%",
+              after: "4.42%",
+              lift: "+25.6%",
+            },
+            {
+              label: "Case + screen protector upsell (all devices)",
+              before: "2.60%",
+              after: "3.23%",
+              lift: "+24.2%",
+            },
+            {
+              label: "Trust buttons + cleaner product details (mobile)",
+              before: "0.93%",
+              after: "1.31%",
+              lift: "+41.5%",
+            },
           ],
           totals:
             "52 A/B tests from February 2025 to October 2026; 11 won at 95% confidence or higher. Each winner above reached 98.6%–99.7% confidence on conversion rate, its primary goal, and lifted revenue per visitor by 28.7%, 35.6%, 21.6%, 15.3% and 27.3%. Every number comes from the Convert reports.",
@@ -432,10 +698,22 @@ export default {
           {
             heading: "1. Keep the buy button in reach on mobile: +33.7% conversion",
             points: [
-              ["What we saw", "On mobile, the product page is long. Once a shopper scrolled into specs and reviews, the only way to buy was to scroll all the way back up."],
-              ["Hypothesis", "If we add a sticky add-to-cart bar with quantity-break pricing, conversion rate will rise, because shoppers always have a visible way to buy without hunting for the buy box."],
-              ["What we changed", "Three versions of a sticky bar. V1 scrolled the shopper back to the pack selector. V2 opened the pack selector inside the bar. V3 did the same with the price inside the button."],
-              ["Result", "10 days, 57,430 mobile visitors. The simplest version won: V1 lifted conversion from 1.28% to 1.71% (+33.7%) at 99.7% confidence, and revenue per visitor from $8.08 to $10.41 (+28.7%). V2 and V3 also beat control, but by much less. Shoppers wanted a shortcut back to the full pack choice, not a cramped version of it."],
+              [
+                "What we saw",
+                "On mobile, the product page is long. Once a shopper scrolled into specs and reviews, the only way to buy was to scroll all the way back up.",
+              ],
+              [
+                "Hypothesis",
+                "If we add a sticky add-to-cart bar with quantity-break pricing, conversion rate will rise, because shoppers always have a visible way to buy without hunting for the buy box.",
+              ],
+              [
+                "What we changed",
+                "Three versions of a sticky bar. V1 scrolled the shopper back to the pack selector. V2 opened the pack selector inside the bar. V3 did the same with the price inside the button.",
+              ],
+              [
+                "Result",
+                "10 days, 57,430 mobile visitors. The simplest version won: V1 lifted conversion from 1.28% to 1.71% (+33.7%) at 99.7% confidence, and revenue per visitor from $8.08 to $10.41 (+28.7%). V2 and V3 also beat control, but by much less. Shoppers wanted a shortcut back to the full pack choice, not a cramped version of it.",
+              ],
             ],
             screenshots: [
               {
@@ -444,7 +722,8 @@ export default {
                 height: 525,
                 wide: true,
                 label: "Design",
-                caption: "Control, then V1 (the winner), V2 and V3, once the shopper has scrolled past the buy box",
+                caption:
+                  "Control, then V1 (the winner), V2 and V3, once the shopper has scrolled past the buy box",
                 alt: "Figma mobile mockups of the Rapid Radios product page: the control with no sticky bar, V1 with a sticky Add to Cart button, V2 with a sticky pack selector and button, and V3 with the price inside the button.",
               },
               {
@@ -466,13 +745,29 @@ export default {
             ],
           },
           {
-            heading: "2. Make the free gifts and the best pack obvious: +33.4% mobile, then +25.6% desktop",
+            heading:
+              "2. Make the free gifts and the best pack obvious: +33.4% mobile, then +25.6% desktop",
             points: [
-              ["What we saw", "Each pack comes with free gifts, but shoppers only saw them in a small pop-up after picking a pack, and two quantity selectors competed for attention."],
-              ["Hypothesis", "If we show the gifts for each pack clearly, use one pack selector, and label the 3-pack \"Most popular\" and the 6-pack \"Best value\", conversion will rise, because shoppers can see the deal and choose a pack faster."],
-              ["What we changed (mobile)", "Six variants, building up the idea in layers: gift tiles, then a single new pack selector, then the two tags."],
-              ["Result (mobile)", "22 days, 28,457 visitors. The full version (V3) lifted conversion from 1.60% to 2.14% (+33.4%) at 98.9% confidence, and revenue per visitor from $8.13 to $11.03 (+35.6%). The gift tiles alone (V1) looked much worse in the first days and were switched off. The win only appeared once the clutter was removed and the tags were added."],
-              ["Result (desktop rebuild)", "We then rebuilt the layout for desktop and tested it again for 28 days with 26,698 visitors. The best version (V3, which also showed how much each radio saves per pack) lifted conversion from 3.52% to 4.42% (+25.6%) at 99.6% confidence, and revenue per visitor from $21.95 to $26.69 (+21.6%). Adding only a per-radio price (V2) looked worse early and was stopped. Two separate tests, two devices, same direction."],
+              [
+                "What we saw",
+                "Each pack comes with free gifts, but shoppers only saw them in a small pop-up after picking a pack, and two quantity selectors competed for attention.",
+              ],
+              [
+                "Hypothesis",
+                'If we show the gifts for each pack clearly, use one pack selector, and label the 3-pack "Most popular" and the 6-pack "Best value", conversion will rise, because shoppers can see the deal and choose a pack faster.',
+              ],
+              [
+                "What we changed (mobile)",
+                "Six variants, building up the idea in layers: gift tiles, then a single new pack selector, then the two tags.",
+              ],
+              [
+                "Result (mobile)",
+                "22 days, 28,457 visitors. The full version (V3) lifted conversion from 1.60% to 2.14% (+33.4%) at 98.9% confidence, and revenue per visitor from $8.13 to $11.03 (+35.6%). The gift tiles alone (V1) looked much worse in the first days and were switched off. The win only appeared once the clutter was removed and the tags were added.",
+              ],
+              [
+                "Result (desktop rebuild)",
+                "We then rebuilt the layout for desktop and tested it again for 28 days with 26,698 visitors. The best version (V3, which also showed how much each radio saves per pack) lifted conversion from 3.52% to 4.42% (+25.6%) at 99.6% confidence, and revenue per visitor from $21.95 to $26.69 (+21.6%). Adding only a per-radio price (V2) looked worse early and was stopped. Two separate tests, two devices, same direction.",
+              ],
             ],
             screenshots: [
               {
@@ -506,7 +801,8 @@ export default {
                 height: 643,
                 wide: true,
                 label: "Design",
-                caption: "Desktop: control (left) and the winning V3 with per-radio savings under each pack (right)",
+                caption:
+                  "Desktop: control (left) and the winning V3 with per-radio savings under each pack (right)",
                 alt: "Desktop product page before and after: the control with plain pack buttons, and the winning V3 with a two-column pack selector showing per-radio prices and savings, tags, and free gift tiles.",
               },
               {
@@ -530,10 +826,22 @@ export default {
           {
             heading: "3. Offer the case and screen protector together: +24.2% conversion",
             points: [
-              ["What we saw", "Buyers of rugged radios often need a case and a screen protector, but the buy box offered neither."],
-              ["Hypothesis", "If we offer protection add-ons right above the add-to-cart button, conversion and revenue per visitor will rise, because shoppers can complete their setup in one place."],
-              ["What we changed", "V1 added a case upsell, V2 a screen-protector upsell, and V3 both."],
-              ["Result", "14 days, 51,709 visitors on all devices. Either add-on on its own did almost nothing (+1.5% and 0.0%). Both together (V3) lifted conversion from 2.60% to 3.23% (+24.2%) at 99.7% confidence. Revenue per visitor rose 15.3% ($14.51 to $16.72), at 94.2% confidence, just under our 95% bar."],
+              [
+                "What we saw",
+                "Buyers of rugged radios often need a case and a screen protector, but the buy box offered neither.",
+              ],
+              [
+                "Hypothesis",
+                "If we offer protection add-ons right above the add-to-cart button, conversion and revenue per visitor will rise, because shoppers can complete their setup in one place.",
+              ],
+              [
+                "What we changed",
+                "V1 added a case upsell, V2 a screen-protector upsell, and V3 both.",
+              ],
+              [
+                "Result",
+                "14 days, 51,709 visitors on all devices. Either add-on on its own did almost nothing (+1.5% and 0.0%). Both together (V3) lifted conversion from 2.60% to 3.23% (+24.2%) at 99.7% confidence. Revenue per visitor rose 15.3% ($14.51 to $16.72), at 94.2% confidence, just under our 95% bar.",
+              ],
             ],
             screenshots: [
               {
@@ -542,7 +850,8 @@ export default {
                 height: 644,
                 wide: true,
                 label: "Design",
-                caption: "Control, then the case upsell (V1), the screen protector upsell (V2), and both together (V3, the winner)",
+                caption:
+                  "Control, then the case upsell (V1), the screen protector upsell (V2), and both together (V3, the winner)",
                 alt: "Figma mockups of the buy box: the control, V1 with a silicone case add-on, V2 with a tempered glass screen protector add-on, and V3 with both add-ons above the Add to Cart button.",
               },
               {
@@ -566,10 +875,22 @@ export default {
           {
             heading: "4. Answer doubts before they become exits: +41.5% mobile conversion",
             points: [
-              ["What we saw", "First-time buyers had questions about coverage, the guarantee and how the radios work. The product details section was dense and hard to scan on a phone."],
-              ["Hypothesis", "If we add quick Warranty and Security buttons and redesign the product details for mobile, conversion will rise, because shoppers get answers to their main doubts without leaving the page."],
-              ["What we changed", "Four variants mixing two things: Warranty and Security buttons that open a short pop-up (like the warranty policy), and a cleaner product-details section."],
-              ["Result", "7 days, 51,079 mobile visitors across five groups. V2, with the buttons right under Add to Cart and the cleaner details below them, won: conversion went from 0.93% to 1.31% (+41.5%) at 98.6% confidence, and revenue per visitor from $8.19 to $10.42 (+27.3%) at 95.6%. Each change alone was flat or negative, and V4, the same two pieces with the buttons moved below the details, did worse than control (-7.7%). Placement mattered as much as content. It ran for one full week, shorter than the others, so the direction is clear but the exact size of the lift deserves some caution."],
+              [
+                "What we saw",
+                "First-time buyers had questions about coverage, the guarantee and how the radios work. The product details section was dense and hard to scan on a phone.",
+              ],
+              [
+                "Hypothesis",
+                "If we add quick Warranty and Security buttons and redesign the product details for mobile, conversion will rise, because shoppers get answers to their main doubts without leaving the page.",
+              ],
+              [
+                "What we changed",
+                "Four variants mixing two things: Warranty and Security buttons that open a short pop-up (like the warranty policy), and a cleaner product-details section.",
+              ],
+              [
+                "Result",
+                "7 days, 51,079 mobile visitors across five groups. V2, with the buttons right under Add to Cart and the cleaner details below them, won: conversion went from 0.93% to 1.31% (+41.5%) at 98.6% confidence, and revenue per visitor from $8.19 to $10.42 (+27.3%) at 95.6%. Each change alone was flat or negative, and V4, the same two pieces with the buttons moved below the details, did worse than control (-7.7%). Placement mattered as much as content. It ran for one full week, shorter than the others, so the direction is clear but the exact size of the lift deserves some caution.",
+              ],
             ],
             screenshots: [
               {
@@ -578,7 +899,8 @@ export default {
                 height: 508,
                 wide: true,
                 label: "Design",
-                caption: "Control, then the four variants (V2 won), and the warranty pop-up the buttons open",
+                caption:
+                  "Control, then the four variants (V2 won), and the warranty pop-up the buttons open",
                 alt: "Figma mobile mockups: the control, four variants combining Warranty and Security buttons with a cleaner Description, Specifications and Reviews section, and the Warranty Policy pop-up.",
               },
               {
@@ -636,7 +958,7 @@ export default {
             icon: "challenge",
             paragraphs: [
               "Ruff Greens (ruffgreens.com) sells a daily greens and vitamin supplement for dogs, plus Meow Greens for cats. Most new customers start with the Jumpstart trial: a free bag, they pay only shipping, and it becomes a subscription.",
-              "That model makes the trial page the most important page on the store. A visitor has to trust a supplement they have never tried, understand what \"free\" means, and get through the offer without second thoughts. Small points of doubt there cost real trial starts.",
+              'That model makes the trial page the most important page on the store. A visitor has to trust a supplement they have never tried, understand what "free" means, and get through the offer without second thoughts. Small points of doubt there cost real trial starts.',
             ],
           },
           {
@@ -651,9 +973,24 @@ export default {
         results: {
           heading: "The Results (conversion rate vs the original page)",
           stats: [
-            { label: "Key-benefit banner under the header (desktop)", before: "6.21%", after: "7.45%", lift: "+19.9%" },
-            { label: "\"Tap to unlock $0 trial\" button (mobile)", before: "8.39%", after: "9.81%", lift: "+17.0%" },
-            { label: "Feeding & nutrition info on the trial page", before: "12.56%", after: "13.67%", lift: "+8.8%" },
+            {
+              label: "Key-benefit banner under the header (desktop)",
+              before: "6.21%",
+              after: "7.45%",
+              lift: "+19.9%",
+            },
+            {
+              label: '"Tap to unlock $0 trial" button (mobile)',
+              before: "8.39%",
+              after: "9.81%",
+              lift: "+17.0%",
+            },
+            {
+              label: "Feeding & nutrition info on the trial page",
+              before: "12.56%",
+              after: "13.67%",
+              lift: "+8.8%",
+            },
           ],
           totals:
             "54 A/B tests from February 2025 to October 2026, all measured in Convert. Confidence on conversion rate, each test's primary goal: 99.3%, 95.1% and 99.1%. Revenue per visitor rose 34.8%, 25.8% and 8.8%. All three winners were coded into the live theme.",
@@ -661,12 +998,24 @@ export default {
         },
         tests: [
           {
-            heading: "1. Answer \"how much do I feed?\" on the trial page: +8.8% conversion",
+            heading: '1. Answer "how much do I feed?" on the trial page: +8.8% conversion',
             points: [
-              ["What we saw", "The trial page asked people to commit without the feeding and nutrition details that lived on the full product page. Shoppers who wanted those answers had to leave the offer to find them."],
-              ["Hypothesis", "If we add feeding and nutrition information to the trial page, conversion rate will rise, because new visitors will understand the product well enough to start the trial."],
-              ["What we changed", "One variant that added four tap-to-open sections under the buy button on both trial pages (dog and cat): how the trial works, description, nutrition information and feeding instructions."],
-              ["Result", "25 days, 22,591 visitors, 2,964 orders. Conversion rate went from 12.56% to 13.67% (+8.8%) at 99.1% confidence. Revenue per visitor also rose 8.8%, though at 82% confidence that part is a good sign rather than proof. This is the largest sample in the program, so it is also the most reliable win."],
+              [
+                "What we saw",
+                "The trial page asked people to commit without the feeding and nutrition details that lived on the full product page. Shoppers who wanted those answers had to leave the offer to find them.",
+              ],
+              [
+                "Hypothesis",
+                "If we add feeding and nutrition information to the trial page, conversion rate will rise, because new visitors will understand the product well enough to start the trial.",
+              ],
+              [
+                "What we changed",
+                "One variant that added four tap-to-open sections under the buy button on both trial pages (dog and cat): how the trial works, description, nutrition information and feeding instructions.",
+              ],
+              [
+                "Result",
+                "25 days, 22,591 visitors, 2,964 orders. Conversion rate went from 12.56% to 13.67% (+8.8%) at 99.1% confidence. Revenue per visitor also rose 8.8%, though at 82% confidence that part is a good sign rather than proof. This is the largest sample in the program, so it is also the most reliable win.",
+              ],
             ],
             screenshots: [
               {
@@ -699,10 +1048,22 @@ export default {
           {
             heading: "2. Put the reasons to buy under the header: +19.9% desktop conversion",
             points: [
-              ["What we saw", "On desktop, the top of the page had a headline and a button but no proof points: nothing said why this supplement could be trusted until visitors scrolled."],
-              ["Hypothesis", "If we add a slim, non-sticky banner of key science-backed benefits under the header on every page, desktop conversion will rise, because visitors see why the product is worth trying before they start scrolling."],
-              ["What we changed", "A sitewide benefit strip for desktop only, scrolling away with the page so it never covers content: scientifically formulated, human-grade all-natural ingredients, and made in the USA."],
-              ["Result", "19 days, 12,184 desktop visitors. Conversion rate went from 6.21% to 7.45% (+19.9%) at 99.3% confidence. Revenue per visitor rose 34.8% ($3.65 to $4.92), at 94.1% confidence."],
+              [
+                "What we saw",
+                "On desktop, the top of the page had a headline and a button but no proof points: nothing said why this supplement could be trusted until visitors scrolled.",
+              ],
+              [
+                "Hypothesis",
+                "If we add a slim, non-sticky banner of key science-backed benefits under the header on every page, desktop conversion will rise, because visitors see why the product is worth trying before they start scrolling.",
+              ],
+              [
+                "What we changed",
+                "A sitewide benefit strip for desktop only, scrolling away with the page so it never covers content: scientifically formulated, human-grade all-natural ingredients, and made in the USA.",
+              ],
+              [
+                "Result",
+                "19 days, 12,184 desktop visitors. Conversion rate went from 6.21% to 7.45% (+19.9%) at 99.3% confidence. Revenue per visitor rose 34.8% ($3.65 to $4.92), at 94.1% confidence.",
+              ],
             ],
             screenshots: [
               {
@@ -735,10 +1096,22 @@ export default {
           {
             heading: "3. Make the free trial feel earned, not hidden: +17.0% mobile conversion",
             points: [
-              ["What we saw", "The trial card showed $19.95 crossed out next to $0.00 and the words \"Free with promo code\". On mobile, it wasn't clear whether a code was needed or how to get the bag free."],
-              ["Hypothesis", "If we show the full $19.95 value first and let first-time visitors unlock the $0 trial with one tap, mobile conversion will rise, because the offer feels clear and valuable instead of buried in a code field."],
-              ["What we changed", "Three variants. The winner (V3) added a callout above the price: \"First time? Claim your free trial bag. Tap to unlock your $0 trial, just cover shipping.\" One tap drops the price to $0.00 with a short confirmation."],
-              ["Result", "17 days, 8,105 mobile visitors. Conversion rate went from 8.39% to 9.81% (+17.0%) at 95.1% confidence, and revenue per visitor rose 25.8% (96.0% confidence). The test was stopped before its full planned sample, so this is the least certain of the three wins. Showing $19.95 without the button (V1) looked worse early and was switched off. The value anchor only worked when paired with an easy way to claim the free bag."],
+              [
+                "What we saw",
+                'The trial card showed $19.95 crossed out next to $0.00 and the words "Free with promo code". On mobile, it wasn\'t clear whether a code was needed or how to get the bag free.',
+              ],
+              [
+                "Hypothesis",
+                "If we show the full $19.95 value first and let first-time visitors unlock the $0 trial with one tap, mobile conversion will rise, because the offer feels clear and valuable instead of buried in a code field.",
+              ],
+              [
+                "What we changed",
+                'Three variants. The winner (V3) added a callout above the price: "First time? Claim your free trial bag. Tap to unlock your $0 trial, just cover shipping." One tap drops the price to $0.00 with a short confirmation.',
+              ],
+              [
+                "Result",
+                "17 days, 8,105 mobile visitors. Conversion rate went from 8.39% to 9.81% (+17.0%) at 95.1% confidence, and revenue per visitor rose 25.8% (96.0% confidence). The test was stopped before its full planned sample, so this is the least certain of the three wins. Showing $19.95 without the button (V1) looked worse early and was switched off. The value anchor only worked when paired with an easy way to claim the free bag.",
+              ],
             ],
             screenshots: [
               {
@@ -747,7 +1120,8 @@ export default {
                 height: 578,
                 wide: true,
                 label: "Design",
-                caption: "Control, V1, V2 and the winning V3, plus the V3 button before and after the tap",
+                caption:
+                  "Control, V1, V2 and the winning V3, plus the V3 button before and after the tap",
                 alt: "Mobile trial card mockups: the control showing $19.95 crossed out and $0.00, V1 and V2 showing $19.95, and V3 adding a First Time? Claim Your Free Trial Bag button that turns into Congrats! Your Trial Bag Is Reserved when tapped.",
               },
               {
@@ -774,7 +1148,7 @@ export default {
             heading: "What We Learned",
             icon: "method",
             paragraphs: [
-              "Clarity beats persuasion on a trial page. All three wins removed a question (how much to feed, why it works, what \"free\" means). None of them added hype.",
+              'Clarity beats persuasion on a trial page. All three wins removed a question (how much to feed, why it works, what "free" means). None of them added hype.',
               "Device matters. Two of the three wins were device-specific. Testing mobile and desktop separately kept a strong result on one from being hidden by the other.",
             ],
           },
@@ -817,7 +1191,12 @@ export default {
         results: {
           heading: "The Results (add-to-cart rate vs the original page)",
           stats: [
-            { label: "Guarantee copy + trust badges", before: "1.67%", after: "2.65%", lift: "+58.62%" },
+            {
+              label: "Guarantee copy + trust badges",
+              before: "1.67%",
+              after: "2.65%",
+              lift: "+58.62%",
+            },
             { label: "Guarantee copy only", before: "1.67%", after: "2.14%", lift: "+28.34%" },
             { label: "Trust badges only", before: "1.67%", after: "1.56%", lift: "-6.61%" },
           ],
@@ -1037,7 +1416,6 @@ export default {
           },
         ],
       },
-
     ],
   },
   faq: {
@@ -1073,202 +1451,212 @@ export default {
       },
     ],
   },
-blog: {
-  heading: "Latest Articles",
-  seeMoreText: "See more articles",
-  seeMoreUrl: "/blog",
-  list: [
-    {
-      id: 1,
-      title: "5 Shopify Theme Customizations That Boost Sales",
-      category: "Shopify Development",
-      desc: "From product page layouts to checkout optimizations, these theme changes can significantly improve conversions and customer retention...",
-      date: "April 8, 2026",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1742454582165-deab666a8763?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/shopify-theme-customizations-boost-sales"
-    },
-    {
-      id: 2,
-      title: "A/B Testing Mistakes That Cost You Money",
-      category: "A/B Testing",
-      desc: "Avoid common experimentation mistakes that lead to inaccurate data and poor conversion decisions in your marketing funnels...",
-      date: "April 5, 2026",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1643917853964-434e78b21cf7?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/ab-testing-mistakes-cost-money"
-    },
-    {
-      id: 3,
-      title: "CRO Fundamentals: Where to Start From",
-      category: "CRO",
-      desc: "Learn the core principles of conversion rate optimization and how to build a strategy that drives measurable growth...",
-      date: "April 3, 2026",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/cro-fundamentals-where-to-start"
-    },
-    {
-      id: 4,
-      title: "The Psychology of High-Converting Landing Pages",
-      category: "CRO",
-      desc: "Understand how visual hierarchy, trust signals, and emotional triggers influence user actions on landing pages...",
-      date: "April 12, 2026",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1634084462412-b54873c0a56d?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/psychology-high-converting-landing-pages"
-    },
-    {
-      id: 5,
-      title: "Essential QA Checklists Before Launching Your Store",
-      category: "Quality Assurance",
-      desc: "A complete pre-launch checklist to ensure your ecommerce website is bug-free, responsive, and optimized for users...",
-      date: "April 15, 2026",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1586282023338-52aa50a846ba?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/qa-checklist-before-launching-store"
-    },
-    {
-      id: 6,
-      title: "Headless Shopify: Is It Right for Your Brand?",
-      category: "Shopify Development",
-      desc: "Explore the pros and cons of headless commerce and whether your business actually needs a decoupled storefront...",
-      date: "April 18, 2026",
-      readTime: "9 min read",
-      image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/headless-shopify-is-it-right-for-your-brand"
-    },
-    {
-      id: 7,
-      title: "Multivariate vs A/B Testing: When to Use Which",
-      category: "A/B Testing",
-      desc: "Compare multivariate testing with standard A/B testing and learn which approach delivers better insights for your campaigns...",
-      date: "April 20, 2026",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1667984390533-64bdefe719ea?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/multivariate-vs-ab-testing"
-    },
-    {
-      id: 8,
-      title: "Micro-Commitments: The Secret to Better Funnels",
-      category: "CRO",
-      desc: "Small user actions can lead to larger conversions. Discover how micro-commitments improve engagement and reduce bounce rates...",
-      date: "April 24, 2026",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1773047747593-b2f10e0579c5?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/micro-commitments-better-funnels"
-    },
-    {
-      id: 9,
-      title: "Automated UI Testing for E-commerce Websites",
-      category: "Quality Assurance",
-      desc: "Implement automated frontend testing workflows to catch UI bugs early and maintain a seamless shopping experience...",
-      date: "April 28, 2026",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1753998941488-fc3064ab6094?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/automated-ui-testing-ecommerce"
-    },
-    {
-      id: 10,
-      title: "Optimizing Shopify Core Web Vitals for SEO",
-      category: "Shopify Development",
-      desc: "Improve loading speed, visual stability, and responsiveness in Shopify to rank better and convert more visitors...",
-      date: "May 2, 2026",
-      readTime: "10 min read",
-      image: "https://images.unsplash.com/photo-1563131630-79ca2b9b47f5?q=80&w=1200&auto=format&fit=crop",
-      url: "/blog/optimizing-shopify-core-web-vitals"
-    }
-  ]
-},
+  blog: {
+    heading: "Latest Articles",
+    seeMoreText: "See more articles",
+    seeMoreUrl: "/blog",
+    list: [
+      {
+        id: 1,
+        title: "5 Shopify Theme Customizations That Boost Sales",
+        category: "Shopify Development",
+        desc: "From product page layouts to checkout optimizations, these theme changes can significantly improve conversions and customer retention...",
+        date: "April 8, 2026",
+        readTime: "6 min read",
+        image:
+          "https://images.unsplash.com/photo-1742454582165-deab666a8763?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/shopify-theme-customizations-boost-sales",
+      },
+      {
+        id: 2,
+        title: "A/B Testing Mistakes That Cost You Money",
+        category: "A/B Testing",
+        desc: "Avoid common experimentation mistakes that lead to inaccurate data and poor conversion decisions in your marketing funnels...",
+        date: "April 5, 2026",
+        readTime: "5 min read",
+        image:
+          "https://images.unsplash.com/photo-1643917853964-434e78b21cf7?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/ab-testing-mistakes-cost-money",
+      },
+      {
+        id: 3,
+        title: "CRO Fundamentals: Where to Start From",
+        category: "CRO",
+        desc: "Learn the core principles of conversion rate optimization and how to build a strategy that drives measurable growth...",
+        date: "April 3, 2026",
+        readTime: "7 min read",
+        image:
+          "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/cro-fundamentals-where-to-start",
+      },
+      {
+        id: 4,
+        title: "The Psychology of High-Converting Landing Pages",
+        category: "CRO",
+        desc: "Understand how visual hierarchy, trust signals, and emotional triggers influence user actions on landing pages...",
+        date: "April 12, 2026",
+        readTime: "8 min read",
+        image:
+          "https://images.unsplash.com/photo-1634084462412-b54873c0a56d?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/psychology-high-converting-landing-pages",
+      },
+      {
+        id: 5,
+        title: "Essential QA Checklists Before Launching Your Store",
+        category: "Quality Assurance",
+        desc: "A complete pre-launch checklist to ensure your ecommerce website is bug-free, responsive, and optimized for users...",
+        date: "April 15, 2026",
+        readTime: "5 min read",
+        image:
+          "https://images.unsplash.com/photo-1586282023338-52aa50a846ba?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/qa-checklist-before-launching-store",
+      },
+      {
+        id: 6,
+        title: "Headless Shopify: Is It Right for Your Brand?",
+        category: "Shopify Development",
+        desc: "Explore the pros and cons of headless commerce and whether your business actually needs a decoupled storefront...",
+        date: "April 18, 2026",
+        readTime: "9 min read",
+        image:
+          "https://images.unsplash.com/photo-1610989001873-03968eed0f08?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/headless-shopify-is-it-right-for-your-brand",
+      },
+      {
+        id: 7,
+        title: "Multivariate vs A/B Testing: When to Use Which",
+        category: "A/B Testing",
+        desc: "Compare multivariate testing with standard A/B testing and learn which approach delivers better insights for your campaigns...",
+        date: "April 20, 2026",
+        readTime: "6 min read",
+        image:
+          "https://images.unsplash.com/photo-1667984390533-64bdefe719ea?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/multivariate-vs-ab-testing",
+      },
+      {
+        id: 8,
+        title: "Micro-Commitments: The Secret to Better Funnels",
+        category: "CRO",
+        desc: "Small user actions can lead to larger conversions. Discover how micro-commitments improve engagement and reduce bounce rates...",
+        date: "April 24, 2026",
+        readTime: "7 min read",
+        image:
+          "https://images.unsplash.com/photo-1773047747593-b2f10e0579c5?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/micro-commitments-better-funnels",
+      },
+      {
+        id: 9,
+        title: "Automated UI Testing for E-commerce Websites",
+        category: "Quality Assurance",
+        desc: "Implement automated frontend testing workflows to catch UI bugs early and maintain a seamless shopping experience...",
+        date: "April 28, 2026",
+        readTime: "8 min read",
+        image:
+          "https://images.unsplash.com/photo-1753998941488-fc3064ab6094?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/automated-ui-testing-ecommerce",
+      },
+      {
+        id: 10,
+        title: "Optimizing Shopify Core Web Vitals for SEO",
+        category: "Shopify Development",
+        desc: "Improve loading speed, visual stability, and responsiveness in Shopify to rank better and convert more visitors...",
+        date: "May 2, 2026",
+        readTime: "10 min read",
+        image:
+          "https://images.unsplash.com/photo-1563131630-79ca2b9b47f5?q=80&w=1200&auto=format&fit=crop",
+        url: "/blog/optimizing-shopify-core-web-vitals",
+      },
+    ],
+  },
 
   projects: {
     heading: "Our Work",
-       seeMoreText: "Discover",
+    seeMoreText: "Discover",
     seeMoreUrl: "/projects",
     list: [
-       {
-      id: 1,
-      industry: "Pet Care",
-      title: "Ruff Greens",
-      type: "Landing Pages",
-      image: "/assets/project/vet-approved-guide-2026.webp",
-      link: "https://ruffgreens.com/",
-    },
-    {
-      id: 2,
-      industry: "Household Supplies",
-      title: "Match With Nature",
-      type: "Websites",
-      image: "/assets/project/fragrance.webp",
-      link: "https://matchwithnature.com/",
-    },
-    {
-      id: 3,
-      industry: "Wireless Communication",
-      title: "Rapid Radios",
-      type: "Websites",
-      image: "/assets/project/rapid-radios.webp",
-      link: "https://rapidradios.com/",
-    },
-    {
-      id: 4,
-      industry: "Online Learning",
-      title: "Grooved Learning",
-      type: "E-commerce",
-      image: "/assets/project/codebreakers.webp",
-      link: "https://groovedlearning.com/",
-    },
-    {
-      id: 5,
-      industry: "Personal Protective Equipment",
-      title: "Safety Gear",
-      type: "E-commerce",
-      image: "/assets/project/safetgear.webp",
-      link: "https://www.safetygear.com/",
-    },
-    {
-      id: 6,
-      industry: "Jewelry & Accessories",
-      title: "Olivia & Pearl",
-      type: "Landing Pages",
-      image: "/assets/project/oliviapearl.webp",
-      link: "https://oliviaandpearl.com/",
-    },
-    {
-      id: 7,
-      industry: "Mattresses & Sleep Products",
-      title: "Sonno",
-      type: "Landing Pages",
-      image: "/assets/project/sonno.webp",
-      link: "https://www.sleepsonno.com/",
-    },
-    {
-      id: 8,
-      industry: "Fashion",
-      title: "Manto Store",
-      type: "E-commerce",
-      image: "/assets/project/manto.webp",
-      link: "https://www.manto.ae/",
-    },
-    {
-      id: 9,
-      industry: "Outdoor Play Equipment",
-      title: "Bijou Build",
-      type: "Landing Pages",
-      image: "/assets/project/bijoubuild.webp",
-      link: "https://bijoubuild.com/",
-    },
-    {
-      id: 10,
-      industry: "Business",
-      title: "Dan Henry Watches",
-      type: "Websites",
-      image: "/assets/project/danhenry.webp",
-      link: "https://danhenrywatches.com/",
-    }
+      {
+        id: 1,
+        industry: "Pet Care",
+        title: "Ruff Greens",
+        type: "Landing Pages",
+        image: "/assets/project/vet-approved-guide-2026.webp",
+        link: "https://ruffgreens.com/",
+      },
+      {
+        id: 2,
+        industry: "Household Supplies",
+        title: "Match With Nature",
+        type: "Websites",
+        image: "/assets/project/fragrance.webp",
+        link: "https://matchwithnature.com/",
+      },
+      {
+        id: 3,
+        industry: "Wireless Communication",
+        title: "Rapid Radios",
+        type: "Websites",
+        image: "/assets/project/rapid-radios.webp",
+        link: "https://rapidradios.com/",
+      },
+      {
+        id: 4,
+        industry: "Online Learning",
+        title: "Grooved Learning",
+        type: "E-commerce",
+        image: "/assets/project/codebreakers.webp",
+        link: "https://groovedlearning.com/",
+      },
+      {
+        id: 5,
+        industry: "Personal Protective Equipment",
+        title: "Safety Gear",
+        type: "E-commerce",
+        image: "/assets/project/safetgear.webp",
+        link: "https://www.safetygear.com/",
+      },
+      {
+        id: 6,
+        industry: "Jewelry & Accessories",
+        title: "Olivia & Pearl",
+        type: "Landing Pages",
+        image: "/assets/project/oliviapearl.webp",
+        link: "https://oliviaandpearl.com/",
+      },
+      {
+        id: 7,
+        industry: "Mattresses & Sleep Products",
+        title: "Sonno",
+        type: "Landing Pages",
+        image: "/assets/project/sonno.webp",
+        link: "https://www.sleepsonno.com/",
+      },
+      {
+        id: 8,
+        industry: "Fashion",
+        title: "Manto Store",
+        type: "E-commerce",
+        image: "/assets/project/manto.webp",
+        link: "https://www.manto.ae/",
+      },
+      {
+        id: 9,
+        industry: "Outdoor Play Equipment",
+        title: "Bijou Build",
+        type: "Landing Pages",
+        image: "/assets/project/bijoubuild.webp",
+        link: "https://bijoubuild.com/",
+      },
+      {
+        id: 10,
+        industry: "Business",
+        title: "Dan Henry Watches",
+        type: "Websites",
+        image: "/assets/project/danhenry.webp",
+        link: "https://danhenrywatches.com/",
+      },
     ],
   },
-footer: {
+  footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
     bio: "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development.",

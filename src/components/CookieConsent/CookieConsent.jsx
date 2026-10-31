@@ -30,7 +30,8 @@ const text = {
       },
       {
         title: "Analytics",
-        description: "Google Analytics (through Google Tag Manager) and Microsoft Clarity show us how visitors use the site so we can improve it. Turning this off deletes their cookies.",
+        description:
+          "Google Analytics (through Google Tag Manager) and Microsoft Clarity show us how visitors use the site so we can improve it. Turning this off deletes their cookies.",
         linkedCategory: "analytics",
       },
     ],
@@ -60,12 +61,17 @@ const CookieConsent = () => {
         },
         categories: {
           necessary: { enabled: true, readOnly: true },
-          analytics: { enabled: true, autoClear: { cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }] } },
+          analytics: {
+            enabled: true,
+            autoClear: {
+              cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }],
+            },
+          },
         },
         onConsent: () => apply(cc),
         onChange: () => apply(cc),
         language: { default: "en", translations: { en: text } },
-      })
+      }),
     );
 
     const onClick = (e) => {

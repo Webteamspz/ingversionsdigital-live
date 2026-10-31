@@ -125,7 +125,12 @@ const PromoBar = () => {
               <span className={styles.waLabel}>{whatsapp.label}</span>
             </a>
           )}
-          <button type="button" className={styles.close} onClick={dismiss} aria-label="Dismiss announcement">
+          <button
+            type="button"
+            className={styles.close}
+            onClick={dismiss}
+            aria-label="Dismiss announcement"
+          >
             <X size={16} />
           </button>
         </div>

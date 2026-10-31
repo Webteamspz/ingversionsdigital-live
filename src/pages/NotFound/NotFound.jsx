@@ -16,10 +16,13 @@ const NotFound = () => {
       <div className={styles.nfCard}>
         <h1 className={styles.nfTitle}>404</h1>
         <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
-        <Link to="/" className={styles.nfBtn}>Go Back Home</Link>
+        <Link to="/" className={styles.nfBtn}>
+          Go Back Home
+        </Link>
         <p className={styles.nfSubtitle}>
-          Or visit <Link to="/services">Services</Link>, <Link to="/case-studies">Case Studies</Link>,{" "}
-          <Link to="/pricing">Pricing</Link>, <Link to="/blog">Blog</Link> or <Link to="/about-us">About Us</Link>.
+          Or visit <Link to="/services">Services</Link>,{" "}
+          <Link to="/case-studies">Case Studies</Link>, <Link to="/pricing">Pricing</Link>,{" "}
+          <Link to="/blog">Blog</Link> or <Link to="/about-us">About Us</Link>.
         </p>
       </div>
     </section>

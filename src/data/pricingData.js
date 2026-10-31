@@ -195,7 +195,12 @@ export const brandCompare = {
         { label: "Tests per month", values: ["4", "6", "8", "Custom"] },
         {
           label: "Test types",
-          values: ["Simple + Standard", "+ Theme / template", "Complex (Price + Offer tests)", "All"],
+          values: [
+            "Simple + Standard",
+            "+ Theme / template",
+            "Complex (Price + Offer tests)",
+            "All",
+          ],
         },
         {
           label: "Research",
@@ -224,7 +229,10 @@ export const brandCompare = {
       title: "ANALYTICS & SEO",
       rows: [
         { label: "UI/UX audit", values: ["Basic", "Full", "Full", "Full"] },
-        { label: "Analytics review (GA4)", values: ["Tracking check", "Full audit", "Full audit", "Full audit"] },
+        {
+          label: "Analytics review (GA4)",
+          values: ["Tracking check", "Full audit", "Full audit", "Full audit"],
+        },
         {
           label: "GTM custom events",
           values: ["—", { icon: "check" }, { icon: "check" }, { icon: "check" }],
@@ -241,7 +249,12 @@ export const brandCompare = {
         },
         {
           label: "Reporting",
-          values: ["Bi-weekly", "Weekly + monthly call", "Weekly + live dashboard", "Per test + live dashboard"],
+          values: [
+            "Bi-weekly",
+            "Weekly + monthly call",
+            "Weekly + live dashboard",
+            "Per test + live dashboard",
+          ],
         },
       ],
     },
@@ -278,9 +291,18 @@ export const devCompare = {
     {
       title: "CAPACITY",
       rows: [
-        { label: "Tests", values: ["Pay as you go (complex)", "Within 80 h/mo", "Within 150 h/mo", "—"] },
-        { label: "Shopify dev hours", values: ["—", "Within 80 h/mo", "Within 150 h/mo", "20 or 50 h blocks"] },
-        { label: "Turnaround", values: ["3–5 days", "Start within 48 h", "Daily", "Agreed per task"] },
+        {
+          label: "Tests",
+          values: ["Pay as you go (complex)", "Within 80 h/mo", "Within 150 h/mo", "—"],
+        },
+        {
+          label: "Shopify dev hours",
+          values: ["—", "Within 80 h/mo", "Within 150 h/mo", "20 or 50 h blocks"],
+        },
+        {
+          label: "Turnaround",
+          values: ["3–5 days", "Start within 48 h", "Daily", "Agreed per task"],
+        },
       ],
     },
     {

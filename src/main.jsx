@@ -14,11 +14,11 @@ rootEl.removeAttribute("data-prerendered");
 const root = createRoot(rootEl);
 
 root.render(
-    <HelmetProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </HelmetProvider>
+  <HelmetProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>,
 );
 
 if (getConsent() !== "denied") {

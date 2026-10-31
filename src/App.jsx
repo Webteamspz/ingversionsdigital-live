@@ -22,7 +22,11 @@ const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
-const STUDY_PAGES = ["rapid-radios-shopify-cro-case-study", "ruff-greens-shopify-cro-case-study", "shopify-pdp-trust-badges-ab-test"];
+const STUDY_PAGES = [
+  "rapid-radios-shopify-cro-case-study",
+  "ruff-greens-shopify-cro-case-study",
+  "shopify-pdp-trust-badges-ab-test",
+];
 
 const ScrollManager = () => {
   const { pathname, hash, search, state, key } = useLocation();
@@ -42,19 +46,15 @@ const ScrollManager = () => {
       settle = setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 700);
     };
 
-    const existing =
-      document.getElementById(targetId);
+    const existing = document.getElementById(targetId);
 
     if (existing) {
       scrollToEl(existing);
       return () => clearTimeout(settle);
     }
 
-    
-    
     const observer = new MutationObserver(() => {
-      const el =
-        document.getElementById(targetId);
+      const el = document.getElementById(targetId);
       if (el) {
         scrollToEl(el);
         observer.disconnect();
@@ -66,8 +66,6 @@ const ScrollManager = () => {
       subtree: true,
     });
 
-    
-    
     const timeout = setTimeout(() => observer.disconnect(), 5000);
 
     return () => {
@@ -102,7 +100,11 @@ const App = () => (
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         {STUDY_PAGES.map((slug) => (
-          <Route key={slug} path={`/case-studies/${slug}`} element={<CaseStudy key={slug} slug={slug} />} />
+          <Route
+            key={slug}
+            path={`/case-studies/${slug}`}
+            element={<CaseStudy key={slug} slug={slug} />}
+          />
         ))}
         {Object.keys(servicePages).map((slug) => (
           <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />

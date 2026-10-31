@@ -4,236 +4,572 @@ export default {
   "ab-testing": {
     eyebrow: "Experimentation",
     title: "A/B Testing",
-    keywords: ["Split testing","Conversion rate optimization","Shopify CRO","Hypothesis-driven","Variant design","Test QA","Data-backed decisions"],
+    keywords: [
+      "Split testing",
+      "Conversion rate optimization",
+      "Shopify CRO",
+      "Hypothesis-driven",
+      "Variant design",
+      "Test QA",
+      "Data-backed decisions",
+    ],
     intro:
       "Stop guessing what your visitors want. We research, design, build and run structured A/B tests on your Shopify store, then scale the winners so every change is backed by data.",
-    seoKeywords: ["A/B testing services", "Shopify A/B testing", "split testing", "conversion rate optimization", "CRO agency", "ecommerce experimentation"],
+    seoKeywords: [
+      "A/B testing services",
+      "Shopify A/B testing",
+      "split testing",
+      "conversion rate optimization",
+      "CRO agency",
+      "ecommerce experimentation",
+    ],
     seoTitle: "A/B Testing & CRO Experiments for Shopify | Ingversions Digital",
     seoDescription:
       "Structured A/B testing for Shopify and ecommerce brands: research-led hypotheses, designed and coded variants, QA and clear results you can act on.",
     flow: "ab-testing",
     pricing: "plans",
     pricingHeading: "Simple monthly plans",
-    pricingSub: "Pick the testing velocity that fits your growth stage. Every plan includes strategy, test builds and reporting.",
+    pricingSub:
+      "Pick the testing velocity that fits your growth stage. Every plan includes strategy, test builds and reporting.",
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "What's included",
     included: [
-      { title: "Research & hypotheses", desc: "We study your data and user behaviour to find what's holding conversions back, then turn it into testable ideas." },
-      { title: "Designed variants", desc: "Every variant is designed in Figma for mobile and desktop before a line of code is written." },
-      { title: "Clean test builds", desc: "Variants are coded properly, version-controlled and set up in your testing tool." },
-      { title: "QA before launch", desc: "Each test is checked across devices and browsers so the data you collect is trustworthy." },
-      { title: "Loom walkthroughs", desc: "You get a recorded walkthrough of every test, so you always know what changed and why." },
-      { title: "Clear reporting", desc: "Results are reported in plain language, with a recommendation on what to ship next." },
+      {
+        title: "Research & hypotheses",
+        desc: "We study your data and user behaviour to find what's holding conversions back, then turn it into testable ideas.",
+      },
+      {
+        title: "Designed variants",
+        desc: "Every variant is designed in Figma for mobile and desktop before a line of code is written.",
+      },
+      {
+        title: "Clean test builds",
+        desc: "Variants are coded properly, version-controlled and set up in your testing tool.",
+      },
+      {
+        title: "QA before launch",
+        desc: "Each test is checked across devices and browsers so the data you collect is trustworthy.",
+      },
+      {
+        title: "Loom walkthroughs",
+        desc: "You get a recorded walkthrough of every test, so you always know what changed and why.",
+      },
+      {
+        title: "Clear reporting",
+        desc: "Results are reported in plain language, with a recommendation on what to ship next.",
+      },
     ],
     posts: [
-      { slug: "multivariate-vs-ab-testing", title: "Multivariate vs A/B Testing: When to Use Which" },
-      { slug: "how-long-to-run-ab-test", title: "How Long Should You Run an A/B Test? A Practical Framework" },
-      { slug: "calculate-statistical-significance", title: "How to Calculate Statistical Significance in Tests" },
-      { slug: "sample-ratio-mismatch-ab-testing", title: "Sample Ratio Mismatch: The Silent A/B Test Killer" },
-      { slug: "reading-ab-test-results-without-fooling-yourself", title: "Reading A/B Test Results Without Fooling Yourself" },
+      {
+        slug: "multivariate-vs-ab-testing",
+        title: "Multivariate vs A/B Testing: When to Use Which",
+      },
+      {
+        slug: "how-long-to-run-ab-test",
+        title: "How Long Should You Run an A/B Test? A Practical Framework",
+      },
+      {
+        slug: "calculate-statistical-significance",
+        title: "How to Calculate Statistical Significance in Tests",
+      },
+      {
+        slug: "sample-ratio-mismatch-ab-testing",
+        title: "Sample Ratio Mismatch: The Silent A/B Test Killer",
+      },
+      {
+        slug: "reading-ab-test-results-without-fooling-yourself",
+        title: "Reading A/B Test Results Without Fooling Yourself",
+      },
       { slug: "ab-testing-mistakes-cost-money", title: "A/B Testing Mistakes That Cost You Money" },
     ],
     faqHeading: "A/B Testing FAQs",
     faq: [
-      { q: "How long does an A/B test run?", a: "Until it reaches enough traffic and conversions to give a reliable answer. We agree the target before launch, so tests aren't stopped early on a lucky streak." },
-      { q: "Will testing slow down my store?", a: "Variants are built to be lightweight and are QA'd before launch, so visitors get a fast, flicker-free experience." },
-      { q: "Which testing tools do you use?", a: "We work in your existing testing tool, such as Convert, or help you choose and set one up." },
-      { q: "What happens when a test wins?", a: "We recommend the winner, and can build it permanently into your theme so the gain sticks." },
+      {
+        q: "How long does an A/B test run?",
+        a: "Until it reaches enough traffic and conversions to give a reliable answer. We agree the target before launch, so tests aren't stopped early on a lucky streak.",
+      },
+      {
+        q: "Will testing slow down my store?",
+        a: "Variants are built to be lightweight and are QA'd before launch, so visitors get a fast, flicker-free experience.",
+      },
+      {
+        q: "Which testing tools do you use?",
+        a: "We work in your existing testing tool, such as Convert, or help you choose and set one up.",
+      },
+      {
+        q: "What happens when a test wins?",
+        a: "We recommend the winner, and can build it permanently into your theme so the gain sticks.",
+      },
     ],
   },
   "shopify-development": {
     eyebrow: "Shopify & Shopify Plus",
     title: "Shopify Development",
-    keywords: ["Shopify themes","Shopify Plus","Custom sections","Store speed","Theme customization","No page builders"],
+    keywords: [
+      "Shopify themes",
+      "Shopify Plus",
+      "Custom sections",
+      "Store speed",
+      "Theme customization",
+      "No page builders",
+    ],
     intro:
       "Custom Shopify themes and features built natively for speed and conversions. No page builders, no bloat: just a store that's fast, flexible and easy for your team to run.",
-    seoKeywords: ["Shopify development", "Shopify developer", "custom Shopify theme", "Shopify Plus development", "Shopify theme customization", "Shopify speed optimization"],
+    seoKeywords: [
+      "Shopify development",
+      "Shopify developer",
+      "custom Shopify theme",
+      "Shopify Plus development",
+      "Shopify theme customization",
+      "Shopify speed optimization",
+    ],
     seoTitle: "Shopify Development & Custom Themes | Ingversions Digital",
     seoDescription:
       "Custom Shopify and Shopify Plus development: native themes, sections and features built for performance, conversions and easy editing.",
     flow: "shopify",
     pricing: "engagement",
     pricingHeading: "Pricing that fits the project",
-    pricingSub: "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
+    pricingSub:
+      "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "What's included",
     included: [
-      { title: "Custom themes", desc: "Themes designed for your brand and built natively in Shopify." },
-      { title: "Theme sections", desc: "Reusable sections your team can edit in the theme editor without a developer." },
-      { title: "Store features", desc: "Custom functionality built to fit how your store actually sells." },
-      { title: "Speed & performance", desc: "Lean code and optimised assets so pages load fast on every device." },
-      { title: "Shopify Plus", desc: "Support for Plus stores, from checkout customisation to multi-store setups." },
-      { title: "Handover & support", desc: "A full handover when we launch, and ongoing support when you need it." },
+      {
+        title: "Custom themes",
+        desc: "Themes designed for your brand and built natively in Shopify.",
+      },
+      {
+        title: "Theme sections",
+        desc: "Reusable sections your team can edit in the theme editor without a developer.",
+      },
+      {
+        title: "Store features",
+        desc: "Custom functionality built to fit how your store actually sells.",
+      },
+      {
+        title: "Speed & performance",
+        desc: "Lean code and optimised assets so pages load fast on every device.",
+      },
+      {
+        title: "Shopify Plus",
+        desc: "Support for Plus stores, from checkout customisation to multi-store setups.",
+      },
+      {
+        title: "Handover & support",
+        desc: "A full handover when we launch, and ongoing support when you need it.",
+      },
     ],
     posts: [
-      { slug: "optimizing-shopify-core-web-vitals", title: "Optimizing Shopify Core Web Vitals for SEO" },
-      { slug: "shopify-technical-seo-checklist", title: "Shopify SEO: A Technical Checklist for 2026" },
-      { slug: "shopify-store-speed-optimization-checklist", title: "Speeding Up Your Shopify Store: A Practical Checklist" },
-      { slug: "migrating-to-shopify-plus", title: "Migrating to Shopify Plus: What You Need to Know" },
-      { slug: "headless-shopify-is-it-right-for-your-brand", title: "Headless Shopify: Is It Right for Your Brand?" },
-      { slug: "shopify-theme-customizations-boost-sales", title: "5 Shopify Theme Customizations That Boost Sales" },
-      { slug: "shopify-canvas-ai-store-builder", title: "Shopify Canvas: Build Your Store by Chatting With AI" },
+      {
+        slug: "optimizing-shopify-core-web-vitals",
+        title: "Optimizing Shopify Core Web Vitals for SEO",
+      },
+      {
+        slug: "shopify-technical-seo-checklist",
+        title: "Shopify SEO: A Technical Checklist for 2026",
+      },
+      {
+        slug: "shopify-store-speed-optimization-checklist",
+        title: "Speeding Up Your Shopify Store: A Practical Checklist",
+      },
+      {
+        slug: "migrating-to-shopify-plus",
+        title: "Migrating to Shopify Plus: What You Need to Know",
+      },
+      {
+        slug: "headless-shopify-is-it-right-for-your-brand",
+        title: "Headless Shopify: Is It Right for Your Brand?",
+      },
+      {
+        slug: "shopify-theme-customizations-boost-sales",
+        title: "5 Shopify Theme Customizations That Boost Sales",
+      },
+      {
+        slug: "shopify-canvas-ai-store-builder",
+        title: "Shopify Canvas: Build Your Store by Chatting With AI",
+      },
       { slug: "shopify-canvas-first-look", title: "Inside Shopify Canvas: A Hands-On First Look" },
-      { slug: "shopify-canvas-vs-theme-editor", title: "Shopify Canvas vs the Theme Editor: What Actually Changes?" },
+      {
+        slug: "shopify-canvas-vs-theme-editor",
+        title: "Shopify Canvas vs the Theme Editor: What Actually Changes?",
+      },
     ],
     faqHeading: "Shopify Development FAQs",
     faq: [
-      { q: "Can you work on my existing theme?", a: "Yes. We can extend and improve your current theme, or build a new one if that's the better long-term option." },
-      { q: "Do you use page builders?", a: "No. We build natively in Shopify, which keeps your store faster and easier to maintain." },
-      { q: "Will I be able to edit the store myself?", a: "Yes. We build editable sections so your team can update content without touching code." },
-      { q: "Do you work with Shopify Plus?", a: "Yes, we build for both standard Shopify and Shopify Plus stores." },
+      {
+        q: "Can you work on my existing theme?",
+        a: "Yes. We can extend and improve your current theme, or build a new one if that's the better long-term option.",
+      },
+      {
+        q: "Do you use page builders?",
+        a: "No. We build natively in Shopify, which keeps your store faster and easier to maintain.",
+      },
+      {
+        q: "Will I be able to edit the store myself?",
+        a: "Yes. We build editable sections so your team can update content without touching code.",
+      },
+      {
+        q: "Do you work with Shopify Plus?",
+        a: "Yes, we build for both standard Shopify and Shopify Plus stores.",
+      },
     ],
   },
   "quality-assurance": {
     eyebrow: "Ship With Confidence",
     title: "Quality Assurance",
-    keywords: ["Cross-browser testing","Mobile testing","Bug reporting","Checkout testing","Regression testing","Release sign-off"],
+    keywords: [
+      "Cross-browser testing",
+      "Mobile testing",
+      "Bug reporting",
+      "Checkout testing",
+      "Regression testing",
+      "Release sign-off",
+    ],
     intro:
       "End-to-end QA that catches bugs before your customers do. We test every page, flow and device that matters, log what's broken and retest every fix before it goes live.",
-    seoKeywords: ["Shopify QA testing", "website quality assurance", "cross-browser testing", "ecommerce QA", "regression testing", "mobile testing"],
+    seoKeywords: [
+      "Shopify QA testing",
+      "website quality assurance",
+      "cross-browser testing",
+      "ecommerce QA",
+      "regression testing",
+      "mobile testing",
+    ],
     seoTitle: "Website & Shopify Quality Assurance | Ingversions Digital",
     seoDescription:
       "End-to-end quality assurance for Shopify and ecommerce sites: cross-device testing, clear bug reports and verified fixes before launch.",
     flow: "qa",
     pricing: "engagement",
     pricingHeading: "Pricing that fits the project",
-    pricingSub: "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
+    pricingSub:
+      "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "What's included",
     included: [
-      { title: "Test planning", desc: "We map the pages, flows and features that need checking before anything is tested." },
-      { title: "Cross-device testing", desc: "Testing across the browsers and devices your visitors actually use." },
-      { title: "Functional testing", desc: "Every flow, from browsing to checkout, checked against a clear checklist." },
-      { title: "Clear bug reports", desc: "Each issue is logged with screenshots and steps to reproduce." },
-      { title: "Fix verification", desc: "Every fix is retested before it's closed, so nothing slips through." },
-      { title: "Release sign-off", desc: "A final check and approval before your changes go live." },
+      {
+        title: "Test planning",
+        desc: "We map the pages, flows and features that need checking before anything is tested.",
+      },
+      {
+        title: "Cross-device testing",
+        desc: "Testing across the browsers and devices your visitors actually use.",
+      },
+      {
+        title: "Functional testing",
+        desc: "Every flow, from browsing to checkout, checked against a clear checklist.",
+      },
+      {
+        title: "Clear bug reports",
+        desc: "Each issue is logged with screenshots and steps to reproduce.",
+      },
+      {
+        title: "Fix verification",
+        desc: "Every fix is retested before it's closed, so nothing slips through.",
+      },
+      {
+        title: "Release sign-off",
+        desc: "A final check and approval before your changes go live.",
+      },
     ],
     posts: [
-      { slug: "accessibility-testing-wcag-ecommerce", title: "Accessibility Testing: WCAG Compliance for E-commerce Sites" },
-      { slug: "qa-checklist-before-launching-store", title: "Essential QA Checklists Before Launching Your Store" },
-      { slug: "regression-testing-shopify-releases", title: "Regression Testing Strategies for Frequent Shopify Releases" },
-      { slug: "cross-browser-testing-nightmares", title: "Cross-Browser Testing Nightmares and How to Avoid Them" },
-      { slug: "prelaunch-qa-process-that-scales", title: "Building a Pre-Launch QA Process That Scales" },
-      { slug: "automated-ui-testing-ecommerce", title: "Automated UI Testing for E-commerce Websites" },
+      {
+        slug: "accessibility-testing-wcag-ecommerce",
+        title: "Accessibility Testing: WCAG Compliance for E-commerce Sites",
+      },
+      {
+        slug: "qa-checklist-before-launching-store",
+        title: "Essential QA Checklists Before Launching Your Store",
+      },
+      {
+        slug: "regression-testing-shopify-releases",
+        title: "Regression Testing Strategies for Frequent Shopify Releases",
+      },
+      {
+        slug: "cross-browser-testing-nightmares",
+        title: "Cross-Browser Testing Nightmares and How to Avoid Them",
+      },
+      {
+        slug: "prelaunch-qa-process-that-scales",
+        title: "Building a Pre-Launch QA Process That Scales",
+      },
+      {
+        slug: "automated-ui-testing-ecommerce",
+        title: "Automated UI Testing for E-commerce Websites",
+      },
     ],
     faqHeading: "Quality Assurance FAQs",
     faq: [
-      { q: "Can you QA work built by another team?", a: "Yes. We can test any site or feature, whoever built it, and report back to your developers." },
-      { q: "Which devices do you test on?", a: "We agree a device and browser list based on your visitors, covering mobile, tablet and desktop." },
-      { q: "Do you fix the bugs you find?", a: "We can. Our developers can fix issues directly, or we hand clear reports to your team." },
-      { q: "Do you QA A/B tests?", a: "Yes, every test we run is QA'd before launch, and we can QA tests built by others too." },
+      {
+        q: "Can you QA work built by another team?",
+        a: "Yes. We can test any site or feature, whoever built it, and report back to your developers.",
+      },
+      {
+        q: "Which devices do you test on?",
+        a: "We agree a device and browser list based on your visitors, covering mobile, tablet and desktop.",
+      },
+      {
+        q: "Do you fix the bugs you find?",
+        a: "We can. Our developers can fix issues directly, or we hand clear reports to your team.",
+      },
+      {
+        q: "Do you QA A/B tests?",
+        a: "Yes, every test we run is QA'd before launch, and we can QA tests built by others too.",
+      },
     ],
   },
   "wordpress-development": {
     eyebrow: "Custom Builds",
     title: "WordPress Development",
-    keywords: ["Custom WordPress themes","Gutenberg blocks","Site speed","Responsive design","WordPress support"],
+    keywords: [
+      "Custom WordPress themes",
+      "Gutenberg blocks",
+      "Site speed",
+      "Responsive design",
+      "WordPress support",
+    ],
     intro:
       "Custom WordPress themes and sites built for performance and easy editing. A fast, secure site your team can update without fighting the editor.",
-    seoKeywords: ["WordPress development", "custom WordPress theme", "WordPress developer", "Gutenberg blocks", "WordPress speed optimization"],
+    seoKeywords: [
+      "WordPress development",
+      "custom WordPress theme",
+      "WordPress developer",
+      "Gutenberg blocks",
+      "WordPress speed optimization",
+    ],
     seoTitle: "Custom WordPress Development | Ingversions Digital",
     seoDescription:
       "Custom WordPress development: fast, secure themes and Gutenberg blocks your team can edit easily, built for SEO and Core Web Vitals, with full QA before launch.",
     flow: "wordpress",
     pricing: "engagement",
     pricingHeading: "Pricing that fits the project",
-    pricingSub: "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
+    pricingSub:
+      "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "What's included",
     included: [
-      { title: "Custom themes", desc: "Themes designed for your brand and built from the ground up." },
-      { title: "Easy editing", desc: "Flexible blocks and layouts your team can manage without a developer." },
+      {
+        title: "Custom themes",
+        desc: "Themes designed for your brand and built from the ground up.",
+      },
+      {
+        title: "Easy editing",
+        desc: "Flexible blocks and layouts your team can manage without a developer.",
+      },
       { title: "Speed & performance", desc: "Lean, well-structured code so pages load fast." },
-      { title: "Responsive design", desc: "Every page built to work across mobile, tablet and desktop." },
-      { title: "Plugins & integrations", desc: "The plugins and tools you need, set up and kept to a minimum." },
+      {
+        title: "Responsive design",
+        desc: "Every page built to work across mobile, tablet and desktop.",
+      },
+      {
+        title: "Plugins & integrations",
+        desc: "The plugins and tools you need, set up and kept to a minimum.",
+      },
       { title: "Launch & support", desc: "A smooth go-live, plus ongoing support and updates." },
     ],
     faqHeading: "WordPress Development FAQs",
     faq: [
-      { q: "Can you redesign my existing WordPress site?", a: "Yes. We can rebuild or refresh your current site while keeping your content." },
-      { q: "Will I be able to update content myself?", a: "Yes. We build editable blocks and layouts so your team stays in control." },
-      { q: "Do you use page builders?", a: "We build custom themes, which keeps the site faster and easier to maintain." },
-      { q: "Do you offer support after launch?", a: "Yes, we can handle updates, fixes and new features after go-live." },
+      {
+        q: "Can you redesign my existing WordPress site?",
+        a: "Yes. We can rebuild or refresh your current site while keeping your content.",
+      },
+      {
+        q: "Will I be able to update content myself?",
+        a: "Yes. We build editable blocks and layouts so your team stays in control.",
+      },
+      {
+        q: "Do you use page builders?",
+        a: "We build custom themes, which keeps the site faster and easier to maintain.",
+      },
+      {
+        q: "Do you offer support after launch?",
+        a: "Yes, we can handle updates, fixes and new features after go-live.",
+      },
     ],
   },
   "landing-page-personalization": {
     eyebrow: "Personalization",
     title: "Landing Page Personalization",
-    keywords: ["Dynamic content","Audience targeting","Ad-to-page matching","Landing page design","Conversion lift"],
+    keywords: [
+      "Dynamic content",
+      "Audience targeting",
+      "Ad-to-page matching",
+      "Landing page design",
+      "Conversion lift",
+    ],
     intro:
       "Landing pages that adapt to who's visiting. We tailor messaging, offers and layouts to each audience so more of your traffic turns into customers.",
-    seoKeywords: ["landing page personalization", "personalized landing pages", "Shopify personalization", "ad to landing page match", "conversion optimization"],
+    seoKeywords: [
+      "landing page personalization",
+      "personalized landing pages",
+      "Shopify personalization",
+      "ad to landing page match",
+      "conversion optimization",
+    ],
     seoTitle: "Landing Page Personalization | Ingversions Digital",
     seoDescription:
       "Landing page personalization for Shopify and ecommerce brands: messaging, offers and layouts matched to each audience and ad campaign, A/B tested to lift conversions.",
     flow: "landing-page",
     pricing: "engagement",
     pricingHeading: "Pricing that fits the project",
-    pricingSub: "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
+    pricingSub:
+      "Every project is quoted to its scope. Choose the engagement that suits how you like to work.",
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "What's included",
     included: [
-      { title: "Audience mapping", desc: "We identify the audiences and traffic sources worth tailoring pages for." },
-      { title: "Tailored messaging", desc: "Headlines, offers and proof matched to what each audience cares about." },
-      { title: "Page design", desc: "Landing pages designed for mobile first and built to convert." },
-      { title: "Dynamic content", desc: "Content that changes based on campaign, source or visitor type." },
-      { title: "Testing", desc: "Personalized pages tested against the default to prove the lift." },
+      {
+        title: "Audience mapping",
+        desc: "We identify the audiences and traffic sources worth tailoring pages for.",
+      },
+      {
+        title: "Tailored messaging",
+        desc: "Headlines, offers and proof matched to what each audience cares about.",
+      },
+      {
+        title: "Page design",
+        desc: "Landing pages designed for mobile first and built to convert.",
+      },
+      {
+        title: "Dynamic content",
+        desc: "Content that changes based on campaign, source or visitor type.",
+      },
+      {
+        title: "Testing",
+        desc: "Personalized pages tested against the default to prove the lift.",
+      },
       { title: "Ongoing optimization", desc: "We keep refining pages as results come in." },
     ],
     posts: [
-      { slug: "personalization-tactics-lift-conversions", title: "Personalization Tactics That Actually Lift Conversion Rate" },
-      { slug: "psychology-high-converting-landing-pages", title: "The Psychology of High-Converting Landing Pages" },
+      {
+        slug: "personalization-tactics-lift-conversions",
+        title: "Personalization Tactics That Actually Lift Conversion Rate",
+      },
+      {
+        slug: "psychology-high-converting-landing-pages",
+        title: "The Psychology of High-Converting Landing Pages",
+      },
       { slug: "designing-product-pages-that-sell", title: "Designing Product Pages That Sell" },
-      { slug: "micro-commitments-better-funnels", title: "Micro-Commitments: The Secret to Better Funnels" },
+      {
+        slug: "micro-commitments-better-funnels",
+        title: "Micro-Commitments: The Secret to Better Funnels",
+      },
     ],
     faqHeading: "Personalization FAQs",
     faq: [
-      { q: "What can be personalized?", a: "Headlines, images, offers, layouts and calls to action, based on campaign, traffic source or visitor type." },
-      { q: "Does this work with my ads?", a: "Yes. We can match landing pages to your ad campaigns so the message carries through from click to page." },
-      { q: "How do you know it's working?", a: "We test personalized pages against your default page, so every change is measured." },
-      { q: "Do I need a new website?", a: "No. Personalized pages can be built on your existing Shopify or WordPress site." },
+      {
+        q: "What can be personalized?",
+        a: "Headlines, images, offers, layouts and calls to action, based on campaign, traffic source or visitor type.",
+      },
+      {
+        q: "Does this work with my ads?",
+        a: "Yes. We can match landing pages to your ad campaigns so the message carries through from click to page.",
+      },
+      {
+        q: "How do you know it's working?",
+        a: "We test personalized pages against your default page, so every change is measured.",
+      },
+      {
+        q: "Do I need a new website?",
+        a: "No. Personalized pages can be built on your existing Shopify or WordPress site.",
+      },
     ],
   },
 
   "shopify-cro-agency": {
     eyebrow: "Shopify CRO Agency",
     title: "Shopify CRO Agency for DTC Brands",
-    keywords: ["Shopify CRO","Conversion rate optimization","A/B testing","Shopify Plus","Product page testing","Checkout optimization"],
+    keywords: [
+      "Shopify CRO",
+      "Conversion rate optimization",
+      "A/B testing",
+      "Shopify Plus",
+      "Product page testing",
+      "Checkout optimization",
+    ],
     intro:
       "You're paying for traffic that doesn't convert. We're a Shopify CRO agency that finds why, tests the fix, and ships the winners into your theme, so your existing ad spend brings in more revenue.",
-    seoKeywords: ["Shopify CRO agency", "Shopify conversion rate optimization", "ecommerce CRO agency", "Shopify Plus CRO", "CRO services"],
+    seoKeywords: [
+      "Shopify CRO agency",
+      "Shopify conversion rate optimization",
+      "ecommerce CRO agency",
+      "Shopify Plus CRO",
+      "CRO services",
+    ],
     seoTitle: "Shopify CRO Agency | Conversion Rate Optimization | Ingversions Digital",
     seoDescription:
       "Shopify CRO agency for DTC brands: research, A/B tests designed in Figma, clean builds, full QA and winners shipped into your theme. First test build free.",
     flow: "ab-testing",
     pricing: "plans",
     pricingHeading: "CRO plans with clear prices",
-    pricingSub: "Pick the testing speed that fits your traffic. Every plan includes full QA on every test.",
+    pricingSub:
+      "Pick the testing speed that fits your traffic. Every plan includes full QA on every test.",
     cta: { label: "Claim Your Free Test Build", href: CALENDLY },
     includedHeading: "What you get from our CRO program",
     included: [
-      { title: "Conversion research", desc: "Analytics, heatmaps, session recordings and reviews to find where shoppers drop off and why." },
-      { title: "Prioritised test roadmap", desc: "Ideas ranked by expected impact and effort, so the biggest wins get tested first." },
-      { title: "Figma variant designs", desc: "Every variation designed for mobile and desktop before any code is written." },
-      { title: "Clean test builds", desc: "Variants coded, pushed to Git and set up in your testing tool." },
-      { title: "Full QA on every test", desc: "Checked across devices and browsers so your data can be trusted." },
-      { title: "Winners shipped", desc: "Winning variations built permanently into your Shopify theme so the lift sticks." },
+      {
+        title: "Conversion research",
+        desc: "Analytics, heatmaps, session recordings and reviews to find where shoppers drop off and why.",
+      },
+      {
+        title: "Prioritised test roadmap",
+        desc: "Ideas ranked by expected impact and effort, so the biggest wins get tested first.",
+      },
+      {
+        title: "Figma variant designs",
+        desc: "Every variation designed for mobile and desktop before any code is written.",
+      },
+      {
+        title: "Clean test builds",
+        desc: "Variants coded, pushed to Git and set up in your testing tool.",
+      },
+      {
+        title: "Full QA on every test",
+        desc: "Checked across devices and browsers so your data can be trusted.",
+      },
+      {
+        title: "Winners shipped",
+        desc: "Winning variations built permanently into your Shopify theme so the lift sticks.",
+      },
     ],
     faqHeading: "Shopify CRO FAQs",
     faq: [
-      { q: "What does a Shopify CRO agency actually do?", a: "We find where your store loses buyers, test fixes with A/B tests, and keep the changes that measurably lift conversions and revenue." },
-      { q: "How much traffic do I need?", a: "Enough for tests to reach a reliable answer in a few weeks. Use our free A/B test calculator to check, or we'll check it on a call." },
-      { q: "Do you work with Shopify Plus?", a: "Yes, we work with both Shopify and Shopify Plus stores." },
-      { q: "Is the first test really free?", a: "Yes. We design, build and QA your first test at no cost, so you can judge our work before you pay." },
+      {
+        q: "What does a Shopify CRO agency actually do?",
+        a: "We find where your store loses buyers, test fixes with A/B tests, and keep the changes that measurably lift conversions and revenue.",
+      },
+      {
+        q: "How much traffic do I need?",
+        a: "Enough for tests to reach a reliable answer in a few weeks. Use our free A/B test calculator to check, or we'll check it on a call.",
+      },
+      {
+        q: "Do you work with Shopify Plus?",
+        a: "Yes, we work with both Shopify and Shopify Plus stores.",
+      },
+      {
+        q: "Is the first test really free?",
+        a: "Yes. We design, build and QA your first test at no cost, so you can judge our work before you pay.",
+      },
     ],
   },
   "shopify-ab-testing-services": {
     eyebrow: "Shopify A/B Testing",
     title: "Shopify A/B Testing Services",
-    keywords: ["Shopify A/B testing","Split testing","Product page tests","Cart drawer tests","Offer tests","Statistical significance"],
+    keywords: [
+      "Shopify A/B testing",
+      "Split testing",
+      "Product page tests",
+      "Cart drawer tests",
+      "Offer tests",
+      "Statistical significance",
+    ],
     intro:
       "Structured A/B testing for Shopify stores, from hypothesis to winner. We design, build, QA and launch every test, then report results in plain language with a clear next step.",
-    seoKeywords: ["Shopify A/B testing services", "Shopify split testing", "product page A/B testing", "A/B testing agency", "Shopify experimentation"],
+    seoKeywords: [
+      "Shopify A/B testing services",
+      "Shopify split testing",
+      "product page A/B testing",
+      "A/B testing agency",
+      "Shopify experimentation",
+    ],
     seoTitle: "Shopify A/B Testing Services | Ingversions Digital",
     seoDescription:
       "Shopify A/B testing services: hypotheses from real data, Figma variants, clean builds in your testing tool, full QA and clear results. First test build free.",
@@ -244,28 +580,68 @@ export default {
     cta: { label: "Claim Your Free Test Build", href: CALENDLY },
     includedHeading: "Every test includes",
     included: [
-      { title: "A clear hypothesis", desc: "What we're changing, why, and what result would prove it." },
-      { title: "Loom walkthrough", desc: "A recorded walkthrough of the idea before anything is built." },
+      {
+        title: "A clear hypothesis",
+        desc: "What we're changing, why, and what result would prove it.",
+      },
+      {
+        title: "Loom walkthrough",
+        desc: "A recorded walkthrough of the idea before anything is built.",
+      },
       { title: "Figma designs", desc: "Each variation designed for mobile and desktop." },
-      { title: "Build in your tool", desc: "Built in VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift or the tool you use." },
-      { title: "Cross-device QA", desc: "Every variation checked before launch, so no test runs broken." },
-      { title: "Results you can act on", desc: "Plain-language results with confidence levels and a recommendation." },
+      {
+        title: "Build in your tool",
+        desc: "Built in VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift or the tool you use.",
+      },
+      {
+        title: "Cross-device QA",
+        desc: "Every variation checked before launch, so no test runs broken.",
+      },
+      {
+        title: "Results you can act on",
+        desc: "Plain-language results with confidence levels and a recommendation.",
+      },
     ],
     faqHeading: "Shopify A/B Testing FAQs",
     faq: [
-      { q: "What can you test on Shopify?", a: "Product pages, collection pages, the cart drawer, navigation, offers, pricing and shipping messaging, and theme templates." },
-      { q: "How long does a test run?", a: "Until it reaches the sample size agreed before launch, usually 2–4 weeks for a directional answer." },
-      { q: "Which testing tools do you support?", a: "VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift and more." },
-      { q: "Will tests slow down my store?", a: "Variants are built lean and checked before launch to avoid flicker and slow pages." },
+      {
+        q: "What can you test on Shopify?",
+        a: "Product pages, collection pages, the cart drawer, navigation, offers, pricing and shipping messaging, and theme templates.",
+      },
+      {
+        q: "How long does a test run?",
+        a: "Until it reaches the sample size agreed before launch, usually 2–4 weeks for a directional answer.",
+      },
+      {
+        q: "Which testing tools do you support?",
+        a: "VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift and more.",
+      },
+      {
+        q: "Will tests slow down my store?",
+        a: "Variants are built lean and checked before launch to avoid flicker and slow pages.",
+      },
     ],
   },
   "shopify-plus-development-qa": {
     eyebrow: "Shopify Plus",
     title: "Shopify Plus Development & QA",
-    keywords: ["Shopify Plus","Theme development","Checkout customisation","Regression testing","Release QA","Multi-store"],
+    keywords: [
+      "Shopify Plus",
+      "Theme development",
+      "Checkout customisation",
+      "Regression testing",
+      "Release QA",
+      "Multi-store",
+    ],
     intro:
       "Shopify Plus development with QA built in. We build themes, sections and Plus features, then test every release across devices and browsers so nothing breaks in front of your customers.",
-    seoKeywords: ["Shopify Plus development", "Shopify Plus agency", "Checkout Extensibility", "Shopify Functions", "Shopify Plus QA"],
+    seoKeywords: [
+      "Shopify Plus development",
+      "Shopify Plus agency",
+      "Checkout Extensibility",
+      "Shopify Functions",
+      "Shopify Plus QA",
+    ],
     seoTitle: "Shopify Plus Development & QA | Ingversions Digital",
     seoDescription:
       "Shopify Plus development and quality assurance: native theme builds, checkout customisation and regression testing before every release.",
@@ -278,26 +654,61 @@ export default {
     included: [
       { title: "Plus theme builds", desc: "Native Shopify themes and sections, no page builders." },
       { title: "Checkout customisation", desc: "Plus checkout changes built and tested properly." },
-      { title: "Multi-store support", desc: "Changes rolled out consistently across stores and regions." },
-      { title: "Regression QA", desc: "Key flows retested before every release so old features keep working." },
-      { title: "Clear bug reports", desc: "Every issue logged with steps to reproduce, fixed and retested." },
+      {
+        title: "Multi-store support",
+        desc: "Changes rolled out consistently across stores and regions.",
+      },
+      {
+        title: "Regression QA",
+        desc: "Key flows retested before every release so old features keep working.",
+      },
+      {
+        title: "Clear bug reports",
+        desc: "Every issue logged with steps to reproduce, fixed and retested.",
+      },
       { title: "Release sign-off", desc: "Nothing goes live until it has passed QA." },
     ],
     faqHeading: "Shopify Plus FAQs",
     faq: [
-      { q: "Do you only work on Shopify Plus?", a: "No, we build for standard Shopify too. Plus stores get extra checkout and multi-store support." },
-      { q: "Can you test releases from another team?", a: "Yes. We can QA work from your in-house team or another agency before it goes live." },
-      { q: "Which devices do you test on?", a: "The browsers and devices your visitors actually use, agreed at the start." },
-      { q: "Do you write automated tests?", a: "Where it pays off, yes, alongside manual checks of the key flows." },
+      {
+        q: "Do you only work on Shopify Plus?",
+        a: "No, we build for standard Shopify too. Plus stores get extra checkout and multi-store support.",
+      },
+      {
+        q: "Can you test releases from another team?",
+        a: "Yes. We can QA work from your in-house team or another agency before it goes live.",
+      },
+      {
+        q: "Which devices do you test on?",
+        a: "The browsers and devices your visitors actually use, agreed at the start.",
+      },
+      {
+        q: "Do you write automated tests?",
+        a: "Where it pays off, yes, alongside manual checks of the key flows.",
+      },
     ],
   },
   "white-label-ab-testing-development-for-agencies": {
     eyebrow: "For Agencies",
     title: "White-Label A/B Testing Development for Agencies",
-    keywords: ["White label","Test development","Agency partner","Convert","VWO","Intelligems","QA"],
+    keywords: [
+      "White label",
+      "Test development",
+      "Agency partner",
+      "Convert",
+      "VWO",
+      "Intelligems",
+      "QA",
+    ],
     intro:
       "Your strategists plan the tests; we build them. White-label A/B test development and QA for CRO and ecommerce agencies, delivered under your brand, in your tools.",
-    seoKeywords: ["white label A/B testing", "A/B test development", "CRO agency partner", "white label Shopify development", "test development for agencies"],
+    seoKeywords: [
+      "white label A/B testing",
+      "A/B test development",
+      "CRO agency partner",
+      "white label Shopify development",
+      "test development for agencies",
+    ],
     seoTitle: "White-Label A/B Testing Development for Agencies | Ingversions Digital",
     seoDescription:
       "White-label A/B test development for agencies: tests built in VWO, Optimizely, Convert, AB Tasty, Intelligems or Shoplift, with full QA. Complex tests 50% off.",
@@ -308,28 +719,62 @@ export default {
     cta: { label: "Get Your First Test Free", href: CALENDLY },
     includedHeading: "What you get",
     included: [
-      { title: "Built under your brand", desc: "We work behind the scenes; your clients see your agency." },
-      { title: "Any testing tool", desc: "VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift and more." },
-      { title: "Fast turnaround", desc: "Per-test builds in 3–5 days, pod tests started within 48 hours." },
+      {
+        title: "Built under your brand",
+        desc: "We work behind the scenes; your clients see your agency.",
+      },
+      {
+        title: "Any testing tool",
+        desc: "VWO, Optimizely, Convert, AB Tasty, Intelligems, Shoplift and more.",
+      },
+      {
+        title: "Fast turnaround",
+        desc: "Per-test builds in 3–5 days, pod tests started within 48 hours.",
+      },
       { title: "Full QA", desc: "Every build checked across devices, plus one revision round." },
       { title: "Your workflow", desc: "We work in your Jira, ClickUp or Slack." },
-      { title: "Shopify development", desc: "Theme and store work alongside the tests when you need it." },
+      {
+        title: "Shopify development",
+        desc: "Theme and store work alongside the tests when you need it.",
+      },
     ],
     faqHeading: "White-Label FAQs",
     faq: [
-      { q: "Will my clients know you built the tests?", a: "No. We work under your brand and in your tools." },
-      { q: "How much does a test cost?", a: "Complex tests are $199.50 each right now (50% off $399). A monthly test development pod is $1,800 for 80 hours of work." },
+      {
+        q: "Will my clients know you built the tests?",
+        a: "No. We work under your brand and in your tools.",
+      },
+      {
+        q: "How much does a test cost?",
+        a: "Complex tests are $199.50 each right now (50% off $399). A monthly test development pod is $1,800 for 80 hours of work.",
+      },
       { q: "Can we try you first?", a: "Yes, your first test build is free." },
-      { q: "Do you design variants too?", a: "We build from your designs, or design variants in Figma when you need us to." },
+      {
+        q: "Do you design variants too?",
+        a: "We build from your designs, or design variants in Figma when you need us to.",
+      },
     ],
   },
   "shopify-ab-testing-qa-checklist": {
     eyebrow: "A/B Test QA",
     title: "Shopify A/B Testing QA Checklist",
-    keywords: ["Test QA","Pre-launch checks","Flicker","Cross-browser","Tracking","Sample ratio"],
+    keywords: [
+      "Test QA",
+      "Pre-launch checks",
+      "Flicker",
+      "Cross-browser",
+      "Tracking",
+      "Sample ratio",
+    ],
     intro:
       "A broken variation ruins a test before it starts. This is the QA process we run on every Shopify A/B test before launch, and the checklist you can use on your own.",
-    seoKeywords: ["A/B testing QA checklist", "Shopify A/B test QA", "experiment QA", "flicker testing", "sample ratio mismatch"],
+    seoKeywords: [
+      "A/B testing QA checklist",
+      "Shopify A/B test QA",
+      "experiment QA",
+      "flicker testing",
+      "sample ratio mismatch",
+    ],
     seoTitle: "Shopify A/B Testing QA Checklist & Process | Ingversions Digital",
     seoDescription:
       "The QA checklist we run on every Shopify A/B test: devices, browsers, flicker, add-to-cart and checkout flows, tracking and sample ratio checks.",
@@ -340,28 +785,64 @@ export default {
     cta: { label: "Claim Your Free Test Build", href: CALENDLY },
     includedHeading: "The checklist",
     included: [
-      { title: "Devices & browsers", desc: "Every variation checked on the browsers and devices your traffic uses, mobile first." },
+      {
+        title: "Devices & browsers",
+        desc: "Every variation checked on the browsers and devices your traffic uses, mobile first.",
+      },
       { title: "No flicker", desc: "The original never flashes before the variation loads." },
-      { title: "Cart & checkout flows", desc: "Add to cart, cart drawer and checkout still work in every variation." },
-      { title: "Tracking fires", desc: "Goals and events record in the testing tool and analytics for every variation." },
-      { title: "Targeting & split", desc: "The right pages and visitors are in the test, and traffic splits as planned." },
-      { title: "Sample ratio check", desc: "Once live, we check the split stays even, a sign the test is sound." },
+      {
+        title: "Cart & checkout flows",
+        desc: "Add to cart, cart drawer and checkout still work in every variation.",
+      },
+      {
+        title: "Tracking fires",
+        desc: "Goals and events record in the testing tool and analytics for every variation.",
+      },
+      {
+        title: "Targeting & split",
+        desc: "The right pages and visitors are in the test, and traffic splits as planned.",
+      },
+      {
+        title: "Sample ratio check",
+        desc: "Once live, we check the split stays even, a sign the test is sound.",
+      },
     ],
     faqHeading: "A/B Test QA FAQs",
     faq: [
-      { q: "Why does A/B test QA matter?", a: "A bug in one variation makes it lose for the wrong reason, and you'd ship the wrong conclusion." },
-      { q: "What is a sample ratio mismatch?", a: "When traffic doesn't split as planned, usually a sign something is broken. Our free calculator checks for it." },
-      { q: "Can you QA tests another team built?", a: "Yes, we can QA tests built by your team or another agency." },
+      {
+        q: "Why does A/B test QA matter?",
+        a: "A bug in one variation makes it lose for the wrong reason, and you'd ship the wrong conclusion.",
+      },
+      {
+        q: "What is a sample ratio mismatch?",
+        a: "When traffic doesn't split as planned, usually a sign something is broken. Our free calculator checks for it.",
+      },
+      {
+        q: "Can you QA tests another team built?",
+        a: "Yes, we can QA tests built by your team or another agency.",
+      },
       { q: "How long does QA take?", a: "Usually within the 3–5 day build window for each test." },
     ],
   },
   "convert-com-shopify-ab-testing-agency": {
     eyebrow: "Convert.com Partner",
     title: "Convert.com Shopify A/B Testing Agency",
-    keywords: ["Convert.com","Convert Experiences","Shopify","Test development","Goals & tracking","QA"],
+    keywords: [
+      "Convert.com",
+      "Convert Experiences",
+      "Shopify",
+      "Test development",
+      "Goals & tracking",
+      "QA",
+    ],
     intro:
       "Already paying for Convert.com? We turn it into results. We plan, design, build and QA your Shopify tests in Convert, like the trust-signals test that lifted add-to-cart 58.62%.",
-    seoKeywords: ["Convert.com agency", "Convert Experiences Shopify", "Convert.com A/B testing", "Shopify A/B testing agency"],
+    seoKeywords: [
+      "Convert.com agency",
+      "Convert Experiences Shopify",
+      "Convert.com A/B testing",
+      "Shopify A/B testing agency",
+    ],
     seoTitle: "Convert.com Shopify A/B Testing Agency | Ingversions Digital",
     seoDescription:
       "Convert.com A/B testing for Shopify stores: tests designed, built, QA'd and launched in Convert, with goals and tracking set up properly.",
@@ -372,32 +853,68 @@ export default {
     cta: { label: "Claim Your Free Test Build", href: CALENDLY },
     includedHeading: "What we handle in Convert",
     included: [
-      { title: "Experiment setup", desc: "Targeting, audiences and traffic allocation set up correctly." },
+      {
+        title: "Experiment setup",
+        desc: "Targeting, audiences and traffic allocation set up correctly.",
+      },
       { title: "Variation code", desc: "Clean variation code that works with your Shopify theme." },
-      { title: "Goals & revenue tracking", desc: "Add-to-cart, checkout and revenue goals that actually fire." },
+      {
+        title: "Goals & revenue tracking",
+        desc: "Add-to-cart, checkout and revenue goals that actually fire.",
+      },
       { title: "Cross-device QA", desc: "Every variation checked before it goes live." },
       { title: "Monitoring", desc: "Early checks once live so problems are caught fast." },
       { title: "Clear results", desc: "What won, how confident we are, and what to test next." },
     ],
     faqHeading: "Convert.com FAQs",
     faq: [
-      { q: "Do I need my own Convert account?", a: "Yes, tests run in your account so you keep the data. We can help you set one up." },
-      { q: "Can you take over tests already in Convert?", a: "Yes, we can review, fix and QA existing experiments." },
-      { q: "Do you work with other tools?", a: "Yes: VWO, Optimizely, AB Tasty, Intelligems, Shoplift and more." },
-      { q: "What did the 58.62% test change?", a: "It added guarantee copy and trust badges near Add to Cart. Badges alone dropped conversions 6.61%. See the case study." },
+      {
+        q: "Do I need my own Convert account?",
+        a: "Yes, tests run in your account so you keep the data. We can help you set one up.",
+      },
+      {
+        q: "Can you take over tests already in Convert?",
+        a: "Yes, we can review, fix and QA existing experiments.",
+      },
+      {
+        q: "Do you work with other tools?",
+        a: "Yes: VWO, Optimizely, AB Tasty, Intelligems, Shoplift and more.",
+      },
+      {
+        q: "What did the 58.62% test change?",
+        a: "It added guarantee copy and trust badges near Add to Cart. Badges alone dropped conversions 6.61%. See the case study.",
+      },
     ],
     related: {
       heading: "Case study",
-      links: [{ label: "Trust badges vs guarantee copy: +58.62% add-to-cart", href: "/case-studies/shopify-pdp-trust-badges-ab-test" }],
+      links: [
+        {
+          label: "Trust badges vs guarantee copy: +58.62% add-to-cart",
+          href: "/case-studies/shopify-pdp-trust-badges-ab-test",
+        },
+      ],
     },
   },
   "shopify-bfcm-load-and-qa-testing-service": {
     eyebrow: "Black Friday Ready",
     title: "Shopify Black Friday QA Testing Service",
-    keywords: ["BFCM","Black Friday","Checkout testing","Discount testing","Regression QA","Speed checks"],
+    keywords: [
+      "BFCM",
+      "Black Friday",
+      "Checkout testing",
+      "Discount testing",
+      "Regression QA",
+      "Speed checks",
+    ],
     intro:
       "Your biggest sales week is the worst time for a broken checkout. We test your Shopify store end to end before Black Friday and Cyber Monday, so promos, carts and checkout work when traffic peaks.",
-    seoKeywords: ["Black Friday QA testing", "BFCM load testing", "Shopify Black Friday preparation", "Shopify discount testing", "ecommerce load testing"],
+    seoKeywords: [
+      "Black Friday QA testing",
+      "BFCM load testing",
+      "Shopify Black Friday preparation",
+      "Shopify discount testing",
+      "ecommerce load testing",
+    ],
     seoTitle: "Shopify Black Friday QA Testing Service | Ingversions Digital",
     seoDescription:
       "Pre-BFCM QA for Shopify stores: checkout, discount and promo testing, regression checks and page speed checks before Black Friday traffic arrives.",
@@ -408,28 +925,64 @@ export default {
     cta: { label: "Book Your BFCM QA", href: CALENDLY },
     includedHeading: "What we test before BFCM",
     included: [
-      { title: "Checkout end to end", desc: "Every payment method and shipping option you offer, on mobile and desktop." },
-      { title: "Discounts & promos", desc: "Codes, automatic discounts, bundles and free-shipping thresholds behave as planned." },
-      { title: "Sale banners & timers", desc: "Countdowns, banners and sale prices show correctly and switch on time." },
-      { title: "Regression checks", desc: "Recent theme and app changes haven't broken existing flows." },
-      { title: "Page speed checks", desc: "Key pages checked for slow scripts and heavy assets before traffic peaks." },
-      { title: "Fix & retest", desc: "Every issue logged, fixed and retested before your sale goes live." },
+      {
+        title: "Checkout end to end",
+        desc: "Every payment method and shipping option you offer, on mobile and desktop.",
+      },
+      {
+        title: "Discounts & promos",
+        desc: "Codes, automatic discounts, bundles and free-shipping thresholds behave as planned.",
+      },
+      {
+        title: "Sale banners & timers",
+        desc: "Countdowns, banners and sale prices show correctly and switch on time.",
+      },
+      {
+        title: "Regression checks",
+        desc: "Recent theme and app changes haven't broken existing flows.",
+      },
+      {
+        title: "Page speed checks",
+        desc: "Key pages checked for slow scripts and heavy assets before traffic peaks.",
+      },
+      {
+        title: "Fix & retest",
+        desc: "Every issue logged, fixed and retested before your sale goes live.",
+      },
     ],
     faqHeading: "BFCM QA FAQs",
     faq: [
-      { q: "When should we book BFCM QA?", a: "Two to four weeks before your sale, so there's time to fix what we find." },
-      { q: "Can you test our sale before it goes live?", a: "Yes, we test scheduled discounts and banners in preview before launch." },
-      { q: "Do you fix the bugs too?", a: "Yes, we can fix issues in your theme, then retest them." },
-      { q: "Do you test apps?", a: "We test how your apps behave in the flows that matter: product page, cart and checkout." },
+      {
+        q: "When should we book BFCM QA?",
+        a: "Two to four weeks before your sale, so there's time to fix what we find.",
+      },
+      {
+        q: "Can you test our sale before it goes live?",
+        a: "Yes, we test scheduled discounts and banners in preview before launch.",
+      },
+      {
+        q: "Do you fix the bugs too?",
+        a: "Yes, we can fix issues in your theme, then retest them.",
+      },
+      {
+        q: "Do you test apps?",
+        a: "We test how your apps behave in the flows that matter: product page, cart and checkout.",
+      },
     ],
   },
   "claude-mcp-shopify-cro-reporting": {
     eyebrow: "AI Reporting",
     title: "Claude MCP Shopify CRO Reporting",
-    keywords: ["Claude","MCP","Shopify analytics","CRO reporting","AI workflow","Automation"],
+    keywords: ["Claude", "MCP", "Shopify analytics", "CRO reporting", "AI workflow", "Automation"],
     intro:
       "Use Claude and MCP to pull your Shopify and analytics data into one place and answer CRO questions in plain English. This guide brings together everything we've written on the workflow.",
-    seoKeywords: ["Claude MCP Shopify", "AI CRO reporting", "Shopify analytics automation", "Claude for ecommerce", "MCP server reporting"],
+    seoKeywords: [
+      "Claude MCP Shopify",
+      "AI CRO reporting",
+      "Shopify analytics automation",
+      "Claude for ecommerce",
+      "MCP server reporting",
+    ],
     seoTitle: "Claude MCP Shopify CRO Reporting Workflow | Ingversions Digital",
     seoDescription:
       "How to use Claude with MCP servers for Shopify analytics and CRO reporting: setup, reporting workflow, prompts, and where AI reporting needs a human check.",
@@ -440,34 +993,97 @@ export default {
     cta: { label: "Book A Call", href: CALENDLY },
     includedHeading: "The workflow",
     included: [
-      { title: "Connect your data", desc: "Link Claude to Shopify and your analytics through MCP servers." },
-      { title: "Ask in plain English", desc: "Ask which pages, products or traffic sources are losing buyers." },
-      { title: "Weekly CRO report", desc: "A repeatable prompt that turns the numbers into a short weekly summary." },
-      { title: "Find test ideas", desc: "Use the drop-off points it finds as a starting list of test hypotheses." },
-      { title: "Check the numbers", desc: "Verify important figures against the source before acting on them." },
-      { title: "Keep it safe", desc: "Read-only access by default, so the AI can report but not change your store." },
+      {
+        title: "Connect your data",
+        desc: "Link Claude to Shopify and your analytics through MCP servers.",
+      },
+      {
+        title: "Ask in plain English",
+        desc: "Ask which pages, products or traffic sources are losing buyers.",
+      },
+      {
+        title: "Weekly CRO report",
+        desc: "A repeatable prompt that turns the numbers into a short weekly summary.",
+      },
+      {
+        title: "Find test ideas",
+        desc: "Use the drop-off points it finds as a starting list of test hypotheses.",
+      },
+      {
+        title: "Check the numbers",
+        desc: "Verify important figures against the source before acting on them.",
+      },
+      {
+        title: "Keep it safe",
+        desc: "Read-only access by default, so the AI can report but not change your store.",
+      },
     ],
     faqHeading: "Claude & MCP FAQs",
     faq: [
-      { q: "What is MCP?", a: "Model Context Protocol, a standard way to let AI tools like Claude read data from other apps, such as Shopify." },
-      { q: "Is it safe to connect Claude to my store?", a: "Use read-only access where you can, and check what each connection can do before you approve it." },
-      { q: "Can AI replace A/B testing?", a: "No. It's good at spotting where to look; a test is still how you prove a change works." },
-      { q: "Can you set this up for us?", a: "Yes, book a call and we'll walk through what fits your store." },
+      {
+        q: "What is MCP?",
+        a: "Model Context Protocol, a standard way to let AI tools like Claude read data from other apps, such as Shopify.",
+      },
+      {
+        q: "Is it safe to connect Claude to my store?",
+        a: "Use read-only access where you can, and check what each connection can do before you approve it.",
+      },
+      {
+        q: "Can AI replace A/B testing?",
+        a: "No. It's good at spotting where to look; a test is still how you prove a change works.",
+      },
+      {
+        q: "Can you set this up for us?",
+        a: "Yes, book a call and we'll walk through what fits your store.",
+      },
     ],
     related: {
       heading: "Read the full series",
       links: [
-        { label: "What is Claude, and why are Shopify merchants using it?", href: "/blog/what-is-claude-ai-for-shopify-merchants" },
-        { label: "What are MCP servers? A plain-English guide", href: "/blog/what-are-mcp-servers-explained" },
-        { label: "How to connect Claude to your Shopify store", href: "/blog/connect-claude-to-shopify-store-mcp-guide" },
-        { label: "Building an AI-powered reporting workflow with Claude + MCP", href: "/blog/ai-powered-shopify-reporting-claude-mcp" },
-        { label: "AI reporting workflow: the Claude MCP guide", href: "/blog/ai-reporting-workflow-claude-mcp-guide" },
-        { label: "Prompting Claude for e-commerce tasks", href: "/blog/prompting-claude-ecommerce-playbook" },
-        { label: "Claude vs ChatGPT for e-commerce", href: "/blog/claude-vs-chatgpt-for-ecommerce" },
-        { label: "Using Claude for Shopify SEO and content", href: "/blog/claude-for-shopify-seo-content" },
-        { label: "Writing product descriptions at scale with Claude", href: "/blog/ai-product-descriptions-with-claude" },
-        { label: "Automating customer support replies with Claude", href: "/blog/automating-customer-support-with-claude" },
-        { label: "AI agents in e-commerce: what merchants need to know", href: "/blog/ai-agents-in-ecommerce-2026" },
+        {
+          label: "What is Claude, and why are Shopify merchants using it?",
+          href: "/blog/what-is-claude-ai-for-shopify-merchants",
+        },
+        {
+          label: "What are MCP servers? A plain-English guide",
+          href: "/blog/what-are-mcp-servers-explained",
+        },
+        {
+          label: "How to connect Claude to your Shopify store",
+          href: "/blog/connect-claude-to-shopify-store-mcp-guide",
+        },
+        {
+          label: "Building an AI-powered reporting workflow with Claude + MCP",
+          href: "/blog/ai-powered-shopify-reporting-claude-mcp",
+        },
+        {
+          label: "AI reporting workflow: the Claude MCP guide",
+          href: "/blog/ai-reporting-workflow-claude-mcp-guide",
+        },
+        {
+          label: "Prompting Claude for e-commerce tasks",
+          href: "/blog/prompting-claude-ecommerce-playbook",
+        },
+        {
+          label: "Claude vs ChatGPT for e-commerce",
+          href: "/blog/claude-vs-chatgpt-for-ecommerce",
+        },
+        {
+          label: "Using Claude for Shopify SEO and content",
+          href: "/blog/claude-for-shopify-seo-content",
+        },
+        {
+          label: "Writing product descriptions at scale with Claude",
+          href: "/blog/ai-product-descriptions-with-claude",
+        },
+        {
+          label: "Automating customer support replies with Claude",
+          href: "/blog/automating-customer-support-with-claude",
+        },
+        {
+          label: "AI agents in e-commerce: what merchants need to know",
+          href: "/blog/ai-agents-in-ecommerce-2026",
+        },
       ],
     },
   },

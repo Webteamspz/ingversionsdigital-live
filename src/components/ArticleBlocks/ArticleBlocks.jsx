@@ -164,7 +164,9 @@ const BlockView = ({ block: b }) => {
         <ol className={styles.stepList}>
           {(b.steps ?? []).map((s, i) => (
             <li key={i} className={styles.step}>
-              <span className={`${styles.stepNum} ${styles[`accent-${b.color}`] ?? ""}`}>{i + 1}</span>
+              <span className={`${styles.stepNum} ${styles[`accent-${b.color}`] ?? ""}`}>
+                {i + 1}
+              </span>
               <div>
                 <p className={styles.stepTitle}>{s.title}</p>
                 <p className={styles.stepText}>
@@ -381,7 +383,9 @@ const ArticleBlocks = ({ post }) => {
             {post.body.sections.map((section) => (
               <section key={section.id} id={section.id} className={styles.section}>
                 <h2 className={styles.sectionHead}>
-                  <span className={`${styles.sectionNum} ${styles[`accent-${section.accent}`] ?? ""}`}>
+                  <span
+                    className={`${styles.sectionNum} ${styles[`accent-${section.accent}`] ?? ""}`}
+                  >
                     {section.number}
                   </span>
                   {section.heading}

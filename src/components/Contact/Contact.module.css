@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--section-space) 0;
-  background-color: var(--palette-bg-950)
+  background-color: var(--palette-bg-950);
 }
 .contactPanel {
   position: relative;
@@ -20,57 +20,57 @@
   background: var(--palette-accent);
   box-shadow: 10px 10px 0 0 var(--palette-border);
   color: var(--palette-bg-800);
-  text-align: center
+  text-align: center;
 }
 .contactPanel::before {
   position: absolute;
   inset: 0;
   content: "";
-  background-image: radial-gradient(rgba(255,255,255,0.2) 1.2px,transparent 1.2px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.2px, transparent 1.2px);
   background-size: 20px 20px;
-  opacity: .34;
-  pointer-events: none
+  opacity: 0.34;
+  pointer-events: none;
 }
 .contactActions,
 .contactCopy,
 .contactHeading,
 .eyebrow {
   position: relative;
-  z-index: 2
+  z-index: 2;
 }
 .eyebrow {
   margin: 0 0 15px;
-  color: rgba(255,255,255,.88);
-  font-family: Outfit,system-ui,sans-serif;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 1;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 .contactHeading {
   max-width: 900px;
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 76px;
   font-weight: 700;
-  letter-spacing: -.05em;
-  line-height: .98
+  letter-spacing: -0.05em;
+  line-height: 0.98;
 }
 .contactCopy {
   max-width: 650px;
   margin: 24px 0 33px;
-  color: rgba(255,255,255,.92);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 19px;
   font-weight: 600;
-  line-height: 1.5
+  line-height: 1.5;
 }
 .contactActions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px
+  gap: 18px;
 }
 .primaryAction {
   display: inline-flex;
@@ -84,75 +84,78 @@
   background: var(--palette-bg-800);
   box-shadow: 4px 4px 0 var(--palette-border);
   color: var(--palette-border);
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1),background-color .2s ease
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.2s ease;
 }
 .primaryAction:hover {
   box-shadow: 6px 6px 0 var(--palette-border);
   background: var(--tertiary);
-  transform: translate(-2px,-2px)
+  transform: translate(-2px, -2px);
 }
 .primaryAction:active {
   box-shadow: 2px 2px 0 var(--palette-border);
-  transform: translate(2px,2px)
+  transform: translate(2px, 2px);
 }
 .primaryAction:focus-visible {
   outline: 3px solid var(--palette-bg-800);
-  outline-offset: 4px
+  outline-offset: 4px;
 }
-@media (min-width:768px) and (max-width:1023.98px) {
+@media (min-width: 768px) and (max-width: 1023.98px) {
   .contactPanel {
     max-width: 100%;
     padding: 60px 34px 54px;
-    border-radius: 44px 44px 0 44px
+    border-radius: 44px 44px 0 44px;
   }
   .contactHeading {
-    font-size: 56px
+    font-size: 56px;
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .contactSection {
-    padding: 0 0 56px
+    padding: 0 0 56px;
   }
   .contactPanel {
     max-width: calc(100% - 13px);
     min-height: 0;
     padding: 44px 24px;
-    border-radius: 36px 36px 0 36px
+    border-radius: 36px 36px 0 36px;
   }
   .contactHeading {
     font-size: 32px;
-    line-height: 1.02
+    line-height: 1.02;
   }
   .contactCopy {
     margin: 20px 0 29px;
-    font-size: 16px
+    font-size: 16px;
   }
   .contactActions {
     width: 100%;
-    flex-direction: column
+    flex-direction: column;
   }
   .primaryAction {
-    width: min(100%,290px)
+    width: min(100%, 290px);
   }
 }
-@media (max-width:389px) {
+@media (max-width: 389px) {
   .contactHeading {
     font-size: 28px;
-    line-height: 1.15
+    line-height: 1.15;
   }
   .contactCopy {
     margin: 14px 0 22px;
     font-size: 16px;
-    line-height: 1.35
+    line-height: 1.35;
   }
   .primaryAction {
     padding: 0 14px;
     gap: 6px;
     font-size: 15px;
-    white-space: nowrap
+    white-space: nowrap;
   }
 }

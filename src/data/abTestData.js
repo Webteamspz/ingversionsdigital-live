@@ -10,7 +10,8 @@ const abTestData = {
     results: "Check results",
   },
   plan: {
-    intro: "Enter your weekly traffic to see the smallest lift your test can reliably detect each week.",
+    intro:
+      "Enter your weekly traffic to see the smallest lift your test can reliably detect each week.",
     fields: {
       weeklyVisitors: "Weekly visitors",
       weeklyConversions: "Weekly conversions",
@@ -47,7 +48,8 @@ const abTestData = {
       flat: "Not significant yet. Keep the test running or treat it as flat.",
     },
     srm: "Sample ratio mismatch: traffic split is far from 50/50 (p < 0.01). Check your test setup before trusting this result.",
-    invalid: "Enter visitors and conversions for both versions (conversions can't exceed visitors).",
+    invalid:
+      "Enter visitors and conversions for both versions (conversions can't exceed visitors).",
   },
   confidenceOptions: [0.9, 0.95, 0.99],
   powerOptions: [0.8, 0.9],

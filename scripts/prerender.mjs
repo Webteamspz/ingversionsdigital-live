@@ -28,8 +28,9 @@ try {
   await mkdir("dist/blog", { recursive: true });
   await mkdir("dist/case-studies", { recursive: true });
   for (const [file, props] of pages) {
-    const head = renderToString(createElement(HelmetProvider, null, createElement(SEO, props)))
-      .replace(/(^|>)<(title|meta|link|script)/g, "$1\n    <$2 data-prerender");
+    const head = renderToString(
+      createElement(HelmetProvider, null, createElement(SEO, props)),
+    ).replace(/(^|>)<(title|meta|link|script)/g, "$1\n    <$2 data-prerender");
     if (!head.includes("<title")) throw new Error(`No head tags rendered for ${file}`);
 
     const body = (await render(props.path || "/404"))
@@ -42,7 +43,7 @@ try {
       `dist/${file}`,
       shell
         .replace("</head>", `${head}\n  </head>`)
-        .replace('<div id="root"></div>', `<div id="root" data-prerendered>${body}</div>`)
+        .replace('<div id="root"></div>', `<div id="root" data-prerendered>${body}</div>`),
     );
   }
   console.log(`prerendered ${pages.length} pages into dist/`);

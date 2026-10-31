@@ -15,8 +15,7 @@ const Hero = () => {
           <p className={styles.eyebrow}>{eyebrow}</p>
 
           <h1 id="hero-heading" className={styles.title}>
-            <span>{heading}</span>{" "}
-            <span className={styles.emphasis}>{pill}</span>
+            <span>{heading}</span> <span className={styles.emphasis}>{pill}</span>
           </h1>
 
           <p className={styles.subtitle}>{sub}</p>
@@ -32,7 +31,12 @@ const Hero = () => {
             >
               {cta.label}
             </a>
-            <Link className={styles.secondaryAction} to={secondaryCta.href} data-cta={secondaryCta.label} data-cta-loc="Hero">
+            <Link
+              className={styles.secondaryAction}
+              to={secondaryCta.href}
+              data-cta={secondaryCta.label}
+              data-cta-loc="Hero"
+            >
               {secondaryCta.label}
             </Link>
           </div>

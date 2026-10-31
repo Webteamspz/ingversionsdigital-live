@@ -2,7 +2,12 @@ import styles from "./PricingPlans.module.css";
 import { brandPlans, devPlans } from "../../data/pricingData";
 import Reveal from "../Reveal/Reveal";
 
-const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)", "var(--tertiary)"];
+const PLAN_COLORS = [
+  "var(--palette-accent)",
+  "var(--quaternary)",
+  "var(--secondary)",
+  "var(--tertiary)",
+];
 
 const PricingPlans = ({ track }) => {
   const plans = track === "dev" ? devPlans : brandPlans;
@@ -10,9 +15,7 @@ const PricingPlans = ({ track }) => {
   const elitePlan = plans[3];
 
   function handleSeeComparison(planIndex) {
-    window.dispatchEvent(
-      new CustomEvent("gotoComparisonPlan", { detail: { index: planIndex } })
-    );
+    window.dispatchEvent(new CustomEvent("gotoComparisonPlan", { detail: { index: planIndex } }));
     const section = document.getElementById("pricingComparison");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -22,7 +25,6 @@ const PricingPlans = ({ track }) => {
   return (
     <section className={styles.pricingPlans} id="pricingPlans">
       <div className="container">
-
         <div className={styles.pricingPlansGrid}>
           {standardPlans.map((plan, idx) => (
             <Reveal
@@ -48,16 +50,15 @@ const PricingPlans = ({ track }) => {
 
               <div className={styles.pricingPlanPriceRow}>
                 {plan.originalPrice && (
-                  <s className={styles.pricingPlanOriginal} aria-label={`Was ${plan.originalPrice}`}>
+                  <s
+                    className={styles.pricingPlanOriginal}
+                    aria-label={`Was ${plan.originalPrice}`}
+                  >
                     {plan.originalPrice}
                   </s>
                 )}
-                <span className={styles.pricingPlanPrice}>
-                  {plan.price}
-                </span>
-                {plan.period && (
-                  <span className={styles.pricingPlanPeriod}>{plan.period}</span>
-                )}
+                <span className={styles.pricingPlanPrice}>{plan.price}</span>
+                {plan.period && <span className={styles.pricingPlanPeriod}>{plan.period}</span>}
               </div>
 
               <p className={styles.pricingPlanDesc}>{plan.description}</p>
@@ -84,12 +85,13 @@ const PricingPlans = ({ track }) => {
                 </a>
                 <button
                   className={`c-btn ${styles.compareBtn}`}
-                  onClick={function() { handleSeeComparison(idx); }}
+                  onClick={function () {
+                    handleSeeComparison(idx);
+                  }}
                 >
                   Compare Plans
                 </button>
               </div>
-
             </Reveal>
           ))}
         </div>
@@ -103,7 +105,6 @@ const PricingPlans = ({ track }) => {
             />
 
             <div className={styles.wideCardLeft}>
-
               <span className={styles.wideBadge}>{elitePlan.wideBadge}</span>
 
               <h3 className={styles.wideTitle}>{elitePlan.wideTitle || elitePlan.name}</h3>
@@ -141,12 +142,13 @@ const PricingPlans = ({ track }) => {
                 </a>
                 <button
                   className={`c-btn ${styles.wideOutlineBtn}`}
-                  onClick={function() { handleSeeComparison(3); }}
+                  onClick={function () {
+                    handleSeeComparison(3);
+                  }}
                 >
                   Compare Plans
                 </button>
               </div>
-
             </div>
 
             <div className={`${styles.wideCardRight} ${styles.desktopOnlyHighlights}`}>
@@ -159,10 +161,8 @@ const PricingPlans = ({ track }) => {
                 ))}
               </ul>
             </div>
-
           </Reveal>
         )}
-
       </div>
     </section>
   );

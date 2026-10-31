@@ -49,8 +49,14 @@ const markdownComponents = {
 
 const BlogArticle = ({ slug, article }) => (
   <div className={styles["article-main"]}>
-    <div className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-circle"]}`} aria-hidden="true" />
-    <div className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-square"]}`} aria-hidden="true" />
+    <div
+      className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-circle"]}`}
+      aria-hidden="true"
+    />
+    <div
+      className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-square"]}`}
+      aria-hidden="true"
+    />
 
     <article className={styles["article-container"]}>
       <div className={styles["article-hero-wrapper"]}>
@@ -84,7 +90,9 @@ const BlogArticle = ({ slug, article }) => (
 
         <div className={styles["article-cta-box"]}>
           <h3 className={styles["cta-heading"]}>Want results like these?</h3>
-          <p className={styles["cta-text"]}>We help Shopify stores optimize their conversion rates.</p>
+          <p className={styles["cta-text"]}>
+            We help Shopify stores optimize their conversion rates.
+          </p>
           <a
             href={CALENDLY_URL}
             target="_blank"

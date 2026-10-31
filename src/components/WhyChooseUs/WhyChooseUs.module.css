@@ -5,13 +5,13 @@
   text-align: center;
   background-color: var(--palette-bg-950);
   background-size: 22px 22px;
-  overflow: hidden
+  overflow: hidden;
 }
 .decor {
   position: absolute;
   inset: 0;
   z-index: -1;
-  pointer-events: none
+  pointer-events: none;
 }
 .shapeCircleTl {
   position: absolute;
@@ -21,7 +21,7 @@
   height: 120px;
   border: 4px solid var(--tertiary);
   border-radius: 50%;
-  opacity: .2
+  opacity: 0.2;
 }
 .shapeSquareTr {
   position: absolute;
@@ -32,7 +32,7 @@
   border: 4px solid var(--secondary);
   border-radius: 12px;
   transform: rotate(30deg);
-  opacity: .2
+  opacity: 0.2;
 }
 .shapeCircleBr {
   position: absolute;
@@ -42,7 +42,7 @@
   height: 70px;
   border: 4px solid var(--palette-accent);
   border-radius: 50%;
-  opacity: .18
+  opacity: 0.18;
 }
 .shapeSquareBl {
   position: absolute;
@@ -53,11 +53,11 @@
   border: 4px solid var(--quaternary);
   border-radius: 16px;
   transform: rotate(-10deg);
-  opacity: .15
+  opacity: 0.15;
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .decor {
-    display: none
+    display: none;
   }
 }
 .whySub {
@@ -66,7 +66,7 @@
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5
+  line-height: 1.5;
 }
 .timeline {
   position: relative;
@@ -75,7 +75,7 @@
   margin: 56px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 56px
+  gap: 56px;
 }
 .timelineLine {
   position: absolute;
@@ -84,16 +84,22 @@
   left: 50%;
   width: 3px;
   transform: translateX(-50%);
-  background: repeating-linear-gradient(to bottom,var(--palette-border) 0,var(--palette-border) 10px,transparent 10px,transparent 20px);
-  opacity: .35;
-  z-index: 0
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--palette-border) 0,
+    var(--palette-border) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.35;
+  z-index: 0;
 }
 .timelineRow {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 64px 1fr;
   align-items: center;
-  z-index: 1
+  z-index: 1;
 }
 .timelineNode {
   grid-column: 2;
@@ -105,10 +111,10 @@
   border: var(--border-width) solid;
   background: var(--palette-bg-950);
   box-shadow: var(--shadow-pop);
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .timelineRow:hover .timelineNode {
-  transform: scale(1.15)
+  transform: scale(1.15);
 }
 .timelineCard {
   position: relative;
@@ -118,15 +124,17 @@
   padding: 24px 28px;
   text-align: left;
   box-shadow: var(--shadow-pop-soft);
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .timelineRow:hover .timelineCard {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-pop-hover)
+  box-shadow: var(--shadow-pop-hover);
 }
 .timelineRow:nth-child(odd) .timelineCard {
   grid-column: 3;
-  grid-row: 1
+  grid-row: 1;
 }
 .timelineRow:nth-child(odd) .timelineCard::before {
   content: "";
@@ -136,12 +144,12 @@
   width: 32px;
   height: 2px;
   background: var(--palette-border);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 .timelineRow:nth-child(even) .timelineCard {
   grid-column: 1;
   grid-row: 1;
-  justify-self: end
+  justify-self: end;
 }
 .timelineRow:nth-child(even) .timelineCard::before {
   content: "";
@@ -151,23 +159,23 @@
   width: 32px;
   height: 2px;
   background: var(--palette-border);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 .timelineNumber {
   display: block;
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-weight: 800;
   font-size: 28px;
   line-height: 1;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 .timelineTitle {
   margin: 0 0 8px;
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 130%;
-  color: var(--palette-text-primary)
+  color: var(--palette-text-primary);
 }
 .timelineDesc {
   margin: 0;
@@ -175,67 +183,67 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 150%;
-  max-width: 320px
+  max-width: 320px;
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .whyChooseUsSection {
     padding: 32px 0;
-    background-size: 18px 18px
+    background-size: 18px 18px;
   }
   .whySub {
     margin-bottom: 44px;
-    font-size: 14px
+    font-size: 14px;
   }
   .timeline {
     margin-top: 40px;
-    gap: 36px
+    gap: 36px;
   }
   .timelineLine {
     left: 14px;
-    transform: none
+    transform: none;
   }
   .timelineRow {
     grid-template-columns: 28px 1fr;
-    column-gap: 16px
+    column-gap: 16px;
   }
   .timelineNode {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
     width: 24px;
-    height: 24px
+    height: 24px;
   }
   .timelineRow:nth-child(even) .timelineCard,
   .timelineRow:nth-child(odd) .timelineCard {
     grid-column: 2;
     grid-row: 1;
     justify-self: stretch;
-    max-width: 100%
+    max-width: 100%;
   }
   .timelineRow:nth-child(even) .timelineCard::before,
   .timelineRow:nth-child(odd) .timelineCard::before {
     left: -16px;
     right: auto;
-    width: 16px
+    width: 16px;
   }
   .timelineDesc {
-    max-width: 100%
+    max-width: 100%;
   }
   .timelineCard {
-    padding: 20px 22px
+    padding: 20px 22px;
   }
   .timelineSwiper {
-    padding: 0 3px 45px!important;
+    padding: 0 3px 45px !important;
     overflow: visible;
     --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: var(--palette-accent)
+    --swiper-pagination-color: var(--palette-accent);
   }
   .timelineSwiper :global(.swiper-slide) {
-    height: auto
+    height: auto;
   }
   .timelineSwiper :global(.swiper-pagination) {
-    bottom: 0
+    bottom: 0;
   }
   .timelineSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
@@ -243,13 +251,13 @@
     border: 2px solid var(--palette-text-primary);
     margin: 0 5px !important;
     background: 0 0;
-    opacity: 1
+    opacity: 1;
   }
   .timelineSwiper :global(.swiper-pagination-bullet:hover) {
     background: var(--tertiary);
   }
   .timelineSwiper :global(.swiper-pagination-bullet-active) {
-    background: var(--palette-accent)
+    background: var(--palette-accent);
   }
   .timelineSlideCard {
     background: var(--palette-bg-800);
@@ -258,6 +266,6 @@
     padding: 24px 22px;
     text-align: left;
     box-shadow: var(--shadow-pop-soft);
-    height: 100%
+    height: 100%;
   }
 }

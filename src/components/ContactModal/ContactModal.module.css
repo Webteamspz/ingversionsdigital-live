@@ -8,14 +8,14 @@
   justify-content: center;
   z-index: 1100;
   padding: 20px;
-  animation: fadeIn 0.2s ease
+  animation: fadeIn 0.2s ease;
 }
 @keyframes fadeIn {
   from {
-    opacity: 0
+    opacity: 0;
   }
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
 .contactModal {
@@ -29,16 +29,16 @@
   overflow-y: auto;
   padding: 32px;
   box-shadow: var(--shadow-pop);
-  animation: slideUp 0.25s ease
+  animation: slideUp 0.25s ease;
 }
 @keyframes slideUp {
   from {
     transform: translateY(16px);
-    opacity: 0
+    opacity: 0;
   }
   to {
     transform: translateY(0);
-    opacity: 1
+    opacity: 1;
   }
 }
 .contactModalClose {
@@ -59,47 +59,50 @@
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  transition: transform .2s ease,box-shadow .2s ease,background-color .2s ease
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 .contactModalClose:hover {
   background: var(--quaternary);
   box-shadow: var(--shadow-pop);
-  transform: translate(-1px,-1px)
+  transform: translate(-1px, -1px);
 }
 .contactModalHeader {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 .contactModalHeader h3 {
   color: var(--palette-text-primary);
   font-size: 24px;
   font-weight: 600;
   margin: 0;
-  padding-right: 44px
+  padding-right: 44px;
 }
 .contactModalRequired {
   font-size: 14px;
-  color: var(--palette-text-secondary)
+  color: var(--palette-text-secondary);
 }
 .requiredStar {
-  color: var(--palette-error)
+  color: var(--palette-error);
 }
 .contactModalForm {
   display: flex;
   flex-direction: column;
-  gap: 18px
+  gap: 18px;
 }
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 6px
+  gap: 6px;
 }
 .formGroup label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--palette-text-primary)
+  color: var(--palette-text-primary);
 }
 .formGroup input,
 .formGroup select {
@@ -110,23 +113,25 @@
   color: var(--palette-text-secondary);
   font-size: 14px;
   outline: 0;
-  transition: border-color .2s ease,box-shadow .2s ease;
-  appearance: none
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  appearance: none;
 }
 .formGroup select {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%238B5CF6' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 32px;
-  cursor: pointer
+  cursor: pointer;
 }
 .formGroup input::placeholder {
-  color: var(--palette-text-secondary)
+  color: var(--palette-text-secondary);
 }
 .formGroup input:focus,
 .formGroup select:focus {
   border-color: var(--palette-accent);
-  box-shadow: var(--shadow-pop-active)
+  box-shadow: var(--shadow-pop-active);
 }
 .contactModalSubmit {
   background-color: var(--palette-accent);
@@ -139,22 +144,25 @@
   cursor: pointer;
   margin-top: 6px;
   box-shadow: var(--shadow-pop-active);
-  transition: background-color .2s ease,box-shadow .2s ease,transform .2s ease
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 .contactModalSubmit:hover {
   background: var(--palette-accent-strong);
   color: var(--palette-bg-800);
   box-shadow: var(--shadow-pop);
-  transform: translate(-2px,-2px)
+  transform: translate(-2px, -2px);
 }
 .contactModalSubmit:disabled {
-  opacity: .6;
+  opacity: 0.6;
   cursor: not-allowed;
-  transform: none
+  transform: none;
 }
 .contactModalError {
   color: var(--palette-error);
   font-size: 13px;
   text-align: center;
-  margin: 0
+  margin: 0;
 }

@@ -5,20 +5,20 @@
   background: var(--palette-bg-800);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-pop)
+  box-shadow: var(--shadow-pop);
 }
 .eyebrow {
   color: var(--palette-accent-strong);
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .text {
   margin: 10px 0 16px;
   color: var(--palette-text-secondary);
   font-size: 16px;
-  line-height: 1.6
+  line-height: 1.6;
 }
 .link {
   display: inline-flex;
@@ -26,14 +26,14 @@
   align-items: center;
   color: var(--palette-accent);
   font-weight: 800;
-  text-decoration: none
+  text-decoration: none;
 }
 .link:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .box {
     margin: 0 16px 36px;
-    padding: 22px 20px
+    padding: 22px 20px;
   }
 }

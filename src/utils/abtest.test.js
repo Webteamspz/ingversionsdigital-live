@@ -18,7 +18,13 @@ test("normInv inverts normCdf", () => {
 });
 
 test("significance: 5.0% vs 5.8% on 10k each is significant at 95%, two-sided", () => {
-  const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 580, confidence: 0.95 });
+  const r = significance({
+    visitorsA: 10000,
+    convA: 500,
+    visitorsB: 10000,
+    convB: 580,
+    confidence: 0.95,
+  });
   near(r.uplift, 0.16, 1e-9);
   near(r.pValue, 0.0123, 5e-4);
   assert.equal(r.significant, true);
@@ -29,30 +35,68 @@ test("significance: 5.0% vs 5.8% on 10k each is significant at 95%, two-sided", 
 });
 
 test("significance: one-sided halves the p-value", () => {
-  const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 580, confidence: 0.95, tails: 1 });
+  const r = significance({
+    visitorsA: 10000,
+    convA: 500,
+    visitorsB: 10000,
+    convB: 580,
+    confidence: 0.95,
+    tails: 1,
+  });
   near(r.pValue, 0.00616, 3e-4);
 });
 
 test("significance: one-sided CI agrees with the one-sided verdict", () => {
-  const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 558, confidence: 0.95, tails: 1 });
+  const r = significance({
+    visitorsA: 10000,
+    convA: 500,
+    visitorsB: 10000,
+    convB: 558,
+    confidence: 0.95,
+    tails: 1,
+  });
   assert.equal(r.significant, true);
   assert.ok(r.ci[0] > 0, `CI lower bound should be positive for a significant win, got ${r.ci[0]}`);
 });
 
 test("significance: tiny difference is not significant", () => {
-  const r = significance({ visitorsA: 1000, convA: 50, visitorsB: 1000, convB: 52, confidence: 0.95 });
+  const r = significance({
+    visitorsA: 1000,
+    convA: 50,
+    visitorsB: 1000,
+    convB: 52,
+    confidence: 0.95,
+  });
   assert.equal(r.significant, false);
 });
 
 test("significance: invalid input returns null", () => {
-  assert.equal(significance({ visitorsA: 0, convA: 0, visitorsB: 100, convB: 5, confidence: 0.95 }), null);
-  assert.equal(significance({ visitorsA: 100, convA: 120, visitorsB: 100, convB: 5, confidence: 0.95 }), null);
-  assert.equal(significance({ visitorsA: 100, convA: -1, visitorsB: 100, convB: 5, confidence: 0.95 }), null);
-  assert.equal(significance({ visitorsA: 100, convA: 0, visitorsB: 100, convB: 0, confidence: 0.95 }), null);
+  assert.equal(
+    significance({ visitorsA: 0, convA: 0, visitorsB: 100, convB: 5, confidence: 0.95 }),
+    null,
+  );
+  assert.equal(
+    significance({ visitorsA: 100, convA: 120, visitorsB: 100, convB: 5, confidence: 0.95 }),
+    null,
+  );
+  assert.equal(
+    significance({ visitorsA: 100, convA: -1, visitorsB: 100, convB: 5, confidence: 0.95 }),
+    null,
+  );
+  assert.equal(
+    significance({ visitorsA: 100, convA: 0, visitorsB: 100, convB: 0, confidence: 0.95 }),
+    null,
+  );
 });
 
 test("mdeByWeek: 10k visitors/week at 5% gives ~24.4% relative MDE in week 1", () => {
-  const weeks = mdeByWeek({ weeklyVisitors: 10000, weeklyConversions: 500, variants: 2, confidence: 0.95, power: 0.8 });
+  const weeks = mdeByWeek({
+    weeklyVisitors: 10000,
+    weeklyConversions: 500,
+    variants: 2,
+    confidence: 0.95,
+    power: 0.8,
+  });
   assert.equal(weeks.length, 6);
   near(weeks[0].relative, 0.2443, 2e-3);
   near(weeks[3].relative, weeks[0].relative / 2, 1e-9);
@@ -60,14 +104,44 @@ test("mdeByWeek: 10k visitors/week at 5% gives ~24.4% relative MDE in week 1", (
 });
 
 test("mdeByWeek: more variants means a bigger MDE", () => {
-  const two = mdeByWeek({ weeklyVisitors: 10000, weeklyConversions: 500, variants: 2, confidence: 0.95, power: 0.8 });
-  const four = mdeByWeek({ weeklyVisitors: 10000, weeklyConversions: 500, variants: 4, confidence: 0.95, power: 0.8 });
+  const two = mdeByWeek({
+    weeklyVisitors: 10000,
+    weeklyConversions: 500,
+    variants: 2,
+    confidence: 0.95,
+    power: 0.8,
+  });
+  const four = mdeByWeek({
+    weeklyVisitors: 10000,
+    weeklyConversions: 500,
+    variants: 4,
+    confidence: 0.95,
+    power: 0.8,
+  });
   assert.ok(four[0].relative > two[0].relative);
 });
 
 test("mdeByWeek: invalid input returns null", () => {
-  assert.equal(mdeByWeek({ weeklyVisitors: 0, weeklyConversions: 0, variants: 2, confidence: 0.95, power: 0.8 }), null);
-  assert.equal(mdeByWeek({ weeklyVisitors: 100, weeklyConversions: 200, variants: 2, confidence: 0.95, power: 0.8 }), null);
+  assert.equal(
+    mdeByWeek({
+      weeklyVisitors: 0,
+      weeklyConversions: 0,
+      variants: 2,
+      confidence: 0.95,
+      power: 0.8,
+    }),
+    null,
+  );
+  assert.equal(
+    mdeByWeek({
+      weeklyVisitors: 100,
+      weeklyConversions: 200,
+      variants: 2,
+      confidence: 0.95,
+      power: 0.8,
+    }),
+    null,
+  );
 });
 
 test("srm: 10,000 vs 10,400 on a 50/50 split is a mismatch", () => {

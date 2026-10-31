@@ -1,92 +1,92 @@
 export const heroData = {
-  tag: 'About Ingversions Digital',
-  highlight: 'Intelligent Change',
+  tag: "About Ingversions Digital",
+  highlight: "Intelligent Change",
   subtitle:
-    'We are a CRO-first team helping brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.',
+    "We are a CRO-first team helping brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.",
   meta: [
-    { label: 'Founded', value: '2024' },
-    { label: 'HQ', value: 'Remote-first' }
-  ]
+    { label: "Founded", value: "2024" },
+    { label: "HQ", value: "Remote-first" },
+  ],
 };
 
 export const heroStats = [
-  { label: 'Brands Tested', value: '20+' },
-  { label: 'Experiments Shipped', value: '250+' },
-  { label: 'Win Rate', value: '60%' },
-  { label: 'Managed Revenue', value: '$20M+' }
+  { label: "Brands Tested", value: "20+" },
+  { label: "Experiments Shipped", value: "250+" },
+  { label: "Win Rate", value: "60%" },
+  { label: "Managed Revenue", value: "$20M+" },
 ];
 
 export const storyData = {
-  title: 'Our Story',
+  title: "Our Story",
   paragraphs: [
-    'Ingversions Digital was born out of a frustration we kept seeing across fast-growing brands: beautiful design, expensive traffic, but no structured approach to experimentation.',
-    'Teams were shipping redesigns based on gut-feel and HiPPO opinions. We set out to build a studio that sits at the intersection of UX, analytics, and engineering.',
-    'Every layout, flow, and variant we ship is grounded in research, behavioral insight, and a repeatable testing framework. Today, we partner with teams as their embedded CRO function – owning everything from opportunity mapping and test roadmaps to in-depth analysis and documentation.'
+    "Ingversions Digital was born out of a frustration we kept seeing across fast-growing brands: beautiful design, expensive traffic, but no structured approach to experimentation.",
+    "Teams were shipping redesigns based on gut-feel and HiPPO opinions. We set out to build a studio that sits at the intersection of UX, analytics, and engineering.",
+    "Every layout, flow, and variant we ship is grounded in research, behavioral insight, and a repeatable testing framework. Today, we partner with teams as their embedded CRO function – owning everything from opportunity mapping and test roadmaps to in-depth analysis and documentation.",
   ],
-  imageSrc: '/assets/about-story/mission.webp',
-  imageAlt: 'Global experimentation partners'
+  imageSrc: "/assets/about-story/mission.webp",
+  imageAlt: "Global experimentation partners",
 };
 
 export const missionCards = [
   {
-    title: 'Our Mission',
-    text: 'Turn every touchpoint into a measurable experiment, so brands can grow with confidence instead of guesswork.'
+    title: "Our Mission",
+    text: "Turn every touchpoint into a measurable experiment, so brands can grow with confidence instead of guesswork.",
   },
   {
-    title: 'Our Promise',
-    text: 'No vanity case studies. No fluff decks. Only experiments that are technically sound, statistically valid, and commercially meaningful.'
-  }
+    title: "Our Promise",
+    text: "No vanity case studies. No fluff decks. Only experiments that are technically sound, statistically valid, and commercially meaningful.",
+  },
 ];
 
 export const expertiseCards = [
   {
-    icon: 'ai',
-    title: 'Research & Insights',
-    text: 'Quant + qual research, analytics deep dives, heatmaps, and user interviews to find real conversion leaks.'
+    icon: "ai",
+    title: "Research & Insights",
+    text: "Quant + qual research, analytics deep dives, heatmaps, and user interviews to find real conversion leaks.",
   },
   {
-    icon: 'blockchain',
-    title: 'Experiment Design',
-    text: 'Hypothesis crafting, prioritization frameworks, and statistically sound test setups across tools like ABlyft.'
+    icon: "blockchain",
+    title: "Experiment Design",
+    text: "Hypothesis crafting, prioritization frameworks, and statistically sound test setups across tools like ABlyft.",
   },
   {
-    icon: 'trading',
-    title: 'Full-funnel Execution',
-    text: 'Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.'
+    icon: "trading",
+    title: "Full-funnel Execution",
+    text: "Pixel-perfect implementation across Shopify, landing pages, and funnels, with robust QA.",
   },
   {
-    icon: 'analytics',
-    title: 'Analysis & Learnings',
-    text: 'Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.'
-  }
+    icon: "analytics",
+    title: "Analysis & Learnings",
+    text: "Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.",
+  },
 ];
 
 export const valueCards = [
   {
-    title: 'Experiment First',
-    text: 'We favor proving over assuming. Ideas are cheap, validated learnings are compounding assets.',
-    icon: 'flask'
+    title: "Experiment First",
+    text: "We favor proving over assuming. Ideas are cheap, validated learnings are compounding assets.",
+    icon: "flask",
   },
   {
-    title: 'Collaborative by Design',
-    text: 'We work as an extension of your in-house team, not a siloed external agency.',
-    icon: 'users'
+    title: "Collaborative by Design",
+    text: "We work as an extension of your in-house team, not a siloed external agency.",
+    icon: "users",
   },
   {
-    title: 'Clarity over Jargon',
-    text: 'We keep your stakeholders aligned with simple language and sharp documentation.',
-    icon: 'lightbulb'
+    title: "Clarity over Jargon",
+    text: "We keep your stakeholders aligned with simple language and sharp documentation.",
+    icon: "lightbulb",
   },
   {
-    title: 'Integrity in Numbers',
-    text: 'No cherry-picked screenshots. If a test loses, we document it and use it to inform the next move.',
-    icon: 'shield'
-  }
+    title: "Integrity in Numbers",
+    text: "No cherry-picked screenshots. If a test loses, we document it and use it to inform the next move.",
+    icon: "shield",
+  },
 ];
 
 export const ctaData = {
-  title: 'Ready to discuss your next experiment?',
-  text: 'Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.',
-  primaryLabel: 'Schedule a call',
-  primaryHref: 'https://calendly.com/ingversionsdigital/30min'
+  title: "Ready to discuss your next experiment?",
+  text: "Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.",
+  primaryLabel: "Schedule a call",
+  primaryHref: "https://calendly.com/ingversionsdigital/30min",
 };

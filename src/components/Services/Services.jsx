@@ -4,7 +4,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
-import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users, ArrowUpRight } from "lucide-react";
+import {
+  SplitSquareHorizontal,
+  ShoppingBag,
+  CheckCircle2,
+  Globe,
+  LayoutTemplate,
+  Users,
+  ArrowUpRight,
+} from "lucide-react";
 
 import data from "../../data/siteData";
 import styles from "./Services.module.css";
@@ -13,17 +21,30 @@ import useIsMobile from "../../hooks/useIsMobile";
 import { isExternalHref } from "../../utils/url";
 
 const SERVICE_ICONS = {
-  "ab-testing": SplitSquareHorizontal, shopify: ShoppingBag, qa: CheckCircle2,
-  wordpress: Globe, "landing-page": LayoutTemplate, lead: Users,
+  "ab-testing": SplitSquareHorizontal,
+  shopify: ShoppingBag,
+  qa: CheckCircle2,
+  wordpress: Globe,
+  "landing-page": LayoutTemplate,
+  lead: Users,
 };
-const SERVICE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const SERVICE_COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 const VISIBLE_SERVICES = data.services.list.filter((service) => service.icon !== "lead");
 
 const ServiceCardBody = ({ service, index }) => {
   const Icon = SERVICE_ICONS[service.icon];
   return (
     <>
-      <span className={styles.icon} style={{ "--icon-bg": SERVICE_COLORS[index % 4] }} aria-hidden="true">
+      <span
+        className={styles.icon}
+        style={{ "--icon-bg": SERVICE_COLORS[index % 4] }}
+        aria-hidden="true"
+      >
         <Icon size={44} strokeWidth={2.2} />
       </span>
       <div className={styles.body}>
@@ -41,7 +62,12 @@ const ServiceCardBody = ({ service, index }) => {
               {service.title}
             </a>
           ) : service.href ? (
-            <Link to={service.href} className={styles.cardLink} data-cta={service.title} data-cta-loc="Services">
+            <Link
+              to={service.href}
+              className={styles.cardLink}
+              data-cta={service.title}
+              data-cta-loc="Services"
+            >
               {service.title}
             </Link>
           ) : (

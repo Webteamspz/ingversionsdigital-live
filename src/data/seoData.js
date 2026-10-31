@@ -25,7 +25,7 @@ const servicePageSeo = Object.fromEntries(
       breadcrumb: [home, { name: page.title, path: `/${slug}` }],
       jsonLd: faqJsonLd(page.faq),
     },
-  ])
+  ]),
 );
 
 export default {
@@ -34,7 +34,14 @@ export default {
     title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:
       "Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands.",
-    keywords: ["Shopify CRO agency", "A/B testing agency", "conversion rate optimization", "Shopify development", "Shopify Plus agency", "ecommerce CRO"],
+    keywords: [
+      "Shopify CRO agency",
+      "A/B testing agency",
+      "conversion rate optimization",
+      "Shopify development",
+      "Shopify Plus agency",
+      "ecommerce CRO",
+    ],
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -50,7 +57,13 @@ export default {
     title: "Shopify CRO Projects and Client Work | Ingversions Digital",
     description:
       "Shopify development, A/B testing and CRO projects for ecommerce brands: custom themes, landing pages and experiments we've designed, built and QA'd.",
-    keywords: ["Shopify projects", "Shopify development portfolio", "CRO case studies", "A/B testing examples", "ecommerce web design"],
+    keywords: [
+      "Shopify projects",
+      "Shopify development portfolio",
+      "CRO case studies",
+      "A/B testing examples",
+      "ecommerce web design",
+    ],
     path: "/projects",
     breadcrumb: [home, { name: "Projects", path: "/projects" }],
   },
@@ -58,7 +71,13 @@ export default {
     title: "Shopify CRO & A/B Test Development Pricing | Ingversions Digital",
     description:
       "Shopify CRO plans from $999/mo with A/B tests, Shopify development and full QA included, plus white-label A/B test development for agencies.",
-    keywords: ["Shopify CRO pricing", "A/B testing pricing", "CRO agency cost", "Shopify development pricing", "white label A/B testing pricing"],
+    keywords: [
+      "Shopify CRO pricing",
+      "A/B testing pricing",
+      "CRO agency cost",
+      "Shopify development pricing",
+      "white label A/B testing pricing",
+    ],
     path: "/pricing",
     breadcrumb: [home, { name: "Pricing", path: "/pricing" }],
   },
@@ -66,7 +85,13 @@ export default {
     title: "Shopify CRO, A/B Testing & Development Services | Ingversions Digital",
     description:
       "A/B testing, Shopify and Shopify Plus development, QA and landing page personalization for ecommerce brands. Full QA on every build; your first test is free.",
-    keywords: ["Shopify CRO services", "A/B testing services", "Shopify development services", "ecommerce QA", "landing page personalization"],
+    keywords: [
+      "Shopify CRO services",
+      "A/B testing services",
+      "Shopify development services",
+      "ecommerce QA",
+      "landing page personalization",
+    ],
     path: "/services",
     breadcrumb: [home, { name: "Services", path: "/services" }],
   },
@@ -74,7 +99,13 @@ export default {
     title: "Free A/B Test Calculator: Sample Size & Significance | Ingversions",
     description:
       "Plan test duration and minimum detectable effect, then check statistical significance and sample ratio mismatch. Free, runs in your browser.",
-    keywords: ["A/B test calculator", "sample size calculator", "statistical significance calculator", "MDE calculator", "sample ratio mismatch"],
+    keywords: [
+      "A/B test calculator",
+      "sample size calculator",
+      "statistical significance calculator",
+      "MDE calculator",
+      "sample ratio mismatch",
+    ],
     path: "/ab-test-calculator",
     breadcrumb: [home, { name: "A/B Test Calculator", path: "/ab-test-calculator" }],
     jsonLd: faqJsonLd(abTest.faq.items),
@@ -83,7 +114,12 @@ export default {
     title: "Shopify CRO & A/B Testing Case Studies | Ingversions Digital",
     description:
       "Real Shopify A/B test and SEO results, measured in GA4: the challenge, what we built, and the numbers after launch, including a +58.62% add-to-cart lift.",
-    keywords: ["Shopify CRO case studies", "A/B testing case study", "conversion rate optimization results", "ecommerce SEO case study"],
+    keywords: [
+      "Shopify CRO case studies",
+      "A/B testing case study",
+      "conversion rate optimization results",
+      "ecommerce SEO case study",
+    ],
     path: "/case-studies",
     breadcrumb: [home, { name: "Case Studies", path: "/case-studies" }],
   },
@@ -91,31 +127,66 @@ export default {
     title: "Rapid Radios Shopify CRO Case Study: 52 A/B Tests, +41.5% Conversion",
     description:
       "52 A/B tests on Rapid Radios' Shopify product page: a sticky add-to-cart, free-gift tiles, an add-on upsell and trust buttons lifted conversion 24% to 41.5%.",
-    keywords: ["Shopify CRO case study", "product page A/B test", "sticky add to cart test", "upsell A/B test", "Convert.com case study"],
+    keywords: [
+      "Shopify CRO case study",
+      "product page A/B test",
+      "sticky add to cart test",
+      "upsell A/B test",
+      "Convert.com case study",
+    ],
     path: "/case-studies/rapid-radios-shopify-cro-case-study",
-    breadcrumb: [home, { name: "Rapid Radios Case Study", path: "/case-studies/rapid-radios-shopify-cro-case-study" }],
+    breadcrumb: [
+      home,
+      {
+        name: "Rapid Radios Case Study",
+        path: "/case-studies/rapid-radios-shopify-cro-case-study",
+      },
+    ],
   },
   ruffGreensCaseStudy: {
     title: "Ruff Greens Shopify CRO Case Study: 54 A/B Tests, +19.9% Conversion",
     description:
       "54 A/B tests on Ruff Greens' Shopify store: a benefit banner, a one-tap $0 trial unlock and feeding info on the trial page lifted conversion 8.8% to 19.9%.",
-    keywords: ["Shopify CRO case study", "free trial page A/B test", "subscription CRO", "pet supplement ecommerce", "Convert.com case study"],
+    keywords: [
+      "Shopify CRO case study",
+      "free trial page A/B test",
+      "subscription CRO",
+      "pet supplement ecommerce",
+      "Convert.com case study",
+    ],
     path: "/case-studies/ruff-greens-shopify-cro-case-study",
-    breadcrumb: [home, { name: "Ruff Greens Case Study", path: "/case-studies/ruff-greens-shopify-cro-case-study" }],
+    breadcrumb: [
+      home,
+      { name: "Ruff Greens Case Study", path: "/case-studies/ruff-greens-shopify-cro-case-study" },
+    ],
   },
   trustBadgesCaseStudy: {
     title: "Shopify Trust Badges A/B Test: +58.62% Add-to-Cart Case Study",
     description:
       "A 12-day, 4-variation Convert.com test on a Shopify product page: guarantee copy plus trust badges lifted add-to-cart 58.62%, while badges alone dropped 6.61%.",
-    keywords: ["trust badges A/B test", "Shopify product page test", "add to cart rate", "guarantee copy", "Convert.com case study"],
+    keywords: [
+      "trust badges A/B test",
+      "Shopify product page test",
+      "add to cart rate",
+      "guarantee copy",
+      "Convert.com case study",
+    ],
     path: "/case-studies/shopify-pdp-trust-badges-ab-test",
-    breadcrumb: [home, { name: "Trust Badges Case Study", path: "/case-studies/shopify-pdp-trust-badges-ab-test" }],
+    breadcrumb: [
+      home,
+      { name: "Trust Badges Case Study", path: "/case-studies/shopify-pdp-trust-badges-ab-test" },
+    ],
   },
   aboutUs: {
     title: "About Our Shopify CRO Agency | Ingversions Digital",
     description:
       "Ingversions Digital is a Shopify CRO agency in Surat, India, helping ecommerce brands worldwide grow with A/B testing, Shopify development and QA.",
-    keywords: ["Shopify CRO agency India", "about Ingversions Digital", "conversion optimization agency", "Shopify experts"],
+    keywords: [
+      "Shopify CRO agency India",
+      "about Ingversions Digital",
+      "conversion optimization agency",
+      "Shopify experts",
+    ],
     path: "/about-us",
     breadcrumb: [home, { name: "About Us", path: "/about-us" }],
   },

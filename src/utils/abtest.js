@@ -3,14 +3,24 @@ const isCount = (n) => Number.isFinite(n) && n >= 0;
 export const normCdf = (z) => {
   const x = Math.abs(z) / Math.SQRT2;
   const t = 1 / (1 + 0.3275911 * x);
-  const poly = t * (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
+  const poly =
+    t *
+    (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
   const erf = 1 - poly * Math.exp(-x * x);
   return z >= 0 ? (1 + erf) / 2 : (1 - erf) / 2;
 };
 
-const A = [-39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269, -30.66479806614716, 2.506628277459239];
-const B = [-54.47609879822406, 161.5858368580409, -155.6989798598866, 66.80131188771972, -13.28068155288572];
-const C = [-0.007784894002430293, -0.3223964580411365, -2.400758277161838, -2.549732539343734, 4.374664141464968, 2.938163982698783];
+const A = [
+  -39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269, -30.66479806614716,
+  2.506628277459239,
+];
+const B = [
+  -54.47609879822406, 161.5858368580409, -155.6989798598866, 66.80131188771972, -13.28068155288572,
+];
+const C = [
+  -0.007784894002430293, -0.3223964580411365, -2.400758277161838, -2.549732539343734,
+  4.374664141464968, 2.938163982698783,
+];
 const D = [0.007784695709041462, 0.3224671290700398, 2.445134137142996, 3.754408661907416];
 
 export const normInv = (p) => {
@@ -37,7 +47,9 @@ export const significance = ({ visitorsA, convA, visitorsB, convB, confidence, t
   const se = Math.sqrt(pooled * (1 - pooled) * (1 / visitorsA + 1 / visitorsB));
   const z = (rateB - rateA) / se;
   const pValue = tails === 1 ? normCdf(-z) : 2 * normCdf(-Math.abs(z));
-  const seUnpooled = Math.sqrt(rateA * (1 - rateA) / visitorsA + rateB * (1 - rateB) / visitorsB);
+  const seUnpooled = Math.sqrt(
+    (rateA * (1 - rateA)) / visitorsA + (rateB * (1 - rateB)) / visitorsB,
+  );
   const zCI = normInv(tails === 1 ? confidence : 1 - (1 - confidence) / 2);
   const diff = rateB - rateA;
   return {
@@ -51,8 +63,21 @@ export const significance = ({ visitorsA, convA, visitorsB, convB, confidence, t
   };
 };
 
-export const mdeByWeek = ({ weeklyVisitors, weeklyConversions, variants, confidence, power, weeks = 6 }) => {
-  if (!isCount(weeklyVisitors) || !isCount(weeklyConversions) || !weeklyVisitors || weeklyConversions > weeklyVisitors) return null;
+export const mdeByWeek = ({
+  weeklyVisitors,
+  weeklyConversions,
+  variants,
+  confidence,
+  power,
+  weeks = 6,
+}) => {
+  if (
+    !isCount(weeklyVisitors) ||
+    !isCount(weeklyConversions) ||
+    !weeklyVisitors ||
+    weeklyConversions > weeklyVisitors
+  )
+    return null;
   const rate = weeklyConversions / weeklyVisitors;
   if (rate === 0 || rate === 1 || variants < 2) return null;
   const alpha = (1 - confidence) / (variants - 1);

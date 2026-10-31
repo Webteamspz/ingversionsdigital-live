@@ -1,9 +1,9 @@
 .gridWrap {
-  position: relative
+  position: relative;
 }
 @media (max-width: 767.98px) {
   .gridWrap {
-    margin-top: 40px
+    margin-top: 40px;
   }
 }
 .grid {
@@ -19,6 +19,6 @@
 @media (max-width: 639.98px) {
   .grid {
     gap: 12px;
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
   }
 }

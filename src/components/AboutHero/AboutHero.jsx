@@ -8,8 +8,7 @@ const AboutHero = () => {
         <div className={styles.aboutHeroContent}>
           <span className={styles.aboutTag}>{heroData.tag}</span>
           <h1 className={styles.aboutHeroTitle}>
-            We’re Engineers of{" "}
-            <span className={styles.accentText}>{heroData.highlight}</span>
+            We’re Engineers of <span className={styles.accentText}>{heroData.highlight}</span>
           </h1>
           <p className={styles.aboutHeroSubtitle}>{heroData.subtitle}</p>
 

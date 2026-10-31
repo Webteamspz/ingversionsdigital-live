@@ -1,6 +1,6 @@
-import styles from './AboutStory.module.css';
-import { storyData, missionCards } from '../../data/aboutUsData';
-import Reveal from '../Reveal/Reveal';
+import styles from "./AboutStory.module.css";
+import { storyData, missionCards } from "../../data/aboutUsData";
+import Reveal from "../Reveal/Reveal";
 
 const AboutStory = () => {
   return (

@@ -215,7 +215,7 @@ const Header = () => {
       ([entry]) => {
         setHideCtaOnHero(entry.isIntersecting);
       },
-      { threshold: 0.18 }
+      { threshold: 0.18 },
     );
 
     observer.observe(heroEl);
@@ -265,10 +265,10 @@ const Header = () => {
     }
     if (e.key !== "Tab") return;
     const focusable = drawerRef.current?.querySelectorAll(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
     );
     const visible = [...(focusable || [])].filter(
-      (el) => el.offsetParent !== null && !el.closest("[inert]")
+      (el) => el.offsetParent !== null && !el.closest("[inert]"),
     );
     if (!visible.length) return;
     const first = visible[0];
@@ -334,9 +334,16 @@ const Header = () => {
     return (
       <li key={index}>
         {href.startsWith("#") || isExternalHref(href) ? (
-          <a href={href} {...common}>{inner}</a>
+          <a href={href} {...common}>
+            {inner}
+          </a>
         ) : (
-          <Link to={href} state={scrollTo && { scrollTo }} aria-current={isActive ? "page" : undefined} {...common}>
+          <Link
+            to={href}
+            state={scrollTo && { scrollTo }}
+            aria-current={isActive ? "page" : undefined}
+            {...common}
+          >
             {inner}
           </Link>
         )}
@@ -366,7 +373,9 @@ const Header = () => {
                     aria-current={isItemActive ? "page" : undefined}
                     data-cta={item.label}
                     data-cta-loc="Header Services Dropdown"
-                    onClick={() => handleNavClick(item.label, "Header Services Dropdown", item.href)}
+                    onClick={() =>
+                      handleNavClick(item.label, "Header Services Dropdown", item.href)
+                    }
                   >
                     <span
                       className={styles.submenuIconWrap}
@@ -402,7 +411,9 @@ const Header = () => {
                       aria-current={isItemActive ? "page" : undefined}
                       data-cta={item.label}
                       data-cta-loc="Header Services Dropdown"
-                      onClick={() => handleNavClick(item.label, "Header Services Dropdown", item.href)}
+                      onClick={() =>
+                        handleNavClick(item.label, "Header Services Dropdown", item.href)
+                      }
                     >
                       <span className={styles.submenuText}>
                         <span className={styles.submenuTitle}>{item.label}</span>
@@ -426,7 +437,9 @@ const Header = () => {
             className={styles.submenuPromoBtn}
             data-cta={servicesMenu.promo.label}
             data-cta-loc="Header Services Dropdown"
-            onClick={() => handleNavClick(servicesMenu.promo.label, "Header Services Dropdown", ctaHref)}
+            onClick={() =>
+              handleNavClick(servicesMenu.promo.label, "Header Services Dropdown", ctaHref)
+            }
           >
             {servicesMenu.promo.label}
           </a>
@@ -435,10 +448,21 @@ const Header = () => {
             className={styles.footerLink}
             data-cta={servicesMenu.all.label}
             data-cta-loc="Header Services Dropdown"
-            onClick={() => handleNavClick(servicesMenu.all.label, "Header Services Dropdown", servicesMenu.all.href)}
+            onClick={() =>
+              handleNavClick(
+                servicesMenu.all.label,
+                "Header Services Dropdown",
+                servicesMenu.all.href,
+              )
+            }
           >
             <span>{servicesMenu.all.label}</span>
-            <ArrowRight size={14} strokeWidth={2.5} className={styles.footerArrow} aria-hidden="true" />
+            <ArrowRight
+              size={14}
+              strokeWidth={2.5}
+              className={styles.footerArrow}
+              aria-hidden="true"
+            />
           </Link>
         </div>
       </div>
@@ -464,7 +488,12 @@ const Header = () => {
       onKeyDown={onDrawerKeyDown}
     >
       <div className={styles.mobileHeader}>
-        <Link to="/" className={styles.mBrand} onClick={() => setOpen(false)} aria-label="Ingversions Digital home">
+        <Link
+          to="/"
+          className={styles.mBrand}
+          onClick={() => setOpen(false)}
+          aria-label="Ingversions Digital home"
+        >
           <img src={mobileLogo} alt="" width="36" height="40" />
         </Link>
         <button
@@ -480,7 +509,11 @@ const Header = () => {
 
       <nav className={styles.menuBody} aria-label="Mobile">
         <div className={styles.mTrack} style={{ transform: `translateX(${level * -100}%)` }}>
-          <div className={styles.mPanel} ref={(el) => (panelRefs.current[0] = el)} inert={level !== 0}>
+          <div
+            className={styles.mPanel}
+            ref={(el) => (panelRefs.current[0] = el)}
+            inert={level !== 0}
+          >
             <ul className={styles.mList}>
               {links.map((linkItem, index) =>
                 linkItem.href === "/services" ? (
@@ -492,17 +525,26 @@ const Header = () => {
                       onClick={() => setLevel(1)}
                     >
                       <span>{linkItem.label}</span>
-                      <ChevronRight size={20} strokeWidth={2.5} className={styles.mRowIcon} aria-hidden="true" />
+                      <ChevronRight
+                        size={20}
+                        strokeWidth={2.5}
+                        className={styles.mRowIcon}
+                        aria-hidden="true"
+                      />
                     </button>
                   </li>
                 ) : (
                   renderMobileRow(linkItem, index)
-                )
+                ),
               )}
             </ul>
           </div>
 
-          <div className={styles.mPanel} ref={(el) => (panelRefs.current[1] = el)} inert={level !== 1}>
+          <div
+            className={styles.mPanel}
+            ref={(el) => (panelRefs.current[1] = el)}
+            inert={level !== 1}
+          >
             <button type="button" className={styles.mBack} onClick={() => setLevel(0)}>
               <ChevronLeft size={18} strokeWidth={2.5} aria-hidden="true" />
               <span>Back</span>
@@ -524,7 +566,12 @@ const Header = () => {
                       <span>{group.title}</span>
                       <span className={styles.mRowNote}>{group.note}</span>
                     </span>
-                    <ChevronRight size={20} strokeWidth={2.5} className={styles.mRowIcon} aria-hidden="true" />
+                    <ChevronRight
+                      size={20}
+                      strokeWidth={2.5}
+                      className={styles.mRowIcon}
+                      aria-hidden="true"
+                    />
                   </button>
                 </li>
               ))}
@@ -536,7 +583,11 @@ const Header = () => {
               data-cta={servicesMenu.all.label}
               data-cta-loc="Mobile Nav Services"
               onClick={() => {
-                handleNavClick(servicesMenu.all.label, "Mobile Nav Services", servicesMenu.all.href);
+                handleNavClick(
+                  servicesMenu.all.label,
+                  "Mobile Nav Services",
+                  servicesMenu.all.href,
+                );
                 setOpen(false);
               }}
             >
@@ -545,7 +596,11 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className={styles.mPanel} ref={(el) => (panelRefs.current[2] = el)} inert={level !== 2}>
+          <div
+            className={styles.mPanel}
+            ref={(el) => (panelRefs.current[2] = el)}
+            inert={level !== 2}
+          >
             <button type="button" className={styles.mBack} onClick={() => setLevel(1)}>
               <ChevronLeft size={18} strokeWidth={2.5} aria-hidden="true" />
               <span>Services</span>
@@ -599,7 +654,9 @@ const Header = () => {
             className={styles.mContactBtn}
             data-cta={mobileMenu.emailLabel}
             data-cta-loc="Mobile Menu Contact"
-            onClick={() => handleNavClick(mobileMenu.emailLabel, "Mobile Menu Contact", `mailto:${email}`)}
+            onClick={() =>
+              handleNavClick(mobileMenu.emailLabel, "Mobile Menu Contact", `mailto:${email}`)
+            }
           >
             <Mail size={16} strokeWidth={2.5} aria-hidden="true" />
             <span>{mobileMenu.emailLabel}</span>
@@ -609,7 +666,9 @@ const Header = () => {
             className={styles.mContactBtn}
             data-cta={mobileMenu.phoneLabel}
             data-cta-loc="Mobile Menu Contact"
-            onClick={() => handleNavClick(mobileMenu.phoneLabel, "Mobile Menu Contact", `tel:${phone}`)}
+            onClick={() =>
+              handleNavClick(mobileMenu.phoneLabel, "Mobile Menu Contact", `tel:${phone}`)
+            }
           >
             <Phone size={16} strokeWidth={2.5} aria-hidden="true" />
             <span>{mobileMenu.phoneLabel}</span>
@@ -683,13 +742,18 @@ const Header = () => {
                     }}
                   >
                     <span>{linkItem.label}</span>
-                    <ChevronDown size={14} strokeWidth={2.5} className={styles.chevron} aria-hidden="true" />
+                    <ChevronDown
+                      size={14}
+                      strokeWidth={2.5}
+                      className={styles.chevron}
+                      aria-hidden="true"
+                    />
                   </button>
                   {ServicesPanel}
                 </div>
               ) : (
                 renderDesktopNavLink(linkItem, index)
-              )
+              ),
             )}
           </nav>
 

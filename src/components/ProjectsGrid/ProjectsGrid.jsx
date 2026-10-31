@@ -7,11 +7,10 @@ const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
-  const [sliderPos, setSliderPos] = useState(50); 
+  const [sliderPos, setSliderPos] = useState(50);
 
   return (
     <div className={styles.sliderContainer}>
-      
       <img
         src={beforeImg}
         alt={`Before - ${title}`}
@@ -19,19 +18,10 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         fetchPriority="high"
       />
 
-      
-      <div
-        className={styles.clippedLayer}
-        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
-      >
-        <img
-          src={afterImg}
-          alt={`After - ${title}`}
-          fetchPriority="high"
-        />
+      <div className={styles.clippedLayer} style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
+        <img src={afterImg} alt={`After - ${title}`} fetchPriority="high" />
       </div>
 
-      
       <span
         className={`${styles.sliderLabel} ${styles.labelBefore}`}
         style={{ opacity: (100 - sliderPos) / 100 }}
@@ -45,7 +35,6 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         After
       </span>
 
-      
       <input
         type="range"
         min="0"
@@ -56,11 +45,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         aria-label="Before and after comparison slider"
       />
 
-      
-      <div 
-        className={styles.sliderHandleWrap} 
-        style={{ left: `${sliderPos}%` }}
-      >
+      <div className={styles.sliderHandleWrap} style={{ left: `${sliderPos}%` }}>
         <div className={styles.sliderLine} />
         <div className={styles.sliderButton}>
           <ArrowLeftRight size={18} strokeWidth={2.5} color="var(--palette-border)" />
@@ -80,7 +65,11 @@ const PhoneCard = ({ project }) => {
       alt={project.title}
       loading="lazy"
       decoding="async"
-      onLoad={(e) => setScrollable(e.currentTarget.naturalHeight / e.currentTarget.naturalWidth > SCROLLABLE_RATIO)}
+      onLoad={(e) =>
+        setScrollable(
+          e.currentTarget.naturalHeight / e.currentTarget.naturalWidth > SCROLLABLE_RATIO,
+        )
+      }
     />
   );
 
@@ -108,7 +97,10 @@ const PhoneCard = ({ project }) => {
   );
 };
 
-const preload = (p) => [p.beforeImage, p.afterImage].forEach((src) => { new Image().src = src; });
+const preload = (p) =>
+  [p.beforeImage, p.afterImage].forEach((src) => {
+    new Image().src = src;
+  });
 
 const TestCard = ({ project, onExpand }) => (
   <>
@@ -204,7 +196,10 @@ const ProjectsGrid = ({ projects }) => {
 
   return (
     <div className={styles.gridWrap}>
-      <div className={`${styles.grid} ${allTests ? styles.gridCards : ""}`} onTouchStart={resetOthers}>
+      <div
+        className={`${styles.grid} ${allTests ? styles.gridCards : ""}`}
+        onTouchStart={resetOthers}
+      >
         {visibleProjects.map((project, i) =>
           project.beforeImage && project.afterImage ? (
             <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>
@@ -219,7 +214,7 @@ const ProjectsGrid = ({ projects }) => {
             >
               <PhoneCard project={project} />
             </Reveal>
-          )
+          ),
         )}
 
         {visibleProjects.length === 0 && (
@@ -232,9 +227,7 @@ const ProjectsGrid = ({ projects }) => {
           type="button"
           className={styles.viewMoreBtn}
           onClick={() =>
-            setVisibleCount((prev) =>
-              Math.min(prev + INITIAL_MOBILE_COUNT, projects.length)
-            )
+            setVisibleCount((prev) => Math.min(prev + INITIAL_MOBILE_COUNT, projects.length))
           }
         >
           View More Projects
@@ -244,16 +237,9 @@ const ProjectsGrid = ({ projects }) => {
         </button>
       )}
 
-      
       {selectedProject && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()} 
-          >
+        <div className={styles.modalOverlay} onClick={() => setSelectedProject(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className={styles.closeBtn}

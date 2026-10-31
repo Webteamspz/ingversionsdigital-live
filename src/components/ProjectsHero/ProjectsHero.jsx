@@ -7,7 +7,6 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -35,15 +34,12 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
           </h1>
           <p className={styles.description}>{data.hero.description}</p>
 
-          
           <div className={styles.filters}>
             {data.filters.map((filter) => (
               <button
                 key={filter}
                 type="button"
-                className={`${styles.filterBtn} ${
-                  activeFilter === filter ? styles.active : ""
-                }`}
+                className={`${styles.filterBtn} ${activeFilter === filter ? styles.active : ""}`}
                 onClick={() => onFilterChange(filter)}
               >
                 {filter}
@@ -51,7 +47,6 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
             ))}
           </div>
 
-          
           <div className={styles.mobileFilterWrap} ref={dropdownRef}>
             <button
               type="button"
@@ -62,9 +57,7 @@ const ProjectsHero = ({ activeFilter, onFilterChange }) => {
             >
               <span>{activeFilter}</span>
               <span
-                className={`${styles.dropdownArrow} ${
-                  isDropdownOpen ? styles.arrowOpen : ""
-                }`}
+                className={`${styles.dropdownArrow} ${isDropdownOpen ? styles.arrowOpen : ""}`}
                 aria-hidden="true"
               >
                 <ChevronDown size={16} strokeWidth={2.5} />

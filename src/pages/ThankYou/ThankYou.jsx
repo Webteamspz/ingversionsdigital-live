@@ -11,10 +11,12 @@ const ThankYou = () => (
     <div className={styles.nfCard}>
       <h1 className={styles.nfTitle}>Thank you!</h1>
       <p className={styles.nfSubtitle}>
-        We've received your details and will reply by email shortly. Want to
-        move faster? Book a call now.
+        We've received your details and will reply by email shortly. Want to move faster? Book a
+        call now.
       </p>
-      <a href={CALENDLY_URL} className={`${styles.nfBtn} ${styles.nfBtnBook}`}>Book a 30-min call</a>
+      <a href={CALENDLY_URL} className={`${styles.nfBtn} ${styles.nfBtnBook}`}>
+        Book a 30-min call
+      </a>
       <p className={styles.nfSubtitle}>
         <Link to="/">Back to home</Link>
       </p>
