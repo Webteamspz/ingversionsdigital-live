@@ -4,9 +4,9 @@ import AboutExpertise from '../../components/AboutExpertise/AboutExpertise';
 import AboutValues from '../../components/AboutValues/AboutValues';
 import AboutCta from '../../components/AboutCta/AboutCta';
 import styles from './AboutUs.module.css';
-import Layout from '../../layouts/Layouts';
+import Layout from '../../layouts/Layout';
 import SEO from '../../components/SEO/SEO';
-import seo from '../../data/seodata';
+import seo from '../../data/seoData';
 
 const AboutUs = () => {
   return (

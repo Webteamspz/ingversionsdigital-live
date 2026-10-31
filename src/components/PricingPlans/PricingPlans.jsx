@@ -1,5 +1,5 @@
 import styles from "./PricingPlans.module.css";
-import { brandPlans, devPlans } from "../../data/pricingdata";
+import { brandPlans, devPlans } from "../../data/pricingData";
 import Reveal from "../Reveal/Reveal";
 
 const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--secondary)", "var(--tertiary)"];

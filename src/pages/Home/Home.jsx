@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 import Hero from "../../components/Hero/Hero";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import Preloader from "../../components/Preloader/Preloader";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
+import seo from "../../data/seoData";
 import TrackRecord from "../../components/TrackRecord/TrackRecord";
 import Services from "../../components/Services/Services";
 import WorkProcess from "../../components/WorkProcess/WorkProcess";

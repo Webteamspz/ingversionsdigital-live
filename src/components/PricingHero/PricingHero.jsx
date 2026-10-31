@@ -1,5 +1,5 @@
 import styles from "./PricingHero.module.css";
-import { pricingHeroData } from "../../data/pricingdata";
+import { pricingHeroData } from "../../data/pricingData";
 import ToolsMarquee from "../ToolsMarquee/ToolsMarquee";
 
 const PricingHero = ({ track, setTrack }) => {

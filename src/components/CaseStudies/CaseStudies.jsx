@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight, ArrowRight, X } from "lucide-react";
-import siteData from "../../data/sitedata";
-import seo from "../../data/seodata";
+import siteData from "../../data/siteData";
+import seo from "../../data/seoData";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import Reveal from "../Reveal/Reveal";
 import styles from "./CaseStudies.module.css";

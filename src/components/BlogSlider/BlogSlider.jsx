@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { ArrowRight } from 'lucide-react';
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 
 import 'swiper/css';
 import 'swiper/css/navigation';

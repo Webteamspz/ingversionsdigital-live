@@ -1,5 +1,5 @@
 import styles from "./AboutHero.module.css";
-import { heroData, heroStats } from "../../data/aboutusdata";
+import { heroData, heroStats } from "../../data/aboutUsData";
 
 const AboutHero = () => {
   return (

@@ -1,10 +1,10 @@
 import { Suspense, lazy } from "react";
 import styles from "./TeamPage.module.css";
-import { teamPage as teamCopy, teamMembers } from "../../data/teamdata";
+import { teamPage as teamCopy, teamMembers } from "../../data/teamData";
 import TeamHero from "../../components/TeamHero/TeamHero";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
+import seo from "../../data/seoData";
 
 const TeamGrid = lazy(() => import("../../components/TeamGrid/TeamGrid"));
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ArrowRight, CalendarCheck, X } from "lucide-react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import { CONSENT_EVENT } from "../../gtm";
 import styles from "./PromoBar.module.css";
 

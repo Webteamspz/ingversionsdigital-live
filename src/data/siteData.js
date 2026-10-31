@@ -158,7 +158,7 @@ export default {
     secondaryCta: "See pricing",
     secondaryHref: "/pricing",
     // Each service block's details (intro, included, keywords) come from
-    // servicepagesdata.js, for the services listed in `services` below.
+    // servicePagesData.js, for the services listed in `services` below.
     detailsHeading: "What we do, in detail",
     audienceHeading: "Who we work with",
     audiences: [

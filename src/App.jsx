@@ -5,7 +5,7 @@ import CookieConsent from "./components/CookieConsent/CookieConsent.jsx";
 import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
-import servicePages from "./data/servicepagesdata.js";
+import servicePages from "./data/servicePagesData.js";
 
 const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
@@ -22,7 +22,7 @@ const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
-// Case studies with their own page. Each also needs a seodata entry and an nginx.conf route.
+// Case studies with their own page. Each also needs a seoData entry and an nginx.conf route.
 const STUDY_PAGES = ["rapid-radios-shopify-cro-case-study", "ruff-greens-shopify-cro-case-study", "shopify-pdp-trust-badges-ab-test"];
 
 const ScrollManager = () => {

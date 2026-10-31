@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ArticleBlocks from "../../components/ArticleBlocks/ArticleBlocks";
 import BlogArticle from "../../components/BlogArticle/BlogArticle";

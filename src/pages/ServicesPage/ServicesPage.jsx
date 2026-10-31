@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
-import data from "../../data/sitedata";
-import servicePages from "../../data/servicepagesdata";
+import seo from "../../data/seoData";
+import data from "../../data/siteData";
+import servicePages from "../../data/servicePagesData";
 import ToolsMarquee from "../../components/ToolsMarquee/ToolsMarquee";
 import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta";
 import Reveal from "../../components/Reveal/Reveal";

@@ -4,14 +4,14 @@
 // canonical, and share image. The page body is rendered too (src/entry-server.jsx),
 // so they also get the text and <a href> links; it is hidden by style.css and
 // main.jsx replaces it with the live app, so visitors see no change.
-// nginx.conf serves these files; keep its route list in sync with seodata.js.
+// nginx.conf serves these files; keep its route list in sync with seoData.js.
 // It also covers /blog and every post, and appends the blog URLs to the sitemap.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import { createServer } from "vite";
-import seo from "../src/data/seodata.js";
+import seo from "../src/data/seoData.js";
 
 const vite = await createServer({
   mode: process.argv[2] || "production",

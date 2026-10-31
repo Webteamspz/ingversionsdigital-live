@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, CircleCheck } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ProcessFlow from "../../components/ProcessFlow/ProcessFlow";
 import FAQ from "../../components/FAQ/FAQ";
 import ProjectsCTA from "../../components/ProjectsCTA/ProjectsCTA";
 import Reveal from "../../components/Reveal/Reveal";
-import seo from "../../data/seodata";
-import siteData from "../../data/sitedata";
-import { brandPlans, devPlans } from "../../data/pricingdata";
-import pages from "../../data/servicepagesdata";
+import seo from "../../data/seoData";
+import siteData from "../../data/siteData";
+import { brandPlans, devPlans } from "../../data/pricingData";
+import pages from "../../data/servicePagesData";
 import styles from "./ServicePage.module.css";
 
 const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];

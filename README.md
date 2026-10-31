@@ -104,13 +104,13 @@ To change what the site says, edit the matching module in `src/data/`:
 
 | File | Controls |
 |------|----------|
-| `sitedata.js` | Home page sections, blog slider, global CTAs |
-| `pricingdata.js` | Pricing plans and feature rows |
-| `teamdata.js` | Team members (name, role, photo, socials) |
-| `projectsdata.js` | Portfolio case studies |
-| `aboutusdata.js` | About page copy |
-| `servicepagesdata.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
-| `seodata.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
+| `siteData.js` | Home page sections, blog slider, global CTAs |
+| `pricingData.js` | Pricing plans and feature rows |
+| `teamData.js` | Team members (name, role, photo, socials) |
+| `projectsData.js` | Portfolio case studies |
+| `aboutUsData.js` | About page copy |
+| `servicePagesData.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
+| `seoData.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
 | `blog/blogPosts.json` | Structured blog posts (preferred). Template: `blog/blogPostTemplate.json` |
 | `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
 

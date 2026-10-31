@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Reviews.module.css";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";

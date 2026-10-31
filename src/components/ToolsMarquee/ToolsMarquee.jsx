@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { toolsStrip } from "../../data/pricingdata";
+import { toolsStrip } from "../../data/pricingData";
 import styles from "./ToolsMarquee.module.css";
 
 // Infinite logo strip: one track holds COPIES copies of the list and slides by
