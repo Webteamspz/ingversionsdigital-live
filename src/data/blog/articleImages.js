@@ -59,6 +59,4 @@ export const fallbackImagesByCategory = {
   analytics: "/assets/blog/covers/photo-1551288049-bebda4e38f71.webp",
   "ai-automation": "/assets/blog/covers/photo-1518770660439-4636190af475.webp"
 };
-// Cards show covers ~400px wide; scripts/blog-thumbs.mjs writes an 800px copy
-// of every cover into covers/thumbs/ at build time. Post heroes use the full cover.
 export const coverThumb = (src) => src?.replace("/assets/blog/covers/", "/assets/blog/covers/thumbs/");

@@ -22,7 +22,6 @@ test("significance: 5.0% vs 5.8% on 10k each is significant at 95%, two-sided", 
   near(r.uplift, 0.16, 1e-9);
   near(r.pValue, 0.0123, 5e-4);
   assert.equal(r.significant, true);
-  // CI for the rate difference (unpooled Wald)
   assert.ok(r.ci[0] > 0, "CI lower bound should be positive for a significant win");
   assert.ok(r.ci[1] > r.ci[0], "CI upper > lower");
   near(r.ci[0], 0.00175, 5e-4);
@@ -34,9 +33,6 @@ test("significance: one-sided halves the p-value", () => {
   near(r.pValue, 0.00616, 3e-4);
 });
 
-// Regression: ISSUE-001 — one-sided "significant win" shown with a CI that crosses zero
-// Found by /qa on 2026-10-23
-// Report: .gstack/qa-reports/qa-report-localhost-2026-10-23.md
 test("significance: one-sided CI agrees with the one-sided verdict", () => {
   const r = significance({ visitorsA: 10000, convA: 500, visitorsB: 10000, convB: 558, confidence: 0.95, tails: 1 });
   assert.equal(r.significant, true);
@@ -59,7 +55,6 @@ test("mdeByWeek: 10k visitors/week at 5% gives ~24.4% relative MDE in week 1", (
   const weeks = mdeByWeek({ weeklyVisitors: 10000, weeklyConversions: 500, variants: 2, confidence: 0.95, power: 0.8 });
   assert.equal(weeks.length, 6);
   near(weeks[0].relative, 0.2443, 2e-3);
-  // MDE shrinks with the square root of sample size.
   near(weeks[3].relative, weeks[0].relative / 2, 1e-9);
   assert.equal(weeks[0].visitorsPerVariant, 5000);
 });

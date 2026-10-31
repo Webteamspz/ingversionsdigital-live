@@ -42,8 +42,6 @@ const ICON_COLORS = [
   "var(--palette-tint-blue)",
 ];
 
-// Hover opens the desktop menu only on devices with a real pointer; touch and
-// keyboard users open it with a click/Enter.
 const canHover = () =>
   typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -92,7 +90,6 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const isServicesActive = pathname === "/services" || SERVICE_HREFS.includes(pathname);
-  // Mobile drawer panels: 0 = main menu, 1 = Services, 2 = one services group.
   const [level, setLevel] = useState(0);
   const [groupIndex, setGroupIndex] = useState(0);
 
@@ -132,7 +129,6 @@ const Header = () => {
       event: open ? "menu_open" : "menu_close",
       menu_location: "Header",
     });
-    // Move focus into the drawer when it opens, and back to the button when it closes.
     if (open) closeBtnRef.current?.focus();
     else if (wasOpen.current) hamburgerRef.current?.focus();
     if (!open) setLevel(0);
@@ -143,21 +139,16 @@ const Header = () => {
     };
   }, [open]);
 
-  // Any navigation closes both menus.
   useEffect(() => {
     setOpen(false);
     setServicesOpen(false);
   }, [pathname]);
 
-  // Moving between drawer panels: forward focuses the new panel's Back button,
-  // back returns focus to the row that opened the panel.
   useEffect(() => {
     if (!open) {
       prevLevel.current = level;
       return;
     }
-    // preventScroll: focusing an off-screen panel would otherwise scroll the
-    // container sideways and stack on top of the slide.
     if (level > prevLevel.current) {
       panelRefs.current[level]?.querySelector("button")?.focus({ preventScroll: true });
     } else if (level < prevLevel.current) {
@@ -170,7 +161,6 @@ const Header = () => {
     prevLevel.current = level;
   }, [level, open, groupIndex]);
 
-  // Desktop menu: close on a click outside it.
   useEffect(() => {
     if (!servicesOpen) return;
     const onPointerDown = (e) => {
@@ -249,7 +239,6 @@ const Header = () => {
     }
   };
 
-  // Desktop dropdown open/close helpers.
   const openServices = () => {
     clearTimeout(closeTimer.current);
     setServicesOpen(true);
@@ -268,10 +257,8 @@ const Header = () => {
     if (!dropdownRef.current?.contains(e.relatedTarget)) setServicesOpen(false);
   };
 
-  // Mobile drawer: Escape closes it and Tab stays inside while it is open.
   const onDrawerKeyDown = (e) => {
     if (e.key === "Escape") {
-      // Step back one panel first; Escape on the main menu closes the drawer.
       if (level > 0) setLevel(level - 1);
       else setOpen(false);
       return;
@@ -312,7 +299,6 @@ const Header = () => {
       );
     }
 
-    // Section links (scrollTo) share "/" with Home, so they never show as active.
     const isActive = !scrollTo && href === pathname;
 
     return (
@@ -492,7 +478,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Three side-by-side panels; the track slides to show the current level. */}
       <nav className={styles.menuBody} aria-label="Mobile">
         <div className={styles.mTrack} style={{ transform: `translateX(${level * -100}%)` }}>
           <div className={styles.mPanel} ref={(el) => (panelRefs.current[0] = el)} inert={level !== 0}>
@@ -738,7 +723,6 @@ const Header = () => {
       </header>
       <BlackFridayBanner />
 
-      {/* No document at build-time prerender; the mobile drawer mounts in the browser. */}
       {typeof document !== "undefined" && createPortal(Overlay, document.body)}
       {typeof document !== "undefined" && createPortal(Drawer, document.body)}
     </>

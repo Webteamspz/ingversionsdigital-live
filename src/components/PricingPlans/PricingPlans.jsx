@@ -6,7 +6,6 @@ const PLAN_COLORS = ["var(--palette-accent)", "var(--quaternary)", "var(--second
 
 const PricingPlans = ({ track }) => {
   const plans = track === "dev" ? devPlans : brandPlans;
-  // First three plans in a row, the fourth as a full-width card below.
   const standardPlans = plans.slice(0, 3);
   const elitePlan = plans[3];
 

@@ -6,7 +6,6 @@ import Reveal from "../Reveal/Reveal";
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
-
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
   const [sliderPos, setSliderPos] = useState(50); 
 
@@ -71,7 +70,6 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
   );
 };
 
-// Tall screenshots scroll inside the phone screen, like a real mobile page.
 const SCROLLABLE_RATIO = 1.9;
 
 const PhoneCard = ({ project }) => {
@@ -110,7 +108,6 @@ const PhoneCard = ({ project }) => {
   );
 };
 
-// Start fetching the before/after pair as soon as the visitor shows intent.
 const preload = (p) => [p.beforeImage, p.afterImage].forEach((src) => { new Image().src = src; });
 
 const TestCard = ({ project, onExpand }) => (
@@ -158,11 +155,8 @@ const scrollToTop = (view) => {
   view?.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
 };
 
-// Leaving a card sends its screen back to the top of the page.
 const resetScroll = (e) => scrollToTop(e.currentTarget.querySelector(`.${styles.phoneView}`));
 
-// Touch has no mouseleave: touching one phone (or anywhere else in the grid)
-// sends every other scrolled phone back to the top.
 const resetOthers = (e) => {
   const current = e.target.closest(`.${styles.phone}`);
   e.currentTarget.querySelectorAll(`.${styles.phoneView}`).forEach((view) => {
@@ -190,14 +184,12 @@ const ProjectsGrid = ({ projects }) => {
     setVisibleCount(isMobile ? INITIAL_MOBILE_COUNT : projects.length);
   }, [projects, isMobile]);
 
-
   useEffect(() => {
     if (!selectedProject) {
       document.body.style.overflow = "unset";
       return;
     }
     document.body.style.overflow = "hidden";
-    // Escape closes the before/after modal, like the close button.
     const onKey = (e) => e.key === "Escape" && setSelectedProject(null);
     window.addEventListener("keydown", onKey);
     return () => {

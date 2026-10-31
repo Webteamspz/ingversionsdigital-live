@@ -1,7 +1,3 @@
-/* The blog's own design tokens and base rules, ported from the old Next.js
-   blog's globals.css. Everything is scoped under .ing-blog (the wrapper every
-   /blog page renders inside Layout) so none of it reaches the rest of the
-   site. Fonts are the Outfit / Plus Jakarta Sans families index.html loads. */
 .ing-blog {
   color-scheme: light;
   --font-outfit: Outfit;

@@ -91,8 +91,6 @@ export const brandPlans = [
 export const devPlans = [
   {
     name: "Per Test",
-    // ponytail: placeholder base price ($399, the old "Complex from" price);
-    // Rahul to confirm. Change originalPrice and price together (price = 50%).
     originalPrice: "$399",
     price: "$199.50",
     period: "/test",
@@ -154,14 +152,10 @@ export const devPlans = [
   },
 ];
 
-// "Tools we work with" marquees on /pricing (hero and under the plans).
-// Each logo is public/assets/tools/<slug>.webp; w and h are the file's pixel
-// size, used to give every logo the same visual area in the strip.
 const tool = (name, slug, w, h) => ({ name, logo: `/assets/tools/${slug}.webp`, w, h });
 export const toolsStrip = {
   heading: "Tools we work with",
   tools: [
-    // A/B testing and experimentation
     tool("Optimizely", "optimizely", 393, 96),
     tool("Wingify (VWO + AB Tasty)", "wingify", 311, 96),
     tool("Convert", "convert", 270, 59),
@@ -173,13 +167,11 @@ export const toolsStrip = {
     tool("Shoplift", "shoplift", 367, 96),
     tool("Varify.io", "varify", 300, 96),
     tool("LaunchDarkly", "launchdarkly", 624, 96),
-    // Analytics and performance
     tool("Google Analytics", "google-analytics", 279, 96),
     tool("Google Tag Manager", "google-tag-manager", 164, 96),
     tool("Microsoft Clarity", "clarity", 348, 96),
     tool("Fullstory", "fullstory", 516, 96),
     tool("Google Lighthouse", "google-lighthouse", 333, 96),
-    // Design, landing pages and platforms
     tool("Figma", "figma", 201, 96),
     tool("Unbounce", "unbounce", 488, 96),
     tool("Shopify", "shopify", 336, 96),

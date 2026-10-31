@@ -22,12 +22,10 @@ const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
-// Case studies with their own page. Each also needs a seoData entry and an nginx.conf route.
 const STUDY_PAGES = ["rapid-radios-shopify-cro-case-study", "ruff-greens-shopify-cro-case-study", "shopify-pdp-trust-badges-ab-test"];
 
 const ScrollManager = () => {
   const { pathname, hash, search, state, key } = useLocation();
-  // Links can scroll to a section without a #hash in the URL: <Link state={{ scrollTo: id }}>.
   const target = hash ? hash.slice(1) : state?.scrollTo;
 
   useEffect(() => {
@@ -38,7 +36,6 @@ const ScrollManager = () => {
 
     const targetId = target;
 
-    // Scroll again once late content above (banners, images) has pushed the section down.
     let settle;
     const scrollToEl = (el) => {
       el.scrollIntoView({ behavior: "smooth", block: "start" });

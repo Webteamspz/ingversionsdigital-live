@@ -1,11 +1,3 @@
-// Runs after `vite build`. Writes one HTML file per route into dist/ with that
-// route's <SEO> head tags already in it, so crawlers that do not run JavaScript
-// (link-preview bots, most AI crawlers) get a real title, description,
-// canonical, and share image. The page body is rendered too (src/entry-server.jsx),
-// so they also get the text and <a href> links; it is hidden by style.css and
-// main.jsx replaces it with the live app, so visitors see no change.
-// nginx.conf serves these files; keep its route list in sync with seoData.js.
-// It also covers /blog and every post, and appends the blog URLs to the sitemap.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";
@@ -22,7 +14,6 @@ const vite = await createServer({
 
 try {
   const { default: SEO } = await vite.ssrLoadModule("/src/components/SEO/SEO.jsx");
-  // The blog data imports JSON, so it is loaded through Vite rather than Node.
   const blog = await vite.ssrLoadModule("/src/data/blog/blogSeo.js");
   const shell = await readFile("dist/index.html", "utf8");
 
@@ -31,22 +22,16 @@ try {
     key === "home" ? "index.html" : key === "notFound" ? "404.html" : `${props.path.slice(1)}.html`,
     props,
   ]);
-  // /blog -> dist/blog.html, /blog/<slug> -> dist/blog/<slug>.html (see nginx.conf)
   pages.push(["blog.html", blog.blogHomeSeo]);
   for (const { slug } of blog.allPosts) pages.push([`blog/${slug}.html`, blog.getPostSeo(slug)]);
 
   await mkdir("dist/blog", { recursive: true });
   await mkdir("dist/case-studies", { recursive: true });
   for (const [file, props] of pages) {
-    // React 19 renders <SEO>'s tags inline. Mark each one so main.jsx can
-    // drop the static copies before the app mounts and adds its own.
     const head = renderToString(createElement(HelmetProvider, null, createElement(SEO, props)))
       .replace(/(^|>)<(title|meta|link|script)/g, "$1\n    <$2 data-prerender");
     if (!head.includes("<title")) throw new Error(`No head tags rendered for ${file}`);
 
-    // The page body too, so crawlers get its text and <a href> links. The head
-    // tags React renders inline are already above, so drop the body's copies.
-    // It stays hidden (style.css) and main.jsx replaces it with the live app.
     const body = (await render(props.path || "/404"))
       .replace(/<title>[\s\S]*?<\/title>/g, "")
       .replace(/<meta [^>]*\/>/g, "")
@@ -62,9 +47,6 @@ try {
   }
   console.log(`prerendered ${pages.length} pages into dist/`);
 
-  // public/sitemap.xml lists the main routes by hand; append every blog URL.
-  // "April 8, 2026" parses as local midnight; format from local parts so a
-  // UTC conversion cannot shift it to the previous day.
   const lastmod = (d) => {
     const t = isNaN(new Date(d).getTime()) ? new Date() : new Date(d);
     const pad = (n) => String(n).padStart(2, "0");

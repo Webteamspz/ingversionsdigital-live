@@ -10,7 +10,6 @@ import articleStyles from "../BlogArticle/ArticleDetail.module.css";
 import { postCards } from "../../data/blog/postCards.js";
 import { coverThumb } from "../../data/blog/articleImages.js";
 
-// The newest posts other than the current one.
 const getMostPopularArticles = (currentSlug, limit = 5) =>
   postCards
     .filter((p) => p.slug !== currentSlug)

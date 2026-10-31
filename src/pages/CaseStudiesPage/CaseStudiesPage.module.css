@@ -1,4 +1,3 @@
-/* Hero: grid background, tilted tag, metric tiles */
 .hero {
   position: relative;
   isolation: isolate;
@@ -122,7 +121,6 @@
   line-height: 1.35
 }
 
-/* Index: one row per study, jumps down to it */
 .index {
   padding: 8px 0 24px
 }
@@ -194,7 +192,6 @@
   white-space: nowrap
 }
 
-/* One study */
 .study {
   padding: 48px 0;
   scroll-margin-top: 100px
@@ -293,7 +290,6 @@
   background: var(--palette-bg-800)
 }
 
-/* Challenge -> What we did, with an arrow between the two cards */
 .storyFlow,
 .notes {
   display: grid;
@@ -335,7 +331,6 @@
   font-weight: 800;
   line-height: 1
 }
-/* The arrow sits between the cards, so it should not move with the hover lift. */
 .storyFlow .story:first-child:hover:after {
   transform: translateY(4px)
 }
@@ -380,7 +375,6 @@
   line-height: 1.7
 }
 
-/* Results: lift, label and before/after bars */
 .results {
   padding: 36px;
   border: var(--border-width) solid var(--palette-border);
@@ -530,7 +524,6 @@
   text-align: center
 }
 
-/* CTA band */
 .cta {
   display: flex;
   gap: 24px;

@@ -21,7 +21,6 @@ const ScrollToTopButton = () => {
       onClick={scrollToTop}
       className={`${styles.scrollTopBtn} ${visible ? styles.visible : styles.hidden}`}
       aria-label="Scroll to top"
-      // Hidden at the top of the page: keep it out of the tab order so the skip link comes first.
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
     >

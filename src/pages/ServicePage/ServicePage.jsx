@@ -15,8 +15,6 @@ import styles from "./ServicePage.module.css";
 
 const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
-// A short pricing summary; the full plans and comparison live on /pricing.
-// "plans" = brand plans, "dev" = agency / white-label plans, else engagement models.
 const pricingItems = (type) =>
   type === "plans" || type === "dev"
     ? (type === "dev" ? devPlans : brandPlans).map((p) => ({
@@ -33,7 +31,6 @@ const pricingItems = (type) =>
         price: m.priceLabel,
         desc: m.desc,
         features: m.features,
-        // "#contact" lives on the homepage, not on service pages.
         cta: { label: m.cta.label, href: m.cta.href === "#contact" ? "/#contact" : m.cta.href },
       }));
 
@@ -50,9 +47,6 @@ const CardCta = ({ cta, loc }) =>
 
 const ServicePage = ({ slug }) => {
   const page = pages[slug];
-  // "What's included" runs card 1 -> last in a loop: the active card gets a
-  // border beam and a progress bar, and the bar finishing hands over to the next.
-  // Reduced motion: no sequence, every card shown as done.
   const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [active, setActive] = useState(reduced ? page.included.length : 0);
   const next = () => setActive((a) => (a + 1) % page.included.length);

@@ -3,8 +3,6 @@ import { ArrowRight } from "lucide-react";
 import servicePages from "../../data/servicePagesData";
 import styles from "./RelatedService.module.css";
 
-// On a blog post: a link back to the service page whose `posts` list it, so
-// each topic group links both ways.
 const RelatedService = ({ slug }) => {
   const entry = Object.entries(servicePages).find(([, page]) => page.posts?.some((p) => p.slug === slug));
   if (!entry) return null;

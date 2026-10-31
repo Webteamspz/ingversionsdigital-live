@@ -2,14 +2,10 @@ import { articles } from "./articlesData.js";
 import { articleImages, fallbackImagesByCategory } from "./articleImages.js";
 import { structuredPosts, getStructuredPost } from "./structuredPosts.js";
 
-// Head tags for the /blog routes: the props the blog pages spread into <SEO>.
-// scripts/prerender.mjs loads this module too, to write per-post HTML for
-// crawlers that do not run JavaScript, and to add every post to the sitemap.
 const SITE_URL = "https://ingversionsdigital.com";
 const home = { name: "Home", path: "/" };
 const blog = { name: "Blog", path: "/blog" };
 
-// "October 7, 2026" -> ISO string; undefined if the date cannot be parsed
 const toIso = (d) => {
   const t = new Date(d);
   return isNaN(t.getTime()) ? undefined : t.toISOString();
@@ -60,7 +56,6 @@ export const blogNotFoundSeo = {
   noindex: true,
 };
 
-// <SEO> props for a post, or null if the slug is unknown.
 export const getPostSeo = (slug) => {
   const path = `/blog/${slug}`;
   const url = `${SITE_URL}${path}`;
@@ -87,8 +82,6 @@ export const getPostSeo = (slug) => {
   const article = articles[slug];
   if (!article) return null;
 
-  // A post's own description if it has one; otherwise the start of its text,
-  // with markdown links reduced to their label and cut at a word boundary.
   const description =
     article.description ||
     article.content
@@ -111,7 +104,6 @@ export const getPostSeo = (slug) => {
   };
 };
 
-// Every post slug with its publish date, for the prerender and the sitemap.
 export const allPosts = [
   ...Object.entries(articles).map(([slug, a]) => ({ slug, date: a.date })),
   ...structuredPosts.map((p) => ({ slug: p.slug, date: p.meta.date })),

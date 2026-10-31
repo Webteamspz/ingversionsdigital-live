@@ -84,7 +84,6 @@ html {
 body {
   min-height: 100%
 }
-/* Build-time HTML copy of the page for crawlers; main.jsx swaps in the app. */
 #root[data-prerendered] {
   display: none
 }
@@ -101,8 +100,6 @@ body {
   margin: 0 auto;
   padding: 0 15px
 }
-/* Cookie banner theme (vanilla-cookieconsent, see components/CookieConsent).
-   "html" outranks the library's own #cc-main defaults, which load later. */
 html #cc-main {
   --cc-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   --cc-bg: var(--palette-bg-950);
@@ -133,7 +130,6 @@ html #cc-main {
   --cc-separator-border-color: var(--palette-border-soft);
   --cc-overlay-bg: var(--palette-overlay);
 }
-/* Same look as the site's cards and buttons: dark border, hard "pop" shadow. */
 html #cc-main .cm,
 html #cc-main .pm {
   border: var(--border-width) solid var(--palette-border);
@@ -175,7 +171,6 @@ html #cc-main .pm__section--toggle {
   margin-bottom: 10px;
   overflow: hidden;
 }
-/* The library rounds this with the pill button radius, which clips the text. */
 html #cc-main .pm__section--toggle .pm__section-desc-wrapper {
   border-radius: 0;
 }
@@ -193,14 +188,9 @@ html #cc-main .pm__body a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-/* The library gives the preferences box a fixed height, leaving a large empty
-   gap under our two short sections. Size it to its content; the library's
-   max-height still caps it and the body scrolls if it grows. */
 html #cc-main .pm--box {
   height: auto;
 }
-/* Phones (the library's 640px breakpoint): a bottom sheet sized to its
-   content instead of a mostly empty full-screen panel. */
 @media (max-width: 640px) {
   html #cc-main .pm {
     top: auto;
@@ -512,12 +502,6 @@ body.menu-open .overlay {
   white-space: nowrap;
   border: 0
 }
-/* Swiper pagination bullets render as 10px dots, below the 24px minimum
-   touch target. Grow the bullet itself to a 24px transparent hit box and
-   draw the visible 10px dot with a pseudo-element, so the design is
-   unchanged but the tap target is compliant. The class is repeated to
-   outrank the per-component `.xSwiper :global(.swiper-pagination-bullet)`
-   overrides without depending on stylesheet order. */
 .swiper-pagination-bullet.swiper-pagination-bullet.swiper-pagination-bullet {
   position: relative;
   width: 24px;

@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-// Icons are resolved by name from blogPosts.json, so every icon is needed.
-// This module only loads with the lazy /blog/:slug route.
 import * as Lucide from "lucide-react";
 import { Calendar, Clock } from "lucide-react";
 
@@ -10,7 +8,6 @@ import CodeBlock from "../BlogArticle/CodeBlock";
 import BlogFaq from "../BlogFaq/BlogFaq";
 import { resolveToc } from "../../data/blog/structuredPosts.js";
 
-// "bar-chart-3" -> Lucide.BarChart3; unknown names fall back to a circle.
 const Icon = ({ name, size = 20 }) => {
   if (!name) return null;
   const pascal = name
@@ -21,7 +18,6 @@ const Icon = ({ name, size = 20 }) => {
   return <Cmp size={size} />;
 };
 
-// Inline markup: **bold**, ==highlight==, [label](url), `code`.
 const RichText = ({ text }) => {
   const tokens = text.split(/(\*\*[^*]+\*\*|==[^=]+==|\[[^\]]+\]\([^)]+\)|`[^`]+`)/g);
   return (
@@ -180,8 +176,6 @@ const BlockView = ({ block: b }) => {
         </ol>
       );
 
-    // Optional width/height give the real aspect ratio; portrait images
-    // (taller than wide, e.g. carousel slides) show narrower and centred.
     case "image":
       return (
         <figure className={`${styles.figure} ${b.height > b.width ? styles.figurePortrait : ""}`}>
@@ -249,14 +243,12 @@ const BlockView = ({ block: b }) => {
   }
 };
 
-// A structured post (blogPosts.json): hero, sticky table of contents, sections, FAQ, CTA.
 const ArticleBlocks = ({ post }) => {
   const toc = useMemo(() => resolveToc(post), [post]);
   const [activeAnchor, setActiveAnchor] = useState(toc[0]?.anchor ?? "");
   const itemRefs = useRef([]);
   const [marker, setMarker] = useState(null);
 
-  // Highlight the section whose heading last scrolled past the trigger line.
   useEffect(() => {
     const elements = toc.map((it) => document.getElementById(it.anchor)).filter(Boolean);
     if (elements.length === 0) return;
@@ -284,7 +276,6 @@ const ArticleBlocks = ({ post }) => {
     };
   }, [toc]);
 
-  // Slide the TOC marker to the active item.
   useEffect(() => {
     const place = () => {
       const li = itemRefs.current[toc.findIndex((it) => it.anchor === activeAnchor)];

@@ -1,7 +1,3 @@
-// One entry per service page. The key is the URL slug (/ab-testing, ...).
-// App.jsx, seoData.js and the Services cards all read this, so a new entry
-// here is a new page; nginx.conf and public/sitemap.xml still need the slug.
-// Plain data only: seoData.js imports this from Node.
 const CALENDLY = "https://calendly.com/ingversionsdigital/30min";
 
 export default {
@@ -29,8 +25,6 @@ export default {
       { title: "Loom walkthroughs", desc: "You get a recorded walkthrough of every test, so you always know what changed and why." },
       { title: "Clear reporting", desc: "Results are reported in plain language, with a recommendation on what to ship next." },
     ],
-    // Blog posts on this topic: listed here as "Related reading", and each post
-    // links back to this page (RelatedService on /blog/:slug).
     posts: [
       { slug: "multivariate-vs-ab-testing", title: "Multivariate vs A/B Testing: When to Use Which" },
       { slug: "how-long-to-run-ab-test", title: "How Long Should You Run an A/B Test? A Practical Framework" },
@@ -71,8 +65,6 @@ export default {
       { title: "Shopify Plus", desc: "Support for Plus stores, from checkout customisation to multi-store setups." },
       { title: "Handover & support", desc: "A full handover when we launch, and ongoing support when you need it." },
     ],
-    // Blog posts on this topic: listed here as "Related reading", and each post
-    // links back to this page (RelatedService on /blog/:slug).
     posts: [
       { slug: "optimizing-shopify-core-web-vitals", title: "Optimizing Shopify Core Web Vitals for SEO" },
       { slug: "shopify-technical-seo-checklist", title: "Shopify SEO: A Technical Checklist for 2026" },
@@ -116,8 +108,6 @@ export default {
       { title: "Fix verification", desc: "Every fix is retested before it's closed, so nothing slips through." },
       { title: "Release sign-off", desc: "A final check and approval before your changes go live." },
     ],
-    // Blog posts on this topic: listed here as "Related reading", and each post
-    // links back to this page (RelatedService on /blog/:slug).
     posts: [
       { slug: "accessibility-testing-wcag-ecommerce", title: "Accessibility Testing: WCAG Compliance for E-commerce Sites" },
       { slug: "qa-checklist-before-launching-store", title: "Essential QA Checklists Before Launching Your Store" },
@@ -190,8 +180,6 @@ export default {
       { title: "Testing", desc: "Personalized pages tested against the default to prove the lift." },
       { title: "Ongoing optimization", desc: "We keep refining pages as results come in." },
     ],
-    // Blog posts on this topic: listed here as "Related reading", and each post
-    // links back to this page (RelatedService on /blog/:slug).
     posts: [
       { slug: "personalization-tactics-lift-conversions", title: "Personalization Tactics That Actually Lift Conversion Rate" },
       { slug: "psychology-high-converting-landing-pages", title: "The Psychology of High-Converting Landing Pages" },
@@ -207,7 +195,6 @@ export default {
     ],
   },
 
-  // Keyword landing pages from the SEO plan. They reuse this template.
   "shopify-cro-agency": {
     eyebrow: "Shopify CRO Agency",
     title: "Shopify CRO Agency for DTC Brands",

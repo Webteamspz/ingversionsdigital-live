@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CONSENT_EVENT, setConsent, startAnalytics } from "../../gtm";
 
-// vanilla-cookieconsent (pinned in package.json). Loaded with a dynamic import
-// so the library and its CSS ship as their own chunk and never run during
-// prerender. The banner is a corner box that never blocks the page.
 const POLICY = "/privacy-policy";
 const NOTICE = "/privacy-policy#cookies-tracking";
 
@@ -40,13 +37,11 @@ const text = {
   },
 };
 
-// Mirror the choice into the analytics-consent key that main.jsx and gtm.js read.
 const apply = (cc) => {
   const value = cc.acceptedCategory("analytics") ? "granted" : "denied";
   setConsent(value);
   window.gtag?.("consent", "update", { analytics_storage: value });
   if (value === "granted") startAnalytics();
-  // Scripts already running can't be unloaded; a reload starts the page without them.
   else if (window.__analyticsStarted) return location.reload();
   window.dispatchEvent(new Event(CONSENT_EVENT));
 };
@@ -57,7 +52,6 @@ const CookieConsent = () => {
   useEffect(() => {
     import("vanilla-cookieconsent/dist/cookieconsent.css");
     import("vanilla-cookieconsent").then((cc) =>
-      // run() only starts once, so StrictMode's second effect is harmless.
       cc.run({
         disablePageInteraction: false,
         guiOptions: {
@@ -66,7 +60,6 @@ const CookieConsent = () => {
         },
         categories: {
           necessary: { enabled: true, readOnly: true },
-          // _ga/_ga_<id>: GA4, _gcl_au: Google conversion linker (set by the GTM container), _clck/_clsk: Clarity.
           analytics: { enabled: true, autoClear: { cookies: [{ name: /^_ga/ }, { name: /^_gcl_/ }, { name: /^_cl(ck|sk)$/ }] } },
         },
         onConsent: () => apply(cc),
@@ -75,7 +68,6 @@ const CookieConsent = () => {
       })
     );
 
-    // Internal links in the banner go through the router, not a full reload.
     const onClick = (e) => {
       const a = e.target.closest?.("#cc-main a[href^='/']");
       if (!a || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;

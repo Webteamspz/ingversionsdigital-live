@@ -9,7 +9,6 @@ import { legacyHeroImage } from "../../data/blog/blogSeo.js";
 const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const markdownComponents = {
-  // Links to other pages on this site go through the router (no full reload).
   a({ href = "", children }) {
     return href.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>;
   },
@@ -48,7 +47,6 @@ const markdownComponents = {
   },
 };
 
-// A legacy markdown post (articlesData.js).
 const BlogArticle = ({ slug, article }) => (
   <div className={styles["article-main"]}>
     <div className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-circle"]}`} aria-hidden="true" />

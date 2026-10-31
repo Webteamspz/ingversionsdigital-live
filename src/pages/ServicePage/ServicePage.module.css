@@ -111,7 +111,6 @@
   list-style: none;
   --step: 2s
 }
-/* The dark background shows as the border; the beam rotates behind the inner card. */
 .includedCard {
   position: relative;
   overflow: hidden;
@@ -159,7 +158,6 @@
 .done .includedIcon {
   background: var(--accent)
 }
-/* Fills the whole card left to right, behind the text. */
 .progress {
   position: absolute;
   z-index: -1;
@@ -340,7 +338,6 @@
   outline: var(--border-width) solid var(--palette-accent-strong);
   outline-offset: 3px
 }
-/* Scoped: global .btn caps width at 162px and loads later. */
 .pricing .seeAll {
   gap: 8px;
   width: auto;
@@ -407,7 +404,6 @@
     padding: 22px
   }
 }
-/* Optional "related reading" links (page.related in servicePagesData.js). */
 .related {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

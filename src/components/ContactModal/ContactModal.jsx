@@ -34,7 +34,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
     };
   }, [isOpen]);
 
-  // Escape closes the modal, like the close button.
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => {
@@ -61,7 +60,6 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Honeypot: real visitors never see this field, bots fill it.
     if (e.currentTarget.elements._gotcha?.value) return navigate("/thank-you");
     setSubmitError("");
     setIsSubmitting(true);

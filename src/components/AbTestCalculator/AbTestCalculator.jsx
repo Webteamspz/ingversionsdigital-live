@@ -219,7 +219,6 @@ const TAB_KEYS = ["plan", "results"];
 const AbTestCalculator = () => {
   const [tab, setTab] = useState("plan");
 
-  // Arrow keys move between tabs, per the WAI-ARIA tabs pattern.
   const onTabKey = (e) => {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
     const next = TAB_KEYS[(TAB_KEYS.indexOf(tab) + 1) % TAB_KEYS.length];

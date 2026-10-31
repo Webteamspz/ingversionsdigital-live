@@ -1,4 +1,3 @@
-// Copy for the /ab-test-calculator page. The maths lives in src/utils/abtest.js.
 const abTestData = {
   hero: {
     tag: "Free Tool",

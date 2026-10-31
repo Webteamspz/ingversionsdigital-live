@@ -2,9 +2,6 @@ import data from "./siteData.js";
 import servicePages from "./servicePagesData.js";
 import abTest from "./abTestData.js";
 
-// Head tags per route: the props each page spreads into <SEO>.
-// scripts/prerender.mjs reads this too, to write the same tags into static
-// HTML for crawlers that do not run JavaScript. Plain data only, no JSX.
 const home = { name: "Home", path: "/" };
 
 const faqJsonLd = (list) => ({

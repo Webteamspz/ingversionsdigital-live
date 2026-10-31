@@ -315,7 +315,6 @@
   background: color-mix(in srgb, var(--accent) 15%, var(--bg-800))
 }
 .callout-success {
-  /* background: color-mix(in srgb, var(--quaternary) 24%, var(--bg-800)) */
 }
 .calloutIcon {
   display: inline-flex;

@@ -10,11 +10,8 @@ import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta
 import Reveal from "../../components/Reveal/Reveal";
 import styles from "./ServicesPage.module.css";
 
-// Soft purple, not the strong accent, so dark text on the panels stays readable.
 const COLORS = ["var(--palette-accent-soft)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
-// The services shown on the home page, with each one's full details from its
-// own service page (/ab-testing, /shopify-development, ...).
 const SERVICES = data.services.list
   .filter((s) => s.href?.startsWith("/"))
   .map((s) => ({ slug: s.href.slice(1), ...servicePages[s.href.slice(1)] }))

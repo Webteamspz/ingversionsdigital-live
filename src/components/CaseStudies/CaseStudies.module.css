@@ -2,7 +2,6 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  /* bottom padding keeps the card's 10px offset shadow from being clipped by overflow:hidden */
   padding: var(--section-space) 0 12px;
   background: var(--palette-bg-950);
   scroll-margin-top: 100px
@@ -45,13 +44,11 @@
 .card {
   margin: 0 auto;
   overflow: hidden;
-  /* same colour as the CTA band so the rounded clip never shows a light seam behind it */
   background: var(--palette-accent);
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
   box-shadow: 10px 10px 0 0 var(--palette-border)
 }
-/* Standalone /case-studies/<id> page: clear the fixed header, like the service page hero. */
 .caseStudies.page {
   padding-top: 168px;
   padding-bottom: var(--section-space)
@@ -66,7 +63,6 @@
     padding-top: 120px
   }
 }
-/* Homepage board: intro on the left, one clickable row per study on the right. */
 .board {
   display: grid;
   grid-template-columns: minmax(0,4fr) minmax(0,7fr);
@@ -279,7 +275,6 @@
   }
 }
 
-/* Header */
 .head {
   padding: 40px 44px 36px;
   background: var(--palette-tint-blue);
@@ -319,7 +314,6 @@
   line-height: 1.12
 }
 
-/* Body */
 .body {
   display: flex;
   flex-direction: column;
@@ -388,7 +382,6 @@
   line-height: 1.7
 }
 
-/* Results */
 .resultsHeading {
   margin: 0 0 24px;
   color: var(--palette-text-primary);
@@ -504,7 +497,6 @@
   background: var(--palette-accent-soft)
 }
 
-/* Per-test write-ups (standalone page only) */
 .test {
   display: flex;
   flex-direction: column;
@@ -528,7 +520,6 @@
 .wide {
   grid-column: 1 / -1
 }
-/* Show test screenshots whole, not cropped to the GA4 pair's box. */
 .test .shotFrame img {
   aspect-ratio: auto;
   object-fit: contain
@@ -558,7 +549,6 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Same box for every screenshot so the pair lines up; the full image opens in the lightbox. */
   aspect-ratio: 1032 / 615;
   object-fit: cover;
   object-position: top;
@@ -606,7 +596,6 @@
   text-align: center
 }
 
-/* CTA */
 .cta {
   display: flex;
   align-items: center;

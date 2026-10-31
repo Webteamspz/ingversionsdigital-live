@@ -69,7 +69,6 @@
 .tab:hover {
   background: var(--palette-hover-surface)
 }
-/* Kept apart from :hover — the build wraps any :hover rule in a desktop-only media query. */
 .tabActive {
   background: var(--palette-accent);
   color: var(--palette-bg-800)
@@ -98,7 +97,6 @@
   animation: rise .4s ease-out both;
   animation-delay: calc(var(--i) * 60ms)
 }
-/* Connector from this step's icon to the next one. */
 .step:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -131,7 +129,6 @@
 .current .icon {
   animation: pulse 1.4s ease-out infinite
 }
-/* Progress line over the dashed connector, in this step's colour. */
 .track {
   position: absolute;
   z-index: 1;
@@ -163,7 +160,6 @@
   background: var(--icon-bg);
   transform: translateY(-50%)
 }
-/* Last step has no connector: a short hold before the loop restarts. */
 .pause {
   position: absolute;
   animation: hold 1.6s both
