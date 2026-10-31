@@ -209,7 +209,7 @@ components that need to render **different JSX** (not just different CSS) on mob
 e.g. swapping a grid for a Swiper carousel.
 
 **No `clamp()`, no `vw`/`vh`-based fluid sizing, anywhere in CSS.** A handful of
-components (`Hero/HeroV2`, `AboutHero`, `Contact`, `TrackRecord`) used to size large
+components (`Hero`, `AboutHero`, `Contact`, `TrackRecord`) used to size large
 headings with `clamp(min, Nvw, max)`. All of them were converted to fixed `px` values
 with explicit breakpoint overrides instead — the `clamp()` min/max bounds became the
 mobile/desktop pixel values, with a tablet-range override added at `1023.98px` where
