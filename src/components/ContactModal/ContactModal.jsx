@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./ContactModal.module.css";
 import { submitLead } from "../../utils/submitLead";
+import site from "../../data/siteData";
+
+const notice = site.contact.modalNotice;
 
 const initialState = {
   email: "",
@@ -189,6 +192,13 @@ const ContactModal = ({ isOpen, onClose, source }) => {
             {submitError && (
               <div className={`errorMessage ${styles.contactModalError}`}>{submitError}</div>
             )}
+
+            <p className={styles.contactModalNotice}>
+              {notice.text}{" "}
+              <Link to={notice.href} onClick={handleClose}>
+                {notice.linkLabel}
+              </Link>
+            </p>
 
             <button type="submit" className={styles.contactModalSubmit} disabled={isSubmitting}>
               {isSubmitting ? "Sending..." : "Continue"}
