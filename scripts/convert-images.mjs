@@ -58,4 +58,6 @@ for (const r of report) {
   console.log(`${r.file}\t${r.beforeKB}KB -> ${r.afterKB}KB${r.resized ? " (resized)" : ""}`);
 }
 console.log("----");
-console.log(`TOTAL: ${Math.round(totalBefore / 1024)}KB -> ${Math.round(totalAfter / 1024)}KB (${files.length} files)`);
+console.log(
+  `TOTAL: ${Math.round(totalBefore / 1024)}KB -> ${Math.round(totalAfter / 1024)}KB (${files.length} files)`,
+);

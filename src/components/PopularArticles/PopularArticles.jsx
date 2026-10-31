@@ -85,7 +85,9 @@ const PopularArticles = ({ currentSlug }) => {
                       decoding="async"
                       className={styles["popular-img"]}
                     />
-                    <span className={`${articleStyles["article-badge"]} ${styles["popular-badge"]}`}>
+                    <span
+                      className={`${articleStyles["article-badge"]} ${styles["popular-badge"]}`}
+                    >
                       {article.category}
                     </span>
                   </div>

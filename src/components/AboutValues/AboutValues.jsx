@@ -7,7 +7,12 @@ import { valueCards } from "../../data/aboutUsData";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 
-const NODE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const NODE_COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
 const AboutValues = () => {
   const isMobile = useIsMobile();

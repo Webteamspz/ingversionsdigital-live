@@ -26,8 +26,12 @@ const isDismissed = () => {
 
 const split = (ms) => {
   const s = Math.floor(ms / 1000);
-  return [["DAYS", s / 86400], ["HRS", (s / 3600) % 24], ["MIN", (s / 60) % 60], ["SEC", s % 60]]
-    .map(([label, v]) => [label, String(Math.floor(v)).padStart(2, "0")]);
+  return [
+    ["DAYS", s / 86400],
+    ["HRS", (s / 3600) % 24],
+    ["MIN", (s / 60) % 60],
+    ["SEC", s % 60],
+  ].map(([label, v]) => [label, String(Math.floor(v)).padStart(2, "0")]);
 };
 
 const BlackFridayBanner = () => {
@@ -108,7 +112,12 @@ const BlackFridayBanner = () => {
               <ArrowRight size={16} aria-hidden="true" />
             </Link>
 
-            <button type="button" className={styles.close} onClick={dismiss} aria-label="Dismiss Black Friday offer">
+            <button
+              type="button"
+              className={styles.close}
+              onClick={dismiss}
+              aria-label="Dismiss Black Friday offer"
+            >
               <X size={16} />
             </button>
           </div>

@@ -30,14 +30,24 @@ const PricingCompare = ({ track }) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
       return (
-        <span className={styles.valueIconCircle} style={{ background: "var(--quaternary)" }} role="img" aria-label="Included">
+        <span
+          className={styles.valueIconCircle}
+          style={{ background: "var(--quaternary)" }}
+          role="img"
+          aria-label="Included"
+        >
           <Check size={16} strokeWidth={3} color="var(--palette-border)" />
         </span>
       );
     }
     if (t === "cross") {
       return (
-        <span className={styles.valueIconCircle} style={{ background: "#FCA5A5" }} role="img" aria-label="Not included">
+        <span
+          className={styles.valueIconCircle}
+          style={{ background: "#FCA5A5" }}
+          role="img"
+          aria-label="Not included"
+        >
           <X size={16} strokeWidth={3} color="var(--palette-border)" />
         </span>
       );
@@ -46,22 +56,42 @@ const PricingCompare = ({ track }) => {
   };
 
   const sections = (pricing?.sections || []).filter(
-    (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0
+    (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0,
   );
 
   const renderPrice = (p) => {
-    if (p.contact) return <a className={styles.cta} href={p.contact.href} target="_blank" rel="noopener noreferrer" data-cta={p.contact.label} data-cta-loc={`Pricing Compare: ${p.name}`}>{p.contact.label}</a>;
+    if (p.contact)
+      return (
+        <a
+          className={styles.cta}
+          href={p.contact.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cta={p.contact.label}
+          data-cta-loc={`Pricing Compare: ${p.name}`}
+        >
+          {p.contact.label}
+        </a>
+      );
     if (p.priceLabel) return <div className={styles.planPrice}>{p.priceLabel}</div>;
-    if (p.price != null) return <div className={styles.planPrice}>${p.price}<span className={styles.period}>/month</span></div>;
-    return <div className={styles.planSpacer} aria-hidden="true">&nbsp;</div>;
+    if (p.price != null)
+      return (
+        <div className={styles.planPrice}>
+          ${p.price}
+          <span className={styles.period}>/month</span>
+        </div>
+      );
+    return (
+      <div className={styles.planSpacer} aria-hidden="true">
+        &nbsp;
+      </div>
+    );
   };
 
   return (
     <section className={styles.pricingSection} id="pricingComparison">
       <div className="container">
-        <h3 className={`section-title ${styles.heading}`}>
-          {pricing.heading}
-        </h3>
+        <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
 
         <div className={styles.tableWrap}>
@@ -69,16 +99,8 @@ const PricingCompare = ({ track }) => {
             <div className={`${styles.cell} ${styles.stub}`} />
             {pricing.plans.map((p, i) => (
               <div key={i} className={`${styles.cell} ${styles.planHead}`}>
-                {p.badge && (
-                  <span className={`${styles.badge} ${styles.cta}`}>
-                    {p.badge}
-                  </span>
-                )}
-                <div
-                  className={`${styles.planName} ${
-                    p.badge ? styles.premiumName : ""
-                  }`}
-                >
+                {p.badge && <span className={`${styles.badge} ${styles.cta}`}>{p.badge}</span>}
+                <div className={`${styles.planName} ${p.badge ? styles.premiumName : ""}`}>
                   {p.name}
                 </div>
                 {renderPrice(p)}
@@ -90,28 +112,16 @@ const PricingCompare = ({ track }) => {
             <div key={sIdx} className={styles.sectionBlock}>
               {sec.title ? (
                 <div className={`${styles.row} ${styles.sectionTitle}`}>
-                  <div className={`${styles.cell} ${styles.stub}`}>
-                    {sec.title}
-                  </div>
+                  <div className={`${styles.cell} ${styles.stub}`}>{sec.title}</div>
                   <div className={`${styles.cell} ${styles.spanner}`} />
                 </div>
               ) : null}
 
               {sec.rows.map((r, rIdx) => (
-                <div
-                  key={rIdx}
-                  className={`${styles.row} ${styles.rowLine}`}
-                >
-                  <div
-                    className={`${styles.cell} ${styles.labelCell}`}
-                  >
-                    {r.label}
-                  </div>
+                <div key={rIdx} className={`${styles.row} ${styles.rowLine}`}>
+                  <div className={`${styles.cell} ${styles.labelCell}`}>{r.label}</div>
                   {r.values.map((v, i) => (
-                    <div
-                      key={i}
-                      className={styles.cell}
-                    >
+                    <div key={i} className={styles.cell}>
                       {renderValue(v)}
                     </div>
                   ))}
@@ -126,14 +136,9 @@ const PricingCompare = ({ track }) => {
             <div className={styles.labelsHeadSpacer} />
             {sections.map((sec, sIdx) => (
               <div key={`m-sec-${sIdx}`} className={styles.mSection}>
-                {sec.title && (
-                  <div className={styles.mSectionTitle}>{sec.title}</div>
-                )}
+                {sec.title && <div className={styles.mSectionTitle}>{sec.title}</div>}
                 {sec.rows.map((r, rIdx) => (
-                  <div
-                    key={`m-l-${sIdx}-${rIdx}`}
-                    className={styles.mRow}
-                  >
+                  <div key={`m-l-${sIdx}-${rIdx}`} className={styles.mRow}>
                     <span className={styles.mLabel}>{r.label}</span>
                   </div>
                 ))}
@@ -177,35 +182,19 @@ const PricingCompare = ({ track }) => {
               className={styles.planSwiper}
             >
               {pricing.plans.map((p, pIdx) => (
-                <SwiperSlide
-                  key={`m-plan-${pIdx}`}
-                  className={styles.slide}
-                >
+                <SwiperSlide key={`m-plan-${pIdx}`} className={styles.slide}>
                   <div className={styles.mHead}>
-                    {p.badge && (
-                      <span className={`${styles.badge} ${styles.cta}`}>
-                        {p.badge}
-                      </span>
-                    )}
+                    {p.badge && <span className={`${styles.badge} ${styles.cta}`}>{p.badge}</span>}
                     <div className={styles.planName}>{p.name}</div>
                     {renderPrice(p)}
                   </div>
 
                   {sections.map((sec, sIdx) => (
                     <div key={`m-secvals-${pIdx}-${sIdx}`}>
-                      {sec.title && (
-                        <div className={styles.mSectionTitle}>
-                          &nbsp;
-                        </div>
-                      )}
+                      {sec.title && <div className={styles.mSectionTitle}>&nbsp;</div>}
                       {sec.rows.map((r, rIdx) => (
-                        <div
-                          key={`m-val-${pIdx}-${sIdx}-${rIdx}`}
-                          className={styles.valRow}
-                        >
-                          <span className={styles.mValue}>
-                            {renderValue(r.values[pIdx])}
-                          </span>
+                        <div key={`m-val-${pIdx}-${sIdx}-${rIdx}`} className={styles.valRow}>
+                          <span className={styles.mValue}>{renderValue(r.values[pIdx])}</span>
                         </div>
                       ))}
                     </div>

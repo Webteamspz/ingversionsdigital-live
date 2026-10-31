@@ -5,14 +5,14 @@ const WorkProcess = () => {
   return (
     <section className={styles.processSection} id="work-process">
       <div className="container">
-        <h2 className="section-title">
-          {data.process.heading}
-        </h2>
+        <h2 className="section-title">{data.process.heading}</h2>
         <p className={styles.processSub}>{data.process.sub}</p>
         <div className={styles.processGrid}>
           {data.process.list.map((p, i) => (
             <div key={i} className={styles.step}>
-              <div className={styles.stepNumber} aria-hidden="true">{i + 1}</div>
+              <div className={styles.stepNumber} aria-hidden="true">
+                {i + 1}
+              </div>
               <h4 className={styles.stepHead}>{p.title}</h4>
               <p className={styles.stepDesc}>{p.desc}</p>
             </div>

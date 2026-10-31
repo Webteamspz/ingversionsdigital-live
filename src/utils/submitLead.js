@@ -4,7 +4,18 @@ const COMMIT_URL = `https://firestore.googleapis.com/v1/${DB}:commit`;
 const SITE = "ingversionsdigital.com";
 const COLLECTION = "ingversionsdigital_submissions";
 
-const UPPER = { ab: "A/B", qa: "QA", cro: "CRO", seo: "SEO", bfcm: "BFCM", mcp: "MCP", pdp: "PDP", ui: "UI", ux: "UX", ai: "AI" };
+const UPPER = {
+  ab: "A/B",
+  qa: "QA",
+  cro: "CRO",
+  seo: "SEO",
+  bfcm: "BFCM",
+  mcp: "MCP",
+  pdp: "PDP",
+  ui: "UI",
+  ux: "UX",
+  ai: "AI",
+};
 export function pageNameFromPath(path) {
   const parts = (path || "/").split("/").filter(Boolean);
   if (!parts.length) return "Home";
@@ -13,7 +24,7 @@ export function pageNameFromPath(path) {
       part
         .split("-")
         .map((w) => UPPER[w] || w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ")
+        .join(" "),
     )
     .join(" / ");
 }

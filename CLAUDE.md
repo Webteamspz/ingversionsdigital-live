@@ -84,8 +84,8 @@ visible header/footer-then-content flash. Do not convert them to `React.lazy`.
 
 ## Verification
 
-Run `npm test`, `npm run lint` and `npm run build` before treating a change as
-done. `npm test` covers only pure logic in `src/utils/*.test.js` (Node's
+Run `npm run format`, `npm test`, `npm run lint` and `npm run build` before
+treating a change as done. `npm test` covers only pure logic in `src/utils/*.test.js` (Node's
 built-in `node:test`, no framework). There are no UI tests, so anything a user
 can see must also be checked in a real
 browser at the affected breakpoint. Do not claim a fix works from static

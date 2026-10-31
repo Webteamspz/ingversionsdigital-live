@@ -6,13 +6,13 @@
   background-color: var(--palette-bg-950);
   background-size: 22px 22px;
   color: var(--palette-text-primary);
-  text-align: center
+  text-align: center;
 }
 .decor {
   position: absolute;
   inset: 0;
   z-index: -1;
-  pointer-events: none
+  pointer-events: none;
 }
 .shapeCircleTl {
   position: absolute;
@@ -22,7 +22,7 @@
   height: 90px;
   border: 4px solid var(--quaternary);
   border-radius: 50%;
-  opacity: .2
+  opacity: 0.2;
 }
 .shapeSquareTr {
   position: absolute;
@@ -33,7 +33,7 @@
   border: 4px solid var(--palette-accent);
   border-radius: 14px;
   transform: rotate(15deg);
-  opacity: .18
+  opacity: 0.18;
 }
 .shapeCircleBr {
   position: absolute;
@@ -43,7 +43,7 @@
   height: 170px;
   border: 4px solid var(--secondary);
   border-radius: 50%;
-  opacity: .16
+  opacity: 0.16;
 }
 .shapeSquareBl {
   position: absolute;
@@ -54,11 +54,11 @@
   border: 4px solid var(--tertiary);
   border-radius: 10px;
   transform: rotate(-25deg);
-  opacity: .22
+  opacity: 0.22;
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .decor {
-    display: none
+    display: none;
   }
 }
 .engagementSub {
@@ -67,13 +67,13 @@
   color: var(--palette-text-secondary);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.5
+  line-height: 1.5;
 }
 .engagementGrid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
-  text-align: left
+  text-align: left;
 }
 .card.engagementCard {
   position: relative;
@@ -88,11 +88,13 @@
   border-radius: 20px;
   background: var(--palette-bg-800);
   box-shadow: var(--shadow-pop-soft);
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),box-shadow .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .card.engagementCard:hover {
   box-shadow: 8px 8px 0 var(--palette-accent);
-  transform: translateY(-8px) rotate(-.7deg)
+  transform: translateY(-8px) rotate(-0.7deg);
 }
 .cornerFold {
   position: absolute;
@@ -103,7 +105,7 @@
   height: 42px;
   border-bottom: var(--border-width) solid var(--palette-border);
   border-left: var(--border-width) solid var(--palette-border);
-  border-radius: 0 0 0 32px
+  border-radius: 0 0 0 32px;
 }
 .iconCircle {
   position: relative;
@@ -117,20 +119,20 @@
   flex-shrink: 0;
   border: var(--border-width) solid var(--palette-border);
   border-radius: 50%;
-  box-shadow: 4px 4px 0 var(--palette-text-primary)
+  box-shadow: 4px 4px 0 var(--palette-text-primary);
 }
 .iconCircle svg {
   width: 30px;
-  height: 30px
+  height: 30px;
 }
 .cardTitle {
   margin: 0 0 14px;
   color: var(--palette-text-primary);
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 25px;
   font-weight: 700;
-  letter-spacing: -.025em;
-  line-height: 1.17
+  letter-spacing: -0.025em;
+  line-height: 1.17;
 }
 .cardDesc {
   min-height: 102px;
@@ -138,7 +140,7 @@
   color: var(--palette-text-secondary);
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.55
+  line-height: 1.55;
 }
 .featureList {
   display: flex;
@@ -147,7 +149,7 @@
   flex: 1;
   flex-direction: column;
   gap: 11px;
-  list-style: none
+  list-style: none;
 }
 .featureItem {
   display: flex;
@@ -156,7 +158,7 @@
   color: var(--palette-text-subtle);
   font-size: 15px;
   font-weight: 500;
-  line-height: 1.35
+  line-height: 1.35;
 }
 .checkIcon {
   display: inline-flex;
@@ -165,7 +167,7 @@
   align-items: center;
   justify-content: center;
   color: var(--palette-accent);
-  flex: 0 0 18px
+  flex: 0 0 18px;
 }
 .learnMoreBtn {
   display: inline-flex;
@@ -180,83 +182,86 @@
   box-shadow: 3px 3px 0 var(--palette-text-primary);
   color: var(--palette-bg-800);
   cursor: pointer;
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .2s ease,box-shadow .2s ease,background-color .2s ease
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 .learnMoreBtn:hover {
   box-shadow: 5px 5px 0 var(--palette-text-primary);
   background: var(--palette-accent-strong);
   color: var(--palette-bg-800);
-  transform: translate(-2px,-2px)
+  transform: translate(-2px, -2px);
 }
 .learnMoreBtn:focus-visible {
   outline: 3px solid var(--palette-accent);
-  outline-offset: 4px
+  outline-offset: 4px;
 }
-@media (max-width:1023.98px) {
+@media (max-width: 1023.98px) {
   .engagementGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr))
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .card.engagementCard:last-child {
     grid-column: 1/-1;
     max-width: calc(50% - 14px);
-    justify-self: center
+    justify-self: center;
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .engagementSection {
     padding: 48px 0;
-    background-size: 18px 18px
+    background-size: 18px 18px;
   }
   .engagementSub {
     margin-bottom: 44px;
-    font-size: 14px
+    font-size: 14px;
   }
   .engagementGrid {
     grid-template-columns: 1fr;
-    gap: 22px
+    gap: 22px;
   }
   .card.engagementCard,
   .card.engagementCard:last-child {
     min-height: auto;
     max-width: none;
-    padding: 27px 24px
+    padding: 27px 24px;
   }
   .iconCircle {
     width: 56px;
     height: 56px;
     margin-bottom: 22px;
-    box-shadow: 3px 3px 0 var(--palette-text-primary)
+    box-shadow: 3px 3px 0 var(--palette-text-primary);
   }
   .iconCircle svg {
     width: 27px;
-    height: 27px
+    height: 27px;
   }
   .cardTitle {
     text-align: left;
-    font-size: 23px
+    font-size: 23px;
   }
   .cardDesc {
     text-align: left;
     min-height: 0;
-    margin-bottom: 20px
+    margin-bottom: 20px;
   }
   .engagementSwiper {
-    padding: 0 3px 45px!important;
+    padding: 0 3px 45px !important;
     overflow: visible;
     --swiper-pagination-bullet-inactive-color: var(--palette-text-primary);
     --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: var(--palette-accent)
+    --swiper-pagination-color: var(--palette-accent);
   }
   .engagementSwiper :global(.swiper-slide) .card.engagementCard {
     width: 100%;
-    min-height: 520px
+    min-height: 520px;
   }
   .engagementSwiper :global(.swiper-pagination) {
-    bottom: 0
+    bottom: 0;
   }
   .engagementSwiper :global(.swiper-pagination-bullet) {
     width: 10px;
@@ -264,12 +269,12 @@
     border: 2px solid var(--palette-text-primary);
     margin: 0 5px !important;
     background: 0 0;
-    opacity: 1
+    opacity: 1;
   }
   .engagementSwiper :global(.swiper-pagination-bullet:hover) {
     background: var(--tertiary);
   }
   .engagementSwiper :global(.swiper-pagination-bullet-active) {
-    background: var(--palette-accent)
+    background: var(--palette-accent);
   }
 }

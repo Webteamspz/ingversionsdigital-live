@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--section-space) 0;
-  background: var(--palette-tint-blue)
+  background: var(--palette-tint-blue);
 }
 .processSub {
   max-width: 720px;
@@ -11,13 +11,13 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  text-align: center
+  text-align: center;
 }
 .processGrid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 28px
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
 }
 .processGrid::before {
   position: absolute;
@@ -27,8 +27,12 @@
   left: 12.5%;
   height: 4px;
   content: "";
-  background: repeating-linear-gradient(to right,var(--palette-border) 0 18px,transparent 18px 30px);
-  opacity: .35
+  background: repeating-linear-gradient(
+    to right,
+    var(--palette-border) 0 18px,
+    transparent 18px 30px
+  );
+  opacity: 0.35;
 }
 .step {
   position: relative;
@@ -37,7 +41,7 @@
   min-width: 0;
   align-items: center;
   flex-direction: column;
-  text-align: center
+  text-align: center;
 }
 .stepNumber {
   display: inline-flex;
@@ -50,20 +54,20 @@
   border-radius: 50%;
   background: var(--palette-bg-800);
   color: var(--palette-accent);
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   box-shadow: 7px 7px 0 var(--palette-text-primary);
   font-size: 36px;
   font-weight: 600;
-  line-height: 1
+  line-height: 1;
 }
 .stepHead {
   margin: 0 0 10px;
   color: var(--palette-text-primary);
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-size: 21px;
   font-weight: 600;
-  letter-spacing: -.01em;
-  line-height: 1.25
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 .stepDesc {
   max-width: 270px;
@@ -71,28 +75,28 @@
   color: var(--palette-text-muted);
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.7
+  line-height: 1.7;
 }
-@media (max-width:1023.98px) {
+@media (max-width: 1023.98px) {
   .processGrid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    row-gap: 46px
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 46px;
   }
   .processGrid::before {
-    display: none
+    display: none;
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .processSection {
-    padding: 44px 0 40px
+    padding: 44px 0 40px;
   }
   .processSub {
     margin-bottom: 36px;
-    font-size: 14px
+    font-size: 14px;
   }
   .processGrid {
     grid-template-columns: 1fr;
-    gap: 28px
+    gap: 28px;
   }
   .stepNumber {
     width: 60px;
@@ -100,14 +104,14 @@
     margin-bottom: 17px;
     border-width: 4px;
     box-shadow: 5px 5px 0 var(--palette-text-primary);
-    font-size: 32px
+    font-size: 32px;
   }
   .stepHead {
-    font-size: 22px
+    font-size: 22px;
   }
   .stepDesc {
     max-width: 100%;
     font-size: 16px;
-    line-height: 1.6
+    line-height: 1.6;
   }
 }

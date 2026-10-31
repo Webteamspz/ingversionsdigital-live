@@ -94,6 +94,7 @@ A lower-priority document must not silently override an explicit higher-priority
 ## Validation
 
 - Lint: `npm run lint`
+- Format: `npm run format` (Prettier, `.prettierrc.json`: 100-character lines). Line endings are LF via `.gitattributes`.
 - Build: `npm run build` (or `npm run build:production` for the production config)
 - Mechanical diff check: `git diff --check`
 - Unit tests: `npm test` (Node's built-in `node:test`, files `src/utils/*.test.js`). Keep tested logic in pure functions under `src/utils/`; do not add a test framework.

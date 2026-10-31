@@ -67,6 +67,7 @@ Real `.env` files are ignored by git. Do not commit secrets or IDs.
 ```sh
 npm run dev        # Vite dev server at http://localhost:5173
 npm run lint       # ESLint, run before every commit
+npm run format     # Prettier (src, scripts, root configs); settings in .prettierrc.json
 npm test           # node:test unit tests in src/utils/*.test.js
 npm run build      # blog thumbnails, production build to dist/, then scripts/prerender.mjs
 npm run preview    # serve the built dist/ locally

@@ -11,7 +11,11 @@ import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const ENGAGEMENT_ICONS = { retainer: Repeat, hoursblock: Clock, projectengagement: Briefcase };
-const ENGAGEMENT_COLORS = { retainer: "var(--palette-accent)", hoursblock: "var(--secondary)", projectengagement: "var(--tertiary)" };
+const ENGAGEMENT_COLORS = {
+  retainer: "var(--palette-accent)",
+  hoursblock: "var(--secondary)",
+  projectengagement: "var(--tertiary)",
+};
 
 const EngagementModels = () => {
   const { heading, sub, list } = siteData.engagement;
@@ -38,7 +42,9 @@ const EngagementModels = () => {
       <div className={styles.iconCircle} style={{ background: ENGAGEMENT_COLORS[model.icon] }}>
         {(() => {
           const Icon = ENGAGEMENT_ICONS[model.icon];
-          return Icon ? <Icon size={26} strokeWidth={2.5} color="#1E293B" aria-hidden="true" /> : null;
+          return Icon ? (
+            <Icon size={26} strokeWidth={2.5} color="#1E293B" aria-hidden="true" />
+          ) : null;
         })()}
       </div>
 
@@ -103,16 +109,18 @@ const EngagementModels = () => {
           >
             {list.map((model, index) => (
               <SwiperSlide key={index}>
-                <div className={`${styles.card} ${styles.engagementCard}`}>
-                  {renderCard(model)}
-                </div>
+                <div className={`${styles.card} ${styles.engagementCard}`}>{renderCard(model)}</div>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
           <div className={styles.engagementGrid}>
             {list.map((model, index) => (
-              <Reveal key={index} delay={index * 80} className={`${styles.card} ${styles.engagementCard}`}>
+              <Reveal
+                key={index}
+                delay={index * 80}
+                className={`${styles.card} ${styles.engagementCard}`}
+              >
                 {renderCard(model)}
               </Reveal>
             ))}

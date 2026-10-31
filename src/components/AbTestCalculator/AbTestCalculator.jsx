@@ -29,7 +29,12 @@ const NumberField = ({ id, label, value, onChange }) => (
 const SelectField = ({ id, label, value, options, onChange }) => (
   <label className={styles.field} htmlFor={id}>
     <span className={styles.label}>{label}</span>
-    <select id={id} className={styles.input} value={value} onChange={(e) => onChange(Number(e.target.value))}>
+    <select
+      id={id}
+      className={styles.input}
+      value={value}
+      onChange={(e) => onChange(Number(e.target.value))}
+    >
       {options.map(([v, text]) => (
         <option key={v} value={v}>
           {text}
@@ -60,8 +65,18 @@ const PlanTab = () => {
     <div className={styles.panelGrid}>
       <div className={styles.inputs}>
         <p className={styles.intro}>{plan.intro}</p>
-        <NumberField id="plan-visitors" label={plan.fields.weeklyVisitors} value={visitors} onChange={setVisitors} />
-        <NumberField id="plan-conversions" label={plan.fields.weeklyConversions} value={conversions} onChange={setConversions} />
+        <NumberField
+          id="plan-visitors"
+          label={plan.fields.weeklyVisitors}
+          value={visitors}
+          onChange={setVisitors}
+        />
+        <NumberField
+          id="plan-conversions"
+          label={plan.fields.weeklyConversions}
+          value={conversions}
+          onChange={setConversions}
+        />
         <div className={styles.row}>
           <SelectField
             id="plan-variants"
@@ -70,7 +85,13 @@ const PlanTab = () => {
             options={[2, 3, 4, 5].map((v) => [v, v])}
             onChange={setVariants}
           />
-          <SelectField id="plan-confidence" label={plan.fields.confidence} value={confidence} options={confidenceChoices} onChange={setConfidence} />
+          <SelectField
+            id="plan-confidence"
+            label={plan.fields.confidence}
+            value={confidence}
+            options={confidenceChoices}
+            onChange={setConfidence}
+          />
           <SelectField
             id="plan-power"
             label={plan.fields.power}
@@ -143,19 +164,45 @@ const ResultsTab = () => {
         <fieldset className={styles.group}>
           <legend className={styles.legend}>{results.control}</legend>
           <div className={styles.row}>
-            <NumberField id="res-visitors-a" label={results.fields.visitors} value={visitorsA} onChange={setVisitorsA} />
-            <NumberField id="res-conv-a" label={results.fields.conversions} value={convA} onChange={setConvA} />
+            <NumberField
+              id="res-visitors-a"
+              label={results.fields.visitors}
+              value={visitorsA}
+              onChange={setVisitorsA}
+            />
+            <NumberField
+              id="res-conv-a"
+              label={results.fields.conversions}
+              value={convA}
+              onChange={setConvA}
+            />
           </div>
         </fieldset>
         <fieldset className={styles.group}>
           <legend className={styles.legend}>{results.variant}</legend>
           <div className={styles.row}>
-            <NumberField id="res-visitors-b" label={results.fields.visitors} value={visitorsB} onChange={setVisitorsB} />
-            <NumberField id="res-conv-b" label={results.fields.conversions} value={convB} onChange={setConvB} />
+            <NumberField
+              id="res-visitors-b"
+              label={results.fields.visitors}
+              value={visitorsB}
+              onChange={setVisitorsB}
+            />
+            <NumberField
+              id="res-conv-b"
+              label={results.fields.conversions}
+              value={convB}
+              onChange={setConvB}
+            />
           </div>
         </fieldset>
         <div className={styles.row}>
-          <SelectField id="res-confidence" label={results.fields.confidence} value={confidence} options={confidenceChoices} onChange={setConfidence} />
+          <SelectField
+            id="res-confidence"
+            label={results.fields.confidence}
+            value={confidence}
+            options={confidenceChoices}
+            onChange={setConfidence}
+          />
           <SelectField
             id="res-tails"
             label={results.fields.tails}
@@ -184,11 +231,15 @@ const ResultsTab = () => {
               </div>
               <div className={`${styles.stat} ${styles.statYellow}`}>
                 <span className={styles.statLabel}>{results.stats.uplift}</span>
-                <span className={styles.statValue}>{r.uplift === null ? "–" : `${r.uplift > 0 ? "+" : ""}${pct(r.uplift)}`}</span>
+                <span className={styles.statValue}>
+                  {r.uplift === null ? "–" : `${r.uplift > 0 ? "+" : ""}${pct(r.uplift)}`}
+                </span>
               </div>
               <div className={`${styles.stat} ${styles.statYellow}`}>
                 <span className={styles.statLabel}>{results.stats.pValue}</span>
-                <span className={styles.statValue}>{r.pValue < 0.0001 ? "< 0.0001" : r.pValue.toFixed(4)}</span>
+                <span className={styles.statValue}>
+                  {r.pValue < 0.0001 ? "< 0.0001" : r.pValue.toFixed(4)}
+                </span>
               </div>
               <div className={styles.stat}>
                 <span className={styles.statLabel}>{results.stats.zScore}</span>
@@ -239,7 +290,12 @@ const AbTestCalculator = () => {
       <section className={styles.calcSection}>
         <div className="container">
           <div className={styles.card}>
-            <div className={styles.tabs} role="tablist" aria-label={hero.title} onKeyDown={onTabKey}>
+            <div
+              className={styles.tabs}
+              role="tablist"
+              aria-label={hero.title}
+              onKeyDown={onTabKey}
+            >
               {TAB_KEYS.map((key) => (
                 <button
                   key={key}
@@ -288,9 +344,9 @@ const AbTestCalculator = () => {
             {faq.items.map((item) => (
               <details key={item.q} className={styles.faqItem}>
                 <summary>
-                    <span>{item.q}</span>
-                    <span className={styles.faqIcon} aria-hidden="true" />
-                  </summary>
+                  <span>{item.q}</span>
+                  <span className={styles.faqIcon} aria-hidden="true" />
+                </summary>
                 <p>{item.a}</p>
               </details>
             ))}

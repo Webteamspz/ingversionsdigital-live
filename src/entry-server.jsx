@@ -11,9 +11,14 @@ export async function render(url) {
         <App />
       </StaticRouter>
     </HelmetProvider>,
-    { onError: (e) => { errors.push(e); } }
+    {
+      onError: (e) => {
+        errors.push(e);
+      },
+    },
   );
-  if (errors.length) throw new Error(`Prerender of ${url} failed: ${errors.map((e) => e.message).join("; ")}`);
+  if (errors.length)
+    throw new Error(`Prerender of ${url} failed: ${errors.map((e) => e.message).join("; ")}`);
   let html = "";
   for await (const chunk of prelude) html += chunk;
   return html;

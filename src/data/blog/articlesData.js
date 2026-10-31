@@ -7,7 +7,13 @@ export const articles = {
     readTime: "3 min read",
     description:
       "Five Shopify theme customizations that can boost sales: sticky add-to-cart, quick view, trust content near checkout, product page tabs and cart cross-sells. Test before launch.",
-    keywords: ["Shopify theme customization", "increase Shopify sales", "Shopify product page", "sticky add to cart", "Shopify development"],
+    keywords: [
+      "Shopify theme customization",
+      "increase Shopify sales",
+      "Shopify product page",
+      "sticky add to cart",
+      "Shopify development",
+    ],
     content: `## Beyond the Default Theme
 A Shopify theme gives you a solid starting point, but default settings are built for every store, not yours. Small, focused **theme customizations** can remove friction for your shoppers and lift sales. Here are five worth considering, how to build them well, and how to make sure they actually help.
 
@@ -53,7 +59,13 @@ Each of these ideas helps many stores, but not every store. A sticky bar can dis
     readTime: "3 min read",
     description:
       "Common A/B testing mistakes that waste money: no hypothesis, stopping early, too many changes, ignoring mobile, skipping QA and misreading results. How to avoid each one.",
-    keywords: ["A/B testing mistakes", "A/B testing best practices", "split testing errors", "CRO mistakes", "Shopify A/B testing"],
+    keywords: [
+      "A/B testing mistakes",
+      "A/B testing best practices",
+      "split testing errors",
+      "CRO mistakes",
+      "Shopify A/B testing",
+    ],
     content: `## The Mistakes We See Again and Again
 A/B testing is the most reliable way to know whether a change makes money. Done badly, it can be worse than not testing at all: you pay for the build, wait weeks and then make a decision based on a misleading result. These are the most common A/B testing mistakes and how to avoid them.
 
@@ -96,7 +108,13 @@ Avoiding these mistakes takes discipline, good tooling and solid QA. Our [A/B te
     readTime: "3 min read",
     description:
       "CRO fundamentals for ecommerce: set conversion baselines, find funnel leaks with GA4 and heatmaps, prioritize ideas, build a test roadmap and learn from every A/B test.",
-    keywords: ["conversion rate optimization", "CRO for beginners", "ecommerce CRO", "CRO process", "conversion funnel analysis"],
+    keywords: [
+      "conversion rate optimization",
+      "CRO for beginners",
+      "ecommerce CRO",
+      "CRO process",
+      "conversion funnel analysis",
+    ],
     content: `## Conversion Rate Optimization Isn't Magic
 Conversion rate optimization (CRO) is a repeatable process for getting more sales from the traffic you already pay for. It is not about copying "best practices" or changing button colours. It is about finding where shoppers struggle, fixing the biggest problems first and proving each change with data. Here is where to start.
 
@@ -153,7 +171,13 @@ Our [CRO plans](/pricing) include research, test design, Shopify development, fu
     readTime: "3 min read",
     description:
       "Mobile CRO for ecommerce: thumb-friendly navigation, simpler forms, bigger tap targets, faster mobile pages and express checkout to raise Shopify mobile conversion rates.",
-    keywords: ["mobile CRO", "mobile conversion rate optimization", "mobile ecommerce UX", "mobile checkout optimization", "Shopify mobile"],
+    keywords: [
+      "mobile CRO",
+      "mobile conversion rate optimization",
+      "mobile ecommerce UX",
+      "mobile checkout optimization",
+      "Shopify mobile",
+    ],
     content: `## Mobile First Is Not Optional
 For most Shopify stores, the majority of traffic now comes from phones, yet mobile conversion rates are usually lower than desktop. That gap is one of the biggest opportunities in **mobile conversion rate optimization (CRO)**. Small screens, thumbs instead of mice and patchy connections all change how people shop. Here is how to design for that.
 
@@ -203,7 +227,13 @@ Always analyse test results by device, and design variants for mobile first. A c
     readTime: "3 min read",
     description:
       "The psychology of high-converting landing pages: message match, social proof, honest urgency, cognitive fluency and price anchoring, with ideas to A/B test on Shopify.",
-    keywords: ["high-converting landing pages", "landing page psychology", "landing page optimization", "conversion psychology", "Shopify landing page"],
+    keywords: [
+      "high-converting landing pages",
+      "landing page psychology",
+      "landing page optimization",
+      "conversion psychology",
+      "Shopify landing page",
+    ],
     content: `## Understanding the Shopper's Mind
 A landing page has one job: turn a visitor into a customer or a lead. The best landing pages work with how people actually decide: quickly, emotionally and then justifying with facts. These are the psychological principles behind high-converting landing pages, and how to apply them without tricking anyone.
 
@@ -249,7 +279,13 @@ Psychology gives you better hypotheses, not guaranteed results. Every audience i
     readTime: "4 min read",
     description:
       "A Shopify store launch QA checklist: test checkout and payments, forms, apps, cross-browser and mobile layouts, speed, SEO and tracking before you go live.",
-    keywords: ["Shopify launch QA checklist", "ecommerce QA testing", "Shopify store launch", "pre-launch testing", "website QA checklist"],
+    keywords: [
+      "Shopify launch QA checklist",
+      "ecommerce QA testing",
+      "Shopify store launch",
+      "pre-launch testing",
+      "website QA checklist",
+    ],
     content: `## Don't Let Bugs Ruin Your Launch Day
 A new Shopify store gets one first impression. If the checkout fails, a discount code doesn't apply or the mobile menu won't open, shoppers leave and ad spend is wasted. A written **Shopify launch QA checklist** turns "I think it works" into "we tested it". Here is the checklist our [QA team](/quality-assurance) runs before every store goes live.
 
@@ -304,7 +340,13 @@ Launch QA is not a one-off. Every theme update, new app and A/B test can break s
     readTime: "3 min read",
     description:
       "Headless Shopify explained: how a custom Hydrogen or Next.js frontend works with Shopify, when it pays off, the real costs, and when a theme is the better choice.",
-    keywords: ["headless Shopify", "Shopify Hydrogen", "headless commerce", "Shopify Storefront API", "Shopify Plus development"],
+    keywords: [
+      "headless Shopify",
+      "Shopify Hydrogen",
+      "headless commerce",
+      "Shopify Storefront API",
+      "Shopify Plus development",
+    ],
     content: `## What Is Headless Shopify?
 In a standard Shopify store, the theme controls everything shoppers see, and Shopify hosts it. In **headless Shopify**, you keep Shopify as the backend for products, inventory, customers and checkout, but build your own frontend. That frontend talks to Shopify through the Storefront API and is usually built with Shopify Hydrogen, Next.js or another React framework.
 
@@ -360,7 +402,13 @@ We build and optimise Shopify themes, custom sections and Shopify Plus stores. I
     readTime: "3 min read",
     description:
       "Multivariate testing vs A/B testing: how each works, how much traffic each needs, and when an ecommerce store should use an A/B test, an A/B/n test or MVT.",
-    keywords: ["multivariate testing vs A/B testing", "multivariate testing", "A/B testing", "A/B/n testing", "split testing ecommerce"],
+    keywords: [
+      "multivariate testing vs A/B testing",
+      "multivariate testing",
+      "A/B testing",
+      "A/B/n testing",
+      "split testing ecommerce",
+    ],
     content: `## Stop Guessing Which Test to Run
 A/B testing and multivariate testing (MVT) both compare versions of a page to see which converts better. They answer different questions and need very different amounts of traffic. Picking the wrong one is a common reason tests run for months and never reach a clear result.
 
@@ -408,7 +456,13 @@ Whichever method you use, the rules are the same: one primary metric, a pre-calc
     readTime: "3 min read",
     description:
       "How micro-commitments improve ecommerce funnels: product quizzes, multi-step checkout, wishlists and email capture that lead shoppers step by step to purchase.",
-    keywords: ["micro-commitments", "ecommerce funnel optimization", "conversion funnel", "product quiz", "CRO psychology"],
+    keywords: [
+      "micro-commitments",
+      "ecommerce funnel optimization",
+      "conversion funnel",
+      "product quiz",
+      "CRO psychology",
+    ],
     content: `## The Power of Small Asks
 Asking for a sale the moment someone lands on your store can feel like too much, too soon, especially for first-time visitors and higher-priced products. **Micro-commitments** break the journey into small, easy steps. Each step builds a little more interest and trust, so the final purchase feels like a natural next step instead of a big leap.
 
@@ -451,7 +505,14 @@ Good tests to try include adding a product finder quiz to a collection page, ask
     readTime: "3 min read",
     description:
       "Automated UI testing for ecommerce: which flows to automate, Playwright vs Cypress vs Selenium, and how to run end-to-end tests in CI before every Shopify release.",
-    keywords: ["automated UI testing", "ecommerce test automation", "Playwright", "Cypress", "end-to-end testing", "Shopify QA"],
+    keywords: [
+      "automated UI testing",
+      "ecommerce test automation",
+      "Playwright",
+      "Cypress",
+      "end-to-end testing",
+      "Shopify QA",
+    ],
     content: `## Manual Testing Cannot Scale
 Every theme update, new app and A/B test can break something that worked yesterday. Manual testing catches a lot, but repeating the same checks before every release is slow and easy to rush. **Automated UI testing** runs your most important shopping flows in a real browser, on every change, in minutes.
 
@@ -498,7 +559,14 @@ Need help setting this up? Our [quality assurance team](/quality-assurance) buil
     readTime: "3 min read",
     description:
       "How to improve Shopify Core Web Vitals: fix LCP, INP and CLS in your theme with image, app and JavaScript changes that make product pages faster and rank better.",
-    keywords: ["Shopify Core Web Vitals", "Shopify speed optimization", "LCP", "INP", "CLS", "Shopify SEO"],
+    keywords: [
+      "Shopify Core Web Vitals",
+      "Shopify speed optimization",
+      "LCP",
+      "INP",
+      "CLS",
+      "Shopify SEO",
+    ],
     content: `## Why Core Web Vitals Matter for Shopify Stores
 Core Web Vitals are Google's measures of real-user page experience. They are part of how Google ranks pages, and they track closely with what shoppers feel: a slow, jumpy product page loses sales. The three metrics are:
 - **LCP (Largest Contentful Paint):** how fast the main content appears. Aim for 2.5 seconds or less.
@@ -549,7 +617,13 @@ For a full list, see our [Shopify store speed optimization checklist](/blog/shop
     readTime: "3 min read",
     description:
       "Reduce Shopify cart abandonment with proven nudges: clear costs, trust signals, exit-intent help, save-cart prompts and recovery emails. Test each one before rollout.",
-    keywords: ["reduce cart abandonment", "cart abandonment Shopify", "abandoned cart recovery", "checkout optimization", "ecommerce CRO"],
+    keywords: [
+      "reduce cart abandonment",
+      "cart abandonment Shopify",
+      "abandoned cart recovery",
+      "checkout optimization",
+      "ecommerce CRO",
+    ],
     content: `## Why Shoppers Abandon Carts
 Cart abandonment is one of the biggest leaks in any ecommerce funnel. Large studies, such as the Baymard Institute's checkout research, consistently put the average documented cart abandonment rate at around 70%. Some of that is normal browsing. A lot of it is fixable.
 
@@ -598,7 +672,13 @@ Every store is different. A nudge that helps one store can hurt another, especia
     readTime: "3 min read",
     description:
       "How to calculate statistical significance for A/B tests: p-values, confidence, sample size, minimum detectable effect and the common mistakes that create false winners.",
-    keywords: ["statistical significance A/B test", "calculate statistical significance", "A/B test sample size", "p-value", "A/B test calculator"],
+    keywords: [
+      "statistical significance A/B test",
+      "calculate statistical significance",
+      "A/B test sample size",
+      "p-value",
+      "A/B test calculator",
+    ],
     content: `## The Maths Behind Good Decisions
 An A/B test shows the variant converting at 3.4% and the original at 3.0%. Is the variant really better, or did it just get lucky? **Statistical significance** helps you answer that question before you roll out a change, so you don't make decisions based on random noise.
 
@@ -644,7 +724,13 @@ Statistics only works if the test is set up correctly: clean randomisation, accu
     readTime: "3 min read",
     description:
       "Cross-browser testing for ecommerce: why Safari breaks layouts and forms, which browsers and devices to test, and a practical process to catch bugs before shoppers do.",
-    keywords: ["cross-browser testing", "Safari CSS bugs", "ecommerce QA", "BrowserStack testing", "responsive testing"],
+    keywords: [
+      "cross-browser testing",
+      "Safari CSS bugs",
+      "ecommerce QA",
+      "BrowserStack testing",
+      "responsive testing",
+    ],
     content: `## Safari, Safari, Safari
 Every ecommerce developer has a story about a page that looked perfect in Chrome and broke on an iPhone. All browsers on iOS use Apple's WebKit engine, and Safari is a large share of mobile shopping traffic. That makes **cross-browser testing** a revenue issue, not a nice-to-have. A broken Add-to-Cart button in one browser means lost orders from everyone using it.
 
@@ -689,7 +775,14 @@ Every [A/B test](/ab-testing) variant is new code that needs the same cross-brow
     readTime: "3 min read",
     description:
       "Shopify Liquid for dynamic pricing: show tiered, quantity-break and wholesale prices with Liquid snippets, and where Shopify Functions and B2B catalogs must take over.",
-    keywords: ["Shopify Liquid", "dynamic pricing Shopify", "tiered pricing Shopify", "wholesale pricing Shopify", "Shopify Functions", "Liquid snippets"],
+    keywords: [
+      "Shopify Liquid",
+      "dynamic pricing Shopify",
+      "tiered pricing Shopify",
+      "wholesale pricing Shopify",
+      "Shopify Functions",
+      "Liquid snippets",
+    ],
     content: `## Taking Shopify Pricing Further
 Many stores install a pricing app to show tiered discounts or wholesale prices. Often, a few well-written Liquid snippets can do the display part with less code on the page and no monthly fee. This guide shows what Liquid can do for dynamic pricing, and where you need Shopify's discount tools instead.
 
@@ -761,7 +854,13 @@ Pricing display is one of the most powerful levers in ecommerce, and one of the 
     readTime: "3 min read",
     description:
       "How to use social proof for conversion rate optimization: which reviews, ratings, UGC and trust signals work, where to place them on Shopify pages, and how to test them.",
-    keywords: ["social proof CRO", "social proof ecommerce", "product reviews conversion rate", "user generated content", "Shopify product page optimization"],
+    keywords: [
+      "social proof CRO",
+      "social proof ecommerce",
+      "product reviews conversion rate",
+      "user generated content",
+      "Shopify product page optimization",
+    ],
     content: `## Are Your Reviews Actually Working?
 Social proof is one of the most reliable tools in conversion rate optimization. Shoppers look to other people's experiences when they can't touch the product. But simply having reviews is not enough. Generic, hidden or fake-looking social proof does little. Specific, well-placed proof that answers real doubts can change buying decisions.
 
@@ -808,7 +907,13 @@ Our [A/B testing services](/ab-testing) design, build and QA tests like these on
     readTime: "3 min read",
     description:
       "How to A/B test CTA buttons: why contrast beats colour, how to write action-led button copy, where to place Add-to-Cart buttons on mobile, and what to measure.",
-    keywords: ["CTA button testing", "call to action A/B test", "Add to Cart button", "button copy", "CTA optimization"],
+    keywords: [
+      "CTA button testing",
+      "call to action A/B test",
+      "Add to Cart button",
+      "button copy",
+      "CTA optimization",
+    ],
     content: `## The Button That Makes Money
 Your call-to-action (CTA) button is where browsing turns into buying. "Add to Cart", "Checkout" and "Get Started" carry most of the revenue on your site, so small problems with them, such as low contrast, vague wording or a hard-to-reach position, add up. Here is how to test CTA buttons properly, and what usually matters most.
 
@@ -855,7 +960,13 @@ Our [A/B testing services](/ab-testing) plan, build and QA every variant on real
     readTime: "3 min read",
     description:
       "Black Friday performance testing for Shopify: load test your theme, audit apps and scripts, protect checkout speed and run a BFCM QA plan before peak traffic hits.",
-    keywords: ["Black Friday performance testing", "BFCM load testing", "Shopify Black Friday", "load testing ecommerce", "site speed during sales"],
+    keywords: [
+      "Black Friday performance testing",
+      "BFCM load testing",
+      "Shopify Black Friday",
+      "load testing ecommerce",
+      "site speed during sales",
+    ],
     content: `## Prepare for the Black Friday Surge
 Black Friday and Cyber Monday (BFCM) bring the year's biggest traffic spikes. A slow product page or a broken discount during peak hours costs more than on any other day of the year. **Performance testing** before the sale is how you make sure your store stays fast when it matters most.
 
@@ -905,7 +1016,13 @@ Our [Shopify BFCM load and QA testing service](/shopify-bfcm-load-and-qa-testing
     readTime: "3 min read",
     description:
       "Migrating to Shopify Plus: what changes with Checkout Extensibility, Shopify Functions, B2B and automation, plus a step-by-step plan to upgrade without losing sales or SEO.",
-    keywords: ["migrating to Shopify Plus", "Shopify Plus migration", "Checkout Extensibility", "Shopify Functions", "Shopify Plus B2B"],
+    keywords: [
+      "migrating to Shopify Plus",
+      "Shopify Plus migration",
+      "Checkout Extensibility",
+      "Shopify Functions",
+      "Shopify Plus B2B",
+    ],
     content: `## Time to Scale Up
 Shopify Plus is Shopify's plan for high-volume and enterprise brands. Upgrading from a standard Shopify plan keeps your products, orders and theme, so it is much simpler than moving from another platform. The work is in using the Plus features properly and moving any custom logic to Shopify's current tools. Here is what you need to know.
 
@@ -952,7 +1069,13 @@ Our [Shopify Plus development and QA service](/shopify-plus-development-qa) hand
     readTime: "3 min read",
     description:
       "Why full website redesigns often lower conversions, and how a data-driven redesign uses GA4, heatmaps and A/B testing to improve a Shopify store step by step.",
-    keywords: ["data-driven redesign", "website redesign conversion rate", "iterative design", "A/B testing redesign", "Shopify redesign"],
+    keywords: [
+      "data-driven redesign",
+      "website redesign conversion rate",
+      "iterative design",
+      "A/B testing redesign",
+      "Shopify redesign",
+    ],
     content: `## Stop the Big-Bang Redesign
 Many brands redesign their whole website every few years. Months of work go into a new look, it launches all at once, and sometimes conversions drop. When everything changes together, nobody knows which change caused the drop, and rolling back is painful. A **data-driven redesign** replaces guesswork with evidence and lowers that risk.
 

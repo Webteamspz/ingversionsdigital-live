@@ -9,6 +9,7 @@
     "build": "node scripts/blog-thumbs.mjs && vite build && node scripts/prerender.mjs",
     "build:production": "node scripts/blog-thumbs.mjs && vite build --mode production && node scripts/prerender.mjs",
     "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"scripts/**/*.mjs\" \"*.config.js\"",
     "preview": "vite preview",
     "build:staging": "node scripts/blog-thumbs.mjs && vite build --mode staging && node scripts/prerender.mjs staging",
     "test": "node --test \"src/**/*.test.js\""

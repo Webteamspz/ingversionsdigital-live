@@ -1,6 +1,6 @@
-import styles from './AboutCta.module.css';
-import { ctaData } from '../../data/aboutUsData';
-import Reveal from '../Reveal/Reveal';
+import styles from "./AboutCta.module.css";
+import { ctaData } from "../../data/aboutUsData";
+import Reveal from "../Reveal/Reveal";
 
 const AboutCta = () => {
   return (

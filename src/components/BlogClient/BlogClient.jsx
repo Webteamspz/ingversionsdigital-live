@@ -26,7 +26,11 @@ for (const a of articles) {
 const categories = [
   { id: "all", name: "All Posts", count: articles.length },
   ...[...categoryLabelBySlug.entries()]
-    .map(([id, name]) => ({ id, name, count: articles.filter((a) => a.categorySlug === id).length }))
+    .map(([id, name]) => ({
+      id,
+      name,
+      count: articles.filter((a) => a.categorySlug === id).length,
+    }))
     .sort((a, b) => b.count - a.count),
 ];
 
@@ -35,18 +39,54 @@ const articleLabel = (n) => `${n} article${n === 1 ? "" : "s"}`;
 const categoryCount = (id) => categories.find((c) => c.id === id)?.count ?? 0;
 
 const categoryCards = [
-  { id: "cro", title: "CRO", alt: "CRO analytics", hover: "hover-cro", bg: "bg-green-light",
-    desc: "Conversion rate optimization strategies and best practices." },
-  { id: "ab-testing", title: "A/B Testing", alt: "A/B testing", hover: "hover-ab", bg: "bg-orange-light",
-    desc: "Testing methodologies and statistical significance." },
-  { id: "shopify", title: "Shopify Development", alt: "Shopify development", hover: "hover-shopify", bg: "bg-purple-light",
-    desc: "Theme customization and store optimization." },
-  { id: "qa", title: "Quality Assurance", alt: "Quality Assurance", hover: "hover-qa", bg: "bg-blue-light",
-    desc: "Automated testing, checklists, and performance tracking." },
-  { id: "ai-automation", title: "AI & Automation", alt: "AI and automation", hover: "hover-cro", bg: "bg-green-light",
-    desc: "Claude, MCP servers, and AI workflows for e-commerce." },
-  { id: "design", title: "Design", alt: "Design", hover: "hover-ab", bg: "bg-orange-light",
-    desc: "Product page design, UX, and conversion-focused layouts." },
+  {
+    id: "cro",
+    title: "CRO",
+    alt: "CRO analytics",
+    hover: "hover-cro",
+    bg: "bg-green-light",
+    desc: "Conversion rate optimization strategies and best practices.",
+  },
+  {
+    id: "ab-testing",
+    title: "A/B Testing",
+    alt: "A/B testing",
+    hover: "hover-ab",
+    bg: "bg-orange-light",
+    desc: "Testing methodologies and statistical significance.",
+  },
+  {
+    id: "shopify",
+    title: "Shopify Development",
+    alt: "Shopify development",
+    hover: "hover-shopify",
+    bg: "bg-purple-light",
+    desc: "Theme customization and store optimization.",
+  },
+  {
+    id: "qa",
+    title: "Quality Assurance",
+    alt: "Quality Assurance",
+    hover: "hover-qa",
+    bg: "bg-blue-light",
+    desc: "Automated testing, checklists, and performance tracking.",
+  },
+  {
+    id: "ai-automation",
+    title: "AI & Automation",
+    alt: "AI and automation",
+    hover: "hover-cro",
+    bg: "bg-green-light",
+    desc: "Claude, MCP servers, and AI workflows for e-commerce.",
+  },
+  {
+    id: "design",
+    title: "Design",
+    alt: "Design",
+    hover: "hover-ab",
+    bg: "bg-orange-light",
+    desc: "Product page design, UX, and conversion-focused layouts.",
+  },
 ];
 
 const BlogClient = () => {
@@ -104,7 +144,9 @@ const BlogClient = () => {
                 <article className={styles["article-card"]}>
                   <div className={styles["article-img-wrapper"]}>
                     <img
-                      src={coverThumb(article.coverImage || homepageCategoryImages[article.categorySlug])}
+                      src={coverThumb(
+                        article.coverImage || homepageCategoryImages[article.categorySlug],
+                      )}
                       alt={article.category}
                       loading="lazy"
                       decoding="async"
@@ -151,7 +193,12 @@ const BlogClient = () => {
                 <p className={styles["category-desc"]}>{card.desc}</p>
                 <span className={styles["category-link"]}>
                   {articleLabel(categoryCount(card.id))}
-                  <ArrowRight size={16} strokeWidth={3} className={styles["arrow-icon"]} aria-hidden="true" />
+                  <ArrowRight
+                    size={16}
+                    strokeWidth={3}
+                    className={styles["arrow-icon"]}
+                    aria-hidden="true"
+                  />
                 </span>
               </div>
             ))}

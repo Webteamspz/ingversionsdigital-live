@@ -23,7 +23,9 @@ const BlogNotFound = () => (
     <div className={styles.nfCard}>
       <h1 className={styles.nfTitle}>404</h1>
       <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
-      <Link to="/blog" className={styles.nfBtn}>Go Back Home</Link>
+      <Link to="/blog" className={styles.nfBtn}>
+        Go Back Home
+      </Link>
     </div>
   </section>
 );
@@ -33,8 +35,14 @@ const PostBody = ({ slug }) => {
   if (structured) {
     return (
       <div className={articleStyles["article-main"]}>
-        <div className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-circle"]}`} aria-hidden="true" />
-        <div className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-square"]}`} aria-hidden="true" />
+        <div
+          className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-circle"]}`}
+          aria-hidden="true"
+        />
+        <div
+          className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-square"]}`}
+          aria-hidden="true"
+        />
         <article className={articleStyles["article-container"]}>
           <ArticleBlocks post={structured} />
           <div className={articleStyles["article-content-wrapper"]}>

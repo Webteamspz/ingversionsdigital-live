@@ -65,6 +65,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
 | Cookie consent | `vanilla-cookieconsent` (pinned, exact version) | MIT, zero dependencies; `src/components/CookieConsent` loads it with a dynamic import so it is its own chunk |
 | Lint | ESLint 9 (flat config) | `npm run lint` |
+| Format | Prettier 3 (`.prettierrc.json`, 100-char lines; LF line endings via `.gitattributes`) | `npm run format` |
 | Unit tests | Node's built-in `node:test` | `npm test`; runs `src/**/*.test.js`. Pure logic only (e.g. `src/utils/abtest.js` for `/ab-test-calculator`), no UI tests, no framework |
 | Image pipeline | `sharp` (dev-only script) | `scripts/convert-images.mjs`, see [Images](#images-format-and-optimization) |
 | Hosting | Docker + nginx, no SSH | see [Branches & Deployment](#branches--deployment) and `DEPLOYMENT.md` |

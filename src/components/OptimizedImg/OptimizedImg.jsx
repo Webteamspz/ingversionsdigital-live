@@ -1,12 +1,4 @@
-const OptimizedImg = ({
-  src,
-  alt,
-  width,
-  height,
-  className = "",
-  priority = false,
-  ...rest
-}) => {
+const OptimizedImg = ({ src, alt, width, height, className = "", priority = false, ...rest }) => {
   return (
     <img
       src={src}

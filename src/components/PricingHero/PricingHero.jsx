@@ -8,17 +8,11 @@ const PricingHero = ({ track, setTrack }) => {
   return (
     <section className={styles.pricingHero} id="pricingHero">
       <div className="container">
-        <span className={styles.pricingTag}>
-          {pricingHeroData.tag}
-        </span>
+        <span className={styles.pricingTag}>{pricingHeroData.tag}</span>
 
-        <h1 className={styles.pricingHeroTitle}>
-          {pricingHeroData.title}
-        </h1>
+        <h1 className={styles.pricingHeroTitle}>{pricingHeroData.title}</h1>
 
-        <p className={styles.pricingHeroSubtitle}>
-          {pricingHeroData.subtitle}
-        </p>
+        <p className={styles.pricingHeroSubtitle}>{pricingHeroData.subtitle}</p>
       </div>
 
       <ToolsMarquee compact reverse />

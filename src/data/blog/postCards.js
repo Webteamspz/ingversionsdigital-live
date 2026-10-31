@@ -17,7 +17,8 @@ export const postCards = [
     id: "post-2",
     title: "A/B Testing Mistakes That Cost You Money",
     slug: "ab-testing-mistakes-cost-money",
-    excerpt: "Common pitfalls in conversion testing and how to avoid them. Learn from real client...",
+    excerpt:
+      "Common pitfalls in conversion testing and how to avoid them. Learn from real client...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 5, 2026",
     readTime: "3 min read",
@@ -28,7 +29,8 @@ export const postCards = [
     id: "post-3",
     title: "CRO Fundamentals: Where to Start From",
     slug: "cro-fundamentals-where-to-start",
-    excerpt: "New to conversion rate optimization? This guide covers the essential frameworks and...",
+    excerpt:
+      "New to conversion rate optimization? This guide covers the essential frameworks and...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 3, 2026",
     readTime: "3 min read",
@@ -39,7 +41,8 @@ export const postCards = [
     id: "post-4",
     title: "Mobile CRO: Designing for Small Screens",
     slug: "mobile-cro-designing-small-screens",
-    excerpt: "Over 60% of traffic comes from mobile. Learn how to optimize your mobile layout to prevent friction and boost conversions.",
+    excerpt:
+      "Over 60% of traffic comes from mobile. Learn how to optimize your mobile layout to prevent friction and boost conversions.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 9, 2026",
     readTime: "3 min read",
@@ -50,7 +53,8 @@ export const postCards = [
     id: "post-5",
     title: "The Psychology of High-Converting Landing Pages",
     slug: "psychology-high-converting-landing-pages",
-    excerpt: "Discover the psychological triggers that make users click, buy, and subscribe on your...",
+    excerpt:
+      "Discover the psychological triggers that make users click, buy, and subscribe on your...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 12, 2026",
     readTime: "3 min read",
@@ -61,7 +65,8 @@ export const postCards = [
     id: "post-6",
     title: "Essential QA Checklists Before Launching Your Store",
     slug: "qa-checklist-before-launching-store",
-    excerpt: "Don't let bugs ruin your launch day. Follow this comprehensive QA checklist to ensure a...",
+    excerpt:
+      "Don't let bugs ruin your launch day. Follow this comprehensive QA checklist to ensure a...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 15, 2026",
     readTime: "4 min read",
@@ -72,7 +77,8 @@ export const postCards = [
     id: "post-7",
     title: "Headless Shopify: Is It Right for Your Brand?",
     slug: "headless-shopify-is-it-right-for-your-brand",
-    excerpt: "Decoupling your front-end from Shopify's back-end can unlock crazy performance, but...",
+    excerpt:
+      "Decoupling your front-end from Shopify's back-end can unlock crazy performance, but...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 18, 2026",
     readTime: "3 min read",
@@ -83,7 +89,8 @@ export const postCards = [
     id: "post-8",
     title: "Multivariate vs A/B Testing: When to Use Which",
     slug: "multivariate-vs-ab-testing",
-    excerpt: "Stop guessing. Learn the exact scenarios where multivariate testing outperforms standard...",
+    excerpt:
+      "Stop guessing. Learn the exact scenarios where multivariate testing outperforms standard...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 20, 2026",
     readTime: "3 min read",
@@ -94,7 +101,8 @@ export const postCards = [
     id: "post-9",
     title: "Micro-Commitments: The Secret to Better Funnels",
     slug: "micro-commitments-better-funnels",
-    excerpt: "How asking for smaller actions first can drastically improve your overall conversion rates...",
+    excerpt:
+      "How asking for smaller actions first can drastically improve your overall conversion rates...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 24, 2026",
     readTime: "3 min read",
@@ -105,7 +113,8 @@ export const postCards = [
     id: "post-10",
     title: "Automated UI Testing for E-commerce Websites",
     slug: "automated-ui-testing-ecommerce",
-    excerpt: "Save time and reduce human error by implementing automated end-to-end tests for your...",
+    excerpt:
+      "Save time and reduce human error by implementing automated end-to-end tests for your...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "April 28, 2026",
     readTime: "3 min read",
@@ -116,7 +125,8 @@ export const postCards = [
     id: "post-11",
     title: "Optimizing Shopify Core Web Vitals for SEO",
     slug: "optimizing-shopify-core-web-vitals",
-    excerpt: "Speed matters. Learn how to tweak your Shopify theme code to pass Google's Core Web...",
+    excerpt:
+      "Speed matters. Learn how to tweak your Shopify theme code to pass Google's Core Web...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 2, 2026",
     readTime: "3 min read",
@@ -127,7 +137,8 @@ export const postCards = [
     id: "post-12",
     title: "Reducing Cart Abandonment with Strategic Nudges",
     slug: "reducing-cart-abandonment-strategic-nudges",
-    excerpt: "Implement these non-intrusive UI/UX nudges to recover lost sales and keep users engaged...",
+    excerpt:
+      "Implement these non-intrusive UI/UX nudges to recover lost sales and keep users engaged...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 5, 2026",
     readTime: "3 min read",
@@ -138,7 +149,8 @@ export const postCards = [
     id: "post-13",
     title: "How to Calculate Statistical Significance in Tests",
     slug: "calculate-statistical-significance",
-    excerpt: "Don't call a winner too early. A beginner-friendly guide to understanding the math behind...",
+    excerpt:
+      "Don't call a winner too early. A beginner-friendly guide to understanding the math behind...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 8, 2026",
     readTime: "3 min read",
@@ -149,7 +161,8 @@ export const postCards = [
     id: "post-14",
     title: "Cross-Browser Testing Nightmares and How to Avoid Them",
     slug: "cross-browser-testing-nightmares",
-    excerpt: "Safari rendering issues? Learn the best practices for ensuring your web app looks perfect...",
+    excerpt:
+      "Safari rendering issues? Learn the best practices for ensuring your web app looks perfect...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 11, 2026",
     readTime: "3 min read",
@@ -160,7 +173,8 @@ export const postCards = [
     id: "post-15",
     title: "Advanced Liquid Snippets for Dynamic Pricing",
     slug: "advanced-liquid-snippets-dynamic-pricing",
-    excerpt: "Take your Shopify store to the next level by building custom pricing logic using advanced...",
+    excerpt:
+      "Take your Shopify store to the next level by building custom pricing logic using advanced...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 14, 2026",
     readTime: "3 min read",
@@ -171,7 +185,8 @@ export const postCards = [
     id: "post-16",
     title: "The Role of Social Proof in Conversion Rate Optimization",
     slug: "role-of-social-proof-in-cro",
-    excerpt: "Are your testimonials actually working? How to strategically place social proof to maximize...",
+    excerpt:
+      "Are your testimonials actually working? How to strategically place social proof to maximize...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 17, 2026",
     readTime: "3 min read",
@@ -182,7 +197,8 @@ export const postCards = [
     id: "post-17",
     title: "Testing Your CTA Buttons: Color, Copy, and Placement",
     slug: "testing-cta-buttons",
-    excerpt: "Does a red button really convert better than green? We analyze data from 100+ tests to...",
+    excerpt:
+      "Does a red button really convert better than green? We analyze data from 100+ tests to...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 19, 2026",
     readTime: "3 min read",
@@ -193,7 +209,8 @@ export const postCards = [
     id: "post-18",
     title: "Performance Testing: Ensuring Your Site Survives Black Friday",
     slug: "performance-testing-black-friday",
-    excerpt: "Load testing frameworks and server stress-testing strategies to keep your store online...",
+    excerpt:
+      "Load testing frameworks and server stress-testing strategies to keep your store online...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 21, 2026",
     readTime: "3 min read",
@@ -204,7 +221,8 @@ export const postCards = [
     id: "post-19",
     title: "Migrating to Shopify Plus: What You Need to Know",
     slug: "migrating-to-shopify-plus",
-    excerpt: "Scaling up? Here is a technical breakdown of migrating your custom features to Shopify Plus...",
+    excerpt:
+      "Scaling up? Here is a technical breakdown of migrating your custom features to Shopify Plus...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 24, 2026",
     readTime: "3 min read",
@@ -215,7 +233,8 @@ export const postCards = [
     id: "post-20",
     title: "Data-Driven Redesigns: Stopping the Guesswork",
     slug: "data-driven-redesigns",
-    excerpt: "Why you should stop doing full website overhauls and start iterating based on user heatmaps...",
+    excerpt:
+      "Why you should stop doing full website overhauls and start iterating based on user heatmaps...",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "May 26, 2026",
     readTime: "3 min read",
@@ -226,7 +245,8 @@ export const postCards = [
     id: "post-21",
     title: "Shopify Apps You Can Safely Uninstall to Boost Speed",
     slug: "shopify-apps-safe-to-uninstall",
-    excerpt: "Every installed app adds a script. Here's how to audit your app stack and safely remove the ones quietly slowing your store down.",
+    excerpt:
+      "Every installed app adds a script. Here's how to audit your app stack and safely remove the ones quietly slowing your store down.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 2, 2026",
     readTime: "6 min read",
@@ -237,7 +257,8 @@ export const postCards = [
     id: "post-22",
     title: "Shopify Bundles: Boosting AOV with Product Bundling Apps",
     slug: "shopify-bundles-boost-aov",
-    excerpt: "A practical guide to setting up product bundles that lift average order value without confusing your checkout flow.",
+    excerpt:
+      "A practical guide to setting up product bundles that lift average order value without confusing your checkout flow.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 6, 2026",
     readTime: "7 min read",
@@ -248,7 +269,8 @@ export const postCards = [
     id: "post-23",
     title: "Shopify SEO: A Technical Checklist for 2026",
     slug: "shopify-technical-seo-checklist",
-    excerpt: "Beyond good product descriptions, these are the technical fixes, from crawlability to structured data, that actually move rankings.",
+    excerpt:
+      "Beyond good product descriptions, these are the technical fixes, from crawlability to structured data, that actually move rankings.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 10, 2026",
     readTime: "6 min read",
@@ -259,7 +281,8 @@ export const postCards = [
     id: "post-24",
     title: "Exit Popups That Convert Without Annoying Users",
     slug: "exit-popups-that-convert",
-    excerpt: "The difference between an exit popup that recovers a sale and one that gets closed instantly is almost never the discount.",
+    excerpt:
+      "The difference between an exit popup that recovers a sale and one that gets closed instantly is almost never the discount.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 14, 2026",
     readTime: "5 min read",
@@ -270,7 +293,8 @@ export const postCards = [
     id: "post-25",
     title: "Personalization Tactics That Actually Lift Conversion Rate",
     slug: "personalization-tactics-lift-conversions",
-    excerpt: "Real personalization changes what a customer actually sees. Here's what moves the needle without feeling invasive.",
+    excerpt:
+      "Real personalization changes what a customer actually sees. Here's what moves the needle without feeling invasive.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 19, 2026",
     readTime: "6 min read",
@@ -281,7 +305,8 @@ export const postCards = [
     id: "post-26",
     title: "The One-Page vs Multi-Page Checkout Debate",
     slug: "one-page-vs-multi-page-checkout",
-    excerpt: "There's no universal winner between one-page and multi-step checkout, only what fits your traffic, product, and device mix.",
+    excerpt:
+      "There's no universal winner between one-page and multi-step checkout, only what fits your traffic, product, and device mix.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 23, 2026",
     readTime: "6 min read",
@@ -292,7 +317,8 @@ export const postCards = [
     id: "post-27",
     title: "Sample Ratio Mismatch: The Silent A/B Test Killer",
     slug: "sample-ratio-mismatch-ab-testing",
-    excerpt: "A confident-looking test result can still be invalid if your traffic split was never actually even. Here's how to catch it.",
+    excerpt:
+      "A confident-looking test result can still be invalid if your traffic split was never actually even. Here's how to catch it.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "June 27, 2026",
     readTime: "5 min read",
@@ -303,7 +329,8 @@ export const postCards = [
     id: "post-28",
     title: "How Long Should You Run an A/B Test? A Practical Framework",
     slug: "how-long-to-run-ab-test",
-    excerpt: "\"Wait for significance\" is the most misleading advice in A/B testing. Here's a framework for deciding duration before you launch.",
+    excerpt:
+      '"Wait for significance" is the most misleading advice in A/B testing. Here\'s a framework for deciding duration before you launch.',
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 1, 2026",
     readTime: "6 min read",
@@ -314,7 +341,8 @@ export const postCards = [
     id: "post-29",
     title: "Regression Testing Strategies for Frequent Shopify Releases",
     slug: "regression-testing-shopify-releases",
-    excerpt: "When releases happen weekly, manually re-testing everything isn't realistic. Here's how to build a regression suite that scales.",
+    excerpt:
+      "When releases happen weekly, manually re-testing everything isn't realistic. Here's how to build a regression suite that scales.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 5, 2026",
     readTime: "7 min read",
@@ -325,7 +353,8 @@ export const postCards = [
     id: "post-30",
     title: "Accessibility Testing: WCAG Compliance for E-commerce Sites",
     slug: "accessibility-testing-wcag-ecommerce",
-    excerpt: "Accessibility isn't just a compliance checkbox, it's customers who can't complete checkout if you get it wrong. Here's how to test for it.",
+    excerpt:
+      "Accessibility isn't just a compliance checkbox, it's customers who can't complete checkout if you get it wrong. Here's how to test for it.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 9, 2026",
     readTime: "7 min read",
@@ -336,7 +365,8 @@ export const postCards = [
     id: "post-31",
     title: "What Is Claude, and Why Are Shopify Merchants Using It?",
     slug: "what-is-claude-ai-for-shopify-merchants",
-    excerpt: "Not another chatbot explainer. Here's what Claude actually does for a Shopify store, in plain terms, with a real workflow.",
+    excerpt:
+      "Not another chatbot explainer. Here's what Claude actually does for a Shopify store, in plain terms, with a real workflow.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 13, 2026",
     readTime: "6 min read",
@@ -347,7 +377,8 @@ export const postCards = [
     id: "post-32",
     title: "What Are MCP Servers? A Plain-English Guide for Store Owners",
     slug: "what-are-mcp-servers-explained",
-    excerpt: "MCP sounds like developer jargon. It's actually the reason Claude can read your real store data instead of guessing.",
+    excerpt:
+      "MCP sounds like developer jargon. It's actually the reason Claude can read your real store data instead of guessing.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 17, 2026",
     readTime: "7 min read",
@@ -358,7 +389,8 @@ export const postCards = [
     id: "post-33",
     title: "How to Connect Claude to Your Shopify Store (MCP Setup Guide)",
     slug: "connect-claude-to-shopify-store-mcp-guide",
-    excerpt: "A step-by-step walkthrough of connecting Claude to Shopify via MCP, plus the permissions you should and shouldn't grant.",
+    excerpt:
+      "A step-by-step walkthrough of connecting Claude to Shopify via MCP, plus the permissions you should and shouldn't grant.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 21, 2026",
     readTime: "8 min read",
@@ -369,7 +401,8 @@ export const postCards = [
     id: "post-34",
     title: "Using Claude to Write Product Descriptions at Scale",
     slug: "ai-product-descriptions-with-claude",
-    excerpt: "How to batch-generate on-brand product copy for hundreds of SKUs without it reading like it was written by a robot.",
+    excerpt:
+      "How to batch-generate on-brand product copy for hundreds of SKUs without it reading like it was written by a robot.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 25, 2026",
     readTime: "7 min read",
@@ -380,7 +413,8 @@ export const postCards = [
     id: "post-35",
     title: "Automating Customer Support Replies with Claude",
     slug: "automating-customer-support-with-claude",
-    excerpt: "Where AI-drafted replies save your team hours, and where a human still needs to hit send.",
+    excerpt:
+      "Where AI-drafted replies save your team hours, and where a human still needs to hit send.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "July 29, 2026",
     readTime: "6 min read",
@@ -391,7 +425,8 @@ export const postCards = [
     id: "post-36",
     title: "Claude vs ChatGPT for E-commerce: Which to Use When",
     slug: "claude-vs-chatgpt-for-ecommerce",
-    excerpt: "Both are useful. Here's an honest breakdown of which tasks each one actually handles better for a Shopify store.",
+    excerpt:
+      "Both are useful. Here's an honest breakdown of which tasks each one actually handles better for a Shopify store.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "August 2, 2026",
     readTime: "6 min read",
@@ -402,7 +437,8 @@ export const postCards = [
     id: "post-37",
     title: "Building an AI-Powered Reporting Workflow with Claude + MCP",
     slug: "ai-powered-shopify-reporting-claude-mcp",
-    excerpt: "Turn raw Shopify data into a plain-English weekly report your whole team actually reads, automatically.",
+    excerpt:
+      "Turn raw Shopify data into a plain-English weekly report your whole team actually reads, automatically.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "August 6, 2026",
     readTime: "8 min read",
@@ -413,7 +449,8 @@ export const postCards = [
     id: "post-38",
     title: "AI Agents in E-commerce: What Merchants Need to Know in 2026",
     slug: "ai-agents-in-ecommerce-2026",
-    excerpt: "\"Agent\" gets thrown around a lot. Here's what actually makes something an agent, and where it's genuinely useful for a store.",
+    excerpt:
+      "\"Agent\" gets thrown around a lot. Here's what actually makes something an agent, and where it's genuinely useful for a store.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "August 10, 2026",
     readTime: "7 min read",
@@ -424,7 +461,8 @@ export const postCards = [
     id: "post-39",
     title: "Prompting Claude for E-commerce Tasks: A Practical Playbook",
     slug: "prompting-claude-ecommerce-playbook",
-    excerpt: "Five reusable prompt structures for merchandising, support, analysis, and content, that you can copy today.",
+    excerpt:
+      "Five reusable prompt structures for merchandising, support, analysis, and content, that you can copy today.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "August 14, 2026",
     readTime: "7 min read",
@@ -435,7 +473,8 @@ export const postCards = [
     id: "post-40",
     title: "Using Claude for Shopify SEO and Content at Scale",
     slug: "claude-for-shopify-seo-content",
-    excerpt: "A repeatable system for turning keyword research into published, SEO-checked collection and blog content with Claude.",
+    excerpt:
+      "A repeatable system for turning keyword research into published, SEO-checked collection and blog content with Claude.",
     author: { name: "Ingversions Team", avatar: "/assets/team/author-1.png" },
     date: "August 18, 2026",
     readTime: "7 min read",

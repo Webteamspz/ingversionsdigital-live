@@ -45,7 +45,6 @@ const Home = () => {
       )}
 
       <Layout header={1} footer={1}>
-        
         <Hero />
 
         <TrackRecord />

@@ -15,14 +15,7 @@ const ROLE_TEXT_COLORS = [
 ];
 
 const TeamCard = ({ member, index = 0 }) => {
-  const {
-    name,
-    title,
-    avatar,
-    department,
-    location,
-    socials = {},
-  } = member || {};
+  const { name, title, avatar, department, location, socials = {} } = member || {};
 
   const socialEntries = Object.entries(socials);
   const roleColor = ROLE_COLORS[index % ROLE_COLORS.length];
@@ -31,18 +24,10 @@ const TeamCard = ({ member, index = 0 }) => {
   return (
     <article className={styles.cardWrap}>
       <div className={styles.cardHover}>
-
-        
         <div className={styles.media}>
-          <OptimizedImg
-            src={avatar}
-            alt={name}
-            width={400} 
-            height={500}
-          />
+          <OptimizedImg src={avatar} alt={name} width={400} height={500} />
         </div>
 
-        
         <div className={styles.floatContent}>
           <h3 className={styles.name}>{name}</h3>
 
@@ -54,9 +39,7 @@ const TeamCard = ({ member, index = 0 }) => {
               {title}
             </span>
           )}
-          {department && (
-            <span className={styles.deptPill}>{department}</span>
-          )}
+          {department && <span className={styles.deptPill}>{department}</span>}
           {location && <p className={styles.location}>{location}</p>}
 
           {socialEntries.length > 0 && (

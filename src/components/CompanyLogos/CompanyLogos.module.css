@@ -2,7 +2,7 @@
   padding: 32px 0 48px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg,rgb(246 246 246 / 0) 0,var(--palette-bg-950) 100%)
+  background: linear-gradient(180deg, rgb(246 246 246 / 0) 0, var(--palette-bg-950) 100%);
 }
 .logosSection:after,
 .logosSection:before {
@@ -12,28 +12,28 @@
   width: 200px;
   height: 100%;
   z-index: 2;
-  pointer-events: none
+  pointer-events: none;
 }
 .logosSection:before {
   left: 0;
-  background: linear-gradient(to left,transparent,var(--palette-bg-950))
+  background: linear-gradient(to left, transparent, var(--palette-bg-950));
 }
 .logosSection:after {
   right: 0;
-  background: linear-gradient(to right,transparent,var(--palette-bg-950))
+  background: linear-gradient(to right, transparent, var(--palette-bg-950));
 }
 .marquee {
-  overflow: hidden
+  overflow: hidden;
 }
 .marqueeTrack {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 50s linear infinite
+  animation: marqueeScroll 50s linear infinite;
 }
 .marqueeGroup {
   display: flex;
   align-items: center;
-  flex-shrink: 0
+  flex-shrink: 0;
 }
 .cardSlide {
   display: flex;
@@ -41,7 +41,7 @@
   justify-content: center;
   width: 300px;
   padding: 0 22px;
-  flex-shrink: 0
+  flex-shrink: 0;
 }
 .marqueeGroup img {
   width: 100%;
@@ -49,31 +49,31 @@
   filter: brightness(0) saturate(100%);
   opacity: 1;
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
 }
 @keyframes marqueeScroll {
   from {
-    transform: translateX(0)
+    transform: translateX(0);
   }
   to {
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
 }
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .marqueeTrack {
-    animation: none
+    animation: none;
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .logosSection {
     padding-top: 30px;
     padding-bottom: 0;
   }
   .cardSlide {
     width: 240px;
-    padding: 0 14px
+    padding: 0 14px;
   }
   .marqueeTrack {
-    animation-duration: 32s
+    animation-duration: 32s;
   }
 }

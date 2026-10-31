@@ -13,7 +13,12 @@ import { brandPlans, devPlans } from "../../data/pricingData";
 import pages from "../../data/servicePagesData";
 import styles from "./ServicePage.module.css";
 
-const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
 const pricingItems = (type) =>
   type === "plans" || type === "dev"
@@ -36,7 +41,14 @@ const pricingItems = (type) =>
 
 const CardCta = ({ cta, loc }) =>
   cta.href.startsWith("http") ? (
-    <a href={cta.href} target="_blank" rel="noopener noreferrer" className={styles.priceCta} data-cta={cta.label} data-cta-loc={loc}>
+    <a
+      href={cta.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.priceCta}
+      data-cta={cta.label}
+      data-cta-loc={loc}
+    >
       {cta.label} <ArrowRight size={16} aria-hidden="true" />
     </a>
   ) : (
@@ -47,7 +59,11 @@ const CardCta = ({ cta, loc }) =>
 
 const ServicePage = ({ slug }) => {
   const page = pages[slug];
-  const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reduced] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const [active, setActive] = useState(reduced ? page.included.length : 0);
   const next = () => setActive((a) => (a + 1) % page.included.length);
 
@@ -79,7 +95,12 @@ const ServicePage = ({ slug }) => {
               >
                 {page.cta.label}
               </a>
-              <Link to="/projects" className={styles.secondary} data-cta="View Projects" data-cta-loc={`${page.title} Hero`}>
+              <Link
+                to="/projects"
+                className={styles.secondary}
+                data-cta="View Projects"
+                data-cta-loc={`${page.title} Hero`}
+              >
                 View Projects <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -150,7 +171,12 @@ const ServicePage = ({ slug }) => {
                 </Reveal>
               ))}
             </div>
-            <Link to="/pricing" className={`btn btn-book ${styles.seeAll}`} data-cta="See full pricing" data-cta-loc={`${page.title} Pricing`}>
+            <Link
+              to="/pricing"
+              className={`btn btn-book ${styles.seeAll}`}
+              data-cta="See full pricing"
+              data-cta-loc={`${page.title} Pricing`}
+            >
               See full pricing <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>

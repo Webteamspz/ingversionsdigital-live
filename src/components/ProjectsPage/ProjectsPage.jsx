@@ -10,15 +10,12 @@ const ProjectsPage = () => {
 
   const filteredProjects = useMemo(
     () => data.projects.filter((project) => project.type === activeFilter),
-    [activeFilter]
+    [activeFilter],
   );
 
   return (
     <section className={styles.projectsSection} id="projects">
-      <ProjectsHero
-        activeFilter={activeFilter}
-        onFilterChange={setActiveFilter}
-      />
+      <ProjectsHero activeFilter={activeFilter} onFilterChange={setActiveFilter} />
       <div className="container">
         <ProjectsGrid projects={filteredProjects} />
         <ProjectsCTA />

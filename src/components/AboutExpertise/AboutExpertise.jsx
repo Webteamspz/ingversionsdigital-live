@@ -9,8 +9,18 @@ import styles from "./AboutExpertise.module.css";
 import { expertiseCards } from "../../data/aboutUsData";
 import Reveal from "../Reveal/Reveal";
 
-const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };
-const EXPERTISE_COLORS = { ai: "var(--palette-accent)", blockchain: "var(--secondary)", trading: "var(--tertiary)", analytics: "var(--quaternary)" };
+const EXPERTISE_ICONS = {
+  ai: Sparkles,
+  blockchain: Blocks,
+  trading: TrendingUp,
+  analytics: BarChart3,
+};
+const EXPERTISE_COLORS = {
+  ai: "var(--palette-accent)",
+  blockchain: "var(--secondary)",
+  trading: "var(--tertiary)",
+  analytics: "var(--quaternary)",
+};
 
 const ExpertiseIcon = ({ iconKey, title }) => {
   const Icon = EXPERTISE_ICONS[iconKey];
@@ -34,12 +44,10 @@ const AboutExpertise = () => {
   return (
     <section className={styles.aboutExpertise} id="coreExpertise">
       <div className="container">
-        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCenter}`}>
-          Core Expertise
-        </h2>
+        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCenter}`}>Core Expertise</h2>
         <p className={styles.sectionSubtitle}>
-          A focused stack of capabilities designed to own experimentation from
-          idea to implementation.
+          A focused stack of capabilities designed to own experimentation from idea to
+          implementation.
         </p>
 
         {isMobile ? (
@@ -71,7 +79,11 @@ const AboutExpertise = () => {
         ) : (
           <div className={styles.aboutExpertiseGrid}>
             {expertiseCards.map((card, i) => (
-              <Reveal key={card.title} delay={i * 80} className={`${styles.card} ${styles.aboutExpertiseCard}`}>
+              <Reveal
+                key={card.title}
+                delay={i * 80}
+                className={`${styles.card} ${styles.aboutExpertiseCard}`}
+              >
                 <span
                   className={styles.cornerFold}
                   style={{ background: EXPERTISE_COLORS[card.icon] }}

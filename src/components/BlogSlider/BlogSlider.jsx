@@ -1,14 +1,14 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
-import { ArrowRight } from 'lucide-react';
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper/modules";
+import { ArrowRight } from "lucide-react";
 import data from "../../data/siteData";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import styles from './BlogSlider.module.css';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import styles from "./BlogSlider.module.css";
 
 const BlogSlider = () => {
   const prevRef = useRef(null);
@@ -34,18 +34,36 @@ const BlogSlider = () => {
           ref={prevRef}
           aria-label="Previous blog"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-            <path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+          >
+            <path
+              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
 
-        <button
-          className={`${styles.tsNav} ${styles.tsNext}`}
-          ref={nextRef}
-          aria-label="Next blog"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-            <path d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+        <button className={`${styles.tsNav} ${styles.tsNext}`} ref={nextRef} aria-label="Next blog">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+          >
+            <path
+              d="M0.999921 8.5H15.5833M15.5833 8.5L8.58325 1.5M15.5833 8.5L8.58325 15.5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
 
@@ -75,7 +93,12 @@ const BlogSlider = () => {
               <Link to={article.url} className={styles.blogCardLink}>
                 <div className={styles.blogCard}>
                   <div className={styles.imgWrapper}>
-                    <img src={article.image} alt={article.title} className={styles.blogImage} loading="lazy" />
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className={styles.blogImage}
+                      loading="lazy"
+                    />
                     <span className={styles.blogDateBadge}>{article.date}</span>
                   </div>
                   <div className={styles.blogContent}>

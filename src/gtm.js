@@ -8,7 +8,7 @@ const now = () => new Date().toISOString();
 
 export function pageview(
   path = location.pathname + location.search + location.hash,
-  title = document.title
+  title = document.title,
 ) {
   dl().push({
     event: "virtual_pageview",
@@ -49,7 +49,7 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
         io.disconnect();
       }
     },
-    { threshold: [threshold] }
+    { threshold: [threshold] },
   );
   io.observe(el);
   return () => io.disconnect();
@@ -57,10 +57,9 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
 
 export function initGTMTracking() {
   if (typeof window === "undefined") return;
-  if (window.__gtmInit) return; 
+  if (window.__gtmInit) return;
   window.__gtmInit = true;
 
-  
   const firePV = () => pageview();
   ["pushState", "replaceState"].forEach((m) => {
     const orig = history[m];
@@ -72,9 +71,8 @@ export function initGTMTracking() {
   });
   window.addEventListener("popstate", firePV);
   window.addEventListener("hashchange", firePV);
-  pageview(); 
+  pageview();
 
-  
   document.addEventListener("click", (e) => {
     const el = e.target.closest?.("[data-cta]");
     if (!el) return;
@@ -86,7 +84,6 @@ export function initGTMTracking() {
     });
   });
 
-  
   document.addEventListener("submit", (e) => {
     const form = e.target.closest?.("form[data-gtm-form]");
     if (!form) return;
@@ -95,7 +92,6 @@ export function initGTMTracking() {
     formSubmit({ form_id, form_name });
   });
 
-  
   window.__gtmFormSuccess = (form) => {
     if (!form) return;
     const form_name = form.getAttribute("data-gtm-form") || form.name || "form";
@@ -103,7 +99,6 @@ export function initGTMTracking() {
     formSuccess({ form_id, form_name });
   };
 
-  
   const marks = new Set();
   const thresholds = [25, 50, 75, 100];
   let ticking = false;
@@ -114,10 +109,7 @@ export function initGTMTracking() {
       const doc = document.documentElement;
       const total = doc.scrollHeight - doc.clientHeight;
       if (total > 0) {
-        const pct = Math.min(
-          100,
-          Math.round(((window.scrollY || doc.scrollTop) / total) * 100)
-        );
+        const pct = Math.min(100, Math.round(((window.scrollY || doc.scrollTop) / total) * 100));
         thresholds.forEach((t) => {
           if (!marks.has(t) && pct >= t) {
             marks.add(t);
@@ -135,9 +127,11 @@ export function initGTMTracking() {
 
 function loadClarity() {
   (function (c, l, a, r, i, t, y) {
-    c[a] = c[a] || function () {
-      (c[a].q = c[a].q || []).push(arguments);
-    };
+    c[a] =
+      c[a] ||
+      function () {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
     t = l.createElement(r);
     t.async = 1;
     t.src = "https://www.clarity.ms/tag/" + i;
