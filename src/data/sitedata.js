@@ -13,6 +13,49 @@ export default {
       label: "Book A Call",
       href: "https://calendly.com/ingversionsdigital/30min",
     },
+    // "Services" menu (desktop dropdown and mobile drawer). Every href is a
+    // service page route, so these are real links in the prerendered HTML.
+    // `short` is the shorter label used in the mobile drawer.
+    servicesMenu: {
+      groups: [
+        {
+          title: "Core services",
+          note: "Testing, development and QA",
+          items: [
+            { label: "A/B Testing", href: "/ab-testing", short: "A/B Testing", icon: "ab-testing", desc: "Research-led tests that lift conversion" },
+            { label: "Shopify Development", href: "/shopify-development", short: "Shopify Development", icon: "shopify", desc: "Fast, custom themes and sections" },
+            { label: "Quality Assurance", href: "/quality-assurance", short: "Quality Assurance", icon: "qa", desc: "Every test and release checked by hand" },
+            { label: "Landing Page Personalization", href: "/landing-page-personalization", short: "Personalization", icon: "landing-page", desc: "Pages that adapt to each visitor" },
+            { label: "WordPress Development", href: "/wordpress-development", short: "WordPress", icon: "wordpress", desc: "Fast, easy-to-edit WordPress sites" },
+          ],
+        },
+        {
+          title: "Shopify CRO",
+          note: "Specialist services for Shopify stores",
+          items: [
+            { label: "Shopify CRO Agency", href: "/shopify-cro-agency", short: "CRO Agency", desc: "Find and fix why traffic doesn't convert" },
+            { label: "Shopify A/B Testing", href: "/shopify-ab-testing-services", short: "Store A/B Testing", desc: "From hypothesis to winning variant" },
+            { label: "Shopify Plus Development & QA", href: "/shopify-plus-development-qa", short: "Plus Dev & QA", desc: "Plus features with QA built in" },
+            { label: "Convert.com Testing Agency", href: "/convert-com-shopify-ab-testing-agency", short: "Convert.com Agency", desc: "Get results from your Convert plan" },
+            { label: "White-Label Testing for Agencies", href: "/white-label-ab-testing-development-for-agencies", short: "White-Label for Agencies", desc: "We build and QA your clients' tests" },
+            { label: "Black Friday QA Testing", href: "/shopify-bfcm-load-and-qa-testing-service", short: "Black Friday QA", desc: "Load and checkout testing before BFCM" },
+          ],
+        },
+      ],
+      all: { label: "Explore all services", short: "All services", href: "/services" },
+      promo: {
+        title: "Not sure where to start?",
+        text: "Get a free 30-minute CRO review of your store.",
+        label: "Book A Call",
+      },
+    },
+    // Mobile drawer footer: the booking button plus quick contact options.
+    mobileMenu: {
+      ctaLabel: "Book A Call",
+      ctaNote: "30 minutes. No commitment.",
+      emailLabel: "Email us",
+      phoneLabel: "Call us",
+    },
   },
   promoBar: {
     enabled: true,
