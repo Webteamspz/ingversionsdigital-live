@@ -23,7 +23,11 @@ const PrivacyPolicy = () => (
                 ingversionsdigital.com, why we collect it, and the choices you have — written in
                 plain language, not legalese.
               </p>
-              <p className={styles.legalIntro}>Last updated: October 30, 2026</p>
+              <p className={styles.legalIntro}>
+                This notice is in English. On request, we will provide it in any language listed in
+                the Eighth Schedule to the Constitution of India.
+              </p>
+              <p className={styles.legalIntro}>Last updated: November 1, 2026</p>
             </div>
           </div>
         </div>
@@ -41,9 +45,10 @@ const PrivacyPolicy = () => (
               <div className={styles.legalSectionBody}>
                 <ul>
                   <li>
-                    <strong>Information you give us:</strong> name, email, phone number,
-                    company/organization, website URL, and project details submitted through our
-                    contact forms or strategy-call requests.
+                    <strong>Information you give us:</strong> through our contact form, your email,
+                    the nature of your inquiry, your country and your company size. We also record
+                    the page you sent it from and the time. If you email us, we receive whatever you
+                    include in your message.
                   </li>
                   <li>
                     <strong>Information collected automatically:</strong> pages viewed, referring
@@ -183,6 +188,10 @@ const PrivacyPolicy = () => (
                   </li>
                 </ul>
                 <p>
+                  These providers may store and process data on servers outside India, including in
+                  the United States and the European Union.
+                </p>
+                <p>
                   We may also disclose information if required by law, or to protect the rights,
                   safety, or property of Ingversions Digital or others.
                 </p>
@@ -216,12 +225,46 @@ const PrivacyPolicy = () => (
                 <h2 id="your-rights">Your Rights</h2>
               </div>
               <div className={styles.legalSectionBody}>
+                <p>Wherever you're located, you can ask us, at any time and free of charge, to:</p>
+                <ul>
+                  <li>
+                    give you a summary of the personal data we hold about you and how we use it;
+                  </li>
+                  <li>correct, complete or update it;</li>
+                  <li>delete it, or stop using it for a specific purpose;</li>
+                  <li>
+                    withdraw your consent. For analytics, use Cookie Settings in the footer. For
+                    anything else, email us. Withdrawing is as easy as giving consent;
+                  </li>
+                  <li>
+                    nominate another person to exercise these rights for you if you die or are
+                    unable to act.
+                  </li>
+                </ul>
                 <p>
-                  Wherever you're located, you can request access to, correction of, or deletion of
-                  your personal data at any time, or ask us to stop using it for a specific purpose,
-                  by emailing{" "}
-                  <a href="mailto:ingversionsdigital@gmail.com">ingversionsdigital@gmail.com</a>.
-                  We'll respond within a reasonable timeframe.
+                  To make a request or raise a complaint, email{" "}
+                  <a href="mailto:ingversionsdigital@gmail.com">ingversionsdigital@gmail.com</a>. We
+                  will respond within 90 days. If you are not satisfied with our response, you can
+                  complain to the Data Protection Board of India.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.legalSection}>
+              <span className={styles.legalCornerFold} aria-hidden="true" />
+              <div className={styles.legalSectionHead}>
+                <div className={styles.legalIconWrap}>
+                  <IconShield />
+                </div>
+                <h2 id="security">Security &amp; Data Breaches</h2>
+              </div>
+              <div className={styles.legalSectionBody}>
+                <p>
+                  Data you send us travels over an encrypted (HTTPS) connection. Contact-form
+                  submissions are stored in Google Cloud Firestore, which encrypts data at rest, and
+                  can only be added through this website, not read or changed. If a breach affects
+                  your personal data, we will tell you and the Data Protection Board of India, as
+                  the law requires.
                 </p>
               </div>
             </div>
@@ -236,9 +279,10 @@ const PrivacyPolicy = () => (
               </div>
               <div className={styles.legalSectionBody}>
                 <p>
-                  This site and our services are intended for businesses and professionals. We don't
-                  knowingly collect personal information from children under 16. If you believe a
-                  child has provided us with personal information, contact us and we'll remove it.
+                  This site and our services are intended for businesses and professionals and are
+                  not directed at children. We don't knowingly collect personal information from
+                  anyone under 18. If you believe a child has provided us with personal information,
+                  contact us and we'll remove it.
                 </p>
               </div>
             </div>

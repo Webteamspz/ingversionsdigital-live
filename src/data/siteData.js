@@ -1365,6 +1365,11 @@ export default {
   },
   contact: {
     heading: "Contact Us",
+    modalNotice: {
+      text: "We use your email, country and company size only to reply to this inquiry. You can ask us to delete them at any time.",
+      linkLabel: "Privacy Policy",
+      href: "/privacy-policy",
+    },
     form: {
       title: "Ready To Scale Your Conversions ?",
       country: { flag: "🇮🇳", dial: "+91" },
