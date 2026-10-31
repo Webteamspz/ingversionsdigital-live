@@ -31,13 +31,11 @@ const StoryCard = ({ heading, icon, paragraphs }) => {
   );
 };
 
-// A study's own page if it has one, else its spot on /case-studies.
 const studyHref = (id) =>
   Object.values(seo).some((p) => p.path === `/case-studies/${id}`) ? `/case-studies/${id}` : `/case-studies#${id}`;
 
 const ROW_COLORS = ["var(--tertiary)", "var(--quaternary)", "var(--secondary)", "var(--palette-accent-soft)"];
 
-// Homepage row: the whole row links to the study.
 const StudyRow = ({ study, color }) => {
   const [top] = study.results.stats;
   return (
@@ -66,8 +64,6 @@ const StudyRow = ({ study, color }) => {
   );
 };
 
-// Homepage: a board of clickable rows, one per study. `only` renders one study
-// as its standalone page instead (its title becomes the h1).
 const CaseStudies = ({ only }) => {
   const { heading, sub, highlights } = siteData.caseStudies;
   const list = siteData.caseStudies.list.filter((s) => !only || s.id === only);
@@ -112,7 +108,6 @@ const CaseStudies = ({ only }) => {
       </header>
 
       <div className={styles.body}>
-        {/* The story cards only show on the standalone page, not in the homepage slider. */}
         {only && (
           <div className={styles.storyGrid}>
             {study.sections.map((s) => (
@@ -221,7 +216,6 @@ const CaseStudies = ({ only }) => {
         )}
       </div>
 
-      {/* Native dialog: Esc closes it; clicking the backdrop closes it too. */}
       <dialog
         ref={dialogRef}
         className={styles.lightbox}

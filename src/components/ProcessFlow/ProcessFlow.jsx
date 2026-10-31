@@ -40,10 +40,6 @@ const ICONS = {
 };
 const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
 
-// Loops step 1 -> last like a progress line: the active icon pulses while its
-// connector fills in its colour, and the fill finishing hands over to the next
-// step. Reached steps stay lit, upcoming ones are dimmed.
-// Reduced motion: no loop, every step shown lit.
 const Steps = ({ steps }) => {
   const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [active, setActive] = useState(reduced ? steps.length : 0);
@@ -88,7 +84,6 @@ const Steps = ({ steps }) => {
   );
 };
 
-// tabIds picks which flows to show; with one flow the tab bar is hidden.
 const ProcessFlow = ({ tabIds }) => {
   const { eyebrow, heading, highlight, sub } = data.processFlow;
   const tabs = tabIds ? data.processFlow.tabs.filter((t) => tabIds.includes(t.id)) : data.processFlow.tabs;

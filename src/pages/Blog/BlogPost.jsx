@@ -28,8 +28,6 @@ const BlogNotFound = () => (
   </section>
 );
 
-// /blog/:slug — a structured post (blogPosts.json), else a legacy markdown
-// post (articlesData.js), else the blog 404.
 const PostBody = ({ slug }) => {
   const structured = getStructuredPost(slug);
   if (structured) {
@@ -62,7 +60,6 @@ const BlogPost = () => {
       <SEO {...seo} />
       <Layout header={1} footer={1}>
         <div className="ing-blog">
-          {/* key: remount per post so slider, TOC and FAQ state reset */}
           <PostBody key={slug} slug={slug} />
           <RelatedService slug={slug} />
         </div>

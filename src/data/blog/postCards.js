@@ -1,7 +1,5 @@
 import { structuredPosts, toCard } from "./structuredPosts.js";
 
-// Home-page and "Most Popular" cards for every post. Structured posts
-// (blogPosts.json) are generated; legacy markdown posts are listed by hand.
 export const postCards = [
   ...structuredPosts.map(toCard).reverse(),
   {

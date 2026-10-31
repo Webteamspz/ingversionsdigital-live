@@ -39,7 +39,6 @@ const SOCIAL_ICONS = {
   instagram: Instagram,
 };
 
-// Same service pages as the header menu, so the two never drift apart.
 const SERVICE_COLUMNS = data.header.servicesMenu.groups.map((g) => ({
   title: g.title,
   links: g.items.map((i) => ({ name: i.label, href: i.href })),
@@ -93,7 +92,6 @@ const Footer = () => {
             <Link to="/" className={styles.logoLink} aria-label={`${f.company} home`}>
               <img src={logo} alt="" className={styles.footerLogo} width="230" height="47" />
             </Link>
-            {/* data-nosnippet: Google was using this bio as the description for every sitelink. */}
             <p className={styles.companyBio} data-nosnippet>{f.bio}</p>
 
             <p className={styles.colTitle}>{f.contactTitle}</p>

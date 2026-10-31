@@ -1,8 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import articleStyles from "./ArticleDetail.module.css";
 
-// mermaid is large, so it is only downloaded the first time a post actually
-// contains a non-linear diagram (linear flows render as a step list below).
 let mermaidReady;
 const loadMermaid = () => {
   mermaidReady ??= import("mermaid").then(({ default: mermaid }) => {
@@ -26,8 +24,6 @@ const loadMermaid = () => {
   return mermaidReady;
 };
 
-// A graph/flowchart where no node has more than one edge in or out is drawn as
-// a numbered step list. Returns the step labels, or null for anything else.
 function parseFlowSteps(src) {
   const lines = src.split(/\r?\n/).map((l) => l.trim());
   if (!/^(graph|flowchart)\s/i.test(lines[0] || "")) return null;

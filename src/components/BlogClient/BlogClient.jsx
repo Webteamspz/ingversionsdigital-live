@@ -34,7 +34,6 @@ const articleLabel = (n) => `${n} article${n === 1 ? "" : "s"}`;
 
 const categoryCount = (id) => categories.find((c) => c.id === id)?.count ?? 0;
 
-// "Browse by Category" cards; clicking one filters the grid above.
 const categoryCards = [
   { id: "cro", title: "CRO", alt: "CRO analytics", hover: "hover-cro", bg: "bg-green-light",
     desc: "Conversion rate optimization strategies and best practices." },
@@ -50,7 +49,6 @@ const categoryCards = [
     desc: "Product page design, UX, and conversion-focused layouts." },
 ];
 
-// Blog home: hero with category tabs, article grid, category cards.
 const BlogClient = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const topRef = useRef(null);

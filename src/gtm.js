@@ -4,7 +4,6 @@ export const GTM_ID = import.meta.env.VITE_GTM_ID;
 const CLARITY_ID = import.meta.env.VITE_CLARITY_ID;
 export const dl = () => (window.dataLayer = window.dataLayer || []);
 
-
 const now = () => new Date().toISOString();
 
 export function pageview(
@@ -55,7 +54,6 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
   io.observe(el);
   return () => io.disconnect();
 }
-
 
 export function initGTMTracking() {
   if (typeof window === "undefined") return;
@@ -132,7 +130,6 @@ export function initGTMTracking() {
   };
   window.addEventListener("scroll", onScroll, { passive: true });
 
-
   requestAnimationFrame(onScroll);
 }
 
@@ -174,16 +171,14 @@ export function loadAnalytics() {
 }
 
 const CONSENT_KEY = "analytics-consent";
-const ASK_AGAIN_MS = 182 * 24 * 60 * 60 * 1000; // a refusal is respected for ~6 months (CNIL guidance)
+const ASK_AGAIN_MS = 182 * 24 * 60 * 60 * 1000;
 
-// Fired on window when the visitor accepts or declines cookies (PromoBar waits for it).
 export const CONSENT_EVENT = "consent-choice";
 
-// "granted", "denied", or null when there is no choice yet (or the refusal expired).
 export const getConsent = () => {
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
-    if (raw === "granted") return raw; // stored before choices carried a timestamp
+    if (raw === "granted") return raw;
     const { value, at } = JSON.parse(raw) || {};
     if (value === "denied" && Date.now() - at > ASK_AGAIN_MS) return null;
     return value === "granted" || value === "denied" ? value : null;
@@ -196,13 +191,10 @@ export const setConsent = (value) => {
   try {
     localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, at: Date.now() }));
   } catch {
-    /* storage blocked: the banner just shows again next visit */
+    return;
   }
 };
 
-// Runs unless the visitor declined analytics cookies (opt-out). No-op outside
-// production builds, so dev and staging never track anything. Safe to call
-// twice: main.jsx and the consent banner can both call it on one page load.
 export function startAnalytics() {
   if (!isProduction || window.__analyticsStarted) return;
   window.__analyticsStarted = true;

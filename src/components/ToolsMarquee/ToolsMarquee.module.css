@@ -12,7 +12,6 @@
   text-align: center;
   text-transform: uppercase
 }
-/* One track with 4 copies of the list; it slides left by one copy (25%). */
 .viewport {
   display: flex;
   overflow: hidden;
@@ -32,7 +31,6 @@
 .reverse .track {
   animation-direction: reverse
 }
-/* Inside another section: no own padding or background. */
 .section.compact {
   padding: 28px 0 4px;
   background: transparent
@@ -45,10 +43,6 @@
     transform: translateX(-25%)
   }
 }
-/* Spacing is a right margin on every logo (not flex gap), so each copy is
-   exactly a quarter of the track and the -25% loop has no jump. */
-/* Logo size comes from --w/--h (set in ToolsMarquee.jsx so all logos have
-   equal area); slots hug the logo so the gap between logos is constant. */
 .tool {
   --logo-scale: 1;
   display: flex;

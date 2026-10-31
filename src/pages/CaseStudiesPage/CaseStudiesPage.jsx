@@ -12,9 +12,7 @@ import styles from "./CaseStudiesPage.module.css";
 const ICONS = { challenge: TrendingDown, action: Search, method: Calculator, timing: Hourglass };
 const COLORS = ["var(--palette-accent-soft)", "var(--tertiary)", "var(--quaternary)", "var(--secondary)"];
 
-// "1.67%" / "~4/day" -> 1.67 / 4, for the before/after bars.
 const num = (v) => parseFloat(String(v).replace(/[^\d.]/g, "")) || 0;
-// Studies that also have their own page (/case-studies/<id>).
 const hasPage = (id) => Object.values(seo).some((p) => p.path === `/case-studies/${id}`);
 
 const StoryCard = ({ heading, icon, paragraphs, step, color }) => {

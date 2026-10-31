@@ -21,8 +21,6 @@ const PricingHero = ({ track, setTrack }) => {
         </p>
       </div>
 
-      {/* Outside .container so it runs edge to edge; scrolls opposite to the
-          strip under the plan cards. */}
       <ToolsMarquee compact reverse />
 
       <div className="container">

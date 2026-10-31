@@ -15,7 +15,6 @@ test("toFirestoreWrite builds a create-only write that matches the live rules", 
     email: { stringValue: "a@b.co" },
     phone: { stringValue: "" },
   });
-  // Rules: hasAll(['site','formName','createdAt']), size() <= 30, createdAt == request.time.
   assert.deepEqual(w.currentDocument, { exists: false });
   assert.deepEqual(w.updateTransforms, [{ fieldPath: "createdAt", setToServerValue: "REQUEST_TIME" }]);
   assert.ok(Object.keys(w.update.fields).length + 1 <= 30);

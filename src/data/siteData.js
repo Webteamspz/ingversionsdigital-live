@@ -13,9 +13,6 @@ export default {
       label: "Book A Call",
       href: "https://calendly.com/ingversionsdigital/30min",
     },
-    // "Services" menu (desktop dropdown and mobile drawer). Every href is a
-    // service page route, so these are real links in the prerendered HTML.
-    // `short` is the shorter label used in the mobile drawer.
     servicesMenu: {
       groups: [
         {
@@ -49,7 +46,6 @@ export default {
         label: "Book A Call",
       },
     },
-    // Mobile drawer footer: the booking button plus quick contact options.
     mobileMenu: {
       ctaLabel: "Book A Call",
       ctaNote: "30 minutes. No commitment.",
@@ -148,7 +144,6 @@ export default {
       { value: "5+", label: "Years of experience" },
     ],
   },
-  // Hero of the /services page; the cards below it come from `services`.
   servicesPage: {
     tag: "Services",
     title: "Shopify CRO, A/B Testing & Development Services",
@@ -157,8 +152,6 @@ export default {
     primaryHref: "https://calendly.com/ingversionsdigital/30min",
     secondaryCta: "See pricing",
     secondaryHref: "/pricing",
-    // Each service block's details (intro, included, keywords) come from
-    // servicePagesData.js, for the services listed in `services` below.
     detailsHeading: "What we do, in detail",
     audienceHeading: "Who we work with",
     audiences: [
@@ -330,7 +323,6 @@ export default {
     list: [
       {
         title: "Retainer-Based Partnerships",
-        // Shown as the big "price" line on service-page pricing cards.
         priceLabel: "Fixed monthly fee",
         desc: "Ideal for businesses with ongoing development needs, including eCommerce companies and CRO agencies.",
         icon: "retainer",
@@ -347,7 +339,6 @@ export default {
       },
       {
         title: "Block of Hours",
-        // Shown as the big "price" line on service-page pricing cards.
         priceLabel: "Prepaid hours",
         desc: "Perfect for businesses looking to start testing development, establish a testing culture, or require on-demand services without a long-term commitment.",
         icon: "hoursblock",
@@ -364,7 +355,6 @@ export default {
       },
       {
         title: "Project-Based Engagements",
-        // Shown as the big "price" line on service-page pricing cards.
         priceLabel: "Fixed project price",
         desc: "Designed for one-time projects or specific initiatives with clearly defined scopes and timelines.",
         icon: "projectengagement",
@@ -381,7 +371,6 @@ export default {
       },
     ],
   },
-  // The /case-studies page (CaseStudiesPage). The studies themselves are caseStudies.list below.
   caseStudiesPage: {
     tag: "Case Studies",
     title: "Real tests. Real lifts. Every number checked in GA4.",
@@ -398,14 +387,12 @@ export default {
   caseStudies: {
     heading: "Case Studies",
     sub: "Real A/B tests on real Shopify stores. Open a study to see the designs, the test reports and what we learned.",
-    // Totals from the Rapid Radios (52 tests, 11 winners) and Ruff Greens (54 tests, 6 winners) studies.
     highlights: [
       { value: "106", label: "A/B tests run for two Shopify brands" },
       { value: "17", label: "Clear winners at 95%+ confidence" },
     ],
     list: [
       {
-        // Standalone page /case-studies/<id>. `tests` (each test's story, designs and reports) only shows there.
         id: "rapid-radios-shopify-cro-case-study",
         client: "Rapid Radios",
         title: "52 A/B Tests for Rapid Radios: Four Product Page Wins, Up to +41.5% Conversion",
@@ -807,7 +794,6 @@ export default {
         },
       },
       {
-        // Also the standalone page /case-studies/<id> (see CaseStudyPage).
         id: "shopify-pdp-trust-badges-ab-test",
         client: "Radio equipment store",
         title: "+58.62% Add-to-Cart: Trust Badges vs Guarantee Copy on a Shopify Product Page",
@@ -1287,8 +1273,6 @@ footer: {
     company: "Ingversions Digital",
     bio: "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development.",
     contactTitle: "Get in touch",
-    // Service columns come from header.servicesMenu, so the header and footer
-    // always list the same pages. These are the other columns.
     linkGroups: [
       {
         title: "Company",

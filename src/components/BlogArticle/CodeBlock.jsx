@@ -9,7 +9,6 @@ function getText(node) {
   return "";
 }
 
-// <pre> with a copy-to-clipboard button.
 const CodeBlock = ({ children }) => {
   const [copied, setCopied] = useState(false);
 
@@ -19,7 +18,7 @@ const CodeBlock = ({ children }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      // Clipboard can be blocked (permissions, insecure context); nothing to do.
+      return;
     }
   };
 

@@ -85,8 +85,6 @@
   visibility: hidden;
   pointer-events: none
 }
-/* Narrow laptops / landscape tablets: full nav, so tighten everything and
-   keep real gaps between logo, links and button. */
 @media (min-width:1024px) and (max-width:1199.98px) {
   .headerRow {
     gap: 20px
@@ -110,8 +108,6 @@
     font-size: 14px
   }
 }
-/* Portrait tablets: hamburger menu, plus a compact Book A Call beside it.
-   Same element as the desktop button, so it still hides over the home hero. */
 @media (min-width:600px) and (max-width:1023.98px) {
   .headerRow {
     gap: 12px
@@ -167,8 +163,6 @@
   }
 }
 
-/* ---------- Desktop "Services" dropdown ---------- */
-/* Static so the panel positions against the fixed header and spans its width. */
 .dropdown {
   position: static;
   display: flex;
@@ -212,7 +206,6 @@
   text-decoration-thickness: 2px
 }
 
-/* Full-width panel under the header's bottom border; content sits in .container. */
 .submenu {
   position: absolute;
   top: calc(100% + var(--border-width));
@@ -234,7 +227,6 @@
   transform: translateY(0);
   transition: opacity .2s ease,transform .2s ease,visibility 0s
 }
-/* Covers the header's border so the pointer can cross it without closing. */
 .submenu::before {
   content: "";
   position: absolute;
@@ -364,7 +356,6 @@
 .footerLink:hover .footerArrow {
   transform: translateX(4px)
 }
-/* Right-hand column: booking prompt card plus the link to all services. */
 .submenuPromo {
   display: flex;
   flex-direction: column;
@@ -428,7 +419,6 @@
   }
 }
 
-/* ---------- Mobile drawer ---------- */
 .overlay {
   position: fixed;
   inset: 0;
@@ -443,8 +433,6 @@
   opacity: 1;
   pointer-events: auto
 }
-/* Hidden (and out of the tab order) until opened; visibility switches after
-   the slide-out so the closing animation still shows. */
 .mobileMenu {
   position: fixed;
   top: 0;
@@ -518,7 +506,6 @@
   min-height: 0;
   overflow: hidden
 }
-/* Panels sit side by side; Header.jsx slides the track by -100% per level. */
 .mTrack {
   display: flex;
   height: 100%;
@@ -617,7 +604,6 @@
   color: var(--palette-text-muted);
   transition: transform .25s ease
 }
-/* Two-line rows: label plus a short muted description. */
 .mRowTall {
   min-height: 68px;
   padding-block: 10px
@@ -652,7 +638,6 @@
   outline-offset: -2px;
   border-radius: var(--radius-sm)
 }
-/* Sticky booking area: always visible however long the list gets. */
 .mFooter {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,3 @@
-// Legacy markdown posts, keyed by slug. Rendered by react-markdown on /blog/:slug.
 export const articles = {
   "shopify-theme-customizations-boost-sales": {
     title: "5 Shopify Theme Customizations That Boost Sales",
