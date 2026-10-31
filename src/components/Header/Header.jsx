@@ -14,7 +14,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import logoDay from "/assets/logos/main-logo-violet.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { pricingFaq } from "../../data/pricingdata";
+import { pricingFaq } from "../../data/pricingData";
 import styles from "./PricingFAQ.module.css";
 import Reveal from "../Reveal/Reveal";
 

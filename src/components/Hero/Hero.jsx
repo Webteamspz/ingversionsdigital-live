@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import styles from "./Hero.module.css";

@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
 import styles from "./AboutValues.module.css";
-import { valueCards } from "../../data/aboutusdata";
+import { valueCards } from "../../data/aboutUsData";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 

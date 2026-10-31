@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
 import { SplitSquareHorizontal, ShoppingBag, CheckCircle2, Globe, LayoutTemplate, Users, ArrowUpRight } from "lucide-react";
 
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Services.module.css";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";

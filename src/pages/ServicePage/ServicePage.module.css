@@ -407,7 +407,7 @@
     padding: 22px
   }
 }
-/* Optional "related reading" links (page.related in servicepagesdata.js). */
+/* Optional "related reading" links (page.related in servicePagesData.js). */
 .related {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

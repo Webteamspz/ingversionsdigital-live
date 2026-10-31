@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
+import seo from "../../data/seoData";
 // Reuses the 404 page's centered-card layout.
 import styles from "../NotFound/NotFound.module.css";
 

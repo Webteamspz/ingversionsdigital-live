@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
-import { brandCompare, devCompare } from "../../data/pricingdata";
+import { brandCompare, devCompare } from "../../data/pricingData";
 import styles from "./Pricing.module.css";
 
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";

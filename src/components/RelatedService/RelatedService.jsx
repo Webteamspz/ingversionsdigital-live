@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import servicePages from "../../data/servicepagesdata";
+import servicePages from "../../data/servicePagesData";
 import styles from "./RelatedService.module.css";
 
 // On a blog post: a link back to the service page whose `posts` list it, so

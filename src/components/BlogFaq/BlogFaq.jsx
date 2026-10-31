@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./Faq.module.css";
+import styles from "./BlogFaq.module.css";
 
 const FaqAccordionItem = ({ index, q, a, isOpen, onToggle }) => {
   const bodyRef = useRef(null);

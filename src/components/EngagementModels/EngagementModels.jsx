@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
 import { Repeat, Clock, Briefcase } from "lucide-react";
 import styles from "./EngagementModels.module.css";
-import siteData from "../../data/sitedata";
+import siteData from "../../data/siteData";
 import ContactModal from "../ContactModal/ContactModal";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";

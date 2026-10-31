@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, AlertTriangle, MinusCircle } from "lucide-react";
-import data from "../../data/abtestdata";
+import data from "../../data/abTestData";
 import { significance, mdeByWeek, srm } from "../../utils/abtest";
 import styles from "./AbTestCalculator.module.css";
 

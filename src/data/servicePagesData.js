@@ -1,7 +1,7 @@
 // One entry per service page. The key is the URL slug (/ab-testing, ...).
-// App.jsx, seodata.js and the Services cards all read this, so a new entry
+// App.jsx, seoData.js and the Services cards all read this, so a new entry
 // here is a new page; nginx.conf and public/sitemap.xml still need the slug.
-// Plain data only: seodata.js imports this from Node.
+// Plain data only: seoData.js imports this from Node.
 const CALENDLY = "https://calendly.com/ingversionsdigital/30min";
 
 export default {

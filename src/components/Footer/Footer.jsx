@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Footer.module.css";
 import logo from "/assets/logos/main-logo-white.png";
 

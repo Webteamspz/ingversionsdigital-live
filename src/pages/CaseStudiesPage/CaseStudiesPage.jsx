@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, ArrowUpRight, TrendingDown, Search, Calculator, Hourglass } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import Reveal from "../../components/Reveal/Reveal";
 import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta";
 import OptimizedImg from "../../components/OptimizedImg/OptimizedImg";
-import seo from "../../data/seodata";
-import data from "../../data/sitedata";
+import seo from "../../data/seoData";
+import data from "../../data/siteData";
 import styles from "./CaseStudiesPage.module.css";
 
 const ICONS = { challenge: TrendingDown, action: Search, method: Calculator, timing: Hourglass };

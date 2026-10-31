@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./FAQ.module.css";
 import Reveal from "../Reveal/Reveal";
 

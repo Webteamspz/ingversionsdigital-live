@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProjectsPage from "../../components/ProjectsPage/ProjectsPage";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
+import seo from "../../data/seoData";
 
 const Projects = () => (
   <>

@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
-import site from "../../data/sitedata";
+import seo from "../../data/seoData";
+import site from "../../data/siteData";
 import {
   IconDocument,
   IconList,

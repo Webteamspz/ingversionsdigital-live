@@ -85,7 +85,7 @@ src/
   data/                Site copy & content, plain JS objects (see next section)
   config/deploy.js     Reads VITE_DEPLOY_ENV / VITE_ENABLE_STAGING_FEATURES
   hooks/useIsMobile.js Shared breakpoint hook (matches CSS's mobile breakpoint)
-  layouts/Layouts.jsx  <Header> + <main> + <Footer> wrapper used by every page
+  layouts/Layout.jsx  <Header> + <main> + <Footer> wrapper used by every page
   styles/style.css     Global reset + design tokens (CSS custom properties)
   gtm.js               Analytics event helpers + consent storage (pageview, cta_click, startAnalytics...)
   utils/url.js         Small URL helpers
@@ -158,12 +158,12 @@ plain JS objects under `src/data/`, not hardcoded in components.**
 
 | File | Powers |
 |---|---|
-| `src/data/sitedata.js` | Homepage: hero, services, process, engagement models, "why choose us", reviews, contact, FAQ, footer, and the homepage's pricing/projects teasers |
-| `src/data/pricingdata.js` | `/pricing` page: plan cards, comparison table, pricing FAQ |
-| `src/data/projectsdata.js` | `/projects` page: portfolio case studies (before/after images, results) |
-| `src/data/teamdata.js` | `/teampage`: team member cards (name, title, avatar, culture blurb) |
-| `src/data/aboutusdata.js` | `/about-us`: hero, story, values, expertise sections |
-| `src/data/servicepagesdata.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`, and SEO landing pages such as `/shopify-cro-agency`): hero, included items, which process flow and pricing block to show, optional `related` links, optional `posts` (that topic's blog posts as `{ slug, title }`: listed as "Related reading" on the service page, and each post links back via `RelatedService`), FAQ. The header "Services" menu and footer list the service pages from `sitedata.services.list`. Each key is a URL slug |
+| `src/data/siteData.js` | Homepage: hero, services, process, engagement models, "why choose us", reviews, contact, FAQ, footer, and the homepage's pricing/projects teasers |
+| `src/data/pricingData.js` | `/pricing` page: plan cards, comparison table, pricing FAQ |
+| `src/data/projectsData.js` | `/projects` page: portfolio case studies (before/after images, results) |
+| `src/data/teamData.js` | `/teampage`: team member cards (name, title, avatar, culture blurb) |
+| `src/data/aboutUsData.js` | `/about-us`: hero, story, values, expertise sections |
+| `src/data/servicePagesData.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`, and SEO landing pages such as `/shopify-cro-agency`): hero, included items, which process flow and pricing block to show, optional `related` links, optional `posts` (that topic's blog posts as `{ slug, title }`: listed as "Related reading" on the service page, and each post links back via `RelatedService`), FAQ. The header "Services" menu and footer list the service pages from `siteData.services.list`. Each key is a URL slug |
 
 To change what a section **says**, edit the relevant object in one of these files — you
 don't need to touch the component. Components read from `data.<section>.<field>` and
@@ -322,7 +322,7 @@ Every page renders a `<SEO>` component (`src/components/SEO/SEO.jsx`, wraps
 <SEO {...seo.pricing} />
 ```
 
-The props come from `src/data/seodata.js`, one entry per route:
+The props come from `src/data/seoData.js`, one entry per route:
 
 ```js
 pricing: {
@@ -354,9 +354,9 @@ breadcrumb JSON-LD either: the Home page passes its FAQ via `jsonLd`, and other 
 
 ### Static head tags for crawlers (prerender)
 
-Each route's head tags live in `src/data/seodata.js`; pages spread their entry into `<SEO>` (`<SEO {...seo.pricing} />`). After `vite build`, `scripts/prerender.mjs` renders `<SEO>` for every entry and writes `dist/<route>.html` (plus `index.html` for Home and `404.html` for NotFound) with those tags marked `data-prerender`, so crawlers that do not run JavaScript get a real title, description, canonical, and share image. `src/main.jsx` removes the `data-prerender` copies before mounting, so the live DOM still has one of each. The page body is prerendered too: `src/entry-server.jsx` renders the whole app for that URL (React's `prerenderToNodeStream`, which waits for lazy routes), so the raw HTML has the text and `<a href>` links. The body copy is wrapped in `<div id="root" data-prerendered>`, hidden by `style.css`; `main.jsx` clears it and renders the app fresh, so visitors see exactly what they did before. Components must therefore not touch `window`/`document` while rendering (read them in effects, or guard with `typeof window !== "undefined"`); the build fails with the route name if one throws.
+Each route's head tags live in `src/data/seoData.js`; pages spread their entry into `<SEO>` (`<SEO {...seo.pricing} />`). After `vite build`, `scripts/prerender.mjs` renders `<SEO>` for every entry and writes `dist/<route>.html` (plus `index.html` for Home and `404.html` for NotFound) with those tags marked `data-prerender`, so crawlers that do not run JavaScript get a real title, description, canonical, and share image. `src/main.jsx` removes the `data-prerender` copies before mounting, so the live DOM still has one of each. The page body is prerendered too: `src/entry-server.jsx` renders the whole app for that URL (React's `prerenderToNodeStream`, which waits for lazy routes), so the raw HTML has the text and `<a href>` links. The body copy is wrapped in `<div id="root" data-prerendered>`, hidden by `style.css`; `main.jsx` clears it and renders the app fresh, so visitors see exactly what they did before. Components must therefore not touch `window`/`document` while rendering (read them in effects, or guard with `typeof window !== "undefined"`); the build fails with the route name if one throws.
 
-`seodata.js` is imported by plain Node in that script, so keep it free of JSX and write
+`seoData.js` is imported by plain Node in that script, so keep it free of JSX and write
 its relative imports with the `.js` extension. `nginx.conf` serves each known route from
 its `<route>.html` and real 404s from `404.html`.
 
@@ -498,7 +498,7 @@ the *infrastructure*.
 ### Add a new team member
 
 1. Add their photo to `public/assets/team/`, run `node scripts/convert-images.mjs` if it's not already a `.webp`.
-2. Add an object to the `teamMembers` array in `src/data/teamdata.js`:
+2. Add an object to the `teamMembers` array in `src/data/teamData.js`:
    ```js
    { id: "jane-doe", name: "Jane Doe", title: "CRO Dev", avatar: "/assets/team/jane.webp", location: "", badges: [], skills: [], socials: {} }
    ```
@@ -506,20 +506,20 @@ the *infrastructure*.
 
 ### Add a new portfolio project
 
-Add an entry to `src/data/projectsdata.js` following the shape of an existing project
+Add an entry to `src/data/projectsData.js` following the shape of an existing project
 (before/after image paths, title, results copy). Drop the before/after images into
 `public/assets/project/` first and run the image-conversion script.
 
 ### Add a new FAQ item (homepage or pricing)
 
-Homepage FAQ: add `{ q: "...", a: "..." }` to `data.faq.list` in `src/data/sitedata.js`
+Homepage FAQ: add `{ q: "...", a: "..." }` to `data.faq.list` in `src/data/siteData.js`
 (this also feeds the FAQ JSON-LD schema automatically — no extra step). Pricing FAQ:
-same shape in `src/data/pricingdata.js`.
+same shape in `src/data/pricingData.js`.
 
 ### Add a new service page
 
-1. Add an entry to `src/data/servicepagesdata.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/sitedata.js`); `pricing` is `"plans"` (the CRO plan cards), `"dev"` (the agency / white-label plans) or `"engagement"` (the engagement models). An optional `related: { heading, links: [{ label, href }] }` adds a list of internal links above the FAQ. A case study gets its own page by adding its `sitedata.caseStudies` id to `STUDY_PAGES` in `App.jsx`, a `seodata.js` entry with `path: "/case-studies/<id>"`, the nginx regex entry and a sitemap URL.
-2. That one entry generates the route in `src/App.jsx` and the head tags in `src/data/seodata.js`. Add the slug to the route regex in `nginx.conf` (on `production` too, which keeps its own copy) and to `public/sitemap.xml`.
+1. Add an entry to `src/data/servicePagesData.js`, keyed by the URL slug. `flow` names a tab id in `data.processFlow.tabs` (`src/data/siteData.js`); `pricing` is `"plans"` (the CRO plan cards), `"dev"` (the agency / white-label plans) or `"engagement"` (the engagement models). An optional `related: { heading, links: [{ label, href }] }` adds a list of internal links above the FAQ. A case study gets its own page by adding its `siteData.caseStudies` id to `STUDY_PAGES` in `App.jsx`, a `seoData.js` entry with `path: "/case-studies/<id>"`, the nginx regex entry and a sitemap URL.
+2. That one entry generates the route in `src/App.jsx` and the head tags in `src/data/seoData.js`. Add the slug to the route regex in `nginx.conf` (on `production` too, which keeps its own copy) and to `public/sitemap.xml`.
 3. To link it from the homepage Services cards, give that service `href: "/<slug>"` and a `linkLabel` in `data.services.list`.
 
 ### Add a blog post
@@ -528,18 +528,18 @@ same shape in `src/data/pricingdata.js`.
 2. Add its cover to `public/assets/blog/covers/` as `.webp`, then run `node scripts/blog-thumbs.mjs` for its card thumbnail.
 3. `npm run dev`, open `/blog/<slug>`, check it at phone width, then `npm run build`.
 
-No route, sitemap, nginx or `seodata.js` change is needed.
+No route, sitemap, nginx or `seoData.js` change is needed.
 
 ### Add a brand-new page
 
-1. Create `src/pages/YourPage/YourPage.jsx` — wrap in `<Layout header={1} footer={1}>`, add an entry to `src/data/seodata.js` and render `<SEO {...seo.yourPage} />`.
+1. Create `src/pages/YourPage/YourPage.jsx` — wrap in `<Layout header={1} footer={1}>`, add an entry to `src/data/seoData.js` and render `<SEO {...seo.yourPage} />`.
 2. Add the route in `src/App.jsx`, lazy-loaded like the other non-home pages. Also add the path to the route regex in `nginx.conf`, and to `public/sitemap.xml` if it should be indexed.
 3. Build the page from new or existing components under `src/components/`.
 
 ### Add a new homepage section
 
 Build the component under `src/components/YourSection/`, add its content to
-`src/data/sitedata.js`, then import and render it **eagerly** in `src/pages/Home/Home.jsx`
+`src/data/siteData.js`, then import and render it **eagerly** in `src/pages/Home/Home.jsx`
 (no `React.lazy`/`Suspense` — see [How Routing Works](#how-routing-works) for why).
 
 ### Run checks before pushing

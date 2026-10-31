@@ -1,6 +1,6 @@
-import data from "./sitedata.js";
-import servicePages from "./servicepagesdata.js";
-import abTest from "./abtestdata.js";
+import data from "./siteData.js";
+import servicePages from "./servicePagesData.js";
+import abTest from "./abTestData.js";
 
 // Head tags per route: the props each page spreads into <SEO>.
 // scripts/prerender.mjs reads this too, to write the same tags into static

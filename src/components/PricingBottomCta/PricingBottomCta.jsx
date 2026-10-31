@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { bottomCta } from "../../data/pricingdata";
+import { bottomCta } from "../../data/pricingData";
 import styles from "./PricingBottomCta.module.css";
 
 const PricingBottomCta = () => (

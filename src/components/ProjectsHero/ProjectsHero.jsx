@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import styles from "./ProjectsHero.module.css";
-import data from "../../data/projectsdata";
+import data from "../../data/projectsData";
 
 const ProjectsHero = ({ activeFilter, onFilterChange }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

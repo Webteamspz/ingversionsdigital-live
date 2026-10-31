@@ -6,7 +6,7 @@ import { Pagination } from "swiper/modules";
 import { Sparkles, Blocks, TrendingUp, BarChart3 } from "lucide-react";
 
 import styles from "./AboutExpertise.module.css";
-import { expertiseCards } from "../../data/aboutusdata";
+import { expertiseCards } from "../../data/aboutUsData";
 import Reveal from "../Reveal/Reveal";
 
 const EXPERTISE_ICONS = { ai: Sparkles, blockchain: Blocks, trading: TrendingUp, analytics: BarChart3 };

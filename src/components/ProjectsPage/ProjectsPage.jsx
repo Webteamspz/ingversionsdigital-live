@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import ProjectsHero from "../ProjectsHero/ProjectsHero";
 import ProjectsGrid from "../ProjectsGrid/ProjectsGrid";
 import ProjectsCTA from "../ProjectsCTA/ProjectsCTA";
-import data from "../../data/projectsdata";
+import data from "../../data/projectsData";
 import styles from "./ProjectsPage.module.css";
 
 const ProjectsPage = () => {
