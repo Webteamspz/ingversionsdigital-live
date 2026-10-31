@@ -11,12 +11,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:staging": "node scripts/blog-thumbs.mjs && vite build --mode staging && node scripts/prerender.mjs staging",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "test": "node --test \"src/**/*.test.js\""
   },
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "html-react-parser": "^5.2.6",
     "lucide-react": "^1.33.0",
     "mermaid": "^11.17.2",

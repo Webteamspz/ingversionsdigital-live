@@ -445,9 +445,6 @@
   opacity: 1;
   pointer-events: auto
 }
-body.menu-open {
-  overflow: hidden
-}
 /* Hidden (and out of the tab order) until opened; visibility switches after
    the slide-out so the closing animation still shows. */
 .mobileMenu {
@@ -566,11 +563,6 @@ body.menu-open {
   color: var(--palette-text-primary)
 }
 .mList,
-.mGroup ul {
-  margin: 0;
-  padding: 0;
-  list-style: none
-}
 .mList > li {
   box-shadow: 0 1px 0 0 var(--palette-border-soft)
 }

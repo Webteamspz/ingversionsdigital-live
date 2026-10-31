@@ -99,14 +99,6 @@
   box-shadow: 2px 2px 0 var(--palette-border);
   transform: translate(2px,2px)
 }
-.emailLink {
-  color: var(--palette-bg-800);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration-color: rgba(255,255,255,0.7);
-  text-underline-offset: 4px
-}
-.emailLink:focus-visible,
 .primaryAction:focus-visible {
   outline: 3px solid var(--palette-bg-800);
   outline-offset: 4px
@@ -145,10 +137,6 @@
   }
   .primaryAction {
     width: min(100%,290px)
-  }
-  .emailLink {
-    font-size: 14px;
-    overflow-wrap: anywhere
   }
 }
 @media (max-width:389px) {

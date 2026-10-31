@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import HeroV2 from "../../components/Hero/HeroV2";
+import Hero from "../../components/Hero/Hero";
 import Layout from "../../layouts/Layouts";
 import Preloader from "../../components/Preloader/Preloader";
 import SEO from "../../components/SEO/SEO";
@@ -46,7 +46,7 @@ const Home = () => {
 
       <Layout header={1} footer={1}>
         
-        <HeroV2 />
+        <Hero />
 
         <TrackRecord />
         <Services />

@@ -1,265 +1,208 @@
-section#hero {
-  overflow: hidden
-}
-.bannerBg {
-  padding: 161px 0 20px;
+.hero {
   position: relative;
-  z-index: 0;
-  isolation: isolate
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 740px;
+  padding: 168px 0 0;
+  background: var(--palette-bg-950);
+  color: var(--palette-text-primary)
 }
-.bannerBg:before {
-  content: "";
+.grid {
   position: absolute;
-  top: -70px;
-  right: -70px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: var(--quaternary);
-  opacity: .3;
-  z-index: -1;
-  pointer-events: none
-}
-.bannerBg:after {
-  content: "";
-  position: absolute;
+  z-index: -2;
   inset: 0;
-  background-image: radial-gradient(var(--palette-border-soft) 1.5px,transparent 1.5px);
-  background-size: 22px 22px;
-  opacity: .5;
-  z-index: -1;
-  pointer-events: none
+  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
 }
-.heroRow {
+.content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: nowrap
-}
-.textHeroArea {
-  flex: 1;
-  max-width: 55%
-}
-.heroTitle {
-  margin: 0 0 34px;
-  font-weight: 900;
-  font-size: 64px;
-  line-height: 88px;
-  color: var(--palette-text-primary);
-  text-transform: capitalize
-}
-.heroTitlePill {
-  display: inline-block;
-  color: var(--palette-bg-800);
-  position: relative
-}
-.heroTitlePill:after {
-  position: absolute;
-  content: "";
-  left: -8px;
-  bottom: -1px;
-  background: var(--palette-accent);
-  width: 225.09px;
-  height: 77px;
-  border-radius: var(--radius-lg);
-  z-index: -1
-}
-.heroSubtitle {
-  margin: 0 0 33px;
-  color: var(--palette-text-secondary);
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 32px
-}
-.heroCtaWrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
+  max-width: 950px;
+  min-height: 460px;
+  margin: 0 auto;
+  text-align: center;
   flex-direction: column;
-  flex-wrap: wrap
+  align-items: center;
+  justify-content: center
 }
-.heroSocialProof {
+.logoArea {
+  margin-top: 28px
+}
+.eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 14px
-}
-.avatarStack {
-  display: inline-flex
-}
-.avatarStack img {
-  width: 41.83px;
-  height: 41.83px;
-  object-fit: cover;
-  margin-left: -17px;
-  border-radius: 50%
-}
-.avatarStack img:first-child {
-  margin-left: 0
-}
-.proofText {
-  color: var(--palette-text-secondary);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%
-}
-.proofText strong {
-  color: var(--palette-text-primary);
-  font-weight: 600;
-  font-size: 16px
-}
-.contactCard {
-  flex: 0 0 530px;
-  background: var(--palette-bg-800);
-  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
-  padding: 32px 40px;
-  box-shadow: var(--shadow-pop-soft)
-}
-.formCard {
-  padding: 32px 40px
-}
-.contactPanelTitle {
-  margin: 0 0 24px;
-  color: var(--palette-text-primary);
-  font-weight: 600;
-  font-size: 20px;
-  text-align: center;
-  line-height: 100%
-}
-.cInput,
-textarea.cInput {
-  font-family: "Plus Jakarta Sans",sans-serif;
-  width: 100%;
-  background: var(--palette-bg-700);
-  border: 1px solid rgba(255,255,255,0);
-  border-radius: var(--radius-sm);
-  color: var(--palette-text-muted);
-  padding: 12px 14px;
-  outline: 0
-}
-textarea.cInput {
-  min-height: 120px;
-  resize: vertical;
-  margin-top: 0
-}
-.grid.two {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px
-}
-.mt {
-  margin-top: 12px
-}
-.cBtn {
-  width: 100%!important;
-  max-width: none!important;
-  justify-content: center;
-  background: var(--palette-accent);
-  margin-top: 20px;
-  padding: 14px;
-  border: none;
-  border-radius: var(--radius-sm);
+  padding: 8px 18px;
+  margin: 0 0 45px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  box-shadow: 4px 4px 0 0 var(--palette-border);
+  transform: rotate(-3deg);
   color: var(--palette-bg-800);
-  font-weight: 700;
-  cursor: pointer
-}
-.errorMessage {
-  margin-top: 6px;
   font-size: 12px;
-  color: var(--palette-error)
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase
 }
-.invalid {
-  border-color: var(--palette-error)!important
+.title {
+  max-width: 900px;
+  margin: 0;
+  color: var(--palette-text-primary);
+  font-family: Outfit,system-ui,sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+  /* evens out line lengths so no word is left alone on the last line */
+  text-wrap: balance
 }
-@media (max-width:1199.98px) {
-  .heroTitle {
-    font-size: 60px;
-    line-height: 76px
-  }
-  .heroTitlePill:after {
-    width: 209.09px;
-    height: 70px
-  }
+.title > span:first-child {
+  display: block;
+  margin-bottom: .08em
+}
+.emphasis {
+  display: inline-block;
+  color: var(--palette-accent)
+}
+.subtitle {
+  max-width: 620px;
+  margin: 32px auto 0;
+  color: var(--palette-text-muted);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.62
+}
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center
+}
+.primaryAction,
+.secondaryAction {
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 48px;
+  text-decoration: none;
+  transition: transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease
+}
+.primaryAction {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--palette-cta);
+  border: 2px solid var(--palette-text-primary);
+  box-shadow: 4px 4px 0 var(--palette-text-primary);
+  color: var(--palette-bg-800)
+}
+.primaryAction:hover {
+  background: var(--palette-cta-strong);
+  box-shadow: 6px 6px 0 var(--palette-text-primary);
+  transform: translate(-2px,-2px)
+}
+.primaryAction:active {
+  box-shadow: 2px 2px 0 var(--palette-text-primary);
+  transform: translate(2px,2px)
+}
+.secondaryAction {
+  border: 2px solid var(--palette-text-primary);
+  background: rgba(255,255,255,.72);
+  color: var(--palette-text-primary)
+}
+.secondaryAction:hover {
+  background: var(--tertiary)
+}
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  outline: 3px solid var(--palette-text-primary);
+  outline-offset: 4px
+}
+.proof {
+  display: flex;
+  gap: 14px;
+  margin-top: 38px;
+  align-items: center;
+  justify-content: center
+}
+.avatars {
+  display: flex;
+  padding-left: 8px
+}
+.avatars img {
+  width: 42px;
+  height: 42px;
+  margin-left: -8px;
+  border: 2px solid var(--palette-text-primary);
+  border-radius: 50%;
+  object-fit: cover
+}
+.proof p {
+  margin: 0;
+  color: var(--palette-text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left
+}
+.proof p strong {
+  color: var(--palette-text-primary)
 }
 @media (max-width:1023.98px) {
-  .heroRow {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 48px
-  }
-  .textHeroArea {
-    max-width: 100%;
-    width: 100%
-  }
-  .contactCard {
-    flex: 1;
-    max-width: 100%;
-    width: 100%;
-    padding: 28px
-  }
-  .heroTitle {
-    font-size: 52px;
-    line-height: 62px;
-    margin-bottom: 24px
-  }
-  .heroTitlePill:after {
-    width: 180px;
-    height: 60px;
-    left: 50%;
-    transform: translateX(-50%)
-  }
-  .heroSubtitle {
-    font-size: 22px;
-    line-height: 30px;
-    margin-bottom: 24px
-  }
-  .heroCtaWrap {
-    align-items: center
-  }
-  .grid.two {
-    grid-template-columns: 1fr 1fr
+  .title {
+    font-size: 36px
   }
 }
 @media (max-width:767.98px) {
-  .heroRow {
-    gap: 40px
+  .hero {
+    min-height: auto;
+    padding: 132px 0 35px
   }
-  .heroTitle {
-    font-size: 40px;
-    line-height: 46px;
-    margin-bottom: 20px
+  .grid {
+    background-size: 30px 30px
   }
-  .heroTitlePill:after {
-    width: 138px;
-    bottom: -4px;
-    height: 46px;
-    left: 50%;
-    transform: translateX(-50%)
+  .content {
+    min-height: 0
   }
-  .heroSubtitle {
-    font-size: 17px;
-    line-height: 26px;
-    margin-bottom: 24px
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 11px;
+    padding: 6px 14px
   }
-  .heroCtaWrap {
-    gap: 20px
+  .title {
+    font-size: 30px
   }
-  .contactCard {
-    padding: 20px 18px
+  .subtitle {
+    margin-top: 24px;
+    font-size: 16px
   }
-  .grid.two {
-    grid-template-columns: 1fr
+  .actions {
+    width: 100%;
+    margin-top: 32px;
+    flex-direction: column
   }
-  .heroSocialProof {
-    justify-content: center;
-    gap: 10px
+  .primaryAction,
+  .secondaryAction {
+    width: min(100%,320px);
+    text-align: center
   }
-  .avatarStack img {
-    width: 30px;
-    height: 30px
+  .primaryAction {
+    justify-content: center
   }
-  .bannerBg {
-    padding: 120px 0 40px
+  .proof {
+    max-width: 310px;
+    margin-top: 31px
+  }
+  .avatars img {
+    width: 35px;
+    height: 35px
+  }
+  .proof p {
+    font-size: 12px
+  }
+  .logoArea {
+    margin-top: 20px
   }
 }
