@@ -1285,43 +1285,28 @@ blog: {
 footer: {
     logo: "/assets/logos/main-logo.png",
     company: "Ingversions Digital",
+    bio: "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development.",
+    contactTitle: "Get in touch",
+    // Service columns come from header.servicesMenu, so the header and footer
+    // always list the same pages. These are the other columns.
     linkGroups: [
-      {
-        title: "Quick Links",
-        links: [
-          { name: "Home", href: "/#hero" },
-          { name: "Services", href: "/services" },
-          { name: "Pricing", href: "/pricing" },
-          { name: "Projects", href: "/projects" },
-          { name: "Case Studies", href: "/case-studies" },
-        ],
-      },
-      {
-        title: "Services",
-        links: [
-          { name: "A/B Testing", href: "/ab-testing" },
-          { name: "Shopify Development", href: "/shopify-development" },
-          { name: "Quality Assurance", href: "/quality-assurance" },
-          { name: "Landing Page Personalization", href: "/landing-page-personalization" },
-        ],
-      },
       {
         title: "Company",
         links: [
-          { name: "Team Page", href: "/teampage" },
+          { name: "Projects", href: "/projects" },
+          { name: "Case Studies", href: "/case-studies" },
+          { name: "Pricing", href: "/pricing" },
           { name: "About Us", href: "/about-us" },
+          { name: "Team", href: "/teampage" },
           { name: "Blog", href: "/blog" },
           { name: "A/B Test Calculator", href: "/ab-test-calculator" },
         ],
       },
-      {
-        title: "Legal",
-        links: [
-          { name: "Privacy Policy", href: "/privacy-policy" },
-          { name: "Terms of Service", href: "/terms-of-service" },
-          { name: "Cookie Settings", action: "cookie-settings" },
-        ],
-      },
+    ],
+    legal: [
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms of Service", href: "/terms-of-service" },
+      { name: "Cookie Settings", action: "cookie-settings" },
     ],
     address: "2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230 India",
     email: "ingversionsdigital@gmail.com",
