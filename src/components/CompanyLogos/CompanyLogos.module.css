@@ -46,7 +46,6 @@
 .marqueeGroup img {
   width: 100%;
   max-width: 300px;
-  -webkit-filter: brightness(0) saturate(100%);
   filter: brightness(0) saturate(100%);
   opacity: 1;
   display: block;
