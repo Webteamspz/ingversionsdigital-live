@@ -155,25 +155,35 @@ export const devPlans = [
 ];
 
 // "Tools we work with" marquees on /pricing (hero and under the plans).
-// Each logo is public/assets/tools/<slug>.webp, trimmed to 96px tall.
-const tool = (name, slug) => ({ name, logo: `/assets/tools/${slug}.webp` });
+// Each logo is public/assets/tools/<slug>.webp; w and h are the file's pixel
+// size, used to give every logo the same visual area in the strip.
+const tool = (name, slug, w, h) => ({ name, logo: `/assets/tools/${slug}.webp`, w, h });
 export const toolsStrip = {
   heading: "Tools we work with",
   tools: [
-    tool("Goals Building", "goals-building"),
-    tool("Goal Verification", "goal-verification"),
-    tool("AB Tasty", "ab-tasty"),
-    tool("Convert", "convert"),
-    tool("SiteSpect", "sitespect"),
-    tool("Varify.io", "varify"),
-    tool("VWO", "vwo"),
-    tool("Microsoft Clarity", "clarity"),
-    tool("Google Analytics", "google-analytics"),
-    tool("Figma", "figma"),
-    tool("Google Lighthouse", "google-lighthouse"),
-    tool("Google Tag Manager", "google-tag-manager"),
-    tool("Shopify", "shopify"),
-    tool("Shopify Plus", "shopify-plus"),
+    // A/B testing and experimentation
+    tool("Optimizely", "optimizely", 393, 96),
+    tool("Wingify (VWO + AB Tasty)", "wingify", 311, 96),
+    tool("Convert", "convert", 270, 59),
+    tool("ABConvert", "abconvert", 497, 96),
+    tool("Kameleoon", "kameleoon", 702, 96),
+    tool("Webtrends Optimize", "webtrends-optimize", 178, 41),
+    tool("Omniconvert", "omniconvert", 380, 70),
+    tool("Intelligems", "intelligems", 495, 96),
+    tool("Shoplift", "shoplift", 367, 96),
+    tool("Varify.io", "varify", 300, 96),
+    tool("LaunchDarkly", "launchdarkly", 624, 96),
+    // Analytics and performance
+    tool("Google Analytics", "google-analytics", 279, 96),
+    tool("Google Tag Manager", "google-tag-manager", 164, 96),
+    tool("Microsoft Clarity", "clarity", 348, 96),
+    tool("Fullstory", "fullstory", 516, 96),
+    tool("Google Lighthouse", "google-lighthouse", 333, 96),
+    // Design, landing pages and platforms
+    tool("Figma", "figma", 201, 96),
+    tool("Unbounce", "unbounce", 488, 96),
+    tool("Shopify", "shopify", 336, 96),
+    tool("WordPress", "wordpress", 470, 96),
   ],
 };
 
