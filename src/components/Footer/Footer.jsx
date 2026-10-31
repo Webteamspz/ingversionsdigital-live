@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin } from "lucide-react";
 import data from "../../data/sitedata";
+import styles from "./Footer.module.css";
+import logo from "/assets/logos/main-logo-white.png";
 
 const showCookiePreferences = () =>
   import("vanilla-cookieconsent").then((cc) => cc.showPreferences());
-import styles from "./Footer.module.css";
-import logo from "/assets/logos/main-logo-white.png";
 
 const Facebook = ({ size = 24, ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
@@ -38,10 +39,40 @@ const SOCIAL_ICONS = {
   instagram: Instagram,
 };
 
+// Same service pages as the header menu, so the two never drift apart.
+const SERVICE_COLUMNS = data.header.servicesMenu.groups.map((g) => ({
+  title: g.title,
+  links: g.items.map((i) => ({ name: i.label, href: i.href })),
+}));
+
+const FooterLink = ({ link, className }) => {
+  if (link.action === "cookie-settings") {
+    return (
+      <button type="button" className={`${className} ${styles.linkButton}`} onClick={showCookiePreferences}>
+        {link.name}
+      </button>
+    );
+  }
+  if (/^(https?:|mailto:|tel:)/.test(link.href)) {
+    return (
+      <a href={link.href} className={className} target="_blank" rel="noopener noreferrer">
+        {link.name}
+      </a>
+    );
+  }
+  return (
+    <Link to={link.href} state={link.scrollTo && { scrollTo: link.scrollTo }} className={className}>
+      {link.name}
+    </Link>
+  );
+};
+
 const Footer = () => {
   const f = data?.footer;
-
   if (!f) return null;
+
+  const telHref = `tel:${f.phone.replace(/[^+\d]/g, "")}`;
+  const columns = [...SERVICE_COLUMNS, ...f.linkGroups];
 
   return (
     <footer className={styles.siteFooter} id="footer">
@@ -57,101 +88,84 @@ const Footer = () => {
         />
       </svg>
       <div className="container">
-        
-        
         <div className={styles.footerMain}>
-          
-          
           <div className={styles.brandCol}>
-            <Link to="/" className={styles.footerLeft}>
-              {f?.logo && (
-                <img
-                  src={logo}
-                  alt={`${f.company} logo`}
-                  className={styles.footerLogo}
-                />
-              )}
+            <Link to="/" className={styles.logoLink} aria-label={`${f.company} home`}>
+              <img src={logo} alt="" className={styles.footerLogo} width="230" height="47" />
             </Link>
             {/* data-nosnippet: Google was using this bio as the description for every sitelink. */}
-            <p className={styles.companyBio} data-nosnippet>
-              {f.bio || "Ingversions is a digital agency focused on CRO-driven websites. We help e-commerce brands scale conversions with data-backed design and development."}
-            </p>
+            <p className={styles.companyBio} data-nosnippet>{f.bio}</p>
+
+            <p className={styles.colTitle}>{f.contactTitle}</p>
+            <ul className={styles.contactList}>
+              <li>
+                <a href={`mailto:${f.email}`} className={styles.contactItem}>
+                  <Mail size={18} strokeWidth={2} aria-hidden="true" />
+                  <span>{f.email}</span>
+                </a>
+              </li>
+              <li>
+                <a href={telHref} className={styles.contactItem}>
+                  <Phone size={18} strokeWidth={2} aria-hidden="true" />
+                  <span>{f.phone}</span>
+                </a>
+              </li>
+              <li>
+                <address className={styles.contactItem}>
+                  <MapPin size={18} strokeWidth={2} aria-hidden="true" />
+                  <span>{f.address}</span>
+                </address>
+              </li>
+            </ul>
           </div>
 
-          
-          <div className={styles.linksWrapper}>
-
-            
-            {f.linkGroups.map((group, gi) => (
-              <div className={styles.linkGroup} key={gi}>
-                <h4>{group.title}</h4>
-                {group.links.map((l, i) => {
-                  if (l.action === "cookie-settings") {
-                    return (
-                      <button key={i} type="button" className={styles.linkButton} onClick={showCookiePreferences}>
-                        {l.name}
-                      </button>
-                    );
-                  }
-
-                  const isExternal =
-                    l.href.startsWith("http") ||
-                    l.href.startsWith("mailto:") ||
-                    l.href.startsWith("tel:");
-
-                  const displayText = l.name || l.label || "Link";
-
-                  if (isExternal) {
-                    return (
-
-                      <a
-                        key={i}
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
-                      >
-                        {displayText}
-                      </a>
-                    );
-                  }
-
-                  return (
-                    <Link key={i} to={l.href} state={l.scrollTo && { scrollTo: l.scrollTo }} style={{ textDecoration: "none" }}>
-                      {displayText}
-                    </Link>
-                  );
-                })}
+          <nav className={styles.linksGrid} aria-label="Footer">
+            {columns.map((group) => (
+              <div className={styles.linkGroup} key={group.title}>
+                <p className={styles.colTitle}>{group.title}</p>
+                <ul>
+                  {group.links.map((l) => (
+                    <li key={l.href || l.name}>
+                      <FooterLink link={l} className={styles.footLink} />
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
-
-          </div>
+          </nav>
         </div>
 
-        
         <div className={styles.footerBottomRow}>
-          <div className={styles.copyright}>
-            © {f.year} {f.company}. All rights reserved.
+          <div className={styles.bottomLeft}>
+            <p className={styles.copyright}>
+              © {f.year} {f.company}. All rights reserved.
+            </p>
+            <ul className={styles.legalList}>
+              {f.legal.map((l) => (
+                <li key={l.name}>
+                  <FooterLink link={l} className={styles.legalLink} />
+                </li>
+              ))}
+            </ul>
           </div>
           <div className={styles.footSocials}>
-            {f.socials.map((s, i) => {
+            {f.socials.map((s) => {
               const Icon = SOCIAL_ICONS[s.icon];
               return (
                 <a
-                  key={i}
+                  key={s.name}
                   href={s.href}
-                  aria-label={s.name}
+                  aria-label={`${f.company} on ${s.name}`}
                   className={styles.socialBtn}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {Icon && <Icon size={18} strokeWidth={2.5} />}
+                  {Icon && <Icon size={18} aria-hidden="true" />}
                 </a>
               );
             })}
           </div>
         </div>
-
       </div>
     </footer>
   );
