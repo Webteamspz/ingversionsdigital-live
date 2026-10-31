@@ -10,12 +10,28 @@ import styles from "./ToolsMarquee.module.css";
 // `hideHeading` keeps the heading for screen readers only.
 const COPIES = 4; // keep in sync with the -25% in ToolsMarquee.module.css
 
+// Every logo gets the same area (px², desktop) instead of the same box, so wide
+// wordmarks and compact icons look equally big. CSS scales it down on phones.
+const LOGO_AREA = 3400;
+
 // Eager, not lazy: copies off to the side would otherwise appear blank as they slide in.
-const Tool = ({ name, logo, copy }) => (
-  <li className={styles.tool} aria-hidden={copy > 0 || undefined}>
-    <img src={logo} alt={copy > 0 ? "" : name} width="140" height="48" decoding="async" className={styles.logo} />
-  </li>
-);
+const Tool = ({ name, logo, w, h, copy }) => {
+  const height = Math.round(Math.sqrt((LOGO_AREA * h) / w));
+  const width = Math.round((height * w) / h);
+  return (
+    <li className={styles.tool} aria-hidden={copy > 0 || undefined}>
+      <img
+        src={logo}
+        alt={copy > 0 ? "" : name}
+        width={width}
+        height={height}
+        style={{ "--w": width, "--h": height }}
+        decoding="async"
+        className={styles.logo}
+      />
+    </li>
+  );
+};
 
 const ToolsMarquee = ({ reverse = false, compact = false, hideHeading = false }) => {
   const headingId = useId();
