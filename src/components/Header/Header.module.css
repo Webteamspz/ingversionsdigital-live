@@ -6,7 +6,6 @@
   z-index: 1000;
   background: var(--palette-bg-950);
   border-bottom: var(--border-width) solid var(--palette-border);
-  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px)
 }
 .headerRow {
@@ -434,7 +433,6 @@
   position: fixed;
   inset: 0;
   background: var(--palette-overlay);
-  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   opacity: 0;
   pointer-events: none;

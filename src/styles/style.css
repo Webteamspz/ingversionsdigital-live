@@ -75,7 +75,6 @@ html {
   }
 }
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
 html {
@@ -348,23 +347,17 @@ section[id] {
 .footer-logo,
 .hero-visual-img,
 .logo-row img {
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   cursor: pointer
 }
 .footer-logo:hover,
 .hero-visual-img:hover,
 .logo-row img:hover {
-  -webkit-filter: brightness(1.15) drop-shadow(0 0 10px rgba(10,132,255,0.5));
   filter: brightness(1.15) drop-shadow(0 0 10px rgba(10, 132, 255, .5));
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
   transform: scale(1.05)
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px transpernt inset!important;
-  -webkit-transition: background-color 5000s ease-in-out 0s!important;
   -webkit-text-fill-color: var(--palette-text-muted);
   transition: background-color 5000s ease-in-out 0s!important
 }
@@ -441,12 +434,9 @@ input:-webkit-autofill {
   position: fixed;
   inset: 0;
   background: var(--palette-overlay);
-  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity .25s ease;
-  -o-transition: opacity .25s ease;
   transition: opacity .25s ease;
   z-index: 9998
 }
@@ -461,7 +451,6 @@ body.menu-open .overlay {
   z-index: 9999
 }
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
 .swiper-pagination-bullet {
