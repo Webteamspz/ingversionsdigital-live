@@ -14,7 +14,7 @@ const Reveal = ({ children, delay = 0, className = "", style, ...rest }) => {
           io.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     io.observe(el);
     return () => io.disconnect();

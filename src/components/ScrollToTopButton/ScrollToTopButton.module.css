@@ -13,32 +13,36 @@
   border: var(--border-width) solid var(--palette-border);
   box-shadow: var(--shadow-pop);
   cursor: pointer;
-  transition: opacity .3s ease,transform .3s ease,box-shadow .3s ease,background-color .2s ease
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.2s ease;
 }
 .scrollTopBtn:hover {
   background: var(--tertiary);
-  transform: translate(-2px,-2px);
-  box-shadow: var(--shadow-pop-hover)
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pop-hover);
 }
 .scrollTopBtn:active {
-  transform: translate(2px,2px);
-  box-shadow: var(--shadow-pop-active)
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pop-active);
 }
 .visible {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto
+  pointer-events: auto;
 }
 .hidden {
   opacity: 0;
   transform: translateY(20px);
-  pointer-events: none
+  pointer-events: none;
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .scrollTopBtn {
     bottom: calc(13px + var(--promo-bar-h, 0px));
     right: 16px;
     width: 44px;
-    height: 44px
+    height: 44px;
   }
 }

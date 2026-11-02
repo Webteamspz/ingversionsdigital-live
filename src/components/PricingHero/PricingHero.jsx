@@ -1,5 +1,5 @@
 import styles from "./PricingHero.module.css";
-import { pricingHeroData } from "../../data/pricingdata";
+import { pricingHeroData } from "../../data/pricingData";
 import ToolsMarquee from "../ToolsMarquee/ToolsMarquee";
 
 const PricingHero = ({ track, setTrack }) => {
@@ -8,21 +8,13 @@ const PricingHero = ({ track, setTrack }) => {
   return (
     <section className={styles.pricingHero} id="pricingHero">
       <div className="container">
-        <span className={styles.pricingTag}>
-          {pricingHeroData.tag}
-        </span>
+        <span className={styles.pricingTag}>{pricingHeroData.tag}</span>
 
-        <h1 className={styles.pricingHeroTitle}>
-          {pricingHeroData.title}
-        </h1>
+        <h1 className={styles.pricingHeroTitle}>{pricingHeroData.title}</h1>
 
-        <p className={styles.pricingHeroSubtitle}>
-          {pricingHeroData.subtitle}
-        </p>
+        <p className={styles.pricingHeroSubtitle}>{pricingHeroData.subtitle}</p>
       </div>
 
-      {/* Outside .container so it runs edge to edge; scrolls opposite to the
-          strip under the plan cards. */}
       <ToolsMarquee compact reverse />
 
       <div className="container">

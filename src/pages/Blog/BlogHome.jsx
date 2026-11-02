@@ -1,4 +1,4 @@
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import BlogClient from "../../components/BlogClient/BlogClient";
 import { blogHomeSeo } from "../../data/blog/blogSeo.js";

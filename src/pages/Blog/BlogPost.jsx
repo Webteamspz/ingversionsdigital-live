@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ArticleBlocks from "../../components/ArticleBlocks/ArticleBlocks";
 import BlogArticle from "../../components/BlogArticle/BlogArticle";
@@ -23,20 +23,26 @@ const BlogNotFound = () => (
     <div className={styles.nfCard}>
       <h1 className={styles.nfTitle}>404</h1>
       <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
-      <Link to="/blog" className={styles.nfBtn}>Go Back Home</Link>
+      <Link to="/blog" className={styles.nfBtn}>
+        Go Back Home
+      </Link>
     </div>
   </section>
 );
 
-// /blog/:slug — a structured post (blogPosts.json), else a legacy markdown
-// post (articlesData.js), else the blog 404.
 const PostBody = ({ slug }) => {
   const structured = getStructuredPost(slug);
   if (structured) {
     return (
       <div className={articleStyles["article-main"]}>
-        <div className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-circle"]}`} aria-hidden="true" />
-        <div className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-square"]}`} aria-hidden="true" />
+        <div
+          className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-circle"]}`}
+          aria-hidden="true"
+        />
+        <div
+          className={`${articleStyles["article-hero-shape"]} ${articleStyles["article-hero-shape-square"]}`}
+          aria-hidden="true"
+        />
         <article className={articleStyles["article-container"]}>
           <ArticleBlocks post={structured} />
           <div className={articleStyles["article-content-wrapper"]}>
@@ -62,7 +68,6 @@ const BlogPost = () => {
       <SEO {...seo} />
       <Layout header={1} footer={1}>
         <div className="ing-blog">
-          {/* key: remount per post so slider, TOC and FAQ state reset */}
           <PostBody key={slug} slug={slug} />
           <RelatedService slug={slug} />
         </div>

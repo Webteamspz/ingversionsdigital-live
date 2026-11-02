@@ -1,8 +1,16 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { TrendingDown, Search, Calculator, Hourglass, ArrowUpRight, ArrowRight, X } from "lucide-react";
-import siteData from "../../data/sitedata";
-import seo from "../../data/seodata";
+import {
+  TrendingDown,
+  Search,
+  Calculator,
+  Hourglass,
+  ArrowUpRight,
+  ArrowRight,
+  X,
+} from "lucide-react";
+import siteData from "../../data/siteData";
+import seo from "../../data/seoData";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import Reveal from "../Reveal/Reveal";
 import styles from "./CaseStudies.module.css";
@@ -19,25 +27,40 @@ const StoryCard = ({ heading, icon, paragraphs }) => {
   const Icon = ICONS[icon];
   return (
     <Reveal className={styles.story}>
-      <span className={styles.cornerFold} style={{ background: ICON_COLORS[icon] }} aria-hidden="true" />
-      <span className={styles.iconCircle} style={{ background: ICON_COLORS[icon] }} aria-hidden="true">
+      <span
+        className={styles.cornerFold}
+        style={{ background: ICON_COLORS[icon] }}
+        aria-hidden="true"
+      />
+      <span
+        className={styles.iconCircle}
+        style={{ background: ICON_COLORS[icon] }}
+        aria-hidden="true"
+      >
         <Icon />
       </span>
       <h4 className={styles.storyHeading}>{heading}</h4>
       {paragraphs.map((p) => (
-        <p key={p} className={styles.text}>{p}</p>
+        <p key={p} className={styles.text}>
+          {p}
+        </p>
       ))}
     </Reveal>
   );
 };
 
-// A study's own page if it has one, else its spot on /case-studies.
 const studyHref = (id) =>
-  Object.values(seo).some((p) => p.path === `/case-studies/${id}`) ? `/case-studies/${id}` : `/case-studies#${id}`;
+  Object.values(seo).some((p) => p.path === `/case-studies/${id}`)
+    ? `/case-studies/${id}`
+    : `/case-studies#${id}`;
 
-const ROW_COLORS = ["var(--tertiary)", "var(--quaternary)", "var(--secondary)", "var(--palette-accent-soft)"];
+const ROW_COLORS = [
+  "var(--tertiary)",
+  "var(--quaternary)",
+  "var(--secondary)",
+  "var(--palette-accent-soft)",
+];
 
-// Homepage row: the whole row links to the study.
 const StudyRow = ({ study, color }) => {
   const [top] = study.results.stats;
   return (
@@ -66,8 +89,6 @@ const StudyRow = ({ study, color }) => {
   );
 };
 
-// Homepage: a board of clickable rows, one per study. `only` renders one study
-// as its standalone page instead (its title becomes the h1).
 const CaseStudies = ({ only }) => {
   const { heading, sub, highlights } = siteData.caseStudies;
   const list = siteData.caseStudies.list.filter((s) => !only || s.id === only);
@@ -105,14 +126,15 @@ const CaseStudies = ({ only }) => {
       <header className={styles.head}>
         <div className={styles.tags}>
           {study.tags.map((t) => (
-            <span key={t} className={styles.tag}>{t}</span>
+            <span key={t} className={styles.tag}>
+              {t}
+            </span>
           ))}
         </div>
         <h1 className={styles.title}>{study.title}</h1>
       </header>
 
       <div className={styles.body}>
-        {/* The story cards only show on the standalone page, not in the homepage slider. */}
         {only && (
           <div className={styles.storyGrid}>
             {study.sections.map((s) => (
@@ -205,7 +227,12 @@ const CaseStudies = ({ only }) => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/case-studies" className="btn" data-cta="See all case studies" data-cta-loc="Case Studies">
+                <Link
+                  to="/case-studies"
+                  className="btn"
+                  data-cta="See all case studies"
+                  data-cta-loc="Case Studies"
+                >
                   See all case studies <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
@@ -221,7 +248,6 @@ const CaseStudies = ({ only }) => {
         )}
       </div>
 
-      {/* Native dialog: Esc closes it; clicking the backdrop closes it too. */}
       <dialog
         ref={dialogRef}
         className={styles.lightbox}

@@ -1,22 +1,25 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, CircleCheck } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ProcessFlow from "../../components/ProcessFlow/ProcessFlow";
 import FAQ from "../../components/FAQ/FAQ";
 import ProjectsCTA from "../../components/ProjectsCTA/ProjectsCTA";
 import Reveal from "../../components/Reveal/Reveal";
-import seo from "../../data/seodata";
-import siteData from "../../data/sitedata";
-import { brandPlans, devPlans } from "../../data/pricingdata";
-import pages from "../../data/servicepagesdata";
+import seo from "../../data/seoData";
+import siteData from "../../data/siteData";
+import { brandPlans, devPlans } from "../../data/pricingData";
+import pages from "../../data/servicePagesData";
 import styles from "./ServicePage.module.css";
 
-const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
-// A short pricing summary; the full plans and comparison live on /pricing.
-// "plans" = brand plans, "dev" = agency / white-label plans, else engagement models.
 const pricingItems = (type) =>
   type === "plans" || type === "dev"
     ? (type === "dev" ? devPlans : brandPlans).map((p) => ({
@@ -33,13 +36,19 @@ const pricingItems = (type) =>
         price: m.priceLabel,
         desc: m.desc,
         features: m.features,
-        // "#contact" lives on the homepage, not on service pages.
         cta: { label: m.cta.label, href: m.cta.href === "#contact" ? "/#contact" : m.cta.href },
       }));
 
 const CardCta = ({ cta, loc }) =>
   cta.href.startsWith("http") ? (
-    <a href={cta.href} target="_blank" rel="noopener noreferrer" className={styles.priceCta} data-cta={cta.label} data-cta-loc={loc}>
+    <a
+      href={cta.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.priceCta}
+      data-cta={cta.label}
+      data-cta-loc={loc}
+    >
       {cta.label} <ArrowRight size={16} aria-hidden="true" />
     </a>
   ) : (
@@ -50,10 +59,11 @@ const CardCta = ({ cta, loc }) =>
 
 const ServicePage = ({ slug }) => {
   const page = pages[slug];
-  // "What's included" runs card 1 -> last in a loop: the active card gets a
-  // border beam and a progress bar, and the bar finishing hands over to the next.
-  // Reduced motion: no sequence, every card shown as done.
-  const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reduced] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const [active, setActive] = useState(reduced ? page.included.length : 0);
   const next = () => setActive((a) => (a + 1) % page.included.length);
 
@@ -85,7 +95,12 @@ const ServicePage = ({ slug }) => {
               >
                 {page.cta.label}
               </a>
-              <Link to="/projects" className={styles.secondary} data-cta="View Projects" data-cta-loc={`${page.title} Hero`}>
+              <Link
+                to="/projects"
+                className={styles.secondary}
+                data-cta="View Projects"
+                data-cta-loc={`${page.title} Hero`}
+              >
                 View Projects <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -156,7 +171,12 @@ const ServicePage = ({ slug }) => {
                 </Reveal>
               ))}
             </div>
-            <Link to="/pricing" className={`btn btn-book ${styles.seeAll}`} data-cta="See full pricing" data-cta-loc={`${page.title} Pricing`}>
+            <Link
+              to="/pricing"
+              className={`btn btn-book ${styles.seeAll}`}
+              data-cta="See full pricing"
+              data-cta-loc={`${page.title} Pricing`}
+            >
               See full pricing <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>

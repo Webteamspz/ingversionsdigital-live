@@ -2,12 +2,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, A11y } from "swiper/modules";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./WhyChooseUs.module.css";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 
-const NODE_COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const NODE_COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
 const WhyChooseUs = () => {
   const isMobile = useIsMobile();

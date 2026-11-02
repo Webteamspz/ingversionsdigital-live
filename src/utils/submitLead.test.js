@@ -15,9 +15,10 @@ test("toFirestoreWrite builds a create-only write that matches the live rules", 
     email: { stringValue: "a@b.co" },
     phone: { stringValue: "" },
   });
-  // Rules: hasAll(['site','formName','createdAt']), size() <= 30, createdAt == request.time.
   assert.deepEqual(w.currentDocument, { exists: false });
-  assert.deepEqual(w.updateTransforms, [{ fieldPath: "createdAt", setToServerValue: "REQUEST_TIME" }]);
+  assert.deepEqual(w.updateTransforms, [
+    { fieldPath: "createdAt", setToServerValue: "REQUEST_TIME" },
+  ]);
   assert.ok(Object.keys(w.update.fields).length + 1 <= 30);
 });
 
@@ -27,5 +28,8 @@ test("pageNameFromPath gives a readable page name for each form submission", () 
   assert.equal(pageNameFromPath("/pricing"), "Pricing");
   assert.equal(pageNameFromPath("/shopify-development/"), "Shopify Development");
   assert.equal(pageNameFromPath("/ab-testing"), "A/B Testing");
-  assert.equal(pageNameFromPath("/blog/how-long-to-run-ab-test"), "Blog / How Long To Run A/B Test");
+  assert.equal(
+    pageNameFromPath("/blog/how-long-to-run-ab-test"),
+    "Blog / How Long To Run A/B Test",
+  );
 });

@@ -9,7 +9,6 @@ import { legacyHeroImage } from "../../data/blog/blogSeo.js";
 const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const markdownComponents = {
-  // Links to other pages on this site go through the router (no full reload).
   a({ href = "", children }) {
     return href.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>;
   },
@@ -48,11 +47,16 @@ const markdownComponents = {
   },
 };
 
-// A legacy markdown post (articlesData.js).
 const BlogArticle = ({ slug, article }) => (
   <div className={styles["article-main"]}>
-    <div className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-circle"]}`} aria-hidden="true" />
-    <div className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-square"]}`} aria-hidden="true" />
+    <div
+      className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-circle"]}`}
+      aria-hidden="true"
+    />
+    <div
+      className={`${styles["article-hero-shape"]} ${styles["article-hero-shape-square"]}`}
+      aria-hidden="true"
+    />
 
     <article className={styles["article-container"]}>
       <div className={styles["article-hero-wrapper"]}>
@@ -86,7 +90,9 @@ const BlogArticle = ({ slug, article }) => (
 
         <div className={styles["article-cta-box"]}>
           <h3 className={styles["cta-heading"]}>Want results like these?</h3>
-          <p className={styles["cta-text"]}>We help Shopify stores optimize their conversion rates.</p>
+          <p className={styles["cta-text"]}>
+            We help Shopify stores optimize their conversion rates.
+          </p>
           <a
             href={CALENDLY_URL}
             target="_blank"
