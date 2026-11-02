@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { isStaging } from "../../config/deploy";
 
 const SITE_URL = "https://ingversionsdigital.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/seo/og-image.jpg`;
@@ -8,11 +9,13 @@ const SEO = ({
   description,
   path = "",
   image = DEFAULT_OG_IMAGE,
-  noindex = false,
+  noindex: noindexProp = false,
   keywords,
   breadcrumb,
   jsonLd,
 }) => {
+  // Staging is never indexable, regardless of the page.
+  const noindex = noindexProp || isStaging;
   const url = `${SITE_URL}${path}`;
 
   return (
