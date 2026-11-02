@@ -4,12 +4,11 @@ export const GTM_ID = import.meta.env.VITE_GTM_ID;
 const CLARITY_ID = import.meta.env.VITE_CLARITY_ID;
 export const dl = () => (window.dataLayer = window.dataLayer || []);
 
-
 const now = () => new Date().toISOString();
 
 export function pageview(
   path = location.pathname + location.search + location.hash,
-  title = document.title
+  title = document.title,
 ) {
   dl().push({
     event: "virtual_pageview",
@@ -50,19 +49,17 @@ export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
         io.disconnect();
       }
     },
-    { threshold: [threshold] }
+    { threshold: [threshold] },
   );
   io.observe(el);
   return () => io.disconnect();
 }
 
-
 export function initGTMTracking() {
   if (typeof window === "undefined") return;
-  if (window.__gtmInit) return; 
+  if (window.__gtmInit) return;
   window.__gtmInit = true;
 
-  
   const firePV = () => pageview();
   ["pushState", "replaceState"].forEach((m) => {
     const orig = history[m];
@@ -74,9 +71,8 @@ export function initGTMTracking() {
   });
   window.addEventListener("popstate", firePV);
   window.addEventListener("hashchange", firePV);
-  pageview(); 
+  pageview();
 
-  
   document.addEventListener("click", (e) => {
     const el = e.target.closest?.("[data-cta]");
     if (!el) return;
@@ -88,7 +84,6 @@ export function initGTMTracking() {
     });
   });
 
-  
   document.addEventListener("submit", (e) => {
     const form = e.target.closest?.("form[data-gtm-form]");
     if (!form) return;
@@ -97,7 +92,6 @@ export function initGTMTracking() {
     formSubmit({ form_id, form_name });
   });
 
-  
   window.__gtmFormSuccess = (form) => {
     if (!form) return;
     const form_name = form.getAttribute("data-gtm-form") || form.name || "form";
@@ -105,7 +99,6 @@ export function initGTMTracking() {
     formSuccess({ form_id, form_name });
   };
 
-  
   const marks = new Set();
   const thresholds = [25, 50, 75, 100];
   let ticking = false;
@@ -116,10 +109,7 @@ export function initGTMTracking() {
       const doc = document.documentElement;
       const total = doc.scrollHeight - doc.clientHeight;
       if (total > 0) {
-        const pct = Math.min(
-          100,
-          Math.round(((window.scrollY || doc.scrollTop) / total) * 100)
-        );
+        const pct = Math.min(100, Math.round(((window.scrollY || doc.scrollTop) / total) * 100));
         thresholds.forEach((t) => {
           if (!marks.has(t) && pct >= t) {
             marks.add(t);
@@ -132,15 +122,16 @@ export function initGTMTracking() {
   };
   window.addEventListener("scroll", onScroll, { passive: true });
 
-
   requestAnimationFrame(onScroll);
 }
 
 function loadClarity() {
   (function (c, l, a, r, i, t, y) {
-    c[a] = c[a] || function () {
-      (c[a].q = c[a].q || []).push(arguments);
-    };
+    c[a] =
+      c[a] ||
+      function () {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
     t = l.createElement(r);
     t.async = 1;
     t.src = "https://www.clarity.ms/tag/" + i;
@@ -174,16 +165,14 @@ export function loadAnalytics() {
 }
 
 const CONSENT_KEY = "analytics-consent";
-const ASK_AGAIN_MS = 182 * 24 * 60 * 60 * 1000; // a refusal is respected for ~6 months (CNIL guidance)
+const ASK_AGAIN_MS = 182 * 24 * 60 * 60 * 1000;
 
-// Fired on window when the visitor accepts or declines cookies (PromoBar waits for it).
 export const CONSENT_EVENT = "consent-choice";
 
-// "granted", "denied", or null when there is no choice yet (or the refusal expired).
 export const getConsent = () => {
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
-    if (raw === "granted") return raw; // stored before choices carried a timestamp
+    if (raw === "granted") return raw;
     const { value, at } = JSON.parse(raw) || {};
     if (value === "denied" && Date.now() - at > ASK_AGAIN_MS) return null;
     return value === "granted" || value === "denied" ? value : null;
@@ -196,13 +185,10 @@ export const setConsent = (value) => {
   try {
     localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, at: Date.now() }));
   } catch {
-    /* storage blocked: the banner just shows again next visit */
+    return;
   }
 };
 
-// Runs unless the visitor declined analytics cookies (opt-out). No-op outside
-// production builds, so dev and staging never track anything. Safe to call
-// twice: main.jsx and the consent banner can both call it on one page load.
 export function startAnalytics() {
   if (!isProduction || window.__analyticsStarted) return;
   window.__analyticsStarted = true;

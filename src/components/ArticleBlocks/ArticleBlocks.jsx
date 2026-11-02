@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-// Icons are resolved by name from blogPosts.json, so every icon is needed.
-// This module only loads with the lazy /blog/:slug route.
 import * as Lucide from "lucide-react";
 import { Calendar, Clock } from "lucide-react";
 
@@ -10,7 +8,6 @@ import CodeBlock from "../BlogArticle/CodeBlock";
 import BlogFaq from "../BlogFaq/BlogFaq";
 import { resolveToc } from "../../data/blog/structuredPosts.js";
 
-// "bar-chart-3" -> Lucide.BarChart3; unknown names fall back to a circle.
 const Icon = ({ name, size = 20 }) => {
   if (!name) return null;
   const pascal = name
@@ -21,7 +18,6 @@ const Icon = ({ name, size = 20 }) => {
   return <Cmp size={size} />;
 };
 
-// Inline markup: **bold**, ==highlight==, [label](url), `code`.
 const RichText = ({ text }) => {
   const tokens = text.split(/(\*\*[^*]+\*\*|==[^=]+==|\[[^\]]+\]\([^)]+\)|`[^`]+`)/g);
   return (
@@ -168,7 +164,9 @@ const BlockView = ({ block: b }) => {
         <ol className={styles.stepList}>
           {(b.steps ?? []).map((s, i) => (
             <li key={i} className={styles.step}>
-              <span className={`${styles.stepNum} ${styles[`accent-${b.color}`] ?? ""}`}>{i + 1}</span>
+              <span className={`${styles.stepNum} ${styles[`accent-${b.color}`] ?? ""}`}>
+                {i + 1}
+              </span>
               <div>
                 <p className={styles.stepTitle}>{s.title}</p>
                 <p className={styles.stepText}>
@@ -180,8 +178,6 @@ const BlockView = ({ block: b }) => {
         </ol>
       );
 
-    // Optional width/height give the real aspect ratio; portrait images
-    // (taller than wide, e.g. carousel slides) show narrower and centred.
     case "image":
       return (
         <figure className={`${styles.figure} ${b.height > b.width ? styles.figurePortrait : ""}`}>
@@ -249,14 +245,12 @@ const BlockView = ({ block: b }) => {
   }
 };
 
-// A structured post (blogPosts.json): hero, sticky table of contents, sections, FAQ, CTA.
 const ArticleBlocks = ({ post }) => {
   const toc = useMemo(() => resolveToc(post), [post]);
   const [activeAnchor, setActiveAnchor] = useState(toc[0]?.anchor ?? "");
   const itemRefs = useRef([]);
   const [marker, setMarker] = useState(null);
 
-  // Highlight the section whose heading last scrolled past the trigger line.
   useEffect(() => {
     const elements = toc.map((it) => document.getElementById(it.anchor)).filter(Boolean);
     if (elements.length === 0) return;
@@ -284,7 +278,6 @@ const ArticleBlocks = ({ post }) => {
     };
   }, [toc]);
 
-  // Slide the TOC marker to the active item.
   useEffect(() => {
     const place = () => {
       const li = itemRefs.current[toc.findIndex((it) => it.anchor === activeAnchor)];
@@ -390,7 +383,9 @@ const ArticleBlocks = ({ post }) => {
             {post.body.sections.map((section) => (
               <section key={section.id} id={section.id} className={styles.section}>
                 <h2 className={styles.sectionHead}>
-                  <span className={`${styles.sectionNum} ${styles[`accent-${section.accent}`] ?? ""}`}>
+                  <span
+                    className={`${styles.sectionNum} ${styles[`accent-${section.accent}`] ?? ""}`}
+                  >
                     {section.number}
                   </span>
                   {section.heading}

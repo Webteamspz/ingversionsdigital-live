@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./Faq.module.css";
+import styles from "./BlogFaq.module.css";
 
 const FaqAccordionItem = ({ index, q, a, isOpen, onToggle }) => {
   const bodyRef = useRef(null);
@@ -47,7 +47,6 @@ const FaqAccordionItem = ({ index, q, a, isOpen, onToggle }) => {
   );
 };
 
-// FAQ accordion for structured blog posts.
 const BlogFaq = ({ items }) => {
   const [openIndex, setOpenIndex] = useState(-1);
   const handleToggle = (i) => setOpenIndex((cur) => (cur === i ? -1 : i));

@@ -6,13 +6,11 @@ import Reveal from "../Reveal/Reveal";
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
 
-
 const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
-  const [sliderPos, setSliderPos] = useState(50); 
+  const [sliderPos, setSliderPos] = useState(50);
 
   return (
     <div className={styles.sliderContainer}>
-      
       <img
         src={beforeImg}
         alt={`Before - ${title}`}
@@ -20,19 +18,10 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         fetchPriority="high"
       />
 
-      
-      <div
-        className={styles.clippedLayer}
-        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
-      >
-        <img
-          src={afterImg}
-          alt={`After - ${title}`}
-          fetchPriority="high"
-        />
+      <div className={styles.clippedLayer} style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
+        <img src={afterImg} alt={`After - ${title}`} fetchPriority="high" />
       </div>
 
-      
       <span
         className={`${styles.sliderLabel} ${styles.labelBefore}`}
         style={{ opacity: (100 - sliderPos) / 100 }}
@@ -46,7 +35,6 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         After
       </span>
 
-      
       <input
         type="range"
         min="0"
@@ -57,11 +45,7 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
         aria-label="Before and after comparison slider"
       />
 
-      
-      <div 
-        className={styles.sliderHandleWrap} 
-        style={{ left: `${sliderPos}%` }}
-      >
+      <div className={styles.sliderHandleWrap} style={{ left: `${sliderPos}%` }}>
         <div className={styles.sliderLine} />
         <div className={styles.sliderButton}>
           <ArrowLeftRight size={18} strokeWidth={2.5} color="var(--palette-border)" />
@@ -71,7 +55,6 @@ const BeforeAfterSlider = ({ beforeImg, afterImg, title }) => {
   );
 };
 
-// Tall screenshots scroll inside the phone screen, like a real mobile page.
 const SCROLLABLE_RATIO = 1.9;
 
 const PhoneCard = ({ project }) => {
@@ -82,7 +65,11 @@ const PhoneCard = ({ project }) => {
       alt={project.title}
       loading="lazy"
       decoding="async"
-      onLoad={(e) => setScrollable(e.currentTarget.naturalHeight / e.currentTarget.naturalWidth > SCROLLABLE_RATIO)}
+      onLoad={(e) =>
+        setScrollable(
+          e.currentTarget.naturalHeight / e.currentTarget.naturalWidth > SCROLLABLE_RATIO,
+        )
+      }
     />
   );
 
@@ -110,8 +97,10 @@ const PhoneCard = ({ project }) => {
   );
 };
 
-// Start fetching the before/after pair as soon as the visitor shows intent.
-const preload = (p) => [p.beforeImage, p.afterImage].forEach((src) => { new Image().src = src; });
+const preload = (p) =>
+  [p.beforeImage, p.afterImage].forEach((src) => {
+    new Image().src = src;
+  });
 
 const TestCard = ({ project, onExpand }) => (
   <>
@@ -158,11 +147,8 @@ const scrollToTop = (view) => {
   view?.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
 };
 
-// Leaving a card sends its screen back to the top of the page.
 const resetScroll = (e) => scrollToTop(e.currentTarget.querySelector(`.${styles.phoneView}`));
 
-// Touch has no mouseleave: touching one phone (or anywhere else in the grid)
-// sends every other scrolled phone back to the top.
 const resetOthers = (e) => {
   const current = e.target.closest(`.${styles.phone}`);
   e.currentTarget.querySelectorAll(`.${styles.phoneView}`).forEach((view) => {
@@ -190,14 +176,12 @@ const ProjectsGrid = ({ projects }) => {
     setVisibleCount(isMobile ? INITIAL_MOBILE_COUNT : projects.length);
   }, [projects, isMobile]);
 
-
   useEffect(() => {
     if (!selectedProject) {
       document.body.style.overflow = "unset";
       return;
     }
     document.body.style.overflow = "hidden";
-    // Escape closes the before/after modal, like the close button.
     const onKey = (e) => e.key === "Escape" && setSelectedProject(null);
     window.addEventListener("keydown", onKey);
     return () => {
@@ -212,7 +196,10 @@ const ProjectsGrid = ({ projects }) => {
 
   return (
     <div className={styles.gridWrap}>
-      <div className={`${styles.grid} ${allTests ? styles.gridCards : ""}`} onTouchStart={resetOthers}>
+      <div
+        className={`${styles.grid} ${allTests ? styles.gridCards : ""}`}
+        onTouchStart={resetOthers}
+      >
         {visibleProjects.map((project, i) =>
           project.beforeImage && project.afterImage ? (
             <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>
@@ -227,7 +214,7 @@ const ProjectsGrid = ({ projects }) => {
             >
               <PhoneCard project={project} />
             </Reveal>
-          )
+          ),
         )}
 
         {visibleProjects.length === 0 && (
@@ -240,9 +227,7 @@ const ProjectsGrid = ({ projects }) => {
           type="button"
           className={styles.viewMoreBtn}
           onClick={() =>
-            setVisibleCount((prev) =>
-              Math.min(prev + INITIAL_MOBILE_COUNT, projects.length)
-            )
+            setVisibleCount((prev) => Math.min(prev + INITIAL_MOBILE_COUNT, projects.length))
           }
         >
           View More Projects
@@ -252,16 +237,9 @@ const ProjectsGrid = ({ projects }) => {
         </button>
       )}
 
-      
       {selectedProject && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()} 
-          >
+        <div className={styles.modalOverlay} onClick={() => setSelectedProject(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className={styles.closeBtn}

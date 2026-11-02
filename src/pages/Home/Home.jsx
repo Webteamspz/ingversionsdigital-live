@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-import HeroV2 from "../../components/Hero/HeroV2";
-import Layout from "../../layouts/Layouts";
+import Hero from "../../components/Hero/Hero";
+import Layout from "../../layouts/Layout";
 import Preloader from "../../components/Preloader/Preloader";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
+import seo from "../../data/seoData";
 import TrackRecord from "../../components/TrackRecord/TrackRecord";
 import Services from "../../components/Services/Services";
 import WorkProcess from "../../components/WorkProcess/WorkProcess";
@@ -45,8 +45,7 @@ const Home = () => {
       )}
 
       <Layout header={1} footer={1}>
-        
-        <HeroV2 />
+        <Hero />
 
         <TrackRecord />
         <Services />

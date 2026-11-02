@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Contact.module.css";
 import Reveal from "../Reveal/Reveal";
 
@@ -14,7 +14,8 @@ const Contact = () => {
           <p className={styles.eyebrow}>{heading}</p>
           <h2 className={styles.contactHeading}>{form.title}</h2>
           <p className={styles.contactCopy}>
-            Tell us where you want to grow. We&apos;ll help you find the clearest path to better conversions.
+            Tell us where you want to grow. We&apos;ll help you find the clearest path to better
+            conversions.
           </p>
 
           <div className={styles.contactActions}>

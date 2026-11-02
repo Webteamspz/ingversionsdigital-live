@@ -1,6 +1,5 @@
 import postsJson from "./blogPosts.json";
 
-// Structured posts (blogPosts.json) are rendered block by block by ArticleBlocks.
 export const structuredPosts = postsJson;
 
 export const getStructuredPost = (slug) =>
@@ -16,7 +15,6 @@ export const resolveToc = (post) => {
   return items;
 };
 
-// Home-page card for a structured post; ids continue after the legacy post-40.
 export const toCard = (p, i) => ({
   id: `post-${41 + i}`,
   title: p.hero.title,

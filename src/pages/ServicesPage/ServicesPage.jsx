@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
-import Layout from "../../layouts/Layouts";
+import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
-import seo from "../../data/seodata";
-import data from "../../data/sitedata";
-import servicePages from "../../data/servicepagesdata";
+import seo from "../../data/seoData";
+import data from "../../data/siteData";
+import servicePages from "../../data/servicePagesData";
 import ToolsMarquee from "../../components/ToolsMarquee/ToolsMarquee";
 import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta";
 import Reveal from "../../components/Reveal/Reveal";
 import styles from "./ServicesPage.module.css";
 
-// Soft purple, not the strong accent, so dark text on the panels stays readable.
-const COLORS = ["var(--palette-accent-soft)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const COLORS = [
+  "var(--palette-accent-soft)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
-// The services shown on the home page, with each one's full details from its
-// own service page (/ab-testing, /shopify-development, ...).
 const SERVICES = data.services.list
   .filter((s) => s.href?.startsWith("/"))
   .map((s) => ({ slug: s.href.slice(1), ...servicePages[s.href.slice(1)] }))
@@ -63,7 +65,9 @@ const ServicesPage = () => {
 
           <section className={styles.details} aria-labelledby="services-details">
             <div className="container">
-              <h2 id="services-details" className="section-title">{hero.detailsHeading}</h2>
+              <h2 id="services-details" className="section-title">
+                {hero.detailsHeading}
+              </h2>
               {SERVICES.map((s, i) => (
                 <Reveal key={s.slug} className={`${styles.service} ${i % 2 ? styles.flip : ""}`}>
                   <article id={s.slug} className={styles.serviceInner}>
@@ -71,7 +75,9 @@ const ServicesPage = () => {
                       <span className={styles.panelNum}>{String(i + 1).padStart(2, "0")}</span>
                       <span className={styles.panelEyebrow}>{s.eyebrow}</span>
                       <ul className={styles.keywords}>
-                        {s.keywords?.slice(0, 4).map((k) => <li key={k}>{k}</li>)}
+                        {s.keywords?.slice(0, 4).map((k) => (
+                          <li key={k}>{k}</li>
+                        ))}
                       </ul>
                     </div>
                     <div className={styles.body}>
@@ -80,14 +86,24 @@ const ServicesPage = () => {
                       <ul className={styles.included}>
                         {s.included?.slice(0, 4).map((item) => (
                           <li key={item.title}>
-                            <Check size={18} strokeWidth={3} aria-hidden="true" className={styles.check} />
+                            <Check
+                              size={18}
+                              strokeWidth={3}
+                              aria-hidden="true"
+                              className={styles.check}
+                            />
                             <span>
                               <strong>{item.title}</strong> {item.desc}
                             </span>
                           </li>
                         ))}
                       </ul>
-                      <Link to={`/${s.slug}`} className={styles.more} data-cta={`Explore ${s.title}`} data-cta-loc="Services Page">
+                      <Link
+                        to={`/${s.slug}`}
+                        className={styles.more}
+                        data-cta={`Explore ${s.title}`}
+                        data-cta-loc="Services Page"
+                      >
                         Explore {s.title} <ArrowRight size={16} aria-hidden="true" />
                       </Link>
                     </div>
@@ -99,17 +115,28 @@ const ServicesPage = () => {
 
           <section className={styles.audience} aria-labelledby="services-audience">
             <div className="container">
-              <h2 id="services-audience" className="section-title">{hero.audienceHeading}</h2>
+              <h2 id="services-audience" className="section-title">
+                {hero.audienceHeading}
+              </h2>
               <div className={styles.audienceGrid}>
                 {hero.audiences.map((a, i) => (
-                  <div key={a.title} className={styles.audienceCard} style={{ "--accent": COLORS[(i + 1) % 4] }}>
+                  <div
+                    key={a.title}
+                    className={styles.audienceCard}
+                    style={{ "--accent": COLORS[(i + 1) % 4] }}
+                  >
                     <span className={styles.cornerFold} aria-hidden="true" />
                     <h3 className={styles.audienceTitle}>{a.title}</h3>
                     <p className={styles.audienceDesc}>{a.desc}</p>
                     <ul className={styles.audiencePoints}>
                       {a.points.map((p) => (
                         <li key={p}>
-                          <Check size={16} strokeWidth={3} aria-hidden="true" className={styles.check} />
+                          <Check
+                            size={16}
+                            strokeWidth={3}
+                            aria-hidden="true"
+                            className={styles.check}
+                          />
                           {p}
                         </li>
                       ))}

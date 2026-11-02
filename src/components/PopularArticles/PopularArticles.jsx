@@ -10,7 +10,6 @@ import articleStyles from "../BlogArticle/ArticleDetail.module.css";
 import { postCards } from "../../data/blog/postCards.js";
 import { coverThumb } from "../../data/blog/articleImages.js";
 
-// The newest posts other than the current one.
 const getMostPopularArticles = (currentSlug, limit = 5) =>
   postCards
     .filter((p) => p.slug !== currentSlug)
@@ -86,7 +85,9 @@ const PopularArticles = ({ currentSlug }) => {
                       decoding="async"
                       className={styles["popular-img"]}
                     />
-                    <span className={`${articleStyles["article-badge"]} ${styles["popular-badge"]}`}>
+                    <span
+                      className={`${articleStyles["article-badge"]} ${styles["popular-badge"]}`}
+                    >
                       {article.category}
                     </span>
                   </div>

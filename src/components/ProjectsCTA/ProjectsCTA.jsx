@@ -1,5 +1,5 @@
 import styles from "./ProjectsCTA.module.css";
-import data from "../../data/projectsdata";
+import data from "../../data/projectsData";
 import Reveal from "../Reveal/Reveal";
 
 const ProjectsCTA = () => {

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./Reviews.module.css";
 import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
@@ -46,9 +46,7 @@ export default function Reviews() {
   return (
     <section ref={sectionRef} className={styles.startedSection} id="reviews">
       <div className={`container ${styles.startedContainer}`}>
-        <h2 className={`section-title ${styles.startedTitle}`}>
-          {data.review.heading}
-        </h2>
+        <h2 className={`section-title ${styles.startedTitle}`}>{data.review.heading}</h2>
 
         {isMobile ? (
           <div className={styles.reviewsMarquee}>

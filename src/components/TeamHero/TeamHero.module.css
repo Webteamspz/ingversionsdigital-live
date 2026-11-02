@@ -1,25 +1,27 @@
 .heroWrap {
   position: relative;
-  isolation: isolate
+  isolation: isolate;
 }
 .heroDecor {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: -1;
-  pointer-events: none
+  pointer-events: none;
 }
 .heroDecor:after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(52,69,117,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(52,69,117,0.1) 1px,transparent 1px);
+  background-image:
+    linear-gradient(rgba(52, 69, 117, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 69, 117, 0.1) 1px, transparent 1px);
   background-size: 46px 46px;
-  mask-image: linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.7) 68%,transparent 100%)
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 68%, transparent 100%);
 }
 .heroInner {
   padding: 160px 0 60px;
-  text-align: center
+  text-align: center;
 }
 .eyebrow {
   display: inline-flex;
@@ -34,21 +36,21 @@
   color: var(--palette-bg-800);
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 .heroTitle {
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-weight: 800;
   font-size: 40px;
   line-height: 1.2;
   color: var(--palette-text-primary);
-  margin: 0 0 16px
+  margin: 0 0 16px;
 }
 .pill {
   display: inline-block;
-  color: var(--palette-accent)
+  color: var(--palette-accent);
 }
 .subtext {
   margin: 0 auto;
@@ -56,28 +58,28 @@
   color: var(--palette-text-secondary);
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%
+  line-height: 150%;
 }
-@media (max-width:1023.98px) {
+@media (max-width: 1023.98px) {
   .heroInner {
-    padding: 130px 0 50px
+    padding: 130px 0 50px;
   }
   .heroTitle {
-    font-size: 32px
+    font-size: 32px;
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .heroInner {
-    padding: 120px 0 0
+    padding: 120px 0 0;
   }
   .eyebrow {
     font-size: 11px;
-    padding: 6px 14px
+    padding: 6px 14px;
   }
   .heroTitle {
-    font-size: 26px
+    font-size: 26px;
   }
   .subtext {
-    font-size: 14px
+    font-size: 14px;
   }
 }

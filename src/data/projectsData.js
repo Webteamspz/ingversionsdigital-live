@@ -6,11 +6,7 @@ const projectsData = {
     description:
       "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
   },
-  filters: [
-    "Websites",
-    "Shopify",
-    "A/B Testing",
-  ],
+  filters: ["Websites", "Shopify", "A/B Testing"],
   projects: [
     {
       id: 1,

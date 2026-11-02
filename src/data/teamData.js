@@ -26,7 +26,7 @@ export const teamMembers = [
     skills: [],
     socials: {},
   },
-    {
+  {
     id: "rahul-patil",
     name: "Rahul Patil",
     title: "CRO Dev",
@@ -96,7 +96,7 @@ export const teamMembers = [
     skills: [],
     socials: {},
   },
-    {
+  {
     id: "uday-raj-sharma",
     name: "Uday Raj Sharma",
     title: "Technical Manager",
@@ -106,7 +106,7 @@ export const teamMembers = [
     skills: [],
     socials: {},
   },
-    {
+  {
     id: "lakhvir-saini",
     name: "Lakhvir Saini",
     title: "Shopify Dev",

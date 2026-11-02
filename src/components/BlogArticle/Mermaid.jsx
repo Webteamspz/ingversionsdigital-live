@@ -1,8 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import articleStyles from "./ArticleDetail.module.css";
 
-// mermaid is large, so it is only downloaded the first time a post actually
-// contains a non-linear diagram (linear flows render as a step list below).
 let mermaidReady;
 const loadMermaid = () => {
   mermaidReady ??= import("mermaid").then(({ default: mermaid }) => {
@@ -26,8 +24,6 @@ const loadMermaid = () => {
   return mermaidReady;
 };
 
-// A graph/flowchart where no node has more than one edge in or out is drawn as
-// a numbered step list. Returns the step labels, or null for anything else.
 function parseFlowSteps(src) {
   const lines = src.split(/\r?\n/).map((l) => l.trim());
   if (!/^(graph|flowchart)\s/i.test(lines[0] || "")) return null;
@@ -38,13 +34,21 @@ function parseFlowSteps(src) {
   const inDeg = new Map();
 
   const addNode = (raw) => {
-    const token = raw.trim().replace(/^\|[^|]*\|/, "").trim();
+    const token = raw
+      .trim()
+      .replace(/^\|[^|]*\|/, "")
+      .trim();
     if (!token) return null;
     const shaped = token.match(/^([\w.-]+)\s*[[({]+\s*"?(.*?)"?\s*[\])}]+\s*$/);
     const bare = token.match(/^([\w.-]+)$/);
     const id = shaped ? shaped[1] : bare ? bare[1] : null;
     if (!id) return null;
-    const label = shaped ? shaped[2].replace(/<br\s*\/?>/gi, " ").replace(/\s+/g, " ").trim() : "";
+    const label = shaped
+      ? shaped[2]
+          .replace(/<br\s*\/?>/gi, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+      : "";
     if (!labels.has(id)) {
       labels.set(id, label || id);
       order.push(id);

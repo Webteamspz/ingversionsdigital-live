@@ -17,7 +17,7 @@ import {
   Store,
   Video,
 } from "lucide-react";
-import data from "../../data/sitedata";
+import data from "../../data/siteData";
 import styles from "./ProcessFlow.module.css";
 
 const ICONS = {
@@ -38,14 +38,19 @@ const ICONS = {
   retest: RefreshCw,
   signoff: ShieldCheck,
 };
-const COLORS = ["var(--palette-accent)", "var(--secondary)", "var(--tertiary)", "var(--quaternary)"];
+const COLORS = [
+  "var(--palette-accent)",
+  "var(--secondary)",
+  "var(--tertiary)",
+  "var(--quaternary)",
+];
 
-// Loops step 1 -> last like a progress line: the active icon pulses while its
-// connector fills in its colour, and the fill finishing hands over to the next
-// step. Reached steps stay lit, upcoming ones are dimmed.
-// Reduced motion: no loop, every step shown lit.
 const Steps = ({ steps }) => {
-  const [reduced] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reduced] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const [active, setActive] = useState(reduced ? steps.length : 0);
   const next = () => setActive((a) => (a + 1) % steps.length);
   const last = steps.length - 1;
@@ -88,10 +93,11 @@ const Steps = ({ steps }) => {
   );
 };
 
-// tabIds picks which flows to show; with one flow the tab bar is hidden.
 const ProcessFlow = ({ tabIds }) => {
   const { eyebrow, heading, highlight, sub } = data.processFlow;
-  const tabs = tabIds ? data.processFlow.tabs.filter((t) => tabIds.includes(t.id)) : data.processFlow.tabs;
+  const tabs = tabIds
+    ? data.processFlow.tabs.filter((t) => tabIds.includes(t.id))
+    : data.processFlow.tabs;
   const [active, setActive] = useState(0);
   const tabRefs = useRef([]);
   const tab = tabs[active];
@@ -117,24 +123,29 @@ const ProcessFlow = ({ tabIds }) => {
         <p className={styles.sub}>{sub}</p>
 
         {tabs.length > 1 && (
-        <div className={styles.tabs} role="tablist" aria-label="Choose a service" onKeyDown={onKeyDown}>
-          {tabs.map((t, i) => (
-            <button
-              key={t.id}
-              ref={(el) => (tabRefs.current[i] = el)}
-              type="button"
-              role="tab"
-              id={`flow-tab-${t.id}`}
-              aria-selected={i === active}
-              aria-controls="flow-panel"
-              tabIndex={i === active ? 0 : -1}
-              className={`${styles.tab} ${i === active ? styles.tabActive : ""}`}
-              onClick={() => setActive(i)}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
+          <div
+            className={styles.tabs}
+            role="tablist"
+            aria-label="Choose a service"
+            onKeyDown={onKeyDown}
+          >
+            {tabs.map((t, i) => (
+              <button
+                key={t.id}
+                ref={(el) => (tabRefs.current[i] = el)}
+                type="button"
+                role="tab"
+                id={`flow-tab-${t.id}`}
+                aria-selected={i === active}
+                aria-controls="flow-panel"
+                tabIndex={i === active ? 0 : -1}
+                className={`${styles.tab} ${i === active ? styles.tabActive : ""}`}
+                onClick={() => setActive(i)}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         )}
 
         <div
@@ -145,7 +156,12 @@ const ProcessFlow = ({ tabIds }) => {
           <Steps steps={tab.steps} key={tab.id} />
 
           <p className={styles.note}>
-            <CircleCheck size={22} strokeWidth={2.5} className={styles.noteIcon} aria-hidden="true" />
+            <CircleCheck
+              size={22}
+              strokeWidth={2.5}
+              className={styles.noteIcon}
+              aria-hidden="true"
+            />
             {tab.note}
           </p>
         </div>

@@ -1,38 +1,38 @@
 .startedSection {
   position: relative;
   padding: 60px 0;
-  background: var(--tertiary)
+  background: var(--tertiary);
 }
 .startedContainer {
-  position: relative
+  position: relative;
 }
 .startedTitle {
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
   color: var(--palette-text-primary);
   text-align: center;
-  margin: 0 0 44px
+  margin: 0 0 44px;
 }
 .reviewsGrid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 32px
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
-@media (min-width:1024px) and (max-width:1199.98px) {
+@media (min-width: 1024px) and (max-width: 1199.98px) {
   .reviewsGrid {
-    padding: 0 12px
+    padding: 0 12px;
   }
 }
 .reviewCardWrap {
-  min-width: 0
+  min-width: 0;
 }
 .reviewTilt {
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1)
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .reviewTilt:hover {
-  transform: rotate(0) translateY(-4px)!important
+  transform: rotate(0) translateY(-4px) !important;
 }
 .reviewCard {
   position: relative;
@@ -40,14 +40,14 @@
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-md);
   padding: 32px;
-  box-shadow: 6px 6px 0 0 var(--palette-border)
+  box-shadow: 6px 6px 0 0 var(--palette-border);
 }
 .reviewQuote {
   margin: 0 0 24px;
   color: var(--palette-text-primary);
   font-weight: 500;
   font-size: 18px;
-  line-height: 1.6
+  line-height: 1.6;
 }
 .reviewTail {
   position: absolute;
@@ -58,14 +58,14 @@
   transform: rotate(45deg);
   background: var(--palette-bg-800);
   border-right: var(--border-width) solid var(--palette-border);
-  border-bottom: var(--border-width) solid var(--palette-border)
+  border-bottom: var(--border-width) solid var(--palette-border);
 }
 .reviewerRow {
   margin-top: 24px;
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-left: 16px
+  padding-left: 16px;
 }
 .reviewAvatar {
   flex-shrink: 0;
@@ -75,82 +75,82 @@
   border: var(--border-width) solid var(--palette-border);
   box-shadow: 2px 2px 0 0 var(--palette-border);
   object-fit: cover;
-  background: var(--palette-bg-800)
+  background: var(--palette-bg-800);
 }
 .reviewerName {
-  font-family: Outfit,system-ui,sans-serif;
+  font-family: Outfit, system-ui, sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: var(--palette-text-primary)
+  color: var(--palette-text-primary);
 }
 .reviewerRole {
   margin-top: 2px;
   font-size: 14px;
-  color: rgba(30,41,59,.8)
+  color: rgba(30, 41, 59, 0.8);
 }
-@media (max-width:1023.98px) {
+@media (max-width: 1023.98px) {
   .startedTitle {
-    font-size: 28px
+    font-size: 28px;
   }
   .reviewsGrid {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .startedSection {
-    padding: 32px 0
+    padding: 32px 0;
   }
   .reviewsGrid {
     grid-template-columns: 1fr;
-    gap: 40px
+    gap: 40px;
   }
   .startedTitle {
-    font-family: Outfit,system-ui,sans-serif;
+    font-family: Outfit, system-ui, sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 120%;
     text-align: center;
-    margin-bottom: 36px
+    margin-bottom: 36px;
   }
   .reviewCard {
     padding: 24px;
-    box-shadow: 4px 4px 0 0 var(--palette-border)
+    box-shadow: 4px 4px 0 0 var(--palette-border);
   }
   .reviewAvatar {
-    box-shadow: 2px 2px 0 0 var(--palette-border)
+    box-shadow: 2px 2px 0 0 var(--palette-border);
   }
   .reviewsMarquee {
     overflow: hidden;
-    margin: 0 -22px
+    margin: 0 -22px;
   }
   .reviewsMarqueeTrack {
     display: flex;
     width: max-content;
-    animation: reviewsMarqueeScroll 38s linear infinite
+    animation: reviewsMarqueeScroll 38s linear infinite;
   }
   .reviewsMarquee:hover .reviewsMarqueeTrack {
-    animation-play-state: paused
+    animation-play-state: paused;
   }
   .reviewsMarqueeGroup {
     display: flex;
     gap: 20px;
-    padding: 4px 20px 4px 22px
+    padding: 4px 20px 4px 22px;
   }
   .marqueeCard {
     width: 280px;
-    flex-shrink: 0
+    flex-shrink: 0;
   }
 }
 @keyframes reviewsMarqueeScroll {
   from {
-    transform: translateX(0)
+    transform: translateX(0);
   }
   to {
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
 }
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .reviewsMarqueeTrack {
-    animation: none
+    animation: none;
   }
 }

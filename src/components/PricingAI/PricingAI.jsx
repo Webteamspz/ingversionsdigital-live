@@ -1,4 +1,4 @@
-import { aiSection } from "../../data/pricingdata";
+import { aiSection } from "../../data/pricingData";
 import styles from "./PricingAI.module.css";
 
 const PricingAI = () => (
