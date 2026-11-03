@@ -388,18 +388,23 @@ posts first, then structured posts, then legacy ones, then shows the blog 404 (`
 - **Template posts** (preferred for new posts): one file per post, `src/data/blog/posts/<slug>.js`,
   default-exporting the post. `templatePosts.js` loads every file there with
   `import.meta.glob`, so no other file needs editing. Copy
-  `shopify-pack-selector-ab-test.js` to start. Fields: `title, slug, seoTitle,
-  metaDescription, subtitle, category, tags, author { name, role, avatar, bio, linkedin,
-  type }, publishedDate, updatedDate` (ISO dates), `readTime` (optional, estimated from the
-  word count by `src/utils/blogPost.js` when missing), `featuredImage { src, alt, caption,
-  width, height }`, `quickAnswer, keyTakeaways[], body[], faq[{ question, answer }]`. Any
-  optional field left out removes its section. `body` blocks: `p, h2, h3, ul, ol, formula
-  { text, note }, table { headers, rows, numeric[], caption }, compare { control, variant,
-  caption }, image, statCards { items[{ value, label }] }, warning { title, text }, cta`.
-  Text supports `**bold**`, `[label](url)` and `` `code` ``. "On this page" is built from the
-  `h2` blocks (plus Key takeaways and the FAQ). The layout's tokens live on `.page` in
-  `BlogPostLayout.module.css`; its fonts (Outfit, Source Sans 3) load only on these posts.
-  The sidebar panel, mid-article CTA and end CTA copy is `postTemplateCopy` in
+  `shopify-pack-selector-ab-test.js` to start. Fields: `title, titleEmphasis` (the part of the
+  title set in violet italic), `slug, seoTitle, metaDescription, subtitle, category, tags,
+  author { name, role, avatar, bio, linkedin, type }, publishedDate, updatedDate` (ISO
+  dates), `readTime` (optional, estimated from the word count by `src/utils/blogPost.js` when
+  missing), `featuredImage { src, alt, caption, width, height }`, `quickAnswer` (the serif
+  lede), `keyTakeaways[], body[], faq[{ question, answer }]`, and three switches:
+  `showEstimator`, `progressBar` (both default on) and `coverLayout` (`"inset"` or `"full"`).
+  Any optional field left out removes its section. `body` blocks: `p, h2, h3, ul` (square
+  markers), `ol` (lettered), `quote` (pull quote), `formula { text, note }, table { headers,
+  rows, numeric[], caption }, compare { control, variant, caption }, image, statCards {
+  items[{ value, label }] }, warning { title, items[] }, estimator` (the test-duration
+  calculator; its maths is `estimateDuration` in `src/utils/blogPost.js`). Text supports
+  `**bold**`, `[label](url)` and `` `code` ``. "In this article" is built from the `h2` blocks
+  (plus Key takeaways and the FAQ) and numbered 01, 02, ... The layout's tokens live on
+  `.page` in `BlogPostLayout.module.css`; its fonts (Instrument Serif, Geist, Geist Mono) load
+  only on these posts, and on phones the site-wide system-font rule in `style.css` still
+  applies. The service CTA, estimator and end CTA copy is `postTemplateCopy` in
   `templatePosts.js`. The page ends with the same `PopularArticles` slider and CTA box as the
   other posts. Head tags, BlogPosting + FAQPage JSON-LD, the home card and the sitemap entry
   are generated from the file.

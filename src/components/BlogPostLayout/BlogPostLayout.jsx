@@ -1,30 +1,38 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Check, Link2 } from "lucide-react";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import { RichText } from "../ArticleBlocks/ArticleBlocks";
 import PopularArticles from "../PopularArticles/PopularArticles";
 import articleStyles from "../BlogArticle/ArticleDetail.module.css";
 import { postTemplateCopy as copy } from "../../data/blog/templatePosts.js";
-import { buildToc, formatDate, headingId, initials, readTime } from "../../utils/blogPost.js";
+import {
+  buildToc,
+  estimateDuration,
+  formatDate,
+  headingId,
+  initials,
+  readTime,
+} from "../../utils/blogPost.js";
 import styles from "./BlogPostLayout.module.css";
 
 const SITE_URL = "https://ingversionsdigital.com";
 const FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap";
+  "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap";
+const MAX_CALENDAR_WEEKS = 12;
+const pad = (n) => String(n).padStart(2, "0");
 
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
-    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.83v1.5h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13v5.43h-4v-4.82c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.9h-4v-11Z" />
-  </svg>
-);
-
-const XIcon = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor">
-    <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3Zm-1.08 16.17h1.7L7.4 4.73H5.58l11.09 14.44Z" />
-  </svg>
-);
+const Emphasis = ({ text, emphasis }) => {
+  const at = emphasis ? text.lastIndexOf(emphasis) : -1;
+  if (at < 0) return text;
+  return (
+    <>
+      {text.slice(0, at)}
+      <em className={styles.em}>{emphasis}</em>
+      {text.slice(at + emphasis.length)}
+    </>
+  );
+};
 
 const Avatar = ({ author, size }) =>
   author.avatar ? (
@@ -46,75 +54,120 @@ const Avatar = ({ author, size }) =>
     </span>
   );
 
-const ShareButtons = ({ url, title }) => {
-  const [copied, setCopied] = useState(false);
-  const encoded = encodeURIComponent(url);
+const Slider = ({ id, label, value, min, max, step, format, onChange }) => (
+  <div className={styles.slider}>
+    <div className={styles.sliderHead}>
+      <label htmlFor={id}>{label}</label>
+      <output htmlFor={id}>{format(value)}</output>
+    </div>
+    <input
+      id={id}
+      type="range"
+      min={min}
+      max={max}
+      step={step}
+      value={value}
+      onChange={(e) => onChange(Number(e.target.value))}
+    />
+  </div>
+);
 
-  const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
-    }
-  };
+const Estimator = () => {
+  const [values, setValues] = useState({ baseline: 3, mde: 10, daily: 5000, variants: 2 });
+  const set = (key) => (v) => setValues((s) => ({ ...s, [key]: v }));
+  const { perVariant, days, weeks } = estimateDuration(values);
+  const shownWeeks = Math.min(weeks, MAX_CALENDAR_WEEKS);
+  const e = copy.estimator;
 
   return (
-    <div className={styles.share}>
-      <a
-        className={styles.shareBtn}
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Share on LinkedIn"
-      >
-        <LinkedInIcon />
-      </a>
-      <a
-        className={styles.shareBtn}
-        href={`https://twitter.com/intent/tweet?url=${encoded}&text=${encodeURIComponent(title)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Share on X"
-      >
-        <XIcon />
-      </a>
-      <button
-        type="button"
-        className={styles.shareBtn}
-        onClick={copyLink}
-        aria-label={copied ? "Link copied" : "Copy link"}
-      >
-        {copied ? <Check size={18} aria-hidden="true" /> : <Link2 size={18} aria-hidden="true" />}
-      </button>
-      <span className={styles.srOnly} aria-live="polite">
-        {copied ? "Link copied" : ""}
-      </span>
-    </div>
+    <section className={styles.estimator} aria-labelledby="estimator-heading">
+      <p className={styles.monoLabel}>{e.label}</p>
+      <h3 id="estimator-heading" className={styles.estimatorHeading}>
+        {e.heading}
+      </h3>
+      <div className={styles.estimatorGrid}>
+        <div className={styles.sliders}>
+          <Slider
+            id="est-baseline"
+            label={e.baseline}
+            value={values.baseline}
+            min={0.5}
+            max={10}
+            step={0.1}
+            format={(v) => `${v.toFixed(1)}%`}
+            onChange={set("baseline")}
+          />
+          <Slider
+            id="est-mde"
+            label={e.mde}
+            value={values.mde}
+            min={2}
+            max={40}
+            step={1}
+            format={(v) => `${v}%`}
+            onChange={set("mde")}
+          />
+          <Slider
+            id="est-daily"
+            label={e.daily}
+            value={values.daily}
+            min={500}
+            max={50000}
+            step={500}
+            format={(v) => v.toLocaleString("en-US")}
+            onChange={set("daily")}
+          />
+          <Slider
+            id="est-variants"
+            label={e.variants}
+            value={values.variants}
+            min={2}
+            max={5}
+            step={1}
+            format={(v) => v}
+            onChange={set("variants")}
+          />
+        </div>
+
+        <div className={styles.result} aria-live="polite">
+          <p className={styles.weeks}>
+            {weeks.toLocaleString("en-US")} <span>{weeks === 1 ? "week" : "weeks"}</span>
+          </p>
+          <p className={styles.resultMeta}>
+            {perVariant.toLocaleString("en-US")} {e.perVariant} · {days.toLocaleString("en-US")}{" "}
+            {e.days}
+          </p>
+          <div className={styles.calendar} aria-hidden="true">
+            {Array.from({ length: shownWeeks * 7 }, (_, i) => (
+              <span
+                key={i}
+                className={[
+                  styles.day,
+                  i < days ? styles.dayOn : styles.dayRest,
+                  i % 7 >= 5 ? styles.dayWeekend : "",
+                ].join(" ")}
+              />
+            ))}
+          </div>
+          {weeks > MAX_CALENDAR_WEEKS && (
+            <p className={styles.resultMeta}>
+              + {weeks - MAX_CALENDAR_WEEKS} {e.moreWeeks}
+            </p>
+          )}
+          {weeks > 6 && <p className={styles.estimatorWarn}>{e.warning}</p>}
+        </div>
+      </div>
+      <p className={styles.estimatorFoot}>
+        {e.assumptions}{" "}
+        <Link to={e.calculatorHref} className={styles.estimatorLink}>
+          {e.calculatorLabel}
+        </Link>
+      </p>
+    </section>
   );
 };
 
-const CtaPanel = () => (
-  <aside className={styles.midCta} aria-labelledby="mid-cta-heading">
-    <h2 id="mid-cta-heading" className={styles.midCtaHeading}>
-      {copy.midCta.heading}
-    </h2>
-    <p>{copy.midCta.text}</p>
-    <a
-      href={copy.midCta.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.creamBtn}
-      data-cta={copy.midCta.buttonLabel}
-      data-cta-loc="Blog Post Mid CTA"
-    >
-      {copy.midCta.buttonLabel}
-    </a>
-  </aside>
-);
-
-const Block = ({ block: b }) => {
+const Block = ({ block: b, numbers, showEstimator }) => {
   switch (b.type) {
     case "p":
       return (
@@ -123,22 +176,49 @@ const Block = ({ block: b }) => {
         </p>
       );
     case "h2":
-      return <h2 id={headingId(b)}>{b.text}</h2>;
-    case "h3":
-      return <h3 id={headingId(b)}>{b.text}</h3>;
-    case "ul":
-    case "ol": {
-      const List = b.type;
       return (
-        <List>
+        <h2 id={headingId(b)} className={styles.h2}>
+          <span className={styles.num}>{numbers[headingId(b)]}</span>
+          {b.text}
+        </h2>
+      );
+    case "h3":
+      return (
+        <h3 id={headingId(b)} className={styles.h3}>
+          {b.text}
+        </h3>
+      );
+    case "ul":
+      return (
+        <ul className={styles.squareList}>
           {b.items.map((item, i) => (
             <li key={i}>
               <RichText text={item} />
             </li>
           ))}
-        </List>
+        </ul>
       );
-    }
+    case "ol":
+      return (
+        <ol className={styles.letterList}>
+          {b.items.map((item, i) => (
+            <li key={i}>
+              <span className={styles.letter} aria-hidden="true">
+                {String.fromCharCode(97 + i)}.
+              </span>
+              <span>
+                <RichText text={item} />
+              </span>
+            </li>
+          ))}
+        </ol>
+      );
+    case "quote":
+      return (
+        <blockquote className={styles.quote}>
+          <p>{b.text}</p>
+        </blockquote>
+      );
     case "formula":
       return (
         <div className={styles.formula}>
@@ -154,7 +234,7 @@ const Block = ({ block: b }) => {
               <thead>
                 <tr>
                   {b.headers.map((h, i) => (
-                    <th key={i} scope="col" className={b.numeric?.includes(i) ? styles.num : ""}>
+                    <th key={i} scope="col" className={b.numeric?.includes(i) ? styles.tnum : ""}>
                       {h}
                     </th>
                   ))}
@@ -169,7 +249,7 @@ const Block = ({ block: b }) => {
                           {cell}
                         </th>
                       ) : (
-                        <td key={i} className={b.numeric?.includes(i) ? styles.num : ""}>
+                        <td key={i} className={b.numeric?.includes(i) ? styles.tnum : ""}>
                           {cell}
                         </td>
                       ),
@@ -191,7 +271,7 @@ const Block = ({ block: b }) => {
               ["Variant · winner", b.variant, true],
             ].map(([label, img, win]) => (
               <div key={label} className={styles.compareItem}>
-                <span className={`${styles.compareLabel} ${win ? styles.compareWin : ""}`}>
+                <span className={`${styles.monoLabel} ${win ? styles.compareWin : ""}`}>
                   {label}
                 </span>
                 <OptimizedImg {...img} className={styles.compareImg} />
@@ -214,22 +294,31 @@ const Block = ({ block: b }) => {
           {b.items.map((s) => (
             <li key={s.label} className={styles.stat}>
               <span className={styles.statValue}>{s.value}</span>
-              <span className={styles.statLabel}>{s.label}</span>
+              <span className={styles.monoLabel}>{s.label}</span>
             </li>
           ))}
         </ul>
       );
     case "warning":
       return (
-        <aside className={styles.warning}>
-          <p className={styles.warningTitle}>{b.title}</p>
-          <p>
-            <RichText text={b.text} />
-          </p>
+        <aside className={styles.warning} aria-label={b.title}>
+          <p className={styles.monoLabel}>{b.title}</p>
+          <ul>
+            {b.items.map((item, i) => (
+              <li key={i}>
+                <span className={styles.bang} aria-hidden="true">
+                  !
+                </span>
+                <span>
+                  <RichText text={item} />
+                </span>
+              </li>
+            ))}
+          </ul>
         </aside>
       );
-    case "cta":
-      return <CtaPanel />;
+    case "estimator":
+      return showEstimator ? <Estimator /> : null;
     default:
       return null;
   }
@@ -238,9 +327,41 @@ const Block = ({ block: b }) => {
 const BlogPostLayout = ({ post }) => {
   const url = `${SITE_URL}/blog/${post.slug}`;
   const toc = buildToc(post, copy);
+  const numbers = Object.fromEntries(toc.map((t, i) => [t.id, pad(i + 1)]));
   const { author, featuredImage: img } = post;
-  const chips = [post.category, post.tags?.[0]].filter(Boolean);
-  const updated = post.updatedDate ?? post.publishedDate;
+  const showProgress = post.progressBar !== false;
+  const tocIds = toc.map((t) => t.id).join(" ");
+  const [active, setActive] = useState(toc[0]?.id);
+  const barRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (barRef.current) barRef.current.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+      const ids = tocIds.split(" ");
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < 160) current = id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [tocIds]);
+
+  const goTo = (e, id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    history.replaceState(null, "", `#${id}`);
+  };
+
+  const encoded = encodeURIComponent(url);
+  const cta = copy.serviceCta;
 
   return (
     <>
@@ -248,142 +369,198 @@ const BlogPostLayout = ({ post }) => {
         <Helmet>
           <link rel="stylesheet" href={FONTS_URL} />
         </Helmet>
+        {showProgress && <div ref={barRef} className={styles.progress} aria-hidden="true" />}
 
         <div className={styles.container}>
-          <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-            <ol>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>{post.category}</li>
-              <li aria-current="page">{post.title}</li>
-            </ol>
-          </nav>
-
           <header className={styles.hero}>
-            <ul className={styles.chips} aria-label="Topics">
-              {chips.map((c, i) => (
-                <li key={c} className={i === 0 ? styles.chipPurple : styles.chipPink}>
-                  {c}
+            <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
+              <ol>
+                <li>
+                  <Link to="/blog">Blog</Link>
                 </li>
-              ))}
-            </ul>
-            <h1 className={styles.title}>{post.title}</h1>
-            {post.subtitle && <p className={styles.subtitle}>{post.subtitle}</p>}
-
-            <div className={styles.authorRow}>
-              <div className={styles.authorMeta}>
-                <Avatar author={author} size={48} />
+                <li>
+                  <span className={styles.pill}>{post.category}</span>
+                </li>
+              </ol>
+            </nav>
+            <h1 className={styles.title}>
+              <Emphasis text={post.title} emphasis={post.titleEmphasis} />
+            </h1>
+            <div className={styles.heroBottom}>
+              {post.subtitle && <p className={styles.dek}>{post.subtitle}</p>}
+              <dl className={styles.meta}>
                 <div>
-                  <p className={styles.authorName}>{author.name}</p>
-                  <p className={styles.metaLine}>
-                    {author.role} · Updated <time dateTime={updated}>{formatDate(updated)}</time> ·{" "}
-                    {readTime(post)}
-                  </p>
+                  <dt>Written by</dt>
+                  <dd>{author.name}</dd>
                 </div>
-              </div>
-              <ShareButtons url={url} title={post.title} />
+                <div>
+                  <dt>Published</dt>
+                  <dd>
+                    <time dateTime={post.publishedDate}>
+                      {formatDate(post.publishedDate, "long")}
+                    </time>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Reading</dt>
+                  <dd>{readTime(post).replace(" read", "")}</dd>
+                </div>
+              </dl>
             </div>
           </header>
+        </div>
 
-          <figure className={styles.featured}>
+        <figure
+          className={`${styles.cover} ${post.coverLayout === "full" ? styles.coverFull : ""}`}
+        >
+          <div className={styles.coverFrame}>
             <OptimizedImg
               src={img.src}
               alt={img.alt}
               width={img.width ?? 1600}
               height={img.height ?? 840}
               priority
-              className={styles.featuredImg}
+              className={styles.coverImg}
             />
-            {img.caption && <figcaption className={styles.caption}>{img.caption}</figcaption>}
-          </figure>
+            {img.caption && (
+              <figcaption className={styles.coverCaption}>FIG. 00 — {img.caption}</figcaption>
+            )}
+          </div>
+        </figure>
 
-          <div className={styles.columns}>
-            <aside className={styles.sidebar}>
-              {toc.length > 0 && (
-                <nav aria-labelledby="toc-heading" className={styles.toc}>
-                  <p id="toc-heading" className={styles.tocHeading}>
-                    {copy.tocHeading}
-                  </p>
-                  <ol>
-                    {toc.map((t) => (
-                      <li key={t.id}>
-                        <a href={`#${t.id}`}>{t.label}</a>
-                      </li>
-                    ))}
-                  </ol>
-                </nav>
-              )}
-              <div className={styles.sidePanel}>
-                <p className={styles.sidePanelHeading}>{copy.sidebarCta.heading}</p>
-                <p>{copy.sidebarCta.text}</p>
-                <a
-                  href={copy.sidebarCta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.purpleBtn}
-                  data-cta={copy.sidebarCta.buttonLabel}
-                  data-cta-loc="Blog Post Sidebar"
-                >
-                  {copy.sidebarCta.buttonLabel}
-                </a>
-              </div>
-            </aside>
+        <div className={`${styles.container} ${styles.columns}`}>
+          <aside className={styles.sidebar}>
+            {toc.length > 0 && (
+              <nav aria-labelledby="toc-heading">
+                <p id="toc-heading" className={styles.monoLabel}>
+                  {copy.tocHeading}
+                </p>
+                <ol className={styles.toc}>
+                  {toc.map((t) => (
+                    <li key={t.id}>
+                      <a
+                        href={`#${t.id}`}
+                        onClick={(e) => goTo(e, t.id)}
+                        className={active === t.id ? styles.tocActive : undefined}
+                        aria-current={active === t.id ? "location" : undefined}
+                      >
+                        <span className={styles.tocNum}>{numbers[t.id]}</span>
+                        {t.label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+            <div className={styles.share}>
+              <a
+                className={styles.ghostPill}
+                href={`https://twitter.com/intent/tweet?url=${encoded}&text=${encodeURIComponent(post.title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Share on X
+              </a>
+              <a
+                className={styles.ghostPill}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </aside>
 
-            <article className={styles.article}>
-              {post.quickAnswer && (
-                <div className={styles.quickAnswer}>
-                  <p className={styles.quickLabel}>Quick answer</p>
-                  <p className={styles.quickText}>{post.quickAnswer}</p>
-                </div>
-              )}
+          <article className={styles.article}>
+            {post.quickAnswer && <p className={styles.lede}>{post.quickAnswer}</p>}
 
-              {post.keyTakeaways?.length > 0 && (
-                <>
-                  <h2 id="key-takeaways">{copy.takeawaysHeading}</h2>
-                  <ul>
-                    {post.keyTakeaways.map((t, i) => (
-                      <li key={i}>
-                        <RichText text={t} />
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
+            {post.keyTakeaways?.length > 0 && (
+              <>
+                <h2 id="key-takeaways" className={styles.h2}>
+                  <span className={styles.num}>{numbers["key-takeaways"]}</span>
+                  {copy.takeawaysHeading}
+                </h2>
+                <ul className={styles.squareList}>
+                  {post.keyTakeaways.map((t, i) => (
+                    <li key={i}>
+                      <RichText text={t} />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
 
-              {post.body.map((b, i) => (
-                <Block key={i} block={b} />
-              ))}
+            {post.body.map((b, i) => (
+              <Block
+                key={i}
+                block={b}
+                numbers={numbers}
+                showEstimator={post.showEstimator !== false}
+              />
+            ))}
 
-              {post.faq?.length > 0 && (
-                <section aria-labelledby="faq">
-                  <h2 id="faq">{copy.faqHeading}</h2>
-                  <div className={styles.faqList}>
-                    {post.faq.map((f, i) => (
-                      <details key={f.question} className={styles.faqItem} open={i === 0}>
-                        <summary>{f.question}</summary>
-                        <p>{f.answer}</p>
-                      </details>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              <section className={styles.authorBox} aria-label="About the author">
-                <Avatar author={author} size={80} />
-                <div>
-                  <p className={styles.writtenBy}>Written by</p>
-                  <p className={styles.authorBoxName}>{author.name}</p>
-                  {author.bio && <p className={styles.authorBio}>{author.bio}</p>}
-                  {author.linkedin && (
-                    <a href={author.linkedin} target="_blank" rel="noopener noreferrer">
-                      Connect on LinkedIn
-                    </a>
-                  )}
+            {post.faq?.length > 0 && (
+              <section aria-labelledby="faq">
+                <h2 id="faq" className={styles.h2}>
+                  <span className={styles.num}>{numbers.faq}</span>
+                  {copy.faqHeading}
+                </h2>
+                <div className={styles.faqList}>
+                  {post.faq.map((f, i) => (
+                    <details key={f.question} className={styles.faqItem} open={i === 0}>
+                      <summary>{f.question}</summary>
+                      <p>{f.answer}</p>
+                    </details>
+                  ))}
                 </div>
               </section>
-            </article>
-          </div>
+            )}
+
+            <section className={styles.authorBox} aria-label="About the author">
+              <Avatar author={author} size={64} />
+              <div>
+                <p className={styles.monoLabel}>Written by</p>
+                <p className={styles.authorName}>{author.name}</p>
+                {author.bio && <p className={styles.authorBio}>{author.bio}</p>}
+                {author.linkedin && (
+                  <a href={author.linkedin} target="_blank" rel="noopener noreferrer">
+                    Connect on LinkedIn
+                  </a>
+                )}
+              </div>
+            </section>
+          </article>
+        </div>
+
+        <div className={styles.container}>
+          <aside className={styles.serviceCta} aria-labelledby="service-cta-heading">
+            <p className={styles.monoLabel}>{cta.label}</p>
+            <h2 id="service-cta-heading" className={styles.serviceHeading}>
+              {cta.heading}
+            </h2>
+            <p className={styles.serviceText}>{cta.text}</p>
+            <div className={styles.serviceButtons}>
+              <a
+                href={cta.primaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.creamPill}
+                data-cta={cta.primaryLabel}
+                data-cta-loc="Blog Post Service CTA"
+              >
+                {cta.primaryLabel}
+              </a>
+              <Link
+                to={cta.secondaryHref}
+                className={styles.outlinePill}
+                data-cta={cta.secondaryLabel}
+                data-cta-loc="Blog Post Service CTA"
+              >
+                {cta.secondaryLabel}
+              </Link>
+            </div>
+          </aside>
         </div>
       </div>
 

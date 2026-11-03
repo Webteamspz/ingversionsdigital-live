@@ -1,5 +1,6 @@
 export default {
   title: "How a Clearer Pack Selector Lifted Shopify Mobile Conversion by 33.4%",
+  titleEmphasis: "by 33.4%",
   slug: "shopify-pack-selector-ab-test",
   seoTitle: "Shopify Pack Selector A/B Test: +33.4% Mobile Conversion | Ingversions",
   metaDescription:
@@ -16,6 +17,9 @@ export default {
     linkedin: "https://in.linkedin.com/company/ingversions",
     type: "Organization",
   },
+  showEstimator: true,
+  progressBar: true,
+  coverLayout: "inset",
   publishedDate: "2026-11-03",
   updatedDate: "2026-11-03",
   featuredImage: {
@@ -64,6 +68,7 @@ export default {
         ["Desktop", "28", "26,698", "3.52%", "4.42%", "+25.6%", "99.6%"],
       ],
     },
+    { type: "estimator" },
     { type: "h2", text: "What the winning page looked like" },
     {
       type: "compare",
@@ -92,12 +97,18 @@ export default {
     {
       type: "warning",
       title: "What didn't work",
-      text: "The free gift tiles on their own (V1) looked much worse in the first days and were switched off. On desktop, adding only a per-radio price (V2) also looked worse early and was stopped. The lift only appeared once the clutter was removed and the tags were added.",
+      items: [
+        "The free gift tiles on their own (V1) looked much worse in the first days and were switched off.",
+        "On desktop, adding only a per-radio price (V2) also looked worse early and was stopped.",
+      ],
     },
-    { type: "cta" },
+    {
+      type: "quote",
+      text: "The lift only appeared once the clutter was removed and the tags were added.",
+    },
     { type: "h2", text: "How to try this on your store" },
     {
-      type: "ul",
+      type: "ol",
       items: [
         "If you sell bundles or packs, show every option in one selector with its price and saving.",
         "Show what's included (gifts, shipping) next to each option, not in a pop-up.",

@@ -19,17 +19,29 @@ export const templateToCard = (p) => ({
 });
 
 export const postTemplateCopy = {
-  sidebarCta: {
-    heading: "Below the benchmark?",
-    text: "We'll record a free 5-minute video review of your store.",
-    buttonLabel: "Get my free review",
-    href: "https://calendly.com/ingversionsdigital/30min",
+  serviceCta: {
+    label: "Related service — A/B Testing",
+    heading: "Stop guessing what your visitors want.",
+    text: "We research, design, build and run structured A/B tests on Shopify, from the hypothesis to the GA4-checked result, so every change you ship is backed by your own data.",
+    primaryLabel: "Book a free CRO review",
+    primaryHref: "https://calendly.com/ingversionsdigital/30min",
+    secondaryLabel: "Explore the service",
+    secondaryHref: "/ab-testing",
   },
-  midCta: {
-    heading: "Want to know where your store is leaking sales?",
-    text: "Book a free 30-minute call. We'll look at your store and tell you the first three tests we'd run.",
-    buttonLabel: "Book a free call",
-    href: "https://calendly.com/ingversionsdigital/30min",
+  estimator: {
+    label: "Interactive",
+    heading: "Estimate your test duration",
+    baseline: "Baseline conversion",
+    mde: "Minimum detectable effect",
+    daily: "Daily visitors",
+    variants: "Variants (incl. control)",
+    perVariant: "visitors per variant",
+    days: "days",
+    moreWeeks: "more weeks not shown",
+    warning: "Over 6 weeks: consider testing a bigger, bolder change.",
+    assumptions: "95% confidence, 80% power, rounded up to full weeks.",
+    calculatorLabel: "Open the full A/B test calculator →",
+    calculatorHref: "/ab-test-calculator",
   },
   endCta: {
     heading: "Want results like these?",
@@ -39,5 +51,5 @@ export const postTemplateCopy = {
   },
   faqHeading: "Frequently asked questions",
   takeawaysHeading: "Key takeaways",
-  tocHeading: "On this page",
+  tocHeading: "In this article",
 };

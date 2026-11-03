@@ -29,6 +29,13 @@ export const buildToc = (post, { takeawaysHeading, faqHeading }) => [
   ...(post.faq?.length ? [{ id: "faq", label: faqHeading }] : []),
 ];
 
+export const estimateDuration = ({ baseline, mde, daily, variants }) => {
+  const p = baseline / 100;
+  const perVariant = Math.ceil((16 * p * (1 - p)) / (p * (mde / 100)) ** 2);
+  const days = Math.ceil((perVariant * variants) / daily);
+  return { perVariant, days, weeks: Math.ceil(days / 7) };
+};
+
 export const formatDate = (iso, month = "short") =>
   new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
     month,
