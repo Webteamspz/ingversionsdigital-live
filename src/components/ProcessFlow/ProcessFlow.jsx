@@ -93,7 +93,7 @@ const Steps = ({ steps }) => {
   );
 };
 
-const ProcessFlow = ({ tabIds }) => {
+const ProcessFlow = ({ tabIds, showNote = true }) => {
   const { eyebrow, heading, highlight, sub } = data.processFlow;
   const tabs = tabIds
     ? data.processFlow.tabs.filter((t) => tabIds.includes(t.id))
@@ -155,15 +155,17 @@ const ProcessFlow = ({ tabIds }) => {
         >
           <Steps steps={tab.steps} key={tab.id} />
 
-          <p className={styles.note}>
-            <CircleCheck
-              size={22}
-              strokeWidth={2.5}
-              className={styles.noteIcon}
-              aria-hidden="true"
-            />
-            {tab.note}
-          </p>
+          {showNote && (
+            <p className={styles.note}>
+              <CircleCheck
+                size={22}
+                strokeWidth={2.5}
+                className={styles.noteIcon}
+                aria-hidden="true"
+              />
+              {tab.note}
+            </p>
+          )}
         </div>
       </div>
     </section>

@@ -14,13 +14,12 @@
   --post-radius: 20px;
   --post-radius-sm: 16px;
   --post-pill: 999px;
-  --post-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --post-sans: Geist, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --post-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --post-heading: Outfit, system-ui, sans-serif;
+  --post-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   background: var(--post-bg);
   color: var(--post-body-text);
-  font-family: var(--post-sans);
+  font-family: var(--post-body);
   font-size: 18px;
   line-height: 1.72;
   padding: 140px 0 96px;
@@ -30,10 +29,10 @@
 :global(.ing-blog) .page h1,
 :global(.ing-blog) .page h2,
 :global(.ing-blog) .page h3 {
-  font-family: var(--post-serif);
-  font-weight: 400;
+  font-family: var(--post-heading);
+  font-weight: 700;
   color: var(--post-ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
 }
 
 :where(.page) h1,
@@ -72,9 +71,9 @@
 }
 
 .monoLabel {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.5;
   text-transform: uppercase;
@@ -101,7 +100,7 @@
   list-style: none;
   margin: 0 0 32px;
   padding: 0;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -131,8 +130,8 @@
 }
 
 .page .title {
-  font-size: 104px;
-  line-height: 0.95;
+  font-size: 72px;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   max-width: 1180px;
 }
@@ -165,7 +164,7 @@
 }
 
 .meta dt {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -223,7 +222,7 @@
   bottom: 20px;
   right: 24px;
   z-index: 1;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -232,9 +231,8 @@
 
 .columns {
   display: grid;
-  grid-template-columns: 240px minmax(0, 720px);
-  column-gap: 112px;
-  justify-content: center;
+  grid-template-columns: 260px minmax(0, 1fr);
+  column-gap: 72px;
   align-items: start;
 }
 
@@ -270,7 +268,7 @@
 }
 
 .tocNum {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
   padding-top: 2px;
   color: var(--post-violet);
@@ -290,7 +288,7 @@
   justify-content: center;
   white-space: nowrap;
   border-radius: var(--post-pill);
-  font-family: var(--post-sans);
+  font-family: var(--post-body);
   font-weight: 500;
   text-decoration: none;
 }
@@ -317,14 +315,14 @@
 }
 
 .lede {
-  font-family: var(--post-serif);
-  font-size: 34px;
-  line-height: 1.25;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--post-ink);
 }
 
 .page .h2 {
-  font-size: 44px;
+  font-size: 36px;
   line-height: 1.08;
   margin-top: 80px;
   scroll-margin-top: 120px;
@@ -333,14 +331,14 @@
 .num {
   display: block;
   margin-bottom: 12px;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--post-violet);
 }
 
 .page .h3 {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.2;
   margin-top: 48px;
   scroll-margin-top: 120px;
@@ -397,7 +395,7 @@
 }
 
 .letter {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 13px;
   padding-top: 4px;
   color: var(--post-violet);
@@ -412,10 +410,10 @@
 }
 
 .quote p {
-  font-family: var(--post-serif);
-  font-style: italic;
-  font-size: 40px;
-  line-height: 1.15;
+  font-family: var(--post-heading);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.3;
   color: var(--post-violet);
 }
 
@@ -427,15 +425,16 @@
 }
 
 .formulaText {
-  font-family: var(--post-serif);
-  font-size: 32px;
-  line-height: 1.2;
+  font-family: var(--post-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
   color: #ffffff;
 }
 
 .formulaNote {
   margin-top: 12px;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--post-violet-light);
@@ -468,7 +467,7 @@
 }
 
 .table thead th {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -493,7 +492,7 @@
 
 .caption {
   margin-top: 12px;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
   letter-spacing: 0.04em;
   color: var(--post-muted);
@@ -557,8 +556,9 @@
 }
 
 .statValue {
-  font-family: var(--post-serif);
-  font-size: 56px;
+  font-family: var(--post-heading);
+  font-size: 44px;
+  font-weight: 700;
   line-height: 1;
   color: var(--post-violet);
 }
@@ -595,7 +595,7 @@
   margin-top: 3px;
   border: 1.5px solid var(--post-orange);
   border-radius: 50%;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
@@ -619,7 +619,7 @@
 
 .page .estimator .estimatorHeading {
   margin-top: 6px;
-  font-size: 36px;
+  font-size: 28px;
   line-height: 1.1;
   color: #ffffff;
 }
@@ -643,7 +643,7 @@
 }
 
 .sliderHead output {
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 14px;
   color: var(--post-violet-light);
 }
@@ -656,19 +656,20 @@
 }
 
 .weeks {
-  font-family: var(--post-serif);
-  font-size: 72px;
+  font-family: var(--post-heading);
+  font-size: 56px;
+  font-weight: 700;
   line-height: 1;
   color: var(--post-violet-light);
 }
 
 .weeks span {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .resultMeta {
   margin-top: 8px;
-  font-family: var(--post-mono);
+  font-family: var(--post-body);
   font-size: 12px;
   letter-spacing: 0.04em;
   color: #b7b0c6;
@@ -733,9 +734,10 @@
 .faqItem summary {
   cursor: pointer;
   padding: 20px 0;
-  font-family: var(--post-serif);
-  font-size: 24px;
-  line-height: 1.3;
+  font-family: var(--post-heading);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
   color: var(--post-ink);
 }
 
@@ -764,12 +766,14 @@
   object-fit: cover;
   background: var(--post-violet-tint);
   color: var(--post-violet);
-  font-family: var(--post-serif);
+  font-family: var(--post-heading);
+  font-weight: 700;
 }
 
 .authorName {
-  font-family: var(--post-serif);
-  font-size: 28px;
+  font-family: var(--post-heading);
+  font-weight: 700;
+  font-size: 22px;
   line-height: 1.2;
   color: var(--post-ink);
 }
@@ -793,8 +797,8 @@
 
 .page .serviceCta .serviceHeading {
   margin-top: 16px;
-  font-size: 64px;
-  line-height: 1;
+  font-size: 48px;
+  line-height: 1.1;
   color: #ffffff;
   max-width: 820px;
 }
@@ -848,17 +852,17 @@
 
 @media (max-width: 1279.98px) {
   .page .title {
-    font-size: 88px;
+    font-size: 60px;
   }
 
   .columns {
-    column-gap: 64px;
+    column-gap: 48px;
   }
 }
 
 @media (max-width: 979.98px) {
   .page .title {
-    font-size: 64px;
+    font-size: 48px;
   }
 
   .heroBottom {
@@ -880,7 +884,7 @@
   }
 
   .page .serviceCta .serviceHeading {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 
@@ -903,7 +907,7 @@
   }
 
   .page .title {
-    font-size: 48px;
+    font-size: 36px;
   }
 
   .meta {
@@ -911,24 +915,24 @@
   }
 
   .lede {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .page .h2 {
-    font-size: 34px;
+    font-size: 28px;
     margin-top: 64px;
   }
 
   .page .h3 {
-    font-size: 24px;
+    font-size: 21px;
   }
 
   .quote p {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .formulaText {
-    font-size: 24px;
+    font-size: 21px;
   }
 
   .compareGrid {
@@ -951,7 +955,7 @@
   }
 
   .statValue {
-    font-size: 44px;
+    font-size: 36px;
   }
 
   .estimator {
@@ -969,7 +973,7 @@
   }
 
   .page .serviceCta .serviceHeading {
-    font-size: 38px;
+    font-size: 30px;
   }
 
   .authorBox {

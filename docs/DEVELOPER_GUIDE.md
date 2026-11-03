@@ -402,9 +402,7 @@ posts first, then structured posts, then legacy ones, then shows the blog 404 (`
   calculator; its maths is `estimateDuration` in `src/utils/blogPost.js`). Text supports
   `**bold**`, `[label](url)` and `` `code` ``. "In this article" is built from the `h2` blocks
   (plus Key takeaways and the FAQ) and numbered 01, 02, ... The layout's tokens live on
-  `.page` in `BlogPostLayout.module.css`; its fonts (Instrument Serif, Geist, Geist Mono) load
-  only on these posts, and on phones the site-wide system-font rule in `style.css` still
-  applies. The service CTA, estimator and end CTA copy is `postTemplateCopy` in
+  `.page` in `BlogPostLayout.module.css`; it uses the site fonts (Outfit, Plus Jakarta Sans). The service CTA, estimator and end CTA copy is `postTemplateCopy` in
   `templatePosts.js`. The page ends with the same `PopularArticles` slider and CTA box as the
   other posts. Head tags, BlogPosting + FAQPage JSON-LD, the home card and the sitemap entry
   are generated from the file.

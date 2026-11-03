@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import { RichText } from "../ArticleBlocks/ArticleBlocks";
 import PopularArticles from "../PopularArticles/PopularArticles";
@@ -17,8 +16,6 @@ import {
 import styles from "./BlogPostLayout.module.css";
 
 const SITE_URL = "https://ingversionsdigital.com";
-const FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap";
 const MAX_CALENDAR_WEEKS = 12;
 const pad = (n) => String(n).padStart(2, "0");
 
@@ -366,9 +363,6 @@ const BlogPostLayout = ({ post }) => {
   return (
     <>
       <div className={styles.page}>
-        <Helmet>
-          <link rel="stylesheet" href={FONTS_URL} />
-        </Helmet>
         {showProgress && <div ref={barRef} className={styles.progress} aria-hidden="true" />}
 
         <div className={styles.container}>
