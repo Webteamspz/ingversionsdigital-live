@@ -3,11 +3,14 @@ import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ArticleBlocks from "../../components/ArticleBlocks/ArticleBlocks";
 import BlogArticle from "../../components/BlogArticle/BlogArticle";
+import BlogPostLayout from "../../components/BlogPostLayout/BlogPostLayout";
+import InsightsLayout from "../../components/InsightsLayout/InsightsLayout";
 import PopularArticles from "../../components/PopularArticles/PopularArticles";
 import RelatedService from "../../components/RelatedService/RelatedService";
 import articleStyles from "../../components/BlogArticle/ArticleDetail.module.css";
 import { articles } from "../../data/blog/articlesData.js";
 import { getStructuredPost } from "../../data/blog/structuredPosts.js";
+import { getTemplatePost } from "../../data/blog/templatePosts.js";
 import { getPostSeo, blogNotFoundSeo } from "../../data/blog/blogSeo.js";
 import styles from "./BlogNotFound.module.css";
 import "./blog.css";
@@ -31,6 +34,14 @@ const BlogNotFound = () => (
 );
 
 const PostBody = ({ slug }) => {
+  const templatePost = getTemplatePost(slug);
+  if (templatePost)
+    return templatePost.template === "insights" ? (
+      <InsightsLayout post={templatePost} />
+    ) : (
+      <BlogPostLayout post={templatePost} />
+    );
+
   const structured = getStructuredPost(slug);
   if (structured) {
     return (

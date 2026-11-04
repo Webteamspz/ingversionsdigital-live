@@ -18,7 +18,7 @@ const Icon = ({ name, size = 20 }) => {
   return <Cmp size={size} />;
 };
 
-const RichText = ({ text }) => {
+export const RichText = ({ text }) => {
   const tokens = text.split(/(\*\*[^*]+\*\*|==[^=]+==|\[[^\]]+\]\([^)]+\)|`[^`]+`)/g);
   return (
     <>
