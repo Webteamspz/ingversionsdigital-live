@@ -101,9 +101,13 @@ export default {
       ],
       all: { label: "Explore all services", short: "All services", href: "/services" },
       promo: {
-        title: "Not sure where to start?",
-        text: "Get a free 30-minute CRO review of your store.",
-        label: "Book A Call",
+        eyebrow: "Case study · Rapid Radios",
+        stat: "+33.7%",
+        statLabel: "mobile conversion",
+        detail: "1.28% → 1.71% · 99.7% confidence",
+        text: "A sticky add-to-cart bar beat the original product page in 10 days.",
+        label: "Read the case study",
+        href: "/case-studies/rapid-radios-shopify-cro-case-study",
       },
     },
     mobileMenu: {
