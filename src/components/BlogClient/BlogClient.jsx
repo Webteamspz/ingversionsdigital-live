@@ -1,18 +1,10 @@
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import styles from "./BlogClient.module.css";
 import { postCards } from "../../data/blog/postCards.js";
 import { coverThumb, homepageCategoryImages } from "../../data/blog/articleImages.js";
-
-const getCategorySlug = (categoryName) => {
-  if (!categoryName) return "all";
-  if (categoryName === "Shopify Development") return "shopify";
-  if (categoryName === "A/B Testing") return "ab-testing";
-  if (categoryName === "Quality Assurance") return "qa";
-  if (categoryName === "CRO") return "cro";
-  return categoryName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-};
+import { categorySlug as getCategorySlug } from "../../utils/blogPost.js";
 
 const articles = postCards
   .map((post) => ({ ...post, categorySlug: getCategorySlug(post.category) }))
@@ -90,8 +82,16 @@ const categoryCards = [
 ];
 
 const BlogClient = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [params, setParams] = useSearchParams();
+  const fromUrl = params.get("category");
+  const activeCategory = categories.some((c) => c.id === fromUrl) ? fromUrl : "all";
   const topRef = useRef(null);
+
+  const setActiveCategory = (categoryId) =>
+    setParams(categoryId === "all" ? {} : { category: categoryId }, {
+      replace: true,
+      preventScrollReset: true,
+    });
 
   const handleCategoryClick = (categoryId) => {
     setActiveCategory(categoryId);

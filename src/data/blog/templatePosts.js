@@ -53,3 +53,24 @@ export const postTemplateCopy = {
   takeawaysHeading: "Key takeaways",
   tocHeading: "In this article",
 };
+
+export const insightsCopy = {
+  root: "Blog",
+  categoriesLabel: "Blog categories",
+  tldrLabel: "TL;DR",
+  reviewedBy: "Reviewed by",
+  contentsHeading: "Contents",
+  faqHeading: "Frequently asked questions",
+  quickAnswersPrefix: "Quick answers:",
+  relatedLabel: "Related article:",
+  latestPrefix: "Latest insights on",
+  viewAll: "View all",
+  reviewCta: {
+    heading: "Free Shopify CRO review",
+    text: "We’ll look at your store on mobile and tell you the first three tests we’d run.",
+    buttonLabel: "Book a free review",
+    href: "https://calendly.com/ingversionsdigital/30min",
+  },
+  toolsHeading: "Free tools",
+  tools: [{ label: "A/B test significance calculator", href: "/ab-test-calculator" }],
+};

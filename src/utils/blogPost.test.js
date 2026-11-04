@@ -1,6 +1,14 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readTime, slugify, buildToc, estimateDuration, formatDate, initials } from "./blogPost.js";
+import {
+  categorySlug,
+  readTime,
+  slugify,
+  buildToc,
+  estimateDuration,
+  formatDate,
+  initials,
+} from "./blogPost.js";
 
 test("readTime keeps an explicit value and estimates otherwise", () => {
   assert.equal(readTime({ readTime: "9 min read", body: [] }), "9 min read");
@@ -35,4 +43,10 @@ test("estimateDuration uses 16·p(1−p)/(p·MDE)² and rounds up to full weeks"
     weeks: 3,
   });
   assert.equal(estimateDuration({ baseline: 3, mde: 10, daily: 5000, variants: 3 }).weeks, 5);
+});
+
+test("categorySlug keeps the blog's existing tab ids", () => {
+  assert.equal(categorySlug("Shopify Development"), "shopify");
+  assert.equal(categorySlug("AI & Automation"), "ai-automation");
+  assert.equal(categorySlug(undefined), "all");
 });

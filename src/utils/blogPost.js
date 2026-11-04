@@ -11,7 +11,15 @@ const countWords = (v) => {
 
 export const readTime = (post) => {
   if (post.readTime) return post.readTime;
-  const words = countWords([post.quickAnswer, post.keyTakeaways, post.body, post.faq]);
+  const words = countWords([
+    post.summary,
+    post.tldr,
+    post.quickAnswer,
+    post.keyTakeaways,
+    post.body,
+    post.faq,
+    post.quickAnswers,
+  ]);
   return `${Math.max(1, Math.round(words / WORDS_PER_MINUTE))} min read`;
 };
 
@@ -20,6 +28,15 @@ export const slugify = (text) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+
+const CATEGORY_SLUGS = {
+  "Shopify Development": "shopify",
+  "A/B Testing": "ab-testing",
+  "Quality Assurance": "qa",
+  CRO: "cro",
+};
+
+export const categorySlug = (name) => (name ? (CATEGORY_SLUGS[name] ?? slugify(name)) : "all");
 
 export const headingId = (block) => block.id ?? slugify(block.text);
 

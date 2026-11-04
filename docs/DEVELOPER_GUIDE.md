@@ -408,6 +408,17 @@ posts first, then structured posts, then legacy ones, then shows the blog 404 (`
   `templatePosts.js`. The page ends with the same `PopularArticles` slider and CTA box as the
   other posts. Head tags, BlogPosting + FAQPage JSON-LD, the home card and the sitemap entry
   are generated from the file.
+- **Insights posts:** a template post with `template: "insights"` renders with `InsightsLayout`
+  (category pill bar, two columns with a Contents / CTA / free-tools sidebar, TL;DR panel, meta
+  row with an optional `reviewer`). Extra fields: `summary, tldr[], sidebarCta { heading, text,
+  buttonLabel, href }` (optional; defaults to `insightsCopy.reviewCta` in `templatePosts.js`),
+  `quickAnswersTopic, quickAnswers[{ term, answer }], closing { heading, text[] }` and
+  `relatedPost` (a slug). Extra `body` blocks: `steps { start, items[{ title, text }] }`,
+  `code { code, label }` and `barChart { items[{ label, value, display }], caption }`.
+  `featuredImage` is used only for the blog card and share image. Category pills and "Latest
+  insights" link to `/blog?category=<slug>`; `BlogClient` reads that query parameter to pick
+  the tab, and `categorySlug()` in `src/utils/blogPost.js` makes the slugs. Example:
+  `shopify-black-friday-checklist.js`.
 
 - **Structured posts** (preferred): one object per post in `src/data/blog/blogPosts.json`.
   Copy the `post` object from `blogPostTemplate.json`, which has an example of every block
