@@ -428,21 +428,27 @@ const Header = () => {
         ))}
 
         <div className={styles.submenuPromo}>
-          <p className={styles.submenuPromoTitle}>{servicesMenu.promo.title}</p>
+          <p className={styles.submenuPromoEyebrow}>{servicesMenu.promo.eyebrow}</p>
+          <p className={styles.submenuPromoStat}>
+            {servicesMenu.promo.stat} <span>{servicesMenu.promo.statLabel}</span>
+          </p>
+          <p className={styles.submenuPromoDetail}>{servicesMenu.promo.detail}</p>
           <p className={styles.submenuPromoText}>{servicesMenu.promo.text}</p>
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={servicesMenu.promo.href}
             className={styles.submenuPromoBtn}
             data-cta={servicesMenu.promo.label}
             data-cta-loc="Header Services Dropdown"
             onClick={() =>
-              handleNavClick(servicesMenu.promo.label, "Header Services Dropdown", ctaHref)
+              handleNavClick(
+                servicesMenu.promo.label,
+                "Header Services Dropdown",
+                servicesMenu.promo.href,
+              )
             }
           >
-            {servicesMenu.promo.label}
-          </a>
+            {servicesMenu.promo.label} →
+          </Link>
           <Link
             to={servicesMenu.all.href}
             className={styles.footerLink}

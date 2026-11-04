@@ -93,7 +93,7 @@ const Steps = ({ steps }) => {
   );
 };
 
-const ProcessFlow = ({ tabIds }) => {
+const ProcessFlow = ({ tabIds, showNote = true }) => {
   const { eyebrow, heading, highlight, sub } = data.processFlow;
   const tabs = tabIds
     ? data.processFlow.tabs.filter((t) => tabIds.includes(t.id))
@@ -111,7 +111,11 @@ const ProcessFlow = ({ tabIds }) => {
   };
 
   return (
-    <section className={styles.section} id="process-flow" aria-labelledby="process-flow-heading">
+    <section
+      className={showNote ? styles.section : `${styles.section} ${styles.noNote}`}
+      id="process-flow"
+      aria-labelledby="process-flow-heading"
+    >
       <div className="container">
         <span className={styles.eyebrow}>
           <span className={styles.dot} aria-hidden="true" />
@@ -155,15 +159,17 @@ const ProcessFlow = ({ tabIds }) => {
         >
           <Steps steps={tab.steps} key={tab.id} />
 
-          <p className={styles.note}>
-            <CircleCheck
-              size={22}
-              strokeWidth={2.5}
-              className={styles.noteIcon}
-              aria-hidden="true"
-            />
-            {tab.note}
-          </p>
+          {showNote && (
+            <p className={styles.note}>
+              <CircleCheck
+                size={22}
+                strokeWidth={2.5}
+                className={styles.noteIcon}
+                aria-hidden="true"
+              />
+              {tab.note}
+            </p>
+          )}
         </div>
       </div>
     </section>

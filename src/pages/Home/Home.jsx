@@ -50,7 +50,7 @@ const Home = () => {
         <TrackRecord />
         <Services />
         <WorkProcess />
-        <ProcessFlow tabIds={["ab-testing", "shopify", "qa"]} />
+        <ProcessFlow tabIds={["ab-testing", "shopify", "qa"]} showNote={false} />
         <CaseStudies />
         <EngagementModels />
         <Reviews />

@@ -88,7 +88,7 @@ npm run build:production    # mode=production, the public build
 | `src/pages/` | one folder per route |
 | `src/components/` | presentational components, each with its own `.module.css` |
 | `src/data/*.js` | all site copy as plain objects |
-| `src/data/blog/` | blog posts (`blogPosts.json`, `articlesData.js`), home cards, cover mapping, and blog head tags (`blogSeo.js`) |
+| `src/data/blog/` | blog posts (`posts/`, `blogPosts.json`, `articlesData.js`), home cards, cover mapping, and blog head tags (`blogSeo.js`) |
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
@@ -112,7 +112,8 @@ To change what the site says, edit the matching module in `src/data/`:
 | `aboutUsData.js` | About page copy |
 | `servicePagesData.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
 | `seoData.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
-| `blog/blogPosts.json` | Structured blog posts (preferred). Template: `blog/blogPostTemplate.json` |
+| `blog/posts/<slug>.js` | New blog posts, one file each (preferred), rendered by `BlogPostLayout`. Copy `shopify-conversion-rate-benchmarks.js` to start |
+| `blog/blogPosts.json` | Older structured blog posts. Template: `blog/blogPostTemplate.json` |
 | `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
 
 Components read these objects and render them. Do not hardcode copy in JSX.

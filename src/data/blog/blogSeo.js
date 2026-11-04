@@ -1,6 +1,7 @@
 import { articles } from "./articlesData.js";
 import { articleImages, fallbackImagesByCategory } from "./articleImages.js";
 import { structuredPosts, getStructuredPost } from "./structuredPosts.js";
+import { templatePosts, getTemplatePost } from "./templatePosts.js";
 
 const SITE_URL = "https://ingversionsdigital.com";
 const home = { name: "Home", path: "/" };
@@ -56,9 +57,55 @@ export const blogNotFoundSeo = {
   noindex: true,
 };
 
+const templatePostSeo = (post, path, url) => {
+  const cover = post.cardImage ?? post.featuredImage.src;
+  const image = `${SITE_URL}${cover}`;
+  const author = {
+    "@type": post.author.type ?? "Person",
+    name: post.author.name,
+    ...(post.author.linkedin && { sameAs: [post.author.linkedin] }),
+  };
+  const jsonLd = [
+    {
+      ...postingJsonLd({
+        headline: post.title,
+        description: post.metaDescription,
+        image: cover,
+        date: post.publishedDate,
+        url,
+      }),
+      dateModified: toIso(post.updatedDate ?? post.publishedDate),
+      author,
+    },
+  ];
+  if (post.faq?.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    });
+  }
+  return {
+    title: post.seoTitle ?? post.title,
+    description: post.metaDescription,
+    keywords: post.tags,
+    path,
+    image,
+    breadcrumb: [home, blog, { name: post.title, path }],
+    jsonLd,
+  };
+};
+
 export const getPostSeo = (slug) => {
   const path = `/blog/${slug}`;
   const url = `${SITE_URL}${path}`;
+
+  const templatePost = getTemplatePost(slug);
+  if (templatePost) return templatePostSeo(templatePost, path, url);
 
   const structured = getStructuredPost(slug);
   if (structured) {
@@ -105,6 +152,7 @@ export const getPostSeo = (slug) => {
 };
 
 export const allPosts = [
+  ...templatePosts.map((p) => ({ slug: p.slug, date: p.updatedDate ?? p.publishedDate })),
   ...Object.entries(articles).map(([slug, a]) => ({ slug, date: a.date })),
   ...structuredPosts.map((p) => ({ slug: p.slug, date: p.meta.date })),
 ];
