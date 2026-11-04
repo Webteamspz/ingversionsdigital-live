@@ -396,7 +396,8 @@ posts first, then structured posts, then legacy ones, then shows the blog 404 (`
   post), `cardImage` (optional: the blog card, slider and share image; defaults to the featured
   image), `quickAnswer` (the lede), `keyTakeaways[], body[], faq[{ question, answer }]`, and three switches:
   `showEstimator`, `progressBar` (both default on) and `coverLayout` (`"inset"` or `"full"`), plus `coverPlain: true` for a chart or screenshot
-  cover (no dark fade or desaturation, caption under the image).
+  cover (no dark fade or desaturation, caption under the image) and `hideEndCta: true` to drop the
+  "Want results like these?" card under Popular Articles.
   Any optional field left out removes its section. `body` blocks: `p, h2, h3, ul` (square
   markers), `ol` (lettered), `quote` (pull quote), `formula { text, note }, table { headers,
   rows, numeric[], caption }, compare { control, variant, caption }, image, statCards {

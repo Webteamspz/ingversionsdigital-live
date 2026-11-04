@@ -566,20 +566,22 @@ const BlogPostLayout = ({ post }) => {
         <div className={articleStyles["article-content-wrapper"]}>
           <PopularArticles currentSlug={post.slug} />
 
-          <div className={articleStyles["article-cta-box"]}>
-            <h3 className={articleStyles["cta-heading"]}>{copy.endCta.heading}</h3>
-            <p className={articleStyles["cta-text"]}>{copy.endCta.text}</p>
-            <a
-              href={copy.endCta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={articleStyles["cta-button"]}
-              data-cta={copy.endCta.buttonLabel}
-              data-cta-loc="Blog Article CTA"
-            >
-              {copy.endCta.buttonLabel}
-            </a>
-          </div>
+          {!post.hideEndCta && (
+            <div className={articleStyles["article-cta-box"]}>
+              <h3 className={articleStyles["cta-heading"]}>{copy.endCta.heading}</h3>
+              <p className={articleStyles["cta-text"]}>{copy.endCta.text}</p>
+              <a
+                href={copy.endCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={articleStyles["cta-button"]}
+                data-cta={copy.endCta.buttonLabel}
+                data-cta-loc="Blog Article CTA"
+              >
+                {copy.endCta.buttonLabel}
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </>
