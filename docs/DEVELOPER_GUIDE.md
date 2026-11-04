@@ -388,13 +388,15 @@ posts first, then structured posts, then legacy ones, then shows the blog 404 (`
 - **Template posts** (preferred for new posts): one file per post, `src/data/blog/posts/<slug>.js`,
   default-exporting the post. `templatePosts.js` loads every file there with
   `import.meta.glob`, so no other file needs editing. Copy
-  `shopify-pack-selector-ab-test.js` to start. Fields: `title, titleEmphasis` (the part of the
+  `shopify-conversion-rate-benchmarks.js` to start. Fields: `title, titleEmphasis` (the part of the
   title set in violet italic), `slug, seoTitle, metaDescription, subtitle, category, tags,
   author { name, role, avatar, bio, linkedin, type }, publishedDate, updatedDate` (ISO
   dates), `readTime` (optional, estimated from the word count by `src/utils/blogPost.js` when
-  missing), `featuredImage { src, alt, caption, width, height }`, `quickAnswer` (the serif
-  lede), `keyTakeaways[], body[], faq[{ question, answer }]`, and three switches:
-  `showEstimator`, `progressBar` (both default on) and `coverLayout` (`"inset"` or `"full"`).
+  missing), `featuredImage { src, alt, caption, width, height }` (the image inside the
+  post), `cardImage` (optional: the blog card, slider and share image; defaults to the featured
+  image), `quickAnswer` (the lede), `keyTakeaways[], body[], faq[{ question, answer }]`, and three switches:
+  `showEstimator`, `progressBar` (both default on) and `coverLayout` (`"inset"` or `"full"`), plus `coverPlain: true` for a chart or screenshot
+  cover (no dark fade or desaturation, caption under the image).
   Any optional field left out removes its section. `body` blocks: `p, h2, h3, ul` (square
   markers), `ol` (lettered), `quote` (pull quote), `formula { text, note }, table { headers,
   rows, numeric[], caption }, compare { control, variant, caption }, image, statCards {
@@ -547,7 +549,7 @@ same shape in `src/data/pricingData.js`.
 
 ### Add a blog post
 
-1. Copy `src/data/blog/posts/shopify-pack-selector-ab-test.js` to `src/data/blog/posts/<slug>.js` and edit it.
+1. Copy `src/data/blog/posts/shopify-conversion-rate-benchmarks.js` to `src/data/blog/posts/<slug>.js` and edit it.
 2. Add its cover to `public/assets/blog/covers/` as `.webp`, then run `node scripts/blog-thumbs.mjs` for its card thumbnail.
 3. `npm run dev`, open `/blog/<slug>`, check it at phone width, then `npm run build`.
 

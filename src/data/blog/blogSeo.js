@@ -58,7 +58,8 @@ export const blogNotFoundSeo = {
 };
 
 const templatePostSeo = (post, path, url) => {
-  const image = `${SITE_URL}${post.featuredImage.src}`;
+  const cover = post.cardImage ?? post.featuredImage.src;
+  const image = `${SITE_URL}${cover}`;
   const author = {
     "@type": post.author.type ?? "Person",
     name: post.author.name,
@@ -69,7 +70,7 @@ const templatePostSeo = (post, path, url) => {
       ...postingJsonLd({
         headline: post.title,
         description: post.metaDescription,
-        image: post.featuredImage.src,
+        image: cover,
         date: post.publishedDate,
         url,
       }),

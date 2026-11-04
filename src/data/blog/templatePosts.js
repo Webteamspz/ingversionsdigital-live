@@ -15,7 +15,7 @@ export const templateToCard = (p) => ({
   date: formatDate(p.publishedDate, "long"),
   readTime: readTime(p),
   category: p.category,
-  coverImage: p.featuredImage.src,
+  coverImage: p.cardImage ?? p.featuredImage.src,
 });
 
 export const postTemplateCopy = {

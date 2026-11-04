@@ -112,7 +112,7 @@ To change what the site says, edit the matching module in `src/data/`:
 | `aboutUsData.js` | About page copy |
 | `servicePagesData.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |
 | `seoData.js` | Per-route title, meta description, breadcrumb, and JSON-LD |
-| `blog/posts/<slug>.js` | New blog posts, one file each (preferred), rendered by `BlogPostLayout`. Copy `shopify-pack-selector-ab-test.js` to start |
+| `blog/posts/<slug>.js` | New blog posts, one file each (preferred), rendered by `BlogPostLayout`. Copy `shopify-conversion-rate-benchmarks.js` to start |
 | `blog/blogPosts.json` | Older structured blog posts. Template: `blog/blogPostTemplate.json` |
 | `blog/articlesData.js` | Legacy markdown blog posts; each also needs a card in `blog/postCards.js` and a cover in `blog/articleImages.js` |
 

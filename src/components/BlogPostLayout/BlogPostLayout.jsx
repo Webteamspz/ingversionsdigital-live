@@ -405,7 +405,11 @@ const BlogPostLayout = ({ post }) => {
         </div>
 
         <figure
-          className={`${styles.cover} ${post.coverLayout === "full" ? styles.coverFull : ""}`}
+          className={[
+            styles.cover,
+            post.coverLayout === "full" ? styles.coverFull : "",
+            post.coverPlain ? styles.coverPlain : "",
+          ].join(" ")}
         >
           <div className={styles.coverFrame}>
             <OptimizedImg
