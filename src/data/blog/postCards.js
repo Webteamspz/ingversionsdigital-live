@@ -1,6 +1,8 @@
 import { structuredPosts, toCard } from "./structuredPosts.js";
+import { templatePosts, templateToCard } from "./templatePosts.js";
 
 export const postCards = [
+  ...templatePosts.map(templateToCard),
   ...structuredPosts.map(toCard).reverse(),
   {
     id: "post-1",

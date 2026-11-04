@@ -381,12 +381,47 @@ lives here, inside the normal `Layout` (main header and footer).
 |---|---|
 | Routes | `src/pages/Blog/BlogHome.jsx` (`/blog`), `BlogPost.jsx` (`/blog/:slug`, including the blog 404). Both lazy-loaded in `App.jsx` |
 | Scoped base styles + tokens | `src/pages/Blog/blog.css`, every rule under `.ing-blog` |
-| Components | `BlogClient` (home grid, tabs, category cards), `ArticleBlocks` (structured posts), `BlogArticle` (legacy markdown posts, `CodeBlock`, `Mermaid`), `PopularArticles` (slider), `BlogFaq` |
+| Components | `BlogClient` (home grid, tabs, category cards), `ArticleBlocks` (structured posts), `BlogArticle` (legacy markdown posts, `CodeBlock`, `Mermaid`), `PopularArticles` (slider), `BlogFaq`, `BlogPostLayout` (posts in `src/data/blog/posts/`) |
 | Content | `src/data/blog/` |
 | Head tags | `src/data/blog/blogSeo.js`, used by both the pages and `prerender.mjs` |
 
-**Two kinds of post.** Slugs are unique across both. `BlogPost` checks structured posts
-first, then legacy ones, then shows the blog 404 (`noindex`).
+**Three kinds of post.** Slugs are unique across all of them. `BlogPost` checks template
+posts first, then structured posts, then legacy ones, then shows the blog 404 (`noindex`).
+
+- **Template posts** (preferred for new posts): one file per post, `src/data/blog/posts/<slug>.js`,
+  default-exporting the post. `templatePosts.js` loads every file there with
+  `import.meta.glob`, so no other file needs editing. Copy
+  `shopify-conversion-rate-benchmarks.js` to start. Fields: `title, titleEmphasis` (the part of the
+  title set in violet italic), `slug, seoTitle, metaDescription, subtitle, category, tags,
+  author { name, role, avatar, bio, linkedin, type }, publishedDate, updatedDate` (ISO
+  dates), `readTime` (optional, estimated from the word count by `src/utils/blogPost.js` when
+  missing), `featuredImage { src, alt, caption, width, height }` (the image inside the
+  post), `cardImage` (optional: the blog card, slider and share image; defaults to the featured
+  image), `quickAnswer` (the lede), `keyTakeaways[], body[], faq[{ question, answer }]`, and three switches:
+  `showEstimator`, `progressBar` (both default on) and `coverLayout` (`"inset"` or `"full"`), plus `coverPlain: true` for a chart or screenshot
+  cover (no dark fade or desaturation, caption under the image).
+  Any optional field left out removes its section. `body` blocks: `p, h2, h3, ul` (square
+  markers), `ol` (lettered), `quote` (pull quote), `formula { text, note }, table { headers,
+  rows, numeric[], caption }, compare { control, variant, caption }, image, statCards {
+  items[{ value, label }] }, warning { title, items[] }, estimator` (the test-duration
+  calculator; its maths is `estimateDuration` in `src/utils/blogPost.js`). Text supports
+  `**bold**`, `[label](url)` and `` `code` ``. "In this article" is built from the `h2` blocks
+  (plus Key takeaways and the FAQ) and numbered 01, 02, ... The layout's tokens live on
+  `.page` in `BlogPostLayout.module.css`; it uses the site fonts (Outfit, Plus Jakarta Sans). The service CTA, estimator and end CTA copy is `postTemplateCopy` in
+  `templatePosts.js`. The page ends with the same `PopularArticles` slider and CTA box as the
+  other posts. Head tags, BlogPosting + FAQPage JSON-LD, the home card and the sitemap entry
+  are generated from the file.
+- **Insights posts:** a template post with `template: "insights"` renders with `InsightsLayout`
+  (category pill bar, two columns with a Contents / CTA / free-tools sidebar, TL;DR panel, meta
+  row with an optional `reviewer`). Extra fields: `summary, tldr[], sidebarCta { heading, text,
+  buttonLabel, href }` (optional; defaults to `insightsCopy.reviewCta` in `templatePosts.js`),
+  `quickAnswersTopic, quickAnswers[{ term, answer }], closing { heading, text[] }` and
+  `relatedPost` (a slug). Extra `body` blocks: `steps { start, items[{ title, text }] }`,
+  `code { code, label }` and `barChart { items[{ label, value, display }], caption }`.
+  `featuredImage` is used only for the blog card and share image. Category pills and "Latest
+  insights" link to `/blog?category=<slug>`; `BlogClient` reads that query parameter to pick
+  the tab, and `categorySlug()` in `src/utils/blogPost.js` makes the slugs. Example:
+  `shopify-black-friday-checklist.js`.
 
 - **Structured posts** (preferred): one object per post in `src/data/blog/blogPosts.json`.
   Copy the `post` object from `blogPostTemplate.json`, which has an example of every block
@@ -528,7 +563,7 @@ same shape in `src/data/pricingData.js`.
 
 ### Add a blog post
 
-1. Add the post object to `src/data/blog/blogPosts.json` (copy from `blogPostTemplate.json`).
+1. Copy `src/data/blog/posts/shopify-conversion-rate-benchmarks.js` to `src/data/blog/posts/<slug>.js` and edit it.
 2. Add its cover to `public/assets/blog/covers/` as `.webp`, then run `node scripts/blog-thumbs.mjs` for its card thumbnail.
 3. `npm run dev`, open `/blog/<slug>`, check it at phone width, then `npm run build`.
 
