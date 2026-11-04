@@ -3,6 +3,9 @@
   background: var(--palette-bg-950);
   text-align: center;
 }
+.noNote {
+  padding-bottom: var(--section-space);
+}
 .eyebrow {
   display: inline-flex;
   align-items: center;

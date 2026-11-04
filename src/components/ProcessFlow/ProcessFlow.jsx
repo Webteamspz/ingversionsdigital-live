@@ -111,7 +111,11 @@ const ProcessFlow = ({ tabIds, showNote = true }) => {
   };
 
   return (
-    <section className={styles.section} id="process-flow" aria-labelledby="process-flow-heading">
+    <section
+      className={showNote ? styles.section : `${styles.section} ${styles.noNote}`}
+      id="process-flow"
+      aria-labelledby="process-flow-heading"
+    >
       <div className="container">
         <span className={styles.eyebrow}>
           <span className={styles.dot} aria-hidden="true" />

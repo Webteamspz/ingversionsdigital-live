@@ -29,6 +29,7 @@ export default {
   progressBar: true,
   coverLayout: "inset",
   coverPlain: true,
+  hideEndCta: true,
   publishedDate: "2026-11-04",
   updatedDate: "2026-11-04",
   cardImage: "/assets/blog/covers/shopify-conversion-rate-benchmarks.webp",
