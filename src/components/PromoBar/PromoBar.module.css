@@ -208,3 +208,7 @@
     display: none;
   }
 }
+
+:global(html[data-not-found]) .bar {
+  display: none;
+}
