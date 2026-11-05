@@ -347,3 +347,7 @@
     right: 14px;
   }
 }
+
+:global(html[data-not-found]) .wrap {
+  display: none;
+}

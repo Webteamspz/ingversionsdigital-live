@@ -12,26 +12,30 @@ import { articles } from "../../data/blog/articlesData.js";
 import { getStructuredPost } from "../../data/blog/structuredPosts.js";
 import { getTemplatePost } from "../../data/blog/templatePosts.js";
 import { getPostSeo, blogNotFoundSeo } from "../../data/blog/blogSeo.js";
+import useNotFoundPage from "../../hooks/useNotFoundPage";
 import styles from "./BlogNotFound.module.css";
 import "./blog.css";
 
-const BlogNotFound = () => (
-  <section className={styles.nfWrapper}>
-    <div className={styles.decor} aria-hidden="true">
-      <span className={styles.shapeCircleTl} />
-      <span className={styles.shapeSquareTr} />
-      <span className={styles.shapeCircleBr} />
-      <span className={styles.shapeSquareBl} />
-    </div>
-    <div className={styles.nfCard}>
-      <h1 className={styles.nfTitle}>404</h1>
-      <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
-      <Link to="/blog" className={styles.nfBtn}>
-        Go Back Home
-      </Link>
-    </div>
-  </section>
-);
+const BlogNotFound = () => {
+  useNotFoundPage();
+  return (
+    <section className={styles.nfWrapper}>
+      <div className={styles.decor} aria-hidden="true">
+        <span className={styles.shapeCircleTl} />
+        <span className={styles.shapeSquareTr} />
+        <span className={styles.shapeCircleBr} />
+        <span className={styles.shapeSquareBl} />
+      </div>
+      <div className={styles.nfCard}>
+        <h1 className={styles.nfTitle}>404</h1>
+        <p className={styles.nfSubtitle}>The page you are looking for does not exist.</p>
+        <Link to="/blog" className={styles.nfBtn}>
+          Go Back Home
+        </Link>
+      </div>
+    </section>
+  );
+};
 
 const PostBody = ({ slug }) => {
   const templatePost = getTemplatePost(slug);
