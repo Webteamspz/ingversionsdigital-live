@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import SEO from "../../components/SEO/SEO";
 import seo from "../../data/seoData";
+import useNotFoundPage from "../../hooks/useNotFoundPage";
 import styles from "./NotFound.module.css";
 
 const NotFound = () => {
+  useNotFoundPage();
   return (
     <section className={styles.nfWrapper}>
       <SEO {...seo.notFound} />
