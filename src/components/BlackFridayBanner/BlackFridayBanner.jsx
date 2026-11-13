@@ -11,7 +11,7 @@ const BLACK_FRIDAY = {
   title: "Get your store ready before the BFCM rush",
   text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
   cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
-  hideOn: ["/pricing"],
+  hideOn: ["/pricing", "/blog"],
 };
 
 const DISMISS_KEY = "bf-banner-dismissed";
@@ -49,7 +49,8 @@ const BlackFridayBanner = () => {
     return () => clearInterval(id);
   }, [live, endsAt]);
 
-  if (!live || dismissed || !left || hideOn.includes(pathname.replace(/\/$/, ""))) return null;
+  const hidden = hideOn.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  if (!live || dismissed || !left || hidden) return null;
 
   const dismiss = () => {
     setDismissed(true);

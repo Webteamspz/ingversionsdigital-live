@@ -266,35 +266,37 @@ const InsightsLayout = ({ post }) => {
             </nav>
           )}
 
-          <div className={styles.ctaCard}>
-            <h2 className={styles.cardHeading}>{cta.heading}</h2>
-            <p>{cta.text}</p>
-            <a
-              href={cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.button}
-              data-cta={cta.buttonLabel}
-              data-cta-loc="Blog Insights Sidebar"
-            >
-              {cta.buttonLabel}
-            </a>
-          </div>
+          <div className={styles.stickyGroup}>
+            <div className={styles.ctaCard}>
+              <h2 className={styles.cardHeading}>{cta.heading}</h2>
+              <p>{cta.text}</p>
+              <a
+                href={cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.button}
+                data-cta={cta.buttonLabel}
+                data-cta-loc="Blog Insights Sidebar"
+              >
+                {cta.buttonLabel}
+              </a>
+            </div>
 
-          {copy.tools.length > 0 && (
-            <nav className={styles.card} aria-labelledby="tools-heading">
-              <h2 id="tools-heading" className={styles.cardHeading}>
-                {copy.toolsHeading}
-              </h2>
-              <ul className={styles.tools}>
-                {copy.tools.map((t) => (
-                  <li key={t.href}>
-                    <Link to={t.href}>{t.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
+            {copy.tools.length > 0 && (
+              <nav className={styles.card} aria-labelledby="tools-heading">
+                <h2 id="tools-heading" className={styles.cardHeading}>
+                  {copy.toolsHeading}
+                </h2>
+                <ul className={styles.tools}>
+                  {copy.tools.map((t) => (
+                    <li key={t.href}>
+                      <Link to={t.href}>{t.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+          </div>
         </aside>
       </div>
 

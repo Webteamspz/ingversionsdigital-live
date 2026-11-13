@@ -477,7 +477,17 @@
   margin-top: 40px;
 }
 
+/* The sidebar runs the full height of the article; only the short CTA + tools group sticks.
+   Making the whole sidebar sticky pinned its lower half off-screen whenever it was taller
+   than the viewport, so the CTA card could never be scrolled into view. */
 .sidebar {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stickyGroup {
   position: sticky;
   top: 112px;
   display: flex;
@@ -635,7 +645,7 @@
     gap: 48px;
   }
 
-  .sidebar {
+  .stickyGroup {
     position: static;
   }
 
