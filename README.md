@@ -93,7 +93,7 @@ npm run build:production    # mode=production, the public build
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
-| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), tested by `abtest.test.js` |
+| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), `storeTools.js` the maths for the free Shopify tools in `src/data/toolsData.js`, tested by `abtest.test.js` |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
 | `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
 | `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags and the rendered page body (for crawlers) into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |

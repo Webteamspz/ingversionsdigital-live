@@ -153,3 +153,8 @@ test("srm: 10,000 vs 10,400 on a 50/50 split is a mismatch", () => {
 test("srm: 10,000 vs 10,050 is fine", () => {
   assert.equal(srm(10000, 10050).mismatch, false);
 });
+
+test("srm: an expected split outside (0, 1) returns null", () => {
+  assert.equal(srm(100, 100, 0), null);
+  assert.equal(srm(100, 100, 1), null);
+});

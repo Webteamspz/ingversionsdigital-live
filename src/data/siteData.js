@@ -1,3 +1,5 @@
+import tools from "./toolsData.js";
+
 export default {
   header: {
     links: [
@@ -1681,8 +1683,14 @@ export default {
           { name: "About Us", href: "/about-us" },
           { name: "Team", href: "/teampage" },
           { name: "Blog", href: "/blog" },
+        ],
+      },
+      {
+        title: "Free Tools",
+        links: [
           { name: "A/B Test Calculator", href: "/ab-test-calculator" },
           { name: "A/B Test Simulator", href: "/ab-test-simulator" },
+          ...Object.entries(tools).map(([slug, t]) => ({ name: t.name, href: `/${slug}` })),
         ],
       },
     ],

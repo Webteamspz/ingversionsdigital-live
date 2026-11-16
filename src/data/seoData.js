@@ -1,6 +1,7 @@
 import data from "./siteData.js";
 import servicePages from "./servicePagesData.js";
 import abTest from "./abTestData.js";
+import tools from "./toolsData.js";
 import simulator from "./simulatorData.js";
 
 const home = { name: "Home", path: "/" };
@@ -29,8 +30,21 @@ const servicePageSeo = Object.fromEntries(
   ]),
 );
 
+const toolSeo = Object.fromEntries(
+  Object.entries(tools).map(([slug, tool]) => [
+    slug,
+    {
+      ...tool.seo,
+      path: `/${slug}`,
+      breadcrumb: [home, { name: tool.name, path: `/${slug}` }],
+      jsonLd: faqJsonLd(tool.faq),
+    },
+  ]),
+);
+
 export default {
   ...servicePageSeo,
+  ...toolSeo,
   home: {
     title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:

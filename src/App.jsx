@@ -6,6 +6,7 @@ import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
 import servicePages from "./data/servicePagesData.js";
+import tools from "./data/toolsData.js";
 
 const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
@@ -21,6 +22,7 @@ const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
 const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
 const AbSimulator = lazy(() => import("./pages/AbSimulator/AbSimulator.jsx"));
+const Tool = lazy(() => import("./pages/Tool/Tool.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
 const STUDY_PAGES = [
@@ -107,6 +109,9 @@ const App = () => (
             path={`/case-studies/${slug}`}
             element={<CaseStudy key={slug} slug={slug} />}
           />
+        ))}
+        {Object.keys(tools).map((slug) => (
+          <Route key={slug} path={`/${slug}`} element={<Tool key={slug} slug={slug} />} />
         ))}
         {Object.keys(servicePages).map((slug) => (
           <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />
