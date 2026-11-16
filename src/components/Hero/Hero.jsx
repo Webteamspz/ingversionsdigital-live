@@ -1,72 +1,139 @@
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import data from "../../data/siteData";
 import CompanyLogos from "../CompanyLogos/CompanyLogos";
-import OptimizedImg from "../OptimizedImg/OptimizedImg";
+import HeroA from "./HeroA";
+import HeroCopy from "./HeroCopy";
 import styles from "./Hero.module.css";
 
+const { compare } = data.hero;
+
+const START = 3;
+const START_PX = 18;
+const PEEK = 33;
+const STEP = 5;
+const limit = (v) => Math.min(100, Math.max(0, v));
+
 const Hero = () => {
-  const { eyebrow, heading, pill, sub, cta, secondaryCta, avatars, proof, simLink } = data.hero;
+  const [pos, setPos] = useState(START);
+  const [ready, setReady] = useState(false);
+  const [moved, setMoved] = useState(false);
+  const stageRef = useRef(null);
+  const dragging = useRef(false);
+  const touched = useRef(false);
+
+  useEffect(() => {
+    const width = stageRef.current.getBoundingClientRect().width;
+    const start = limit((Math.max(START_PX, (width * START) / 100) / width) * 100);
+    setPos(start);
+    setReady(true);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame;
+    const begin = performance.now() + 900;
+    const duration = 1600;
+    const tick = (now) => {
+      if (touched.current) return;
+      const t = (now - begin) / duration;
+      if (t >= 1) {
+        setPos(start);
+        return;
+      }
+      if (t > 0) setPos(start + PEEK * Math.sin(Math.PI * t));
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const moveTo = (clientX) => {
+    const rect = stageRef.current.getBoundingClientRect();
+    setPos(limit(((clientX - rect.left) / rect.width) * 100));
+  };
+
+  const onPointerDown = (e) => {
+    touched.current = true;
+    setMoved(true);
+    dragging.current = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    moveTo(e.clientX);
+  };
+  const onPointerMove = (e) => {
+    if (dragging.current) moveTo(e.clientX);
+  };
+  const onPointerUp = () => {
+    dragging.current = false;
+  };
+  const onKeyDown = (e) => {
+    const next = {
+      ArrowLeft: (p) => p - STEP,
+      ArrowDown: (p) => p - STEP,
+      ArrowRight: (p) => p + STEP,
+      ArrowUp: (p) => p + STEP,
+      Home: () => 0,
+      End: () => 100,
+    }[e.key];
+    if (!next) return;
+    e.preventDefault();
+    touched.current = true;
+    setMoved(true);
+    setPos((p) => limit(next(p)));
+  };
 
   return (
     <section className={styles.hero} id="hero" aria-labelledby="hero-heading">
-      <div className={styles.grid} aria-hidden="true" />
-      <div className="container">
-        <div className={styles.content}>
-          <p className={styles.eyebrow}>{eyebrow}</p>
+      <div
+        ref={stageRef}
+        className={`${styles.stage} ${ready ? styles.compare : ""}`}
+        style={{ "--pos": `${pos}%` }}
+      >
+        {ready && <HeroA />}
 
-          <h1 id="hero-heading" className={styles.title}>
-            <span>{heading}</span> <span className={styles.emphasis}>{pill}</span>
-          </h1>
-
-          <p className={styles.subtitle}>{sub}</p>
-
-          <div className={styles.actions}>
-            <a
-              className={styles.primaryAction}
-              href={cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta={cta.label}
-              data-cta-loc="Hero"
-            >
-              {cta.label}
-            </a>
-            <Link
-              className={styles.secondaryAction}
-              to={secondaryCta.href}
-              data-cta={secondaryCta.label}
-              data-cta-loc="Hero"
-            >
-              {secondaryCta.label}
-            </Link>
-          </div>
-
-          <Link
-            className={styles.simLink}
-            to={simLink.href}
-            data-cta={simLink.label}
-            data-cta-loc="Hero"
-          >
-            {simLink.label} →
-          </Link>
-
-          <div className={styles.proof}>
-            <div className={styles.avatars} aria-hidden="true">
-              {avatars.map((src, index) => (
-                <OptimizedImg
-                  key={src}
-                  src={src}
-                  alt=""
-                  width="48"
-                  height="48"
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
-              ))}
+        <div className={styles.layerB}>
+          <div className="container">
+            <div className={styles.inner}>
+              <HeroCopy />
             </div>
-            <p dangerouslySetInnerHTML={{ __html: proof }} />
           </div>
         </div>
+
+        {ready && (
+          <>
+            <span className={`${styles.ver} ${styles.verA}`} aria-hidden="true">
+              {compare.labelA}
+            </span>
+            <span className={`${styles.ver} ${styles.verB}`} aria-hidden="true">
+              {compare.labelB}
+            </span>
+            <div className={styles.divider}>
+              <div
+                className={`${styles.handle} ${moved ? "" : styles.pulse}`}
+                role="slider"
+                tabIndex={0}
+                aria-label={compare.handleLabel}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={Math.round(pos)}
+                aria-valuetext={`${Math.round(pos)}% of version A shown`}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                onPointerCancel={onPointerUp}
+                onKeyDown={onKeyDown}
+              >
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M9 6l-6 6 6 6M15 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </>
+        )}
       </div>
+
       <div className={styles.logoArea}>
         <CompanyLogos />
       </div>

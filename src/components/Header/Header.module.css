@@ -366,11 +366,11 @@
 .footerLink:hover .footerArrow {
   transform: translateX(4px);
 }
-.submenuPromo {
+.submenuReview {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   align-self: start;
   padding: 22px;
   border: var(--border-width) solid var(--palette-border);
@@ -378,7 +378,7 @@
   background: var(--light-badge-bg);
   box-shadow: var(--shadow-pop);
 }
-.submenuPromoEyebrow {
+.submenuReviewEyebrow {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 11px;
@@ -387,59 +387,44 @@
   text-transform: uppercase;
   color: var(--palette-text-secondary);
 }
-.submenuPromoStat {
+.submenuReviewFigure {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+.submenuReviewIcon {
+  color: var(--palette-accent);
+}
+.submenuReviewQuote {
+  margin: 0;
+}
+.submenuReviewQuote p {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.45;
   color: var(--palette-text-primary);
 }
-.submenuPromoStat span {
-  display: block;
-  margin-top: 6px;
-  font-size: 15px;
-  font-weight: 700;
+.submenuReviewBy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.submenuPromoDetail {
-  margin: 0;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--palette-text-secondary);
-}
-.submenuPromoText {
-  margin: 0 0 4px;
+.submenuReviewName {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
-  line-height: 1.45;
-  color: var(--palette-text-secondary);
+  font-weight: 700;
+  color: var(--palette-text-primary);
 }
-.submenuPromo .footerLink {
+.submenuReviewRole {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  color: var(--palette-text-muted);
+}
+.submenuReview .footerLink {
   margin-left: -10px;
-}
-.submenuPromoBtn {
-  flex-shrink: 0;
-  padding: 11px 20px;
-  border: var(--border-width) solid var(--palette-border);
-  border-radius: var(--radius-full);
-  background: var(--palette-cta);
-  color: var(--palette-bg-800);
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-.submenuPromoBtn:hover,
-.submenuPromoBtn:focus-visible {
-  background: var(--palette-cta-strong);
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-pop-active);
 }
 @media (min-width: 1024px) and (max-width: 1199.98px) {
   .submenuCols {
@@ -449,7 +434,7 @@
   .submenuColAlt {
     padding-left: 24px;
   }
-  .submenuPromo {
+  .submenuReview {
     padding: 18px;
   }
 }

@@ -1,12 +1,9 @@
-import { useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import { Hash } from "lucide-react";
 import data from "../../data/siteData";
 import styles from "./Reviews.module.css";
-import Reveal from "../Reveal/Reveal";
-import useIsMobile from "../../hooks/useIsMobile";
 
-const CARD_TILTS = [-2, 2, -1.5, 1.5, -2.5, 2.5];
-const REVIEWER_AVATARS = [
+const AVATARS = [
   "/assets/reviews/reviewer-1.jpg",
   "/assets/reviews/reviewer-2.jpg",
   "/assets/reviews/reviewer-3.jpg",
@@ -14,67 +11,128 @@ const REVIEWER_AVATARS = [
   "/assets/reviews/reviewer-5.jpg",
   "/assets/reviews/reviewer-6.jpg",
 ];
+const STEP_MS = 1100;
+
+const Marked = ({ quote, highlight }) => {
+  const at = highlight ? quote.indexOf(highlight) : -1;
+  if (at < 0) return quote;
+  return (
+    <>
+      {quote.slice(0, at)}
+      <mark>{highlight}</mark>
+      {quote.slice(at + highlight.length)}
+    </>
+  );
+};
 
 export default function Reviews() {
-  const sectionRef = useRef(null);
-  const isMobile = useIsMobile();
+  const { eyebrow, heading, sub, channel, members, cta, testimonials } = data.review;
+  const count = testimonials.length;
+  const [shown, setShown] = useState(count);
+  const [started, setStarted] = useState(false);
+  const windowRef = useRef(null);
 
-  const renderCard = (t, i) => (
-    <div
-      className={styles.reviewTilt}
-      style={{ transform: `rotate(${CARD_TILTS[i % CARD_TILTS.length]}deg)` }}
-    >
-      <div className={styles.reviewCard}>
-        <p className={styles.reviewQuote}>&ldquo;{t.quote}&rdquo;</p>
-        <span className={styles.reviewTail} aria-hidden="true" />
-      </div>
-      <div className={styles.reviewerRow}>
-        <img
-          className={styles.reviewAvatar}
-          src={REVIEWER_AVATARS[i % REVIEWER_AVATARS.length]}
-          alt={`${t.reviewer}, ${t.reviewerRole}`}
-          loading="lazy"
-        />
-        <div>
-          <div className={styles.reviewerName}>{t.reviewer}</div>
-          <div className={styles.reviewerRole}>{t.reviewerRole}</div>
-        </div>
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setShown(0);
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setStarted(true);
+        io.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(windowRef.current);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started || shown >= count) return;
+    const id = setTimeout(() => setShown((n) => n + 1), STEP_MS);
+    return () => clearTimeout(id);
+  }, [started, shown, count]);
 
   return (
-    <section ref={sectionRef} className={styles.startedSection} id="reviews">
-      <div className={`container ${styles.startedContainer}`}>
-        <h2 className={`section-title ${styles.startedTitle}`}>{data.review.heading}</h2>
-
-        {isMobile ? (
-          <div className={styles.reviewsMarquee}>
-            <div className={styles.reviewsMarqueeTrack}>
-              {[0, 1].map((groupIndex) => (
-                <div
-                  className={styles.reviewsMarqueeGroup}
-                  aria-hidden={groupIndex === 1 ? "true" : undefined}
-                  key={groupIndex}
-                >
-                  {data.review.testimonials.map((t, i) => (
-                    <div key={`${groupIndex}-${i}`} className={styles.marqueeCard}>
-                      {renderCard(t, i)}
-                    </div>
-                  ))}
-                </div>
+    <section className={styles.section} id="reviews" aria-labelledby="reviews-heading">
+      <div className="container">
+        <div className={styles.layout}>
+          <div className={styles.intro}>
+            <span className={styles.eyebrow}>{eyebrow}</span>
+            <h2 id="reviews-heading" className={styles.title}>
+              {heading}
+            </h2>
+            <p className={styles.sub}>{sub}</p>
+            <div className={styles.faces} aria-hidden="true">
+              {AVATARS.map((src) => (
+                <img key={src} src={src} alt="" width="44" height="44" loading="lazy" />
               ))}
             </div>
+            <a
+              className={styles.cta}
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta={cta.label}
+              data-cta-loc="Reviews"
+            >
+              {cta.label}
+            </a>
           </div>
-        ) : (
-          <div className={styles.reviewsGrid}>
-            {data.review.testimonials.map((t, i) => (
-              <Reveal key={i} delay={i * 80} className={styles.reviewCardWrap}>
-                {renderCard(t, i)}
-              </Reveal>
-            ))}
+
+          <div className={styles.window} ref={windowRef}>
+            <div className={styles.bar}>
+              <span className={styles.dots} aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
+              <span className={styles.channel}>
+                <Hash size={15} strokeWidth={3} aria-hidden="true" />
+                {channel.replace("#", "")}
+              </span>
+              <span className={styles.members}>{members}</span>
+            </div>
+
+            <ol className={styles.thread}>
+              {testimonials.map((t, i) => (
+                <li
+                  key={t.reviewer}
+                  className={`${styles.msg} ${i < shown ? styles.in : ""} ${
+                    i % 2 ? styles.alt : ""
+                  }`}
+                >
+                  <img
+                    className={styles.avatar}
+                    src={AVATARS[i % AVATARS.length]}
+                    alt=""
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                  />
+                  <figure className={styles.body}>
+                    <figcaption className={styles.who}>
+                      <strong>{t.reviewer}</strong>
+                      <span>{t.reviewerRole}</span>
+                    </figcaption>
+                    <blockquote className={styles.bubble}>
+                      <p>
+                        <Marked quote={t.quote} highlight={t.highlight} />
+                      </p>
+                    </blockquote>
+                  </figure>
+                  {started && i === shown && (
+                    <span className={styles.typing} aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
