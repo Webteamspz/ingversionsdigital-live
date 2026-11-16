@@ -24,7 +24,7 @@ Docker/Nginx image.
 
 - Home, About Us, Pricing, Projects, Team, Privacy Policy, Terms of Service, a `noindex` thank-you page (`/thank-you`, where the contact form lands), and a 404 page.
 - The company blog at `/blog` and `/blog/:slug` (moved in from the old `blog.ingversionsdigital.com` Next.js app). Its routes are lazy-loaded and its styles are scoped under `.ing-blog`, so it adds nothing to the other pages.
-- Data-driven content: every headline, list, price, team member, and project lives in `src/data/*.js`, not in JSX.
+- Data-driven content: every headline, list, price, and project lives in `src/data/*.js`, not in JSX.
 - A shared `<SEO>` component for per-page title, description, canonical, and Open Graph tags.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
@@ -108,7 +108,6 @@ To change what the site says, edit the matching module in `src/data/`:
 |------|----------|
 | `siteData.js` | Home page sections, blog slider, global CTAs |
 | `pricingData.js` | Pricing plans and feature rows |
-| `teamData.js` | Team members (name, role, photo, socials) |
 | `projectsData.js` | Portfolio case studies |
 | `aboutUsData.js` | About page copy |
 | `servicePagesData.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |

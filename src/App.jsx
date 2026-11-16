@@ -8,7 +8,6 @@ import Home from "./pages/Home/Home.jsx";
 import servicePages from "./data/servicePagesData.js";
 import tools from "./data/toolsData.js";
 
-const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
@@ -90,7 +89,6 @@ const App = () => (
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/teampage" element={<TeamPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />

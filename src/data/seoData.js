@@ -210,14 +210,6 @@ export default {
     path: "/about-us",
     breadcrumb: [home, { name: "About Us", path: "/about-us" }],
   },
-  team: {
-    title: "Our Shopify CRO Team | Ingversions Digital",
-    description:
-      "Meet the strategists, designers, Shopify developers and QA engineers behind Ingversions Digital's CRO and A/B testing work.",
-    keywords: ["Shopify CRO team", "Shopify developers", "CRO strategists", "QA engineers"],
-    path: "/teampage",
-    breadcrumb: [home, { name: "Team", path: "/teampage" }],
-  },
   privacyPolicy: {
     title: "Privacy Policy | Ingversions Digital",
     description:

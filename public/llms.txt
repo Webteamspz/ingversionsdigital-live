@@ -25,7 +25,7 @@
 - [Pricing](https://ingversionsdigital.com/pricing): CRO plans for brands (from $999/month) and white-label test development for agencies (complex tests $199.50 each, 50% off; test development pod $1,800/month for 80 hours).
 - [Projects](https://ingversionsdigital.com/projects): Client work.
 - [Case Studies](https://ingversionsdigital.com/case-studies): Shopify A/B test and SEO results measured in GA4, with the challenge, the work and the numbers.
-- [About Us](https://ingversionsdigital.com/about-us) and [Team](https://ingversionsdigital.com/teampage)
+- [About Us](https://ingversionsdigital.com/about-us)
 - [Blog](https://ingversionsdigital.com/blog): Shopify development, CRO, A/B testing, and Claude + MCP for ecommerce.
 - [A/B Test Calculator](https://ingversionsdigital.com/ab-test-calculator): Free sample size, MDE and significance calculator.
 
