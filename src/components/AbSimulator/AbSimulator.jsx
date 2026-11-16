@@ -40,12 +40,13 @@ const AbSimulator = () => {
   const [traffic, setTraffic] = useState(sim.trafficOptions[1]);
   const [view, setView] = useState("overview");
   const [change, setChange] = useState(null);
+  const [wants3d, setWants3d] = useState(false);
+  const [lite, setLite] = useState(false);
 
   const day = Math.min(clock, days);
   const r = simAt({ day, dailyVisitors: traffic, ...sim.model });
   const finalConversions = simAt({ day: days, dailyVisitors: traffic, ...sim.model }).convB;
 
-  // three.js and the scene load only after the page is idle, so the text and controls paint first.
   useEffect(() => {
     let cancelled = false;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,8 +54,14 @@ const AbSimulator = () => {
       setPlaying(false);
       setClock(days);
     }
+    const conn = navigator.connection;
+    if (!wants3d && (conn?.saveData || /2g/.test(conn?.effectiveType || ""))) {
+      setLite(true);
+      return;
+    }
+    const scene = import("./scene.js");
     const load = () =>
-      import("./scene.js")
+      scene
         .then(({ createAbScene }) => {
           if (cancelled || !stageRef.current) return;
           sceneRef.current = createAbScene(stageRef.current, {
@@ -75,7 +82,7 @@ const AbSimulator = () => {
       sceneRef.current?.dispose();
       sceneRef.current = null;
     };
-  }, []);
+  }, [wants3d]);
 
   useEffect(() => {
     if (!playing) return;
@@ -134,19 +141,39 @@ const AbSimulator = () => {
   return (
     <>
       <section className={styles.stage} aria-labelledby="simulator-title">
-        <div
-          ref={stageRef}
-          className={`${styles.canvas} ${ready ? styles.canvasReady : ""}`}
-          aria-hidden="true"
-        />
+        <div ref={stageRef} className={`${styles.canvas} ${ready ? styles.canvasReady : ""}`}>
+          {lite && !wants3d && (
+            <button type="button" className={styles.load3d} onClick={() => setWants3d(true)}>
+              {sim.load3d}
+            </button>
+          )}
+        </div>
 
         <div className={styles.left}>
           <header>
+            <span className={styles.tag}>{sim.tag}</span>
             <h1 id="simulator-title" className={styles.title}>
               {sim.title}
             </h1>
             <p className={styles.subtitle}>{sim.subtitle}</p>
           </header>
+
+          <div className={`${styles.glass} ${styles.hud}`} aria-hidden="true">
+            <span>
+              <small>{sim.day}</small>
+              <b>
+                {Math.max(1, Math.ceil(day))}/{days}
+              </b>
+            </span>
+            <span>
+              <small>{sim.stats.confidence}</small>
+              <b>{pct(r.confidence)}</b>
+            </span>
+            <span>
+              <small>{sim.stats.uplift}</small>
+              <b>{r.uplift === null ? "–" : `${r.uplift > 0 ? "+" : ""}${pct(r.uplift)}`}</b>
+            </span>
+          </div>
 
           <div className={`${styles.glass} ${styles.changes}`}>
             <p className={styles.label}>{sim.changesTitle}</p>
@@ -217,33 +244,35 @@ const AbSimulator = () => {
         </aside>
 
         <div className={`${styles.glass} ${styles.controls}`}>
-          <button
-            type="button"
-            className={styles.play}
-            onClick={() => setPlaying((p) => !p)}
-            aria-label={playing ? sim.pause : sim.play}
-            data-cta={playing ? "Pause simulation" : "Play simulation"}
-            data-cta-loc="AB Simulator"
-          >
-            {playing ? <Pause size={16} /> : <Play size={16} />}
-          </button>
-          <div className={styles.track}>
-            <span className={styles.label}>{sim.timeline}</span>
-            <input
-              type="range"
-              min="0"
-              max={days}
-              step="0.1"
-              value={day}
-              onChange={(e) => scrub(e.target.value)}
-              aria-label={sim.timeline}
-              aria-valuetext={`${sim.day} ${Math.max(1, Math.ceil(day))} ${sim.of} ${days}`}
-              className={styles.range}
-              style={{ "--progress": `${(day / days) * 100}%` }}
-            />
-            <span className={styles.week} style={{ left: `${(MIN_DAYS / days) * 100}%` }}>
-              {sim.week}
-            </span>
+          <div className={styles.timeline}>
+            <button
+              type="button"
+              className={styles.play}
+              onClick={() => setPlaying((p) => !p)}
+              aria-label={playing ? sim.pause : sim.play}
+              data-cta={playing ? "Pause simulation" : "Play simulation"}
+              data-cta-loc="AB Simulator"
+            >
+              {playing ? <Pause size={16} /> : <Play size={16} />}
+            </button>
+            <div className={styles.track}>
+              <span className={styles.label}>{sim.timeline}</span>
+              <input
+                type="range"
+                min="0"
+                max={days}
+                step="0.1"
+                value={day}
+                onChange={(e) => scrub(e.target.value)}
+                aria-label={sim.timeline}
+                aria-valuetext={`${sim.day} ${Math.max(1, Math.ceil(day))} ${sim.of} ${days}`}
+                className={styles.range}
+                style={{ "--progress": `${(day / days) * 100}%` }}
+              />
+              <span className={styles.week} style={{ left: `${(MIN_DAYS / days) * 100}%` }}>
+                {sim.week}
+              </span>
+            </div>
           </div>
 
           <div className={styles.group}>
@@ -303,17 +332,23 @@ const AbSimulator = () => {
 
       <div className={`container ${styles.footer}`}>
         <p className={styles.disclaimer}>{sim.disclaimer}</p>
-        <a
-          className={styles.cta}
-          href={sim.cta.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta={sim.cta.label}
-          data-cta-loc="AB Simulator"
-        >
-          {sim.cta.label}
-          <ArrowRight size={16} aria-hidden="true" />
-        </a>
+        <div className={styles.ctaBox}>
+          <div>
+            <h2 className={styles.ctaTitle}>{sim.ctaTitle}</h2>
+            <p className={styles.ctaText}>{sim.ctaText}</p>
+          </div>
+          <a
+            className={styles.cta}
+            href={sim.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta={sim.cta.label}
+            data-cta-loc="AB Simulator"
+          >
+            {sim.cta.label}
+            <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </>
   );

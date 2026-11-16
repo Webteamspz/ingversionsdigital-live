@@ -5,13 +5,13 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
-import { drawScreen, SCREEN_W, SCREEN_H } from "./screens.js";
+import { drawScreen, loadScreens, SCREEN_W, SCREEN_H } from "./screens.js";
 
 const VIEWS = {
-  overview: { pos: [0, 15.5, 21], target: [0, 1.4, 0] },
+  overview: { pos: [0, 6.6, 27], target: [0, 4.4, -2] },
+  overviewNarrow: { pos: [0, 4.9, 17.5], target: [0, 3.5, -1] },
   a: { pos: [-5.2, 3.6, 8.6], target: [-2.9, 2.9, 1.2] },
   b: { pos: [5.2, 3.6, 8.6], target: [2.9, 2.9, 1.2] },
-  office: { pos: [2, 4.5, 6], target: [0.8, 2.6, -6.5] },
 };
 const COLOR = { a: "#38bdf8", b: "#c084fc" };
 const spawnEvery = (traffic) => Math.max(0.16, 1000 / traffic);
@@ -86,16 +86,22 @@ const gridTex = () => {
 };
 
 export const createAbScene = (container, { labels, traffic, playing, coarse, onSelect }) => {
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-  renderer.shadowMap.enabled = true;
+  const lowPower = coarse || (navigator.hardwareConcurrency || 8) <= 4;
+  const renderer = new THREE.WebGLRenderer({
+    antialias: !lowPower,
+    alpha: true,
+    powerPreference: lowPower ? "low-power" : "high-performance",
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPower ? 1.25 : 1.5));
+  renderer.shadowMap.enabled = !lowPower;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
+  renderer.domElement.setAttribute("aria-hidden", "true");
   container.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog("#0b0f1c", 28, 60);
+  scene.fog = new THREE.Fog("#0b0f1c", 40, 80);
   const pmrem = new THREE.PMREMGenerator(renderer);
   const envTarget = pmrem.fromScene(new RoomEnvironment(), 0.04);
   scene.environment = envTarget.texture;
@@ -110,7 +116,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   controls.enablePan = false;
   controls.enableZoom = false;
   controls.minPolarAngle = 0.35;
-  controls.maxPolarAngle = 1.32;
+  controls.maxPolarAngle = 1.5;
   // Touch drags must keep scrolling the page; phones use the view buttons and taps instead.
   controls.enabled = !coarse;
 
@@ -118,7 +124,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   const moon = new THREE.DirectionalLight("#c7d2fe", 1.4);
   moon.position.set(-8, 16, 10);
   moon.castShadow = true;
-  moon.shadow.mapSize.set(1024, 1024);
+  moon.shadow.mapSize.set(768, 768);
   moon.shadow.radius = 4;
   moon.shadow.bias = -0.0004;
   Object.assign(moon.shadow.camera, { left: -13, right: 13, top: 13, bottom: -13, far: 60 });
@@ -232,51 +238,120 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     [8.4, 7.8, 0.95],
   ].forEach((t) => tree(...t));
 
-  // Ingversions Digital office: dark glass with lit windows and a glowing logo
+  // Ingversions Digital head office: glass tower with a lit lobby, side wings and a logo sign band
   const loader = new THREE.TextureLoader();
   const office = new THREE.Group();
-  office.position.set(-1.4, 0, -7);
+  office.position.set(0, 0, -8.2);
   scene.add(office);
-  box(9, 5, 3.6, std("#161b2b", { roughness: 0.4, metalness: 0.3 }), 0, 2.5, 0, office);
-  const windowOn = std("#2a2214", { emissive: "#f59e0b", emissiveIntensity: 0.5 });
-  const windowOff = std("#22293d", { roughness: 0.2, metalness: 0.6 });
-  for (let row = 0; row < 3; row++)
-    for (let col = 0; col < 8; col++)
+  const W = 13;
+  const H = 9.4;
+  const D = 4.4;
+  const front = D / 2;
+  const glass = std("#141a2c", { roughness: 0.15, metalness: 0.7 });
+  const metal = std("#2b3350", { roughness: 0.35, metalness: 0.8 });
+  const windowOn = std("#2a2214", { emissive: "#fbbf24", emissiveIntensity: 0.55 });
+  const windowCool = std("#141c33", { emissive: "#818cf8", emissiveIntensity: 0.4 });
+  const windowOff = std("#1c2338", { roughness: 0.1, metalness: 0.8 });
+  const pane = (i) => [windowOn, windowOff, windowCool, windowOff, windowOff][i % 5];
+  box(W, H, D, glass, 0, H / 2, 0, office);
+
+  [-1, 1].forEach((side) => {
+    const x = side * (W / 2 + 2.1);
+    box(4.2, 5.6, 3.6, glass, x, 2.8, -0.6, office);
+    box(4.4, 0.25, 3.8, metal, x, 5.72, -0.6, office);
+    for (let r = 0; r < 3; r++)
+      for (let c = 0; c < 3; c++)
+        box(
+          0.9,
+          1,
+          0.04,
+          pane(r * 3 + c + side),
+          x + (c - 1) * 1.25,
+          1.3 + r * 1.5,
+          1.22,
+          office,
+          false,
+        );
+  });
+
+  box(
+    W - 0.8,
+    1.8,
+    0.05,
+    std("#3a2a12", { emissive: "#fcd34d", emissiveIntensity: 0.35 }),
+    0,
+    1,
+    front + 0.03,
+    office,
+    false,
+  );
+  box(2.4, 1.7, 0.06, glowMat("#fde68a", 1.1), 0, 0.85, front + 0.06, office, false);
+  box(0.06, 1.7, 0.08, metal, 0, 0.85, front + 0.09, office, false);
+  box(4.2, 0.14, 1.6, metal, 0, 2.05, front + 0.8, office);
+  [-1.9, 1.9].forEach((x) => box(0.1, 2, 0.1, metal, x, 1, front + 1.5, office));
+  box(4.2, 0.04, 0.04, glowMat("#c084fc", 2.5), 0, 1.97, front + 1.6, office, false);
+
+  [2.2, 3.6, 5].forEach((y) => box(W + 0.12, 0.12, D + 0.12, metal, 0, y, 0, office));
+  for (let r = 0; r < 3; r++)
+    for (let c = 0; c < 10; c++)
       box(
-        0.7,
-        0.8,
-        0.05,
-        (row * 7 + col * 3) % 5 < 2 ? windowOn : windowOff,
-        -3.85 + col * 1.1,
-        1 + row * 1.25,
-        1.82,
+        1.05,
+        1.05,
+        0.04,
+        pane(r * 7 + c * 3),
+        -5.4 + c * 1.2,
+        2.9 + r * 1.4,
+        front + 0.03,
         office,
         false,
       );
+  for (let c = 0; c <= 10; c++) box(0.08, 4.2, 0.3, metal, -6 + c * 1.2, 4.3, front + 0.12, office);
+
+  box(
+    W,
+    2.6,
+    0.14,
+    std("#0b0f1c", { roughness: 0.3, metalness: 0.5 }),
+    0,
+    7.75,
+    front + 0.08,
+    office,
+  );
+  const signGlow = glowMat("#a78bfa", 2.6);
+  [6.45, 9.05].forEach((y) => box(W, 0.06, 0.06, signGlow, 0, y, front + 0.16, office, false));
+  [-1, 1].forEach((side) =>
+    box(0.1, H, 0.1, glowMat("#c084fc", 2), side * (W / 2), H / 2, front + 0.05, office, false),
+  );
   const logoTex = loader.load(labels.logo);
   logoTex.colorSpace = THREE.SRGBColorSpace;
   const logo = new THREE.Mesh(
-    new THREE.PlaneGeometry(4.6, 0.93),
+    new THREE.PlaneGeometry(6, 1.215),
     new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, toneMapped: false }),
   );
-  logo.position.set(0, 5.75, 1.3);
+  logo.position.set(0, 7.75, front + 0.17);
   office.add(logo);
-  halo("#a78bfa", 7, 0, 5.75, 1, office, 0.35);
 
-  // Second Ingversions Digital building next door, same logo sign
-  const annex = new THREE.Group();
-  annex.position.set(6.4, 0, -7.4);
-  scene.add(annex);
-  box(5, 3.6, 3, std("#1a2033", { roughness: 0.4, metalness: 0.3 }), 0, 1.8, 0, annex);
-  for (let col = 0; col < 4; col++)
-    box(0.9, 2, 0.05, col % 2 ? windowOn : windowOff, -1.65 + col * 1.1, 1.4, 1.52, annex, false);
-  const annexSign = new THREE.Mesh(
-    new THREE.PlaneGeometry(3.4, 0.69),
-    new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, toneMapped: false }),
+  box(W + 0.2, 0.3, D + 0.2, metal, 0, H + 0.15, 0, office);
+  box(2.4, 0.8, 1.6, metal, -3.2, H + 0.7, -0.4, office);
+  box(1.6, 0.6, 1.2, metal, 3.6, H + 0.6, 0.2, office);
+  add(new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 2.4, 8), metal), office).position.set(
+    4.8,
+    H + 1.5,
+    -0.6,
   );
-  annexSign.position.set(0, 3.15, 1.52);
-  annex.add(annexSign);
-  halo("#a78bfa", 4.5, 0, 3.15, 1.4, annex, 0.3);
+  const beacon = add(
+    new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 12, 8),
+      new THREE.MeshStandardMaterial({
+        color: "#ef4444",
+        emissive: "#ef4444",
+        emissiveIntensity: 2,
+      }),
+    ),
+    office,
+    false,
+  );
+  beacon.position.set(4.8, H + 2.75, -0.6);
 
   // Phones on glowing pedestals
   const phoneW = 2.3;
@@ -335,11 +410,20 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     screen.userData.view = v;
     phones.push(screen);
     g.add(screen);
+    const island = new THREE.Mesh(
+      new THREE.ShapeGeometry(roundedRect(0.62, 0.17, 0.085), 8),
+      new THREE.MeshBasicMaterial({ color: "#05060a" }),
+    );
+    island.position.set(0, sh / 2 - 0.2, 0.16);
+    g.add(island);
+    box(0.05, 0.55, 0.12, bodyMat, phoneW / 2 + 0.03, 0.9, 0, g, false);
+    box(0.05, 0.38, 0.12, bodyMat, -phoneW / 2 - 0.03, 1.2, 0, g, false);
+    box(0.05, 0.38, 0.12, bodyMat, -phoneW / 2 - 0.03, 0.7, 0, g, false);
     screens[v] = { canvas, tex };
     const tag = new THREE.Mesh(
-      new THREE.PlaneGeometry(1.5, 0.37),
+      new THREE.PlaneGeometry(2.1, 0.37),
       new THREE.MeshBasicMaterial({
-        map: label(labels[v], { bg: COLOR[v], fg: "#0b0f1c", size: 50 }),
+        map: label(labels[v], { bg: COLOR[v], fg: "#0b0f1c", size: 44, w: 720 }),
         transparent: true,
         toneMapped: false,
       }),
@@ -391,8 +475,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       drawScreen(screens[v].canvas.getContext("2d"), v, labels, v === "b" ? highlighted : null);
       screens[v].tex.needsUpdate = true;
     });
-  // The canvas falls back to a system font until the web font has loaded; redraw once it has.
-  document.fonts?.ready.then(redraw);
+  loadScreens(labels.screens).then(redraw);
 
   const winnerTag = new THREE.Sprite(
     new THREE.SpriteMaterial({
@@ -536,8 +619,11 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   // Camera tweens, clicks on phones
   let tween = null;
   let distance = 1;
+  let pristine = true;
+  const overviewName = () => (camera.aspect < 1.3 ? "overviewNarrow" : "overview");
   const setView = (name) => {
-    const v = VIEWS[name] || VIEWS.overview;
+    pristine = false;
+    const v = VIEWS[name === "overview" ? overviewName() : name] || VIEWS.overview;
     distance = 1;
     tween = {
       t: 0,
@@ -547,13 +633,17 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       toTarget: new THREE.Vector3(...v.target),
     };
   };
-  controls.addEventListener("start", () => (tween = null));
+  controls.addEventListener("start", () => {
+    tween = null;
+    pristine = false;
+  });
   const zoom = (factor) => {
     const next = THREE.MathUtils.clamp(distance * factor, 0.55, 1.5);
     const dir = camera.position.clone().sub(controls.target);
     camera.position.copy(controls.target).add(dir.multiplyScalar(next / distance));
     distance = next;
     tween = null;
+    pristine = false;
   };
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
@@ -594,6 +684,11 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     const fit = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(24)) / camera.aspect);
     camera.fov = Math.max(32, THREE.MathUtils.radToDeg(fit));
     camera.updateProjectionMatrix();
+    if (pristine) {
+      const v = VIEWS[overviewName()];
+      camera.position.set(...v.pos);
+      controls.target.set(...v.target);
+    }
   };
   const ro = new ResizeObserver(resize);
   ro.observe(container);
@@ -679,6 +774,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     const ws = THREE.MathUtils.lerp(winnerTag.scale.x / 1.8, wt, 0.15);
     winnerTag.scale.set(ws * 1.8, ws * 0.45, 1);
     winnerTag.position.set(2.9, 6.2 + Math.sin(time * 2.4) * 0.08, 1.2);
+    beacon.material.emissiveIntensity = Math.sin(time * 3) > 0.7 ? 3 : 0.15;
 
     renderer.render(scene, camera);
   };
