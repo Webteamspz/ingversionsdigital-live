@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import data from "../../data/siteData";
 import styles from "./Contact.module.css";
-import Reveal from "../Reveal/Reveal";
 
 const Contact = () => {
   const { heading, form, infoCards } = data.contact;
@@ -10,7 +9,7 @@ const Contact = () => {
   return (
     <section className={styles.contactSection} id="contact">
       <div className="container">
-        <Reveal className={styles.contactPanel}>
+        <div className={styles.contactPanel}>
           <p className={styles.eyebrow}>{heading}</p>
           <h2 className={styles.contactHeading}>{form.title}</h2>
           <p className={styles.contactCopy}>
@@ -24,7 +23,7 @@ const Contact = () => {
               <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
             </a>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
