@@ -20,6 +20,7 @@ const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
 const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
 const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
+const AbSimulator = lazy(() => import("./pages/AbSimulator/AbSimulator.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
 const STUDY_PAGES = [
@@ -92,6 +93,7 @@ const App = () => (
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/ab-test-calculator" element={<AbTestCalculator />} />
+        <Route path="/ab-test-simulator" element={<AbSimulator />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />

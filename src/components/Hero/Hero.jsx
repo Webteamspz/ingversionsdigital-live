@@ -5,7 +5,7 @@ import OptimizedImg from "../OptimizedImg/OptimizedImg";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
-  const { eyebrow, heading, pill, sub, cta, secondaryCta, avatars, proof } = data.hero;
+  const { eyebrow, heading, pill, sub, cta, secondaryCta, avatars, proof, simLink } = data.hero;
 
   return (
     <section className={styles.hero} id="hero" aria-labelledby="hero-heading">
@@ -40,6 +40,15 @@ const Hero = () => {
               {secondaryCta.label}
             </Link>
           </div>
+
+          <Link
+            className={styles.simLink}
+            to={simLink.href}
+            data-cta={simLink.label}
+            data-cta-loc="Hero"
+          >
+            {simLink.label} →
+          </Link>
 
           <div className={styles.proof}>
             <div className={styles.avatars} aria-hidden="true">

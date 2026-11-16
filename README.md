@@ -13,6 +13,7 @@ Docker/Nginx image.
 - SEO: `react-helmet-async` via a shared `<SEO>` component
 - Icons: `lucide-react`
 - Carousels: Swiper
+- 3D: `three` (`/ab-test-simulator` page only, lazy-loaded)
 - Blog: `react-markdown` for legacy posts, `mermaid` for diagrams (loaded on demand)
 - Contact form: Firebase Cloud Firestore (REST, no SDK)
 - Analytics: Google Tag Manager and Microsoft Clarity, wired through `src/gtm.js`

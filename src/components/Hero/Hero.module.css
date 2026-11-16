@@ -30,6 +30,17 @@
 .logoArea {
   margin-top: 28px;
 }
+.simLink {
+  margin-top: 18px;
+  color: var(--palette-accent-strong);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.simLink:hover {
+  color: var(--palette-accent);
+}
 .eyebrow {
   display: inline-flex;
   align-items: center;

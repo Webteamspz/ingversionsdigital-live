@@ -11,7 +11,7 @@ const BLACK_FRIDAY = {
   title: "Get your store ready before the BFCM rush",
   text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
   cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
-  hideOn: ["/pricing", "/blog"],
+  hideOn: ["/pricing", "/blog", "/ab-test-simulator"],
 };
 
 const DISMISS_KEY = "bf-banner-dismissed";

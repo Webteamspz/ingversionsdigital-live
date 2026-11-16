@@ -60,6 +60,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Styling | CSS Modules (`*.module.css`) | one file per component, no Tailwind/styled-components |
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
+| 3D | `three` | the `/ab-test-simulator` page only (`components/AbSimulator/scene.js`), on its own lazy route and dynamically imported after the page is idle, so it never loads on the rest of the site |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
 | Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `ingversionsdigital_submissions` collection over REST, with `site`, `formName`, `page` (URL path), `pageName` (readable page name, e.g. "Pricing", for filtering) and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |

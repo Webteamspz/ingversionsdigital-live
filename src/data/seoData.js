@@ -1,6 +1,7 @@
 import data from "./siteData.js";
 import servicePages from "./servicePagesData.js";
 import abTest from "./abTestData.js";
+import simulator from "./simulatorData.js";
 
 const home = { name: "Home", path: "/" };
 
@@ -109,6 +110,11 @@ export default {
     path: "/ab-test-calculator",
     breadcrumb: [home, { name: "A/B Test Calculator", path: "/ab-test-calculator" }],
     jsonLd: faqJsonLd(abTest.faq.items),
+  },
+  abSimulator: {
+    ...simulator.seo,
+    path: "/ab-test-simulator",
+    breadcrumb: [home, { name: "A/B Test Simulator", path: "/ab-test-simulator" }],
   },
   caseStudies: {
     title: "Shopify CRO & A/B Testing Case Studies | Ingversions Digital",
