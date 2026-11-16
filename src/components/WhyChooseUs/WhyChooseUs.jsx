@@ -1,81 +1,65 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, A11y } from "swiper/modules";
+import { Check, X, ArrowRight } from "lucide-react";
 import data from "../../data/siteData";
 import styles from "./WhyChooseUs.module.css";
-import Reveal from "../Reveal/Reveal";
-import useIsMobile from "../../hooks/useIsMobile";
-
-const NODE_COLORS = [
-  "var(--palette-accent)",
-  "var(--secondary)",
-  "var(--tertiary)",
-  "var(--quaternary)",
-];
 
 const WhyChooseUs = () => {
-  const isMobile = useIsMobile();
+  const { eyebrow, heading, highlight, sub, them, us, cta } = data.why;
 
   return (
-    <section className={styles.whyChooseUsSection} id="why-choose-us">
-      <div className={styles.decor} aria-hidden="true">
-        <span className={styles.shapeCircleTl} />
-        <span className={styles.shapeSquareTr} />
-        <span className={styles.shapeCircleBr} />
-        <span className={styles.shapeSquareBl} />
-      </div>
+    <section className={styles.section} id="why-choose-us" aria-labelledby="why-heading">
       <div className="container">
-        <h2 className="section-title">{data.why.heading}</h2>
-        <p className={styles.whySub}>Here's what sets our approach apart.</p>
+        <div className={styles.head}>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 id="why-heading" className={styles.title}>
+            {heading} <span className={styles.highlight}>{highlight}</span>
+          </h2>
+          <p className={styles.sub}>{sub}</p>
+        </div>
 
-        {isMobile ? (
-          <Swiper
-            modules={[Pagination, A11y]}
-            pagination={{ clickable: true }}
-            spaceBetween={20}
-            slidesPerView={1}
-            className={styles.timelineSwiper}
-          >
-            {data.why.list.map((w, i) => (
-              <SwiperSlide key={i}>
-                <div className={styles.timelineSlideCard}>
-                  <span
-                    className={styles.timelineNumber}
-                    style={{ color: NODE_COLORS[i % NODE_COLORS.length] }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
+        <div className={styles.compare}>
+          <div className={`${styles.col} ${styles.them}`}>
+            <h3 className={styles.colLabel}>{them.label}</h3>
+            <ul className={styles.list}>
+              {them.items.map((t) => (
+                <li key={t}>
+                  <span className={`${styles.mark} ${styles.markNo}`}>
+                    <X size={14} strokeWidth={3} aria-label="No" />
                   </span>
-                  <h4 className={styles.timelineTitle}>{w.title}</h4>
-                  <p className={styles.timelineDesc}>{w.desc}</p>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className={styles.timeline}>
-            <span className={styles.timelineLine} aria-hidden="true" />
-            {data.why.list.map((w, i) => (
-              <Reveal key={i} delay={i * 100} className={styles.timelineRow}>
-                <div className={styles.timelineCard}>
-                  <span
-                    className={styles.timelineNumber}
-                    style={{ color: NODE_COLORS[i % NODE_COLORS.length] }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h4 className={styles.timelineTitle}>{w.title}</h4>
-                  <p className={styles.timelineDesc}>{w.desc}</p>
-                </div>
-                <span
-                  className={styles.timelineNode}
-                  style={{ borderColor: NODE_COLORS[i % NODE_COLORS.length] }}
-                  aria-hidden="true"
-                />
-              </Reveal>
-            ))}
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
+
+          <span className={styles.vs} aria-hidden="true">
+            vs
+          </span>
+
+          <div className={`${styles.col} ${styles.us}`}>
+            <h3 className={styles.colLabel}>{us.label}</h3>
+            <ul className={styles.list}>
+              {us.items.map((t) => (
+                <li key={t}>
+                  <span className={`${styles.mark} ${styles.markYes}`}>
+                    <Check size={14} strokeWidth={3.5} aria-label="Yes" />
+                  </span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <a
+              className={styles.cta}
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta={cta.label}
+              data-cta-loc="Why Choose Us"
+            >
+              {cta.label}
+              <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

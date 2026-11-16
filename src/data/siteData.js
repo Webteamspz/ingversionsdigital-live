@@ -102,14 +102,11 @@ export default {
         },
       ],
       all: { label: "Explore all services", short: "All services", href: "/services" },
-      promo: {
-        eyebrow: "Case study · Rapid Radios",
-        stat: "+33.7%",
-        statLabel: "mobile conversion",
-        detail: "1.28% → 1.71% · 99.7% confidence",
-        text: "A sticky add-to-cart bar beat the original product page in 10 days.",
-        label: "Read the case study",
-        href: "/case-studies/rapid-radios-shopify-cro-case-study",
+      review: {
+        eyebrow: "Client review",
+        reviewer: "Daniel H",
+        linkLabel: "See client results",
+        href: "/case-studies",
       },
     },
     mobileMenu: {
@@ -120,7 +117,7 @@ export default {
     },
   },
   promoBar: {
-    enabled: true,
+    enabled: false,
     eyebrow: "Limited Slots",
     text: "Get a free test build and explore our skills!",
     cta: {
@@ -134,23 +131,43 @@ export default {
     },
   },
   hero: {
-    eyebrow: "Shopify & Shopify Plus CRO Engineering",
-    heading: "We'll Design, Build & QA",
-    pill: "Shopify A/B Tests That Lift Revenue.",
-    sub: "Data-backed experiments for Shopify and Shopify Plus stores. Every test ships with a Figma prototype, clean Git code, full QA and GA4 revenue tracking, like the product-page test that lifted Add-to-Cart conversions +58.62% in 12 days.",
+    eyebrow: "Shopify CRO & A/B Testing Agency",
+    heading: "More revenue from the traffic you",
+    emphasis: "already pay for.",
+    sub: "We find where your shoppers drop off, test a fix on your live store, and ship only the changes that win.",
     cta: {
       label: "Get my free test build",
       href: "https://calendly.com/ingversionsdigital/30min",
     },
     secondaryCta: { label: "See plans from $999/mo", href: "/pricing" },
-    avatars: [
-      "/assets/reviews/reviewer-1.jpg",
-      "/assets/reviews/reviewer-2.jpg",
-      "/assets/reviews/reviewer-3.jpg",
-    ],
-    proof: "Trusted by <strong>6+ agencies</strong> and <strong> 10+ brands in Ecommerce</strong>",
-    visual: "/assets/hero/hero-main-1.webp",
+    assure: ["Free 30-minute call", "First test build free", "No long contract"],
+    trust: {
+      avatars: [
+        "/assets/reviews/reviewer-1.jpg",
+        "/assets/reviews/reviewer-2.jpg",
+        "/assets/reviews/reviewer-3.jpg",
+      ],
+      text: "Trusted by <strong>6+ agencies</strong> and <strong>10+ brands in Ecommerce</strong>",
+    },
+    proof: {
+      stat: "+33.7%",
+      text: "mobile conversion for Rapid Radios",
+      href: "/case-studies/rapid-radios-shopify-cro-case-study",
+    },
     simLink: { label: "Watch a live A/B test simulation", href: "/ab-test-simulator" },
+    compare: {
+      labelA: "A: our old hero",
+      labelB: "B: built to convert",
+      handleLabel: "Drag to compare version A and version B",
+      a: {
+        eyebrow: "Shopify & Shopify Plus CRO Engineering",
+        heading: "We'll Design, Build & QA",
+        pill: "Shopify A/B Tests That Lift Revenue.",
+        sub: "Data-backed experiments for Shopify and Shopify Plus stores. Every test ships with a Figma prototype, clean Git code, full QA and GA4 revenue tracking, like the product-page test that lifted Add-to-Cart conversions +58.62% in 12 days.",
+        cta: "Get my free test build",
+        secondaryCta: "See plans from $999/mo",
+      },
+    },
   },
   logos: [
     {
@@ -211,15 +228,50 @@ export default {
       { value: "5+", label: "Years of experience" },
     ],
   },
+  caseResults: {
+    eyebrow: "Proof, not promises",
+    heading: "Real tests. Real numbers.",
+    sub: "Conversion rates before and after, straight from the test reports.",
+    items: [
+      { id: "rapid-radios-shopify-cro-case-study", stat: 0 },
+      { id: "shopify-pdp-trust-badges-ab-test", stat: 0 },
+      { id: "ruff-greens-shopify-cro-case-study", stat: 0 },
+    ],
+    before: "Before",
+    after: "After",
+    link: "Read the study",
+    cta: { label: "Get my free test build", href: "https://calendly.com/ingversionsdigital/30min" },
+  },
   servicesPage: {
-    tag: "Services",
-    title: "Shopify CRO, A/B Testing & Development Services",
-    sub: "Everything your store needs to convert more visitors: research-led A/B tests, Shopify development, and full QA on every build. Your first test is free.",
-    primaryCta: "Book a call",
+    tag: "Shopify CRO services",
+    title: "Shopify CRO, A/B testing & development",
+    highlight: "that turn visitors into buyers.",
+    sub: "We find where shoppers drop off, test a fix on your live store, and keep only the changes that win. Strategy, design, development and QA from one team.",
+    primaryCta: "Get my free test build",
     primaryHref: "https://calendly.com/ingversionsdigital/30min",
-    secondaryCta: "See pricing",
+    secondaryCta: "See plans from $999/mo",
     secondaryHref: "/pricing",
+    assure: ["Free 30-minute call", "First test build free", "No long contract"],
+    proof: {
+      label: "From our case studies",
+      linkLabel: "Read the case studies",
+      href: "/case-studies",
+    },
+    problemsEyebrow: "Start with the problem",
+    problemsHeading: "What is holding your store back?",
+    problemsSub: "Pick the one that sounds most like you. We will show you how we fix it.",
+    problems: [
+      { pain: "Plenty of traffic, not enough sales", slug: "ab-testing" },
+      { pain: "Your theme is slow or hard to change", slug: "shopify-development" },
+      { pain: "Bugs slip out with every launch", slug: "quality-assurance" },
+      { pain: "Every ad lands on the same generic page", slug: "landing-page-personalization" },
+    ],
+    problemFix: "Fixed by",
+    detailsEyebrow: "Our services",
     detailsHeading: "What we do, in detail",
+    includedLabel: "What's included",
+    exploreLabel: "Explore",
+    audienceEyebrow: "Two ways to work with us",
     audienceHeading: "Who we work with",
     audiences: [
       {
@@ -245,8 +297,10 @@ export default {
     ],
   },
   services: {
-    heading: "Our CRO Services",
-    sub: "A/B testing, Shopify development and QA for ecommerce brands, all aimed at one number: your conversion rate.",
+    eyebrow: "What we do",
+    heading: "Four services. One number:",
+    highlight: "your conversion rate.",
+    sub: "A/B testing, Shopify development, QA and personalization for ecommerce brands. Every piece of work is measured against how many visitors buy.",
     list: [
       {
         title: "A/B Testing",
@@ -255,6 +309,7 @@ export default {
         eyebrow: "Experimentation",
         desc: "Data-driven experiments to boost conversions and optimize user journeys on your website.",
         icon: "ab-testing",
+        visual: { a: "Control", b: "Variant", winner: "Winner" },
       },
       {
         title: "Shopify Development",
@@ -263,6 +318,7 @@ export default {
         eyebrow: "Shopify & Shopify Plus",
         desc: "Custom Shopify template and theme design and development tailored for performance and scalability.",
         icon: "shopify",
+        visual: { button: "Add to cart" },
       },
       {
         title: "Quality Assurance",
@@ -271,6 +327,7 @@ export default {
         eyebrow: "Ship With Confidence",
         desc: "End-to-end quality assurance to ensure flawless functionality, usability, and bug-free experiences.",
         icon: "qa",
+        visual: { checks: ["Desktop", "Mobile", "Safari", "Checkout"] },
       },
       {
         title: "Landing Page Personalization",
@@ -279,38 +336,19 @@ export default {
         eyebrow: "Personalization",
         desc: "Deliver tailored experiences that adapt to user behaviour, boosting engagement and conversions.",
         icon: "landing-page",
+        visual: {
+          segments: [
+            { who: "From Instagram", sees: "Shop the look" },
+            { who: "Returning", sees: "Welcome back" },
+            { who: "From Google", sees: "Free shipping" },
+          ],
+        },
       },
       {
         title: "Lead Generation",
         eyebrow: "Growth",
         desc: "Convert potential customers through targeted, data-driven marketing to boost sales and drive business growth.",
         icon: "lead",
-      },
-    ],
-  },
-  process: {
-    heading: "Our Simple Work Process",
-    sub: "Every project follows the same tracked steps, so you always know what is being built, who is building it, and when it goes live.",
-    list: [
-      {
-        title: "Project Discussion",
-        desc: "We start by understanding your business goals, challenges, and requirements to ensure complete clarity before moving forward.",
-        icon: "project-discussion",
-      },
-      {
-        title: "Plan & Approach",
-        desc: "A tailored strategy and roadmap are created, outlining timelines, tools, and milestones for smooth execution.",
-        icon: "plan",
-      },
-      {
-        title: "Development",
-        desc: "Our team brings ideas to life with clean, scalable, and high-performing solutions designed for your business needs.",
-        icon: "dev",
-      },
-      {
-        title: "Launch",
-        desc: "After rigorous testing and refinements, we deliver and launch your project, ensuring a seamless go-live experience.",
-        icon: "goal",
       },
     ],
   },
@@ -625,6 +663,22 @@ export default {
       href: "https://calendly.com/ingversionsdigital/30min",
     },
     secondaryCta: { label: "See plans from $999/mo", href: "/pricing" },
+    detailTag: "Case study",
+    detailBack: { label: "All case studies", href: "/case-studies" },
+    caseLabel: "Case",
+    challengeLabel: "The challenge",
+    actionLabel: "What we did",
+    resultsLabel: "Results",
+    fullLabel: "Read the full case study",
+    moreLabel: "See the full write-up",
+    midCta: {
+      eyebrow: "Your store next?",
+      title: "Want a result like this on your store?",
+      text: "Book a 30-minute call. We will find the first thing worth testing and build that test for free.",
+      label: "Get my free test build",
+      href: "https://calendly.com/ingversionsdigital/30min",
+      points: ["Free 30-minute call", "First test build free", "No long contract"],
+    },
     metrics: [
       { value: "+58.62%", label: "Add-to-cart lift" },
       { value: "3.2x", label: "Daily users after SEO fixes" },
@@ -1309,64 +1363,81 @@ export default {
     ],
   },
   why: {
-    heading: "Why Choose Us",
-    list: [
-      {
-        title: "Innovation",
-        desc: "Pushing boundaries with AI and quantitative trading to deliver cutting-edge solutions.",
-      },
-      {
-        title: "Collaboration",
-        desc: "Working closely with clients to develop tailored solutions that drive measurable success.",
-      },
-      {
-        title: "Excellence",
-        desc: "Maintaining the highest standards in code quality, system performance, and client outcomes.",
-      },
-      {
-        title: "Integrity",
-        desc: "Operating with transparency and ethical considerations at the forefront of all decisions.",
-      },
-    ],
+    eyebrow: "Why brands switch",
+    heading: "Most agencies sell redesigns.",
+    highlight: "We sell proof.",
+    sub: "Here is what changes when your CRO partner tests every idea before it touches your revenue.",
+    them: {
+      label: "The usual agency",
+      items: [
+        "Redesigns the whole site and hopes it converts",
+        "Charges for a long discovery phase before any work",
+        "Locks you into a long retainer",
+        "Hands builds to freelancers you never meet",
+        "Launches untested and fixes bugs later",
+      ],
+    },
+    us: {
+      label: "Ingversions Digital",
+      items: [
+        "Tests one change at a time and keeps only the winners",
+        "Builds your first test for free",
+        "No long contract, you stay because it works",
+        "Strategy, Shopify development and QA in one team",
+        "QA checks every test across devices before it goes live",
+      ],
+    },
+    cta: { label: "Get my free test build", href: "https://calendly.com/ingversionsdigital/30min" },
   },
   review: {
-    heading: "Reviews",
+    eyebrow: "Client reviews",
+    heading: "What store owners say after working with us",
+    sub: "Founders and product teams on what changed once we started testing their stores.",
+    channel: "#client-wins",
+    members: "6 clients",
+    cta: { label: "Get my free test build", href: "https://calendly.com/ingversionsdigital/30min" },
     testimonials: [
       {
         reviewer: "James R",
         reviewerRole: "Founder",
         quote:
           "Reliable, fast, and super professional. They helped us optimize our Shopify store and we instantly saw better conversions.",
+        highlight: "better conversions",
       },
       {
         reviewer: "Emily T",
         reviewerRole: "Director",
         quote:
           "The CRO experiments they ran boosted our sales within weeks. Smart strategies, well executed.",
+        highlight: "boosted our sales within weeks",
       },
       {
         reviewer: "Oliver K",
         reviewerRole: "Vice President",
         quote:
           "They rebuilt our homepage and PDPs with clean design and better UX. Our bounce rate dropped noticeably",
+        highlight: "Our bounce rate dropped",
       },
       {
         reviewer: "Abhijit M",
         reviewerRole: "CTO",
         quote:
           "Amazing Shopify experts! They customized our store flawlessly and gave us a clear CRO roadmap.",
+        highlight: "a clear CRO roadmap",
       },
       {
         reviewer: "Daniel H",
         reviewerRole: "CEO",
         quote:
           "We saw a 20% lift in conversions after their changes to our cart and checkout. Highly recommend.",
+        highlight: "20% lift in conversions",
       },
       {
         reviewer: "Mia L.",
         reviewerRole: "Head of Product",
         quote:
           "Their A/B testing insights were game-changing. We're finally making decisions with data, not guesses.",
+        highlight: "making decisions with data",
       },
     ],
   },
@@ -1681,7 +1752,6 @@ export default {
           { name: "Case Studies", href: "/case-studies" },
           { name: "Pricing", href: "/pricing" },
           { name: "About Us", href: "/about-us" },
-          { name: "Team", href: "/teampage" },
           { name: "Blog", href: "/blog" },
         ],
       },
