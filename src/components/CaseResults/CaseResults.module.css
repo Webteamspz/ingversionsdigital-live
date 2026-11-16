@@ -1,0 +1,197 @@
+.section {
+  padding: 96px 0;
+  background-color: var(--palette-border);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.head {
+  display: flex;
+  max-width: 720px;
+  margin: 0 auto 48px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.eyebrow {
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.45);
+  color: var(--palette-text-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.title {
+  margin: 0;
+  color: var(--palette-bg-800);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.sub {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.grid {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+}
+.card {
+  display: flex;
+  padding: 26px;
+  flex-direction: column;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  background: var(--palette-bg-800);
+  box-shadow: 8px 8px 0 0 var(--palette-accent);
+}
+.lift {
+  align-self: flex-start;
+  padding: 4px 14px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--quaternary);
+  color: var(--palette-text-primary);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+.label {
+  flex: 1;
+  margin: 16px 0 18px;
+  color: var(--palette-text-primary);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.beforeAfter {
+  display: flex;
+  padding: 14px 16px;
+  gap: 14px;
+  align-items: center;
+  border-radius: var(--radius-md);
+  background: var(--palette-bg-700);
+  color: var(--palette-text-muted);
+}
+.beforeAfter span {
+  display: flex;
+  flex-direction: column;
+  color: var(--palette-text-muted);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+.beforeAfter small {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.beforeAfter .after {
+  color: var(--palette-text-primary);
+}
+.link {
+  display: inline-flex;
+  margin-top: 18px;
+  gap: 6px;
+  align-items: center;
+  color: var(--palette-accent);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.link:focus-visible {
+  outline: 3px solid var(--palette-accent);
+  outline-offset: 4px;
+}
+.ctaRow {
+  display: flex;
+  margin-top: 48px;
+  justify-content: center;
+}
+.cta {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 26px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.45);
+  color: var(--palette-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.cta:hover {
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.45);
+  transform: translate(-2px, -2px);
+}
+.cta:active {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.45);
+  transform: translate(2px, 2px);
+}
+.cta:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1023.98px) {
+  .title {
+    font-size: 38px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767.98px) {
+  .section {
+    padding: 64px 0;
+  }
+  .head {
+    margin-bottom: 32px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .sub {
+    font-size: 16px;
+  }
+  .card {
+    padding: 22px;
+    box-shadow: 6px 6px 0 0 var(--palette-accent);
+  }
+  .lift {
+    font-size: 26px;
+  }
+  .cta {
+    width: 100%;
+  }
+}

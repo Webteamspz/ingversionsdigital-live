@@ -3,14 +3,16 @@ import { bottomCta } from "../../data/pricingData";
 import styles from "./PricingBottomCta.module.css";
 
 const PricingBottomCta = () => (
-  <section className={styles.section}>
+  <section className={styles.section} aria-labelledby="bottom-cta-title">
     <div className="container">
       <div className={styles.card}>
-        <h2 className={styles.title}>{bottomCta.title}</h2>
+        <h2 id="bottom-cta-title" className={styles.title}>
+          {bottomCta.title}
+        </h2>
         <p className={styles.text}>{bottomCta.text}</p>
         <div className={styles.actions}>
           <a
-            className="btn btn-book"
+            className={styles.primary}
             href={bottomCta.primaryHref}
             target="_blank"
             rel="noopener noreferrer"
@@ -18,10 +20,10 @@ const PricingBottomCta = () => (
             data-cta-loc="Pricing Bottom CTA"
           >
             {bottomCta.primaryCta}
-            <ArrowRight size={16} aria-hidden="true" />
+            <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
           </a>
           <a
-            className={`c-btn ${styles.secondaryBtn}`}
+            className={styles.secondary}
             href={bottomCta.secondaryHref}
             target="_blank"
             rel="noopener noreferrer"
