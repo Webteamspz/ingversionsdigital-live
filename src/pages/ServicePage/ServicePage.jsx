@@ -1,24 +1,20 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, CircleCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import Layout from "../../layouts/Layout";
 import SEO from "../../components/SEO/SEO";
 import ProcessFlow from "../../components/ProcessFlow/ProcessFlow";
 import FAQ from "../../components/FAQ/FAQ";
-import ProjectsCTA from "../../components/ProjectsCTA/ProjectsCTA";
-import Reveal from "../../components/Reveal/Reveal";
+import PricingBottomCta from "../../components/PricingBottomCta/PricingBottomCta";
+import ServiceVisual from "../../components/ServiceVisual/ServiceVisual";
 import seo from "../../data/seoData";
 import siteData from "../../data/siteData";
 import { brandPlans, devPlans } from "../../data/pricingData";
-import pages from "../../data/servicePagesData";
+import pages, { servicePageCopy as copy } from "../../data/servicePagesData";
 import styles from "./ServicePage.module.css";
 
-const COLORS = [
-  "var(--palette-accent)",
-  "var(--secondary)",
-  "var(--tertiary)",
-  "var(--quaternary)",
-];
+const VISUALS = Object.fromEntries(
+  siteData.services.list.filter((s) => s.visual).map((s) => [s.icon, s.visual]),
+);
 
 const pricingItems = (type) =>
   type === "plans" || type === "dev"
@@ -39,187 +35,231 @@ const pricingItems = (type) =>
         cta: { label: m.cta.label, href: m.cta.href === "#contact" ? "/#contact" : m.cta.href },
       }));
 
-const CardCta = ({ cta, loc }) =>
-  cta.href.startsWith("http") ? (
+const SmartLink = ({ href, className, children, label, loc }) =>
+  href.startsWith("http") ? (
     <a
-      href={cta.href}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={styles.priceCta}
-      data-cta={cta.label}
+      className={className}
+      data-cta={label}
       data-cta-loc={loc}
     >
-      {cta.label} <ArrowRight size={16} aria-hidden="true" />
+      {children}
     </a>
   ) : (
-    <Link to={cta.href} className={styles.priceCta} data-cta={cta.label} data-cta-loc={loc}>
-      {cta.label} <ArrowRight size={16} aria-hidden="true" />
+    <Link to={href} className={className} data-cta={label} data-cta-loc={loc}>
+      {children}
     </Link>
   );
 
 const ServicePage = ({ slug }) => {
   const page = pages[slug];
-  const [reduced] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
-  const [active, setActive] = useState(reduced ? page.included.length : 0);
-  const next = () => setActive((a) => (a + 1) % page.included.length);
+  const visual = VISUALS[page.flow];
+  const plans = pricingItems(page.pricing);
+  const hasExplore = page.related || page.posts?.length;
 
   return (
     <>
       <SEO {...seo[slug]} />
       <Layout header={1} footer={1}>
-        <section className={styles.hero}>
-          <div className={styles.grid} aria-hidden="true" />
-          <div className="container">
-            <span className={styles.eyebrow}>{page.eyebrow}</span>
-            <h1 className={styles.title}>{page.title}</h1>
-            <p className={styles.intro}>{page.intro}</p>
-            {page.keywords && (
-              <ul className={styles.keywords} aria-label="Key topics">
-                {page.keywords.map((k) => (
-                  <li key={k}>{k}</li>
-                ))}
-              </ul>
-            )}
-            <div className={styles.actions}>
-              <a
-                href={page.cta.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-book"
-                data-cta={page.cta.label}
-                data-cta-loc={`${page.title} Hero`}
-              >
-                {page.cta.label}
-              </a>
-              <Link
-                to="/projects"
-                className={styles.secondary}
-                data-cta="View Projects"
-                data-cta-loc={`${page.title} Hero`}
-              >
-                View Projects <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        <main>
+          <section className={styles.hero}>
+            <div className={`container ${styles.heroGrid}`}>
+              <div>
+                <span className={styles.tag}>{page.eyebrow}</span>
+                <h1 className={styles.title}>{page.title}</h1>
+                <p className={styles.intro}>{page.intro}</p>
+                <div className={styles.actions}>
+                  <SmartLink
+                    href={page.cta.href}
+                    className={styles.btnPrimary}
+                    label={page.cta.label}
+                    loc={`${page.title} Hero`}
+                  >
+                    {page.cta.label}
+                    <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+                  </SmartLink>
+                  <Link
+                    to={copy.secondaryCta.href}
+                    className={styles.btnGhost}
+                    data-cta={copy.secondaryCta.label}
+                    data-cta-loc={`${page.title} Hero`}
+                  >
+                    {copy.secondaryCta.label}
+                  </Link>
+                </div>
+                <ul className={styles.assure}>
+                  {copy.assure.map((a) => (
+                    <li key={a}>{a}</li>
+                  ))}
+                </ul>
+              </div>
 
-        <section className={styles.included}>
-          <div className="container">
-            <h2 className="section-title">{page.includedHeading}</h2>
-            <ol className={styles.includedGrid}>
-              {page.included.map((item, i) => (
-                <li
-                  key={item.title}
-                  className={`${styles.includedCard} ${
-                    i === active ? styles.current : i < active ? styles.done : ""
-                  }`}
-                  style={{ "--accent": COLORS[i % COLORS.length] }}
-                >
-                  {i === active && <span className={styles.beam} aria-hidden="true" />}
-                  <div className={styles.includedInner}>
-                    <span className={styles.includedIcon} aria-hidden="true">
-                      <CircleCheck size={22} strokeWidth={2.5} />
-                    </span>
-                    <h3 className={styles.includedTitle}>{item.title}</h3>
-                    <p className={styles.includedDesc}>{item.desc}</p>
-                    {i === active && (
-                      <span className={styles.progress} onAnimationEnd={next} aria-hidden="true" />
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <ProcessFlow tabIds={[page.flow]} />
-
-        <section className={styles.pricing}>
-          <div className="container">
-            <h2 className="section-title">{page.pricingHeading}</h2>
-            <p className={styles.pricingSub}>{page.pricingSub}</p>
-            <div className={styles.pricingGrid}>
-              {pricingItems(page.pricing).map((item, i) => (
-                <Reveal
-                  key={item.name}
-                  delay={i * 70}
-                  className={`${styles.priceCard} ${item.badge ? styles.featured : ""}`}
-                  style={{ "--accent": COLORS[i % COLORS.length] }}
-                >
-                  {item.badge && <span className={styles.badge}>{item.badge}</span>}
-                  <span className={styles.priceName}>{item.name}</span>
-                  <span className={styles.price}>
-                    {item.price}
-                    {item.period && <span className={styles.period}>{item.period}</span>}
+              <div className={styles.window} aria-hidden="true">
+                <div className={styles.bar}>
+                  <span className={styles.dots}>
+                    <i />
+                    <i />
+                    <i />
                   </span>
-                  <p className={styles.priceDesc}>{item.desc}</p>
-                  <ul className={styles.features}>
-                    {item.features.map((f) => (
-                      <li key={f}>
-                        <span className={styles.featureTick} aria-hidden="true">
-                          <Check size={12} strokeWidth={3.5} />
-                        </span>
-                        {f}
-                      </li>
+                  <span className={styles.url}>
+                    {copy.urlBase}/{slug}
+                  </span>
+                </div>
+                {visual ? (
+                  <ServiceVisual icon={page.flow} visual={visual} className={styles.visual} />
+                ) : (
+                  <ul className={styles.chipCloud}>
+                    {page.keywords?.map((k) => (
+                      <li key={k}>{k}</li>
                     ))}
                   </ul>
-                  <CardCta cta={item.cta} loc={`${page.title} Pricing`} />
-                </Reveal>
-              ))}
-            </div>
-            <Link
-              to="/pricing"
-              className={`btn btn-book ${styles.seeAll}`}
-              data-cta="See full pricing"
-              data-cta-loc={`${page.title} Pricing`}
-            >
-              See full pricing <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </section>
-
-        {page.related && (
-          <section className={styles.included}>
-            <div className="container">
-              <h2 className="section-title">{page.related.heading}</h2>
-              <ul className={styles.related}>
-                {page.related.links.map((l) => (
-                  <li key={l.href}>
-                    <Link to={l.href}>
-                      {l.label} <ArrowRight size={16} aria-hidden="true" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                )}
+              </div>
             </div>
           </section>
-        )}
 
-        {page.posts && (
-          <section className={styles.included}>
+          <section className={styles.included} aria-labelledby="included-heading">
             <div className="container">
-              <h2 className="section-title">Related reading</h2>
-              <ul className={styles.related}>
-                {page.posts.map((p) => (
-                  <li key={p.slug}>
-                    <Link to={`/blog/${p.slug}`}>
-                      {p.title} <ArrowRight size={16} aria-hidden="true" />
-                    </Link>
+              <div className={styles.head}>
+                <span className={styles.eyebrow}>{copy.includedEyebrow}</span>
+                <h2 id="included-heading" className={styles.h2}>
+                  {page.includedHeading}
+                </h2>
+              </div>
+              <ol className={styles.includedGrid}>
+                {page.included.map((item, i) => (
+                  <li key={item.title} className={styles.includedCard}>
+                    <span className={styles.includedNum} aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
                   </li>
                 ))}
-              </ul>
+              </ol>
+              {visual && page.keywords?.length > 0 && (
+                <div className={styles.topics}>
+                  <span>{copy.topicsLabel}</span>
+                  <ul>
+                    {page.keywords.map((k) => (
+                      <li key={k}>{k}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </section>
-        )}
 
-        <FAQ heading={page.faqHeading} list={page.faq} />
-        <div className="container">
-          <ProjectsCTA />
-        </div>
+          <ProcessFlow tabIds={[page.flow]} />
+
+          <section className={styles.pricing} aria-labelledby="service-pricing">
+            <div className="container">
+              <div className={styles.head}>
+                <span className={styles.eyebrow}>{copy.pricingEyebrow}</span>
+                <h2 id="service-pricing" className={styles.h2}>
+                  {page.pricingHeading}
+                </h2>
+                {page.pricingSub && <p className={styles.headSub}>{page.pricingSub}</p>}
+              </div>
+              <div className={`${styles.pricingGrid} ${plans.length === 3 ? styles.three : ""}`}>
+                {plans.map((item) => (
+                  <article
+                    key={item.name}
+                    className={`${styles.priceCard} ${item.badge ? styles.featured : ""}`}
+                  >
+                    {item.badge && <span className={styles.badge}>{item.badge}</span>}
+                    <h3 className={styles.priceName}>{item.name}</h3>
+                    <p className={styles.price}>
+                      {item.price}
+                      {item.period && <span className={styles.period}>{item.period}</span>}
+                    </p>
+                    <p className={styles.priceDesc}>{item.desc}</p>
+                    <SmartLink
+                      href={item.cta.href}
+                      className={styles.priceCta}
+                      label={item.cta.label}
+                      loc={`${page.title} Pricing`}
+                    >
+                      {item.cta.label}
+                      <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
+                    </SmartLink>
+                    <ul className={styles.features}>
+                      {item.features.map((f) => (
+                        <li key={f}>
+                          <span className={styles.tick} aria-hidden="true">
+                            <Check size={12} strokeWidth={3.5} />
+                          </span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+              <div className={styles.seeAllRow}>
+                <Link
+                  to="/pricing"
+                  className={styles.textLink}
+                  data-cta={copy.seeAllPricing}
+                  data-cta-loc={`${page.title} Pricing`}
+                >
+                  {copy.seeAllPricing}
+                  <ArrowUpRight size={18} strokeWidth={2.5} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {hasExplore && (
+            <section className={styles.explore} aria-labelledby="explore-heading">
+              <div className="container">
+                <div className={styles.head}>
+                  <span className={styles.eyebrow}>{copy.exploreEyebrow}</span>
+                  <h2 id="explore-heading" className={styles.h2}>
+                    {copy.exploreHeading}
+                  </h2>
+                </div>
+                <div className={styles.exploreGrid}>
+                  {page.related && (
+                    <div className={styles.linkCard}>
+                      <h3>{page.related.heading}</h3>
+                      <ul>
+                        {page.related.links.map((l) => (
+                          <li key={l.href}>
+                            <Link to={l.href}>
+                              {l.label}
+                              <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {page.posts?.length > 0 && (
+                    <div className={styles.linkCard}>
+                      <h3>{copy.readingHeading}</h3>
+                      <ul>
+                        {page.posts.map((p) => (
+                          <li key={p.slug}>
+                            <Link to={`/blog/${p.slug}`}>
+                              {p.title}
+                              <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </section>
+          )}
+
+          <FAQ heading={page.faqHeading} list={page.faq} />
+          <PricingBottomCta />
+        </main>
       </Layout>
     </>
   );

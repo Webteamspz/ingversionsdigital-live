@@ -1,10 +1,7 @@
 .section {
-  padding: var(--section-space) 0 0;
+  padding: var(--section-space) 0;
   background: var(--palette-bg-950);
   text-align: center;
-}
-.noNote {
-  padding-bottom: var(--section-space);
 }
 .eyebrow {
   display: inline-flex;
@@ -261,7 +258,7 @@
 }
 @media (max-width: 1023.98px) {
   .section {
-    padding: 64px 0 0;
+    padding: 64px 0;
   }
   .steps {
     grid-template-columns: minmax(0, 1fr);
@@ -315,7 +312,7 @@
 }
 @media (max-width: 767.98px) {
   .section {
-    padding: 48px 0 0;
+    padding: 48px 0;
   }
   .sub {
     font-size: 14px;

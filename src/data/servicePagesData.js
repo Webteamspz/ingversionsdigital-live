@@ -1,5 +1,18 @@
 const CALENDLY = "https://calendly.com/ingversionsdigital/30min";
 
+export const servicePageCopy = {
+  secondaryCta: { label: "See pricing", href: "/pricing" },
+  assure: ["Free 30-minute call", "First test build free", "No long contract"],
+  includedEyebrow: "What you get",
+  topicsLabel: "Also covers",
+  pricingEyebrow: "Pricing",
+  seeAllPricing: "See full pricing",
+  exploreEyebrow: "Keep exploring",
+  exploreHeading: "Related services and reading",
+  readingHeading: "Related reading",
+  urlBase: "ingversionsdigital.com",
+};
+
 export default {
   "ab-testing": {
     eyebrow: "Experimentation",
