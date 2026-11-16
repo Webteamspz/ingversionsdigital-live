@@ -2,13 +2,28 @@ const CALENDLY = "https://calendly.com/ingversionsdigital/30min";
 
 export const pricingHeroData = {
   tag: "Pricing",
-  title: "Pricing for CRO programs and test development",
+  title: "Pricing for CRO programs and test development.",
+  highlight: "Your first test build is free.",
   subtitle:
     "Run a full testing program with Shopify development included, or add our developers to your agency's team. Every test gets full QA before it goes live.",
+  toggleLabel: "Who is this for?",
   toggle: {
     brands: "For brands",
     dev: "For agencies & teams",
   },
+  toggleHint: {
+    brands: "Monthly CRO programs for Shopify stores",
+    dev: "White-label test builds and developers",
+  },
+  assure: ["First test build free", "No long contract", "Full QA on every test"],
+};
+
+export const pricingGuarantee = {
+  eyebrow: "Try us first",
+  title: "Not ready to commit? Let us build your first test for free.",
+  text: "Tell us about your store or your test backlog on a 30-minute call. We build one test at no cost, so you can judge the work before you pay for anything.",
+  points: ["30-minute call", "One test built free", "No long contract"],
+  cta: { label: "Get my free test build", href: CALENDLY },
 };
 
 export const brandPlans = [

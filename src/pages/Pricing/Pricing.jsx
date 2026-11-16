@@ -21,9 +21,9 @@ const Pricing = () => {
         <main className="pricingPage">
           <PricingHero track={track} setTrack={setTrack} />
           <PricingPlans track={track} />
-          <ToolsMarquee hideHeading />
-          <PricingAI />
+          <ToolsMarquee />
           <PricingCompare track={track} />
+          <PricingAI />
           <PricingFAQ />
           <PricingBottomCta />
         </main>
