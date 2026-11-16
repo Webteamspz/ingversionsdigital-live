@@ -1,23 +1,26 @@
 export const heroData = {
   tag: "About Ingversions Digital",
-  highlight: "Intelligent Change",
+  title: "We test before we build,",
+  highlight: "so your store only ships what works.",
   subtitle:
     "We are a CRO-first team helping brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.",
   meta: [
     { label: "Founded", value: "2024" },
     { label: "HQ", value: "Remote-first" },
   ],
+  primaryCta: {
+    label: "Get my free test build",
+    href: "https://calendly.com/ingversionsdigital/30min",
+  },
+  secondaryCta: { label: "See our case studies", href: "/case-studies" },
+  proofLabel: "Our track record",
 };
 
-export const heroStats = [
-  { label: "Brands Tested", value: "20+" },
-  { label: "Experiments Shipped", value: "250+" },
-  { label: "Win Rate", value: "60%" },
-  { label: "Managed Revenue", value: "$20M+" },
-];
-
 export const storyData = {
+  eyebrow: "Why we started",
   title: "Our Story",
+  quote: "Beautiful design, expensive traffic, but no structured approach to experimentation.",
+  quoteNote: "The problem we kept seeing at fast-growing brands",
   paragraphs: [
     "Ingversions Digital was born out of a frustration we kept seeing across fast-growing brands: beautiful design, expensive traffic, but no structured approach to experimentation.",
     "Teams were shipping redesigns based on gut-feel and HiPPO opinions. We set out to build a studio that sits at the intersection of UX, analytics, and engineering.",
@@ -37,6 +40,12 @@ export const missionCards = [
     text: "No vanity case studies. No fluff decks. Only experiments that are technically sound, statistically valid, and commercially meaningful.",
   },
 ];
+
+export const expertiseIntro = {
+  eyebrow: "How we work",
+  title: "Core Expertise",
+  sub: "A focused stack of capabilities designed to own experimentation from idea to implementation.",
+};
 
 export const expertiseCards = [
   {
@@ -60,6 +69,12 @@ export const expertiseCards = [
     text: "Clear, stakeholder-ready reports with what worked, what didn’t, and how to feed learnings back into the roadmap.",
   },
 ];
+
+export const valuesIntro = {
+  eyebrow: "What we stand for",
+  title: "Our Value System",
+  sub: "The principles that guide every experiment, call, and recommendation.",
+};
 
 export const valueCards = [
   {
@@ -89,4 +104,6 @@ export const ctaData = {
   text: "Share your current funnel, KPIs, and constraints. We’ll map a 90-day experimentation plan tailored to your brand.",
   primaryLabel: "Schedule a call",
   primaryHref: "https://calendly.com/ingversionsdigital/30min",
+  assure: ["Free 30-minute call", "First test build free", "No long contract"],
+  secondary: { label: "Or compare plans first", href: "/pricing" },
 };
