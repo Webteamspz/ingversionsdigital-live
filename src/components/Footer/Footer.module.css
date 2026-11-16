@@ -236,14 +236,6 @@ a.contactItem:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px 20px;
   }
-  .linksGrid > .linkGroup:last-child {
-    grid-column: 1 / -1;
-  }
-  .linksGrid > .linkGroup:last-child ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 20px;
-  }
   .footLink {
     min-height: 40px;
     padding-block: 6px;
