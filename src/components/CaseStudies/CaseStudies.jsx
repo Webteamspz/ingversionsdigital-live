@@ -12,7 +12,6 @@ import {
 import siteData from "../../data/siteData";
 import seo from "../../data/seoData";
 import OptimizedImg from "../OptimizedImg/OptimizedImg";
-import Reveal from "../Reveal/Reveal";
 import styles from "./CaseStudies.module.css";
 
 const ICONS = { challenge: TrendingDown, action: Search, method: Calculator, timing: Hourglass };
@@ -26,7 +25,7 @@ const ICON_COLORS = {
 const StoryCard = ({ heading, icon, paragraphs }) => {
   const Icon = ICONS[icon];
   return (
-    <Reveal className={styles.story}>
+    <div className={styles.story}>
       <span
         className={styles.cornerFold}
         style={{ background: ICON_COLORS[icon] }}
@@ -45,7 +44,7 @@ const StoryCard = ({ heading, icon, paragraphs }) => {
           {p}
         </p>
       ))}
-    </Reveal>
+    </div>
   );
 };
 
@@ -123,17 +122,6 @@ const CaseStudies = ({ only }) => {
 
   const renderStudy = (study) => (
     <article key={study.id} id={study.id} className={styles.card}>
-      <header className={styles.head}>
-        <div className={styles.tags}>
-          {study.tags.map((t) => (
-            <span key={t} className={styles.tag}>
-              {t}
-            </span>
-          ))}
-        </div>
-        <h1 className={styles.title}>{study.title}</h1>
-      </header>
-
       <div className={styles.body}>
         {only && (
           <div className={styles.storyGrid}>
