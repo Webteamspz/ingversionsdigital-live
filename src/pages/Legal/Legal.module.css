@@ -2,27 +2,20 @@
   padding-bottom: 80px;
 }
 .legalHeroWrap {
-  padding: 160px 0 60px;
+  margin-bottom: 64px;
+  padding: 168px 0 88px;
   position: relative;
   isolation: isolate;
   text-align: center;
-}
-.legalHeroDecor {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
-}
-.legalHeroDecor:after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  background-color: var(--palette-border);
   background-image:
-    linear-gradient(rgba(52, 69, 117, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 69, 117, 0.1) 1px, transparent 1px);
-  background-size: 46px 46px;
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 68%, transparent 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.35), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    48px 48px,
+    48px 48px;
 }
 .legalHero {
   width: 100%;
@@ -51,6 +44,19 @@
   font-size: 40px;
   line-height: 1.2;
   margin: 0 0 10px;
+}
+.legalHeroWrap h1 {
+  margin: 22px 0 16px;
+  color: var(--palette-bg-800);
+  font-size: 56px;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+.legalHeroWrap .legalIntro {
+  color: rgba(255, 255, 255, 0.78);
+}
+.legalHeroWrap .legalIntro + .legalIntro {
+  margin-top: 10px;
 }
 .legalIntro {
   color: var(--palette-text-secondary);
@@ -248,7 +254,7 @@
     padding-bottom: 60px;
   }
   .legalHeroWrap {
-    padding: 130px 0 50px;
+    padding: 150px 0 72px;
   }
   .legalPage h1 {
     font-size: 32px;
@@ -266,7 +272,8 @@
     padding-bottom: 48px;
   }
   .legalHeroWrap {
-    padding: 120px 0 40px;
+    margin-bottom: 40px;
+    padding: 132px 0 56px;
   }
   .legalPage h1 {
     font-size: 26px;
