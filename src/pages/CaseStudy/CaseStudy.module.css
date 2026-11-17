@@ -1,0 +1,199 @@
+.hero {
+  padding: 168px 0 96px;
+  background-color: var(--palette-border);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.35), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    48px 48px,
+    48px 48px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+.meta {
+  display: flex;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.tag {
+  padding: 6px 14px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.45);
+  color: var(--palette-text-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.client {
+  color: var(--palette-accent-soft);
+  font-size: 16px;
+  font-weight: 800;
+}
+.title {
+  margin: 0;
+  color: var(--palette-bg-800);
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.tags {
+  display: flex;
+  margin: 20px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+.tags li {
+  padding: 5px 12px;
+  border: var(--border-width) solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 700;
+}
+.actions {
+  display: flex;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 26px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.btnPrimary {
+  background: var(--tertiary);
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.45);
+  color: var(--palette-text-primary);
+}
+.btnPrimary:hover {
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.45);
+  transform: translate(-2px, -2px);
+}
+.btnPrimary:active {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.45);
+  transform: translate(2px, 2px);
+}
+.btnGhost {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: var(--palette-bg-800);
+}
+.btnGhost:hover {
+  border-color: var(--palette-bg-800);
+  background: rgba(255, 255, 255, 0.08);
+}
+.btnPrimary:focus-visible,
+.btnGhost:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px;
+}
+
+.proof {
+  display: grid;
+  margin: 0;
+  padding: 24px;
+  gap: 4px;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-lg);
+  background: var(--palette-bg-800);
+  box-shadow: 10px 10px 0 0 var(--palette-accent);
+  transform: rotate(1.5deg);
+}
+.stat {
+  display: flex;
+  padding: 12px 0;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 1px 0 0 var(--palette-border-soft);
+}
+.stat:last-child {
+  box-shadow: none;
+}
+.stat dd {
+  margin: 0;
+  color: var(--palette-accent);
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+.stat dt {
+  color: var(--palette-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 1023.98px) {
+  .hero {
+    padding: 150px 0 80px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .title {
+    font-size: 38px;
+  }
+  .proof {
+    max-width: 520px;
+    transform: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 132px 0 64px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+  }
+  .proof {
+    padding: 18px;
+    box-shadow: 6px 6px 0 0 var(--palette-accent);
+  }
+  .stat dd {
+    font-size: 30px;
+  }
+}

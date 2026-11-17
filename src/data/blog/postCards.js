@@ -209,7 +209,7 @@ export const postCards = [
   },
   {
     id: "post-18",
-    title: "Performance Testing: Ensuring Your Site Survives Black Friday",
+    title: "Black Friday Performance Testing: Will Your Site Survive?",
     slug: "performance-testing-black-friday",
     excerpt:
       "Load testing frameworks and server stress-testing strategies to keep your store online...",
@@ -389,7 +389,7 @@ export const postCards = [
   },
   {
     id: "post-33",
-    title: "How to Connect Claude to Your Shopify Store (MCP Setup Guide)",
+    title: "How to Connect Claude to Your Shopify Store (MCP Guide)",
     slug: "connect-claude-to-shopify-store-mcp-guide",
     excerpt:
       "A step-by-step walkthrough of connecting Claude to Shopify via MCP, plus the permissions you should and shouldn't grant.",

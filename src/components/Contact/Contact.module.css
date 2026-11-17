@@ -41,7 +41,7 @@
 .eyebrow {
   margin: 0 0 15px;
   color: rgba(255, 255, 255, 0.88);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -52,7 +52,7 @@
   max-width: 900px;
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 76px;
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -84,7 +84,7 @@
   background: var(--palette-bg-800);
   box-shadow: 4px 4px 0 var(--palette-border);
   color: var(--palette-border);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;

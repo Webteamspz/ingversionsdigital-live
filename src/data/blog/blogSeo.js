@@ -36,7 +36,7 @@ const postingJsonLd = ({ headline, description, image, date, url }) => ({
 export const blogHomeSeo = {
   title: "CRO, A/B Testing & Shopify Development Blog | Ingversions",
   description:
-    "Practical insights on conversion rate optimization, A/B testing methodologies, and Shopify development best practices. Learn from real case studies and client experiences.",
+    "Practical guides on conversion rate optimization, A/B testing and Shopify development, drawn from real client tests and case studies.",
   keywords: [
     "CRO",
     "conversion rate optimization",
@@ -141,7 +141,7 @@ export const getPostSeo = (slug) => {
   const image = legacyHeroImage(slug, article);
 
   return {
-    title: `${article.title} | Ingversions Blog`,
+    title: article.title.length > 42 ? article.title : `${article.title} | Ingversions Blog`,
     description,
     keywords: article.keywords || [article.category.toLowerCase(), "Shopify", "CRO", "A/B testing"],
     path,

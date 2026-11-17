@@ -41,7 +41,7 @@
   margin-bottom: 24px;
 }
 .heroTitle {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 800;
   font-size: 40px;
   line-height: 1.2;

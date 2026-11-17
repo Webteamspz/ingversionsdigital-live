@@ -54,7 +54,7 @@
 }
 .name {
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 700;
   font-size: 17px;
   line-height: 1.3;

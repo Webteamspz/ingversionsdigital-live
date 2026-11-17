@@ -13,6 +13,7 @@ Docker/Nginx image.
 - SEO: `react-helmet-async` via a shared `<SEO>` component
 - Icons: `lucide-react`
 - Carousels: Swiper
+- 3D: `three` (`/ab-test-simulator` page only, lazy-loaded)
 - Blog: `react-markdown` for legacy posts, `mermaid` for diagrams (loaded on demand)
 - Contact form: Firebase Cloud Firestore (REST, no SDK)
 - Analytics: Google Tag Manager and Microsoft Clarity, wired through `src/gtm.js`
@@ -23,7 +24,7 @@ Docker/Nginx image.
 
 - Home, About Us, Pricing, Projects, Team, Privacy Policy, Terms of Service, a `noindex` thank-you page (`/thank-you`, where the contact form lands), and a 404 page.
 - The company blog at `/blog` and `/blog/:slug` (moved in from the old `blog.ingversionsdigital.com` Next.js app). Its routes are lazy-loaded and its styles are scoped under `.ing-blog`, so it adds nothing to the other pages.
-- Data-driven content: every headline, list, price, team member, and project lives in `src/data/*.js`, not in JSX.
+- Data-driven content: every headline, list, price, and project lives in `src/data/*.js`, not in JSX.
 - A shared `<SEO>` component for per-page title, description, canonical, and Open Graph tags.
 - A global design-token system (colours, radii, shadows, borders) as CSS custom properties.
 - A client-side staging gate (`StagingLogin`) that hides the site behind a simple login when the build mode is `staging`.
@@ -92,7 +93,7 @@ npm run build:production    # mode=production, the public build
 | `src/styles/style.css` | global design tokens in `:root` |
 | `src/components/SEO/` | shared head-tag component |
 | `src/gtm.js` | GTM / dataLayer analytics wrapper |
-| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), tested by `abtest.test.js` |
+| `src/utils/` | small pure helpers; `abtest.js` is the A/B test calculator maths (`/ab-test-calculator`), `storeTools.js` the maths for the free Shopify tools in `src/data/toolsData.js`, tested by `abtest.test.js` |
 | `scripts/convert-images.mjs` | resize and convert raw images to `.webp` |
 | `scripts/blog-thumbs.mjs` | pre-build step: writes an 800px card thumbnail of every blog cover into `public/assets/blog/covers/thumbs/` (skips existing ones) |
 | `scripts/prerender.mjs` | post-build step: writes per-route HTML with static head tags and the rendered page body (for crawlers) into `dist/` (including `blog.html` and `blog/<slug>.html`), and appends every blog URL to `dist/sitemap.xml` |
@@ -107,7 +108,6 @@ To change what the site says, edit the matching module in `src/data/`:
 |------|----------|
 | `siteData.js` | Home page sections, blog slider, global CTAs |
 | `pricingData.js` | Pricing plans and feature rows |
-| `teamData.js` | Team members (name, role, photo, socials) |
 | `projectsData.js` | Portfolio case studies |
 | `aboutUsData.js` | About page copy |
 | `servicePagesData.js` | One entry per service or SEO landing page (`/ab-testing`, `/shopify-cro-agency`, ...): hero, included items, process flow, pricing type, related links, FAQ |

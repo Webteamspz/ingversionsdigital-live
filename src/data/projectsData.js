@@ -1,10 +1,21 @@
 const projectsData = {
   hero: {
     tag: "Our Amazing Work",
-    headingPart1: "Explore Our",
+    headingPart1: "Shopify & CRO",
     headingHighlight: "Projects",
     description:
-      "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
+      "Shopify stores, landing pages and websites we have designed, built and tested for ecommerce brands. Each one is built to convert, not just to look good.",
+    statLabels: {
+      Websites: "Websites built",
+      Shopify: "Shopify stores",
+      "A/B Testing": "A/B tests shown",
+    },
+    filterLabel: "Filter projects",
+    primaryCta: {
+      label: "Get my free test build",
+      href: "https://calendly.com/ingversionsdigital/30min",
+    },
+    secondaryCta: { label: "Read our case studies", href: "/case-studies" },
   },
   filters: ["Websites", "Shopify", "A/B Testing"],
   projects: [
@@ -98,11 +109,11 @@ const projectsData = {
     },
     {
       id: 11,
-      industry: "Healthcare",
-      title: "JS Dental",
+      industry: "Streetwear & Apparel",
+      title: "Bonkers Corner",
       type: "Websites",
-      image: "/assets/project/jsdental-mobile.webp",
-      link: "https://jsdentallab.com/",
+      image: "/assets/project/bonkerscorner-mobile.webp",
+      link: "https://www.bonkerscorner.com/",
     },
     {
       id: 12,
@@ -114,16 +125,6 @@ const projectsData = {
     },
     {
       id: 13,
-      industry: "Luxury Home Decor",
-      title: "Belare Home ",
-      type: "A/B Testing",
-      image: "/assets/project/belare.webp",
-      beforeImage: "/assets/project/beforebelare.webp",
-      afterImage: "/assets/project/afterbelare.webp",
-      link: "https://www.belarehome.com/",
-    },
-    {
-      id: 14,
       industry: "Wellness",
       title: "UltimaPeak ",
       type: "A/B Testing",
@@ -133,7 +134,7 @@ const projectsData = {
       link: "https://www.ultimapeak.com/",
     },
     {
-      id: 15,
+      id: 14,
       industry: "Fitness",
       title: "Factory Weights ",
       type: "A/B Testing",
@@ -143,7 +144,7 @@ const projectsData = {
       link: "https://www.factoryweights.com/",
     },
     {
-      id: 16,
+      id: 15,
       industry: "Intimate Care",
       title: "The Bloomi",
       type: "Shopify",
@@ -151,7 +152,7 @@ const projectsData = {
       link: "https://thebloomi.com/",
     },
     {
-      id: 17,
+      id: 16,
       industry: "Health & Wellness",
       title: "Avantera ",
       type: "A/B Testing",
@@ -159,6 +160,22 @@ const projectsData = {
       beforeImage: "/assets/project/beforeavantera.webp",
       afterImage: "/assets/project/afteravantera.webp",
       link: "https://avanterahealth.com/",
+    },
+    {
+      id: 18,
+      industry: "Home Wellness",
+      title: "Bello Water",
+      type: "Shopify",
+      image: "/assets/project/bellowater-mobile.webp",
+      link: "https://bellowater.com/",
+    },
+    {
+      id: 19,
+      industry: "Fitness Equipment",
+      title: "Gym Pro Luxe",
+      type: "Shopify",
+      image: "/assets/project/gymproluxe-mobile.webp",
+      link: "https://www.gymproluxestore.com/",
     },
   ],
   cta: {

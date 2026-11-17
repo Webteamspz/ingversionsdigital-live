@@ -18,34 +18,33 @@
 }
 .hero-section {
   position: relative;
-  padding-top: 128px;
-  padding-bottom: 8px;
-  color: var(--text-primary);
+  margin-bottom: 48px;
+  padding-top: 168px;
+  padding-bottom: 0;
+  background-color: var(--palette-border);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.35), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    48px 48px,
+    48px 48px;
+  color: var(--palette-bg-800);
   overflow: hidden;
 }
-.hero-grid {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--border-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
-  background-size: 46px 46px;
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 68%, transparent 100%);
-}
 .hero-title {
+  color: var(--palette-bg-800);
   font-family: var(--font-outfit), sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 44px;
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin-bottom: 12px;
 }
 .hero-subtitle {
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--text-subtle);
+  font-weight: 500;
+  font-size: 18px;
   line-height: 150%;
 }
 @media (min-width: 768px) {
@@ -55,60 +54,92 @@
   }
 }
 .text-highlight {
-  color: var(--accent-strong);
+  color: var(--tertiary);
   position: relative;
 }
 .hero-subtitle {
-  color: var(--text-subtle);
-  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 32px;
   max-width: 576px;
   margin-left: auto;
   margin-right: auto;
 }
+/* Category filter: same docked tab strip as the Projects page filter
+   (ProjectsHero.module.css .filters / .filter). */
 .tabs-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  /* One row like Projects; seven categories overflow on smaller screens,
+     so the strip scrolls sideways inside itself instead of wrapping. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 24px;
+  padding: 6px;
+  gap: 6px;
+  border: var(--border-width) solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: rgba(255, 255, 255, 0.06);
+  vertical-align: bottom;
+}
+.tabs-container::-webkit-scrollbar {
+  display: none;
 }
 .tab-btn {
-  padding: 10px 19px;
-  border-radius: var(--radius-full);
+  display: inline-flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 0 16px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--palette-bg-800);
   font-family: var(--font-plus-jakarta), sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
-  transition:
-    transform 0.3s var(--ease-pop),
-    box-shadow 0.3s var(--ease-pop),
-    background-color 0.2s ease,
-    color 0.2s ease;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
   cursor: pointer;
-  border: var(--border-width) solid var(--border);
+  transition: background-color 160ms ease;
+}
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 .tab-btn.active {
-  background-color: var(--accent);
-  color: #fff;
-  box-shadow: var(--shadow-pop);
+  border-color: var(--palette-border);
+  background: var(--palette-bg-950);
+  color: var(--palette-text-primary);
 }
-.tab-btn.inactive {
-  background-color: var(--bg-800);
-  color: var(--text-subtle);
+.tab-count {
+  display: inline-flex;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 13px;
 }
-@media (min-width: 1024px) {
-  .tab-btn.inactive:hover {
-    background-color: var(--tertiary);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-pop);
-    transform: translate(-2px, -2px);
-  }
+.tab-btn.active .tab-count {
+  background: var(--palette-accent);
+  color: var(--palette-bg-800);
+}
+.tab-btn:focus-visible {
+  outline: 3px solid var(--palette-bg-800);
+  outline-offset: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
   .tab-btn {
-    transition: none !important;
+    transition: none;
   }
-  .tab-btn:hover {
-    transform: none;
+}
+@media (max-width: 1439.98px) {
+  .tab-btn {
+    padding: 0 13px;
   }
 }
 .badge {
@@ -161,6 +192,55 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
+}
+.load-more-row {
+  display: flex;
+  margin-top: 44px;
+  justify-content: center;
+}
+.load-more {
+  display: inline-flex;
+  min-height: 54px;
+  padding: 0 26px;
+  gap: 12px;
+  align-items: center;
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-full);
+  background: var(--tertiary);
+  box-shadow: var(--shadow-pop);
+  color: var(--palette-text-primary);
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.load-more:hover {
+  box-shadow: var(--shadow-pop-hover);
+  transform: translate(-2px, -2px);
+}
+.load-more:active {
+  box-shadow: var(--shadow-pop-active);
+  transform: translate(2px, 2px);
+}
+.load-more:focus-visible {
+  outline: 3px solid var(--palette-accent);
+  outline-offset: 4px;
+}
+.load-more-count {
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--palette-bg-800);
+  font-size: 13px;
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .load-more {
+    width: 100%;
+    justify-content: center;
+  }
 }
 @media (min-width: 768px) {
   .articles-grid {
@@ -449,22 +529,34 @@
   }
 }
 @media (max-width: 768px) {
+  .hero-section {
+    margin-bottom: 32px;
+    padding-top: 132px;
+  }
   .hero-title {
-    font-size: 30px;
+    font-size: 32px;
     line-height: 120%;
   }
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 16px;
   }
   .section-title,
   .section-title-center {
     font-size: 26px;
     line-height: 120%;
   }
+  .tabs-container {
+    display: flex;
+  }
   .tab-btn {
+    padding: 0 12px;
+    gap: 6px;
     font-size: 14px;
-    line-height: 150%;
-    padding: 8px 14px;
+  }
+  .tab-count {
+    min-width: 22px;
+    height: 22px;
+    font-size: 12px;
   }
   .article-title {
     font-size: 20px;

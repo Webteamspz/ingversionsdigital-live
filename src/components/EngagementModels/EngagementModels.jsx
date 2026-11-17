@@ -7,7 +7,6 @@ import { Repeat, Clock, Briefcase } from "lucide-react";
 import styles from "./EngagementModels.module.css";
 import siteData from "../../data/siteData";
 import ContactModal from "../ContactModal/ContactModal";
-import Reveal from "../Reveal/Reveal";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const ENGAGEMENT_ICONS = { retainer: Repeat, hoursblock: Clock, projectengagement: Briefcase };
@@ -116,13 +115,9 @@ const EngagementModels = () => {
         ) : (
           <div className={styles.engagementGrid}>
             {list.map((model, index) => (
-              <Reveal
-                key={index}
-                delay={index * 80}
-                className={`${styles.card} ${styles.engagementCard}`}
-              >
+              <div key={index} className={`${styles.card} ${styles.engagementCard}`}>
                 {renderCard(model)}
-              </Reveal>
+              </div>
             ))}
           </div>
         )}

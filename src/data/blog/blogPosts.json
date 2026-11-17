@@ -3,7 +3,7 @@
     "slug": "ai-reporting-workflow-claude-mcp-guide",
 
     "seo": {
-      "title": "The Complete Guide to AI Reporting Workflows with Claude + MCP | Ingversions Blog",
+      "title": "AI Reporting Workflows with Claude + MCP: Complete Guide",
       "description": "Automate data collection, analysis, and reporting with Claude AI and the Model Context Protocol (MCP) in a secure, scalable architecture.",
       "keywords": ["Claude", "MCP", "AI reporting", "Model Context Protocol", "automation", "Anthropic"],
       "canonical": "https://ingversionsdigital.com/blog/ai-reporting-workflow-claude-mcp-guide"
@@ -211,7 +211,7 @@
     "slug": "shopify-store-speed-optimization-checklist",
 
     "seo": {
-      "title": "Speeding Up Your Shopify Store: A Practical Checklist | Ingversions Blog",
+      "title": "Speeding Up Your Shopify Store: A Practical Checklist",
       "description": "A field-tested checklist for improving Shopify load times, from image handling and app audits to theme code and Core Web Vitals.",
       "keywords": ["Shopify", "site speed", "Core Web Vitals", "performance", "LCP", "theme optimization"],
       "canonical": "https://ingversionsdigital.com/blog/shopify-store-speed-optimization-checklist"
@@ -360,7 +360,7 @@
     "slug": "checkout-friction-audit-cro",
 
     "seo": {
-      "title": "The Checkout Friction Audit: Find What Is Costing You Sales | Ingversions Blog",
+      "title": "Checkout Friction Audit: Find What Is Costing You Sales",
       "description": "A structured way to walk your own checkout, score every point of friction, and prioritise the fixes that recover the most revenue.",
       "keywords": ["CRO", "checkout optimization", "cart abandonment", "conversion rate", "friction audit"],
       "canonical": "https://ingversionsdigital.com/blog/checkout-friction-audit-cro"
@@ -505,7 +505,7 @@
     "slug": "reading-ab-test-results-without-fooling-yourself",
 
     "seo": {
-      "title": "Reading A/B Test Results Without Fooling Yourself | Ingversions Blog",
+      "title": "Reading A/B Test Results Without Fooling Yourself",
       "description": "The statistical traps that make losing tests look like winners, and a simple discipline for calling results you can trust.",
       "keywords": ["A/B testing", "statistical significance", "p-value", "sample size", "experimentation", "CRO"],
       "canonical": "https://ingversionsdigital.com/blog/reading-ab-test-results-without-fooling-yourself"
@@ -647,7 +647,7 @@
     "slug": "prelaunch-qa-process-that-scales",
 
     "seo": {
-      "title": "Building a Pre-Launch QA Process That Scales | Ingversions Blog",
+      "title": "Building a Pre-Launch QA Process That Scales",
       "description": "How to turn ad-hoc launch-day panic into a repeatable QA process: environments, a tiered checklist, automation, and a go/no-go gate.",
       "keywords": ["QA", "quality assurance", "pre-launch checklist", "regression testing", "test automation", "ecommerce"],
       "canonical": "https://ingversionsdigital.com/blog/prelaunch-qa-process-that-scales"
@@ -952,7 +952,7 @@
   {
     "slug": "shopify-canvas-ai-store-builder",
     "seo": {
-      "title": "Shopify Canvas Explained: Shopify's AI Store Builder | Ingversions Blog",
+      "title": "Shopify Canvas Explained: Shopify's AI Store Builder",
       "description": "Shopify Canvas lets you build and redesign a Shopify store by chatting with Sidekick. How it works, what it costs, what it can't do yet, and who should try it.",
       "keywords": [
         "Shopify Canvas",
@@ -1296,8 +1296,8 @@
   {
     "slug": "shopify-canvas-first-look",
     "seo": {
-      "title": "Shopify Canvas First Look: Hands-On Walkthrough | Ingversions Blog",
-      "description": "A hands-on first look at Shopify Canvas from our own Shopify admin: the store board, theme settings, Sidekick prompt bar, the duplicate theme, and what's missing.",
+      "title": "Shopify Canvas First Look: Hands-On Walkthrough",
+      "description": "A hands-on first look at Shopify Canvas from our own admin: the store board, theme settings, Sidekick prompt bar, duplicate theme and what's missing.",
       "keywords": [
         "Shopify Canvas first look",
         "Shopify Canvas review",
@@ -1595,7 +1595,7 @@
   {
     "slug": "shopify-canvas-vs-theme-editor",
     "seo": {
-      "title": "Shopify Canvas vs Theme Editor: Which Should You Use? | Ingversions Blog",
+      "title": "Shopify Canvas vs Theme Editor: Which Should You Use?",
       "description": "Shopify Canvas vs the theme editor compared: editing, preview, theme support, app blocks, markets and updates, plus how to choose the right one for your store.",
       "keywords": [
         "Shopify Canvas vs theme editor",

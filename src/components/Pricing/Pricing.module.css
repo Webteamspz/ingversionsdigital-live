@@ -20,8 +20,11 @@
   box-shadow: var(--shadow-pop-soft);
   padding: 24px 24px;
   overflow: hidden;
+  position: relative;
 }
 .row {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 280px repeat(4, 1fr);
   height: 70px;
@@ -32,8 +35,8 @@
   margin-bottom: 12px;
 }
 .sectionTitle {
-  background: var(--palette-bg-700);
-  height: 44px;
+  height: 52px;
+  align-items: end;
 }
 .cell {
   padding: 11px 12px;
@@ -60,7 +63,8 @@
 .stub {
   color: var(--palette-accent);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   line-height: 100%;
 }
 .planHead {
@@ -71,9 +75,9 @@
   justify-content: flex-end;
   padding: 0;
 }
-.planHead:has(.badge) {
-  min-height: 90px;
-  padding-top: 20px;
+.planHead {
+  min-height: 100px;
+  padding-top: 32px;
 }
 .planName {
   font-weight: 400;
@@ -91,7 +95,7 @@
 }
 .planPrice {
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 800;
   font-size: 20px;
   line-height: 22px;
@@ -123,9 +127,8 @@
 .badge {
   background-color: var(--light-badge-bg);
   color: var(--light-badge-text);
-  border: var(--border-width) solid var(--palette-border);
   border-radius: 999px;
-  padding: 5px 12px;
+  padding: 4px 10px;
   font-weight: 800;
   font-size: 11px;
   line-height: 14px;
@@ -143,7 +146,7 @@
   left: 50% !important;
   top: 0 !important;
   bottom: auto !important;
-  transform: translateX(-50%) rotate(-3deg);
+  transform: translateX(-50%);
   z-index: 2;
 }
 .spanner {
@@ -151,7 +154,9 @@
   padding: 6px 12px;
   min-height: 40px;
 }
-.mobileCompare {
+.mobileCompare,
+.tabs,
+.mCta {
   display: none;
 }
 .labelCell {
@@ -166,7 +171,7 @@
   text-decoration: none;
   font-weight: 700;
   width: max-content;
-  top: -15px !important;
+  top: 4px !important;
 }
 .rowLine {
   box-shadow: 0 1px 0 0 var(--palette-border-soft);
@@ -175,19 +180,96 @@
 .sectionBlock:last-child .rowLine {
   box-shadow: none;
 }
-.valueIconCircle {
+/* Soft tint behind the featured ("Most Popular") column */
+.featLane {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: calc(24px + 280px + var(--feat) * ((100% - 328px) / 4));
+  width: calc((100% - 328px) / 4);
+  background: var(--palette-hover-ghost);
+  box-shadow: inset 0 0 0 1px var(--palette-accent-soft);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+.valueIcon {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-full);
-  border: var(--border-width) solid var(--palette-border);
-  box-shadow: 2px 2px 0 var(--palette-text-primary);
+  color: var(--palette-accent);
+}
+.dash {
+  color: var(--palette-text-muted);
+}
+/* CTA row */
+.ctaRow {
+  height: auto;
+  padding-top: 16px;
+}
+.ctaRow .cell {
+  padding: 8px 12px;
+}
+.ctaRow :global(.btn) {
+  max-width: 180px;
+  white-space: nowrap;
+}
+.ghostCta {
+  background: var(--palette-bg-800);
+  color: var(--palette-text-primary);
+}
+.ghostCta:hover {
+  background: var(--palette-bg-700);
+  color: var(--palette-text-primary);
 }
 @media (max-width: 1023.98px) {
   .sub {
-    margin: 0 auto 40px;
+    margin: 0 auto 24px;
+  }
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background: var(--palette-bg-800);
+    border: var(--border-width) solid var(--palette-border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-pop);
+  }
+  .tab {
+    position: relative;
+    min-height: 44px;
+    padding: 6px 8px;
+    border: var(--border-width) solid transparent;
+    border-radius: var(--radius-full);
+    background: none;
+    color: var(--palette-text-primary);
+    font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .tab:not(.tabActive):hover {
+    background: var(--palette-hover-surface);
+  }
+  .tabActive {
+    background: var(--palette-accent);
+    border-color: var(--palette-border);
+    color: var(--palette-bg-800);
+  }
+  .mHeadFeat {
+    background: var(--palette-hover-ghost);
+  }
+  .mCta {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .mCtaBtn {
+    max-width: 280px;
   }
   .tableWrap {
     display: none;
@@ -218,6 +300,8 @@
   .mSectionTitle {
     color: var(--palette-accent);
     padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     font-weight: 700;
     border-top: 1px solid var(--palette-border-soft);
     background: var(--palette-bg-700);
