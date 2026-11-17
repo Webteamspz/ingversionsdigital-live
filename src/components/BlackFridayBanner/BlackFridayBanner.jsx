@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Sparkles, X } from "lucide-react";
+import useFloaterClearance from "../../hooks/useFloaterClearance";
 import styles from "./BlackFridayBanner.module.css";
 
 const BLACK_FRIDAY = {
@@ -13,6 +14,24 @@ const BLACK_FRIDAY = {
   text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
   cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
   hideOn: ["/pricing", "/blog", "/ab-test-simulator"],
+  autoOpenMs: 40000,
+};
+
+const AUTO_KEY = "bf-auto-opened";
+const autoOpened = () => {
+  try {
+    return sessionStorage.getItem(AUTO_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+const markAutoOpened = () => {
+  try {
+    sessionStorage.setItem(AUTO_KEY, "1");
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 const split = (ms) => {
@@ -26,13 +45,15 @@ const split = (ms) => {
 };
 
 const BlackFridayBanner = () => {
-  const { live, endsAt, ring, badge, eyebrow, title, text, cta, hideOn } = BLACK_FRIDAY;
+  const { live, endsAt, ring, badge, eyebrow, title, text, cta, hideOn, autoOpenMs } = BLACK_FRIDAY;
   const { pathname } = useLocation();
   const [left, setLeft] = useState(null);
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const launcherRef = useRef(null);
   const closeRef = useRef(null);
+  const auto = useRef(false);
+  const done = useRef(false);
 
   useEffect(() => {
     if (!live) return;
@@ -45,7 +66,10 @@ const BlackFridayBanner = () => {
 
   useEffect(() => {
     if (!open) return;
-    closeRef.current?.focus();
+    done.current = true;
+    markAutoOpened();
+    if (!auto.current) closeRef.current?.focus();
+    auto.current = false;
     const onKey = (e) => {
       if (e.key !== "Escape") return;
       setOpen(false);
@@ -65,6 +89,17 @@ const BlackFridayBanner = () => {
   useEffect(() => setOpen(false), [pathname]);
 
   const hidden = hideOn.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  const shown = live && left > 0 && !hidden;
+  useFloaterClearance(rootRef, "left", shown);
+
+  useEffect(() => {
+    if (!shown || open || done.current || autoOpened()) return;
+    const id = setTimeout(() => {
+      auto.current = true;
+      setOpen(true);
+    }, autoOpenMs);
+    return () => clearTimeout(id);
+  }, [shown, open, autoOpenMs]);
   if (!live || !left || hidden) return null;
 
   const parts = split(left);
