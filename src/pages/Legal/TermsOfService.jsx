@@ -19,7 +19,6 @@ const TermsOfService = () => (
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>
         <div className={styles.legalHeroWrap}>
-          <div className={styles.legalHeroDecor} aria-hidden="true" />
           <div className="container">
             <div className={styles.legalHero}>
               <span className={styles.legalTag}>Legal</span>

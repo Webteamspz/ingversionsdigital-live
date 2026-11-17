@@ -91,6 +91,7 @@ export const mdeByWeek = ({
 
 export const srm = (visitorsA, visitorsB, expectedSplit = 0.5) => {
   if (!isCount(visitorsA) || !isCount(visitorsB) || !(visitorsA + visitorsB)) return null;
+  if (!(expectedSplit > 0 && expectedSplit < 1)) return null;
   const total = visitorsA + visitorsB;
   const expA = total * expectedSplit;
   const expB = total - expA;

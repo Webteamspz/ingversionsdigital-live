@@ -14,8 +14,10 @@
   --post-radius: 20px;
   --post-radius-sm: 16px;
   --post-pill: 999px;
-  --post-heading: Outfit, system-ui, sans-serif;
-  --post-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --post-heading: Outfit, "Outfit Fallback", system-ui, sans-serif;
+  --post-body:
+    "Plus Jakarta Sans", "Jakarta Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
 
   background: var(--post-bg);
   color: var(--post-body-text);

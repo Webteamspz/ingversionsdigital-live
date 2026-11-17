@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import useFloaterClearance from "../../hooks/useFloaterClearance";
 import styles from "./ScrollToTopButton.module.css";
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  useFloaterClearance(ref, "right", visible);
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 100);
@@ -17,6 +20,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button
+      ref={ref}
       type="button"
       onClick={scrollToTop}
       className={`${styles.scrollTopBtn} ${visible ? styles.visible : styles.hidden}`}
