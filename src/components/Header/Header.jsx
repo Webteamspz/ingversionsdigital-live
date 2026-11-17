@@ -13,6 +13,7 @@ import {
   Globe,
   Mail,
   Phone,
+  Star,
 } from "lucide-react";
 import data from "../../data/siteData";
 import logoDay from "/assets/logos/main-logo-violet.png";
@@ -23,6 +24,9 @@ import { isExternalHref } from "../../utils/url";
 import BlackFridayBanner from "../BlackFridayBanner/BlackFridayBanner.jsx";
 
 const { servicesMenu, mobileMenu } = data.header;
+const MENU_REVIEW = data.review.testimonials.find(
+  (t) => t.reviewer === servicesMenu.review.reviewer,
+);
 const { email, phone } = data.footer;
 const SERVICE_HREFS = servicesMenu.groups.flatMap((g) => g.items.map((i) => i.href));
 
@@ -427,27 +431,50 @@ const Header = () => {
           </div>
         ))}
 
-        <div className={styles.submenuPromo}>
-          <p className={styles.submenuPromoEyebrow}>{servicesMenu.promo.eyebrow}</p>
-          <p className={styles.submenuPromoStat}>
-            {servicesMenu.promo.stat} <span>{servicesMenu.promo.statLabel}</span>
+        <div className={styles.submenuReview}>
+          <p className={styles.submenuReviewEyebrow}>{servicesMenu.review.eyebrow}</p>
+          <div className={styles.submenuReviewFaces} aria-hidden="true">
+            {servicesMenu.review.avatars.map((src) => (
+              <img key={src} src={src} alt="" width="40" height="40" loading="lazy" />
+            ))}
+          </div>
+          <p className={styles.submenuReviewRating}>
+            <span className={styles.submenuReviewStars} aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star key={i} size={14} strokeWidth={0} fill="currentColor" />
+              ))}
+            </span>
+            <strong>{servicesMenu.review.rating}</strong> {servicesMenu.review.ratingLabel}
           </p>
-          <p className={styles.submenuPromoDetail}>{servicesMenu.promo.detail}</p>
-          <p className={styles.submenuPromoText}>{servicesMenu.promo.text}</p>
+          <figure className={styles.submenuReviewFigure}>
+            <blockquote className={styles.submenuReviewQuote}>
+              <p>&ldquo;{MENU_REVIEW.quote}&rdquo;</p>
+            </blockquote>
+            <figcaption className={styles.submenuReviewBy}>
+              <span className={styles.submenuReviewName}>{MENU_REVIEW.reviewer}</span>
+              <span className={styles.submenuReviewRole}>{MENU_REVIEW.reviewerRole}</span>
+            </figcaption>
+          </figure>
           <Link
-            to={servicesMenu.promo.href}
-            className={styles.submenuPromoBtn}
-            data-cta={servicesMenu.promo.label}
+            to={servicesMenu.review.href}
+            className={styles.footerLink}
+            data-cta={servicesMenu.review.linkLabel}
             data-cta-loc="Header Services Dropdown"
             onClick={() =>
               handleNavClick(
-                servicesMenu.promo.label,
+                servicesMenu.review.linkLabel,
                 "Header Services Dropdown",
-                servicesMenu.promo.href,
+                servicesMenu.review.href,
               )
             }
           >
-            {servicesMenu.promo.label} →
+            <span>{servicesMenu.review.linkLabel}</span>
+            <ArrowRight
+              size={14}
+              strokeWidth={2.5}
+              className={styles.footerArrow}
+              aria-hidden="true"
+            />
           </Link>
           <Link
             to={servicesMenu.all.href}

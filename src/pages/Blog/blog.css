@@ -1,7 +1,7 @@
 .ing-blog {
   color-scheme: light;
-  --font-outfit: Outfit;
-  --font-plus-jakarta: "Plus Jakarta Sans";
+  --font-outfit: Outfit, "Outfit Fallback";
+  --font-plus-jakarta: "Plus Jakarta Sans", "Jakarta Fallback";
   --bg-950: #fffdf5;
   --bg-900: #fdf9ec;
   --bg-800: #ffffff;

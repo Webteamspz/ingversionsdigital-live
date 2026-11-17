@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, ArrowLeftRight, X } from "lucide-react";
 import styles from "./ProjectsGrid.module.css";
-import Reveal from "../Reveal/Reveal";
 
 const INITIAL_MOBILE_COUNT = 6;
 const MOBILE_BREAKPOINT = 767.98;
@@ -200,20 +199,15 @@ const ProjectsGrid = ({ projects }) => {
         className={`${styles.grid} ${allTests ? styles.gridCards : ""}`}
         onTouchStart={resetOthers}
       >
-        {visibleProjects.map((project, i) =>
+        {visibleProjects.map((project) =>
           project.beforeImage && project.afterImage ? (
-            <Reveal key={project.id} delay={(i % 6) * 70} className={styles.card}>
+            <div key={project.id} className={styles.card}>
               <TestCard project={project} onExpand={setSelectedProject} />
-            </Reveal>
+            </div>
           ) : (
-            <Reveal
-              key={project.id}
-              delay={(i % 4) * 70}
-              className={styles.phone}
-              onMouseLeave={resetScroll}
-            >
+            <div key={project.id} className={styles.phone} onMouseLeave={resetScroll}>
               <PhoneCard project={project} />
-            </Reveal>
+            </div>
           ),
         )}
 

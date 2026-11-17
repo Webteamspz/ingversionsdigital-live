@@ -1,0 +1,39 @@
+/* Layout and form styles come from AbTestCalculator.module.css; this file only adds the
+   "More free tools" links. */
+.more {
+  max-width: 1040px;
+  margin: 32px auto 0;
+}
+.moreTitle {
+  margin: 0 0 12px;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--palette-text-primary);
+}
+.moreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--palette-bg-800);
+  border: var(--border-width) solid var(--palette-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-pop-active);
+  color: var(--palette-text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+.moreLink:hover,
+.moreLink:focus-visible {
+  box-shadow: var(--shadow-pop);
+}

@@ -37,7 +37,7 @@
   background: 0 0;
   border: 0;
   text-align: left;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 700;
   font-size: 19px;
   line-height: 130%;

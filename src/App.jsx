@@ -6,8 +6,8 @@ import PromoBar from "./components/PromoBar/PromoBar.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
 import Home from "./pages/Home/Home.jsx";
 import servicePages from "./data/servicePagesData.js";
+import tools from "./data/toolsData.js";
 
-const TeamPage = lazy(() => import("./pages/TeamPage/TeamPage.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs.jsx"));
 const Pricing = lazy(() => import("./pages/Pricing/Pricing.jsx"));
@@ -20,6 +20,8 @@ const ServicePage = lazy(() => import("./pages/ServicePage/ServicePage.jsx"));
 const BlogHome = lazy(() => import("./pages/Blog/BlogHome.jsx"));
 const BlogPost = lazy(() => import("./pages/Blog/BlogPost.jsx"));
 const AbTestCalculator = lazy(() => import("./pages/AbTestCalculator/AbTestCalculator.jsx"));
+const AbSimulator = lazy(() => import("./pages/AbSimulator/AbSimulator.jsx"));
+const Tool = lazy(() => import("./pages/Tool/Tool.jsx"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy.jsx"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage/CaseStudiesPage.jsx"));
 const STUDY_PAGES = [
@@ -87,11 +89,11 @@ const App = () => (
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/teampage" element={<TeamPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/ab-test-calculator" element={<AbTestCalculator />} />
+        <Route path="/ab-test-simulator" element={<AbSimulator />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -105,6 +107,9 @@ const App = () => (
             path={`/case-studies/${slug}`}
             element={<CaseStudy key={slug} slug={slug} />}
           />
+        ))}
+        {Object.keys(tools).map((slug) => (
+          <Route key={slug} path={`/${slug}`} element={<Tool key={slug} slug={slug} />} />
         ))}
         {Object.keys(servicePages).map((slug) => (
           <Route key={slug} path={`/${slug}`} element={<ServicePage key={slug} slug={slug} />} />

@@ -1,6 +1,8 @@
 import data from "./siteData.js";
 import servicePages from "./servicePagesData.js";
 import abTest from "./abTestData.js";
+import tools from "./toolsData.js";
+import simulator from "./simulatorData.js";
 
 const home = { name: "Home", path: "/" };
 
@@ -14,6 +16,30 @@ const faqJsonLd = (list) => ({
   })),
 });
 
+const ORG = { "@id": "https://ingversionsdigital.com/#organization" };
+
+const serviceJsonLd = (slug, page) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: page.h1 ?? page.title,
+  description: page.seoDescription,
+  url: `https://ingversionsdigital.com/${slug}`,
+  provider: ORG,
+  areaServed: "Worldwide",
+});
+
+const caseStudyJsonLd = ({ title, description, path }) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  url: `https://ingversionsdigital.com${path}`,
+  mainEntityOfPage: `https://ingversionsdigital.com${path}`,
+  image: "https://ingversionsdigital.com/assets/seo/og-image.jpg",
+  author: ORG,
+  publisher: ORG,
+});
+
 const servicePageSeo = Object.fromEntries(
   Object.entries(servicePages).map(([slug, page]) => [
     slug,
@@ -23,13 +49,26 @@ const servicePageSeo = Object.fromEntries(
       keywords: page.seoKeywords,
       path: `/${slug}`,
       breadcrumb: [home, { name: page.title, path: `/${slug}` }],
-      jsonLd: faqJsonLd(page.faq),
+      jsonLd: [serviceJsonLd(slug, page), faqJsonLd(page.faq)],
     },
   ]),
 );
 
-export default {
+const toolSeo = Object.fromEntries(
+  Object.entries(tools).map(([slug, tool]) => [
+    slug,
+    {
+      ...tool.seo,
+      path: `/${slug}`,
+      breadcrumb: [home, { name: tool.name, path: `/${slug}` }],
+      jsonLd: faqJsonLd(tool.faq),
+    },
+  ]),
+);
+
+const seo = {
   ...servicePageSeo,
+  ...toolSeo,
   home: {
     title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:
@@ -68,7 +107,7 @@ export default {
     breadcrumb: [home, { name: "Projects", path: "/projects" }],
   },
   pricing: {
-    title: "Shopify CRO & A/B Test Development Pricing | Ingversions Digital",
+    title: "Shopify CRO & A/B Test Development Pricing | Ingversions",
     description:
       "Shopify CRO plans from $999/mo with A/B tests, Shopify development and full QA included, plus white-label A/B test development for agencies.",
     keywords: [
@@ -82,7 +121,7 @@ export default {
     breadcrumb: [home, { name: "Pricing", path: "/pricing" }],
   },
   services: {
-    title: "Shopify CRO, A/B Testing & Development Services | Ingversions Digital",
+    title: "Shopify CRO, A/B Testing & Development Services",
     description:
       "A/B testing, Shopify and Shopify Plus development, QA and landing page personalization for ecommerce brands. Full QA on every build; your first test is free.",
     keywords: [
@@ -96,7 +135,7 @@ export default {
     breadcrumb: [home, { name: "Services", path: "/services" }],
   },
   abTestCalculator: {
-    title: "Free A/B Test Calculator: Sample Size & Significance | Ingversions",
+    title: "Free A/B Test Calculator: Sample Size & Significance",
     description:
       "Plan test duration and minimum detectable effect, then check statistical significance and sample ratio mismatch. Free, runs in your browser.",
     keywords: [
@@ -109,6 +148,11 @@ export default {
     path: "/ab-test-calculator",
     breadcrumb: [home, { name: "A/B Test Calculator", path: "/ab-test-calculator" }],
     jsonLd: faqJsonLd(abTest.faq.items),
+  },
+  abSimulator: {
+    ...simulator.seo,
+    path: "/ab-test-simulator",
+    breadcrumb: [home, { name: "A/B Test Simulator", path: "/ab-test-simulator" }],
   },
   caseStudies: {
     title: "Shopify CRO & A/B Testing Case Studies | Ingversions Digital",
@@ -124,7 +168,7 @@ export default {
     breadcrumb: [home, { name: "Case Studies", path: "/case-studies" }],
   },
   rapidRadiosCaseStudy: {
-    title: "Rapid Radios Shopify CRO Case Study: 52 A/B Tests, +41.5% Conversion",
+    title: "Rapid Radios CRO Case Study: 52 A/B Tests, +41.5% Conversion",
     description:
       "52 A/B tests on Rapid Radios' Shopify product page: a sticky add-to-cart, free-gift tiles, an add-on upsell and trust buttons lifted conversion 24% to 41.5%.",
     keywords: [
@@ -144,7 +188,7 @@ export default {
     ],
   },
   ruffGreensCaseStudy: {
-    title: "Ruff Greens Shopify CRO Case Study: 54 A/B Tests, +19.9% Conversion",
+    title: "Ruff Greens CRO Case Study: 54 A/B Tests, +19.9% Conversion",
     description:
       "54 A/B tests on Ruff Greens' Shopify store: a benefit banner, a one-tap $0 trial unlock and feeding info on the trial page lifted conversion 8.8% to 19.9%.",
     keywords: [
@@ -190,14 +234,6 @@ export default {
     path: "/about-us",
     breadcrumb: [home, { name: "About Us", path: "/about-us" }],
   },
-  team: {
-    title: "Our Shopify CRO Team | Ingversions Digital",
-    description:
-      "Meet the strategists, designers, Shopify developers and QA engineers behind Ingversions Digital's CRO and A/B testing work.",
-    keywords: ["Shopify CRO team", "Shopify developers", "CRO strategists", "QA engineers"],
-    path: "/teampage",
-    breadcrumb: [home, { name: "Team", path: "/teampage" }],
-  },
   privacyPolicy: {
     title: "Privacy Policy | Ingversions Digital",
     description:
@@ -224,3 +260,9 @@ export default {
     noindex: true,
   },
 };
+
+for (const key of ["rapidRadiosCaseStudy", "ruffGreensCaseStudy", "trustBadgesCaseStudy"]) {
+  seo[key].jsonLd = caseStudyJsonLd(seo[key]);
+}
+
+export default seo;

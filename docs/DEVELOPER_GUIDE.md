@@ -60,6 +60,7 @@ That's it — no database, no backend, no build step needed to start developing.
 | Styling | CSS Modules (`*.module.css`) | one file per component, no Tailwind/styled-components |
 | Icons | `lucide-react` | consistent icon set across the whole site |
 | Carousels | `swiper` | used for mobile card carousels and sliders |
+| 3D | `three` | the `/ab-test-simulator` page only (`components/AbSimulator/scene.js`), on its own lazy route and dynamically imported after the page is idle, so it never loads on the rest of the site |
 | SEO | `react-helmet-async` | per-page `<SEO>` component sets title/meta/JSON-LD |
 | Forms | native `<form>` + Firebase Cloud Firestore | no form library, no Firebase SDK; `src/utils/submitLead.js` saves the contact form to the Firestore `ingversionsdigital_submissions` collection over REST, with `site`, `formName`, `page` (URL path), `pageName` (readable page name, e.g. "Pricing", for filtering) and a server-set `createdAt` (live rules in the Firebase console; `firestore.rules` is a copy) (`ContactModal`, the only live form). It has a hidden `_gotcha` honeypot and redirects to `/thank-you` on success |
 | Analytics | Google Tag Manager + Microsoft Clarity | custom lightweight wrapper in `src/gtm.js`, no analytics SDK |
@@ -116,7 +117,6 @@ All routes are declared in one place, `src/App.jsx`:
 ```jsx
 <Routes>
   <Route path="/" element={<Home />} />
-  <Route path="/teampage" element={<TeamPage />} />
   <Route path="/about-us" element={<AboutUs />} />
   <Route path="/pricing" element={<Pricing />} />
   <Route path="/services" element={<ServicesPage />} />
@@ -162,7 +162,6 @@ plain JS objects under `src/data/`, not hardcoded in components.**
 | `src/data/siteData.js` | Homepage: hero, services, process, engagement models, "why choose us", reviews, contact, FAQ, footer, and the homepage's pricing/projects teasers |
 | `src/data/pricingData.js` | `/pricing` page: plan cards, comparison table, pricing FAQ |
 | `src/data/projectsData.js` | `/projects` page: portfolio case studies (before/after images, results) |
-| `src/data/teamData.js` | `/teampage`: team member cards (name, title, avatar, culture blurb) |
 | `src/data/aboutUsData.js` | `/about-us`: hero, story, values, expertise sections |
 | `src/data/servicePagesData.js` | Service pages (`/ab-testing`, `/shopify-development`, `/quality-assurance`, `/wordpress-development`, `/landing-page-personalization`, and SEO landing pages such as `/shopify-cro-agency`): hero, included items, which process flow and pricing block to show, optional `related` links, optional `posts` (that topic's blog posts as `{ slug, title }`: listed as "Related reading" on the service page, and each post links back via `RelatedService`), FAQ. The header "Services" menu and footer list the service pages from `siteData.services.list`. Each key is a URL slug |
 
@@ -171,7 +170,7 @@ don't need to touch the component. Components read from `data.<section>.<field>`
 render whatever's there; they don't contain copy themselves. This means:
 
 - A non-technical person could safely edit copy in these files without touching JSX.
-- Adding a new team member, FAQ item, or portfolio project is usually just adding one
+- Adding a new FAQ item or portfolio project is usually just adding one
   more object to an existing array — see [How-To](#how-to-common-tasks) below.
 - If you need to change **layout or styling**, that's in the component's `.jsx`/`.module.css`
   instead — data files hold content, not structure.
@@ -534,15 +533,6 @@ the *infrastructure*.
 ---
 
 ## How-To: Common Tasks
-
-### Add a new team member
-
-1. Add their photo to `public/assets/team/`, run `node scripts/convert-images.mjs` if it's not already a `.webp`.
-2. Add an object to the `teamMembers` array in `src/data/teamData.js`:
-   ```js
-   { id: "jane-doe", name: "Jane Doe", title: "CRO Dev", avatar: "/assets/team/jane.webp", location: "", badges: [], skills: [], socials: {} }
-   ```
-3. Done — `TeamGrid`/`TeamCard` render from that array automatically.
 
 ### Add a new portfolio project
 

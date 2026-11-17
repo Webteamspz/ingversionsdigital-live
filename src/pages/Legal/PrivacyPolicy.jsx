@@ -12,7 +12,6 @@ const PrivacyPolicy = () => (
     <Layout header={1} footer={1}>
       <div className={styles.legalPage}>
         <div className={styles.legalHeroWrap}>
-          <div className={styles.legalHeroDecor} aria-hidden="true" />
           <div className="container">
             <div className={styles.legalHero}>
               <span className={styles.legalTag}>Legal</span>
@@ -109,10 +108,6 @@ const PrivacyPolicy = () => (
                   <li>
                     <strong>analytics-consent</strong> (browser local storage) — a copy of your
                     Analytics choice, read before analytics loads.
-                  </li>
-                  <li>
-                    <strong>hasSeenPreloader</strong> (browser local storage) — skips the loading
-                    animation on repeat visits.
                   </li>
                 </ul>
                 <p>

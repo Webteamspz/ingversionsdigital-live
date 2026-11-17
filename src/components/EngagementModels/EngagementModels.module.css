@@ -128,7 +128,7 @@
 .cardTitle {
   margin: 0 0 14px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 25px;
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -182,7 +182,7 @@
   box-shadow: 3px 3px 0 var(--palette-text-primary);
   color: var(--palette-bg-800);
   cursor: pointer;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;

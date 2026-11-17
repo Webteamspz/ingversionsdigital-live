@@ -9,7 +9,7 @@
   z-index: 1;
   margin: 0 0 44px;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
@@ -48,7 +48,7 @@
 .kpi:nth-child(3) {
   border-radius: var(--radius-md);
   background: var(--secondary);
-  color: var(--palette-bg-800);
+  color: var(--palette-text-primary);
 }
 .kpi:nth-child(4) {
   border-radius: 32px 0 32px 0;
@@ -62,7 +62,7 @@
 .value {
   margin: 0 0 5px;
   color: currentColor;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 64px;
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -70,7 +70,7 @@
 }
 .label {
   color: currentColor;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;

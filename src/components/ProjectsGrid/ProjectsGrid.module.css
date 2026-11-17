@@ -95,7 +95,7 @@
 }
 .title {
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 17px;
   font-weight: 700;
   margin: 0;
@@ -291,7 +291,7 @@
 }
 .modalCaption h4 {
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   margin: 0;
   font-size: 18px;
 }

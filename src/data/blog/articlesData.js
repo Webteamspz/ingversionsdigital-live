@@ -6,7 +6,7 @@ export const articles = {
     date: "April 8, 2026",
     readTime: "3 min read",
     description:
-      "Five Shopify theme customizations that can boost sales: sticky add-to-cart, quick view, trust content near checkout, product page tabs and cart cross-sells. Test before launch.",
+      "Five Shopify theme customizations that can boost sales: sticky add-to-cart, quick view, trust content near checkout, product tabs and cart cross-sells.",
     keywords: [
       "Shopify theme customization",
       "increase Shopify sales",
@@ -58,7 +58,7 @@ Each of these ideas helps many stores, but not every store. A sticky bar can dis
     date: "April 5, 2026",
     readTime: "3 min read",
     description:
-      "Common A/B testing mistakes that waste money: no hypothesis, stopping early, too many changes, ignoring mobile, skipping QA and misreading results. How to avoid each one.",
+      "A/B testing mistakes that waste money: no hypothesis, stopping early, too many changes, ignoring mobile, skipping QA and misreading results.",
     keywords: [
       "A/B testing mistakes",
       "A/B testing best practices",
@@ -107,7 +107,7 @@ Avoiding these mistakes takes discipline, good tooling and solid QA. Our [A/B te
     date: "April 3, 2026",
     readTime: "3 min read",
     description:
-      "CRO fundamentals for ecommerce: set conversion baselines, find funnel leaks with GA4 and heatmaps, prioritize ideas, build a test roadmap and learn from every A/B test.",
+      "CRO fundamentals for ecommerce: set conversion baselines, find funnel leaks with GA4 and heatmaps, prioritize ideas, and build a test roadmap.",
     keywords: [
       "conversion rate optimization",
       "CRO for beginners",
@@ -170,7 +170,7 @@ Our [CRO plans](/pricing) include research, test design, Shopify development, fu
     date: "April 9, 2026",
     readTime: "3 min read",
     description:
-      "Mobile CRO for ecommerce: thumb-friendly navigation, simpler forms, bigger tap targets, faster mobile pages and express checkout to raise Shopify mobile conversion rates.",
+      "Mobile CRO for ecommerce: thumb-friendly navigation, simpler forms, bigger tap targets, faster pages and express checkout for higher mobile conversions.",
     keywords: [
       "mobile CRO",
       "mobile conversion rate optimization",
@@ -226,7 +226,7 @@ Always analyse test results by device, and design variants for mobile first. A c
     date: "April 12, 2026",
     readTime: "3 min read",
     description:
-      "The psychology of high-converting landing pages: message match, social proof, honest urgency, cognitive fluency and price anchoring, with ideas to A/B test on Shopify.",
+      "The psychology of high-converting landing pages: message match, social proof, honest urgency, fluency and price anchoring, with ideas to A/B test.",
     keywords: [
       "high-converting landing pages",
       "landing page psychology",
@@ -339,7 +339,7 @@ Launch QA is not a one-off. Every theme update, new app and A/B test can break s
     date: "April 18, 2026",
     readTime: "3 min read",
     description:
-      "Headless Shopify explained: how a custom Hydrogen or Next.js frontend works with Shopify, when it pays off, the real costs, and when a theme is the better choice.",
+      "Headless Shopify explained: how a custom Hydrogen or Next.js frontend works with Shopify, when it pays off, the real costs, and when a theme is better.",
     keywords: [
       "headless Shopify",
       "Shopify Hydrogen",
@@ -504,7 +504,7 @@ Good tests to try include adding a product finder quiz to a collection page, ask
     date: "April 28, 2026",
     readTime: "3 min read",
     description:
-      "Automated UI testing for ecommerce: which flows to automate, Playwright vs Cypress vs Selenium, and how to run end-to-end tests in CI before every Shopify release.",
+      "Automated UI testing for ecommerce: which flows to automate, Playwright vs Cypress vs Selenium, and running end-to-end tests in CI before each release.",
     keywords: [
       "automated UI testing",
       "ecommerce test automation",
@@ -558,7 +558,7 @@ Need help setting this up? Our [quality assurance team](/quality-assurance) buil
     date: "May 2, 2026",
     readTime: "3 min read",
     description:
-      "How to improve Shopify Core Web Vitals: fix LCP, INP and CLS in your theme with image, app and JavaScript changes that make product pages faster and rank better.",
+      "How to improve Shopify Core Web Vitals: fix LCP, INP and CLS in your theme with image, app and JavaScript changes that speed up product pages.",
     keywords: [
       "Shopify Core Web Vitals",
       "Shopify speed optimization",
@@ -616,7 +616,7 @@ For a full list, see our [Shopify store speed optimization checklist](/blog/shop
     date: "May 5, 2026",
     readTime: "3 min read",
     description:
-      "Reduce Shopify cart abandonment with proven nudges: clear costs, trust signals, exit-intent help, save-cart prompts and recovery emails. Test each one before rollout.",
+      "Reduce Shopify cart abandonment with proven nudges: clear costs, trust signals, exit-intent help, save-cart prompts and recovery emails.",
     keywords: [
       "reduce cart abandonment",
       "cart abandonment Shopify",
@@ -671,7 +671,7 @@ Every store is different. A nudge that helps one store can hurt another, especia
     date: "May 8, 2026",
     readTime: "3 min read",
     description:
-      "How to calculate statistical significance for A/B tests: p-values, confidence, sample size, minimum detectable effect and the common mistakes that create false winners.",
+      "How to calculate statistical significance for A/B tests: p-values, confidence, sample size, MDE and the mistakes that create false winners.",
     keywords: [
       "statistical significance A/B test",
       "calculate statistical significance",
@@ -723,7 +723,7 @@ Statistics only works if the test is set up correctly: clean randomisation, accu
     date: "May 11, 2026",
     readTime: "3 min read",
     description:
-      "Cross-browser testing for ecommerce: why Safari breaks layouts and forms, which browsers and devices to test, and a practical process to catch bugs before shoppers do.",
+      "Cross-browser testing for ecommerce: why Safari breaks layouts and forms, which browsers and devices to test, and a process to catch bugs before shoppers do.",
     keywords: [
       "cross-browser testing",
       "Safari CSS bugs",
@@ -774,7 +774,7 @@ Every [A/B test](/ab-testing) variant is new code that needs the same cross-brow
     date: "May 14, 2026",
     readTime: "3 min read",
     description:
-      "Shopify Liquid for dynamic pricing: show tiered, quantity-break and wholesale prices with Liquid snippets, and where Shopify Functions and B2B catalogs must take over.",
+      "Shopify Liquid for dynamic pricing: show tiered, quantity-break and wholesale prices with Liquid snippets, and where Shopify Functions and B2B take over.",
     keywords: [
       "Shopify Liquid",
       "dynamic pricing Shopify",
@@ -853,7 +853,7 @@ Pricing display is one of the most powerful levers in ecommerce, and one of the 
     date: "May 17, 2026",
     readTime: "3 min read",
     description:
-      "How to use social proof for conversion rate optimization: which reviews, ratings, UGC and trust signals work, where to place them on Shopify pages, and how to test them.",
+      "How to use social proof for conversion rate optimization: which reviews, ratings, UGC and trust signals work, where to place them on Shopify, how to test them.",
     keywords: [
       "social proof CRO",
       "social proof ecommerce",
@@ -953,13 +953,13 @@ Our [A/B testing services](/ab-testing) plan, build and QA every variant on real
   },
 
   "performance-testing-black-friday": {
-    title: "Performance Testing: Ensuring Your Site Survives Black Friday",
+    title: "Black Friday Performance Testing: Will Your Site Survive?",
     category: "Quality Assurance",
     categorySlug: "qa",
     date: "May 21, 2026",
     readTime: "3 min read",
     description:
-      "Black Friday performance testing for Shopify: load test your theme, audit apps and scripts, protect checkout speed and run a BFCM QA plan before peak traffic hits.",
+      "Black Friday performance testing for Shopify: load test your theme, audit apps and scripts, protect checkout speed and run BFCM QA before peak traffic.",
     keywords: [
       "Black Friday performance testing",
       "BFCM load testing",
@@ -1015,7 +1015,7 @@ Our [Shopify BFCM load and QA testing service](/shopify-bfcm-load-and-qa-testing
     date: "May 24, 2026",
     readTime: "3 min read",
     description:
-      "Migrating to Shopify Plus: what changes with Checkout Extensibility, Shopify Functions, B2B and automation, plus a step-by-step plan to upgrade without losing sales or SEO.",
+      "Migrating to Shopify Plus: what changes with Checkout Extensibility, Shopify Functions, B2B and automation, plus a plan to upgrade without losing sales or SEO.",
     keywords: [
       "migrating to Shopify Plus",
       "Shopify Plus migration",
@@ -1584,7 +1584,7 @@ Next in this series: the actual step-by-step of connecting Claude to your Shopif
   },
 
   "connect-claude-to-shopify-store-mcp-guide": {
-    title: "How to Connect Claude to Your Shopify Store (MCP Setup Guide)",
+    title: "How to Connect Claude to Your Shopify Store (MCP Guide)",
     category: "AI & Automation",
     categorySlug: "ai-automation",
     date: "July 21, 2026",

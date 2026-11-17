@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { pricingFaq } from "../../data/pricingData";
 import styles from "./PricingFAQ.module.css";
-import Reveal from "../Reveal/Reveal";
 
 const PricingFAQItem = ({ index, q, a, isOpen, onToggle }) => {
   const bodyRef = useRef(null);
@@ -61,7 +60,7 @@ const PricingFAQ = () => {
         <h2 className="section-title">{title}</h2>
         <div className={styles.accordion}>
           {items.map((it, i) => (
-            <Reveal key={i} delay={i * 60}>
+            <div key={i}>
               <PricingFAQItem
                 index={i}
                 q={it.q}
@@ -69,7 +68,7 @@ const PricingFAQ = () => {
                 isOpen={openIndex === i}
                 onToggle={handleToggle}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>

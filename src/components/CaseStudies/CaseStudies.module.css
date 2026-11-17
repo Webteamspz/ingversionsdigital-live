@@ -50,17 +50,17 @@
   box-shadow: 10px 10px 0 0 var(--palette-border);
 }
 .caseStudies.page {
-  padding-top: 168px;
+  padding-top: 64px;
   padding-bottom: var(--section-space);
 }
 @media (max-width: 1023.98px) {
   .caseStudies.page {
-    padding-top: 130px;
+    padding-top: 56px;
   }
 }
 @media (max-width: 767.98px) {
   .caseStudies.page {
-    padding-top: 120px;
+    padding-top: 40px;
   }
 }
 .board {
@@ -89,7 +89,7 @@
 .introTitle {
   margin: 0 0 16px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 48px;
   font-weight: 900;
   letter-spacing: -0.03em;
@@ -124,7 +124,7 @@
 }
 .highlights strong {
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 40px;
   font-weight: 900;
   letter-spacing: -0.03em;
@@ -177,7 +177,7 @@
   background: var(--accent);
 }
 .rowLift strong {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 38px;
   font-weight: 900;
   letter-spacing: -0.03em;
@@ -203,7 +203,7 @@
 }
 .rowTitle {
   margin: 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.015em;
@@ -279,45 +279,6 @@
   }
 }
 
-.head {
-  padding: 40px 44px 36px;
-  background: var(--palette-tint-blue);
-  box-shadow: 0 var(--border-width) 0 0 var(--palette-border);
-}
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 14px;
-  border: var(--border-width) solid var(--palette-border);
-  border-radius: var(--radius-full);
-  background: var(--tertiary);
-  color: var(--palette-text-primary);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  box-shadow: 3px 3px 0 0 var(--palette-border);
-}
-.tag:nth-child(2) {
-  background: var(--palette-bg-800);
-}
-.title {
-  max-width: 920px;
-  margin: 0;
-  color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
-}
-
 .body {
   display: flex;
   flex-direction: column;
@@ -375,7 +336,7 @@
 .storyHeading {
   margin: 0 0 10px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -391,7 +352,7 @@
 .resultsHeading {
   margin: 0 0 24px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -439,7 +400,7 @@
 }
 .kpiValue {
   margin-bottom: 6px;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 60px;
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -447,7 +408,7 @@
 }
 .kpiLabel {
   margin-bottom: 6px;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -485,7 +446,7 @@
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -513,7 +474,7 @@
 .testHeading {
   margin: 0 0 4px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -618,7 +579,7 @@
 .ctaHeading {
   margin: 0 0 6px;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -659,12 +620,6 @@
 }
 
 @media (max-width: 1023.98px) {
-  .head {
-    padding: 32px 30px 30px;
-  }
-  .title {
-    font-size: 32px;
-  }
   .body {
     gap: 40px;
     padding: 32px 30px;
@@ -707,12 +662,6 @@
   }
   .card {
     box-shadow: 6px 6px 0 0 var(--palette-border);
-  }
-  .head {
-    padding: 24px 18px;
-  }
-  .title {
-    font-size: 26px;
   }
   .body {
     gap: 32px;
