@@ -20,7 +20,7 @@
   position: relative;
   margin-bottom: 48px;
   padding-top: 168px;
-  padding-bottom: 88px;
+  padding-bottom: 0;
   background-color: var(--palette-border);
   background-image:
     radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.35), transparent 60%),
@@ -64,55 +64,82 @@
   margin-left: auto;
   margin-right: auto;
 }
+/* Category filter: same docked tab strip as the Projects page filter
+   (ProjectsHero.module.css .filters / .filter). */
 .tabs-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  /* One row like Projects; seven categories overflow on smaller screens,
+     so the strip scrolls sideways inside itself instead of wrapping. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 24px;
+  padding: 6px;
+  gap: 6px;
+  border: var(--border-width) solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: rgba(255, 255, 255, 0.06);
+  vertical-align: bottom;
+}
+.tabs-container::-webkit-scrollbar {
+  display: none;
 }
 .tab-btn {
-  padding: 10px 19px;
-  border-radius: var(--radius-full);
+  display: inline-flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 0 16px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--palette-bg-800);
   font-family: var(--font-plus-jakarta), sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
-  transition:
-    transform 0.3s var(--ease-pop),
-    box-shadow 0.3s var(--ease-pop),
-    background-color 0.2s ease,
-    color 0.2s ease;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
   cursor: pointer;
-  border: var(--border-width) solid var(--border);
+  transition: background-color 160ms ease;
+}
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 .tab-btn.active {
-  background-color: var(--tertiary);
+  border-color: var(--palette-border);
+  background: var(--palette-bg-950);
   color: var(--palette-text-primary);
-  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.45);
 }
-.tab-btn.inactive {
-  border-color: rgba(255, 255, 255, 0.25);
-  background-color: rgba(255, 255, 255, 0.06);
+.tab-count {
+  display: inline-flex;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 13px;
+}
+.tab-btn.active .tab-count {
+  background: var(--palette-accent);
   color: var(--palette-bg-800);
 }
 .tab-btn:focus-visible {
   outline: 3px solid var(--palette-bg-800);
-  outline-offset: 3px;
-}
-@media (min-width: 1024px) {
-  .tab-btn.inactive:hover {
-    background-color: var(--tertiary);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-pop);
-    transform: translate(-2px, -2px);
-  }
+  outline-offset: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
   .tab-btn {
-    transition: none !important;
+    transition: none;
   }
-  .tab-btn:hover {
-    transform: none;
+}
+@media (max-width: 1439.98px) {
+  .tab-btn {
+    padding: 0 13px;
   }
 }
 .badge {
@@ -505,7 +532,6 @@
   .hero-section {
     margin-bottom: 32px;
     padding-top: 132px;
-    padding-bottom: 56px;
   }
   .hero-title {
     font-size: 32px;
@@ -519,10 +545,18 @@
     font-size: 26px;
     line-height: 120%;
   }
+  .tabs-container {
+    display: flex;
+  }
   .tab-btn {
+    padding: 0 12px;
+    gap: 6px;
     font-size: 14px;
-    line-height: 150%;
-    padding: 8px 14px;
+  }
+  .tab-count {
+    min-width: 22px;
+    height: 22px;
+    font-size: 12px;
   }
   .article-title {
     font-size: 20px;

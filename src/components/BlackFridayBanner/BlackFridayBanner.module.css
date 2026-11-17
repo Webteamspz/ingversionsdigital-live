@@ -69,7 +69,7 @@
 }
 .ring text {
   fill: var(--palette-bg-800);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   font-size: 10.5px;
   font-weight: 800;
 }
@@ -85,7 +85,7 @@
   color: var(--palette-text-primary);
 }
 .value {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 19px;
   font-weight: 800;
   line-height: 1;
@@ -173,7 +173,7 @@
 }
 .num {
   color: var(--palette-accent-strong);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 1;
@@ -202,7 +202,7 @@
 }
 .title {
   margin: 6px 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 21px;
   font-weight: 800;
   letter-spacing: -0.02em;

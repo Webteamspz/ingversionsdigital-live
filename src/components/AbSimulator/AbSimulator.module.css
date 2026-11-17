@@ -105,7 +105,7 @@
 .title {
   margin: 0;
   color: #ffffff;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 42px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -201,7 +201,7 @@
 }
 .day strong {
   color: #ffffff;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 30px;
   font-weight: 700;
 }
@@ -243,7 +243,7 @@
 }
 .big {
   color: #ffffff;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 28px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -290,7 +290,7 @@
 .row dd {
   margin: 0;
   color: #ffffff;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 17px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -439,7 +439,7 @@
 .ctaTitle {
   margin: 0;
   color: #ffffff;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 34px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -583,7 +583,7 @@
   }
   .hud b {
     color: #ffffff;
-    font-family: Outfit, system-ui, sans-serif;
+    font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
     font-size: 18px;
     font-weight: 700;
     font-variant-numeric: tabular-nums;

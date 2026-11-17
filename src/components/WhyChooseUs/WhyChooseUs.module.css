@@ -28,7 +28,7 @@
 .title {
   margin: 0;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 52px;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -78,7 +78,7 @@
 
 .colLabel {
   margin: 0 0 22px;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
 }
@@ -153,7 +153,7 @@
   background: var(--tertiary);
   box-shadow: var(--shadow-pop);
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 20px;
   font-weight: 800;
   transform: translate(-50%, -50%) rotate(-8deg);

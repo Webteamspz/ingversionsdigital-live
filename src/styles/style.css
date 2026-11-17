@@ -1,3 +1,42 @@
+@font-face {
+  font-family: "Outfit Fallback";
+  src:
+    local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold");
+  font-weight: 600 900;
+  size-adjust: 95.6%;
+  ascent-override: 104.6%;
+  descent-override: 27.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Outfit Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  font-weight: 100 500;
+  size-adjust: 95.6%;
+  ascent-override: 104.6%;
+  descent-override: 27.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jakarta Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  font-weight: 100 500;
+  size-adjust: 105%;
+  ascent-override: 100%;
+  descent-override: 33.3%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jakarta Fallback";
+  src:
+    local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold");
+  font-weight: 600 900;
+  size-adjust: 100.5%;
+  ascent-override: 104.5%;
+  descent-override: 34.8%;
+  line-gap-override: 0%;
+}
+
 :root {
   color-scheme: light;
   --palette-bg-950: #fffdf5;
@@ -98,6 +137,7 @@ body {
   color: var(--palette-text-secondary);
   font-family:
     "Plus Jakarta Sans",
+    "Jakarta Fallback",
     system-ui,
     -apple-system,
     Segoe UI,
@@ -112,7 +152,7 @@ body {
   padding: 0 15px;
 }
 html #cc-main {
-  --cc-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  --cc-font-family: "Plus Jakarta Sans", "Jakarta Fallback", system-ui, sans-serif;
   --cc-bg: var(--palette-bg-950);
   --cc-primary-color: var(--palette-text-primary);
   --cc-secondary-color: var(--palette-text-secondary);
@@ -148,7 +188,7 @@ html #cc-main .pm {
 }
 html #cc-main .cm__title,
 html #cc-main .pm__title {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 700;
   font-size: 20px;
 }
@@ -244,7 +284,7 @@ html #cc-main .pm--box {
   border-radius: var(--radius-full);
   background: var(--palette-accent);
   color: var(--palette-bg-800);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -291,7 +331,7 @@ html #cc-main .pm--box {
 .section-title {
   color: var(--palette-text-primary);
   margin: 0 0 14px;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
@@ -362,7 +402,7 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s !important;
 }
 ::-webkit-input-placeholder {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 100%;
@@ -381,7 +421,7 @@ input:-webkit-autofill {
 }
 .react-international-phone-input {
   width: 100%;
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif !important;
   background: var(--palette-bg-700) !important;
   border: none !important;
   border-radius: var(--radius-sm);
@@ -493,7 +533,7 @@ body.menu-open .overlay {
     font-family: inherit !important;
   }
   .section-title {
-    font-family: Outfit, system-ui, sans-serif;
+    font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
     font-weight: 800;
     font-style: Bold;
     font-size: 24px;
@@ -501,7 +541,7 @@ body.menu-open .overlay {
     text-align: center;
   }
   .sectionTitle {
-    font-family: Outfit, system-ui, sans-serif;
+    font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
     font-weight: 800;
     font-style: Bold;
     font-size: 24px;

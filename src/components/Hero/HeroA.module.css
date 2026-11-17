@@ -50,7 +50,7 @@
 .title {
   max-width: 900px;
   margin: 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 70px;
   font-weight: 700;
   line-height: 1;

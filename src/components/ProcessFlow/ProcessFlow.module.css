@@ -184,7 +184,7 @@
 .tag {
   display: block;
   color: var(--palette-accent-strong);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0;

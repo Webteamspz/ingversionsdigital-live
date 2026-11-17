@@ -30,7 +30,7 @@
   max-width: 900px;
   margin: 0 auto;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 56px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -95,7 +95,7 @@
   background: var(--palette-bg-800);
 }
 .optionTitle {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 19px;
   font-weight: 800;
 }

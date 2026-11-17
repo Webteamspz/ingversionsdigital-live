@@ -42,7 +42,7 @@
 }
 .name {
   margin: 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 26px;
   font-weight: 800;
 }
@@ -69,7 +69,7 @@
   font-weight: 700;
 }
 .price {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -259,7 +259,7 @@
 .gTitle {
   max-width: 640px;
   margin: 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 34px;
   font-weight: 800;
   letter-spacing: -0.02em;

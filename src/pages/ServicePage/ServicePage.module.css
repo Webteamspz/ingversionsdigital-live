@@ -34,7 +34,7 @@
 .title {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 56px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -235,7 +235,7 @@
 .h2 {
   margin: 0;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 46px;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -285,14 +285,14 @@
   border-radius: 50%;
   background: var(--tertiary);
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 17px;
   font-weight: 800;
 }
 .includedCard h3 {
   margin: 0 0 8px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
   line-height: 1.2;
@@ -380,7 +380,7 @@
 }
 .priceName {
   margin: 0;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
 }
@@ -390,7 +390,7 @@
   flex-wrap: wrap;
   gap: 4px;
   align-items: baseline;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.1;
@@ -400,7 +400,7 @@
 }
 .period {
   color: var(--palette-text-muted);
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 700;
 }
@@ -521,7 +521,7 @@
 .linkCard h3 {
   margin: 0 0 12px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
 }

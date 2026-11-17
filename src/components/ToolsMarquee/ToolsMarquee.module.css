@@ -5,7 +5,7 @@
 .heading {
   margin: 0 0 28px;
   color: var(--palette-text-muted);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.12em;

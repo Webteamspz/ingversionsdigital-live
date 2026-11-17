@@ -31,7 +31,7 @@
 .title {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 46px;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -68,7 +68,7 @@
   border-radius: var(--radius-full);
   background: var(--quaternary);
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 30px;
   font-weight: 800;
 }
@@ -93,12 +93,12 @@
   display: flex;
   flex-direction: column;
   color: var(--palette-text-muted);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
 }
 .beforeAfter small {
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", system-ui, sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;

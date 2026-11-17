@@ -20,7 +20,7 @@
 .title {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 40px;
   font-weight: 800;
   letter-spacing: -0.02em;

@@ -34,7 +34,7 @@
 .title {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 56px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -78,7 +78,7 @@
 .meta dd {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 18px;
   font-weight: 800;
 }
@@ -163,7 +163,7 @@
 .proofStats dd {
   margin: 0;
   color: var(--palette-accent);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
@@ -201,7 +201,7 @@
 .h2Left {
   margin: 0;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 46px;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -254,7 +254,7 @@
 .quote blockquote {
   margin: 0;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 26px;
   font-weight: 800;
   line-height: 1.25;
@@ -291,7 +291,7 @@
 .value h3 {
   margin: 0 0 8px;
   color: var(--palette-text-primary);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 24px;
   font-weight: 800;
 }
@@ -343,7 +343,7 @@
 }
 .stepNum {
   color: var(--palette-accent);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 32px;
   font-weight: 800;
   line-height: 1;
@@ -392,7 +392,7 @@
 .valueNum {
   grid-row: 1 / span 2;
   color: transparent;
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 56px;
   font-weight: 800;
   line-height: 0.9;
@@ -419,7 +419,7 @@
 .ctaTitle {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 42px;
   font-weight: 800;
   letter-spacing: -0.02em;

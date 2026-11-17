@@ -44,7 +44,7 @@
 .title {
   margin: 0;
   color: var(--palette-bg-800);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -142,7 +142,7 @@
 .stat dd {
   margin: 0;
   color: var(--palette-accent);
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 1;
