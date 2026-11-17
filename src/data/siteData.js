@@ -103,8 +103,17 @@ export default {
       ],
       all: { label: "Explore all services", short: "All services", href: "/services" },
       review: {
-        eyebrow: "Client review",
+        eyebrow: "Client reviews",
         reviewer: "Daniel H",
+        avatars: [
+          "/assets/reviews/reviewer-1.webp",
+          "/assets/reviews/reviewer-2.webp",
+          "/assets/reviews/reviewer-3.webp",
+          "/assets/reviews/reviewer-4.webp",
+          "/assets/reviews/reviewer-5.webp",
+        ],
+        rating: "5.0",
+        ratingLabel: "from store owners we test for",
         linkLabel: "See client results",
         href: "/case-studies",
       },
@@ -143,9 +152,9 @@ export default {
     assure: ["Free 30-minute call", "First test build free", "No long contract"],
     trust: {
       avatars: [
-        "/assets/reviews/reviewer-1.jpg",
-        "/assets/reviews/reviewer-2.jpg",
-        "/assets/reviews/reviewer-3.jpg",
+        "/assets/reviews/reviewer-1.webp",
+        "/assets/reviews/reviewer-2.webp",
+        "/assets/reviews/reviewer-3.webp",
       ],
       text: "Trusted by <strong>6+ agencies</strong> and <strong>10+ brands in Ecommerce</strong>",
     },
@@ -656,8 +665,8 @@ export default {
   },
   caseStudiesPage: {
     tag: "Case Studies",
-    title: "Real tests. Real lifts. Every number checked in GA4.",
-    sub: "What was holding each store back, what we built to fix it, and what the data said after launch. No mockups, no made-up results.",
+    title: "Shopify CRO case studies: real tests, real lifts.",
+    sub: "What was holding each store back, what we built to fix it, and what GA4 said after launch. No mockups, no made-up results.",
     primaryCta: {
       label: "Get my free test build",
       href: "https://calendly.com/ingversionsdigital/30min",

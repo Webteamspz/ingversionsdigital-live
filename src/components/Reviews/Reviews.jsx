@@ -4,12 +4,12 @@ import data from "../../data/siteData";
 import styles from "./Reviews.module.css";
 
 const AVATARS = [
-  "/assets/reviews/reviewer-1.jpg",
-  "/assets/reviews/reviewer-2.jpg",
-  "/assets/reviews/reviewer-3.jpg",
-  "/assets/reviews/reviewer-4.jpg",
-  "/assets/reviews/reviewer-5.jpg",
-  "/assets/reviews/reviewer-6.jpg",
+  "/assets/reviews/reviewer-1.webp",
+  "/assets/reviews/reviewer-2.webp",
+  "/assets/reviews/reviewer-3.webp",
+  "/assets/reviews/reviewer-4.webp",
+  "/assets/reviews/reviewer-5.webp",
+  "/assets/reviews/reviewer-6.webp",
 ];
 const STEP_MS = 1100;
 

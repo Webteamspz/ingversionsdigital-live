@@ -13,7 +13,7 @@ import {
   Globe,
   Mail,
   Phone,
-  Quote,
+  Star,
 } from "lucide-react";
 import data from "../../data/siteData";
 import logoDay from "/assets/logos/main-logo-violet.png";
@@ -433,15 +433,22 @@ const Header = () => {
 
         <div className={styles.submenuReview}>
           <p className={styles.submenuReviewEyebrow}>{servicesMenu.review.eyebrow}</p>
+          <div className={styles.submenuReviewFaces} aria-hidden="true">
+            {servicesMenu.review.avatars.map((src) => (
+              <img key={src} src={src} alt="" width="40" height="40" loading="lazy" />
+            ))}
+          </div>
+          <p className={styles.submenuReviewRating}>
+            <span className={styles.submenuReviewStars} aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star key={i} size={14} strokeWidth={0} fill="currentColor" />
+              ))}
+            </span>
+            <strong>{servicesMenu.review.rating}</strong> {servicesMenu.review.ratingLabel}
+          </p>
           <figure className={styles.submenuReviewFigure}>
-            <Quote
-              size={22}
-              strokeWidth={2.5}
-              className={styles.submenuReviewIcon}
-              aria-hidden="true"
-            />
             <blockquote className={styles.submenuReviewQuote}>
-              <p>{MENU_REVIEW.quote}</p>
+              <p>&ldquo;{MENU_REVIEW.quote}&rdquo;</p>
             </blockquote>
             <figcaption className={styles.submenuReviewBy}>
               <span className={styles.submenuReviewName}>{MENU_REVIEW.reviewer}</span>
