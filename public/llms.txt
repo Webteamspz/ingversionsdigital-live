@@ -25,9 +25,14 @@
 - [Pricing](https://ingversionsdigital.com/pricing): CRO plans for brands (from $999/month) and white-label test development for agencies (complex tests $199.50 each, 50% off; test development pod $1,800/month for 80 hours).
 - [Projects](https://ingversionsdigital.com/projects): Client work.
 - [Case Studies](https://ingversionsdigital.com/case-studies): Shopify A/B test and SEO results measured in GA4, with the challenge, the work and the numbers.
-- [About Us](https://ingversionsdigital.com/about-us) and [Team](https://ingversionsdigital.com/teampage)
+- [About Us](https://ingversionsdigital.com/about-us)
 - [Blog](https://ingversionsdigital.com/blog): Shopify development, CRO, A/B testing, and Claude + MCP for ecommerce.
 - [A/B Test Calculator](https://ingversionsdigital.com/ab-test-calculator): Free sample size, MDE and significance calculator.
+- [Live A/B Test Simulator](https://ingversionsdigital.com/ab-test-simulator): Interactive 3D simulation of a real Shopify homepage A/B test.
+- [Shopify Profit Margin & Break-Even ROAS Calculator](https://ingversionsdigital.com/shopify-profit-margin-calculator): Free per-order profit and break-even ROAS calculator.
+- [Shopify Discount Break-Even Calculator](https://ingversionsdigital.com/shopify-discount-calculator): How many extra orders a sale discount needs to keep the same profit.
+- [Customer Lifetime Value (LTV) Calculator](https://ingversionsdigital.com/customer-lifetime-value-calculator): LTV and LTV:CAC calculator for ecommerce.
+- [CRO Revenue Calculator](https://ingversionsdigital.com/cro-revenue-calculator): What a conversion rate lift is worth in revenue.
 
 ## Services & Solutions
 - [Shopify CRO agency](https://ingversionsdigital.com/shopify-cro-agency)

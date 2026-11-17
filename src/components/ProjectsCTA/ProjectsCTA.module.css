@@ -18,7 +18,7 @@
   align-items: center;
 }
 .projectsCtaHeading {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.2;
@@ -27,7 +27,7 @@
   margin-bottom: 8px;
 }
 .projectsCtaText {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -52,7 +52,7 @@
   transition:
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", sans-serif;
   border: var(--border-width) solid var(--palette-border);
   box-shadow: 4px 4px 0 0 var(--palette-border);
   cursor: pointer;

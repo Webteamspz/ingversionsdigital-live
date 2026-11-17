@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
@@ -14,6 +14,7 @@ const PricingCompare = ({ track }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const handler = (e) => {
@@ -30,34 +31,43 @@ const PricingCompare = ({ track }) => {
     const t = typeof v === "object" && v?.icon ? v.icon : v;
     if (t === "check") {
       return (
-        <span
-          className={styles.valueIconCircle}
-          style={{ background: "var(--quaternary)" }}
-          role="img"
-          aria-label="Included"
-        >
-          <Check size={16} strokeWidth={3} color="var(--palette-border)" />
+        <span className={styles.valueIcon} role="img" aria-label="Included">
+          <Check size={20} strokeWidth={2.5} />
         </span>
       );
     }
     if (t === "cross") {
       return (
-        <span
-          className={styles.valueIconCircle}
-          style={{ background: "#FCA5A5" }}
-          role="img"
-          aria-label="Not included"
-        >
-          <X size={16} strokeWidth={3} color="var(--palette-border)" />
+        <span className={`${styles.valueIcon} ${styles.dash}`} role="img" aria-label="Not included">
+          <X size={18} strokeWidth={2.5} />
         </span>
       );
     }
+    if (t === "—") return <span className={styles.dash}>—</span>;
     return <>{t}</>;
   };
 
   const sections = (pricing?.sections || []).filter(
     (sec) => Array.isArray(sec?.rows) && sec.rows.length > 0,
   );
+  const ctas = pricing?.sections?.find((sec) => sec.ctaButtons)?.ctaButtons || [];
+  const featIdx = pricing.plans.findIndex((p) => p.badge);
+
+  const renderCta = (c, i, extra = "") =>
+    c ? (
+      <a
+        className={`btn ${i === featIdx ? "" : styles.ghostCta} ${extra}`}
+        href={c.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cta={c.label}
+        data-cta-loc={`Pricing Compare: ${c.plan}`}
+      >
+        {c.label}
+      </a>
+    ) : null;
+
+  const goTo = (i) => swiperRef.current?.slideTo(i, 400);
 
   const renderPrice = (p) => {
     if (p.contact)
@@ -94,7 +104,8 @@ const PricingCompare = ({ track }) => {
         <h3 className={`section-title ${styles.heading}`}>{pricing.heading}</h3>
         {pricing.sub && <p className={styles.sub}>{pricing.sub}</p>}
 
-        <div className={styles.tableWrap}>
+        <div className={styles.tableWrap} style={{ "--feat": featIdx }}>
+          {featIdx >= 0 && <div className={styles.featLane} aria-hidden="true" />}
           <div className={`${styles.row} ${styles.headerRow}`}>
             <div className={`${styles.cell} ${styles.stub}`} />
             {pricing.plans.map((p, i) => (
@@ -128,6 +139,31 @@ const PricingCompare = ({ track }) => {
                 </div>
               ))}
             </div>
+          ))}
+
+          {ctas.length > 0 && (
+            <div className={`${styles.row} ${styles.ctaRow}`}>
+              <div className={styles.cell} />
+              {pricing.plans.map((_, i) => (
+                <div key={i} className={styles.cell}>
+                  {renderCta(ctas[i], i)}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className={styles.tabs} role="group" aria-label="Choose a plan">
+          {pricing.plans.map((p, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.tab} ${i === active ? styles.tabActive : ""}`}
+              aria-pressed={i === active}
+              onClick={() => goTo(i)}
+            >
+              {p.name}
+            </button>
           ))}
         </div>
 
@@ -179,11 +215,12 @@ const PricingCompare = ({ track }) => {
                 sw.navigation.init();
                 sw.navigation.update();
               }}
+              onSlideChange={(sw) => setActive(sw.activeIndex)}
               className={styles.planSwiper}
             >
               {pricing.plans.map((p, pIdx) => (
                 <SwiperSlide key={`m-plan-${pIdx}`} className={styles.slide}>
-                  <div className={styles.mHead}>
+                  <div className={`${styles.mHead} ${pIdx === featIdx ? styles.mHeadFeat : ""}`}>
                     {p.badge && <span className={`${styles.badge} ${styles.cta}`}>{p.badge}</span>}
                     <div className={styles.planName}>{p.name}</div>
                     {renderPrice(p)}
@@ -204,6 +241,9 @@ const PricingCompare = ({ track }) => {
             </Swiper>
           </div>
         </div>
+        {ctas[active] && (
+          <div className={styles.mCta}>{renderCta(ctas[active], active, styles.mCtaBtn)}</div>
+        )}
       </div>
     </section>
   );
