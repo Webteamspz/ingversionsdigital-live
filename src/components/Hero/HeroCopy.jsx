@@ -9,8 +9,8 @@ const { eyebrow, heading, emphasis, sub, cta, secondaryCta, assure, trust, proof
 const HeroCopy = () => (
   <div className={styles.copy}>
     <h1 id="hero-heading" className={styles.title}>
-      <span className={styles.eyebrow}>{eyebrow}</span>
-      {heading} <span className={styles.emphasis}>{emphasis}</span>
+      <span className={styles.eyebrow}>{eyebrow}</span> {heading}{" "}
+      <span className={styles.emphasis}>{emphasis}</span>
     </h1>
 
     <p className={styles.sub}>{sub}</p>

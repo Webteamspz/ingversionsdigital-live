@@ -88,6 +88,7 @@ const BlogClient = () => {
   const activeCategory = categories.some((c) => c.id === fromUrl) ? fromUrl : "all";
   const topRef = useRef(null);
   const gridRef = useRef(null);
+  const tabsRef = useRef(null);
   const focusIndex = useRef(null);
   const [shown, setShown] = useState({ category: activeCategory, count: PAGE_SIZE });
 
@@ -114,6 +115,15 @@ const BlogClient = () => {
     setShown({ category: activeCategory, count: visibleCount + PAGE_SIZE });
   };
 
+  // Scroll the tab strip (not the page) so the active tab is visible on small screens.
+  useEffect(() => {
+    const strip = tabsRef.current;
+    const tab = strip?.querySelector('[aria-pressed="true"]');
+    if (!tab) return;
+    const left = tab.offsetLeft - (strip.clientWidth - tab.offsetWidth) / 2;
+    strip.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+  }, [activeCategory]);
+
   useEffect(() => {
     if (focusIndex.current === null) return;
     gridRef.current?.children[focusIndex.current]?.focus();
@@ -125,20 +135,29 @@ const BlogClient = () => {
       <section className={`${styles["blog-section"]} ${styles["hero-section"]}`} ref={topRef}>
         <div className={`${styles.container} ${styles["text-center"]}`}>
           <h1 className={styles["hero-title"]}>
-            Insights for <span className={styles["text-highlight"]}>Founders</span> Who Build
+            Shopify CRO & A/B Testing <span className={styles["text-highlight"]}>Insights</span> for
+            Founders
           </h1>
           <p className={styles["hero-subtitle"]}>
-            Practical advice on conversion optimization, A/B testing, and Shopify development
+            Practical advice on conversion rate optimization, A/B testing and Shopify development
           </p>
 
-          <div className={styles["tabs-container"]}>
+          <div
+            ref={tabsRef}
+            className={styles["tabs-container"]}
+            role="group"
+            aria-label="Filter by category"
+          >
             {categories.map((cat) => (
               <button
                 key={cat.id}
+                type="button"
+                aria-pressed={activeCategory === cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`${styles["tab-btn"]} ${activeCategory === cat.id ? styles.active : styles.inactive}`}
+                className={`${styles["tab-btn"]} ${activeCategory === cat.id ? styles.active : ""}`}
               >
                 {cat.name}
+                <span className={styles["tab-count"]}>{cat.count}</span>
               </button>
             ))}
           </div>
@@ -157,7 +176,7 @@ const BlogClient = () => {
           </div>
 
           <div className={styles["articles-grid"]} ref={gridRef}>
-            {filteredArticles.slice(0, visibleCount).map((article) => (
+            {filteredArticles.slice(0, visibleCount).map((article, i) => (
               <Link key={article.id} to={`/blog/${article.slug}`} className={styles["block-link"]}>
                 <article className={styles["article-card"]}>
                   <div className={styles["article-img-wrapper"]}>
@@ -166,7 +185,8 @@ const BlogClient = () => {
                         article.coverImage || homepageCategoryImages[article.categorySlug],
                       )}
                       alt={article.category}
-                      loading="lazy"
+                      loading={i < 3 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : "auto"}
                       decoding="async"
                       className={styles["article-img"]}
                     />

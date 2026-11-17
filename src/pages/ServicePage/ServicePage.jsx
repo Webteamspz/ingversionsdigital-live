@@ -68,7 +68,7 @@ const ServicePage = ({ slug }) => {
             <div className={`container ${styles.heroGrid}`}>
               <div>
                 <span className={styles.tag}>{page.eyebrow}</span>
-                <h1 className={styles.title}>{page.title}</h1>
+                <h1 className={styles.title}>{page.h1 ?? page.title}</h1>
                 <p className={styles.intro}>{page.intro}</p>
                 <div className={styles.actions}>
                   <SmartLink

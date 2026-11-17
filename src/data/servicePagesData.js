@@ -17,6 +17,7 @@ export default {
   "ab-testing": {
     eyebrow: "Experimentation",
     title: "A/B Testing",
+    h1: "A/B Testing for Shopify Stores",
     keywords: [
       "Split testing",
       "Conversion rate optimization",
@@ -36,7 +37,7 @@ export default {
       "CRO agency",
       "ecommerce experimentation",
     ],
-    seoTitle: "A/B Testing & CRO Experiments for Shopify | Ingversions Digital",
+    seoTitle: "A/B Testing & CRO Experiments for Shopify | Ingversions",
     seoDescription:
       "Structured A/B testing for Shopify and ecommerce brands: research-led hypotheses, designed and coded variants, QA and clear results you can act on.",
     flow: "ab-testing",
@@ -118,6 +119,7 @@ export default {
   "shopify-development": {
     eyebrow: "Shopify & Shopify Plus",
     title: "Shopify Development",
+    h1: "Custom Shopify Development",
     keywords: [
       "Shopify themes",
       "Shopify Plus",
@@ -230,6 +232,7 @@ export default {
   "quality-assurance": {
     eyebrow: "Ship With Confidence",
     title: "Quality Assurance",
+    h1: "Shopify & Website Quality Assurance",
     keywords: [
       "Cross-browser testing",
       "Mobile testing",
@@ -239,7 +242,7 @@ export default {
       "Release sign-off",
     ],
     intro:
-      "End-to-end QA that catches bugs before your customers do. We test every page, flow and device that matters, log what's broken and retest every fix before it goes live.",
+      "End-to-end QA for Shopify and ecommerce sites that catches bugs before your customers do. We test every page, flow and device that matters, log what's broken and retest every fix before it goes live.",
     seoKeywords: [
       "Shopify QA testing",
       "website quality assurance",
@@ -333,6 +336,7 @@ export default {
   "wordpress-development": {
     eyebrow: "Custom Builds",
     title: "WordPress Development",
+    h1: "Custom WordPress Development",
     keywords: [
       "Custom WordPress themes",
       "Gutenberg blocks",
@@ -402,6 +406,7 @@ export default {
   "landing-page-personalization": {
     eyebrow: "Personalization",
     title: "Landing Page Personalization",
+    h1: "Landing Page Personalization for Ecommerce",
     keywords: [
       "Dynamic content",
       "Audience targeting",
@@ -410,7 +415,7 @@ export default {
       "Conversion lift",
     ],
     intro:
-      "Landing pages that adapt to who's visiting. We tailor messaging, offers and layouts to each audience so more of your traffic turns into customers.",
+      "Ecommerce landing pages that adapt to who's visiting. We tailor messaging, offers and layouts to each audience so more of your traffic turns into customers.",
     seoKeywords: [
       "landing page personalization",
       "personalized landing pages",
@@ -420,7 +425,7 @@ export default {
     ],
     seoTitle: "Landing Page Personalization | Ingversions Digital",
     seoDescription:
-      "Landing page personalization for Shopify and ecommerce brands: messaging, offers and layouts matched to each audience and ad campaign, A/B tested to lift conversions.",
+      "Landing page personalization for Shopify and ecommerce brands: messaging, offers and layouts matched to each audience and ad, A/B tested to lift conversions.",
     flow: "landing-page",
     pricing: "engagement",
     pricingHeading: "Pricing that fits the project",
@@ -507,7 +512,7 @@ export default {
       "Shopify Plus CRO",
       "CRO services",
     ],
-    seoTitle: "Shopify CRO Agency | Conversion Rate Optimization | Ingversions Digital",
+    seoTitle: "Shopify CRO Agency | Conversion Rate Optimization",
     seoDescription:
       "Shopify CRO agency for DTC brands: research, A/B tests designed in Figma, clean builds, full QA and winners shipped into your theme. First test build free.",
     flow: "ab-testing",
@@ -722,7 +727,7 @@ export default {
       "white label Shopify development",
       "test development for agencies",
     ],
-    seoTitle: "White-Label A/B Testing Development for Agencies | Ingversions Digital",
+    seoTitle: "White-Label A/B Testing Development for Agencies",
     seoDescription:
       "White-label A/B test development for agencies: tests built in VWO, Optimizely, Convert, AB Tasty, Intelligems or Shoplift, with full QA. Complex tests 50% off.",
     flow: "ab-testing",
@@ -788,7 +793,7 @@ export default {
       "flicker testing",
       "sample ratio mismatch",
     ],
-    seoTitle: "Shopify A/B Testing QA Checklist & Process | Ingversions Digital",
+    seoTitle: "Shopify A/B Testing QA Checklist & Process | Ingversions",
     seoDescription:
       "The QA checklist we run on every Shopify A/B test: devices, browsers, flicker, add-to-cart and checkout flows, tracking and sample ratio checks.",
     flow: "qa",
@@ -928,7 +933,7 @@ export default {
       "Shopify discount testing",
       "ecommerce load testing",
     ],
-    seoTitle: "Shopify Black Friday QA Testing Service | Ingversions Digital",
+    seoTitle: "Shopify Black Friday QA Testing Service | Ingversions",
     seoDescription:
       "Pre-BFCM QA for Shopify stores: checkout, discount and promo testing, regression checks and page speed checks before Black Friday traffic arrives.",
     flow: "qa",
@@ -996,7 +1001,7 @@ export default {
       "Claude for ecommerce",
       "MCP server reporting",
     ],
-    seoTitle: "Claude MCP Shopify CRO Reporting Workflow | Ingversions Digital",
+    seoTitle: "Claude MCP Shopify CRO Reporting Workflow | Ingversions",
     seoDescription:
       "How to use Claude with MCP servers for Shopify analytics and CRO reporting: setup, reporting workflow, prompts, and where AI reporting needs a human check.",
     flow: "ab-testing",

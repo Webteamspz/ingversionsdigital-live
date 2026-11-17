@@ -1,9 +1,9 @@
 export const heroData = {
   tag: "About Ingversions Digital",
-  title: "We test before we build,",
+  title: "A Shopify CRO agency that tests before it builds,",
   highlight: "so your store only ships what works.",
   subtitle:
-    "We are a CRO-first team helping brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.",
+    "We are a Shopify CRO and A/B testing team helping ecommerce brands turn traffic into measurable revenue. From hypotheses to execution and post-test analysis, every experiment is designed to reduce guesswork and increase impact.",
   meta: [
     { label: "Founded", value: "2024" },
     { label: "HQ", value: "Remote-first" },

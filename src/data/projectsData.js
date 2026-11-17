@@ -1,10 +1,10 @@
 const projectsData = {
   hero: {
     tag: "Our Amazing Work",
-    headingPart1: "Explore Our",
+    headingPart1: "Shopify & CRO",
     headingHighlight: "Projects",
     description:
-      "We take pride in delivering CRO-driven websites that not only look great but also drive real results for businesses.",
+      "Shopify stores, landing pages and websites we have designed, built and tested for ecommerce brands. Each one is built to convert, not just to look good.",
     statLabels: {
       Websites: "Websites built",
       Shopify: "Shopify stores",

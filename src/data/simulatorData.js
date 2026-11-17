@@ -2,7 +2,7 @@
 // scene.js from the `scene` text below; `changes` ids match the regions it can highlight.
 const simulatorData = {
   seo: {
-    title: "Live A/B Test Simulator: Watch a Shopify Test Run | Ingversions",
+    title: "Live A/B Test Simulator: Watch a Shopify Test Run",
     description:
       "Watch a Shopify A/B test run in 3D: traffic splits between control and variant, confidence builds day by day, and a winner is called only after a full week.",
     keywords: [

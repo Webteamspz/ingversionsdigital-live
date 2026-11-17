@@ -19,7 +19,7 @@ const tools = {
   "shopify-profit-margin-calculator": {
     name: "Profit Margin & ROAS Calculator",
     seo: {
-      title: "Shopify Profit Margin & Break-Even ROAS Calculator | Ingversions",
+      title: "Shopify Profit Margin & Break-Even ROAS Calculator",
       description:
         "Work out the real profit per order after product cost, shipping and payment fees, plus the break-even ROAS and CPA for your ads. Free Shopify calculator.",
       keywords: [
@@ -30,7 +30,7 @@ const tools = {
       ],
     },
     hero: {
-      title: "Profit Margin & Break-Even ROAS Calculator",
+      title: "Shopify Profit Margin & Break-Even ROAS Calculator",
       subtitle:
         "See what you really keep from each order, and the ROAS your ads need before they make you money.",
     },
@@ -82,7 +82,7 @@ const tools = {
   "shopify-discount-calculator": {
     name: "Discount Break-Even Calculator",
     seo: {
-      title: "Discount Break-Even Calculator for Black Friday Sales | Ingversions",
+      title: "Discount Break-Even Calculator for Black Friday Sales",
       description:
         "Find out how many more sales a discount needs to make the same profit. Plan Black Friday and sale pricing for your Shopify store before you launch.",
       keywords: [
@@ -93,7 +93,7 @@ const tools = {
       ],
     },
     hero: {
-      title: "Discount Break-Even Calculator",
+      title: "Shopify Discount Break-Even Calculator",
       subtitle:
         "Before you run a sale, see how many extra orders the discount needs just to make the same profit.",
     },
@@ -135,7 +135,7 @@ const tools = {
   "customer-lifetime-value-calculator": {
     name: "Customer Lifetime Value Calculator",
     seo: {
-      title: "Customer Lifetime Value (LTV) & LTV:CAC Calculator | Ingversions",
+      title: "Customer Lifetime Value (LTV) & LTV:CAC Calculator",
       description:
         "Calculate customer lifetime value, LTV:CAC ratio and CAC payback period for your Shopify store. Free LTV calculator for ecommerce brands.",
       keywords: [
@@ -146,7 +146,7 @@ const tools = {
       ],
     },
     hero: {
-      title: "Customer Lifetime Value Calculator",
+      title: "Customer Lifetime Value (LTV) Calculator",
       subtitle:
         "Find out what a customer is worth over time, and how much you can afford to pay to win one.",
     },
@@ -193,7 +193,7 @@ const tools = {
   "cro-revenue-calculator": {
     name: "CRO Revenue Calculator",
     seo: {
-      title: "CRO Revenue Calculator: What a Conversion Lift Is Worth | Ingversions",
+      title: "CRO Revenue Calculator: What a Conversion Lift Is Worth",
       description:
         "See how much extra revenue a higher conversion rate adds to your Shopify store each month and year. Free CRO ROI calculator.",
       keywords: [

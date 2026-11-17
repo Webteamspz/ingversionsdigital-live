@@ -28,6 +28,11 @@
 - [About Us](https://ingversionsdigital.com/about-us)
 - [Blog](https://ingversionsdigital.com/blog): Shopify development, CRO, A/B testing, and Claude + MCP for ecommerce.
 - [A/B Test Calculator](https://ingversionsdigital.com/ab-test-calculator): Free sample size, MDE and significance calculator.
+- [Live A/B Test Simulator](https://ingversionsdigital.com/ab-test-simulator): Interactive 3D simulation of a real Shopify homepage A/B test.
+- [Shopify Profit Margin & Break-Even ROAS Calculator](https://ingversionsdigital.com/shopify-profit-margin-calculator): Free per-order profit and break-even ROAS calculator.
+- [Shopify Discount Break-Even Calculator](https://ingversionsdigital.com/shopify-discount-calculator): How many extra orders a sale discount needs to keep the same profit.
+- [Customer Lifetime Value (LTV) Calculator](https://ingversionsdigital.com/customer-lifetime-value-calculator): LTV and LTV:CAC calculator for ecommerce.
+- [CRO Revenue Calculator](https://ingversionsdigital.com/cro-revenue-calculator): What a conversion rate lift is worth in revenue.
 
 ## Services & Solutions
 - [Shopify CRO agency](https://ingversionsdigital.com/shopify-cro-agency)

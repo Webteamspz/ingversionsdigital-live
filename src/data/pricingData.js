@@ -2,7 +2,7 @@ const CALENDLY = "https://calendly.com/ingversionsdigital/30min";
 
 export const pricingHeroData = {
   tag: "Pricing",
-  title: "Pricing for CRO programs and test development.",
+  title: "Shopify CRO pricing and A/B test development.",
   highlight: "Your first test build is free.",
   subtitle:
     "Run a full testing program with Shopify development included, or add our developers to your agency's team. Every test gets full QA before it goes live.",

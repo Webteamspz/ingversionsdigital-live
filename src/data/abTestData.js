@@ -1,9 +1,9 @@
 const abTestData = {
   hero: {
     tag: "Free Tool",
-    title: "A/B Test Calculator",
+    title: "A/B Test Significance & Sample Size Calculator",
     subtitle:
-      "Plan how long a test needs to run, then check whether your result is real. Everything runs in your browser. Nothing is sent or stored.",
+      "Plan how long an A/B test needs to run, then check whether your result is real. Everything runs in your browser. Nothing is sent or stored.",
   },
   tabs: {
     plan: "Plan a test",
