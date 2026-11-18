@@ -538,10 +538,12 @@
 }
 
 .compareItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  justify-items: center;
+  align-items: start;
+  row-gap: 12px;
 }
 
 .compareWin {

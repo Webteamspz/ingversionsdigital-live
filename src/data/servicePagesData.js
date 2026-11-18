@@ -99,6 +99,10 @@ export default {
     faqHeading: "A/B Testing FAQs",
     faq: [
       {
+        q: "What is A/B testing on a Shopify store?",
+        a: "A/B testing shows two versions of a page, such as the current product page and a changed one, to different visitors at the same time, then compares how many of each group buy. The version that converts better wins and goes live for everyone. It replaces guesswork with measured results from your own shoppers.",
+      },
+      {
         q: "How long does an A/B test run?",
         a: "Until it reaches enough traffic and conversions to give a reliable answer. We agree the target before launch, so tests aren't stopped early on a lucky streak.",
       },
@@ -212,6 +216,10 @@ export default {
     faqHeading: "Shopify Development FAQs",
     faq: [
       {
+        q: "What does Shopify development include?",
+        a: "Shopify development is building and changing the parts of a Shopify store that the theme editor cannot: custom theme sections, product page layouts, Liquid templates, app integrations and speed fixes. We build natively in Shopify, without page builders, so the store stays fast and your team can still edit it.",
+      },
+      {
         q: "Can you work on my existing theme?",
         a: "Yes. We can extend and improve your current theme, or build a new one if that's the better long-term option.",
       },
@@ -316,6 +324,10 @@ export default {
     faqHeading: "Quality Assurance FAQs",
     faq: [
       {
+        q: "What is website quality assurance (QA)?",
+        a: "Quality assurance is checking a website or new feature before customers see it: every page, form, cart and checkout step, across the browsers and devices people actually use. Each bug is logged with steps to reproduce it, fixed, and retested, so problems are caught before they cost sales.",
+      },
+      {
         q: "Can you QA work built by another team?",
         a: "Yes. We can test any site or feature, whoever built it, and report back to your developers.",
       },
@@ -385,6 +397,10 @@ export default {
     ],
     faqHeading: "WordPress Development FAQs",
     faq: [
+      {
+        q: "What is custom WordPress development?",
+        a: "Custom WordPress development means building a theme and page blocks for your site specifically, instead of using a generic theme or a heavy page builder. The result loads faster, looks exactly as designed, and gives your team simple editing controls for the content they change most.",
+      },
       {
         q: "Can you redesign my existing WordPress site?",
         a: "Yes. We can rebuild or refresh your current site while keeping your content.",
@@ -473,6 +489,10 @@ export default {
     ],
     faqHeading: "Personalization FAQs",
     faq: [
+      {
+        q: "What is landing page personalization?",
+        a: "Landing page personalization changes what a visitor sees based on who they are or where they came from, such as matching the headline and offer to the ad they clicked. Visitors see a page that speaks to their reason for arriving, which usually lifts conversion rate. Each change is A/B tested to confirm it helps.",
+      },
       {
         q: "What can be personalized?",
         a: "Headlines, images, offers, layouts and calls to action, based on campaign, traffic source or visitor type.",

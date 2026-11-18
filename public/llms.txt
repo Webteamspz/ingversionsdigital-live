@@ -27,6 +27,7 @@
 - [Case Studies](https://ingversionsdigital.com/case-studies): Shopify A/B test and SEO results measured in GA4, with the challenge, the work and the numbers.
 - [About Us](https://ingversionsdigital.com/about-us)
 - [Blog](https://ingversionsdigital.com/blog): Shopify development, CRO, A/B testing, and Claude + MCP for ecommerce.
+- [Free QA Checklist (PDF)](https://ingversionsdigital.com/free-qa-checklist): 14-page, 230+ point QA checklist for Shopify A/B tests (free download, email required).
 - [A/B Test Calculator](https://ingversionsdigital.com/ab-test-calculator): Free sample size, MDE and significance calculator.
 - [Live A/B Test Simulator](https://ingversionsdigital.com/ab-test-simulator): Interactive 3D simulation of a real Shopify homepage A/B test.
 - [Shopify Profit Margin & Break-Even ROAS Calculator](https://ingversionsdigital.com/shopify-profit-margin-calculator): Free per-order profit and break-even ROAS calculator.

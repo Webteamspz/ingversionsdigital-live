@@ -351,9 +351,11 @@
 }
 .priceCard {
   position: relative;
-  display: flex;
+  display: grid;
   padding: 28px 24px;
-  flex-direction: column;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
   background: var(--palette-bg-800);
@@ -449,6 +451,7 @@
 }
 .features {
   display: grid;
+  align-content: start;
   margin: 20px 0 0;
   padding: 18px 0 0;
   gap: 10px;

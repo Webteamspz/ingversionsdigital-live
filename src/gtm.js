@@ -1,4 +1,5 @@
 import { isProduction } from "./config/deploy";
+import { CONSENT_DEFAULTS, consentState } from "./utils/consent";
 
 export const GTM_ID = import.meta.env.VITE_GTM_ID;
 const CLARITY_ID = import.meta.env.VITE_CLARITY_ID;
@@ -6,18 +7,8 @@ export const dl = () => (window.dataLayer = window.dataLayer || []);
 
 const now = () => new Date().toISOString();
 
-export function pageview(
-  path = location.pathname + location.search + location.hash,
-  title = document.title,
-) {
-  dl().push({
-    event: "virtual_pageview",
-    page_path: path,
-    page_title: title,
-    page_location: location.href,
-    page_referrer: document.referrer || null,
-    ts: now(),
-  });
+function gtag() {
+  dl().push(arguments);
 }
 
 export function ctaClick({ label, location: loc, href }) {
@@ -30,48 +21,35 @@ export function ctaClick({ label, location: loc, href }) {
   });
 }
 
-export function formSubmit({ form_id, form_name }) {
-  dl().push({ event: "form_submit", form_id, form_name, ts: now() });
+export function leadSuccess({ form_name, lead_source }) {
+  dl().push({ event: "generate_lead", form_name, lead_source, ts: now() });
+  if (typeof window.clarity === "function") {
+    window.clarity("set", "lead", form_name);
+    window.clarity("event", "generate_lead");
+    window.clarity("upgrade", "lead");
+  }
 }
 
-export function formSuccess({ form_id, form_name }) {
-  dl().push({ event: "form_success", form_id, form_name, ts: now() });
+function consentDefaultsOnce() {
+  if (window.__consentDefaults) return;
+  window.__consentDefaults = true;
+  for (const defaults of CONSENT_DEFAULTS) gtag("consent", "default", defaults);
 }
 
-export function observeSectionOnce(el, eventName, extra = {}, threshold = 0.5) {
-  if (!el || !eventName || el.__gtmObserved) return;
-  el.__gtmObserved = true;
-  const io = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      if (entry?.isIntersecting && entry.intersectionRatio >= threshold) {
-        dl().push({ event: eventName, ...extra, ts: now() });
-        io.disconnect();
-      }
-    },
-    { threshold: [threshold] },
-  );
-  io.observe(el);
-  return () => io.disconnect();
+export function updateConsent(value) {
+  consentDefaultsOnce();
+  gtag("consent", "update", consentState(value));
+  if (typeof window.clarity === "function") {
+    window.clarity("consentv2", {
+      ad_Storage: value,
+      analytics_Storage: value,
+    });
+  }
 }
 
-export function initGTMTracking() {
-  if (typeof window === "undefined") return;
+function initGTMTracking() {
   if (window.__gtmInit) return;
   window.__gtmInit = true;
-
-  const firePV = () => pageview();
-  ["pushState", "replaceState"].forEach((m) => {
-    const orig = history[m];
-    history[m] = function (...args) {
-      const ret = orig.apply(this, args);
-      queueMicrotask(firePV);
-      return ret;
-    };
-  });
-  window.addEventListener("popstate", firePV);
-  window.addEventListener("hashchange", firePV);
-  pageview();
 
   document.addEventListener("click", (e) => {
     const el = e.target.closest?.("[data-cta]");
@@ -88,41 +66,8 @@ export function initGTMTracking() {
     const form = e.target.closest?.("form[data-gtm-form]");
     if (!form) return;
     const form_name = form.getAttribute("data-gtm-form");
-    const form_id = form.id || form_name || "form";
-    formSubmit({ form_id, form_name });
+    dl().push({ event: "form_submit", form_id: form.id || form_name, form_name, ts: now() });
   });
-
-  window.__gtmFormSuccess = (form) => {
-    if (!form) return;
-    const form_name = form.getAttribute("data-gtm-form") || form.name || "form";
-    const form_id = form.id || form_name;
-    formSuccess({ form_id, form_name });
-  };
-
-  const marks = new Set();
-  const thresholds = [25, 50, 75, 100];
-  let ticking = false;
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const doc = document.documentElement;
-      const total = doc.scrollHeight - doc.clientHeight;
-      if (total > 0) {
-        const pct = Math.min(100, Math.round(((window.scrollY || doc.scrollTop) / total) * 100));
-        thresholds.forEach((t) => {
-          if (!marks.has(t) && pct >= t) {
-            marks.add(t);
-            dl().push({ event: "scroll_depth", percent: t, ts: now() });
-          }
-        });
-      }
-      ticking = false;
-    });
-  };
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  requestAnimationFrame(onScroll);
 }
 
 function loadClarity() {
@@ -156,6 +101,7 @@ function loadGTM() {
 export function loadAnalytics() {
   if (typeof window === "undefined") return;
   if (!isProduction || !GTM_ID || !CLARITY_ID) return;
+  consentDefaultsOnce();
   const run = () => {
     loadClarity();
     loadGTM();

@@ -26,7 +26,7 @@ const PrivacyPolicy = () => (
                 This notice is in English. On request, we will provide it in any language listed in
                 the Eighth Schedule to the Constitution of India.
               </p>
-              <p className={styles.legalIntro}>Last updated: November 1, 2026</p>
+              <p className={styles.legalIntro}>Last updated: November 18, 2026</p>
             </div>
           </div>
         </div>
@@ -123,7 +123,16 @@ const PrivacyPolicy = () => (
                     <strong>Microsoft Clarity</strong> — session and heatmap analytics to help us
                     improve page layout and usability. Cookies: _clck (1 year) and _clsk (1 day).
                   </li>
+                  <li>
+                    <strong>lead-attribution</strong> (browser local storage) — the campaign that
+                    brought you here (UTM tags, ad click IDs, landing page and referring site). It
+                    is sent to us only with a form you submit, and is not stored if you decline.
+                  </li>
                 </ul>
+                <p>
+                  Visitors in the EEA, UK and Switzerland: Google tags use no analytics or
+                  advertising cookies until you click Accept.
+                </p>
                 <p>
                   <strong>Cloudflare Web Analytics</strong> — our hosting provider, Cloudflare,
                   counts page views for every visitor. It sets no cookies and does not track you
