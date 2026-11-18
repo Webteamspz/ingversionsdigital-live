@@ -190,7 +190,10 @@
   font-weight: 800;
 }
 .simLink {
-  margin-top: 18px;
+  display: inline-flex;
+  min-height: 44px;
+  margin-top: 6px;
+  align-items: center;
   color: var(--palette-accent-soft);
   font-size: 14px;
   font-weight: 700;

@@ -19,7 +19,7 @@ import data from "../../data/siteData";
 import logoDay from "/assets/logos/main-logo-violet.png";
 import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
-import { ctaClick, dl } from "../../gtm";
+import { ctaClick } from "../../gtm";
 import { isExternalHref } from "../../utils/url";
 import BlackFridayBanner from "../BlackFridayBanner/BlackFridayBanner.jsx";
 
@@ -129,10 +129,6 @@ const Header = () => {
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     document.body.classList.toggle("menu-open", open);
-    dl().push({
-      event: open ? "menu_open" : "menu_close",
-      menu_location: "Header",
-    });
     if (open) closeBtnRef.current?.focus();
     else if (wasOpen.current) hamburgerRef.current?.focus();
     if (!open) setLevel(0);
