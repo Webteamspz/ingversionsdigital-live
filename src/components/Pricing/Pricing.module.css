@@ -124,6 +124,11 @@
 .cta:hover {
   color: var(--palette-accent-strong);
 }
+a.cta {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
 .badge {
   background-color: var(--light-badge-bg);
   color: var(--light-badge-text);

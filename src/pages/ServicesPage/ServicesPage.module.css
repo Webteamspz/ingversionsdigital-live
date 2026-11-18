@@ -196,7 +196,8 @@
 }
 .proofLink {
   display: inline-flex;
-  margin-top: 18px;
+  min-height: 44px;
+  margin-top: 6px;
   gap: 6px;
   align-items: center;
   color: var(--palette-accent);
