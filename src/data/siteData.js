@@ -1769,6 +1769,7 @@ export default {
         links: [
           { name: "A/B Test Calculator", href: "/ab-test-calculator" },
           { name: "A/B Test Simulator", href: "/ab-test-simulator" },
+          { name: "Free QA Checklist (PDF)", href: "/free-qa-checklist" },
           ...Object.entries(tools).map(([slug, t]) => ({ name: t.name, href: `/${slug}` })),
         ],
       },
