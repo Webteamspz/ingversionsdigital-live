@@ -311,6 +311,23 @@ production `VITE_GTM_ID`/`VITE_CLARITY_ID` values either — staging builds with
 both unset. Never reintroduce a hardcoded container ID or an ungated script tag
 in `index.html`.
 
+### Consent mode and lead tracking
+
+- **Consent Mode v2.** Before GTM loads, `loadAnalytics()` pushes `CONSENT_DEFAULTS` from
+  `src/utils/consent.js`: denied for the EEA, UK and Switzerland, granted everywhere else. The
+  cookie banner calls `updateConsent()` on every choice, which updates all four Google signals and
+  Clarity's `consentv2`. GTM does not define `window.gtag`, so never call it directly.
+- **Leads.** `submitLead()` writes to Firestore only on production builds. On staging and in
+  `npm run dev` it logs the data and shows an alert, so test leads never mix with real ones.
+- **Lead source.** `src/utils/attribution.js` keeps the visitor's last campaign touch (UTM tags,
+  ad click IDs, landing page, referrer). It is saved with every lead, and its UTM tags are appended
+  to Calendly links on click.
+- **Lead events.** After a lead is saved, call `leadSuccess({ form_name, lead_source })` from
+  `src/gtm.js`. It pushes `generate_lead` and tags the Clarity session. Calendly bookings count
+  through Calendly's redirect to `/thank-you?booked=1`.
+- **Event names.** Don't push events GTM already creates from its own click triggers, such as
+  `book_call_click`, `contact_click` or `email_click`.
+
 ---
 
 ## SEO

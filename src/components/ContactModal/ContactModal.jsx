@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./ContactModal.module.css";
 import { submitLead } from "../../utils/submitLead";
+import { leadSuccess } from "../../gtm";
 import site from "../../data/siteData";
 
 const notice = site.contact.modalNotice;
@@ -75,6 +76,7 @@ const ContactModal = ({ isOpen, onClose, source }) => {
 
     try {
       await submitLead("contact", payload);
+      leadSuccess({ form_name: "engagement-contact", lead_source: payload.source });
       navigate("/thank-you");
     } catch {
       setSubmitError("Something went wrong. Please try again.");
