@@ -233,6 +233,29 @@ const seo = {
     ],
     path: "/about-us",
     breadcrumb: [home, { name: "About Us", path: "/about-us" }],
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      url: "https://ingversionsdigital.com/about-us",
+      mainEntity: {
+        "@type": "ProfessionalService",
+        "@id": "https://ingversionsdigital.com/#organization",
+        name: "Ingversions Digital",
+        foundingDate: "2024",
+        founder: [
+          { "@type": "Person", name: "Harsh Jariwala", jobTitle: "Co-founder" },
+          { "@type": "Person", name: "Rahul Patil", jobTitle: "Co-founder" },
+        ],
+        knowsAbout: [
+          "Conversion rate optimization",
+          "A/B testing",
+          "Shopify development",
+          "Shopify Plus",
+          "Website quality assurance",
+          "Landing page personalization",
+        ],
+      },
+    },
   },
   privacyPolicy: {
     title: "Privacy Policy | Ingversions Digital",
@@ -247,6 +270,20 @@ const seo = {
       "Terms and conditions for using ingversionsdigital.com and engaging Ingversions Digital's CRO, Shopify, and web development services.",
     path: "/terms-of-service",
     breadcrumb: [home, { name: "Terms of Service", path: "/terms-of-service" }],
+  },
+  qaChecklist: {
+    title: "Free Shopify A/B Test QA Checklist (PDF) | Ingversions",
+    description:
+      "Download the free 14-page QA checklist for Shopify A/B tests: 230+ checks for design, 360px to 4K responsiveness, flicker, tracking, Add to Cart, pricing and discounts.",
+    keywords: [
+      "QA checklist",
+      "A/B test QA checklist",
+      "Shopify QA checklist",
+      "CRO QA checklist PDF",
+      "website launch checklist",
+    ],
+    path: "/free-qa-checklist",
+    breadcrumb: [home, { name: "Free QA Checklist", path: "/free-qa-checklist" }],
   },
   thankYou: {
     title: "Thank You | Ingversions Digital",

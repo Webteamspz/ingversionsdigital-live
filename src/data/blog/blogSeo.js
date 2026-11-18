@@ -24,6 +24,7 @@ const postingJsonLd = ({ headline, description, image, date, url }) => ({
   description,
   image: [`${SITE_URL}${image}`],
   datePublished: toIso(date),
+  dateModified: toIso(date),
   author: { "@type": "Organization", name: "Ingversions Digital" },
   publisher: {
     "@type": "Organization",
