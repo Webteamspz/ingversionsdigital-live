@@ -382,7 +382,8 @@
 .value {
   display: grid;
   padding: 28px;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-content: start;
   column-gap: 20px;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
@@ -578,6 +579,9 @@
   }
   .step {
     padding: 20px;
+  }
+  .value {
+    grid-template-columns: 60px minmax(0, 1fr);
   }
   .valueNum {
     font-size: 44px;

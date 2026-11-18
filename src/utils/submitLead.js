@@ -1,4 +1,5 @@
 const PROJECT_ID = import.meta.env?.VITE_FIREBASE_PROJECT_ID || "ingversions-digital";
+const ENV = import.meta.env?.VITE_DEPLOY_ENV || import.meta.env?.MODE || "development";
 const DB = `projects/${PROJECT_ID}/databases/(default)/documents`;
 const COMMIT_URL = `https://firestore.googleapis.com/v1/${DB}:commit`;
 const SITE = "ingversionsdigital.com";
@@ -51,11 +52,20 @@ export function toFirestoreWrite(formName, data, id = crypto.randomUUID()) {
   };
 }
 
+import { getAttribution } from "./attribution.js";
+
 export async function submitLead(formName, data) {
+  if (ENV !== "production") {
+    console.info(`[${ENV}] "${formName}" lead not saved`, data);
+    alert(
+      `Test mode (${ENV}): the "${formName}" form works. Leads are only saved on the live site.`,
+    );
+    return;
+  }
   const res = await fetch(COMMIT_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(toFirestoreWrite(formName, data)),
+    body: JSON.stringify(toFirestoreWrite(formName, { ...getAttribution(), ...data })),
   });
   if (!res.ok) throw new Error(`Form submit failed (${res.status})`);
 }

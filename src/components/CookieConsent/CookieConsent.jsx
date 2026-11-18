@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { CONSENT_EVENT, setConsent, startAnalytics } from "../../gtm";
+import { CONSENT_EVENT, setConsent, startAnalytics, updateConsent } from "../../gtm";
 
 const POLICY = "/privacy-policy";
 const NOTICE = "/privacy-policy#cookies-tracking";
@@ -41,7 +41,7 @@ const text = {
 const apply = (cc) => {
   const value = cc.acceptedCategory("analytics") ? "granted" : "denied";
   setConsent(value);
-  window.gtag?.("consent", "update", { analytics_storage: value });
+  updateConsent(value);
   if (value === "granted") startAnalytics();
   else if (window.__analyticsStarted) return location.reload();
   window.dispatchEvent(new Event(CONSENT_EVENT));

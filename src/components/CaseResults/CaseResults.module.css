@@ -53,16 +53,18 @@
   list-style: none;
 }
 .card {
-  display: flex;
+  display: grid;
   padding: 26px;
-  flex-direction: column;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-lg);
   background: var(--palette-bg-800);
   box-shadow: 8px 8px 0 0 var(--palette-accent);
 }
 .lift {
-  align-self: flex-start;
+  justify-self: start;
   padding: 4px 14px;
   border: var(--border-width) solid var(--palette-border);
   border-radius: var(--radius-full);
@@ -73,7 +75,6 @@
   font-weight: 800;
 }
 .label {
-  flex: 1;
   margin: 16px 0 18px;
   color: var(--palette-text-primary);
   font-size: 17px;
@@ -109,7 +110,10 @@
 }
 .link {
   display: inline-flex;
-  margin-top: 18px;
+  min-height: 44px;
+  margin-top: 6px;
+  justify-self: start;
+  align-self: end;
   gap: 6px;
   align-items: center;
   color: var(--palette-accent);
