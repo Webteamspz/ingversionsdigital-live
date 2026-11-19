@@ -1,5 +1,6 @@
-/* Full-bleed night stage: the 3D canvas fills it edge to edge; text and controls float on top
-   in dark glass panels. Below 1024px the panels drop under the canvas. Colours here are the
+/* Full-bleed night stage: the 3D canvas fills it edge to edge, with the text and results panels
+   floating on top in dark glass and the playback controls in a bar below it. Below 1024px the
+   panels drop under the canvas. Colours here are the
    simulator's own palette (lane colours match scene.js), not the site tokens. */
 .stage {
   --sim-a: #38bdf8;
@@ -9,8 +10,8 @@
   --sim-line: rgba(148, 163, 184, 0.18);
 
   position: relative;
-  height: 800px;
   margin-top: 90px;
+  padding-bottom: 28px;
   overflow: hidden;
   background:
     radial-gradient(1200px 500px at 50% 0%, #1e1b4b 0%, transparent 70%),
@@ -19,8 +20,8 @@
 }
 
 .canvas {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  height: 720px;
   cursor: grab;
 }
 .canvas::before {
@@ -298,10 +299,7 @@
 }
 
 .controls {
-  position: absolute;
-  right: 32px;
-  bottom: 28px;
-  left: 32px;
+  margin: 0 32px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -484,21 +482,58 @@
   outline-offset: 4px;
 }
 
+/* 360° mode: everything but the 3D view and the results board steps aside, like a pop-up. */
+.explore360 {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 32px;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  background: rgba(15, 20, 36, 0.72);
+  border: 0;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 0 1px var(--sim-line);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.explore360:hover,
+.explore360:focus-visible {
+  box-shadow: 0 0 0 1px var(--sim-b);
+}
+.explore360:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.explore .left,
+.explore .controls {
+  display: none;
+}
+
 @media (max-width: 1023.98px) {
   .stage {
     display: flex;
-    height: auto;
     margin-top: 68px;
     flex-direction: column;
     gap: 12px;
     padding-bottom: 16px;
   }
   .canvas {
-    position: relative;
-    inset: auto;
     order: 1;
     height: 440px;
     cursor: default;
+  }
+  .explore360 {
+    top: 12px;
+    right: 16px;
+    bottom: auto;
+    left: auto;
   }
   .left,
   .readout,
@@ -515,15 +550,8 @@
     margin: 0 16px;
     padding-top: 24px;
   }
-  .changes {
-    order: 2;
-    margin: 0 16px;
-  }
-  .readout {
-    order: 3;
-  }
   .controls {
-    order: 4;
+    order: 2;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -532,6 +560,13 @@
   }
   .chips {
     flex-wrap: wrap;
+  }
+  .changes {
+    order: 3;
+    margin: 0 16px;
+  }
+  .readout {
+    order: 4;
   }
   .ctaBox {
     grid-template-columns: 1fr;

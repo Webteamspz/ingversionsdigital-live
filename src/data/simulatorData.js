@@ -18,6 +18,8 @@ const simulatorData = {
     "Our old homepage against the new one. Watch the test play out, visitor by visitor, day by day.",
   hint: "Drag to explore",
   load3d: "Load the 3D view",
+  explore: "360° view",
+  exploreExit: "Exit 360°",
   day: "Test day",
   of: "of",
   status: {

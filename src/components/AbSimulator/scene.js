@@ -8,8 +8,8 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { drawScreen, loadScreens, SCREEN_W, SCREEN_H } from "./screens.js";
 
 const VIEWS = {
-  overview: { pos: [0, 6.6, 27], target: [0, 4.4, -2] },
-  overviewNarrow: { pos: [0, 4.9, 17.5], target: [0, 3.5, -1] },
+  overview: { pos: [0, 7.4, 30], target: [0, 3.6, -2] },
+  overviewNarrow: { pos: [0, 6.2, 22.5], target: [0, 3, -1] },
   a: { pos: [-5.2, 3.6, 8.6], target: [-2.9, 2.9, 1.2] },
   b: { pos: [5.2, 3.6, 8.6], target: [2.9, 2.9, 1.2] },
 };
@@ -117,8 +117,15 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   controls.enableZoom = false;
   controls.minPolarAngle = 0.35;
   controls.maxPolarAngle = 1.5;
-  // Touch drags must keep scrolling the page; phones use the view buttons and taps instead.
-  controls.enabled = !coarse;
+  // Touch drags must keep scrolling the page; phones use the view buttons and taps instead,
+  // and can turn the model only in 360° mode (setExplore), which also spins it slowly.
+  controls.autoRotateSpeed = 3; // one full turn every 20 s
+  const setExplore = (on) => {
+    controls.enabled = on || !coarse;
+    renderer.domElement.style.touchAction = controls.enabled ? "none" : "";
+    controls.autoRotate = on;
+  };
+  setExplore(false);
 
   scene.add(new THREE.HemisphereLight("#8fa4ff", "#1a1530", 0.9));
   const moon = new THREE.DirectionalLight("#c7d2fe", 1.4);
@@ -637,6 +644,13 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     tween = null;
     pristine = false;
   });
+  // A few seconds in, swing the camera 25° and back so visitors see the model can be turned.
+  let swing = null;
+  const swingTimer = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? null
+    : setTimeout(() => {
+        if (pristine) swing = { t: 0, offset: camera.position.clone().sub(controls.target) };
+      }, 2500);
   const zoom = (factor) => {
     const next = THREE.MathUtils.clamp(distance * factor, 0.55, 1.5);
     const dir = camera.position.clone().sub(controls.target);
@@ -712,6 +726,14 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       controls.target.lerpVectors(tween.fromTarget, tween.toTarget, e);
       if (tween.t === 1) tween = null;
     }
+    if (swing && pristine) {
+      swing.t = Math.min(1, swing.t + dt / 3.2);
+      const angle = THREE.MathUtils.degToRad(25) * Math.sin(Math.PI * swing.t);
+      camera.position
+        .copy(controls.target)
+        .add(swing.offset.clone().applyAxisAngle(camera.up, angle));
+      if (swing.t === 1) swing = null;
+    } else swing = null;
     controls.update();
 
     if (isPlaying) {
@@ -805,6 +827,15 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     },
     setView,
     zoom,
+    setExplore: (on) => {
+      if (on === controls.autoRotate) return;
+      setExplore(on);
+      if (on) {
+        pristine = false;
+        swing = null;
+        tween = null;
+      } else setView("overview");
+    },
     reset: () => {
       shoppers.length = 0;
       pops.forEach((p) => ((p.t = 1), (p.s.visible = false)));
@@ -812,6 +843,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     },
     dispose: () => {
       renderer.setAnimationLoop(null);
+      clearTimeout(swingTimer);
       io.disconnect();
       ro.disconnect();
       document.removeEventListener("visibilitychange", sync);

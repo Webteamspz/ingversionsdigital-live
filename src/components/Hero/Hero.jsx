@@ -9,9 +9,10 @@ const { compare } = data.hero;
 
 const START = 3;
 const START_PX = 18;
-const PEEK = 33;
+const PEEK_TO = 70;
 const STEP = 5;
-const limit = (v) => Math.min(100, Math.max(0, v));
+const GAP = 3;
+const limit = (v) => Math.min(100 - GAP, Math.max(GAP, v));
 
 const Hero = () => {
   const [pos, setPos] = useState(START);
@@ -29,7 +30,7 @@ const Hero = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame;
     const begin = performance.now() + 900;
-    const duration = 1600;
+    const duration = 2400;
     const tick = (now) => {
       if (touched.current) return;
       const t = (now - begin) / duration;
@@ -37,7 +38,7 @@ const Hero = () => {
         setPos(start);
         return;
       }
-      if (t > 0) setPos(start + PEEK * Math.sin(Math.PI * t));
+      if (t > 0) setPos(start + (PEEK_TO - start) * Math.sin(Math.PI * t));
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
@@ -68,8 +69,8 @@ const Hero = () => {
       ArrowDown: (p) => p - STEP,
       ArrowRight: (p) => p + STEP,
       ArrowUp: (p) => p + STEP,
-      Home: () => 0,
-      End: () => 100,
+      Home: () => GAP,
+      End: () => 100 - GAP,
     }[e.key];
     if (!next) return;
     e.preventDefault();
@@ -109,8 +110,8 @@ const Hero = () => {
                 role="slider"
                 tabIndex={0}
                 aria-label={compare.handleLabel}
-                aria-valuemin={0}
-                aria-valuemax={100}
+                aria-valuemin={GAP}
+                aria-valuemax={100 - GAP}
                 aria-valuenow={Math.round(pos)}
                 aria-valuetext={`${Math.round(pos)}% of version A shown`}
                 onPointerDown={onPointerDown}
