@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Minus, Pause, Play, Plus } from "lucide-react";
+import { ArrowRight, Minus, Pause, Play, Plus, Rotate3d, X } from "lucide-react";
 import sim from "../../data/simulatorData";
 import { simAt, MIN_DAYS } from "../../utils/abSimulator";
 import styles from "./AbSimulator.module.css";
@@ -42,6 +42,7 @@ const AbSimulator = () => {
   const [change, setChange] = useState(null);
   const [wants3d, setWants3d] = useState(false);
   const [lite, setLite] = useState(false);
+  const [explore, setExplore] = useState(false);
 
   const day = Math.min(clock, days);
   const r = simAt({ day, dailyVisitors: traffic, ...sim.model });
@@ -112,7 +113,23 @@ const AbSimulator = () => {
   useEffect(() => {
     sceneRef.current?.highlight(change);
   }, [change, ready]);
+  useEffect(() => {
+    sceneRef.current?.setExplore(explore);
+    if (!explore) return;
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setView("overview");
+      setExplore(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [explore, ready]);
 
+  // 360° mode: the model spins and only the results board stays; exiting restores the overview.
+  const toggleExplore = () => {
+    setView("overview");
+    setExplore((x) => !x);
+  };
   const changeTraffic = (t) => {
     setTraffic(t);
     setClock(0);
@@ -140,11 +157,27 @@ const AbSimulator = () => {
 
   return (
     <>
-      <section className={styles.stage} aria-labelledby="simulator-title">
+      <section
+        className={`${styles.stage} ${explore ? styles.explore : ""}`}
+        aria-labelledby="simulator-title"
+      >
         <div ref={stageRef} className={`${styles.canvas} ${ready ? styles.canvasReady : ""}`}>
           {lite && !wants3d && (
             <button type="button" className={styles.load3d} onClick={() => setWants3d(true)}>
               {sim.load3d}
+            </button>
+          )}
+          {ready && (
+            <button
+              type="button"
+              className={styles.explore360}
+              onClick={toggleExplore}
+              aria-pressed={explore}
+              data-cta={explore ? "Exit 360 view" : "360 view"}
+              data-cta-loc="AB Simulator"
+            >
+              {explore ? <X size={18} /> : <Rotate3d size={18} />}
+              {explore ? sim.exploreExit : sim.explore}
             </button>
           )}
         </div>
