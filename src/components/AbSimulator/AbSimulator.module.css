@@ -413,16 +413,9 @@
   padding-top: 20px;
   padding-bottom: 96px;
 }
-.disclaimer {
-  max-width: 720px;
-  margin: 0;
-  color: var(--palette-text-muted);
-  font-size: 13px;
-  line-height: 150%;
-}
 .ctaBox {
   display: grid;
-  margin-top: 48px;
+  margin-top: 28px;
   padding: 40px;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 32px;
@@ -511,9 +504,17 @@
   outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
+.left,
+.controls {
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+/* Hidden but still holding their space, so the page doesn't jump. */
 .explore .left,
 .explore .controls {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 @media (max-width: 1023.98px) {

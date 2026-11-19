@@ -56,8 +56,6 @@ const simulatorData = {
     label: "Run a test like this on my store",
     href: "https://calendly.com/ingversionsdigital/30min",
   },
-  disclaimer:
-    "The phones show our real old and new homepage. Traffic and sales are simulated: 2.4% conversion rate, $65 order value, 18% lift. Real results vary by store.",
   model: { days: 14, baseRate: 0.024, lift: 0.18, aov: 65, loopSeconds: 28 },
   changesTitle: "What changed in B",
   changesHint: "Hover or tap a change to light it up on the phone.",

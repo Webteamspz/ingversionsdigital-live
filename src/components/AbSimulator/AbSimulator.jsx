@@ -364,7 +364,6 @@ const AbSimulator = () => {
       </section>
 
       <div className={`container ${styles.footer}`}>
-        <p className={styles.disclaimer}>{sim.disclaimer}</p>
         <div className={styles.ctaBox}>
           <div>
             <h2 className={styles.ctaTitle}>{sim.ctaTitle}</h2>
