@@ -1,5 +1,8 @@
+import versions from "./simulatorVersions.json";
+
 // Copy for the /ab-test-simulator page (components/AbSimulator). The phone screens are drawn by
-// scene.js from the `scene` text below; `changes` ids match the regions it can highlight.
+// scene.js from the `scene` text below; `versions` regions are
+// rectangles on those screens (980×2048) that light up on hover.
 const simulatorData = {
   seo: {
     title: "Live A/B Test Simulator: Watch a Shopify Test Run",
@@ -57,14 +60,8 @@ const simulatorData = {
     href: "https://calendly.com/ingversionsdigital/30min",
   },
   model: { days: 14, baseRate: 0.024, lift: 0.18, aov: 65, loopSeconds: 28 },
-  changesTitle: "What changed in B",
-  changesHint: "Hover or tap a change to light it up on the phone.",
-  changes: [
-    { id: "headline", label: "Outcome headline: more revenue, same traffic" },
-    { id: "cta", label: "High-contrast main button" },
-    { id: "assure", label: "Risk reversal: free call, no contract" },
-    { id: "proof", label: "Real result: +33.7% case study" },
-  ],
+  changesHint: "Hover or tap a point to light it up on the phone.",
+  versions, // Control / Variant points, shown for the selected view
   chart: "Confidence over time",
   // Text drawn inside the 3D scene
   scene: {
@@ -76,12 +73,6 @@ const simulatorData = {
     screens: {
       a: "/assets/simulator/home-old.webp",
       b: "/assets/simulator/home-new.webp",
-    },
-    regions: {
-      headline: [95, 310, 790, 516],
-      cta: [95, 1110, 790, 355],
-      assure: [95, 1475, 790, 150],
-      proof: [95, 1660, 790, 330],
     },
   },
 };
