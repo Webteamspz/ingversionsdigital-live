@@ -1,4 +1,4 @@
-import versions from "./simulatorVersions.json";
+import versions from "./simulatorVersions.json" with { type: "json" };
 
 // Copy for the /ab-test-simulator page (components/AbSimulator). The phone screens are drawn by
 // scene.js from the `scene` text below; `versions` regions are
