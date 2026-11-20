@@ -1762,7 +1762,6 @@ export default {
           { name: "Pricing", href: "/pricing" },
           { name: "About Us", href: "/about-us" },
           { name: "Blog", href: "/blog" },
-          { name: "CRO Agency in Surat", href: "/cro-agency-surat" },
         ],
       },
       {
