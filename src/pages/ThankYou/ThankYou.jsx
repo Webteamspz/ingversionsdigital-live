@@ -3,16 +3,26 @@ import { Link, useLocation } from "react-router-dom";
 import SEO from "../../components/SEO/SEO";
 import seo from "../../data/seoData";
 import { leadSuccess } from "../../gtm";
+import { bookingKey, isCalendlyRedirect } from "../../utils/calendlyLead";
 import styles from "../NotFound/NotFound.module.css";
 
 const CALENDLY_URL = "https://calendly.com/ingversionsdigital/30min";
 
 const ThankYou = () => {
-  const booked = new URLSearchParams(useLocation().search).has("booked");
+  const { search } = useLocation();
+  const booked = new URLSearchParams(search).has("booked");
 
   useEffect(() => {
-    if (booked) leadSuccess({ form_name: "calendly", lead_source: "Calendly booking" });
-  }, [booked]);
+    if (!isCalendlyRedirect(search, document.referrer)) return;
+    const key = bookingKey(search);
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    } catch {
+      // storage blocked: still count the booking once for this page view
+    }
+    leadSuccess({ form_name: "calendly", lead_source: "Calendly booking" });
+  }, [search]);
 
   return (
     <section className={styles.nfWrapper}>

@@ -8,10 +8,14 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { drawScreen, loadScreens, SCREEN_W, SCREEN_H } from "./screens.js";
 
 const VIEWS = {
-  overview: { pos: [0, 7.4, 30], target: [0, 3.6, -2] },
+  // Far enough that the whole plaza stays in frame at any drag angle (within the polar limits below).
+  overview: { pos: [0, 9.2, 40], target: [0, 3.2, -1] },
+  // Touch screens can't drag outside 360° mode, so they get a closer still view...
   overviewNarrow: { pos: [0, 6.2, 22.5], target: [0, 3, -1] },
-  a: { pos: [-5.2, 3.6, 8.6], target: [-2.9, 2.9, 1.2] },
-  b: { pos: [5.2, 3.6, 8.6], target: [2.9, 2.9, 1.2] },
+  // ...and this one whenever the model can turn.
+  turnNarrow: { pos: [0, 10, 39], target: [0, 3, -1] },
+  a: { pos: [-6, 3.95, 11.2], target: [-2.9, 3, 1.2] },
+  b: { pos: [6, 3.95, 11.2], target: [2.9, 3, 1.2] },
 };
 const COLOR = { a: "#38bdf8", b: "#c084fc" };
 const spawnEvery = (traffic) => Math.max(0.16, 1000 / traffic);
@@ -115,7 +119,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   controls.enableDamping = true;
   controls.enablePan = false;
   controls.enableZoom = false;
-  controls.minPolarAngle = 0.35;
+  controls.minPolarAngle = 1.32;
   controls.maxPolarAngle = 1.5;
   // Touch drags must keep scrolling the page; phones use the view buttons and taps instead,
   // and can turn the model only in 360° mode (setExplore), which also spins it slowly.
@@ -627,7 +631,8 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   let tween = null;
   let distance = 1;
   let pristine = true;
-  const overviewName = () => (camera.aspect < 1.3 ? "overviewNarrow" : "overview");
+  const overviewName = () =>
+    camera.aspect >= 1.3 ? "overview" : controls.enabled ? "turnNarrow" : "overviewNarrow";
   const setView = (name) => {
     pristine = false;
     const v = VIEWS[name === "overview" ? overviewName() : name] || VIEWS.overview;
@@ -830,11 +835,8 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     setExplore: (on) => {
       if (on === controls.autoRotate) return;
       setExplore(on);
-      if (on) {
-        pristine = false;
-        swing = null;
-        tween = null;
-      } else setView("overview");
+      swing = null;
+      setView("overview");
     },
     reset: () => {
       shoppers.length = 0;
