@@ -10,8 +10,8 @@ import { drawScreen, loadScreens, SCREEN_W, SCREEN_H } from "./screens.js";
 const VIEWS = {
   overview: { pos: [0, 7.4, 30], target: [0, 3.6, -2] },
   overviewNarrow: { pos: [0, 6.2, 22.5], target: [0, 3, -1] },
-  a: { pos: [-5.2, 3.6, 8.6], target: [-2.9, 2.9, 1.2] },
-  b: { pos: [5.2, 3.6, 8.6], target: [2.9, 2.9, 1.2] },
+  a: { pos: [-6, 3.95, 11.2], target: [-2.9, 3, 1.2] },
+  b: { pos: [6, 3.95, 11.2], target: [2.9, 3, 1.2] },
 };
 const COLOR = { a: "#38bdf8", b: "#c084fc" };
 const spawnEvery = (traffic) => Math.max(0.16, 1000 / traffic);

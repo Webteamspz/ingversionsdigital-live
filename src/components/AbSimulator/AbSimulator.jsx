@@ -210,28 +210,6 @@ const AbSimulator = () => {
               <b>{r.uplift === null ? "–" : `${r.uplift > 0 ? "+" : ""}${pct(r.uplift)}`}</b>
             </span>
           </div>
-
-          <div className={`${styles.glass} ${styles.changes}`}>
-            <p className={styles.label}>{version.title}</p>
-            <ol className={styles.changeList} onMouseLeave={() => setChange(null)}>
-              {version.points.map((c, i) => (
-                <li key={c.id}>
-                  <button
-                    type="button"
-                    className={styles.change}
-                    aria-pressed={change === c.id}
-                    onMouseEnter={() => showChange(c.id)}
-                    onFocus={() => showChange(c.id)}
-                    onClick={() => showChange(change === c.id ? null : c.id)}
-                  >
-                    <span className={styles.changeNo}>{i + 1}</span>
-                    {c.label}
-                  </button>
-                </li>
-              ))}
-            </ol>
-            <p className={styles.note}>{sim.changesHint}</p>
-          </div>
         </div>
 
         <aside className={`${styles.glass} ${styles.readout}`}>
@@ -277,6 +255,27 @@ const AbSimulator = () => {
               </div>
             ))}
           </dl>
+          <div className={styles.changes}>
+            <p className={styles.label}>{version.title}</p>
+            <ol className={styles.changeList} onMouseLeave={() => setChange(null)}>
+              {version.points.map((c, i) => (
+                <li key={c.id}>
+                  <button
+                    type="button"
+                    className={styles.change}
+                    aria-pressed={change === c.id}
+                    onMouseEnter={() => showChange(c.id)}
+                    onFocus={() => showChange(c.id)}
+                    onClick={() => showChange(change === c.id ? null : c.id)}
+                  >
+                    <span className={styles.changeNo}>{i + 1}</span>
+                    {c.label}
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <p className={styles.note}>{sim.changesHint}</p>
+          </div>
         </aside>
 
         <div className={`${styles.glass} ${styles.controls}`}>
