@@ -43,6 +43,8 @@ const AbSimulator = () => {
   const [wants3d, setWants3d] = useState(false);
   const [lite, setLite] = useState(false);
   const [explore, setExplore] = useState(false);
+  const side = view === "a" ? "a" : "b"; // overview lists what changed in B
+  const version = sim.versions[side];
 
   const day = Math.min(clock, days);
   const r = simAt({ day, dailyVisitors: traffic, ...sim.model });
@@ -111,8 +113,8 @@ const AbSimulator = () => {
     sceneRef.current?.setTotals({ a: r.convA, b: r.convB, max: finalConversions });
   }, [r.convA, r.convB, finalConversions, ready]);
   useEffect(() => {
-    sceneRef.current?.highlight(change);
-  }, [change, ready]);
+    sceneRef.current?.highlight(side, version.points.find((p) => p.id === change)?.region);
+  }, [change, side, version, ready]);
   useEffect(() => {
     sceneRef.current?.setExplore(explore);
     if (!explore) return;
@@ -137,6 +139,7 @@ const AbSimulator = () => {
   };
   const changeView = (id) => {
     setView(id);
+    setChange(null);
     sceneRef.current?.setView(id);
   };
   const scrub = (value) => {
@@ -144,8 +147,8 @@ const AbSimulator = () => {
     setClock(Number(value));
   };
   const showChange = (id) => {
+    if (id && view === "overview") changeView("b");
     setChange(id);
-    if (id && view !== "b") changeView("b");
   };
 
   const rows = [
@@ -209,9 +212,9 @@ const AbSimulator = () => {
           </div>
 
           <div className={`${styles.glass} ${styles.changes}`}>
-            <p className={styles.label}>{sim.changesTitle}</p>
+            <p className={styles.label}>{version.title}</p>
             <ol className={styles.changeList} onMouseLeave={() => setChange(null)}>
-              {sim.changes.map((c, i) => (
+              {version.points.map((c, i) => (
                 <li key={c.id}>
                   <button
                     type="button"
@@ -364,7 +367,6 @@ const AbSimulator = () => {
       </section>
 
       <div className={`container ${styles.footer}`}>
-        <p className={styles.disclaimer}>{sim.disclaimer}</p>
         <div className={styles.ctaBox}>
           <div>
             <h2 className={styles.ctaTitle}>{sim.ctaTitle}</h2>

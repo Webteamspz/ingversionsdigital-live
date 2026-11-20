@@ -408,7 +408,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     const tex = new THREE.CanvasTexture(canvas);
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    drawScreen(canvas.getContext("2d"), v, labels, null);
+    drawScreen(canvas.getContext("2d"), v, null);
     const screen = new THREE.Mesh(
       screenGeo,
       new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }),
@@ -479,7 +479,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   let highlighted = null;
   const redraw = () =>
     ["a", "b"].forEach((v) => {
-      drawScreen(screens[v].canvas.getContext("2d"), v, labels, v === "b" ? highlighted : null);
+      drawScreen(screens[v].canvas.getContext("2d"), v, highlighted?.[v]);
       screens[v].tex.needsUpdate = true;
     });
   loadScreens(labels.screens).then(redraw);
@@ -821,8 +821,8 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       drawCounter("a", a);
       drawCounter("b", b);
     },
-    highlight: (id) => {
-      highlighted = id;
+    highlight: (variant, region) => {
+      highlighted = region ? { [variant]: region } : null;
       redraw();
     },
     setView,

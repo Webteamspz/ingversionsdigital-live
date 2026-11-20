@@ -1,0 +1,52 @@
+{
+  "a": {
+    "title": "What Control (A) shows",
+    "points": [
+      {
+        "id": "headline",
+        "label": "Service-led headline: says what we do, not what you get",
+        "region": [80, 430, 820, 335]
+      },
+      {
+        "id": "copy",
+        "label": "Long feature list: Figma, Git, QA, GA4 in one paragraph",
+        "region": [70, 800, 840, 400]
+      },
+      {
+        "id": "cta",
+        "label": "Two competing buttons, with the price before the value",
+        "region": [80, 1265, 830, 305]
+      },
+      {
+        "id": "proof",
+        "label": "Vague proof: 6+ agencies, 10+ brands",
+        "region": [95, 1605, 790, 140]
+      }
+    ]
+  },
+  "b": {
+    "title": "What changed in Variant (B)",
+    "points": [
+      {
+        "id": "headline",
+        "label": "Outcome headline: more revenue, same traffic",
+        "region": [95, 310, 790, 516]
+      },
+      {
+        "id": "cta",
+        "label": "High-contrast main button",
+        "region": [95, 1110, 790, 355]
+      },
+      {
+        "id": "assure",
+        "label": "Risk reversal: free call, no contract",
+        "region": [95, 1475, 790, 150]
+      },
+      {
+        "id": "proof",
+        "label": "Real result: +33.7% case study",
+        "region": [95, 1660, 790, 330]
+      }
+    ]
+  }
+}
