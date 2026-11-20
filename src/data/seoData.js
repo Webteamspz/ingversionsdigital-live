@@ -102,7 +102,7 @@ const seo = {
   ...servicePageSeo,
   ...toolSeo,
   home: {
-    title: "CRO, A/B Testing & Shopify Agency in Surat | Ingversions Digital",
+    title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:
       "CRO agency in Surat, India, building high-converting Shopify stores with A/B testing, conversion optimization and custom Shopify development for ecommerce brands.",
     keywords: [
