@@ -25,7 +25,30 @@ const serviceJsonLd = (slug, page) => ({
   description: page.seoDescription,
   url: `https://ingversionsdigital.com/${slug}`,
   provider: ORG,
-  areaServed: "Worldwide",
+  areaServed: page.areaServed ?? "Worldwide",
+});
+
+// Local business details for location pages (production keeps its own index.html, so this lives here).
+const localBusinessJsonLd = (slug, page) => ({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://ingversionsdigital.com/#organization",
+  name: "Ingversions Digital",
+  url: `https://ingversionsdigital.com/${slug}`,
+  description: page.seoDescription,
+  telephone: "+91-8866167750",
+  email: "ingversionsdigital@gmail.com",
+  image: "https://ingversionsdigital.com/assets/seo/og-image.jpg",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2599, Shiv Krupa Association, Kansad, Sachin",
+    addressLocality: "Surat",
+    addressRegion: "Gujarat",
+    postalCode: "394230",
+    addressCountry: "IN",
+  },
+  areaServed: page.areaServed,
 });
 
 const caseStudyJsonLd = ({ title, description, path }) => ({
@@ -49,7 +72,11 @@ const servicePageSeo = Object.fromEntries(
       keywords: page.seoKeywords,
       path: `/${slug}`,
       breadcrumb: [home, { name: page.title, path: `/${slug}` }],
-      jsonLd: [serviceJsonLd(slug, page), faqJsonLd(page.faq)],
+      jsonLd: [
+        serviceJsonLd(slug, page),
+        faqJsonLd(page.faq),
+        ...(page.local ? [localBusinessJsonLd(slug, page)] : []),
+      ],
     },
   ]),
 );
@@ -70,9 +97,9 @@ const seo = {
   ...servicePageSeo,
   ...toolSeo,
   home: {
-    title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
+    title: "CRO, A/B Testing & Shopify Agency in Surat | Ingversions Digital",
     description:
-      "Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands.",
+      "CRO agency in Surat, India, building high-converting Shopify stores with A/B testing, conversion optimization and custom Shopify development for ecommerce brands worldwide.",
     keywords: [
       "Shopify CRO agency",
       "A/B testing agency",

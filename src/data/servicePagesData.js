@@ -1125,4 +1125,95 @@ export default {
       ],
     },
   },
+  "cro-agency-surat": {
+    eyebrow: "Based in Surat, Gujarat",
+    title: "CRO, A/B Testing and Shopify Agency in Surat",
+    local: true,
+    areaServed: ["Surat", "Gujarat", "India", "Worldwide"],
+    keywords: [
+      "CRO agency",
+      "A/B testing",
+      "Shopify development",
+      "Shopify Plus",
+      "Surat",
+      "Gujarat",
+    ],
+    intro:
+      "Ingversions Digital is a conversion rate optimization (CRO) agency in Surat. We run A/B tests and build Shopify stores for ecommerce brands in Surat, across Gujarat and India, and worldwide. Our team works from Sachin, Surat, so you can meet us in person.",
+    seoKeywords: [
+      "CRO agency in Surat",
+      "A/B testing agency Surat",
+      "Shopify agency Surat",
+      "Shopify developer Surat",
+      "conversion rate optimization Surat",
+      "CRO agency Gujarat",
+      "CRO agency India",
+    ],
+    seoTitle: "CRO Agency in Surat | A/B Testing and Shopify Experts",
+    seoDescription:
+      "Ingversions Digital is a CRO, A/B testing and Shopify agency in Surat, Gujarat. We find why visitors don't buy, test the fix and ship the winners. First test free.",
+    flow: "ab-testing",
+    pricing: "plans",
+    pricingHeading: "CRO and A/B testing plans",
+    pricingSub: "Clear monthly prices. Every plan includes full QA on every test.",
+    cta: { label: "Book a Free Call", href: CALENDLY },
+    includedHeading: "What our Surat team does for your store",
+    included: [
+      {
+        title: "CRO audit",
+        desc: "We study your analytics, heatmaps and session recordings to find where shoppers drop off and why.",
+      },
+      {
+        title: "A/B testing",
+        desc: "Each idea is tested against your current page, so you only keep changes that lift sales.",
+      },
+      {
+        title: "Shopify and Shopify Plus development",
+        desc: "Theme builds, custom sections and speed fixes, with clean code in Git.",
+      },
+      {
+        title: "Figma designs first",
+        desc: "Every change is designed for mobile and desktop before any code is written.",
+      },
+      {
+        title: "Full QA",
+        desc: "Every test and release is checked across devices and browsers before it goes live.",
+      },
+      {
+        title: "Meet us in Surat",
+        desc: "Brands in Surat and Gujarat can meet our team in person at our Sachin office.",
+      },
+    ],
+    faqHeading: "CRO agency in Surat: FAQs",
+    faq: [
+      {
+        q: "Where is Ingversions Digital based?",
+        a: "Our office is at 2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230, Gujarat, India. We work with brands in Surat, across India and worldwide.",
+      },
+      {
+        q: "What does a CRO agency do?",
+        a: "A CRO agency finds why visitors leave without buying, tests fixes with A/B tests and keeps the changes that measurably lift conversions and revenue.",
+      },
+      {
+        q: "Do you build Shopify stores for Surat businesses?",
+        a: "Yes. We build and improve Shopify and Shopify Plus stores for Surat and Gujarat brands, including textile, diamond and jewellery stores selling online.",
+      },
+      {
+        q: "Can we meet in person?",
+        a: "Yes. Brands in Surat can meet us at our Sachin office. Book a call first and we will set a time.",
+      },
+      {
+        q: "Is the first A/B test really free?",
+        a: "Yes. We design, build and QA your first test at no cost, so you can judge our work before you pay.",
+      },
+    ],
+    related: {
+      heading: "Our services",
+      links: [
+        { label: "Shopify CRO agency", href: "/shopify-cro-agency" },
+        { label: "Shopify A/B testing services", href: "/shopify-ab-testing-services" },
+        { label: "Shopify development", href: "/shopify-development" },
+      ],
+    },
+  },
 };
