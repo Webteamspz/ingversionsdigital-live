@@ -66,8 +66,8 @@
 }
 @media (max-width: 767.98px) {
   .logosSection {
-    padding-top: 24px;
-    padding-bottom: 32px;
+    padding-top: 8px;
+    padding-bottom: 16px;
   }
   .cardSlide {
     width: 240px;

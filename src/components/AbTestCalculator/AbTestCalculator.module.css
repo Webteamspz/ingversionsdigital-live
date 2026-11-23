@@ -134,6 +134,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 14px;
+  /* Inputs line up even when one label wraps to two lines. */
+  align-items: end;
 }
 .group {
   margin: 0;
@@ -415,6 +417,10 @@
 @media (max-width: 767.98px) {
   .hero {
     padding: 132px 0 64px;
+  }
+  /* A third field that wraps onto its own line takes the full width. */
+  .row > :nth-child(3):last-child {
+    grid-column: 1 / -1;
   }
   .tag {
     font-size: 11px;
