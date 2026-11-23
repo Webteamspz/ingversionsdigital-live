@@ -517,8 +517,10 @@ Three long-lived branches, each mapped to a real deployed environment:
 1. Do the work on `dev`, commit, push.
 2. Cherry-pick (or merge) the same commit onto `stage`, push — this auto-deploys to
    staging via GitHub Actions (push-triggered, see `.github/workflows/deploy.yml`).
-3. Review on staging. When ready to go live, open a PR from `stage` into `production`
-   and merge it — this auto-deploys production.
+3. Review on staging. When ready to go live, run `bash scripts/release-pr.sh`, open the PR
+   from the `release/<date>` branch it pushes, and squash-merge it — this auto-deploys
+   production. Don't open the PR straight from `stage`: production is squash-merged, so that
+   PR lists every commit since the branches split and tries to change production's own files.
 
 **Files that intentionally differ between `stage` and `production` and must not be
 silently overwritten by a merge:** `.dockerignore`, `Dockerfile`,
@@ -611,7 +613,7 @@ git cherry-pick <commit-sha>
 git push origin stage
 # → auto-deploys to staging.ingversionsdigital.com, review it
 
-# when ready, open a PR: stage -> production, merge it
+# when ready: bash scripts/release-pr.sh, open the PR from release/<date>, squash-merge it
 # → auto-deploys to ingversionsdigital.com
 ```
 

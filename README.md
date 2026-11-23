@@ -143,6 +143,8 @@ dev  ->  stage  ->  production
 - Before deploying, the `check` job runs `npm test`, `npm run lint`, the repo rules (no committed `graphify-out/`, no `clamp()` in CSS, no analytics in `index.html`, production `Dockerfile` keeps the GTM/Clarity ID defaults) and the build. A failure stops the deploy. It also runs on pull requests into `dev`, `stage` and `production`.
 - Pull requests into `production` also run `guard-production`, which fails if the merge would change production-only files, or add or update `docs/DEVELOPER_GUIDE.md`, `docs/site-docs/` or the `graphify-out/` ignore rule. Add the `allow-protected-files` label to let an intended production-only file change through (e.g. a new route in `nginx.conf`); the docs rule has no override.
 
+Run `bash scripts/release-pr.sh`, then open the PR from the `release/<date>` branch it pushes (it prints the link) and squash-merge it. `production` is squash-merged, so a PR straight from `stage` lists every commit since the branches split and also tries to change production's own files; the release branch is one commit on top of `production` with stage's code and production's protected files, so the PR shows only this release.
+
 When merging `stage` into `production`, keep production's version of these files, and
 do not carry the developer documentation across:
 
