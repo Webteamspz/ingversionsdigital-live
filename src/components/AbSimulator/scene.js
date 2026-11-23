@@ -8,10 +8,14 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { drawScreen, loadScreens, SCREEN_W, SCREEN_H } from "./screens.js";
 
 const VIEWS = {
-  overview: { pos: [0, 6.6, 27], target: [0, 4.4, -2] },
-  overviewNarrow: { pos: [0, 4.9, 17.5], target: [0, 3.5, -1] },
-  a: { pos: [-5.2, 3.6, 8.6], target: [-2.9, 2.9, 1.2] },
-  b: { pos: [5.2, 3.6, 8.6], target: [2.9, 2.9, 1.2] },
+  // Far enough that the whole plaza stays in frame at any drag angle (within the polar limits below).
+  overview: { pos: [0, 9.2, 40], target: [0, 3.2, -1] },
+  // Touch screens can't drag outside 360° mode, so they get a closer still view...
+  overviewNarrow: { pos: [0, 6.2, 22.5], target: [0, 3, -1] },
+  // ...and this one whenever the model can turn.
+  turnNarrow: { pos: [0, 10, 39], target: [0, 3, -1] },
+  a: { pos: [-6, 3.95, 11.2], target: [-2.9, 3, 1.2] },
+  b: { pos: [6, 3.95, 11.2], target: [2.9, 3, 1.2] },
 };
 const COLOR = { a: "#38bdf8", b: "#c084fc" };
 const spawnEvery = (traffic) => Math.max(0.16, 1000 / traffic);
@@ -115,10 +119,17 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   controls.enableDamping = true;
   controls.enablePan = false;
   controls.enableZoom = false;
-  controls.minPolarAngle = 0.35;
+  controls.minPolarAngle = 1.32;
   controls.maxPolarAngle = 1.5;
-  // Touch drags must keep scrolling the page; phones use the view buttons and taps instead.
-  controls.enabled = !coarse;
+  // Touch drags must keep scrolling the page; phones use the view buttons and taps instead,
+  // and can turn the model only in 360° mode (setExplore), which also spins it slowly.
+  controls.autoRotateSpeed = 3; // one full turn every 20 s
+  const setExplore = (on) => {
+    controls.enabled = on || !coarse;
+    renderer.domElement.style.touchAction = controls.enabled ? "none" : "";
+    controls.autoRotate = on;
+  };
+  setExplore(false);
 
   scene.add(new THREE.HemisphereLight("#8fa4ff", "#1a1530", 0.9));
   const moon = new THREE.DirectionalLight("#c7d2fe", 1.4);
@@ -401,7 +412,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     const tex = new THREE.CanvasTexture(canvas);
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    drawScreen(canvas.getContext("2d"), v, labels, null);
+    drawScreen(canvas.getContext("2d"), v, null);
     const screen = new THREE.Mesh(
       screenGeo,
       new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }),
@@ -472,7 +483,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   let highlighted = null;
   const redraw = () =>
     ["a", "b"].forEach((v) => {
-      drawScreen(screens[v].canvas.getContext("2d"), v, labels, v === "b" ? highlighted : null);
+      drawScreen(screens[v].canvas.getContext("2d"), v, highlighted?.[v]);
       screens[v].tex.needsUpdate = true;
     });
   loadScreens(labels.screens).then(redraw);
@@ -620,7 +631,8 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
   let tween = null;
   let distance = 1;
   let pristine = true;
-  const overviewName = () => (camera.aspect < 1.3 ? "overviewNarrow" : "overview");
+  const overviewName = () =>
+    camera.aspect >= 1.3 ? "overview" : controls.enabled ? "turnNarrow" : "overviewNarrow";
   const setView = (name) => {
     pristine = false;
     const v = VIEWS[name === "overview" ? overviewName() : name] || VIEWS.overview;
@@ -637,6 +649,13 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     tween = null;
     pristine = false;
   });
+  // A few seconds in, swing the camera 25° and back so visitors see the model can be turned.
+  let swing = null;
+  const swingTimer = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? null
+    : setTimeout(() => {
+        if (pristine) swing = { t: 0, offset: camera.position.clone().sub(controls.target) };
+      }, 2500);
   const zoom = (factor) => {
     const next = THREE.MathUtils.clamp(distance * factor, 0.55, 1.5);
     const dir = camera.position.clone().sub(controls.target);
@@ -712,6 +731,14 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       controls.target.lerpVectors(tween.fromTarget, tween.toTarget, e);
       if (tween.t === 1) tween = null;
     }
+    if (swing && pristine) {
+      swing.t = Math.min(1, swing.t + dt / 3.2);
+      const angle = THREE.MathUtils.degToRad(25) * Math.sin(Math.PI * swing.t);
+      camera.position
+        .copy(controls.target)
+        .add(swing.offset.clone().applyAxisAngle(camera.up, angle));
+      if (swing.t === 1) swing = null;
+    } else swing = null;
     controls.update();
 
     if (isPlaying) {
@@ -799,12 +826,18 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
       drawCounter("a", a);
       drawCounter("b", b);
     },
-    highlight: (id) => {
-      highlighted = id;
+    highlight: (variant, region) => {
+      highlighted = region ? { [variant]: region } : null;
       redraw();
     },
     setView,
     zoom,
+    setExplore: (on) => {
+      if (on === controls.autoRotate) return;
+      setExplore(on);
+      swing = null;
+      setView("overview");
+    },
     reset: () => {
       shoppers.length = 0;
       pops.forEach((p) => ((p.t = 1), (p.s.visible = false)));
@@ -812,6 +845,7 @@ export const createAbScene = (container, { labels, traffic, playing, coarse, onS
     },
     dispose: () => {
       renderer.setAnimationLoop(null);
+      clearTimeout(swingTimer);
       io.disconnect();
       ro.disconnect();
       document.removeEventListener("visibilitychange", sync);

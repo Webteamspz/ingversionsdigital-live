@@ -36,6 +36,11 @@ only; `production` never gets them.
 Do not carry these across from `stage`. If a merge would touch them, restore
 production's copies before completing it.
 
+To release, run `bash scripts/release-pr.sh` and open the PR from the
+`release/<date>` branch it pushes, not from `stage`. It is one commit on top of
+`production` with stage's code and production's own copies of the files above,
+so the squash-merge PR shows only this release instead of every old commit.
+
 `.github/workflows/deploy.yml` enforces this on pull requests into `production`
 (`guard-production` job), and every deploy waits for the `check` job (tests, lint,
 these rules, build). Use the `allow-protected-files` label only for an intended

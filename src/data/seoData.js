@@ -17,6 +17,38 @@ const faqJsonLd = (list) => ({
 });
 
 const ORG = { "@id": "https://ingversionsdigital.com/#organization" };
+const AREA_SERVED = ["Surat", "Gujarat", "India", "Worldwide"];
+
+// Local business details for Surat searches. Production keeps its own index.html, so this lives
+// here and reaches every environment through the prerendered home page.
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://ingversionsdigital.com/#organization",
+  name: "Ingversions Digital",
+  url: "https://ingversionsdigital.com/",
+  description:
+    "CRO, A/B testing and Shopify development agency in Surat, Gujarat, India, working with ecommerce brands worldwide.",
+  telephone: "+91-8866167750",
+  email: "ingversionsdigital@gmail.com",
+  image: "https://ingversionsdigital.com/assets/seo/og-image.jpg",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2599, Shiv Krupa Association, Kansad, Sachin",
+    addressLocality: "Surat",
+    addressRegion: "Gujarat",
+    postalCode: "394230",
+    addressCountry: "IN",
+  },
+  areaServed: AREA_SERVED,
+  knowsAbout: [
+    "Conversion rate optimization",
+    "A/B testing",
+    "Shopify development",
+    "Shopify Plus",
+  ],
+};
 
 const serviceJsonLd = (slug, page) => ({
   "@context": "https://schema.org",
@@ -25,7 +57,7 @@ const serviceJsonLd = (slug, page) => ({
   description: page.seoDescription,
   url: `https://ingversionsdigital.com/${slug}`,
   provider: ORG,
-  areaServed: "Worldwide",
+  areaServed: AREA_SERVED,
 });
 
 const caseStudyJsonLd = ({ title, description, path }) => ({
@@ -72,8 +104,14 @@ const seo = {
   home: {
     title: "Ingversions Digital | Shopify, CRO and A/B Testing Agency",
     description:
-      "Shopify CRO agency building high-converting stores with A/B testing, conversion optimization, and custom Shopify development for fast-growing ecommerce brands.",
+      "CRO agency in Surat, India, building high-converting Shopify stores with A/B testing, conversion optimization and custom Shopify development for ecommerce brands.",
     keywords: [
+      "CRO agency in Surat",
+      "A/B testing agency Surat",
+      "Shopify agency Surat",
+      "Shopify developer Surat",
+      "CRO agency Gujarat",
+      "CRO agency India",
       "Shopify CRO agency",
       "A/B testing agency",
       "conversion rate optimization",
@@ -82,15 +120,7 @@ const seo = {
       "ecommerce CRO",
     ],
     path: "/",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: data.faq.list.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
-    },
+    jsonLd: [faqJsonLd(data.faq.list), localBusinessJsonLd],
   },
   projects: {
     title: "Shopify CRO Projects and Client Work | Ingversions Digital",

@@ -1,5 +1,6 @@
-/* Full-bleed night stage: the 3D canvas fills it edge to edge; text and controls float on top
-   in dark glass panels. Below 1024px the panels drop under the canvas. Colours here are the
+/* Full-bleed night stage: the 3D canvas fills it edge to edge, with the text and results panels
+   floating on top in dark glass and the playback controls in a bar below it. Below 1024px the
+   panels drop under the canvas. Colours here are the
    simulator's own palette (lane colours match scene.js), not the site tokens. */
 .stage {
   --sim-a: #38bdf8;
@@ -9,8 +10,8 @@
   --sim-line: rgba(148, 163, 184, 0.18);
 
   position: relative;
-  height: 800px;
   margin-top: 90px;
+  padding-bottom: 28px;
   overflow: hidden;
   background:
     radial-gradient(1200px 500px at 50% 0%, #1e1b4b 0%, transparent 70%),
@@ -19,8 +20,8 @@
 }
 
 .canvas {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  height: 720px;
   cursor: grab;
 }
 .canvas::before {
@@ -33,6 +34,15 @@
 }
 .canvasReady::before {
   opacity: 0;
+}
+/* Dark fade on the left so the title reads over the building. */
+.canvas::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 520px;
+  background: linear-gradient(90deg, rgba(11, 15, 28, 0.88) 0%, rgba(11, 15, 28, 0) 100%);
+  content: "";
+  pointer-events: none;
 }
 .canvas:active {
   cursor: grabbing;
@@ -104,6 +114,7 @@
 }
 .title {
   margin: 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
   color: #ffffff;
   font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
   font-size: 42px;
@@ -113,7 +124,7 @@
 }
 .subtitle {
   margin: 8px 0 0;
-  color: var(--sim-muted);
+  color: var(--sim-text);
   font-size: 16px;
 }
 
@@ -134,14 +145,16 @@
 }
 
 .changes {
-  padding: 16px;
+  margin-top: 6px;
+  padding-top: 14px;
+  box-shadow: 0 -1px 0 0 var(--sim-line);
 }
 .changeList {
   display: flex;
   margin: 4px 0 0;
   padding: 0;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
 }
 .change {
@@ -149,7 +162,7 @@
   width: 100%;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   background: transparent;
   border: 0;
   border-radius: var(--radius-sm);
@@ -158,6 +171,7 @@
   font-size: 14px;
   font-weight: 600;
   text-align: left;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -187,8 +201,8 @@
   position: absolute;
   top: 28px;
   right: 32px;
-  width: 290px;
-  padding: 18px 20px;
+  width: 330px;
+  padding: 16px 20px;
 }
 .day {
   display: flex;
@@ -272,14 +286,14 @@
   stroke-width: 1;
 }
 .rows {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
 }
 .row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  padding: 9px 0;
+  padding: 7px 0;
   box-shadow: 0 -1px 0 0 var(--sim-line);
 }
 .row dt {
@@ -298,10 +312,7 @@
 }
 
 .controls {
-  position: absolute;
-  right: 32px;
-  bottom: 28px;
-  left: 32px;
+  margin: 0 32px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -415,16 +426,9 @@
   padding-top: 20px;
   padding-bottom: 96px;
 }
-.disclaimer {
-  max-width: 720px;
-  margin: 0;
-  color: var(--palette-text-muted);
-  font-size: 13px;
-  line-height: 150%;
-}
 .ctaBox {
   display: grid;
-  margin-top: 48px;
+  margin-top: 28px;
   padding: 40px;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 32px;
@@ -484,21 +488,80 @@
   outline-offset: 4px;
 }
 
+/* 360° mode: everything but the 3D view and the results board steps aside, like a pop-up. */
+.explore360 {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 32px;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  background: rgba(15, 20, 36, 0.72);
+  border: 0;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 0 1px var(--sim-line);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.explore360:hover,
+.explore360:focus-visible {
+  box-shadow: 0 0 0 1px var(--sim-b);
+}
+.explore360:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.left,
+.controls {
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+/* Hidden but still holding their space, so the page doesn't jump. */
+.explore .left,
+.explore .controls {
+  visibility: hidden;
+  opacity: 0;
+}
+.explore .changes {
+  display: none;
+}
+
 @media (max-width: 1023.98px) {
   .stage {
     display: flex;
-    height: auto;
     margin-top: 68px;
     flex-direction: column;
     gap: 12px;
     padding-bottom: 16px;
   }
   .canvas {
-    position: relative;
-    inset: auto;
     order: 1;
     height: 440px;
     cursor: default;
+  }
+  .canvas::after {
+    display: none;
+  }
+  /* 360° on small screens: keep the title and drop the controls, so there is no empty gap. */
+  .explore .left {
+    visibility: visible;
+    opacity: 1;
+  }
+  .explore .controls {
+    display: none;
+  }
+  .explore360 {
+    top: 12px;
+    right: 16px;
+    bottom: auto;
+    left: auto;
   }
   .left,
   .readout,
@@ -515,15 +578,8 @@
     margin: 0 16px;
     padding-top: 24px;
   }
-  .changes {
-    order: 2;
-    margin: 0 16px;
-  }
-  .readout {
-    order: 3;
-  }
   .controls {
-    order: 4;
+    order: 2;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -532,6 +588,9 @@
   }
   .chips {
     flex-wrap: wrap;
+  }
+  .readout {
+    order: 4;
   }
   .ctaBox {
     grid-template-columns: 1fr;
@@ -590,7 +649,7 @@
   }
   .canvas {
     order: 2;
-    height: 360px;
+    height: 310px;
   }
   .canvas::before {
     background-image: url("/assets/simulator/poster-mobile.webp");
@@ -633,9 +692,6 @@
     order: 4;
     margin: 0 16px;
   }
-  .changes {
-    order: 5;
-  }
   .readout {
     order: 6;
   }
@@ -646,7 +702,7 @@
 
 @media (max-width: 767.98px) and (max-height: 720px) {
   .canvas {
-    height: 290px;
+    height: 260px;
   }
   .subtitle {
     display: none;
