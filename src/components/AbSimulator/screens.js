@@ -19,13 +19,12 @@ export const loadScreens = (srcs) =>
     ),
   );
 
-export const drawScreen = (ctx, variant, t, highlight) => {
+export const drawScreen = (ctx, variant, region) => {
   ctx.fillStyle = variant === "b" ? "#1e293b" : "#fffdf5";
   ctx.fillRect(0, 0, SCREEN_W, SCREEN_H);
   const img = images[variant];
   if (img) ctx.drawImage(img, 0, 0, SCREEN_W, (img.height * SCREEN_W) / img.width);
 
-  const region = variant === "b" && highlight && t.regions[highlight];
   if (!region) return;
   const [x, y, w, h] = region;
   ctx.fillStyle = "rgba(11,15,28,0.6)";

@@ -1522,6 +1522,10 @@ export default {
         a: "We identify and prioritize high-impact opportunities, run experiments, and ship iterative improvements that lift revenue and lead quality.",
       },
       {
+        q: "Where is Ingversions Digital based?",
+        a: "We are a CRO, A/B testing and Shopify development agency in Surat, Gujarat, India. Our office is at 2599, Shiv Krupa Association, Kansad, Sachin, Surat 394230. We work with brands in Surat, across India and worldwide, and Surat businesses can meet us in person.",
+      },
+      {
         q: "What services do you offer as a CRO agency?",
         a: "A/B testing, UX research, analytics, Shopify/WordPress development, QA, personalization, and performance fixes.",
       },
