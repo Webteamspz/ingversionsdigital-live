@@ -2,16 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Sparkles, X } from "lucide-react";
 import useFloaterClearance from "../../hooks/useFloaterClearance";
+import { blackFridayPhase } from "../../utils/blackFriday";
 import styles from "./BlackFridayBanner.module.css";
 
 const BLACK_FRIDAY = {
   live: true,
-  endsAt: "2026-11-27T00:00:00+05:30",
   ring: "BLACK FRIDAY • EARLY ACCESS • ",
   badge: "Black Friday in",
   eyebrow: "Early access",
   title: "Get your store ready before the BFCM rush",
   text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
+  // Shown on Black Friday itself (27 Nov, visitor's local date). From 28 Nov the banner hides.
+  today: {
+    badge: "Black Friday is live",
+    eyebrow: "Today only",
+    text: "Our biggest offer of the year is live today for Shopify brands. Pick your plan and claim it before midnight.",
+  },
   cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
   hideOn: ["/pricing", "/blog", "/ab-test-simulator"],
   autoOpenMs: 40000,
@@ -45,9 +51,9 @@ const split = (ms) => {
 };
 
 const BlackFridayBanner = () => {
-  const { live, endsAt, ring, badge, eyebrow, title, text, cta, hideOn, autoOpenMs } = BLACK_FRIDAY;
+  const { live, ring, title, cta, hideOn, autoOpenMs } = BLACK_FRIDAY;
   const { pathname } = useLocation();
-  const [left, setLeft] = useState(null);
+  const [state, setState] = useState(null);
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const launcherRef = useRef(null);
@@ -57,12 +63,11 @@ const BlackFridayBanner = () => {
 
   useEffect(() => {
     if (!live) return;
-    const end = new Date(endsAt).getTime();
-    const tick = () => setLeft(Math.max(0, end - Date.now()));
+    const tick = () => setState(blackFridayPhase());
     const id = setInterval(tick, 1000);
     tick();
     return () => clearInterval(id);
-  }, [live, endsAt]);
+  }, [live]);
 
   useEffect(() => {
     if (!open) return;
@@ -89,7 +94,8 @@ const BlackFridayBanner = () => {
   useEffect(() => setOpen(false), [pathname]);
 
   const hidden = hideOn.some((p) => pathname === p || pathname.startsWith(`${p}/`));
-  const shown = live && left > 0 && !hidden;
+  const today = state?.phase === "today";
+  const shown = live && Boolean(state) && state.phase !== "over" && !hidden;
   useFloaterClearance(rootRef, "left", shown);
 
   useEffect(() => {
@@ -100,10 +106,17 @@ const BlackFridayBanner = () => {
     }, autoOpenMs);
     return () => clearTimeout(id);
   }, [shown, open, autoOpenMs]);
-  if (!live || !left || hidden) return null;
+  if (!shown) return null;
 
-  const parts = split(left);
-  const [unit, value] = parts[0][1] !== "00" ? ["days", parts[0][1]] : ["hrs", parts[1][1]];
+  const { badge, eyebrow, text } = today
+    ? { ...BLACK_FRIDAY, ...BLACK_FRIDAY.today }
+    : BLACK_FRIDAY;
+  const parts = split(state.left);
+  const [unit, value] = today
+    ? ["today", "LIVE"]
+    : parts[0][1] !== "00"
+      ? ["days", parts[0][1]]
+      : ["hrs", parts[1][1]];
 
   const close = () => {
     setOpen(false);
@@ -119,14 +132,16 @@ const BlackFridayBanner = () => {
               <span className={styles.dot} aria-hidden="true" />
               {badge}
             </span>
-            <div className={styles.timer} role="timer" aria-live="off">
-              {parts.map(([label, v]) => (
-                <span className={styles.tile} key={label}>
-                  <span className={styles.num}>{v}</span>
-                  <span className={styles.label}>{label}</span>
-                </span>
-              ))}
-            </div>
+            {!today && (
+              <div className={styles.timer} role="timer" aria-live="off">
+                {parts.map(([label, v]) => (
+                  <span className={styles.tile} key={label}>
+                    <span className={styles.num}>{v}</span>
+                    <span className={styles.label}>{label}</span>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <span className={styles.eyebrow}>
@@ -168,7 +183,11 @@ const BlackFridayBanner = () => {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="bf-offer"
-        aria-label={`Black Friday offer, ${Number(value)} ${unit} left`}
+        aria-label={
+          today
+            ? "Black Friday offer, live today"
+            : `Black Friday offer, ${Number(value)} ${unit} left`
+        }
         data-cta="Black Friday Seal"
         data-cta-loc="Black Friday Banner"
       >
