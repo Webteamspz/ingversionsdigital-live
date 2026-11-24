@@ -10,6 +10,9 @@ import seo from "../../data/seoData";
 import siteData from "../../data/siteData";
 import { brandPlans, devPlans } from "../../data/pricingData";
 import pages, { servicePageCopy as copy } from "../../data/servicePagesData";
+import WasPrice from "../../components/WasPrice/WasPrice";
+import useOccasion from "../../hooks/useOccasion";
+import { planPrice } from "../../utils/occasions";
 import styles from "./ServicePage.module.css";
 
 const VISUALS = Object.fromEntries(
@@ -21,6 +24,8 @@ const pricingItems = (type) =>
     ? (type === "dev" ? devPlans : brandPlans).map((p) => ({
         name: p.name,
         price: p.price,
+        originalPrice: p.originalPrice,
+        sale: p.sale,
         period: p.period,
         desc: p.description,
         features: p.highlights,
@@ -56,7 +61,11 @@ const SmartLink = ({ href, className, children, label, loc }) =>
 const ServicePage = ({ slug }) => {
   const page = pages[slug];
   const visual = VISUALS[page.flow];
-  const plans = pricingItems(page.pricing);
+  const occasion = useOccasion();
+  const plans = pricingItems(page.pricing).map((item) => ({
+    ...item,
+    ...planPrice(item, occasion),
+  }));
   const hasExplore = page.related || page.posts?.length;
 
   return (
@@ -174,6 +183,13 @@ const ServicePage = ({ slug }) => {
                     <p className={styles.price}>
                       {item.price}
                       {item.period && <span className={styles.period}>{item.period}</span>}
+                      {item.originalPrice && <s className={styles.was}>{item.originalPrice}</s>}
+                      <WasPrice
+                        was={item.was}
+                        percent={item.percent}
+                        className={styles.was}
+                        corner
+                      />
                     </p>
                     <p className={styles.priceDesc}>{item.desc}</p>
                     <SmartLink

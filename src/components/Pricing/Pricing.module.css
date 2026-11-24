@@ -448,3 +448,10 @@ a.cta {
     font-size: 13px;
   }
 }
+.was {
+  margin-left: 6px;
+  color: var(--palette-text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}

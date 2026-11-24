@@ -21,7 +21,7 @@ import mobileLogo from "/assets/logos/mobile-logo.png";
 import styles from "./Header.module.css";
 import { ctaClick } from "../../gtm";
 import { isExternalHref } from "../../utils/url";
-import BlackFridayBanner from "../BlackFridayBanner/BlackFridayBanner.jsx";
+import OccasionBanner from "../OccasionBanner/OccasionBanner.jsx";
 
 const { servicesMenu, mobileMenu } = data.header;
 const MENU_REVIEW = data.review.testimonials.find(
@@ -814,7 +814,7 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <BlackFridayBanner />
+      <OccasionBanner />
 
       {typeof document !== "undefined" && createPortal(Overlay, document.body)}
       {typeof document !== "undefined" && createPortal(Drawer, document.body)}
