@@ -37,9 +37,10 @@ test("counts down to the day, then says today", () => {
 });
 
 test("plans show default prices on normal days and sale prices during occasions", () => {
-  const growth = { price: "$1,899", sale: { price: "$1,499", was: "$2,998" } };
-  const starter = { price: "$999", sale: { was: "$1,998" } };
-  const devPod = { price: null, priceLabel: "$1,800/mo", sale: { was: "$3,600" } };
+  const starter = { price: "$999", sale: { off: 40 } };
+  const growth = { price: "$1,899", sale: { price: "$1,499", off: 50 } };
+  const premium = { price: 2999, sale: { price: 2299, off: 60 } };
+  const devPod = { price: null, priceLabel: "$1,800/mo", sale: { off: 50 } };
   assert.deepEqual(planPrice(growth, null), { price: "$1,899", priceLabel: undefined });
   assert.deepEqual(planPrice(growth, "christmas"), {
     price: "$1,499",
@@ -47,8 +48,10 @@ test("plans show default prices on normal days and sale prices during occasions"
     was: "$2,998",
     percent: 50,
   });
-  assert.equal(planPrice(starter, "newYear").price, "$999");
-  assert.equal(planPrice(starter, "newYear").percent, 50);
-  assert.equal(planPrice(devPod, "blackFriday").percent, 50);
+  assert.equal(planPrice(starter, "newYear").was, "$1,665"); // 999 / 0.6
+  assert.equal(planPrice(starter, "newYear").percent, 40);
+  assert.equal(planPrice(premium, "blackFriday").was, "$5,748"); // 2299 / 0.4, rounded
+  assert.equal(planPrice({ price: "$2,500", sale: { off: 50 } }, "blackFriday").was, "$5,000");
+  assert.equal(planPrice(devPod, "blackFriday").was, "$3,600");
   assert.equal(planPrice({ price: "Custom" }, "blackFriday").was, undefined);
 });

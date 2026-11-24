@@ -34,7 +34,7 @@ const Price = ({ plan }) => {
           {plan.originalPrice}
         </s>
       )}
-      <WasPrice was={was} percent={percent} className={styles.original} />
+      <WasPrice was={was} percent={percent} className={styles.original} corner />
     </div>
   );
 };

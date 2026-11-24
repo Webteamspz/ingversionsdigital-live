@@ -41,11 +41,13 @@ export const currentOccasion = (now = new Date()) => {
 const amount = (v) => Number(String(v).replace(/[^0-9.]/g, ""));
 
 // What a plan shows: its default price on a normal day; during an occasion, its `sale` price (falls
-// back to the default) with the struck `was` price and the percent off.
+// back to the default) with `sale.off` percent off, and the struck price worked out from those two
+// (sale price / (1 - off)), so changing either one updates the struck price.
 export const planPrice = (plan, occasion) => {
   if (!occasion || !plan.sale) return { price: plan.price, priceLabel: plan.priceLabel };
   const price = plan.sale.price ?? plan.price;
   const priceLabel = plan.sale.priceLabel ?? plan.priceLabel;
-  const percent = Math.round((1 - amount(price ?? priceLabel) / amount(plan.sale.was)) * 100);
-  return { price, priceLabel, was: plan.sale.was, percent };
+  const percent = plan.sale.off;
+  const was = Math.round(amount(price ?? priceLabel) / (1 - percent / 100));
+  return { price, priceLabel, was: `$${was.toLocaleString("en-US")}`, percent };
 };

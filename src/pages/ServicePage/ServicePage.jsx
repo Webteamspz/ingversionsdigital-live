@@ -184,7 +184,12 @@ const ServicePage = ({ slug }) => {
                       {item.price}
                       {item.period && <span className={styles.period}>{item.period}</span>}
                       {item.originalPrice && <s className={styles.was}>{item.originalPrice}</s>}
-                      <WasPrice was={item.was} percent={item.percent} className={styles.was} />
+                      <WasPrice
+                        was={item.was}
+                        percent={item.percent}
+                        className={styles.was}
+                        corner
+                      />
                     </p>
                     <p className={styles.priceDesc}>{item.desc}</p>
                     <SmartLink

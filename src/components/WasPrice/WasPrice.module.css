@@ -20,3 +20,13 @@
   align-self: center;
   gap: 5px;
 }
+.corner {
+  position: absolute;
+  top: -15px;
+  right: 12px;
+  padding: 2px 14px 2px 11px;
+  border: var(--border-width) solid var(--palette-border);
+  font-size: 13px;
+  box-shadow: 3px 3px 0 0 var(--palette-border);
+  transform: rotate(4deg);
+}

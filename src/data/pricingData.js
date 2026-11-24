@@ -30,7 +30,7 @@ export const brandPlans = [
   {
     name: "Starter",
     price: "$999",
-    sale: { was: "$1,998" },
+    sale: { off: 40 },
     period: "/month",
     description: "For stores starting their first testing program.",
     highlights: [
@@ -51,7 +51,7 @@ export const brandPlans = [
   {
     name: "Growth",
     price: "$1,899",
-    sale: { price: "$1,499", was: "$2,998" },
+    sale: { price: "$1,499", off: 50 },
     period: "/month",
     description: "For brands scaling paid traffic.",
     highlights: [
@@ -71,7 +71,7 @@ export const brandPlans = [
   {
     name: "Premium",
     price: "$2,999",
-    sale: { price: "$2,299", was: "$4,598" },
+    sale: { price: "$2,299", off: 60 },
     period: "/month",
     badge: "MOST POPULAR",
     isPremium: true,
@@ -126,7 +126,7 @@ export const devPlans = [
   {
     name: "Test Dev Pod",
     price: "$1,800",
-    sale: { was: "$3,600" },
+    sale: { off: 50 },
     period: "/month",
     badge: "MOST POPULAR",
     isPremium: true,
@@ -143,7 +143,7 @@ export const devPlans = [
   {
     name: "Dedicated Developer",
     price: "$2,900",
-    sale: { was: "$5,800" },
+    sale: { off: 50 },
     period: "/month",
     description: "A full-time developer on your team.",
     highlights: [
@@ -160,7 +160,7 @@ export const devPlans = [
     name: "Shopify Development",
     wideBadge: "STORE WORK",
     price: "From $28",
-    sale: { was: "$56" },
+    sale: { off: 50 },
     period: "/hour",
     description: "Store work with a clear budget.",
     highlights: [
@@ -204,9 +204,9 @@ export const brandCompare = {
   heading: "Compare CRO Plans",
   sub: "Every plan includes full QA on every test. Pick the one that matches your traffic and velocity.",
   plans: [
-    { name: "Starter", price: 999, sale: { was: "$1,998" } },
-    { name: "Growth", price: 1899, sale: { price: 1499, was: "$2,998" } },
-    { name: "Premium", price: 2999, sale: { price: 2299, was: "$4,598" }, badge: "Most Popular" },
+    { name: "Starter", price: 999, sale: { off: 40 } },
+    { name: "Growth", price: 1899, sale: { price: 1499, off: 50 } },
+    { name: "Premium", price: 2999, sale: { price: 2299, off: 60 }, badge: "Most Popular" },
     { name: "Elite", contact: { label: "Talk to us", href: CALENDLY } },
   ],
   sections: [
@@ -307,12 +307,12 @@ export const devCompare = {
     {
       name: "Test Dev Pod",
       price: null,
-      sale: { was: "$3,600" },
+      sale: { off: 50 },
       priceLabel: "$1,800/mo",
       badge: "Most Popular",
     },
-    { name: "Dedicated Dev", price: null, sale: { was: "$5,800" }, priceLabel: "$2,900/mo" },
-    { name: "Shopify Dev", price: null, sale: { was: "$56" }, priceLabel: "From $28/h" },
+    { name: "Dedicated Dev", price: null, sale: { off: 50 }, priceLabel: "$2,900/mo" },
+    { name: "Shopify Dev", price: null, sale: { off: 50 }, priceLabel: "From $28/h" },
   ],
   sections: [
     {

@@ -192,6 +192,7 @@
 }
 
 .wide {
+  position: relative;
   display: grid;
   margin-top: 28px;
   padding: 28px;
