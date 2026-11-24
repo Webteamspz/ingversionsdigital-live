@@ -5,11 +5,14 @@ import "swiper/css";
 
 import { brandCompare, devCompare } from "../../data/pricingData";
 import WasPrice from "../WasPrice/WasPrice";
+import useOccasion from "../../hooks/useOccasion";
+import { planPrice } from "../../utils/occasions";
 import styles from "./Pricing.module.css";
 
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const PricingCompare = ({ track }) => {
+  const occasion = useOccasion();
   const pricing = track === "dev" ? devCompare : brandCompare;
 
   const prevRef = useRef(null);
@@ -70,7 +73,9 @@ const PricingCompare = ({ track }) => {
 
   const goTo = (i) => swiperRef.current?.slideTo(i, 400);
 
-  const renderPrice = (p) => {
+  const renderPrice = (plan) => {
+    const { price, priceLabel, was, percent } = planPrice(plan, occasion);
+    const p = { ...plan, price, priceLabel };
     if (p.contact)
       return (
         <a
@@ -88,7 +93,7 @@ const PricingCompare = ({ track }) => {
       return (
         <div className={styles.planPrice}>
           {p.priceLabel}
-          <WasPrice was={p.bfWas} price={p.priceLabel} className={styles.was} compact />
+          <WasPrice was={was} percent={percent} className={styles.was} />
         </div>
       );
     if (p.price != null)
@@ -96,7 +101,7 @@ const PricingCompare = ({ track }) => {
         <div className={styles.planPrice}>
           ${p.price.toLocaleString("en-US")}
           <span className={styles.period}>/month</span>
-          <WasPrice was={p.bfWas} price={p.price} className={styles.was} compact />
+          <WasPrice was={was} percent={percent} className={styles.was} />
         </div>
       );
     return (

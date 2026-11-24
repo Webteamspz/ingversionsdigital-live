@@ -1,34 +1,19 @@
-import { useEffect, useState } from "react";
-import { blackFridayDeal } from "../../data/pricingData";
-import { blackFridayPhase } from "../../utils/blackFriday";
+import { Tag } from "lucide-react";
+import { saleTag } from "../../data/occasionsData";
 import styles from "./WasPrice.module.css";
 
-const amount = (v) => Number(String(v).replace(/[^0-9.]/g, ""));
-
-// Black Friday "was" price: shown through 27 Nov, hidden from 28 Nov (visitor's local date).
-// Starts visible so it matches the prerendered HTML, then hides after mount once the day is over.
-const WasPrice = ({ was, price, className, compact }) => {
-  const [live, setLive] = useState(true);
-  useEffect(() => setLive(blackFridayPhase().phase !== "over"), []);
-  if (!was || !live) return null;
-  const save = amount(was) - amount(price);
-  return (
+// The struck default price and the percent-off tag shown next to a sale price (see planPrice).
+const WasPrice = ({ was, percent, className }) =>
+  was ? (
     <>
       <s className={`${styles.was} ${className}`} aria-label={`Was ${was}`}>
         {was}
       </s>
       <span className={styles.tag}>
-        <span className={styles.off}>
-          {compact ? blackFridayDeal.offShort : blackFridayDeal.off}
-        </span>
-        {save > 0 && (
-          <span className={styles.save}>
-            {blackFridayDeal.save} ${save.toLocaleString("en-US")}
-          </span>
-        )}
+        <Tag size={12} strokeWidth={2.75} aria-hidden="true" />
+        {saleTag(percent)}
       </span>
     </>
-  );
-};
+  ) : null;
 
 export default WasPrice;

@@ -1,5 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import WasPrice from "../WasPrice/WasPrice";
+import useOccasion from "../../hooks/useOccasion";
+import { planPrice } from "../../utils/occasions";
 import styles from "./PricingPlans.module.css";
 import { brandPlans, devPlans, pricingGuarantee as guarantee } from "../../data/pricingData";
 
@@ -21,18 +23,21 @@ const Highlights = ({ items }) => (
   </ul>
 );
 
-const Price = ({ plan }) => (
-  <div className={styles.priceRow}>
-    <span className={styles.price}>{plan.price}</span>
-    {plan.period && <span className={styles.period}>{plan.period}</span>}
-    {plan.originalPrice && (
-      <s className={styles.original} aria-label={`Was ${plan.originalPrice}`}>
-        {plan.originalPrice}
-      </s>
-    )}
-    <WasPrice was={plan.bfWas} price={plan.price} className={styles.original} />
-  </div>
-);
+const Price = ({ plan }) => {
+  const { price, was, percent } = planPrice(plan, useOccasion());
+  return (
+    <div className={styles.priceRow}>
+      <span className={styles.price}>{price}</span>
+      {plan.period && <span className={styles.period}>{plan.period}</span>}
+      {plan.originalPrice && (
+        <s className={styles.original} aria-label={`Was ${plan.originalPrice}`}>
+          {plan.originalPrice}
+        </s>
+      )}
+      <WasPrice was={was} percent={percent} className={styles.original} />
+    </div>
+  );
+};
 
 const PricingPlans = ({ track }) => {
   const plans = track === "dev" ? devPlans : brandPlans;
