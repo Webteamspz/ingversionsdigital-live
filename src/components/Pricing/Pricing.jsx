@@ -83,12 +83,19 @@ const PricingCompare = ({ track }) => {
           {p.contact.label}
         </a>
       );
-    if (p.priceLabel) return <div className={styles.planPrice}>{p.priceLabel}</div>;
+    if (p.priceLabel)
+      return (
+        <div className={styles.planPrice}>
+          {p.priceLabel}
+          {p.originalPrice && <s className={styles.was}>{p.originalPrice}</s>}
+        </div>
+      );
     if (p.price != null)
       return (
         <div className={styles.planPrice}>
           ${p.price}
           <span className={styles.period}>/month</span>
+          {p.originalPrice && <s className={styles.was}>{p.originalPrice}</s>}
         </div>
       );
     return (

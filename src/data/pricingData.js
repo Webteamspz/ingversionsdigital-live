@@ -29,6 +29,7 @@ export const pricingGuarantee = {
 export const brandPlans = [
   {
     name: "Starter",
+    originalPrice: "$1,998",
     price: "$999",
     period: "/month",
     description: "For stores starting their first testing program.",
@@ -49,6 +50,7 @@ export const brandPlans = [
   },
   {
     name: "Growth",
+    originalPrice: "$3,798",
     price: "$1,899",
     period: "/month",
     description: "For brands scaling paid traffic.",
@@ -68,6 +70,7 @@ export const brandPlans = [
   },
   {
     name: "Premium",
+    originalPrice: "$5,998",
     price: "$2,999",
     period: "/month",
     badge: "MOST POPULAR",
@@ -122,6 +125,7 @@ export const devPlans = [
   },
   {
     name: "Test Dev Pod",
+    originalPrice: "$3,600",
     price: "$1,800",
     period: "/month",
     badge: "MOST POPULAR",
@@ -138,6 +142,7 @@ export const devPlans = [
   },
   {
     name: "Dedicated Developer",
+    originalPrice: "$5,800",
     price: "$2,900",
     period: "/month",
     description: "A full-time developer on your team.",
@@ -154,6 +159,7 @@ export const devPlans = [
   {
     name: "Shopify Development",
     wideBadge: "STORE WORK",
+    originalPrice: "$56",
     price: "From $28",
     period: "/hour",
     description: "Store work with a clear budget.",
@@ -198,9 +204,9 @@ export const brandCompare = {
   heading: "Compare CRO Plans",
   sub: "Every plan includes full QA on every test. Pick the one that matches your traffic and velocity.",
   plans: [
-    { name: "Starter", price: 999 },
-    { name: "Growth", price: 1899 },
-    { name: "Premium", price: 2999, badge: "Most Popular" },
+    { name: "Starter", price: 999, originalPrice: "$1,998" },
+    { name: "Growth", price: 1899, originalPrice: "$3,798" },
+    { name: "Premium", price: 2999, originalPrice: "$5,998", badge: "Most Popular" },
     { name: "Elite", contact: { label: "Talk to us", href: CALENDLY } },
   ],
   sections: [
@@ -297,10 +303,16 @@ export const devCompare = {
   heading: "Compare Development Options",
   sub: "Full QA on every build. White-label by default.",
   plans: [
-    { name: "Per Test", price: null, priceLabel: "$199.50/test (50% off)" },
-    { name: "Test Dev Pod", price: null, priceLabel: "$1,800/mo", badge: "Most Popular" },
-    { name: "Dedicated Dev", price: null, priceLabel: "$2,900/mo" },
-    { name: "Shopify Dev", price: null, priceLabel: "From $28/h" },
+    { name: "Per Test", price: null, originalPrice: "$399", priceLabel: "$199.50/test" },
+    {
+      name: "Test Dev Pod",
+      price: null,
+      originalPrice: "$3,600",
+      priceLabel: "$1,800/mo",
+      badge: "Most Popular",
+    },
+    { name: "Dedicated Dev", price: null, originalPrice: "$5,800", priceLabel: "$2,900/mo" },
+    { name: "Shopify Dev", price: null, originalPrice: "$56", priceLabel: "From $28/h" },
   ],
   sections: [
     {

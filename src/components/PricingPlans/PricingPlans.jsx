@@ -22,13 +22,13 @@ const Highlights = ({ items }) => (
 
 const Price = ({ plan }) => (
   <div className={styles.priceRow}>
+    <span className={styles.price}>{plan.price}</span>
+    {plan.period && <span className={styles.period}>{plan.period}</span>}
     {plan.originalPrice && (
       <s className={styles.original} aria-label={`Was ${plan.originalPrice}`}>
         {plan.originalPrice}
       </s>
     )}
-    <span className={styles.price}>{plan.price}</span>
-    {plan.period && <span className={styles.period}>{plan.period}</span>}
   </div>
 );
 

@@ -21,6 +21,7 @@ const pricingItems = (type) =>
     ? (type === "dev" ? devPlans : brandPlans).map((p) => ({
         name: p.name,
         price: p.price,
+        originalPrice: p.originalPrice,
         period: p.period,
         desc: p.description,
         features: p.highlights,
@@ -174,6 +175,7 @@ const ServicePage = ({ slug }) => {
                     <p className={styles.price}>
                       {item.price}
                       {item.period && <span className={styles.period}>{item.period}</span>}
+                      {item.originalPrice && <s className={styles.was}>{item.originalPrice}</s>}
                     </p>
                     <p className={styles.priceDesc}>{item.desc}</p>
                     <SmartLink

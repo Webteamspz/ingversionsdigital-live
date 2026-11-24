@@ -663,3 +663,12 @@
     padding: 20px;
   }
 }
+.was {
+  margin-left: 4px;
+  color: var(--palette-text-muted);
+  font-size: 18px;
+  font-weight: 700;
+}
+.featured .was {
+  color: rgba(255, 255, 255, 0.6);
+}
