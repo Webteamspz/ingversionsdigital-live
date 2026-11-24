@@ -30,7 +30,7 @@ const Price = ({ plan }) => (
         {plan.originalPrice}
       </s>
     )}
-    <WasPrice was={plan.bfWas} className={styles.original} tagClassName={styles.off} />
+    <WasPrice was={plan.bfWas} price={plan.price} className={styles.original} />
   </div>
 );
 

@@ -26,7 +26,7 @@ export const pricingGuarantee = {
   cta: { label: "Get my free test build", href: CALENDLY },
 };
 
-export const blackFridayDeal = { tag: "Black Friday 50% off" };
+export const blackFridayDeal = { off: "Black Friday −50%", offShort: "−50%", save: "Save" };
 
 export const brandPlans = [
   {
@@ -52,8 +52,8 @@ export const brandPlans = [
   },
   {
     name: "Growth",
-    bfWas: "$3,798",
-    price: "$1,899",
+    bfWas: "$2,998",
+    price: "$1,499",
     period: "/month",
     description: "For brands scaling paid traffic.",
     highlights: [
@@ -72,8 +72,8 @@ export const brandPlans = [
   },
   {
     name: "Premium",
-    bfWas: "$5,998",
-    price: "$2,999",
+    bfWas: "$4,598",
+    price: "$2,299",
     period: "/month",
     badge: "MOST POPULAR",
     isPremium: true,
@@ -207,8 +207,8 @@ export const brandCompare = {
   sub: "Every plan includes full QA on every test. Pick the one that matches your traffic and velocity.",
   plans: [
     { name: "Starter", price: 999, bfWas: "$1,998" },
-    { name: "Growth", price: 1899, bfWas: "$3,798" },
-    { name: "Premium", price: 2999, bfWas: "$5,998", badge: "Most Popular" },
+    { name: "Growth", price: 1499, bfWas: "$2,998" },
+    { name: "Premium", price: 2299, bfWas: "$4,598", badge: "Most Popular" },
     { name: "Elite", contact: { label: "Talk to us", href: CALENDLY } },
   ],
   sections: [

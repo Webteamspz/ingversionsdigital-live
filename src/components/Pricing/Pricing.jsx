@@ -88,15 +88,15 @@ const PricingCompare = ({ track }) => {
       return (
         <div className={styles.planPrice}>
           {p.priceLabel}
-          <WasPrice was={p.bfWas} className={styles.was} tagClassName={styles.off} />
+          <WasPrice was={p.bfWas} price={p.priceLabel} className={styles.was} compact />
         </div>
       );
     if (p.price != null)
       return (
         <div className={styles.planPrice}>
-          ${p.price}
+          ${p.price.toLocaleString("en-US")}
           <span className={styles.period}>/month</span>
-          <WasPrice was={p.bfWas} className={styles.was} tagClassName={styles.off} />
+          <WasPrice was={p.bfWas} price={p.price} className={styles.was} compact />
         </div>
       );
     return (

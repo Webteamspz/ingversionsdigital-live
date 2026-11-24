@@ -1,0 +1,29 @@
+.was {
+  text-decoration-color: var(--palette-error);
+  text-decoration-thickness: 2px;
+}
+.tag {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1.5px solid var(--palette-error);
+  border-radius: var(--radius-full);
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-shadow: 0 4px 12px -4px rgba(255, 77, 79, 0.55);
+}
+.off {
+  padding: 0 9px;
+  background: var(--palette-error);
+  color: #fff;
+  text-transform: uppercase;
+}
+.save {
+  padding: 0 10px;
+  background: #fff1f0;
+  color: #cf1322;
+}

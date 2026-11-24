@@ -178,7 +178,7 @@ const ServicePage = ({ slug }) => {
                       {item.price}
                       {item.period && <span className={styles.period}>{item.period}</span>}
                       {item.originalPrice && <s className={styles.was}>{item.originalPrice}</s>}
-                      <WasPrice was={item.bfWas} className={styles.was} tagClassName={styles.off} />
+                      <WasPrice was={item.bfWas} price={item.price} className={styles.was} />
                     </p>
                     <p className={styles.priceDesc}>{item.desc}</p>
                     <SmartLink
