@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import WasPrice from "../WasPrice/WasPrice";
 import styles from "./PricingPlans.module.css";
 import { brandPlans, devPlans, pricingGuarantee as guarantee } from "../../data/pricingData";
 
@@ -29,6 +30,7 @@ const Price = ({ plan }) => (
         {plan.originalPrice}
       </s>
     )}
+    <WasPrice was={plan.bfWas} className={styles.original} tagClassName={styles.off} />
   </div>
 );
 

@@ -672,3 +672,16 @@
 .featured .was {
   color: rgba(255, 255, 255, 0.6);
 }
+.off {
+  align-self: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--palette-error);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", "Jakarta Fallback", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}

@@ -10,6 +10,7 @@ import seo from "../../data/seoData";
 import siteData from "../../data/siteData";
 import { brandPlans, devPlans } from "../../data/pricingData";
 import pages, { servicePageCopy as copy } from "../../data/servicePagesData";
+import WasPrice from "../../components/WasPrice/WasPrice";
 import styles from "./ServicePage.module.css";
 
 const VISUALS = Object.fromEntries(
@@ -22,6 +23,7 @@ const pricingItems = (type) =>
         name: p.name,
         price: p.price,
         originalPrice: p.originalPrice,
+        bfWas: p.bfWas,
         period: p.period,
         desc: p.description,
         features: p.highlights,
@@ -176,6 +178,7 @@ const ServicePage = ({ slug }) => {
                       {item.price}
                       {item.period && <span className={styles.period}>{item.period}</span>}
                       {item.originalPrice && <s className={styles.was}>{item.originalPrice}</s>}
+                      <WasPrice was={item.bfWas} className={styles.was} tagClassName={styles.off} />
                     </p>
                     <p className={styles.priceDesc}>{item.desc}</p>
                     <SmartLink

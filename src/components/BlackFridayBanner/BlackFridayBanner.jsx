@@ -7,16 +7,16 @@ import styles from "./BlackFridayBanner.module.css";
 
 const BLACK_FRIDAY = {
   live: true,
-  ring: "BLACK FRIDAY • EARLY ACCESS • ",
+  ring: "BLACK FRIDAY • 50% OFF • ",
   badge: "Black Friday in",
-  eyebrow: "Early access",
-  title: "Get your store ready before the BFCM rush",
-  text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
+  eyebrow: "50% off every plan",
+  title: "Half price on every plan until Black Friday",
+  text: "Our biggest offer of the year is live now for Shopify brands. Every plan is 50% off until the end of Black Friday.",
   // Shown on Black Friday itself (27 Nov, visitor's local date). From 28 Nov the banner hides.
   today: {
     badge: "Black Friday is live",
     eyebrow: "Today only",
-    text: "Our biggest offer of the year is live today for Shopify brands. Pick your plan and claim it before midnight.",
+    text: "Last day of 50% off every plan for Shopify brands. Pick your plan before midnight.",
   },
   cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
   hideOn: ["/pricing", "/blog", "/ab-test-simulator"],

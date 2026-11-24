@@ -4,6 +4,7 @@ import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 
 import { brandCompare, devCompare } from "../../data/pricingData";
+import WasPrice from "../WasPrice/WasPrice";
 import styles from "./Pricing.module.css";
 
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -87,7 +88,7 @@ const PricingCompare = ({ track }) => {
       return (
         <div className={styles.planPrice}>
           {p.priceLabel}
-          {p.originalPrice && <s className={styles.was}>{p.originalPrice}</s>}
+          <WasPrice was={p.bfWas} className={styles.was} tagClassName={styles.off} />
         </div>
       );
     if (p.price != null)
@@ -95,7 +96,7 @@ const PricingCompare = ({ track }) => {
         <div className={styles.planPrice}>
           ${p.price}
           <span className={styles.period}>/month</span>
-          {p.originalPrice && <s className={styles.was}>{p.originalPrice}</s>}
+          <WasPrice was={p.bfWas} className={styles.was} tagClassName={styles.off} />
         </div>
       );
     return (
