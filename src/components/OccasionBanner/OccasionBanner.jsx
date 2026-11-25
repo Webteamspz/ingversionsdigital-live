@@ -2,38 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Sparkles, X } from "lucide-react";
 import useFloaterClearance from "../../hooks/useFloaterClearance";
-import { blackFridayPhase } from "../../utils/blackFriday";
-import styles from "./BlackFridayBanner.module.css";
+import { currentOccasion } from "../../utils/occasions";
+import { occasionBanner, occasions } from "../../data/occasionsData";
+import styles from "./OccasionBanner.module.css";
 
-const BLACK_FRIDAY = {
-  live: true,
-  ring: "BLACK FRIDAY • EARLY ACCESS • ",
-  badge: "Black Friday in",
-  eyebrow: "Early access",
-  title: "Get your store ready before the BFCM rush",
-  text: "Our biggest offer of the year opens soon for Shopify brands. Pick your plan now so you can claim it the moment it goes live.",
-  // Shown on Black Friday itself (27 Nov, visitor's local date). From 28 Nov the banner hides.
-  today: {
-    badge: "Black Friday is live",
-    eyebrow: "Today only",
-    text: "Our biggest offer of the year is live today for Shopify brands. Pick your plan and claim it before midnight.",
-  },
-  cta: { label: "See Pricing", to: "/pricing", scrollTo: "pricingHero" },
-  hideOn: ["/pricing", "/blog", "/ab-test-simulator"],
-  autoOpenMs: 40000,
-};
-
-const AUTO_KEY = "bf-auto-opened";
-const autoOpened = () => {
+const AUTO_KEY = "occasion-auto-opened";
+const autoOpened = (id) => {
   try {
-    return sessionStorage.getItem(AUTO_KEY) === "1";
+    return sessionStorage.getItem(AUTO_KEY) === id;
   } catch {
     return false;
   }
 };
-const markAutoOpened = () => {
+const markAutoOpened = (id) => {
   try {
-    sessionStorage.setItem(AUTO_KEY, "1");
+    sessionStorage.setItem(AUTO_KEY, id);
     return true;
   } catch {
     return false;
@@ -50,8 +33,10 @@ const split = (ms) => {
   ].map(([label, v]) => [label, String(Math.floor(v)).padStart(2, "0")]);
 };
 
-const BlackFridayBanner = () => {
-  const { live, ring, title, cta, hideOn, autoOpenMs } = BLACK_FRIDAY;
+// Sale banner: shows the running occasion (Black Friday, Cyber Monday, Christmas, New Year) and
+// switches straight from one to the next. Hidden on normal days. Dates: src/utils/occasions.js.
+const OccasionBanner = () => {
+  const { cta, hideOn, autoOpenMs } = occasionBanner;
   const { pathname } = useLocation();
   const [state, setState] = useState(null);
   const [open, setOpen] = useState(false);
@@ -62,17 +47,16 @@ const BlackFridayBanner = () => {
   const done = useRef(false);
 
   useEffect(() => {
-    if (!live) return;
-    const tick = () => setState(blackFridayPhase());
+    const tick = () => setState(currentOccasion());
     const id = setInterval(tick, 1000);
     tick();
     return () => clearInterval(id);
-  }, [live]);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
     done.current = true;
-    markAutoOpened();
+    markAutoOpened(state?.id);
     if (!auto.current) closeRef.current?.focus();
     auto.current = false;
     const onKey = (e) => {
@@ -89,28 +73,27 @@ const BlackFridayBanner = () => {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onDown);
     };
-  }, [open]);
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => setOpen(false), [pathname]);
 
   const hidden = hideOn.some((p) => pathname === p || pathname.startsWith(`${p}/`));
-  const today = state?.phase === "today";
-  const shown = live && Boolean(state) && state.phase !== "over" && !hidden;
+  const today = Boolean(state?.today);
+  const shown = Boolean(state) && !hidden;
   useFloaterClearance(rootRef, "left", shown);
 
   useEffect(() => {
-    if (!shown || open || done.current || autoOpened()) return;
+    if (!shown || open || done.current || autoOpened(state.id)) return;
     const id = setTimeout(() => {
       auto.current = true;
       setOpen(true);
     }, autoOpenMs);
     return () => clearTimeout(id);
-  }, [shown, open, autoOpenMs]);
+  }, [shown, open, autoOpenMs, state?.id]);
   if (!shown) return null;
 
-  const { badge, eyebrow, text } = today
-    ? { ...BLACK_FRIDAY, ...BLACK_FRIDAY.today }
-    : BLACK_FRIDAY;
+  const copy = occasions[state.id];
+  const { name, ring, title, badge, eyebrow, text } = today ? { ...copy, ...copy.today } : copy;
   const parts = split(state.left);
   const [unit, value] = today
     ? ["today", "LIVE"]
@@ -124,7 +107,7 @@ const BlackFridayBanner = () => {
   };
 
   return (
-    <aside className={styles.wrap} ref={rootRef} aria-label="Black Friday offer">
+    <aside className={styles.wrap} ref={rootRef} aria-label={`${name} offer`}>
       {open && (
         <div className={styles.panel} id="bf-offer" role="dialog" aria-labelledby="bf-title">
           <div className={styles.timerBlock}>
@@ -158,7 +141,7 @@ const BlackFridayBanner = () => {
             state={{ scrollTo: cta.scrollTo }}
             className={styles.cta}
             data-cta={cta.label}
-            data-cta-loc="Black Friday Banner"
+            data-cta-loc={`${name} Banner`}
           >
             {cta.label}
             <ArrowRight size={16} aria-hidden="true" />
@@ -169,7 +152,7 @@ const BlackFridayBanner = () => {
             ref={closeRef}
             className={styles.close}
             onClick={close}
-            aria-label="Close Black Friday offer"
+            aria-label={`Close ${name} offer`}
           >
             <X size={16} />
           </button>
@@ -184,12 +167,10 @@ const BlackFridayBanner = () => {
         aria-expanded={open}
         aria-controls="bf-offer"
         aria-label={
-          today
-            ? "Black Friday offer, live today"
-            : `Black Friday offer, ${Number(value)} ${unit} left`
+          today ? `${name} offer, live today` : `${name} offer, ${Number(value)} ${unit} left`
         }
-        data-cta="Black Friday Seal"
-        data-cta-loc="Black Friday Banner"
+        data-cta={`${name} Seal`}
+        data-cta-loc={`${name} Banner`}
       >
         <span className={styles.face} aria-hidden="true">
           <svg className={styles.ring} viewBox="0 0 100 100">
@@ -212,4 +193,4 @@ const BlackFridayBanner = () => {
   );
 };
 
-export default BlackFridayBanner;
+export default OccasionBanner;
