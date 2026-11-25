@@ -30,6 +30,7 @@ export const brandPlans = [
   {
     name: "Starter",
     price: "$999",
+    sale: { off: 40 },
     period: "/month",
     description: "For stores starting their first testing program.",
     highlights: [
@@ -50,6 +51,7 @@ export const brandPlans = [
   {
     name: "Growth",
     price: "$1,899",
+    sale: { price: "$1,499", off: 50 },
     period: "/month",
     description: "For brands scaling paid traffic.",
     highlights: [
@@ -69,6 +71,7 @@ export const brandPlans = [
   {
     name: "Premium",
     price: "$2,999",
+    sale: { price: "$2,299", off: 60 },
     period: "/month",
     badge: "MOST POPULAR",
     isPremium: true,
@@ -123,6 +126,7 @@ export const devPlans = [
   {
     name: "Test Dev Pod",
     price: "$1,800",
+    sale: { off: 50 },
     period: "/month",
     badge: "MOST POPULAR",
     isPremium: true,
@@ -139,6 +143,7 @@ export const devPlans = [
   {
     name: "Dedicated Developer",
     price: "$2,900",
+    sale: { off: 50 },
     period: "/month",
     description: "A full-time developer on your team.",
     highlights: [
@@ -155,6 +160,7 @@ export const devPlans = [
     name: "Shopify Development",
     wideBadge: "STORE WORK",
     price: "From $28",
+    sale: { off: 50 },
     period: "/hour",
     description: "Store work with a clear budget.",
     highlights: [
@@ -198,9 +204,9 @@ export const brandCompare = {
   heading: "Compare CRO Plans",
   sub: "Every plan includes full QA on every test. Pick the one that matches your traffic and velocity.",
   plans: [
-    { name: "Starter", price: 999 },
-    { name: "Growth", price: 1899 },
-    { name: "Premium", price: 2999, badge: "Most Popular" },
+    { name: "Starter", price: 999, sale: { off: 40 } },
+    { name: "Growth", price: 1899, sale: { price: 1499, off: 50 } },
+    { name: "Premium", price: 2999, sale: { price: 2299, off: 60 }, badge: "Most Popular" },
     { name: "Elite", contact: { label: "Talk to us", href: CALENDLY } },
   ],
   sections: [
@@ -298,9 +304,15 @@ export const devCompare = {
   sub: "Full QA on every build. White-label by default.",
   plans: [
     { name: "Per Test", price: null, priceLabel: "$199.50/test (50% off)" },
-    { name: "Test Dev Pod", price: null, priceLabel: "$1,800/mo", badge: "Most Popular" },
-    { name: "Dedicated Dev", price: null, priceLabel: "$2,900/mo" },
-    { name: "Shopify Dev", price: null, priceLabel: "From $28/h" },
+    {
+      name: "Test Dev Pod",
+      price: null,
+      sale: { off: 50 },
+      priceLabel: "$1,800/mo",
+      badge: "Most Popular",
+    },
+    { name: "Dedicated Dev", price: null, sale: { off: 50 }, priceLabel: "$2,900/mo" },
+    { name: "Shopify Dev", price: null, sale: { off: 50 }, priceLabel: "From $28/h" },
   ],
   sections: [
     {
